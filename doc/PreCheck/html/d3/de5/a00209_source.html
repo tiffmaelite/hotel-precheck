@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de NewClientFactory.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">NewClientFactory.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/de5/a00209.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../da/de7/a00210.html">NewClientFactory.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">models/database_manager.h</a>&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QtSql&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a><a class="code" href="../../dc/dee/a00053.html#ad79248099f1fd64463d26032c6109238">00005</a> <a class="code" href="../../dc/dee/a00053.html#ad79248099f1fd64463d26032c6109238">NewClientFactory::NewClientFactory</a>(QString <a class="code" href="../../d9/d47/a00129.html#a2b0a198f837184bf6fff555cee3ce770">name</a>, QObject *parent) :
+<a name="l00006"></a>00006     <a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a>(parent)
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     <a class="code" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">PreCheckThread::stepsCount</a> = 4;
+<a name="l00009"></a>00009     <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.insert(<span class="stringliteral">&quot;NAME&quot;</span>,name);
+<a name="l00010"></a>00010 }
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="../../dc/dee/a00053.html#a011772fbba0d57f3c50e8e7a5a87dd1d">00012</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#a011772fbba0d57f3c50e8e7a5a87dd1d">NewClientFactory::cancelProcess</a>()
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014     this-&gt;<a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">currentStep</a> = 0;
+<a name="l00015"></a>00015     <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.empty();
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="../../dc/dee/a00053.html#a13a43e6d814de94978c515cb084873b1">00018</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#a13a43e6d814de94978c515cb084873b1">NewClientFactory::run</a>() {
+<a name="l00019"></a>00019     emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Création d&#39;un client\n&quot;</span>)));
+<a name="l00020"></a>00020     emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Nom: %1\n&quot;</span>).arg(<a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.value(<span class="stringliteral">&quot;NAME&quot;</span>).toString())));
+<a name="l00021"></a>00021     emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Voulez-vous entrer l&#39;adresse du client ?\n&quot;</span>)));
+<a name="l00022"></a>00022     <a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread::currentStep</a>++;
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="../../dc/dee/a00053.html#a7dc3e898aae484518acd8c1f46c1b29a">00025</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#a7dc3e898aae484518acd8c1f46c1b29a">NewClientFactory::receiveInput</a>(QString text) {
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="../../dc/dee/a00053.html#a8f2f426f52671761b30bdc2fdb18bff7">00028</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#a8f2f426f52671761b30bdc2fdb18bff7">NewClientFactory::confirmInput</a>()
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00032"></a><a class="code" href="../../dc/dee/a00053.html#a00e165667cc30c6562882b37206bb97c">00032</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#a00e165667cc30c6562882b37206bb97c">NewClientFactory::validateInput</a>()
+<a name="l00033"></a>00033 {
+<a name="l00034"></a>00034 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

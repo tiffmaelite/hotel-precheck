@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/billings_table_model.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">billings_table_model.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/d5d/a00084.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">billings_table_model.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a><a class="code" href="../../de/d21/a00006_a7703bb1f286fe0935a36ce4d8b61cfc6.html#a7703bb1f286fe0935a36ce4d8b61cfc6">00005</a> <a class="code" href="../../de/d21/a00006_a7703bb1f286fe0935a36ce4d8b61cfc6.html#a7703bb1f286fe0935a36ce4d8b61cfc6">BillingsTableModel::BillingsTableModel</a>(QObject *parent):
+<a name="l00006"></a>00006     <a class="code" href="../../dd/d1b/a00015.html">CheckableSortFilterProxyModel</a>(parent)
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     <a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>-&gt;setTable(<span class="stringliteral">&quot;BILLINGSINFOS&quot;</span>);
+<a name="l00009"></a>00009 }
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="../../de/d21/a00006_a0f122710daefea8597daa94bb78ec142.html#a0f122710daefea8597daa94bb78ec142">00012</a> <span class="keywordtype">void</span> <a class="code" href="../../de/d21/a00006_a0f122710daefea8597daa94bb78ec142.html#a0f122710daefea8597daa94bb78ec142">BillingsTableModel::fillModel</a>()
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014     <a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>-&gt;setHeaderData(1, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Nom client&quot;</span>));
+<a name="l00015"></a>00015     <a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>-&gt;setHeaderData(3, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Chambre&quot;</span>));
+<a name="l00016"></a>00016     <a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>-&gt;setHeaderData(4, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Date arrivée&quot;</span>));
+<a name="l00017"></a>00017     <a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>-&gt;setHeaderData(5, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Date départ prévue&quot;</span>));
+<a name="l00018"></a>00018     <a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>-&gt;field(4)-&gt;setSortOrder(Qt::AscendingOrder);
+<a name="l00019"></a>00019 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 07:41:52 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

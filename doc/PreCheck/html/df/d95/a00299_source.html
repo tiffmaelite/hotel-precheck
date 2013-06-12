@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/qquickaction.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">qquickaction.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/d95/a00299.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QQQuickAction_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QQQuickAction_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtCore/QObject&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QtCore/QUrl&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QtCore/QVariant&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QtGui/QIcon&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;QtGui/QKeySequence&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;QtCore/qpointer.h&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a><a class="code" href="../../df/d03/a00062.html">00011</a> <span class="keyword">class </span><a class="code" href="../../df/d03/a00062.html">QQQuickAction</a> : <span class="keyword">public</span> QObject
+<a name="l00012"></a>00012 {
+<a name="l00013"></a>00013     Q_OBJECT
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="../../df/d03/a00062.html#a3d39cc5a71db46029fdbdb1183d46e98">00015</a>     Q_PROPERTY(QString <a class="code" href="../../df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">text</a> READ <a class="code" href="../../df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">text</a> WRITE <a class="code" href="../../df/d03/a00062.html#a02afb4d423475b9587fbe642e77bce5d">setText</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#a92832e204f5bab2138a91c2a248b0730">textChanged</a>)
+<a name="l00016"></a><a class="code" href="../../df/d03/a00062.html#ad96e48c0d77120c2b0807b1a09d64f51">00016</a>     Q_PROPERTY(QUrl <a class="code" href="../../df/d03/a00062.html#aabbac74c1f3b77b46934f5b0dcccb0e5">iconSource</a> READ <a class="code" href="../../df/d03/a00062.html#aabbac74c1f3b77b46934f5b0dcccb0e5">iconSource</a> WRITE <a class="code" href="../../df/d03/a00062.html#a877fc019cb50572bf634aa75929a3935">setIconSource</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#a441d14cf34eec44c956fe49189707ee3">iconSourceChanged</a>)
+<a name="l00017"></a><a class="code" href="../../df/d03/a00062.html#a2d79160ed4383c062120cd0c522489d6">00017</a>     Q_PROPERTY(QString <a class="code" href="../../df/d03/a00062.html#a038b22680aca535f9972908fe2f1f6a1">iconName</a> READ <a class="code" href="../../df/d03/a00062.html#a038b22680aca535f9972908fe2f1f6a1">iconName</a> WRITE <a class="code" href="../../df/d03/a00062.html#a2cbbcacd79e815c3d10f14150910bedd">setIconName</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#a654233605ff8dfbebbcd3aa55f143c20">iconNameChanged</a>)
+<a name="l00018"></a><a class="code" href="../../df/d03/a00062.html#a46f2cc03d78a741c9ed3718316265e1d">00018</a>     Q_PROPERTY(QVariant <a class="code" href="../../df/d03/a00062.html#a46f2cc03d78a741c9ed3718316265e1d">__icon</a> READ <a class="code" href="../../df/d03/a00062.html#aed2981af2820533f00427c5b02f1093f">iconVariant</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#ad0292209ca5e2f7a499d1af4b2da5bd9">iconChanged</a>)
+<a name="l00019"></a><a class="code" href="../../df/d03/a00062.html#a7bec7d0ff0c35f5e2c98d6c1de9e3c4b">00019</a>     Q_PROPERTY(QString <a class="code" href="../../df/d03/a00062.html#a15b32d705d3e3e14ed834d55baf9585c">tooltip</a> READ <a class="code" href="../../df/d03/a00062.html#a15b32d705d3e3e14ed834d55baf9585c">tooltip</a> WRITE <a class="code" href="../../df/d03/a00062.html#ae1d830804aaa884e508dce8b1912b03c">setTooltip</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#a280c251e258eb277204eb5be5638f6a8">tooltipChanged</a>)
+<a name="l00020"></a><a class="code" href="../../df/d03/a00062.html#a8740ba80e30dd75e71d09fa1dcf04f3d">00020</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../df/d03/a00062.html#a8740ba80e30dd75e71d09fa1dcf04f3d">enabled</a> READ <a class="code" href="../../df/d03/a00062.html#ae2931e09e0fd8eac15c83f0254b4e4ac">isEnabled</a> WRITE <a class="code" href="../../df/d03/a00062.html#ab80130c2c5da91e30e98ce96d4faa55b">setEnabled</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#a31f61d4786745b82d1ff19d4893dde2d">enabledChanged</a>)
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="preprocessor">#ifndef QT_NO_SHORTCUT</span>
+<a name="l00023"></a><a class="code" href="../../df/d03/a00062.html#a5197ce6d356661bfb535538046d6f167">00023</a> <span class="preprocessor"></span>    Q_PROPERTY(QString <a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a> READ <a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a> WRITE <a class="code" href="../../df/d03/a00062.html#a85aa1de663149274e70fe50725446eb3">setShortcut</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#af806ac26b8e7c04f14bab7f25d1ae813">shortcutChanged</a>)
+<a name="l00024"></a><a class="code" href="../../df/d03/a00062.html#ae60f94f9d3a088821e8b3b05549bc014">00024</a>     Q_PROPERTY(Qt::Key <a class="code" href="../../df/d03/a00062.html#a7c862647abdd378894584de74706259b">keyShortcut</a> WRITE <a class="code" href="../../df/d03/a00062.html#a58731bd314dcc97119cb265d120c05e3">setKeyShortcut</a> NOTIFY <a class="code" href="../../df/d03/a00062.html#a72de6f0367e5c64513346b12637853f5">keyShortcutChanged</a>)
+<a name="l00025"></a>00025 <span class="preprocessor">#endif</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00027"></a>00027 <span class="keyword">public</span>:
+<a name="l00028"></a>00028     <span class="keyword">explicit</span> <a class="code" href="../../df/d03/a00062.html#a3c7194764bd590abee2af24fa4cf21ff">QQQuickAction</a>(QObject *parent = 0);
+<a name="l00029"></a>00029     <a class="code" href="../../df/d03/a00062.html#aa289a9f471533c2b3c186af420342168">~QQQuickAction</a>();
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="../../df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">00031</a>     QString <a class="code" href="../../df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">text</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">m_text</a>; }
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a02afb4d423475b9587fbe642e77bce5d">setText</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">text</a>);
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034     QString <a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>() <span class="keyword">const</span>;
+<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a85aa1de663149274e70fe50725446eb3">setShortcut</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>);
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="../../df/d03/a00062.html#a7c862647abdd378894584de74706259b">00037</a>     QKeySequence <a class="code" href="../../df/d03/a00062.html#a7c862647abdd378894584de74706259b">keyShortcut</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a>; }
+<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a58731bd314dcc97119cb265d120c05e3">setKeyShortcut</a>(<span class="keyword">const</span> Qt::Key &amp;<a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>);
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a3c1e5e39712537e1c9b3c5133e6d3987">setMnemonicFromText</a>(<span class="keyword">const</span> QString &amp;mnemonic);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042     QString <a class="code" href="../../df/d03/a00062.html#a038b22680aca535f9972908fe2f1f6a1">iconName</a>() <span class="keyword">const</span>;
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a2cbbcacd79e815c3d10f14150910bedd">setIconName</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d03/a00062.html#a038b22680aca535f9972908fe2f1f6a1">iconName</a>);
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="../../df/d03/a00062.html#aabbac74c1f3b77b46934f5b0dcccb0e5">00045</a>     QUrl <a class="code" href="../../df/d03/a00062.html#aabbac74c1f3b77b46934f5b0dcccb0e5">iconSource</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">m_iconSource</a>; }
+<a name="l00046"></a>00046     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a877fc019cb50572bf634aa75929a3935">setIconSource</a>(<span class="keyword">const</span> QUrl &amp;<a class="code" href="../../df/d03/a00062.html#aabbac74c1f3b77b46934f5b0dcccb0e5">iconSource</a>);
+<a name="l00047"></a>00047 
+<a name="l00048"></a><a class="code" href="../../df/d03/a00062.html#a15b32d705d3e3e14ed834d55baf9585c">00048</a>     QString <a class="code" href="../../df/d03/a00062.html#a15b32d705d3e3e14ed834d55baf9585c">tooltip</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a5488ee724c7351b6fbb62ebfa1683cf8">m_tooltip</a>; }
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ae1d830804aaa884e508dce8b1912b03c">setTooltip</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d03/a00062.html#a15b32d705d3e3e14ed834d55baf9585c">tooltip</a>);
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="../../df/d03/a00062.html#ae2931e09e0fd8eac15c83f0254b4e4ac">00051</a>     <span class="keywordtype">bool</span> <a class="code" href="../../df/d03/a00062.html#ae2931e09e0fd8eac15c83f0254b4e4ac">isEnabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a>; }
+<a name="l00052"></a>00052     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ab80130c2c5da91e30e98ce96d4faa55b">setEnabled</a>(<span class="keywordtype">bool</span> e);
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="../../df/d03/a00062.html#a92c14191a43004ece925be9ceec34904">00054</a>     QIcon <a class="code" href="../../df/d03/a00062.html#a92c14191a43004ece925be9ceec34904">icon</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a>; }
+<a name="l00055"></a><a class="code" href="../../df/d03/a00062.html#aed2981af2820533f00427c5b02f1093f">00055</a>     QVariant <a class="code" href="../../df/d03/a00062.html#aed2981af2820533f00427c5b02f1093f">iconVariant</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> QVariant(<a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a>); }
+<a name="l00056"></a><a class="code" href="../../df/d03/a00062.html#a103b5be49c9ed54befdedb0e61b536e1">00056</a>     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a103b5be49c9ed54befdedb0e61b536e1">setIcon</a>(QIcon <a class="code" href="../../df/d03/a00062.html#a92c14191a43004ece925be9ceec34904">icon</a>) { <a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a> = <a class="code" href="../../df/d03/a00062.html#a92c14191a43004ece925be9ceec34904">icon</a>; emit <a class="code" href="../../df/d03/a00062.html#ad0292209ca5e2f7a499d1af4b2da5bd9">iconChanged</a>(); }
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     <span class="keywordtype">bool</span> <a class="code" href="../../df/d03/a00062.html#a9e3917c02592fd8067ab396fc8de92a2">event</a>(QEvent *e);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="keyword">public</span> Q_SLOTS:
+<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ab0554cb7241c0b72d34402f0bb419462">trigger</a>();
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 Q_SIGNALS:
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ae23cf3eb9ac9f63b770681061b6825de">triggered</a>();
+<a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a528e3c561e4e73d9053d67301a25072c">toggled</a>(<span class="keywordtype">bool</span> checked);
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a92832e204f5bab2138a91c2a248b0730">textChanged</a>();
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#af806ac26b8e7c04f14bab7f25d1ae813">shortcutChanged</a>(QString <a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>);
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a72de6f0367e5c64513346b12637853f5">keyShortcutChanged</a>(Qt::Key <a class="code" href="../../df/d03/a00062.html#a7c862647abdd378894584de74706259b">keyShortcut</a>);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ad0292209ca5e2f7a499d1af4b2da5bd9">iconChanged</a>();
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a654233605ff8dfbebbcd3aa55f143c20">iconNameChanged</a>();
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a441d14cf34eec44c956fe49189707ee3">iconSourceChanged</a>();
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a280c251e258eb277204eb5be5638f6a8">tooltipChanged</a>(QString arg);
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a31f61d4786745b82d1ff19d4893dde2d">enabledChanged</a>();
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="keyword">protected</span>:
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a4b0278f768551a27028870aed477413f">setKeySequence</a>(<span class="keyword">const</span> QKeySequence &amp;sequence);
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">private</span>:
+<a name="l00082"></a><a class="code" href="../../df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">00082</a>     QString <a class="code" href="../../df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">m_text</a>;
+<a name="l00083"></a><a class="code" href="../../df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">00083</a>     QUrl <a class="code" href="../../df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">m_iconSource</a>;
+<a name="l00084"></a><a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">00084</a>     QString <a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a>;
+<a name="l00085"></a><a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">00085</a>     QIcon <a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a>;
+<a name="l00086"></a><a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">00086</a>     <span class="keywordtype">bool</span> <a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a>;
+<a name="l00087"></a><a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">00087</a>     QKeySequence <a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a>;
+<a name="l00088"></a><a class="code" href="../../df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">00088</a>     QKeySequence <a class="code" href="../../df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">m_mnemonic</a>;
+<a name="l00089"></a><a class="code" href="../../df/d03/a00062.html#a5488ee724c7351b6fbb62ebfa1683cf8">00089</a>     QString <a class="code" href="../../df/d03/a00062.html#a5488ee724c7351b6fbb62ebfa1683cf8">m_tooltip</a>;
+<a name="l00090"></a>00090 };
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="preprocessor">#endif // QQQuickAction_H</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

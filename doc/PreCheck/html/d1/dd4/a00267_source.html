@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/qml/ContentView.qml</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">ContentView.qml</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d1/dd4/a00267.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../dc/d87/a00032.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
+<a name="l00002"></a>00002 import QtQuick.Window 2.1
+<a name="l00003"></a>00003 import QtQuick.Controls 1.0
+<a name="l00004"></a><a class="code" href="../../dc/d87/a00032.html#a53eab16d9b647c309a4c12b7b32b66e0">00004</a> import QtQuick.Controls.Styles 1.0
+<a name="l00005"></a>00005 import QtQuick.Layouts 1.0
+<a name="l00006"></a><a class="code" href="../../dc/d87/a00032.html#a0bd72e057232b1d69433a9a21f4b429c">00006</a> import PreCheck 1.0
+<a name="l00007"></a>00007 
+<a name="l00008"></a><a class="code" href="../../dc/d87/a00032.html#acda3660ac0272bc902e4379d0d6a5a0f">00008</a> GridLayout {
+<a name="l00009"></a>00009     <span class="keywordtype">id</span>: dataView
+<a name="l00010"></a><a class="code" href="../../dc/d87/a00032.html#a6ff2ded34b0ddd0275a3b652eb9176ba">00010</a>     columns: 5
+<a name="l00011"></a>00011     columnSpacing: 1
+<a name="l00012"></a><a class="code" href="../../dc/d87/a00032.html#a41499458da3940570bed6f0e2e4f7937">00012</a>     rowSpacing: 1
+<a name="l00013"></a>00013     <span class="keyword">property</span> <span class="keywordtype">string</span> dataDelegate
+<a name="l00014"></a><a class="code" href="../../dc/d87/a00032.html#a25ce3e8e8823ff975ee344c836c1cd2a">00014</a>     <span class="keyword">property</span> <span class="keywordtype">string</span> emptyDelegate
+<a name="l00015"></a>00015     <span class="keyword">property</span> <span class="keywordtype">string</span> sectionDelegate
+<a name="l00016"></a>00016     <span class="keyword">property</span> variant activeFilterIndicatorIndexes
+<a name="l00017"></a>00017     <span class="keyword">property</span> alias sectionIndex : repeater.sectionIndex
+<a name="l00018"></a>00018     <span class="keyword">property</span> alias model: repeater.model
+<a name="l00019"></a>00019     signal selected(<span class="keywordtype">string</span> selectedItem)
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021     <span class="keyword">function</span> removeFilterIndex(index) {
+<a name="l00022"></a>00022         <span class="keywordflow">if</span>(!dataView.activeFilterIndicatorIndexes) {
+<a name="l00023"></a>00023             dataView.activeFilterIndicatorIndexes = [];
+<a name="l00024"></a>00024         }
+<a name="l00025"></a>00025         var tmp = dataView.activeFilterIndicatorIndexes
+<a name="l00026"></a>00026         var pos = tmp.indexOf(index);
+<a name="l00027"></a>00027         tmp.splice(pos, 1);
+<a name="l00028"></a>00028         <span class="keywordflow">return</span> tmp;
+<a name="l00029"></a>00029     }
+<a name="l00030"></a>00030     <span class="keyword">function</span> addFilterIndex(index) {
+<a name="l00031"></a>00031         <span class="keywordflow">if</span>(!dataView.activeFilterIndicatorIndexes) {
+<a name="l00032"></a>00032             dataView.activeFilterIndicatorIndexes = [];
+<a name="l00033"></a>00033         }
+<a name="l00034"></a>00034         var tmp = dataView.activeFilterIndicatorIndexes
+<a name="l00035"></a>00035         tmp.push(index);
+<a name="l00036"></a>00036         <span class="keywordflow">return</span> tmp;
+<a name="l00037"></a>00037     }
+<a name="l00038"></a>00038     <span class="keyword">function</span> sort(index) {
+<a name="l00039"></a>00039         repeater.model.setSortKeyKolumn(index);
+<a name="l00040"></a>00040     }
+<a name="l00041"></a>00041     <span class="keyword">function</span> filter(index, <span class="keyword">remove</span>) {
+<a name="l00042"></a>00042         <span class="keywordflow">if</span>(<span class="keyword">remove</span>) {
+<a name="l00043"></a>00043             dataView.activeFilterIndicatorIndexes = dataView.addFilterIndex(index);
+<a name="l00044"></a>00044             repeater.model.setFilterKeyColumn(index);
+<a name="l00045"></a>00045         } <span class="keywordflow">else</span> {
+<a name="l00046"></a>00046             dataView.activeFilterIndicatorIndexes = dataView.removeFilterIndex(index);
+<a name="l00047"></a>00047             var nbFilters = dataView.activeFilterIndicatorIndexes.length;
+<a name="l00048"></a>00048             repeater.model.invalidateFilter(index);
+<a name="l00049"></a>00049             <span class="keywordflow">for</span>(var i = 0; i &lt; nbFilters; i++) {
+<a name="l00050"></a>00050                 repeater.model.setFilterKeyColumn(dataView.activeFilterIndicatorIndexes.at(i));
+<a name="l00051"></a>00051             }
+<a name="l00052"></a>00052         }
+<a name="l00053"></a>00053     }
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055     Repeater {
+<a name="l00056"></a>00056         <span class="keywordtype">id</span>: repeater
+<a name="l00057"></a>00057         <span class="keyword">property</span> <span class="keywordtype">bool</span> sectioning: (sectionIndex != 0)
+<a name="l00058"></a>00058         property <span class="keywordtype">int</span> sectionIndex : repeater.model.sortKeyColumn
+<a name="l00059"></a>00059         <span class="comment">/*property int currentIndex: 0</span>
+<a name="l00060"></a>00060 <span class="comment">        property int currentSectionSize: 0</span>
+<a name="l00061"></a>00061 <span class="comment">        property int previousSectionSize: 0</span>
+<a name="l00062"></a>00062 <span class="comment">        delegate:</span>
+<a name="l00063"></a>00063 <span class="comment">            Item {</span>
+<a name="l00064"></a>00064 <span class="comment">            Binding {</span>
+<a name="l00065"></a>00065 <span class="comment">                target: repeater</span>
+<a name="l00066"></a>00066 <span class="comment">                property: &quot;currentIndex&quot;</span>
+<a name="l00067"></a>00067 <span class="comment">                value: index</span>
+<a name="l00068"></a>00068 <span class="comment">            }</span>
+<a name="l00069"></a>00069 <span class="comment">            Item {</span>
+<a name="l00070"></a>00070 <span class="comment">                id: filler</span>
+<a name="l00071"></a>00071 <span class="comment">                visible: false</span>
+<a name="l00072"></a>00072 <span class="comment">                state: (repeater.currentIndex &gt; 0 &amp;&amp; repeater.model.data(repeater.currentIndex-1, repeater.sectionIndex) === repeater.model.data(repeater.currentIndex, repeater.sectionIndex)) ? &quot;sameSection&quot;: &quot;newSection&quot;</span>
+<a name="l00073"></a>00073 <span class="comment">                states: [</span>
+<a name="l00074"></a>00074 <span class="comment">                    State {</span>
+<a name="l00075"></a>00075 <span class="comment">                        name:&quot;newSection&quot;</span>
+<a name="l00076"></a>00076 <span class="comment">                        PropertyChanges {</span>
+<a name="l00077"></a>00077 <span class="comment">                            target: filler</span>
+<a name="l00078"></a>00078 <span class="comment">                            visible: true</span>
+<a name="l00079"></a>00079 <span class="comment">                        }</span>
+<a name="l00080"></a>00080 <span class="comment">                    },</span>
+<a name="l00081"></a>00081 <span class="comment">                    State {</span>
+<a name="l00082"></a>00082 <span class="comment">                        name:&quot;sameSection&quot;</span>
+<a name="l00083"></a>00083 <span class="comment">                        PropertyChanges {</span>
+<a name="l00084"></a>00084 <span class="comment">                            target: filler</span>
+<a name="l00085"></a>00085 <span class="comment">                            visible: false</span>
+<a name="l00086"></a>00086 <span class="comment">                        }</span>
+<a name="l00087"></a>00087 <span class="comment">                    }</span>
+<a name="l00088"></a>00088 <span class="comment">                ]</span>
+<a name="l00089"></a>00089 <span class="comment">                onStateChanged: {</span>
+<a name="l00090"></a>00090 <span class="comment">                    console.log(&quot;\n&quot;+filler.state)</span>
+<a name="l00091"></a>00091 <span class="comment">                    if(filler.state == &quot;sameSection&quot;) {</span>
+<a name="l00092"></a>00092 <span class="comment">                        var previousSize = repeater.currentSectionSize;</span>
+<a name="l00093"></a>00093 <span class="comment">                        filler.cols = 0;</span>
+<a name="l00094"></a>00094 <span class="comment">                        repeater.currentSectionSize = previousSize+1;</span>
+<a name="l00095"></a>00095 <span class="comment">                        repeater.previousSectionSize = previousSize;</span>
+<a name="l00096"></a>00096 <span class="comment">                    } else if(filler.state == &quot;newSection&quot;) {</span>
+<a name="l00097"></a>00097 <span class="comment">                        repeater.previousSectionSize = repeater.currentSectionSize;</span>
+<a name="l00098"></a>00098 <span class="comment">                        repeater.currentSectionSize = 1;</span>
+<a name="l00099"></a>00099 <span class="comment">                        filler.cols = ((dataView.columns-(repeater.previousSectionSize % dataView.columns)) % dataView.columns);</span>
+<a name="l00100"></a>00100 <span class="comment"></span>
+<a name="l00101"></a>00101 <span class="comment">                        console.log(&quot;nouvelle section &#39;&quot; + repeater.model.data(repeater.currentIndex, repeater.sectionIndex)+&quot;&#39;&quot;);</span>
+<a name="l00102"></a>00102 <span class="comment">                        console.log(filler.cols + &quot;/&quot; + dataView.columns + &quot; colonnes à remplir&quot;);</span>
+<a name="l00103"></a>00103 <span class="comment">                    }</span>
+<a name="l00104"></a>00104 <span class="comment">                    console.log(&quot;previous section size: &quot;+repeater.previousSectionSize);</span>
+<a name="l00105"></a>00105 <span class="comment">                    console.log(&quot;next section size: &quot; +repeater.currentSectionSize);</span>
+<a name="l00106"></a>00106 <span class="comment">                }</span>
+<a name="l00107"></a>00107 <span class="comment"></span>
+<a name="l00108"></a>00108 <span class="comment">                Component.onCompleted: {</span>
+<a name="l00109"></a>00109 <span class="comment">                    console.log(&quot;index : &quot;+repeater.currentIndex);</span>
+<a name="l00110"></a>00110 <span class="comment">                    console.log(&quot;index in section : &quot;+repeater.currentSectionSize);</span>
+<a name="l00111"></a>00111 <span class="comment">                }</span>
+<a name="l00112"></a>00112 <span class="comment">                property int cols: 0</span>
+<a name="l00113"></a>00113 <span class="comment">                Layout.fillHeight: true</span>
+<a name="l00114"></a>00114 <span class="comment">                Layout.fillWidth: true</span>
+<a name="l00115"></a>00115 <span class="comment">                Layout.minimumWidth: cols*(dataView.width / dataView.columns  - dataView.columnSpacing)</span>
+<a name="l00116"></a>00116 <span class="comment">                Layout.rowSpan: cols</span>
+<a name="l00117"></a>00117 <span class="comment">                ColumnLayout {</span>
+<a name="l00118"></a>00118 <span class="comment">                    anchors.fill: parent</span>
+<a name="l00119"></a>00119 <span class="comment">                    Repeater {</span>
+<a name="l00120"></a>00120 <span class="comment">                        model: (filler.cols &gt; 0) ? filler.cols : 0</span>
+<a name="l00121"></a>00121 <span class="comment">                        delegate:</span>
+<a name="l00122"></a>00122 <span class="comment">                            Rectangle {</span>
+<a name="l00123"></a>00123 <span class="comment">                            id: emptyContainer</span>
+<a name="l00124"></a>00124 <span class="comment">                            Layout.fillHeight: true</span>
+<a name="l00125"></a>00125 <span class="comment">                            Layout.fillWidth: true</span>
+<a name="l00126"></a>00126 <span class="comment">                            Layout.preferredHeight: (dataView.rows &gt; 0) ? (Math.floor(dataView.height / dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)</span>
+<a name="l00127"></a>00127 <span class="comment">                            Layout.preferredWidth: (dataView.columns &gt; 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)</span>
+<a name="l00128"></a>00128 <span class="comment">                            Loader {</span>
+<a name="l00129"></a>00129 <span class="comment">                                id: emptyLoader</span>
+<a name="l00130"></a>00130 <span class="comment">                                source: dataView.emptyDelegate</span>
+<a name="l00131"></a>00131 <span class="comment">                                Binding {</span>
+<a name="l00132"></a>00132 <span class="comment">                                    target: emptyLoader.item</span>
+<a name="l00133"></a>00133 <span class="comment">                                    property: &quot;anchors.centerIn&quot;</span>
+<a name="l00134"></a>00134 <span class="comment">                                    value: emptyContainer</span>
+<a name="l00135"></a>00135 <span class="comment">                                }</span>
+<a name="l00136"></a>00136 <span class="comment">                                Binding {</span>
+<a name="l00137"></a>00137 <span class="comment">                                    target: emptyLoader.item</span>
+<a name="l00138"></a>00138 <span class="comment">                                    property: &quot;width&quot;</span>
+<a name="l00139"></a>00139 <span class="comment">                                    value: emptyContainer.width - 1</span>
+<a name="l00140"></a>00140 <span class="comment">                                }</span>
+<a name="l00141"></a>00141 <span class="comment">                                Binding {</span>
+<a name="l00142"></a>00142 <span class="comment">                                    target: emptyLoader.item</span>
+<a name="l00143"></a>00143 <span class="comment">                                    property: &quot;height&quot;</span>
+<a name="l00144"></a>00144 <span class="comment">                                    value: emptyContainer.height - 1</span>
+<a name="l00145"></a>00145 <span class="comment">                                }</span>
+<a name="l00146"></a>00146 <span class="comment">                                Binding {</span>
+<a name="l00147"></a>00147 <span class="comment">                                    target: emptyLoader.item</span>
+<a name="l00148"></a>00148 <span class="comment">                                    property: &quot;enabled&quot;</span>
+<a name="l00149"></a>00149 <span class="comment">                                    value: false</span>
+<a name="l00150"></a>00150 <span class="comment">                                }</span>
+<a name="l00151"></a>00151 <span class="comment">                                Binding {</span>
+<a name="l00152"></a>00152 <span class="comment">                                    target: emptyLoader.item</span>
+<a name="l00153"></a>00153 <span class="comment">                                    property: &quot;visible&quot;</span>
+<a name="l00154"></a>00154 <span class="comment">                                    value: true</span>
+<a name="l00155"></a>00155 <span class="comment">                                }</span>
+<a name="l00156"></a>00156 <span class="comment">                            }</span>
+<a name="l00157"></a>00157 <span class="comment">                        }</span>
+<a name="l00158"></a>00158 <span class="comment">                    }</span>
+<a name="l00159"></a>00159 <span class="comment">                }</span>
+<a name="l00160"></a>00160 <span class="comment">                Item {</span>
+<a name="l00161"></a>00161 <span class="comment">                    id: section</span>
+<a name="l00162"></a>00162 <span class="comment">                    Layout.fillHeight: true</span>
+<a name="l00163"></a>00163 <span class="comment">                    Layout.fillWidth: true</span>
+<a name="l00164"></a>00164 <span class="comment">                    Layout.minimumWidth: dataView.width</span>
+<a name="l00165"></a>00165 <span class="comment">                    Layout.columnSpan: dataView.columns</span>
+<a name="l00166"></a>00166 <span class="comment">                    RowLayout {</span>
+<a name="l00167"></a>00167 <span class="comment">                        Rectangle {</span>
+<a name="l00168"></a>00168 <span class="comment">                            Layout.minimumHeight: dataView.rowSpacing</span>
+<a name="l00169"></a>00169 <span class="comment">                            Layout.maximumHeight: 3*dataView.rowSpacing</span>
+<a name="l00170"></a>00170 <span class="comment">                        }</span>
+<a name="l00171"></a>00171 <span class="comment">                        Loader {</span>
+<a name="l00172"></a>00172 <span class="comment">                            id: sectionLoader</span>
+<a name="l00173"></a>00173 <span class="comment">                            source: dataView.sectionDelegate</span>
+<a name="l00174"></a>00174 <span class="comment">                            Binding {</span>
+<a name="l00175"></a>00175 <span class="comment">                                target: sectionLoader.item</span>
+<a name="l00176"></a>00176 <span class="comment">                                property: &quot;value&quot;</span>
+<a name="l00177"></a>00177 <span class="comment">                                value: repeater.model.data(repeater.currentIndex, repeater.sectionIndex)</span>
+<a name="l00178"></a>00178 <span class="comment">                            }</span>
+<a name="l00179"></a>00179 <span class="comment">                        }</span>
+<a name="l00180"></a>00180 <span class="comment">                    }</span>
+<a name="l00181"></a>00181 <span class="comment">                }</span>
+<a name="l00182"></a>00182 <span class="comment">            }*/</span>
+<a name="l00183"></a>00183         Rectangle {
+<a name="l00184"></a>00184             <span class="keywordtype">id</span>: contentContainer
+<a name="l00185"></a>00185             Layout.fillHeight: <span class="keyword">true</span>
+<a name="l00186"></a>00186             Layout.fillWidth: <span class="keyword">true</span>
+<a name="l00187"></a>00187             Layout.maximumHeight: (dataView.rows &gt; 0) ? (Math.floor(dataView.height / dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)
+<a name="l00188"></a>00188             Layout.maximumWidth: (dataView.columns &gt; 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
+<a name="l00189"></a>00189             Layout.row: computeRow()
+<a name="l00190"></a>00190             Layout.column: computeColumn()
+<a name="l00191"></a>00191             function computeRow() {
+<a name="l00192"></a>00192                 var next = 0;
+<a name="l00193"></a>00193                 <span class="keywordflow">if</span>(index &gt; 0){
+<a name="l00194"></a>00194                     var previousRow = repeater.itemAt(index-1).Layout.row;
+<a name="l00195"></a>00195                     var previousColumn = repeater.itemAt(index-1).Layout.column;
+<a name="l00196"></a>00196                     console.log(<span class="stringliteral">&quot;\ncompute row pour l&#39;item  d&#39;id &quot;</span> + (index+1) + <span class="stringliteral">&quot; successeur de [&quot;</span> + previousRow + <span class="stringliteral">&quot;, &quot;</span> + previousColumn+<span class="stringliteral">&quot;]&quot;</span>);
+<a name="l00197"></a>00197                     <span class="keywordflow">if</span>(repeater.sectioning &amp;&amp; (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
+<a name="l00198"></a>00198                         console.log(<span class="stringliteral">&quot;nouvelle section &quot;</span>+repeater.model.data(index, repeater.sectionIndex)+<span class="stringliteral">&quot; remplaçant &quot;</span>+repeater.model.data(index-1, repeater.sectionIndex));
+<a name="l00199"></a>00199                         <span class="keywordflow">if</span>(dataView.columns &gt; 0) {
+<a name="l00200"></a>00200                             console.log(<span class="stringliteral">&quot;layout horizontal de &quot;</span>+dataView.columns+<span class="stringliteral">&quot; colonnes non complétées par la section\non va à la ligne&quot;</span>);
+<a name="l00201"></a>00201                             next=previousRow+1;
+<a name="l00202"></a>00202                         } <span class="keywordflow">else</span> {
+<a name="l00203"></a>00203                             console.log(<span class="stringliteral">&quot;layout vertical de &quot;</span>+dataView.rows+<span class="stringliteral">&quot; lignes\non retourne en première ligne&quot;</span>);
+<a name="l00204"></a>00204                             next = 1;
+<a name="l00205"></a>00205                         }
+<a name="l00206"></a>00206                     } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(repeater.sectioning){
+<a name="l00207"></a>00207                         console.log(<span class="stringliteral">&quot;même section&quot;</span>);
+<a name="l00208"></a>00208                         <span class="keywordflow">if</span>(dataView.columns &gt; 0) {
+<a name="l00209"></a>00209                             console.log(<span class="stringliteral">&quot;layout horizontal de &quot;</span>+dataView.columns+<span class="stringliteral">&quot; colonnes&quot;</span>);
+<a name="l00210"></a>00210                             <span class="keywordflow">if</span>((previousColumn % dataView.columns) == 0) { <span class="comment">//dernière colonne</span>
+<a name="l00211"></a>00211                                 console.log(<span class="stringliteral">&quot;on passe à la ligne suivante&quot;</span>);
+<a name="l00212"></a>00212                                 next = previousRow + 1;
+<a name="l00213"></a>00213                             } <span class="keywordflow">else</span> {
+<a name="l00214"></a>00214                                 console.log(<span class="stringliteral">&quot;on ne change pas de ligne&quot;</span>);
+<a name="l00215"></a>00215                                 next = previousRow;
+<a name="l00216"></a>00216                             }
+<a name="l00217"></a>00217                         } <span class="keywordflow">else</span>{
+<a name="l00218"></a>00218                             console.log(<span class="stringliteral">&quot;layout vertical de &quot;</span>+dataView.rows+<span class="stringliteral">&quot; lignes\non passe à la ligne suivante (ou on boucle)&quot;</span>);
+<a name="l00219"></a>00219                             next = previousRow % dataView.rows + 1;
+<a name="l00220"></a>00220                         }
+<a name="l00221"></a>00221                     } <span class="keywordflow">else</span> {
+<a name="l00222"></a>00222                         <span class="keywordflow">if</span>(dataView.rows &gt; 0) {
+<a name="l00223"></a>00223                             next = index % dataView.rows + 1;
+<a name="l00224"></a>00224                         } <span class="keywordflow">else</span> {
+<a name="l00225"></a>00225                             next = Math.floor(index / dataView.columns) + 1;
+<a name="l00226"></a>00226                         }
+<a name="l00227"></a>00227                     }
+<a name="l00228"></a>00228                 } <span class="keywordflow">else</span> {
+<a name="l00229"></a>00229                     next = 1;
+<a name="l00230"></a>00230                 }
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232                 console.log(<span class="stringliteral">&quot;ligne &quot;</span>+next)
+<a name="l00233"></a>00233                 <span class="keywordflow">return</span> next;
+<a name="l00234"></a>00234             }
+<a name="l00235"></a>00235             <span class="keyword">function</span> computeColumn() {
+<a name="l00236"></a>00236                 var next = 0;
+<a name="l00237"></a>00237                 <span class="keywordflow">if</span>(index &gt; 0){
+<a name="l00238"></a>00238                     var previousRow = repeater.itemAt(index-1).Layout.row;
+<a name="l00239"></a>00239                     var previousColumn = repeater.itemAt(index-1).Layout.column;
+<a name="l00240"></a>00240                     console.log(<span class="stringliteral">&quot;\ncompute column pour l&#39;item d&#39;id &quot;</span> + (index+1) + <span class="stringliteral">&quot; successeur de [&quot;</span> + previousRow + <span class="stringliteral">&quot;, &quot;</span> + previousColumn+<span class="stringliteral">&quot;]&quot;</span>);
+<a name="l00241"></a>00241                     <span class="keywordflow">if</span>(repeater.sectioning &amp;&amp; (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
+<a name="l00242"></a>00242                         console.log(<span class="stringliteral">&quot;nouvelle section &quot;</span>+repeater.model.data(index, repeater.sectionIndex)+<span class="stringliteral">&quot; remplaçant &quot;</span>+repeater.model.data(index-1, repeater.sectionIndex));
+<a name="l00243"></a>00243                         <span class="keywordflow">if</span>(dataView.columns &gt; 0) {
+<a name="l00244"></a>00244                             console.log(<span class="stringliteral">&quot;layout horizontal de &quot;</span>+dataView.columns+<span class="stringliteral">&quot; colonnes\non retourne à la première colonne&quot;</span>);
+<a name="l00245"></a>00245                             next = 1;
+<a name="l00246"></a>00246                         } <span class="keywordflow">else</span> {
+<a name="l00247"></a>00247                             console.log(<span class="stringliteral">&quot;layout vertical de &quot;</span>+dataView.rows+<span class="stringliteral">&quot; lignes non complétées par la section\non va à la colonne suivante&quot;</span>);
+<a name="l00248"></a>00248                             next = previousColumn+1;
+<a name="l00249"></a>00249                         }
+<a name="l00250"></a>00250                     } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(repeater.sectioning){
+<a name="l00251"></a>00251                         console.log(<span class="stringliteral">&quot;même section&quot;</span>);
+<a name="l00252"></a>00252                         <span class="keywordflow">if</span>(dataView.rows &gt; 0) {
+<a name="l00253"></a>00253                             console.log(<span class="stringliteral">&quot;layout vertical de &quot;</span>+dataView.rows+<span class="stringliteral">&quot; lignes&quot;</span>);
+<a name="l00254"></a>00254                             <span class="keywordflow">if</span>((previousRow % dataView.rows) == 0) { <span class="comment">//dernière ligne</span>
+<a name="l00255"></a>00255                                 console.log(<span class="stringliteral">&quot;on passe à la colonne suivante&quot;</span>);
+<a name="l00256"></a>00256                                 next = previousColumn + 1;
+<a name="l00257"></a>00257                             } <span class="keywordflow">else</span> {
+<a name="l00258"></a>00258                                 console.log(<span class="stringliteral">&quot;on ne change pas de colonne&quot;</span>);
+<a name="l00259"></a>00259                                 next = previousColumn;
+<a name="l00260"></a>00260                             }
+<a name="l00261"></a>00261                         } <span class="keywordflow">else</span>{
+<a name="l00262"></a>00262                             console.log(<span class="stringliteral">&quot;layout horizontal de &quot;</span>+dataView.columns+<span class="stringliteral">&quot; colonnes\non passe à la colonne suivante (ou on boucle) &quot;</span>);
+<a name="l00263"></a>00263                             next = previousColumn % dataView.columns + 1;
+<a name="l00264"></a>00264                         }
+<a name="l00265"></a>00265                     } <span class="keywordflow">else</span> {
+<a name="l00266"></a>00266                         <span class="keywordflow">if</span>(dataView.columns &gt; 0) {
+<a name="l00267"></a>00267                             next= index % dataView.columns + 1;
+<a name="l00268"></a>00268                         } <span class="keywordflow">else</span> {
+<a name="l00269"></a>00269                             next= Math.floor(index / dataView.rows) + 1;
+<a name="l00270"></a>00270                         }
+<a name="l00271"></a>00271                     }
+<a name="l00272"></a>00272                 } <span class="keywordflow">else</span> {
+<a name="l00273"></a>00273                     next = 1;
+<a name="l00274"></a>00274                 }
+<a name="l00275"></a>00275 
+<a name="l00276"></a>00276                 console.log(<span class="stringliteral">&quot;colonne &quot;</span>+next)
+<a name="l00277"></a>00277                 <span class="keywordflow">return</span> next;
+<a name="l00278"></a>00278             }
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280             Loader {
+<a name="l00281"></a>00281                 <span class="keywordtype">id</span>:contentLoader
+<a name="l00282"></a>00282                 source: dataView.dataDelegate
+<a name="l00283"></a>00283                 Binding {
+<a name="l00284"></a>00284                     target: contentLoader.item
+<a name="l00285"></a>00285                     <span class="keyword">property</span>: <span class="stringliteral">&quot;width&quot;</span>
+<a name="l00286"></a>00286                     value: contentContainer.width - 1
+<a name="l00287"></a>00287                 }
+<a name="l00288"></a>00288                 Binding {
+<a name="l00289"></a>00289                     target: contentLoader.item
+<a name="l00290"></a>00290                     <span class="keyword">property</span>: <span class="stringliteral">&quot;height&quot;</span>
+<a name="l00291"></a>00291                     value: contentContainer.height - 2
+<a name="l00292"></a>00292                 }
+<a name="l00293"></a>00293                 Connections {
+<a name="l00294"></a>00294                     target: contentLoader.item
+<a name="l00295"></a>00295                     onClicked: {
+<a name="l00296"></a>00296                         <span class="keywordflow">if</span>(dataView.enabled) {
+<a name="l00297"></a>00297                             dataView.selected(contentLoader.item.value);
+<a name="l00298"></a>00298                         }
+<a name="l00299"></a>00299                     }
+<a name="l00300"></a>00300                 }
+<a name="l00301"></a>00301             }
+<a name="l00302"></a>00302         }
+<a name="l00303"></a>00303         <span class="comment">/*}*/</span>
+<a name="l00304"></a>00304     }
+<a name="l00305"></a>00305 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

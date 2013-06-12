@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/checkable_sort_filter_proxy_model.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">checkable_sort_filter_proxy_model.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d74/a00099.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef CHECKABLESORTFILTERPROXYMODEL_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CHECKABLESORTFILTERPROXYMODEL_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QSortFilterProxyModel&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../db/d44/a00162.html">SqlDataModel.h</a>&quot;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a><a class="code" href="../../dd/d1b/a00015.html">00007</a> <span class="keyword">class </span><a class="code" href="../../dd/d1b/a00015.html">CheckableSortFilterProxyModel</a> : <span class="keyword">public</span> QSortFilterProxyModel
+<a name="l00008"></a>00008 {
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010     Q_OBJECT
+<a name="l00011"></a><a class="code" href="../../dd/d1b/a00015_a850368dedc06eb94185edfae3670cbc8.html#a850368dedc06eb94185edfae3670cbc8">00011</a>     Q_PROPERTY(QString <a class="code" href="../../dd/d1b/a00015_a850368dedc06eb94185edfae3670cbc8.html#a850368dedc06eb94185edfae3670cbc8">table</a> READ <a class="code" href="../../dd/d1b/a00015_a6c48ddb30bd545773021034cedf5e4df.html#a6c48ddb30bd545773021034cedf5e4df">tableName</a>)
+<a name="l00012"></a><a class="code" href="../../dd/d1b/a00015_ae6d0341f0e568cde65a4e037681be098.html#ae6d0341f0e568cde65a4e037681be098">00012</a>     Q_PROPERTY(QString <a class="code" href="../../dd/d1b/a00015_ae6d0341f0e568cde65a4e037681be098.html#ae6d0341f0e568cde65a4e037681be098">fieldsList</a> READ <a class="code" href="../../dd/d1b/a00015_aa206d029986bb73b127f04cad5367e07.html#aa206d029986bb73b127f04cad5367e07">fields</a>)
+<a name="l00013"></a><a class="code" href="../../dd/d1b/a00015_ae411d930e6ea8b0d2613f1c03effe261.html#ae411d930e6ea8b0d2613f1c03effe261">00013</a>     Q_PROPERTY(QString <a class="code" href="../../dd/d1b/a00015_a84a34fd559e0d5be19cddf02644d39a3.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a> READ <a class="code" href="../../dd/d1b/a00015_a84a34fd559e0d5be19cddf02644d39a3.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a>)
+<a name="l00014"></a><a class="code" href="../../dd/d1b/a00015_ae5e21db4d362912fad99a8ddf45b6ee0.html#ae5e21db4d362912fad99a8ddf45b6ee0">00014</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../dd/d1b/a00015_ae5e21db4d362912fad99a8ddf45b6ee0.html#ae5e21db4d362912fad99a8ddf45b6ee0">sortKeyColumn</a> READ <a class="code" href="../../dd/d1b/a00015_acb76805fc0a661d28fd8f4b0f1c185c8.html#acb76805fc0a661d28fd8f4b0f1c185c8">currentSortKeyColumn</a> WRITE <a class="code" href="../../dd/d1b/a00015_a3542e3900cbb4405c26b634307f3b713.html#a3542e3900cbb4405c26b634307f3b713">setSortKeyColumn</a> NOTIFY <a class="code" href="../../dd/d1b/a00015_abd9055e7a3ab3efa51e2e8d621253b42.html#abd9055e7a3ab3efa51e2e8d621253b42">sortChanged</a>)
+<a name="l00015"></a><a class="code" href="../../dd/d1b/a00015_a9625b002313a3fef67010c74415e5911.html#a9625b002313a3fef67010c74415e5911">00015</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a9625b002313a3fef67010c74415e5911.html#a9625b002313a3fef67010c74415e5911">empty</a> READ <a class="code" href="../../dd/d1b/a00015_af51a65b501504319d192769e4c23e41b.html#af51a65b501504319d192769e4c23e41b">isEmpty</a>)
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 public:
+<a name="l00018"></a>00018     <a class="code" href="../../dd/d1b/a00015.html">CheckableSortFilterProxyModel</a>(QObject *parent = 0);
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="../../dd/d1b/a00015_acb76805fc0a661d28fd8f4b0f1c185c8.html#acb76805fc0a661d28fd8f4b0f1c185c8">00020</a>     const <span class="keywordtype">int</span> <a class="code" href="../../dd/d1b/a00015_acb76805fc0a661d28fd8f4b0f1c185c8.html#acb76805fc0a661d28fd8f4b0f1c185c8">currentSortKeyColumn</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a6f33b6221bed2f7f7a3b924f75697c59.html#a6f33b6221bed2f7f7a3b924f75697c59">sortIndex</a>;}
+<a name="l00021"></a><a class="code" href="../../dd/d1b/a00015_a6c48ddb30bd545773021034cedf5e4df.html#a6c48ddb30bd545773021034cedf5e4df">00021</a>     <span class="keyword">const</span> QString &amp;<a class="code" href="../../dd/d1b/a00015_a6c48ddb30bd545773021034cedf5e4df.html#a6c48ddb30bd545773021034cedf5e4df">tableName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;tableName(); }
+<a name="l00022"></a><a class="code" href="../../dd/d1b/a00015_aa206d029986bb73b127f04cad5367e07.html#aa206d029986bb73b127f04cad5367e07">00022</a>     <span class="keyword">const</span> QString &amp;<a class="code" href="../../dd/d1b/a00015_aa206d029986bb73b127f04cad5367e07.html#aa206d029986bb73b127f04cad5367e07">fields</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;fieldsList(); }
+<a name="l00023"></a><a class="code" href="../../dd/d1b/a00015_a84a34fd559e0d5be19cddf02644d39a3.html#a84a34fd559e0d5be19cddf02644d39a3">00023</a>     <span class="keyword">const</span> QString &amp;<a class="code" href="../../dd/d1b/a00015_a84a34fd559e0d5be19cddf02644d39a3.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;lastError(); }
+<a name="l00024"></a><a class="code" href="../../dd/d1b/a00015_af51a65b501504319d192769e4c23e41b.html#af51a65b501504319d192769e4c23e41b">00024</a>     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_af51a65b501504319d192769e4c23e41b.html#af51a65b501504319d192769e4c23e41b">isEmpty</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;isEmpty(); }
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a3542e3900cbb4405c26b634307f3b713.html#a3542e3900cbb4405c26b634307f3b713">setSortKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="../../dd/d1b/a00015_a40daceaf6a2713b3f8756aa468bc2718.html#a40daceaf6a2713b3f8756aa468bc2718">00027</a>     Q_INVOKABLE <a class="code" href="../../d7/df7/a00058.html">SqlDataFields</a> *<a class="code" href="../../dd/d1b/a00015_a40daceaf6a2713b3f8756aa468bc2718.html#a40daceaf6a2713b3f8756aa468bc2718">field</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;field(i); }
+<a name="l00028"></a><a class="code" href="../../dd/d1b/a00015_a9e4903f2f9aefee6a05e7d4fcb4cae37.html#a9e4903f2f9aefee6a05e7d4fcb4cae37">00028</a>     Q_INVOKABLE <span class="keywordtype">int</span> <a class="code" href="../../dd/d1b/a00015_a9e4903f2f9aefee6a05e7d4fcb4cae37.html#a9e4903f2f9aefee6a05e7d4fcb4cae37">fieldsCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;fieldsCount(); }
+<a name="l00029"></a>00029     Q_INVOKABLE <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a898fb831fd9fe204e588a4bfebe68dc6.html#a898fb831fd9fe204e588a4bfebe68dc6">fetch</a>(QString <a class="code" href="../../dd/d1b/a00015_a6c48ddb30bd545773021034cedf5e4df.html#a6c48ddb30bd545773021034cedf5e4df">tableName</a> = <span class="stringliteral">&quot;&quot;</span>, QString filter = <span class="stringliteral">&quot;&quot;</span>, QString <a class="code" href="../../dd/d1b/a00015_ae1a9e91ee05af08d51e6dd5e18b416f7.html#ae1a9e91ee05af08d51e6dd5e18b416f7">sort</a> = <span class="stringliteral">&quot;&quot;</span>, QStringList <a class="code" href="../../dd/d1b/a00015_aa206d029986bb73b127f04cad5367e07.html#aa206d029986bb73b127f04cad5367e07">fields</a> = QStringList());
+<a name="l00030"></a>00030     Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_ae1a9e91ee05af08d51e6dd5e18b416f7.html#ae1a9e91ee05af08d51e6dd5e18b416f7">sort</a>(<span class="keywordtype">int</span> column, Qt::SortOrder newOrder = Qt::AscendingOrder);
+<a name="l00031"></a>00031     Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a703e11d1636cee58f5840136ab579bff.html#a703e11d1636cee58f5840136ab579bff">addFilterKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00032"></a>00032     Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a91a9cb99e7288039a22026e5ab5f5878.html#a91a9cb99e7288039a22026e5ab5f5878">removeFilterKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00033"></a>00033     Q_INVOKABLE <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a2eab45ba604c5e0544aa4fe1aaa28d2b.html#a2eab45ba604c5e0544aa4fe1aaa28d2b">containsFilterKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00034"></a>00034     Q_INVOKABLE QVariant <a class="code" href="../../dd/d1b/a00015_a8b507f52d17d06d42aa80985017727bf.html#a8b507f52d17d06d42aa80985017727bf">data</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column) <span class="keyword">const</span>;
+<a name="l00035"></a>00035     Q_INVOKABLE QVariant <a class="code" href="../../dd/d1b/a00015_a8b507f52d17d06d42aa80985017727bf.html#a8b507f52d17d06d42aa80985017727bf">data</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keywordtype">int</span> role = Qt::DisplayRole) <span class="keyword">const</span>;
+<a name="l00036"></a>00036     Q_INVOKABLE <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a6a386927ab6d7ed67452d94fa34df4eb.html#a6a386927ab6d7ed67452d94fa34df4eb">setData</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keyword">const</span> QVariant &amp;value, <span class="keywordtype">int</span> role = Qt::EditRole);
+<a name="l00037"></a><a class="code" href="../../dd/d1b/a00015_aac4fe11a2f41c6c940f50b74f9926eff.html#aac4fe11a2f41c6c940f50b74f9926eff">00037</a>     Q_INVOKABLE <span class="keyword">virtual</span> QHash&lt;int, QByteArray&gt; <a class="code" href="../../dd/d1b/a00015_aac4fe11a2f41c6c940f50b74f9926eff.html#aac4fe11a2f41c6c940f50b74f9926eff">roleNames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">model</a>-&gt;<a class="code" href="../../d3/dea/a00046_a2038dc6a6621e570c65761203c64d507.html#a2038dc6a6621e570c65761203c64d507">roleNames</a>(); }
+<a name="l00038"></a>00038     Q_INVOKABLE Qt::ItemFlags <a class="code" href="../../dd/d1b/a00015_a4cc21a105c93bf37f312e3b559f1c88d.html#a4cc21a105c93bf37f312e3b559f1c88d">flags</a>(<span class="keyword">const</span> QModelIndex &amp;index) <span class="keyword">const</span>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a7af369522c555831a4c58e4d8f044e4e.html#a7af369522c555831a4c58e4d8f044e4e">invalidateFilter</a>();
+<a name="l00041"></a>00041     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_aa784ee93d55bb52ac4398e3aeec6b8d4.html#aa784ee93d55bb52ac4398e3aeec6b8d4">setBooleanColumns</a>(QList&lt;int&gt; boolCols);
+<a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a564e8ac34336125b1302c449bdeaf7cc.html#a564e8ac34336125b1302c449bdeaf7cc">setReadOnlyColumns</a>(QList&lt;int&gt; readonlyCols);
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a3b33cee4a955975b79b950fcae94d90b.html#a3b33cee4a955975b79b950fcae94d90b">setPasswordColumns</a>(QList&lt;int&gt; passwordCols);
+<a name="l00044"></a>00044     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a148866e0de3fa7dcbeee921484cce491.html#a148866e0de3fa7dcbeee921484cce491">setNullColumns</a>(QList&lt;int&gt; nullCols);
+<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a48f08ca351d187ca390af433c1b3aa57.html#a48f08ca351d187ca390af433c1b3aa57">setNotNullColumns</a>(QList&lt;int&gt; notNullCols);
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 signals:
+<a name="l00048"></a>00048     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_abd9055e7a3ab3efa51e2e8d621253b42.html#abd9055e7a3ab3efa51e2e8d621253b42">sortChanged</a>();
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">protected</span>:
+<a name="l00051"></a>00051     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_af901c5342aa0cef3f5598be6574b7aac.html#af901c5342aa0cef3f5598be6574b7aac">fillModel</a>() = 0;
+<a name="l00052"></a>00052     <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a79a77bc288f69388a4bcdd816c2c5f52.html#a79a77bc288f69388a4bcdd816c2c5f52">filterAcceptsRow</a>(<span class="keywordtype">int</span> source_row, <span class="keyword">const</span> QModelIndex &amp;source_parent) <span class="keyword">const</span>;
+<a name="l00053"></a><a class="code" href="../../dd/d1b/a00015_a20c4cdda7d6fe773f2ae6d05cf35772f.html#a20c4cdda7d6fe773f2ae6d05cf35772f">00053</a>     <a class="code" href="../../d3/d8b/a00059.html">SqlDataModel</a> *<a class="code" href="../../dd/d1b/a00015_a20c4cdda7d6fe773f2ae6d05cf35772f.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">private</span>:
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a0d95a32766ec039a35b056785d8e6e3c.html#a0d95a32766ec039a35b056785d8e6e3c">replaceSet</a>(QList&lt;int&gt;&amp; originalSet, QList&lt;int&gt; newSet);
+<a name="l00057"></a><a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">00057</a>     QList&lt;int&gt; <a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">booleanSet</a>;
+<a name="l00058"></a><a class="code" href="../../dd/d1b/a00015_a163ccd466fd195acd490f65da2be7906.html#a163ccd466fd195acd490f65da2be7906">00058</a>     QList&lt;int&gt; <a class="code" href="../../dd/d1b/a00015_a163ccd466fd195acd490f65da2be7906.html#a163ccd466fd195acd490f65da2be7906">passwordSet</a>;
+<a name="l00059"></a><a class="code" href="../../dd/d1b/a00015_adcc81a5a321388b43c759d6c6ddad9de.html#adcc81a5a321388b43c759d6c6ddad9de">00059</a>     QList&lt;int&gt; <a class="code" href="../../dd/d1b/a00015_adcc81a5a321388b43c759d6c6ddad9de.html#adcc81a5a321388b43c759d6c6ddad9de">readonlySet</a>;
+<a name="l00060"></a><a class="code" href="../../dd/d1b/a00015_ad1e63288d6a0b9e03ad7f442f4f084f1.html#ad1e63288d6a0b9e03ad7f442f4f084f1">00060</a>     QList&lt;int&gt; <a class="code" href="../../dd/d1b/a00015_ad1e63288d6a0b9e03ad7f442f4f084f1.html#ad1e63288d6a0b9e03ad7f442f4f084f1">notNullSet</a>;
+<a name="l00061"></a><a class="code" href="../../dd/d1b/a00015_a561091d367e1fc75d61cb51cf3e940b8.html#a561091d367e1fc75d61cb51cf3e940b8">00061</a>     QList&lt;int&gt; <a class="code" href="../../dd/d1b/a00015_a561091d367e1fc75d61cb51cf3e940b8.html#a561091d367e1fc75d61cb51cf3e940b8">nullSet</a>;
+<a name="l00062"></a><a class="code" href="../../dd/d1b/a00015_a55d09024f6f41314fdce23d9838a5380.html#a55d09024f6f41314fdce23d9838a5380">00062</a>     QList&lt;int&gt; <a class="code" href="../../dd/d1b/a00015_a55d09024f6f41314fdce23d9838a5380.html#a55d09024f6f41314fdce23d9838a5380">filters</a>;
+<a name="l00063"></a><a class="code" href="../../dd/d1b/a00015_a6f33b6221bed2f7f7a3b924f75697c59.html#a6f33b6221bed2f7f7a3b924f75697c59">00063</a>     <span class="keywordtype">int</span> <a class="code" href="../../dd/d1b/a00015_a6f33b6221bed2f7f7a3b924f75697c59.html#a6f33b6221bed2f7f7a3b924f75697c59">sortIndex</a>;
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 07:41:52 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

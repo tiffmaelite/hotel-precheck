@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de BookingFactory.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">BookingFactory.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d6d/a00111.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef BOOKINGFACTORY_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define BOOKINGFACTORY_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;QObject&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QThread&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QList&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/dc1/a00212.html">PreCheckThread.h</a>&quot;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a><a class="code" href="../../d7/d7a/a00016.html">00008</a> <span class="keyword">class </span><a class="code" href="../../d7/d7a/a00016.html">BookingFactory</a> : <span class="keyword">public</span> <a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a>
+<a name="l00009"></a>00009 {
+<a name="l00010"></a>00010     Q_OBJECT
+<a name="l00011"></a>00011 <span class="keyword">public</span>:
+<a name="l00012"></a>00012     <span class="keyword">explicit</span> <a class="code" href="../../d7/d7a/a00016.html#acce92dc9b08982ec82d60f5830015056">BookingFactory</a>(QObject *parent = 0);
+<a name="l00013"></a>00013     <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a011772fbba0d57f3c50e8e7a5a87dd1d">cancelProcess</a>();
+<a name="l00014"></a><a class="code" href="../../d7/d7a/a00016.html#ac0332ea74b6d8156eddd812146b4061d">00014</a>     QString <a class="code" href="../../d7/d7a/a00016.html#ac0332ea74b6d8156eddd812146b4061d">className</a>() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;BookingFactory&quot;</span>; }
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 signals:
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">public</span> slots:
+<a name="l00019"></a>00019     <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a7dc3e898aae484518acd8c1f46c1b29a">receiveInput</a>(QString text);
+<a name="l00020"></a>00020     <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a8f2f426f52671761b30bdc2fdb18bff7">confirmInput</a>();
+<a name="l00021"></a>00021     <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a00e165667cc30c6562882b37206bb97c">validateInput</a>();
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="keyword">protected</span>:
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a13a43e6d814de94978c515cb084873b1">run</a>();
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027     
+<a name="l00028"></a>00028 };
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="preprocessor">#endif // BOOKINGFACTORY_H</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

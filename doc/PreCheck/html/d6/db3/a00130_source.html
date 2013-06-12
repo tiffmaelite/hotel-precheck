@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/booking.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">booking.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/db3/a00130.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef BOOKING_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define BOOKING_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a><a class="code" href="../../dd/d1b/a00015.html">00004</a> <span class="keyword">class </span><a class="code" href="../../dd/d1b/a00015.html">Booking</a> : <span class="keyword">public</span> <a class="code" href="../../df/d6a/a00119.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006     Q_OBJECT
+<a name="l00007"></a><a class="code" href="../../dd/d1b/a00015.html#abc29e461e01cc0c712944f8f47f91331">00007</a>         Q_PROPERTY(QString <span class="keywordtype">id</span> READ ID);
+<a name="l00008"></a><a class="code" href="../../dd/d1b/a00015.html#a711b40f71b09a762457879637e052fc4">00008</a>         Q_PROPERTY(QString <a class="code" href="../../dd/d1b/a00015.html#abc29e461e01cc0c712944f8f47f91331">name</a> READ <a class="code" href="../../dd/d1b/a00015.html#abc29e461e01cc0c712944f8f47f91331">name</a>);
+<a name="l00009"></a><a class="code" href="../../dd/d1b/a00015.html#a8fa47f6f18663de634e52a5f1dfbd9bd">00009</a>         Q_PROPERTY(QString <a class="code" href="../../dd/d1b/a00015.html#a6a8e151eb9f245211596b967de72dd14">email</a> READ <a class="code" href="../../dd/d1b/a00015.html#a6a8e151eb9f245211596b967de72dd14">email</a> WRITE <a class="code" href="../../dd/d1b/a00015.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a> RESET <a class="code" href="../../dd/d1b/a00015.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a>);
+<a name="l00010"></a><a class="code" href="../../dd/d1b/a00015.html#a6ea208d0ddd905ddac70d39e00228250">00010</a>         Q_PROPERTY(QString <a class="code" href="../../dd/d1b/a00015.html#a8fa47f6f18663de634e52a5f1dfbd9bd">phone</a> READ <a class="code" href="../../dd/d1b/a00015.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a> WRITE <a class="code" href="../../dd/d1b/a00015.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber</a> RESET <a class="code" href="../../dd/d1b/a00015.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a>);
+<a name="l00011"></a>00011         Q_PROPERTY(<span class="keywordtype">boolean</span> <a class="code" href="../../dd/d1b/a00015.html#a6ea208d0ddd905ddac70d39e00228250">currentBooking</a> READ <a class="code" href="../../dd/d1b/a00015.html#a52f7dc4f6d6933a6f800a462bcd9dd45">isCurrentBooking</a> WRITE <a class="code" href="../../dd/d1b/a00015.html#a98564e61c3c2c788a54081a1b0e9f50a">becomesCurrentBooking</a>
+<a name="l00012"></a>00012                 
+<a name="l00013"></a>00013 <span class="keyword">public</span>:
+<a name="l00014"></a>00014     <a class="code" href="../../dd/d1b/a00015.html">Booking</a>(QString <a class="code" href="../../dd/d1b/a00015.html#abc29e461e01cc0c712944f8f47f91331">name</a>, QString <a class="code" href="../../dd/d1b/a00015.html#a6a8e151eb9f245211596b967de72dd14">email</a> = <span class="stringliteral">&quot;&quot;</span>, QString <a class="code" href="../../dd/d1b/a00015.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a> = <span class="stringliteral">&quot;&quot;</span>, <span class="keywordtype">boolean</span> <a class="code" href="../../dd/d1b/a00015.html#a52f7dc4f6d6933a6f800a462bcd9dd45">isCurrentBooking</a> = <span class="keyword">true</span>, QObject *parent = 0);
+<a name="l00015"></a>00015         
+<a name="l00016"></a>00016         <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a>(QString <a class="code" href="../../dd/d1b/a00015.html#a6a8e151eb9f245211596b967de72dd14">email</a>);
+<a name="l00017"></a>00017         QString <a class="code" href="../../dd/d1b/a00015.html#a6a8e151eb9f245211596b967de72dd14">email</a>() <span class="keyword">const</span>;
+<a name="l00018"></a>00018         <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a>();
+<a name="l00019"></a><a class="code" href="../../dd/d1b/a00015.html#a9692f6367ba08755c9ee9fc926ea0a86">00019</a>         QString name <span class="keyword">const</span>;
+<a name="l00020"></a>00020         <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber</a>(QString <a class="code" href="../../dd/d1b/a00015.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>);
+<a name="l00021"></a>00021         QString <a class="code" href="../../dd/d1b/a00015.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>() <span class="keyword">const</span>;
+<a name="l00022"></a>00022         <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a>();
+<a name="l00023"></a>00023         <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a98564e61c3c2c788a54081a1b0e9f50a">becomesCurrentBooking</a>(<span class="keywordtype">boolean</span> <a class="code" href="../../dd/d1b/a00015.html#a52f7dc4f6d6933a6f800a462bcd9dd45">isCurrentBooking</a>);
+<a name="l00024"></a>00024         <span class="keywordtype">boolean</span> <a class="code" href="../../dd/d1b/a00015.html#a52f7dc4f6d6933a6f800a462bcd9dd45">isCurrentBooking</a>() <span class="keyword">const</span>;
+<a name="l00025"></a>00025                 
+<a name="l00026"></a>00026         <span class="keyword">private</span>:
+<a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(QString name);
+<a name="l00028"></a><a class="code" href="../../dd/d1b/a00015.html#abbecd8a5609bb8dde66e088553fdffab">00028</a>         QString <a class="code" href="../../dd/d1b/a00015.html#abbecd8a5609bb8dde66e088553fdffab">m_email</a>;
+<a name="l00029"></a><a class="code" href="../../dd/d1b/a00015.html#aec1b16830cfc165031fefacc72226999">00029</a>         QString <a class="code" href="../../dd/d1b/a00015.html#aec1b16830cfc165031fefacc72226999">m_phone</a>;
+<a name="l00030"></a><a class="code" href="../../dd/d1b/a00015.html#afee43417cb99fa21e5a1a665d1a096c7">00030</a>         <span class="keywordtype">boolean</span> <a class="code" href="../../dd/d1b/a00015.html#afee43417cb99fa21e5a1a665d1a096c7">m_current</a>;
+<a name="l00031"></a><a class="code" href="../../dd/d1b/a00015.html#aab4578f53a46cee4b24f9a555eb552de">00031</a>         QString <a class="code" href="../../dd/d1b/a00015.html#aab4578f53a46cee4b24f9a555eb552de">m_name</a>;
+<a name="l00032"></a>00032 };
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="preprocessor">#endif // BOOKING_H</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

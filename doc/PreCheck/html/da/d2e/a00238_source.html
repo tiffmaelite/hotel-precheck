@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/fixed_grid_layout.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">fixed_grid_layout.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d2e/a00238.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef FIXEDGRIDLAYOUT_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define FIXEDGRIDLAYOUT_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtWidgets/QGridLayout&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QPoint&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00012"></a><a class="code" href="../../d3/de7/a00039.html">00012</a> <span class="keyword">class </span><a class="code" href="../../d3/de7/a00039.html">FixedGridLayout</a> : <span class="keyword">public</span> QGridLayout
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014     Q_OBJECT
+<a name="l00015"></a>00015 <span class="keyword">public</span>:
+<a name="l00016"></a>00016 
+<a name="l00024"></a>00024     <a class="code" href="../../d3/de7/a00039.html#a8bfead9fcb3f9b89092f66dfe1abf7bc">FixedGridLayout</a>(<span class="keywordtype">int</span> rows,<span class="keywordtype">int</span> columns, QWidget *parent = 0);
+<a name="l00025"></a>00025 
+<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7">addWidget</a>(QWidget *widget);
+<a name="l00032"></a>00032 
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7">addWidget</a>(QWidget *widget, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> rowSpan, <span class="keywordtype">int</span> columnSpan, Qt::Alignment align);
+<a name="l00044"></a>00044 
+<a name="l00051"></a>00051     <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a">insertWidget</a>(<span class="keywordtype">int</span> index, QWidget *widget);
+<a name="l00052"></a>00052 
+<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a0458f615577eedc366ba25298737b826">addLayout</a>(QLayout *layout);
+<a name="l00059"></a>00059 
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a0458f615577eedc366ba25298737b826">addLayout</a>(QLayout *layout, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> rowSpan, <span class="keywordtype">int</span> columnSpan, Qt::Alignment align);
+<a name="l00071"></a>00071 
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a2afddc3b5be2435a3f1f81a40956597a">insertLayout</a>(<span class="keywordtype">int</span> index, QLayout *layout);
+<a name="l00079"></a>00079 
+<a name="l00085"></a>00085     <span class="keywordtype">int</span> <a class="code" href="../../d3/de7/a00039.html#a223cd2438bf5d255137bab033cbc2a0c">getRowsCount</a>();
+<a name="l00086"></a>00086 
+<a name="l00092"></a>00092     <span class="keywordtype">int</span> <a class="code" href="../../d3/de7/a00039.html#a86eb57a359678346a9009bb8683a14d6">getColumnsCount</a>();
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 signals:
+<a name="l00095"></a>00095     
+<a name="l00096"></a>00096 <span class="keyword">public</span> slots:
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keyword">protected</span>:
+<a name="l00099"></a><a class="code" href="../../d3/de7/a00039.html#a8f276c3de4e13200d6b66642f6c50ec4">00099</a>     <span class="keywordtype">int</span> <a class="code" href="../../d3/de7/a00039.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>; 
+<a name="l00100"></a><a class="code" href="../../d3/de7/a00039.html#a195df85d35bf6c6d89014cd7ae739b67">00100</a>     <span class="keywordtype">int</span> <a class="code" href="../../d3/de7/a00039.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>; 
+<a name="l00101"></a><a class="code" href="../../d3/de7/a00039.html#a789bfe83cfe007cc723e4fd58bb6b112">00101</a>     <span class="keywordtype">int</span> <a class="code" href="../../d3/de7/a00039.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>; 
+<a name="l00102"></a><a class="code" href="../../d3/de7/a00039.html#a39f51540474a958458f646d347094c8b">00102</a>     <span class="keywordtype">int</span> <a class="code" href="../../d3/de7/a00039.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a>; 
+<a name="l00104"></a>00104 <span class="keyword">private</span>:
+<a name="l00105"></a>00105 
+<a name="l00113"></a>00113     QPoint* <a class="code" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(<span class="keywordtype">int</span> col, <span class="keywordtype">int</span> row);
+<a name="l00114"></a>00114 };
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="preprocessor">#endif // FIXEDGRIDLAYOUT_H</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/SqlDataModel.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">SqlDataModel.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/db1/a00197.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d7/da0/a00198.html">SqlDataModel.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QDir&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">database_manager.h</a>&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/dd7/a00248.html">views/message_manager.h</a>&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QtSql/QSqlDriver&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a><a class="code" href="../../df/d13/a00085.html#aa0c978e535defccb2574edf8704a2508">00008</a> <a class="code" href="../../df/d13/a00085.html#aa0c978e535defccb2574edf8704a2508">SqlDataModel::SqlDataModel</a>(QObject *parent) :
+<a name="l00009"></a>00009     QAbstractListModel(parent)
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011 }
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="../../df/d13/a00085.html#ad1da2096edce65195e18fe76edaf4c78">00013</a> <span class="keywordtype">int</span> <a class="code" href="../../df/d13/a00085.html#ad1da2096edce65195e18fe76edaf4c78">SqlDataModel::rowCount</a>(<span class="keyword">const</span> QModelIndex &amp;parent)<span class="keyword"> const</span>
+<a name="l00014"></a>00014 <span class="keyword"></span>{
+<a name="l00015"></a>00015     <span class="keywordflow">return</span> <a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>.count();
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="../../df/d13/a00085.html#adcd3df47ac02021a2c18b8a921b26b54">00019</a> QVariant <a class="code" href="../../df/d13/a00085.html#adcd3df47ac02021a2c18b8a921b26b54">SqlDataModel::data</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keywordtype">int</span> role)<span class="keyword"> const</span>
+<a name="l00020"></a>00020 <span class="keyword"></span>{
+<a name="l00021"></a>00021     <span class="keywordflow">if</span> (this-&gt;<a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>.count() &gt; 0)
+<a name="l00022"></a>00022     {
+<a name="l00023"></a>00023         <span class="keywordtype">int</span> row = index.row();
+<a name="l00024"></a>00024         <span class="keywordtype">int</span> column = this-&gt;<a class="code" href="../../df/d13/a00085.html#aadef206466521b2b3201e5e8570cba7f">fieldFromRole</a>(role);
+<a name="l00025"></a>00025         <span class="keywordtype">int</span> nbCols = this-&gt;<a class="code" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a>.count();
+<a name="l00026"></a>00026         <span class="keywordflow">if</span>(column &gt;= 0 &amp;&amp; column &lt; nbCols) {
+<a name="l00027"></a>00027             <span class="comment">//MessageManager::infoMessage(QString(&quot;row : %1, column : %2, field: %3 (%4), value : %5\n&quot;).arg(index.row()).arg(index.column()).arg(column).arg(QString(this-&gt;mDataFields.at(column)-&gt;role())).arg(this-&gt;mRecords.at(row).value(column).toString()));</span>
+<a name="l00028"></a>00028             <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>.at(row).value(column);
+<a name="l00029"></a>00029         } <span class="keywordflow">else</span>{
+<a name="l00030"></a>00030             <span class="comment">//MessageManager::errorMessage(QString(&quot;rien à retourner pour %1x%2x%3 (%4&gt;=%5)&quot;).arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));</span>
+<a name="l00031"></a>00031         }
+<a name="l00032"></a>00032     }
+<a name="l00033"></a>00033     <span class="comment">//MessageManager::errorMessage(&quot;modèle vide&quot;);</span>
+<a name="l00034"></a>00034     <span class="keywordflow">return</span> QVariant();
+<a name="l00035"></a>00035 }
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">00037</a> <span class="keywordtype">bool</span> <a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">SqlDataModel::setHeaderData</a>(<span class="keywordtype">int</span> section, Qt::Orientation orientation, <span class="keyword">const</span> QVariant &amp;value, <span class="keywordtype">int</span> role)
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039     Q_UNUSED(role);
+<a name="l00040"></a>00040     <span class="keywordflow">if</span> (orientation == Qt::Horizontal)
+<a name="l00041"></a>00041     {
+<a name="l00042"></a>00042         this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.at(section)-&gt;setText(value.toString());
+<a name="l00043"></a>00043         <span class="keywordflow">return</span> (this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.at(section)-&gt;text() == value.toString());
+<a name="l00044"></a>00044     }
+<a name="l00045"></a>00045     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a><a class="code" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1">00048</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1">SqlDataModel::setQuery</a>(<span class="keyword">const</span> QString &amp;query)
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050     <span class="keywordflow">try</span>
+<a name="l00051"></a>00051     {
+<a name="l00052"></a>00052         QString cleanQuery = query.simplified();<span class="comment">//.toUpper();</span>
+<a name="l00053"></a>00053         <span class="comment">//MessageManager::infoMessage(&quot;REQUÊTE : &quot; + cleanQuery);</span>
+<a name="l00054"></a>00054         beginResetModel();
+<a name="l00055"></a>00055         <a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>.clear();
+<a name="l00056"></a>00056         endResetModel();
+<a name="l00057"></a>00057         <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a> = QSqlQuery(<a class="code" href="../../de/d21/a00006.html#af983af38322fdddc556587b9d5d1986f">AppDatabase::getInstance</a>()-&gt;getDbConnection());
+<a name="l00058"></a>00058         <span class="keywordflow">if</span> (<a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.exec(cleanQuery) &amp;&amp; (!<a class="code" href="../../de/d21/a00006.html#af983af38322fdddc556587b9d5d1986f">AppDatabase::getInstance</a>()-&gt;<a class="code" href="../../de/d21/a00006.html#ab25f19e5faf4b7c3c5717efba032d01f">getDbConnection</a>().driver()-&gt;hasFeature(QSqlDriver::QuerySize) || <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.size() &gt; 0))
+<a name="l00059"></a>00059         {
+<a name="l00060"></a>00060             <span class="keywordtype">bool</span> next = <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.next();
+<a name="l00061"></a>00061             <span class="keywordflow">while</span> (next &amp;&amp; <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.isActive())
+<a name="l00062"></a>00062             {
+<a name="l00063"></a>00063                 QSqlRecord record = <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.record();
+<a name="l00064"></a>00064                 <span class="comment">/*qDebug() &lt;&lt; &quot;\n\n&quot;;</span>
+<a name="l00065"></a>00065 <span class="comment">                MessageManager::infoMessage(&quot;Nouvelle ligne récupérée&quot;);</span>
+<a name="l00066"></a>00066 <span class="comment">                MessageManager::infoMessage(QString(&quot;%1 champs&quot;).arg(record.count()));*/</span>
+<a name="l00067"></a>00067                 <span class="keywordflow">if</span> ((!record.isEmpty()) &amp;&amp; (record.count() &gt; 0))
+<a name="l00068"></a>00068                 {
+<a name="l00069"></a>00069                     beginInsertRows(QModelIndex(), 0, 0);
+<a name="l00070"></a>00070                     <a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>.append(record);
+<a name="l00071"></a>00071                     <span class="comment">/*int nbFields = record.count();</span>
+<a name="l00072"></a>00072 <span class="comment">                    for (int i = 0; i &lt; nbFields; i++)</span>
+<a name="l00073"></a>00073 <span class="comment">                    {</span>
+<a name="l00074"></a>00074 <span class="comment">                        MessageManager::infoMessage(QString(&quot;%1 : %2&quot;).arg(record.fieldName(i)).arg(record.value(i).toString()));</span>
+<a name="l00075"></a>00075 <span class="comment">                    }*/</span>
+<a name="l00076"></a>00076                     <span class="keywordflow">if</span> (<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.empty())
+<a name="l00077"></a>00077                     {
+<a name="l00078"></a>00078                         <span class="keywordtype">int</span> nbFields = record.count();
+<a name="l00079"></a>00079                         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nbFields; i++)
+<a name="l00080"></a>00080                         {
+<a name="l00081"></a>00081                             <a class="code" href="../../df/d5d/a00084.html">SqlDataFields</a> *<a class="code" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">field</a> = <span class="keyword">new</span> <a class="code" href="../../df/d5d/a00084.html">SqlDataFields</a>();
+<a name="l00082"></a>00082                             field-&gt;<a class="code" href="../../df/d5d/a00084.html#a3a722678a495ef02e91ed32a9dec4268">setName</a>(record.fieldName(i));
+<a name="l00083"></a>00083                             <span class="comment">//MessageManager::infoMessage(QString(&quot;nouveau champ (le n°%1): %2&quot;).arg(i).arg(field-&gt;name()));</span>
+<a name="l00084"></a>00084                             <a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.append(field);
+<a name="l00085"></a>00085                         }
+<a name="l00086"></a>00086                         this-&gt;<a class="code" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a>();
+<a name="l00087"></a>00087                         emit <a class="code" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a>();
+<a name="l00088"></a>00088                     }
+<a name="l00089"></a>00089                     endInsertRows();
+<a name="l00090"></a>00090                 }
+<a name="l00091"></a>00091                 next = <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.next();
+<a name="l00092"></a>00092             }
+<a name="l00093"></a>00093         }
+<a name="l00094"></a>00094     }
+<a name="l00095"></a>00095     <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e)
+<a name="l00096"></a>00096     {
+<a name="l00097"></a>00097         <a class="code" href="../../d4/dca/a00048.html#ad68efa6d4d43df08d8d4e39ca26a22e2">MessageManager::errorMessage</a>(e.what(), <span class="stringliteral">&quot;exception&quot;</span>);
+<a name="l00098"></a>00098         <span class="keywordflow">if</span> (this-&gt;<a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a>().isEmpty())
+<a name="l00099"></a>00099         {
+<a name="l00100"></a>00100             <a class="code" href="../../d4/dca/a00048.html#ad68efa6d4d43df08d8d4e39ca26a22e2">MessageManager::errorMessage</a>(this-&gt;<a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a>(), <span class="stringliteral">&quot;erreur SQL&quot;</span>);
+<a name="l00101"></a>00101         }
+<a name="l00102"></a>00102     }
+<a name="l00103"></a>00103     <span class="keywordflow">if</span> (this-&gt;<a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a>().<a class="code" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">isEmpty</a>())
+<a name="l00104"></a>00104     {
+<a name="l00105"></a>00105         <a class="code" href="../../d4/dca/a00048.html#ad68efa6d4d43df08d8d4e39ca26a22e2">MessageManager::errorMessage</a>(this-&gt;<a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a>(), <span class="stringliteral">&quot;erreur SQL&quot;</span>);
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 }
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00110"></a><a class="code" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">00110</a> <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">SqlDataModel::query</a>()
+<a name="l00111"></a>00111 {
+<a name="l00112"></a>00112     <span class="keywordflow">return</span> <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.lastQuery();
+<a name="l00113"></a>00113 }
+<a name="l00114"></a>00114 
+<a name="l00115"></a><a class="code" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">00115</a> <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">SqlDataModel::tableName</a>()
+<a name="l00116"></a>00116 {
+<a name="l00117"></a>00117     <span class="keywordflow">return</span> <a class="code" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a>;
+<a name="l00118"></a>00118 }
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">SqlDataModel::filter</a>()
+<a name="l00121"></a>00121 {
+<a name="l00122"></a>00122     <span class="keywordflow">return</span> <a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a>;
+<a name="l00123"></a>00123 }
+<a name="l00124"></a>00124 
+<a name="l00125"></a><a class="code" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339">00125</a> <span class="keyword">const</span> QString <a class="code" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339">SqlDataModel::fieldsList</a>()
+<a name="l00126"></a>00126 {
+<a name="l00127"></a>00127     <span class="keywordflow">if</span> (<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.empty())
+<a name="l00128"></a>00128     {
+<a name="l00129"></a>00129         <span class="keywordflow">return</span> <span class="stringliteral">&quot;*&quot;</span>;
+<a name="l00130"></a>00130     }
+<a name="l00131"></a>00131     <span class="keywordflow">else</span>
+<a name="l00132"></a>00132     {
+<a name="l00133"></a>00133         QString fields = this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.at(0)-&gt;name();
+<a name="l00134"></a>00134         <span class="keywordtype">int</span> c = <a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.count();
+<a name="l00135"></a>00135         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; c; i++)
+<a name="l00136"></a>00136         {
+<a name="l00137"></a>00137             fields += <span class="stringliteral">&quot;, &quot;</span> + this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.at(i)-&gt;name();
+<a name="l00138"></a>00138         }
+<a name="l00139"></a>00139         <span class="keywordflow">return</span> QString(<span class="stringliteral">&quot; %1 &quot;</span>).arg(fields);
+<a name="l00140"></a>00140     }
+<a name="l00141"></a>00141 }
+<a name="l00142"></a>00142 
+<a name="l00143"></a><a class="code" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">00143</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">SqlDataModel::setTable</a>(<span class="keyword">const</span> QString &amp;tableName)
+<a name="l00144"></a>00144 {
+<a name="l00145"></a>00145     <span class="keywordflow">if</span> (<a class="code" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a>.toUpper() != tableName.toUpper() &amp;&amp; tableName != <span class="stringliteral">&quot;&quot;</span>)
+<a name="l00146"></a>00146     {
+<a name="l00147"></a>00147         <a class="code" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a> = tableName.toUpper();
+<a name="l00148"></a>00148         emit <a class="code" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">tableChanged</a>();
+<a name="l00149"></a>00149     }
+<a name="l00150"></a>00150 }
+<a name="l00151"></a>00151 
+<a name="l00152"></a><a class="code" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">00152</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">SqlDataModel::setFilterCondition</a>(<span class="keyword">const</span> QString &amp;filter)
+<a name="l00153"></a>00153 {
+<a name="l00154"></a>00154     <span class="keywordflow">if</span> (<a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a> != filter &amp;&amp; filter != <span class="stringliteral">&quot;&quot;</span>)
+<a name="l00155"></a>00155     {
+<a name="l00156"></a>00156         <a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a> = <a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a>;
+<a name="l00157"></a>00157         emit <a class="code" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a>();
+<a name="l00158"></a>00158     }
+<a name="l00159"></a>00159 }
+<a name="l00160"></a>00160 
+<a name="l00161"></a><a class="code" href="../../df/d13/a00085.html#a838891af34942e371bf7219990f6622f">00161</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a838891af34942e371bf7219990f6622f">SqlDataModel::resetFilterCondition</a>()
+<a name="l00162"></a>00162 {
+<a name="l00163"></a>00163     <a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a> = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00164"></a>00164     emit <a class="code" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a>();
+<a name="l00165"></a>00165 }
+<a name="l00166"></a>00166 
+<a name="l00167"></a><a class="code" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6">00167</a> <span class="keywordtype">bool</span> <a class="code" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6">SqlDataModel::fetch</a>(QString tableName, QString filter, QString sort, QStringList fieldsList)
+<a name="l00168"></a>00168 {
+<a name="l00169"></a>00169     this-&gt;<a class="code" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">setFields</a>(fieldsList);
+<a name="l00170"></a>00170     this-&gt;<a class="code" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a>(tableName);
+<a name="l00171"></a>00171     this-&gt;<a class="code" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">setFilterCondition</a>(filter);
+<a name="l00172"></a>00172     this-&gt;<a class="code" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0">setOrderBy</a>(sort);
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174     QString condition = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00175"></a>00175     <span class="keywordflow">if</span> (this-&gt;<a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a> != <span class="stringliteral">&quot;&quot;</span>)
+<a name="l00176"></a>00176     {
+<a name="l00177"></a>00177         condition = <span class="stringliteral">&quot; WHERE &quot;</span> + this-&gt;<a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a>;
+<a name="l00178"></a>00178     }
+<a name="l00179"></a>00179     QString order = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00180"></a>00180     <span class="keywordflow">if</span> (this-&gt;<a class="code" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a> != <span class="stringliteral">&quot;&quot;</span>)
+<a name="l00181"></a>00181     {
+<a name="l00182"></a>00182         order = <span class="stringliteral">&quot; ORDER BY &quot;</span> + this-&gt;<a class="code" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a>;
+<a name="l00183"></a>00183     }
+<a name="l00184"></a>00184     QString f = this-&gt;<a class="code" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339">fieldsList</a>();
+<a name="l00185"></a>00185     this-&gt;<a class="code" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1">setQuery</a>(QString(<span class="stringliteral">&quot;SELECT %1 FROM %2 %3 %4&quot;</span>).arg(f).arg(<a class="code" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a>).arg(condition).arg(order));
+<a name="l00186"></a>00186     <span class="keywordflow">return</span> (!this-&gt;<a class="code" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">isEmpty</a>());
+<a name="l00187"></a>00187 }
+<a name="l00188"></a>00188 
+<a name="l00189"></a><a class="code" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">00189</a> <a class="code" href="../../df/d5d/a00084.html">SqlDataFields</a> *<a class="code" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">SqlDataModel::field</a>(<span class="keywordtype">int</span> i)
+<a name="l00190"></a>00190 {
+<a name="l00191"></a>00191     i = qMin(i, this-&gt;<a class="code" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5">fieldsCount</a>()-1);
+<a name="l00192"></a>00192     i = qMax(i, 0);
+<a name="l00193"></a>00193     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.at(i);
+<a name="l00194"></a>00194 }
+<a name="l00195"></a>00195 
+<a name="l00196"></a><a class="code" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">00196</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">SqlDataModel::setFields</a>(QStringList fields)
+<a name="l00197"></a>00197 {
+<a name="l00198"></a>00198     fields.removeDuplicates();
+<a name="l00199"></a>00199     <span class="keywordtype">int</span> nbFields = fields.count();
+<a name="l00200"></a>00200     <span class="keywordflow">if</span> (nbFields &gt; 0)
+<a name="l00201"></a>00201     {
+<a name="l00202"></a>00202         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nbFields; i++)
+<a name="l00203"></a>00203         {
+<a name="l00204"></a>00204             <a class="code" href="../../df/d5d/a00084.html">SqlDataFields</a> *<a class="code" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">field</a> = <span class="keyword">new</span> <a class="code" href="../../df/d5d/a00084.html">SqlDataFields</a>();
+<a name="l00205"></a>00205             field-&gt;<a class="code" href="../../df/d5d/a00084.html#a3a722678a495ef02e91ed32a9dec4268">setName</a>(fields.at(i));
+<a name="l00206"></a>00206             <a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.append(field);
+<a name="l00207"></a>00207         }
+<a name="l00208"></a>00208         this-&gt;<a class="code" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a>();
+<a name="l00209"></a>00209         emit <a class="code" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a>();
+<a name="l00210"></a>00210     }
+<a name="l00211"></a>00211 }
+<a name="l00212"></a>00212 
+<a name="l00213"></a><a class="code" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05">00213</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05">SqlDataModel::resetFieldsToAll</a>()
+<a name="l00214"></a>00214 {
+<a name="l00215"></a>00215     <a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.clear();
+<a name="l00216"></a>00216     this-&gt;<a class="code" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a>();
+<a name="l00217"></a>00217     emit <a class="code" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a>();
+<a name="l00218"></a>00218 }
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220 <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">SqlDataModel::lastError</a>()
+<a name="l00221"></a>00221 {
+<a name="l00222"></a>00222     QSqlError error = <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>.lastError();
+<a name="l00223"></a>00223     <span class="keywordflow">if</span> (error.isValid() &amp;&amp; !error.text().isEmpty())
+<a name="l00224"></a>00224     {
+<a name="l00225"></a>00225         emit <a class="code" href="../../df/d13/a00085.html#a17e14c26f2f2449f48f89cea8c992cb3">lastErrorChanged</a>();
+<a name="l00226"></a>00226         <span class="keywordflow">return</span> error.text();
+<a name="l00227"></a>00227     }
+<a name="l00228"></a>00228     <span class="keywordflow">else</span>
+<a name="l00229"></a>00229     {
+<a name="l00230"></a>00230         <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00231"></a>00231     }
+<a name="l00232"></a>00232 }
+<a name="l00233"></a>00233 
+<a name="l00234"></a>00234 
+<a name="l00235"></a><a class="code" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">00235</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">SqlDataModel::applyRoles</a>()
+<a name="l00236"></a>00236 {
+<a name="l00237"></a>00237     this-&gt;<a class="code" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a>.clear();
+<a name="l00238"></a>00238     <span class="keywordtype">int</span> nbFields = this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.count();
+<a name="l00239"></a>00239     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nbFields; i++)
+<a name="l00240"></a>00240     {
+<a name="l00241"></a>00241         <span class="comment">//MessageManager::infoMessage(QString(&quot;nouveau rôle : %1&quot;).arg(QString(this-&gt;mDataFields.at(i)-&gt;role())));</span>
+<a name="l00242"></a>00242         this-&gt;<a class="code" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a>.insert(this-&gt;<a class="code" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b">roleForField</a>(i), this-&gt;<a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.at(i)-&gt;role());
+<a name="l00243"></a>00243     }
+<a name="l00244"></a>00244     emit <a class="code" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>();
+<a name="l00245"></a>00245 }
+<a name="l00246"></a>00246 
+<a name="l00247"></a>00247 
+<a name="l00248"></a><a class="code" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5">00248</a> <span class="keywordtype">int</span> <a class="code" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5">SqlDataModel::fieldsCount</a>()
+<a name="l00249"></a>00249 {
+<a name="l00250"></a>00250     <span class="keywordflow">return</span> <a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>.count();
+<a name="l00251"></a>00251 }
+<a name="l00252"></a>00252 
+<a name="l00253"></a><a class="code" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0">00253</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0">SqlDataModel::setOrderBy</a>(QString sort)
+<a name="l00254"></a>00254 {
+<a name="l00255"></a>00255     this-&gt;<a class="code" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a> = sort;
+<a name="l00256"></a>00256 }
+<a name="l00257"></a>00257 
+<a name="l00258"></a><a class="code" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">00258</a> <span class="keywordtype">bool</span> <a class="code" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">SqlDataModel::isEmpty</a>()
+<a name="l00259"></a>00259 {
+<a name="l00260"></a>00260     <span class="keywordflow">return</span> <a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>.empty();
+<a name="l00261"></a>00261 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

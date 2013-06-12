@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/checkablesortfilterproxymodel.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">checkablesortfilterproxymodel.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/d61/a00100.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/a00101.html">checkablesortfilterproxymodel.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QtSql/QSqlRecord&gt;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="../../dd/d1b/a00015_a788bde29126115aca087c9a3c0d9a502.html#a788bde29126115aca087c9a3c0d9a502">00004</a> <a class="code" href="../../dd/d1b/a00015_a3e05388f960f8e0f55266d20a4833969.html#a3e05388f960f8e0f55266d20a4833969">CheckableSortFilterProxyModel::CheckableSortFilterProxyModel</a>(QString tableName, QString filter, QObject *parent) :
+<a name="l00005"></a>00005     QSortFilterProxyModel(parent)
+<a name="l00006"></a>00006 {
+<a name="l00007"></a>00007     this-&gt;<a class="code" href="../../dd/d1b/a00015_ab0ad980d8b9d87954e712fc096504226.html#ab0ad980d8b9d87954e712fc096504226">m_model</a> = <span class="keyword">new</span> <a class="code" href="../../d3/dea/a00046.html">QQuickRelationalTableModel</a>(tableName, filter, parent);
+<a name="l00008"></a>00008 }
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <a class="code" href="../../d3/dea/a00046.html">QQuickRelationalTableModel</a> *<a class="code" href="../../dd/d1b/a00015_a74963b17d0a476311543d09938289d5d.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel::model</a>()<span class="keyword"> const</span>
+<a name="l00011"></a>00011 <span class="keyword"></span>{
+<a name="l00012"></a>00012     <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015_ab0ad980d8b9d87954e712fc096504226.html#ab0ad980d8b9d87954e712fc096504226">m_model</a>;
+<a name="l00013"></a>00013 }
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="../../dd/d1b/a00015_a532a4514a8f22e75a1d75c58c2ed2ab0.html#a532a4514a8f22e75a1d75c58c2ed2ab0">00015</a> <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a532a4514a8f22e75a1d75c58c2ed2ab0.html#a532a4514a8f22e75a1d75c58c2ed2ab0">CheckableSortFilterProxyModel::setModel</a>(<a class="code" href="../../d3/dea/a00046.html">QQuickRelationalTableModel</a> *m)
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     <a class="code" href="../../dd/d1b/a00015_ab0ad980d8b9d87954e712fc096504226.html#ab0ad980d8b9d87954e712fc096504226">m_model</a> = m;
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="../../dd/d1b/a00015_a41d45236c37b75848f4b1667a11fb50e.html#a41d45236c37b75848f4b1667a11fb50e">00020</a> <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a41d45236c37b75848f4b1667a11fb50e.html#a41d45236c37b75848f4b1667a11fb50e">CheckableSortFilterProxyModel::validate</a>() {
+<a name="l00021"></a>00021     setSourceModel(this-&gt;<a class="code" href="../../dd/d1b/a00015_ab0ad980d8b9d87954e712fc096504226.html#ab0ad980d8b9d87954e712fc096504226">m_model</a>);
+<a name="l00022"></a>00022 }
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="../../dd/d1b/a00015_a2661f8edbe88830eb26d6a03da3a8e9c.html#a2661f8edbe88830eb26d6a03da3a8e9c">00024</a> <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a2661f8edbe88830eb26d6a03da3a8e9c.html#a2661f8edbe88830eb26d6a03da3a8e9c">CheckableSortFilterProxyModel::setParameters</a>(QList&lt;int&gt; boolCols, QList&lt;int&gt; readonlyCols, QList&lt;int&gt; passwordCols) {
+<a name="l00025"></a>00025     <a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">booleanSet</a>.clear();
+<a name="l00026"></a>00026     <a class="code" href="../../dd/d1b/a00015_adcc81a5a321388b43c759d6c6ddad9de.html#adcc81a5a321388b43c759d6c6ddad9de">readonlySet</a>.clear();
+<a name="l00027"></a>00027     <a class="code" href="../../dd/d1b/a00015_a163ccd466fd195acd490f65da2be7906.html#a163ccd466fd195acd490f65da2be7906">passwordSet</a>.clear();
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029     <span class="keywordflow">if</span> (!boolCols.isEmpty())        {
+<a name="l00030"></a>00030         <span class="keywordflow">foreach</span>(<span class="keywordtype">int</span> column , boolCols)     {
+<a name="l00031"></a>00031             <a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">booleanSet</a>.append(column);
+<a name="l00032"></a>00032         }
+<a name="l00033"></a>00033     }
+<a name="l00034"></a>00034     <span class="keywordflow">if</span> (!readonlyCols.isEmpty())    {
+<a name="l00035"></a>00035         <span class="keywordflow">foreach</span>(<span class="keywordtype">int</span> column , readonlyCols) {
+<a name="l00036"></a>00036             <a class="code" href="../../dd/d1b/a00015_adcc81a5a321388b43c759d6c6ddad9de.html#adcc81a5a321388b43c759d6c6ddad9de">readonlySet</a>.append(column);
+<a name="l00037"></a>00037         }
+<a name="l00038"></a>00038     }
+<a name="l00039"></a>00039     <span class="keywordflow">if</span> (!passwordCols.isEmpty())    {
+<a name="l00040"></a>00040         <span class="keywordflow">foreach</span>(<span class="keywordtype">int</span> column , passwordCols) {
+<a name="l00041"></a>00041             <a class="code" href="../../dd/d1b/a00015_a163ccd466fd195acd490f65da2be7906.html#a163ccd466fd195acd490f65da2be7906">passwordSet</a>.append(column);
+<a name="l00042"></a>00042         }
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00048"></a><a class="code" href="../../dd/d1b/a00015_a118640e181e742e46f634399c12a0bd7.html#a118640e181e742e46f634399c12a0bd7">00048</a> <span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015_a118640e181e742e46f634399c12a0bd7.html#a118640e181e742e46f634399c12a0bd7">CheckableSortFilterProxyModel::setNullAndNotNullColumns</a>(QList&lt;int&gt; nullCols, QList&lt;int&gt; notNullCols) {
+<a name="l00049"></a>00049     <a class="code" href="../../dd/d1b/a00015_ad1e63288d6a0b9e03ad7f442f4f084f1.html#ad1e63288d6a0b9e03ad7f442f4f084f1">notNullSet</a>.clear();
+<a name="l00050"></a>00050     <a class="code" href="../../dd/d1b/a00015_a561091d367e1fc75d61cb51cf3e940b8.html#a561091d367e1fc75d61cb51cf3e940b8">nullSet</a>.clear();
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052     <span class="keywordflow">if</span> (!notNullCols.isEmpty()) {
+<a name="l00053"></a>00053         <span class="comment">// this only works when our model is a QSqlQueryModel subclass</span>
+<a name="l00054"></a>00054         <span class="keywordflow">if</span> (sourceModel()-&gt;inherits(<span class="stringliteral">&quot;QSqlQueryModel&quot;</span>)) {
+<a name="l00055"></a>00055             <span class="keywordflow">foreach</span>(<span class="keywordtype">int</span> column , notNullCols) { <a class="code" href="../../dd/d1b/a00015_ad1e63288d6a0b9e03ad7f442f4f084f1.html#ad1e63288d6a0b9e03ad7f442f4f084f1">notNullSet</a>.append(column); }
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057         <a class="code" href="../../dd/d1b/a00015_a7af369522c555831a4c58e4d8f044e4e.html#a7af369522c555831a4c58e4d8f044e4e">invalidateFilter</a>();
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <span class="keywordflow">if</span> (!nullCols.isEmpty()) {
+<a name="l00061"></a>00061         <span class="comment">// this only works when our model is a QSqlQueryModel subclass</span>
+<a name="l00062"></a>00062         <span class="keywordflow">if</span> (sourceModel()-&gt;inherits(<span class="stringliteral">&quot;QSqlQueryModel&quot;</span>)) {
+<a name="l00063"></a>00063             <span class="keywordflow">foreach</span>(<span class="keywordtype">int</span> column , nullCols) { <a class="code" href="../../dd/d1b/a00015_a561091d367e1fc75d61cb51cf3e940b8.html#a561091d367e1fc75d61cb51cf3e940b8">nullSet</a>.append(column); }
+<a name="l00064"></a>00064         }
+<a name="l00065"></a>00065         <a class="code" href="../../dd/d1b/a00015_a7af369522c555831a4c58e4d8f044e4e.html#a7af369522c555831a4c58e4d8f044e4e">invalidateFilter</a>();
+<a name="l00066"></a>00066     }
+<a name="l00067"></a>00067 }
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a79a77bc288f69388a4bcdd816c2c5f52.html#a79a77bc288f69388a4bcdd816c2c5f52">CheckableSortFilterProxyModel::filterAcceptsRow</a> ( <span class="keywordtype">int</span> source_row, <span class="keyword">const</span> QModelIndex &amp; source_parent )<span class="keyword"> const </span>{
+<a name="l00070"></a>00070     Q_UNUSED(source_parent);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <span class="keywordflow">if</span> (!<a class="code" href="../../dd/d1b/a00015_ad1e63288d6a0b9e03ad7f442f4f084f1.html#ad1e63288d6a0b9e03ad7f442f4f084f1">notNullSet</a>.isEmpty()) {
+<a name="l00073"></a>00073         QSqlQueryModel *m = <span class="keyword">static_cast&lt;</span>QSqlQueryModel*<span class="keyword">&gt;</span>(sourceModel());
+<a name="l00074"></a>00074         <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> column, <a class="code" href="../../dd/d1b/a00015_ad1e63288d6a0b9e03ad7f442f4f084f1.html#ad1e63288d6a0b9e03ad7f442f4f084f1">notNullSet</a>) {
+<a name="l00075"></a>00075             <span class="keywordflow">if</span> (m-&gt;record(source_row).isNull(column)) {
+<a name="l00076"></a>00076                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00077"></a>00077             }
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081     <span class="keywordflow">if</span> (!<a class="code" href="../../dd/d1b/a00015_a561091d367e1fc75d61cb51cf3e940b8.html#a561091d367e1fc75d61cb51cf3e940b8">nullSet</a>.isEmpty()) {
+<a name="l00082"></a>00082         QSqlQueryModel *m = <span class="keyword">static_cast&lt;</span>QSqlQueryModel*<span class="keyword">&gt;</span>(sourceModel());
+<a name="l00083"></a>00083         <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> column, <a class="code" href="../../dd/d1b/a00015_a561091d367e1fc75d61cb51cf3e940b8.html#a561091d367e1fc75d61cb51cf3e940b8">nullSet</a>) {
+<a name="l00084"></a>00084             <span class="keywordflow">if</span> (!m-&gt;record(source_row).isNull(column)) {
+<a name="l00085"></a>00085                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00086"></a>00086             }
+<a name="l00087"></a>00087         }
+<a name="l00088"></a>00088     }
+<a name="l00089"></a>00089     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00090"></a>00090 }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 QVariant <a class="code" href="../../dd/d1b/a00015_a8b507f52d17d06d42aa80985017727bf.html#a8b507f52d17d06d42aa80985017727bf">CheckableSortFilterProxyModel::data</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keywordtype">int</span> role)<span class="keyword"> const </span>{
+<a name="l00094"></a>00094     <span class="keywordflow">if</span> (!index.isValid()) {
+<a name="l00095"></a>00095         <span class="keywordflow">return</span> QVariant();
+<a name="l00096"></a>00096     }
+<a name="l00097"></a>00097     <span class="keywordflow">if</span> (<a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">booleanSet</a>.contains(index.column()) &amp;&amp; (role == Qt::CheckStateRole || role == Qt::DisplayRole)) {
+<a name="l00098"></a>00098         <span class="keywordflow">if</span> (role == Qt::CheckStateRole) {
+<a name="l00099"></a>00099             <span class="keywordflow">return</span> index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
+<a name="l00100"></a>00100         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (role == Qt::DisplayRole) {
+<a name="l00101"></a>00101             <span class="keywordflow">return</span> QVariant();
+<a name="l00102"></a>00102         }
+<a name="l00103"></a>00103     }  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="../../dd/d1b/a00015_a163ccd466fd195acd490f65da2be7906.html#a163ccd466fd195acd490f65da2be7906">passwordSet</a>.contains(index.column()) &amp;&amp; (role == Qt::DisplayRole)) {
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> QVariant(<span class="stringliteral">&quot;***&quot;</span>);
+<a name="l00105"></a>00105     } <span class="keywordflow">else</span> {
+<a name="l00106"></a>00106         <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015_a8b507f52d17d06d42aa80985017727bf.html#a8b507f52d17d06d42aa80985017727bf">QSortFilterProxyModel::data</a>(index,role);
+<a name="l00107"></a>00107     }
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110     <span class="keywordflow">return</span> QVariant();
+<a name="l00111"></a>00111 }
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015_a6a386927ab6d7ed67452d94fa34df4eb.html#a6a386927ab6d7ed67452d94fa34df4eb">CheckableSortFilterProxyModel::setData</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keyword">const</span> QVariant &amp;value, <span class="keywordtype">int</span> role) {
+<a name="l00114"></a>00114     <span class="keywordflow">if</span>(!index.isValid())
+<a name="l00115"></a>00115         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117     <span class="keywordflow">if</span>(<a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">booleanSet</a>.contains(index.column()) &amp;&amp; role==Qt::CheckStateRole)
+<a name="l00118"></a>00118     {
+<a name="l00119"></a>00119         QVariant <a class="code" href="../../dd/d1b/a00015_a8b507f52d17d06d42aa80985017727bf.html#a8b507f52d17d06d42aa80985017727bf">data</a> = (value.toInt()==Qt::Checked) ? QVariant(1) : QVariant (0);
+<a name="l00120"></a>00120         <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015_a6a386927ab6d7ed67452d94fa34df4eb.html#a6a386927ab6d7ed67452d94fa34df4eb">QSortFilterProxyModel::setData</a>(index, data, Qt::EditRole);
+<a name="l00121"></a>00121     }
+<a name="l00122"></a>00122     <span class="keywordflow">else</span> {
+<a name="l00123"></a>00123         <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015_a6a386927ab6d7ed67452d94fa34df4eb.html#a6a386927ab6d7ed67452d94fa34df4eb">QSortFilterProxyModel::setData</a>(index,value,role);
+<a name="l00124"></a>00124     }
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 }
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 Qt::ItemFlags <a class="code" href="../../dd/d1b/a00015_a4cc21a105c93bf37f312e3b559f1c88d.html#a4cc21a105c93bf37f312e3b559f1c88d">CheckableSortFilterProxyModel::flags</a> ( <span class="keyword">const</span> QModelIndex &amp; index )<span class="keyword"> const </span>{
+<a name="l00129"></a>00129     <span class="keywordflow">if</span>(!index.isValid()) {
+<a name="l00130"></a>00130         <span class="keywordflow">return</span> Qt::ItemIsEnabled;
+<a name="l00131"></a>00131     }
+<a name="l00132"></a>00132     <span class="keywordflow">if</span> (<a class="code" href="../../dd/d1b/a00015_ae8e7fff36eced409130e09a773e11d5f.html#ae8e7fff36eced409130e09a773e11d5f">booleanSet</a>.contains(index.column())) {
+<a name="l00133"></a>00133         <span class="keywordflow">return</span> Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+<a name="l00134"></a>00134     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="../../dd/d1b/a00015_adcc81a5a321388b43c759d6c6ddad9de.html#adcc81a5a321388b43c759d6c6ddad9de">readonlySet</a>.contains(index.column())) {
+<a name="l00135"></a>00135         <span class="keywordflow">return</span> Qt::ItemIsSelectable;
+<a name="l00136"></a>00136     } <span class="keywordflow">else</span> {
+<a name="l00137"></a>00137         <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015_a4cc21a105c93bf37f312e3b559f1c88d.html#a4cc21a105c93bf37f312e3b559f1c88d">QSortFilterProxyModel::flags</a>(index);
+<a name="l00138"></a>00138     }
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 07:41:52 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

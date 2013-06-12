@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/qml/OutputZone_old.qml</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">OutputZone_old.qml</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d5e/a00275.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../d1/d22/a00057.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
+<a name="l00002"></a>00002 import QtQuick.Window 2.0
+<a name="l00003"></a>00003 import QtQuick.Controls 1.0
+<a name="l00004"></a>00004 import QtQuick.Controls.Styles 1.0
+<a name="l00005"></a>00005 import QtQuick.Layouts 1.0
+<a name="l00006"></a>00006 import PreCheck 1.0
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 Item {
+<a name="l00009"></a>00009     <span class="keywordtype">id</span>: output
+<a name="l00010"></a>00010     signal display(<span class="keywordtype">string</span> text)
+<a name="l00011"></a>00011     signal selected(<span class="keywordtype">string</span> selectedContent)
+<a name="l00012"></a>00012     <span class="keyword">function</span> cleanDisplay() {
+<a name="l00013"></a>00013         content.text = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00014"></a>00014     }
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016     <span class="keyword">function</span> addDisplay(text) {
+<a name="l00017"></a>00017         content.text=content.text+<span class="stringliteral">&quot;\n&quot;</span>+text;
+<a name="l00018"></a>00018     }
+<a name="l00019"></a>00019     <span class="keyword">function</span> displayCalendar(b) {
+<a name="l00020"></a>00020         cal.visible = b;
+<a name="l00021"></a>00021     }
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023     Rectangle {
+<a name="l00024"></a>00024         color: <span class="stringliteral">&quot;lightgrey&quot;</span>
+<a name="l00025"></a>00025         anchors.fill: parent
+<a name="l00026"></a>00026         ColumnLayout {
+<a name="l00027"></a>00027             Text {
+<a name="l00028"></a>00028                 <span class="keywordtype">id</span>:content
+<a name="l00029"></a>00029                 text:<span class="stringliteral">&quot;&quot;</span>
+<a name="l00030"></a>00030                 Layout.preferredHeight: content.paintedHeight+2*content.anchors.margins
+<a name="l00031"></a>00031                 Layout.fillWidth: <span class="keyword">true</span>
+<a name="l00032"></a>00032                 anchors.margins: 25
+<a name="l00033"></a>00033                 font.pointSize: 12
+<a name="l00034"></a>00034                 color: <span class="stringliteral">&quot;black&quot;</span>
+<a name="l00035"></a>00035             }
+<a name="l00036"></a>00036             <a class="code" href="../../db/db2/a00020.html">CalendarDialog</a> {
+<a name="l00037"></a>00037                 <span class="keywordtype">id</span>:cal
+<a name="l00038"></a>00038                 <span class="comment">//Layout.minimumWidth: cal.childrenRect.width</span>
+<a name="l00039"></a>00039                 <span class="comment">//Layout.minimumHeight: cal.childrenRect.height</span>
+<a name="l00040"></a>00040                 Layout.alignment: Qt.AlignHCenter
+<a name="l00041"></a>00041                 visible:<span class="keyword">false</span>
+<a name="l00042"></a>00042                 Layout.preferredHeight: 350
+<a name="l00043"></a>00043                 Layout.preferredWidth: 300
+<a name="l00044"></a>00044                 onSelected: {
+<a name="l00045"></a>00045                     output.display(cal.text+<span class="stringliteral">&quot;\n&quot;</span>);
+<a name="l00046"></a>00046                 }
+<a name="l00047"></a>00047             }
+<a name="l00048"></a>00048         }
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050     onDisplay: addDisplay(text)
+<a name="l00051"></a>00051 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

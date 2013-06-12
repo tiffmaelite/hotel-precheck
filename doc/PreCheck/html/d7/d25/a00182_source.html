@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/RestrictiveApplication.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">RestrictiveApplication.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d25/a00182.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef RESTRICTIVEAPPLICATION_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define RESTRICTIVEAPPLICATION_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00202.html">user.h</a>&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QApplication&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="../../d1/d6e/a00073.html">00006</a> <span class="keyword">class </span><a class="code" href="../../d1/d6e/a00073.html">RestrictiveApplication</a> : <span class="keyword">public</span> QObject
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     Q_OBJECT
+<a name="l00009"></a><a class="code" href="../../d1/d6e/a00073.html#aa4619738725295c53116ed1a27282fbc">00009</a>     Q_PROPERTY(<a class="code" href="../../d0/dc2/a00104.html">User</a>* <a class="code" href="../../d1/d6e/a00073.html#aa4619738725295c53116ed1a27282fbc">currentUser</a> READ <a class="code" href="../../d1/d6e/a00073.html#a3e30263eb37466f024f274f7bcc478ac">user</a> NOTIFY <a class="code" href="../../d1/d6e/a00073.html#af19f10e317ef10b279047604f42d68e2">userChanged</a>)
+<a name="l00010"></a><a class="code" href="../../d1/d6e/a00073.html#a9fc17d5e89135290228a12fcda5e6e7e">00010</a>     Q_PROPERTY(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a9fc17d5e89135290228a12fcda5e6e7e">currentMode</a> READ <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a> WRITE <a class="code" href="../../d1/d6e/a00073.html#a1fbf4a2fdb33b23e5aece5db3468787d">setMode</a> NOTIFY <a class="code" href="../../d1/d6e/a00073.html#a536f1cec593cb466e4731b89be006caa">modeChanged</a>)
+<a name="l00011"></a>00011     Q_ENUMS(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a>)
+<a name="l00012"></a>00012 public:
+<a name="l00013"></a><a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">00013</a>     enum <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> { <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a7a40644eb43180cb6bf7236975c64d4c">CONNEXION</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a96251739b593a8e10380d58a30e93fd8">ACCUEIL</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">RECEPTION</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">MANAGEMENT_X</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">MANAGEMENT_Z</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30">ADMINISTRATION</a> };
+<a name="l00014"></a>00014     <a class="code" href="../../d1/d6e/a00073.html#a67ccd544201d679e59bf4a04693a66a4">RestrictiveApplication</a>(QObject* parent=0);
+<a name="l00015"></a>00015     <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>() <span class="keyword">const</span>;
+<a name="l00016"></a>00016     <a class="code" href="../../d0/dc2/a00104.html">User</a>* <a class="code" href="../../d1/d6e/a00073.html#a3e30263eb37466f024f274f7bcc478ac">user</a>() <span class="keyword">const</span>;
+<a name="l00017"></a>00017     <span class="comment">//Q_INVOKABLE User* currentUser() const;</span>
+<a name="l00018"></a>00018     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>();
+<a name="l00019"></a>00019     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a1fbf4a2fdb33b23e5aece5db3468787d">setMode</a>(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>);
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 signals:
+<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#af19f10e317ef10b279047604f42d68e2">userChanged</a>(QVariant <a class="code" href="../../d9/d47/a00129.html#a2b0a198f837184bf6fff555cee3ce770">name</a>);
+<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a536f1cec593cb466e4731b89be006caa">modeChanged</a>(QVariant <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>);
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a8e753610acb318014107d128ae18927e">userFound</a>();
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a6b370ea60683c12b3ca86fba2129cea2">userNotFound</a>();
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#ade1b502b9a1b6561f995e059b2529391">userLoggedIn</a>();
+<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a2045be5420135eeb57f2da6c6e22ae03">userLoggedOut</a>();
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a9646e44a00f6d1cecf3b79d678f36251">badPassword</a>();
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">public</span> slots:
+<a name="l00031"></a>00031     <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6e/a00073.html#a2b0ba649e0922683b4f8d99d295c0da9">userExists</a>(QString login);
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#addb0f19e38bdf7eaaf91c63a50bbe3c2">setUser</a>(QString login, QString pass);
+<a name="l00033"></a>00033     <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6e/a00073.html#a3a0ddf81e376939ebe0e4ced76e1ae96">userLogOut</a>();
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keyword">private</span>:
+<a name="l00036"></a><a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">00036</a>     <a class="code" href="../../d0/dc2/a00104.html">User</a>* <a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>;
+<a name="l00037"></a><a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">00037</a>     <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">m_mode</a>;
+<a name="l00038"></a>00038     
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="preprocessor">#endif // RESTRICTIVEAPPLICATION_H</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

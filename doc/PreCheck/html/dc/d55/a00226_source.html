@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/bookingsTab.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">bookingsTab.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/d55/a00226.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d9/d01/a00227.html">bookingsTab.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QtWidgets/QWidget&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <a class="code" href="../../dd/da2/a00019.html#aad5187f179253b72cee08aace440f308">BookingsTabPage::BookingsTabPage</a>(<span class="keywordtype">int</span> rowsCount, <span class="keywordtype">int</span> columnsCount, QString tabName, QWidget *parent) :
+<a name="l00006"></a>00006     <a class="code" href="../../dc/d54/a00094.html">TabPageWithTable</a>(tabName, parent)
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     this-&gt;<a class="code" href="../../dc/d54/a00094.html#a71487ab368acb4ee1a67f14b157d1855">initTable</a>(rowsCount, columnsCount);
+<a name="l00009"></a>00009 }
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keywordtype">void</span> <a class="code" href="../../dd/da2/a00019.html#a2b8e45414e7db14116a9a456b647c098">BookingsTabPage::fetchDatas</a>() {
+<a name="l00012"></a>00012     <span class="keywordflow">try</span> {
+<a name="l00013"></a>00013         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;<a class="code" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a>(<span class="stringliteral">&quot;bookings&quot;</span>);
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;setRelation(1, QSqlRelation(<span class="stringliteral">&quot;clients&quot;</span>, <span class="stringliteral">&quot;id&quot;</span>, <span class="stringliteral">&quot;name&quot;</span>));
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;<a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a>(0, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Date réservation&quot;</span>));
+<a name="l00018"></a>00018         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;<a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a>(1, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Nom client&quot;</span>));
+<a name="l00019"></a>00019         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;<a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a>(2, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Date arrivée prévue&quot;</span>));
+<a name="l00020"></a>00020         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;<a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a>(3, Qt::Horizontal, QObject::tr(<span class="stringliteral">&quot;Nb Personnes&quot;</span>));
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>-&gt;<a class="code" href="../../de/d11/a00021.html#a20c4cdda7d6fe773f2ae6d05cf35772f">model</a>()-&gt;setSort(0, Qt::AscendingOrder);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024         <span class="comment">/*</span>
+<a name="l00025"></a>00025 <span class="comment">    //remplissage du tableau</span>
+<a name="l00026"></a>00026 <span class="comment">        this-&gt;table-&gt;setItem(0,0,new QTableWidgetItem(&quot;Date&quot;));</span>
+<a name="l00027"></a>00027 <span class="comment">        this-&gt;table-&gt;setItem(0,1,new QTableWidgetItem(&quot;Nom client&quot;));</span>
+<a name="l00028"></a>00028 <span class="comment"></span>
+<a name="l00029"></a>00029 <span class="comment">        QTableWidgetItem *item = new QTableWidgetItem(&quot;réservation test&quot;);</span>
+<a name="l00030"></a>00030 <span class="comment">        this-&gt;table-&gt;setItem(1,1,item);</span>
+<a name="l00031"></a>00031 <span class="comment"></span>
+<a name="l00032"></a>00032 <span class="comment">        //activation du tri pour usage ultérieur</span>
+<a name="l00033"></a>00033 <span class="comment">        this-&gt;table-&gt;setSortingEnabled(true);</span>
+<a name="l00034"></a>00034 <span class="comment">this-&gt;table-&gt;sortByColumn(0);*/</span>
+<a name="l00035"></a>00035     }
+<a name="l00036"></a>00036     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00037"></a>00037     {
+<a name="l00038"></a>00038         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00039"></a>00039     }
+<a name="l00040"></a>00040 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

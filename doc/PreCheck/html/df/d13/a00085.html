@@ -1,0 +1,1272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck: Référence de la classe SqlDataModel</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="../../classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="../../inherits.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="../../functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#signals">Signaux</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#properties">Propriétés</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
+<a href="#pri-attribs">Attributs privés</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe SqlDataModel</div>  </div>
+</div><!--header-->
+<div class="contents">
+<!-- doxytag: class="SqlDataModel" -->
+<p><code>#include &lt;<a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>&gt;</code></p>
+
+<p><a href="../../d6/d86/a00781.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="signals"></a>
+Signaux</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a17e14c26f2f2449f48f89cea8c992cb3">lastErrorChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">tableChanged</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#aa0c978e535defccb2574edf8704a2508">SqlDataModel</a> (QObject *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#adcd3df47ac02021a2c18b8a921b26b54">data</a> (const QModelIndex &amp;index, int role) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6">fetch</a> (QString <a class="el" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a>=&quot;&quot;, QString <a class="el" href="../../df/d13/a00085.html#a8ace926bd83c1e484f9264226f0e3cf6">filter</a>=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d5d/a00084.html">SqlDataFields</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">field</a> (int i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#aadef206466521b2b3201e5e8570cba7f">fieldFromRole</a> (int role) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5">fieldsCount</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339">fieldsList</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">isEmpty</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">query</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05">resetFieldsToAll</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a838891af34942e371bf7219990f6622f">resetFilterCondition</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b">roleForField</a> (int fieldIndex) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QHash&lt; int, QByteArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a2038dc6a6621e570c65761203c64d507">roleNames</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This function allows mapping of role identifiers to role property names in scripting languages.  <a href="#a2038dc6a6621e570c65761203c64d507"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ad1da2096edce65195e18fe76edaf4c78">rowCount</a> (const QModelIndex &amp;parent) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">setFields</a> (QStringList fieldList)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">setFilterCondition</a> (const QString &amp;<a class="el" href="../../df/d13/a00085.html#a8ace926bd83c1e484f9264226f0e3cf6">filter</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a> (int section, Qt::Orientation orientation, const QVariant &amp;value, int role=Qt::EditRole)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0">setOrderBy</a> (QString sort)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a> (const QString &amp;<a class="el" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="properties"></a>
+Propriétés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a8ace926bd83c1e484f9264226f0e3cf6">filter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#afbd0ec0c231f80797f30bc852cf133d3">lastError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a850368dedc06eb94185edfae3670cbc8">table</a></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1">setQuery</a> (const QString &amp;<a class="el" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">query</a>)</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="../../df/d5d/a00084.html">SqlDataFields</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; QSqlRecord &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QHash&lt; int, QByteArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QSqlQuery&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock">
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00008">8</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="aa0c978e535defccb2574edf8704a2508"></a><!-- doxytag: member="SqlDataModel::SqlDataModel" ref="aa0c978e535defccb2574edf8704a2508" args="(QObject *parent=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d13/a00085.html">SqlDataModel</a> </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td><code> [explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00008">8</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a5bf16ce74ce0bbf96d6d30b6f9231113"></a><!-- doxytag: member="SqlDataModel::applyRoles" ref="a5bf16ce74ce0bbf96d6d30b6f9231113" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00235">235</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00059">mRoles</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00020">roleForField()</a>, et <a class="el" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00213">resetFieldsToAll()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00196">setFields()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_cgraph.png" border="0" usemap="#df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_cgraph" id="df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b" title="roleForField" alt="" coords="148,5,239,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a" title="rolesChanged" alt="" coords="143,59,244,88"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_icgraph.png" border="0" usemap="#df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_icgraph" id="df/d13/a00085_a5bf16ce74ce0bbf96d6d30b6f9231113_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05" title="resetFieldsToAll" alt="" coords="143,5,257,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="163,59,237,88"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="163,112,237,141"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="307,85,357,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adcd3df47ac02021a2c18b8a921b26b54"></a><!-- doxytag: member="SqlDataModel::data" ref="adcd3df47ac02021a2c18b8a921b26b54" args="(const QModelIndex &amp;index, int role) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant <a class="el" href="../../df/d13/a00085.html#adcd3df47ac02021a2c18b8a921b26b54">data</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00019">19</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00021">fieldFromRole()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00061">mRecords</a>, et <a class="el" href="../../d7/da0/a00198_source.html#l00059">mRoles</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_adcd3df47ac02021a2c18b8a921b26b54_cgraph.png" border="0" usemap="#df/d13/a00085_adcd3df47ac02021a2c18b8a921b26b54_cgraph" alt=""/></div>
+<map name="df/d13/a00085_adcd3df47ac02021a2c18b8a921b26b54_cgraph" id="df/d13/a00085_adcd3df47ac02021a2c18b8a921b26b54_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#aadef206466521b2b3201e5e8570cba7f" title="fieldFromRole" alt="" coords="103,5,204,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a898fb831fd9fe204e588a4bfebe68dc6"></a><!-- doxytag: member="SqlDataModel::fetch" ref="a898fb831fd9fe204e588a4bfebe68dc6" args="(QString tableName=&quot;&quot;, QString filter=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6">fetch</a> </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>tableName</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>filter</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>sort</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QStringList&#160;</td>
+          <td class="paramname"><em>fields</em> = <code>QStringList()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00167">167</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/db1/a00197_source.html#l00125">fieldsList()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00258">isEmpty()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00056">mFilter</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00057">mSort</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00055">mTable</a>, <a class="el" href="../../de/db1/a00197_source.html#l00196">setFields()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00152">setFilterCondition()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00253">setOrderBy()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00143">setTable()</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a898fb831fd9fe204e588a4bfebe68dc6_cgraph.png" border="0" usemap="#df/d13/a00085_a898fb831fd9fe204e588a4bfebe68dc6_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a898fb831fd9fe204e588a4bfebe68dc6_cgraph" id="df/d13/a00085_a898fb831fd9fe204e588a4bfebe68dc6_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339" title="fieldsList" alt="" coords="129,115,204,144"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b" title="isEmpty" alt="" coords="349,59,419,88"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="129,219,204,248"/><area shape="rect" id="node36" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8" title="setFilterCondition" alt="" coords="105,379,228,408"/><area shape="rect" id="node42" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0" title="setOrderBy" alt="" coords="123,432,211,461"/><area shape="rect" id="node44" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="129,272,204,301"/><area shape="rect" id="node63" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7" title="setTable" alt="" coords="131,592,203,621"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e" title="field" alt="" coords="361,112,407,141"/><area shape="rect" id="node13" href="../../df/d5d/a00084.html#a3a722678a495ef02e91ed32a9dec4268" title="SqlDataFields::setName" alt="" coords="301,219,467,248"/><area shape="rect" id="node28" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113" title="applyRoles" alt="" coords="341,272,427,301"/><area shape="rect" id="node34" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908" title="fieldsChanged" alt="" coords="332,165,436,195"/><area shape="rect" id="node11" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5" title="fieldsCount" alt="" coords="593,5,681,35"/><area shape="rect" id="node15" href="../../df/d5d/a00084.html#a045381e53250bf99a099ad14d616a741" title="SqlDataFields::nameChanged" alt="" coords="540,59,735,88"/><area shape="rect" id="node17" href="../../df/d5d/a00084.html#ac325d9de29ede6192f6f965091ac6f8d" title="SqlDataFields::roleChanged" alt="" coords="545,112,729,141"/><area shape="rect" id="node19" href="../../df/d5d/a00084.html#abd6b0a9ef0706cb4713d6ddf1d0171f6" title="SqlDataFields::setSortOrder" alt="" coords="544,165,731,195"/><area shape="rect" id="node23" href="../../df/d5d/a00084.html#ab450372c362c3537f4b872b9472215eb" title="SqlDataFields::setText" alt="" coords="560,219,715,248"/><area shape="rect" id="node21" href="../../df/d5d/a00084.html#a8c7e7e449458452f03f47bb65225490d" title="SqlDataFields::sortOrderChanged" alt="" coords="784,165,1003,195"/><area shape="rect" id="node26" href="../../df/d5d/a00084.html#a92832e204f5bab2138a91c2a248b0730" title="SqlDataFields::textChanged" alt="" coords="800,219,987,248"/><area shape="rect" id="node30" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b" title="roleForField" alt="" coords="592,272,683,301"/><area shape="rect" id="node32" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a" title="rolesChanged" alt="" coords="587,325,688,355"/><area shape="rect" id="node38" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898" title="filter" alt="" coords="361,539,407,568"/><area shape="rect" id="node40" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55" title="filterChanged" alt="" coords="335,592,433,621"/><area shape="rect" id="node46" href="../../de/d21/a00006.html#af983af38322fdddc556587b9d5d1986f" title="AppDatabase::getInstance" alt="" coords="296,325,472,355"/><area shape="rect" id="node52" href="../../de/d21/a00006.html#ab25f19e5faf4b7c3c5717efba032d01f" title="AppDatabase::getDbConnection" alt="" coords="279,379,489,408"/><area shape="rect" id="node58" href="../../d4/dca/a00048.html#ad68efa6d4d43df08d8d4e39ca26a22e2" title="MessageManager::errorMessage" alt="" coords="279,432,489,461"/><area shape="rect" id="node60" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b" title="lastError" alt="" coords="349,485,419,515"/><area shape="rect" id="node48" href="../../de/d21/a00006.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="544,379,731,408"/><area shape="rect" id="node50" href="../../de/d21/a00006.html#aa1659071518b929f463d544e5c86e39f" title="AppDatabase::dbConnect" alt="" coords="808,379,979,408"/><area shape="rect" id="node65" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4" title="tableChanged" alt="" coords="333,645,435,675"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c4384a5dc57b09c60ef6048ebaae38e"></a><!-- doxytag: member="SqlDataModel::field" ref="a2c4384a5dc57b09c60ef6048ebaae38e" args="(int i)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d5d/a00084.html">SqlDataFields</a> * <a class="el" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">field</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00189">189</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/db1/a00197_source.html#l00248">fieldsCount()</a>, et <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00196">setFields()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_cgraph.png" border="0" usemap="#df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_cgraph" id="df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5" title="fieldsCount" alt="" coords="101,5,189,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_icgraph.png" border="0" usemap="#df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_icgraph" id="df/d13/a00085_a2c4384a5dc57b09c60ef6048ebaae38e_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="101,5,176,35"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="101,59,176,88"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="224,32,275,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aadef206466521b2b3201e5e8570cba7f"></a><!-- doxytag: member="SqlDataModel::fieldFromRole" ref="aadef206466521b2b3201e5e8570cba7f" args="(int role) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../df/d13/a00085.html#aadef206466521b2b3201e5e8570cba7f">fieldFromRole</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00021">21</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00019">data()</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_aadef206466521b2b3201e5e8570cba7f_icgraph.png" border="0" usemap="#df/d13/a00085_aadef206466521b2b3201e5e8570cba7f_icgraph" alt=""/></div>
+<map name="df/d13/a00085_aadef206466521b2b3201e5e8570cba7f_icgraph" id="df/d13/a00085_aadef206466521b2b3201e5e8570cba7f_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#adcd3df47ac02021a2c18b8a921b26b54" title="data" alt="" coords="159,5,204,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad24ee2c041927e40afd2724abff38908"></a><!-- doxytag: member="SqlDataModel::fieldsChanged" ref="ad24ee2c041927e40afd2724abff38908" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00213">resetFieldsToAll()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00196">setFields()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_ad24ee2c041927e40afd2724abff38908_icgraph.png" border="0" usemap="#df/d13/a00085_ad24ee2c041927e40afd2724abff38908_icgraph" alt=""/></div>
+<map name="df/d13/a00085_ad24ee2c041927e40afd2724abff38908_icgraph" id="df/d13/a00085_ad24ee2c041927e40afd2724abff38908_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05" title="resetFieldsToAll" alt="" coords="161,5,276,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="181,59,256,88"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="181,112,256,141"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="325,85,376,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa175711d31ea2e4b376f44a3b73d18f5"></a><!-- doxytag: member="SqlDataModel::fieldsCount" ref="aa175711d31ea2e4b376f44a3b73d18f5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5">fieldsCount</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00248">248</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00189">field()</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_aa175711d31ea2e4b376f44a3b73d18f5_icgraph.png" border="0" usemap="#df/d13/a00085_aa175711d31ea2e4b376f44a3b73d18f5_icgraph" alt=""/></div>
+<map name="df/d13/a00085_aa175711d31ea2e4b376f44a3b73d18f5_icgraph" id="df/d13/a00085_aa175711d31ea2e4b376f44a3b73d18f5_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e" title="field" alt="" coords="143,32,188,61"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="237,5,312,35"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="237,59,312,88"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="360,32,411,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a07bb22c1c1ed1c894d52930eca70a339"></a><!-- doxytag: member="SqlDataModel::fieldsList" ref="a07bb22c1c1ed1c894d52930eca70a339" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString <a class="el" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339">fieldsList</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00125">125</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a07bb22c1c1ed1c894d52930eca70a339_icgraph.png" border="0" usemap="#df/d13/a00085_a07bb22c1c1ed1c894d52930eca70a339_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a07bb22c1c1ed1c894d52930eca70a339_icgraph" id="df/d13/a00085_a07bb22c1c1ed1c894d52930eca70a339_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="128,5,179,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ad93e3e39ebf61e2b111d27a7708898"></a><!-- doxytag: member="SqlDataModel::filter" ref="a5ad93e3e39ebf61e2b111d27a7708898" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; <a class="el" href="../../df/d13/a00085.html#a8ace926bd83c1e484f9264226f0e3cf6">filter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00152">setFilterCondition()</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a5ad93e3e39ebf61e2b111d27a7708898_icgraph.png" border="0" usemap="#df/d13/a00085_a5ad93e3e39ebf61e2b111d27a7708898_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a5ad93e3e39ebf61e2b111d27a7708898_icgraph" id="df/d13/a00085_a5ad93e3e39ebf61e2b111d27a7708898_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8" title="setFilterCondition" alt="" coords="103,5,225,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="275,5,325,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a14c60f32ceefa0f1cb8738cb641f0f55"></a><!-- doxytag: member="SqlDataModel::filterChanged" ref="a14c60f32ceefa0f1cb8738cb641f0f55" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00161">resetFilterCondition()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00152">setFilterCondition()</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a14c60f32ceefa0f1cb8738cb641f0f55_icgraph.png" border="0" usemap="#df/d13/a00085_a14c60f32ceefa0f1cb8738cb641f0f55_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a14c60f32ceefa0f1cb8738cb641f0f55_icgraph" id="df/d13/a00085_a14c60f32ceefa0f1cb8738cb641f0f55_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a838891af34942e371bf7219990f6622f" title="resetFilterCondition" alt="" coords="153,5,287,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8" title="setFilterCondition" alt="" coords="159,59,281,88"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="336,59,387,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af337ffd75e4f019ce15302c60715d84b"></a><!-- doxytag: member="SqlDataModel::isEmpty" ref="af337ffd75e4f019ce15302c60715d84b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">isEmpty</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00258">258</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00061">mRecords</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_af337ffd75e4f019ce15302c60715d84b_icgraph.png" border="0" usemap="#df/d13/a00085_af337ffd75e4f019ce15302c60715d84b_icgraph" alt=""/></div>
+<map name="df/d13/a00085_af337ffd75e4f019ce15302c60715d84b_icgraph" id="df/d13/a00085_af337ffd75e4f019ce15302c60715d84b_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="248,5,299,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="125,31,200,60"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a80378cc6261c1ba7a1501587e4df4e9b"></a><!-- doxytag: member="SqlDataModel::lastError" ref="a80378cc6261c1ba7a1501587e4df4e9b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; <a class="el" href="../../df/d13/a00085.html#afbd0ec0c231f80797f30bc852cf133d3">lastError</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a80378cc6261c1ba7a1501587e4df4e9b_icgraph.png" border="0" usemap="#df/d13/a00085_a80378cc6261c1ba7a1501587e4df4e9b_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a80378cc6261c1ba7a1501587e4df4e9b_icgraph" id="df/d13/a00085_a80378cc6261c1ba7a1501587e4df4e9b_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="125,5,200,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="248,5,299,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a17e14c26f2f2449f48f89cea8c992cb3"></a><!-- doxytag: member="SqlDataModel::lastErrorChanged" ref="a17e14c26f2f2449f48f89cea8c992cb3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a17e14c26f2f2449f48f89cea8c992cb3">lastErrorChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a22117c8ba9bc2acdf1296212491898d4"></a><!-- doxytag: member="SqlDataModel::query" ref="a22117c8ba9bc2acdf1296212491898d4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">query</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00110">110</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00060">mSqlQuery</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a472fea0ce5195e6b65943b26724b4b05"></a><!-- doxytag: member="SqlDataModel::resetFieldsToAll" ref="a472fea0ce5195e6b65943b26724b4b05" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05">resetFieldsToAll</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00213">213</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>, <a class="el" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged()</a>, et <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>.</p>
+
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a472fea0ce5195e6b65943b26724b4b05_cgraph.png" border="0" usemap="#df/d13/a00085_a472fea0ce5195e6b65943b26724b4b05_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a472fea0ce5195e6b65943b26724b4b05_cgraph" id="df/d13/a00085_a472fea0ce5195e6b65943b26724b4b05_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113" title="applyRoles" alt="" coords="181,32,267,61"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908" title="fieldsChanged" alt="" coords="172,85,276,115"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b" title="roleForField" alt="" coords="332,5,423,35"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a" title="rolesChanged" alt="" coords="327,59,428,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a838891af34942e371bf7219990f6622f"></a><!-- doxytag: member="SqlDataModel::resetFilterCondition" ref="a838891af34942e371bf7219990f6622f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a838891af34942e371bf7219990f6622f">resetFilterCondition</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00161">161</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged()</a>, et <a class="el" href="../../d7/da0/a00198_source.html#l00056">mFilter</a>.</p>
+
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a838891af34942e371bf7219990f6622f_cgraph.png" border="0" usemap="#df/d13/a00085_a838891af34942e371bf7219990f6622f_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a838891af34942e371bf7219990f6622f_cgraph" id="df/d13/a00085_a838891af34942e371bf7219990f6622f_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55" title="filterChanged" alt="" coords="189,5,288,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7783a53691a106a916189d86d836fd9b"></a><!-- doxytag: member="SqlDataModel::roleForField" ref="a7783a53691a106a916189d86d836fd9b" args="(int fieldIndex) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b">roleForField</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldIndex</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00020">20</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>.</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a7783a53691a106a916189d86d836fd9b_icgraph.png" border="0" usemap="#df/d13/a00085_a7783a53691a106a916189d86d836fd9b_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a7783a53691a106a916189d86d836fd9b_icgraph" id="df/d13/a00085_a7783a53691a106a916189d86d836fd9b_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113" title="applyRoles" alt="" coords="145,59,231,88"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05" title="resetFieldsToAll" alt="" coords="281,5,396,35"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="301,59,376,88"/><area shape="rect" id="node11" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="301,112,376,141"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="445,85,496,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2038dc6a6621e570c65761203c64d507"></a><!-- doxytag: member="SqlDataModel::roleNames" ref="a2038dc6a6621e570c65761203c64d507" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QHash&lt;int, QByteArray&gt; <a class="el" href="../../df/d13/a00085.html#a2038dc6a6621e570c65761203c64d507">roleNames</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This function allows mapping of role identifiers to role property names in scripting languages. </p>
+<p>! </p>
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00038">38</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00059">mRoles</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9b122a44e657b6e2d1e0b4e8c84c04a"></a><!-- doxytag: member="SqlDataModel::rolesChanged" ref="ad9b122a44e657b6e2d1e0b4e8c84c04a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>.</p>
+
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_ad9b122a44e657b6e2d1e0b4e8c84c04a_icgraph.png" border="0" usemap="#df/d13/a00085_ad9b122a44e657b6e2d1e0b4e8c84c04a_icgraph" alt=""/></div>
+<map name="df/d13/a00085_ad9b122a44e657b6e2d1e0b4e8c84c04a_icgraph" id="df/d13/a00085_ad9b122a44e657b6e2d1e0b4e8c84c04a_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113" title="applyRoles" alt="" coords="159,59,244,88"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05" title="resetFieldsToAll" alt="" coords="295,5,409,35"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef" title="setFields" alt="" coords="315,59,389,88"/><area shape="rect" id="node11" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1" title="setQuery" alt="" coords="315,112,389,141"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="459,85,509,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1da2096edce65195e18fe76edaf4c78"></a><!-- doxytag: member="SqlDataModel::rowCount" ref="ad1da2096edce65195e18fe76edaf4c78" args="(const QModelIndex &amp;parent) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../df/d13/a00085.html#ad1da2096edce65195e18fe76edaf4c78">rowCount</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00013">13</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00061">mRecords</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4309392aa4b0c4e1f5d0ec918ae99ef"></a><!-- doxytag: member="SqlDataModel::setFields" ref="ab4309392aa4b0c4e1f5d0ec918ae99ef" args="(QStringList fieldList)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">setFields</a> </td>
+          <td>(</td>
+          <td class="paramtype">QStringList&#160;</td>
+          <td class="paramname"><em>fieldList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00196">196</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00189">field()</a>, <a class="el" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>, et <a class="el" href="../../d3/d2a/a00195_source.html#l00020">SqlDataFields::setName()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>.</p>
+
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_cgraph.png" border="0" usemap="#df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_cgraph" alt=""/></div>
+<map name="df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_cgraph" id="df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113" title="applyRoles" alt="" coords="168,59,253,88"/><area shape="rect" id="node9" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e" title="field" alt="" coords="188,112,233,141"/><area shape="rect" id="node13" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908" title="fieldsChanged" alt="" coords="159,165,263,195"/><area shape="rect" id="node15" href="../../df/d5d/a00084.html#a3a722678a495ef02e91ed32a9dec4268" title="SqlDataFields::setName" alt="" coords="128,245,293,275"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b" title="roleForField" alt="" coords="395,5,485,35"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a" title="rolesChanged" alt="" coords="389,59,491,88"/><area shape="rect" id="node11" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5" title="fieldsCount" alt="" coords="396,112,484,141"/><area shape="rect" id="node17" href="../../df/d5d/a00084.html#a045381e53250bf99a099ad14d616a741" title="SqlDataFields::nameChanged" alt="" coords="343,165,537,195"/><area shape="rect" id="node19" href="../../df/d5d/a00084.html#ac325d9de29ede6192f6f965091ac6f8d" title="SqlDataFields::roleChanged" alt="" coords="348,219,532,248"/><area shape="rect" id="node21" href="../../df/d5d/a00084.html#abd6b0a9ef0706cb4713d6ddf1d0171f6" title="SqlDataFields::setSortOrder" alt="" coords="347,272,533,301"/><area shape="rect" id="node25" href="../../df/d5d/a00084.html#ab450372c362c3537f4b872b9472215eb" title="SqlDataFields::setText" alt="" coords="363,325,517,355"/><area shape="rect" id="node23" href="../../df/d5d/a00084.html#a8c7e7e449458452f03f47bb65225490d" title="SqlDataFields::sortOrderChanged" alt="" coords="587,272,805,301"/><area shape="rect" id="node28" href="../../df/d5d/a00084.html#a92832e204f5bab2138a91c2a248b0730" title="SqlDataFields::textChanged" alt="" coords="603,325,789,355"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_icgraph.png" border="0" usemap="#df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_icgraph" alt=""/></div>
+<map name="df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_icgraph" id="df/d13/a00085_ab4309392aa4b0c4e1f5d0ec918ae99ef_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="128,5,179,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a56a82e5d1ed1e6c6053ff8689ab5c4c8"></a><!-- doxytag: member="SqlDataModel::setFilterCondition" ref="a56a82e5d1ed1e6c6053ff8689ab5c4c8" args="(const QString &amp;filter)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">setFilterCondition</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00152">152</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter()</a>, <a class="el" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged()</a>, et <a class="el" href="../../d7/da0/a00198_source.html#l00056">mFilter</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>.</p>
+
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_cgraph.png" border="0" usemap="#df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_cgraph" id="df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898" title="filter" alt="" coords="205,5,251,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55" title="filterChanged" alt="" coords="179,59,277,88"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_icgraph.png" border="0" usemap="#df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_icgraph" id="df/d13/a00085_a56a82e5d1ed1e6c6053ff8689ab5c4c8_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="179,5,229,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac52077d1c1c0e0813c25684ec1f894e5"></a><!-- doxytag: member="SqlDataModel::setHeaderData" ref="ac52077d1c1c0e0813c25684ec1f894e5" args="(int section, Qt::Orientation orientation, const QVariant &amp;value, int role=Qt::EditRole)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>section</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Qt::Orientation&#160;</td>
+          <td class="paramname"><em>orientation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em> = <code>Qt::EditRole</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00037">37</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83b0c57549ec585c8a7b72464f796dc0"></a><!-- doxytag: member="SqlDataModel::setOrderBy" ref="a83b0c57549ec585c8a7b72464f796dc0" args="(QString sort)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0">setOrderBy</a> </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>sort</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00253">253</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00057">mSort</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>.</p>
+
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a83b0c57549ec585c8a7b72464f796dc0_icgraph.png" border="0" usemap="#df/d13/a00085_a83b0c57549ec585c8a7b72464f796dc0_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a83b0c57549ec585c8a7b72464f796dc0_icgraph" id="df/d13/a00085_a83b0c57549ec585c8a7b72464f796dc0_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="141,5,192,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a583d58f575394f178b198558278860a1"></a><!-- doxytag: member="SqlDataModel::setQuery" ref="a583d58f575394f178b198558278860a1" args="(const QString &amp;query)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1">setQuery</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00048">48</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00003">MessageManager::errorMessage()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00189">field()</a>, <a class="el" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00093">AppDatabase::getDbConnection()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00005">AppDatabase::getInstance()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00258">isEmpty()</a>, <a class="el" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00058">mDataFields</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00061">mRecords</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00060">mSqlQuery</a>, et <a class="el" href="../../d3/d2a/a00195_source.html#l00020">SqlDataFields::setName()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>.</p>
+
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a583d58f575394f178b198558278860a1_cgraph.png" border="0" usemap="#df/d13/a00085_a583d58f575394f178b198558278860a1_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a583d58f575394f178b198558278860a1_cgraph" id="df/d13/a00085_a583d58f575394f178b198558278860a1_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113" title="applyRoles" alt="" coords="192,32,277,61"/><area shape="rect" id="node9" href="../../d4/dca/a00048.html#ad68efa6d4d43df08d8d4e39ca26a22e2" title="MessageManager::errorMessage" alt="" coords="129,85,340,115"/><area shape="rect" id="node11" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e" title="field" alt="" coords="212,139,257,168"/><area shape="rect" id="node15" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908" title="fieldsChanged" alt="" coords="183,192,287,221"/><area shape="rect" id="node17" href="../../de/d21/a00006.html#ab25f19e5faf4b7c3c5717efba032d01f" title="AppDatabase::getDbConnection" alt="" coords="129,245,340,275"/><area shape="rect" id="node19" href="../../de/d21/a00006.html#af983af38322fdddc556587b9d5d1986f" title="AppDatabase::getInstance" alt="" coords="147,299,323,328"/><area shape="rect" id="node25" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b" title="isEmpty" alt="" coords="200,352,269,381"/><area shape="rect" id="node27" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b" title="lastError" alt="" coords="200,405,269,435"/><area shape="rect" id="node29" href="../../df/d5d/a00084.html#a3a722678a495ef02e91ed32a9dec4268" title="SqlDataFields::setName" alt="" coords="152,459,317,488"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b" title="roleForField" alt="" coords="443,5,533,35"/><area shape="rect" id="node7" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a" title="rolesChanged" alt="" coords="437,59,539,88"/><area shape="rect" id="node13" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5" title="fieldsCount" alt="" coords="444,139,532,168"/><area shape="rect" id="node21" href="../../de/d21/a00006.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="395,299,581,328"/><area shape="rect" id="node23" href="../../de/d21/a00006.html#aa1659071518b929f463d544e5c86e39f" title="AppDatabase::dbConnect" alt="" coords="659,299,829,328"/><area shape="rect" id="node31" href="../../df/d5d/a00084.html#a045381e53250bf99a099ad14d616a741" title="SqlDataFields::nameChanged" alt="" coords="391,352,585,381"/><area shape="rect" id="node33" href="../../df/d5d/a00084.html#ac325d9de29ede6192f6f965091ac6f8d" title="SqlDataFields::roleChanged" alt="" coords="396,405,580,435"/><area shape="rect" id="node35" href="../../df/d5d/a00084.html#abd6b0a9ef0706cb4713d6ddf1d0171f6" title="SqlDataFields::setSortOrder" alt="" coords="395,459,581,488"/><area shape="rect" id="node39" href="../../df/d5d/a00084.html#ab450372c362c3537f4b872b9472215eb" title="SqlDataFields::setText" alt="" coords="411,512,565,541"/><area shape="rect" id="node37" href="../../df/d5d/a00084.html#a8c7e7e449458452f03f47bb65225490d" title="SqlDataFields::sortOrderChanged" alt="" coords="635,459,853,488"/><area shape="rect" id="node42" href="../../df/d5d/a00084.html#a92832e204f5bab2138a91c2a248b0730" title="SqlDataFields::textChanged" alt="" coords="651,512,837,541"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a583d58f575394f178b198558278860a1_icgraph.png" border="0" usemap="#df/d13/a00085_a583d58f575394f178b198558278860a1_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a583d58f575394f178b198558278860a1_icgraph" id="df/d13/a00085_a583d58f575394f178b198558278860a1_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="128,5,179,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac07b1d4515135f20a58c1aac0e80ddc7"></a><!-- doxytag: member="SqlDataModel::setTable" ref="ac07b1d4515135f20a58c1aac0e80ddc7" args="(const QString &amp;tableName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00143">143</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00055">mTable</a>, et <a class="el" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">tableChanged()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>.</p>
+
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_cgraph.png" border="0" usemap="#df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_cgraph" alt=""/></div>
+<map name="df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_cgraph" id="df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_cgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4" title="tableChanged" alt="" coords="127,5,228,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_icgraph.png" border="0" usemap="#df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_icgraph" alt=""/></div>
+<map name="df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_icgraph" id="df/d13/a00085_ac07b1d4515135f20a58c1aac0e80ddc7_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="125,5,176,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a5372272449a8602cd82529db688dd4"></a><!-- doxytag: member="SqlDataModel::tableChanged" ref="a1a5372272449a8602cd82529db688dd4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">tableChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00143">setTable()</a>.</p>
+
+<p><div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d13/a00085_a1a5372272449a8602cd82529db688dd4_icgraph.png" border="0" usemap="#df/d13/a00085_a1a5372272449a8602cd82529db688dd4_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a1a5372272449a8602cd82529db688dd4_icgraph" id="df/d13/a00085_a1a5372272449a8602cd82529db688dd4_icgraph">
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7" title="setTable" alt="" coords="157,5,229,35"/><area shape="rect" id="node5" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6" title="fetch" alt="" coords="277,5,328,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa193d500de9ae21a6a12313adf340df0"></a><!-- doxytag: member="SqlDataModel::tableName" ref="aa193d500de9ae21a6a12313adf340df0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/db1/a00197_source.html#l00115">115</a> du fichier <a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d7/da0/a00198_source.html#l00055">mTable</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des données membres</h2>
+<a class="anchor" id="afdc359cef837c2dc8102f20b90815f47"></a><!-- doxytag: member="SqlDataModel::mDataFields" ref="afdc359cef837c2dc8102f20b90815f47" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="../../df/d5d/a00084.html">SqlDataFields</a> *&gt; <a class="el" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00058">58</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00189">field()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00248">fieldsCount()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00125">fieldsList()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00213">resetFieldsToAll()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00196">setFields()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00037">setHeaderData()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a54baed2fcbc794c6fd5b8564f9409bcf"></a><!-- doxytag: member="SqlDataModel::mFilter" ref="a54baed2fcbc794c6fd5b8564f9409bcf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00056">56</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00161">resetFilterCondition()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00152">setFilterCondition()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad22951546a29792298e909e3540bfd4b"></a><!-- doxytag: member="SqlDataModel::mRecords" ref="ad22951546a29792298e909e3540bfd4b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;QSqlRecord&gt; <a class="el" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00061">61</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00019">data()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00258">isEmpty()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00013">rowCount()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5029a1f03131f6ac8d5377c2ff16c516"></a><!-- doxytag: member="SqlDataModel::mRoles" ref="a5029a1f03131f6ac8d5377c2ff16c516" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QHash&lt;int, QByteArray&gt; <a class="el" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00059">59</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00235">applyRoles()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00019">data()</a>, et <a class="el" href="../../d7/da0/a00198_source.html#l00038">roleNames()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6524708dbad962e61b904e6f5c30cb7"></a><!-- doxytag: member="SqlDataModel::mSort" ref="ab6524708dbad962e61b904e6f5c30cb7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00057">57</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00253">setOrderBy()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ac715b89b82c754d5e8bd7ef2eca8e6"></a><!-- doxytag: member="SqlDataModel::mSqlQuery" ref="a7ac715b89b82c754d5e8bd7ef2eca8e6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSqlQuery <a class="el" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00060">60</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00110">query()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00048">setQuery()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1d03b34d42c6127e0267bf9afc3ea14"></a><!-- doxytag: member="SqlDataModel::mTable" ref="ab1d03b34d42c6127e0267bf9afc3ea14" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00055">55</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/db1/a00197_source.html#l00167">fetch()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00143">setTable()</a>, et <a class="el" href="../../de/db1/a00197_source.html#l00115">tableName()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des propriétés</h2>
+<a class="anchor" id="a8ace926bd83c1e484f9264226f0e3cf6"></a><!-- doxytag: member="SqlDataModel::filter" ref="a8ace926bd83c1e484f9264226f0e3cf6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="../../df/d13/a00085.html#a8ace926bd83c1e484f9264226f0e3cf6">filter</a><code> [read, write]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00012">12</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afbd0ec0c231f80797f30bc852cf133d3"></a><!-- doxytag: member="SqlDataModel::lastError" ref="afbd0ec0c231f80797f30bc852cf133d3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="../../df/d13/a00085.html#afbd0ec0c231f80797f30bc852cf133d3">lastError</a><code> [read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00013">13</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a850368dedc06eb94185edfae3670cbc8"></a><!-- doxytag: member="SqlDataModel::table" ref="a850368dedc06eb94185edfae3670cbc8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../df/d13/a00085.html#a850368dedc06eb94185edfae3670cbc8">table</a><code> [read, write]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d7/da0/a00198_source.html#l00011">11</a> du fichier <a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>models/<a class="el" href="../../d7/da0/a00198_source.html">SqlDataModel.h</a></li>
+<li>models/<a class="el" href="../../de/db1/a00197_source.html">SqlDataModel.cpp</a></li>
+</ul>
+</div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

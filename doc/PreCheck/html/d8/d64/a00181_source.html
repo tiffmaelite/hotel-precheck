@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de models/RestrictiveApplication.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">RestrictiveApplication.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/d64/a00181.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d7/d25/a00182.html">RestrictiveApplication.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="../../d1/d6e/a00073.html#a67ccd544201d679e59bf4a04693a66a4">00004</a> <a class="code" href="../../d1/d6e/a00073.html#a67ccd544201d679e59bf4a04693a66a4">RestrictiveApplication::RestrictiveApplication</a>(QObject* parent) :
+<a name="l00005"></a>00005     QObject(parent)
+<a name="l00006"></a>00006 {
+<a name="l00007"></a>00007     <a class="code" href="../../d1/d6e/a00073.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>();
+<a name="l00008"></a>00008 }
+<a name="l00009"></a>00009 
+<a name="l00010"></a><a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">00010</a> <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">RestrictiveApplication::AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">RestrictiveApplication::mode</a>()<span class="keyword"> const</span>
+<a name="l00011"></a>00011 <span class="keyword"></span>{
+<a name="l00012"></a>00012     <span class="keywordflow">return</span> <a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">m_mode</a>;
+<a name="l00013"></a>00013 }
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="../../d1/d6e/a00073.html#a02fd73d861ef2e4aabb38c0c9ff82947">00015</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a02fd73d861ef2e4aabb38c0c9ff82947">RestrictiveApplication::init</a>() {
+<a name="l00016"></a>00016     this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a> = <span class="keyword">new</span> <a class="code" href="../../d0/dc2/a00104.html">User</a>();
+<a name="l00017"></a>00017 }
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="../../d1/d6e/a00073.html#a1fbf4a2fdb33b23e5aece5db3468787d">00019</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a1fbf4a2fdb33b23e5aece5db3468787d">RestrictiveApplication::setMode</a>(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">RestrictiveApplication::AppMode</a> mode)
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021     <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a> || ! <a class="code" href="../../d0/dc2/a00104.html#a9cdd1a63296e723ccc78edb9876666f3">User::exists</a>(QVariant(this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#abc29e461e01cc0c712944f8f47f91331">name</a>())).toBool()) {
+<a name="l00022"></a>00022         this-&gt;<a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">m_mode</a> = <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a7a40644eb43180cb6bf7236975c64d4c">CONNEXION</a>;
+<a name="l00023"></a>00023     } <span class="keywordflow">else</span> {
+<a name="l00024"></a>00024         <span class="keywordflow">if</span>(((mode == <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30">ADMINISTRATION</a>) &amp;&amp; (!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#aae9a2e211bcdb23929f56e38e6d78fb3">isAdministrator</a>())) ||
+<a name="l00025"></a>00025                 ((mode == <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">MANAGEMENT_X</a>) &amp;&amp; (!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#acd3b76b6dbe14ccb26acea908a643390">isManagerX</a>())) ||
+<a name="l00026"></a>00026                 ((mode == <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">MANAGEMENT_Z</a>) &amp;&amp; (!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#aa469c4f51528e95a5aaf256d50992c43">isManagerZ</a>())) ||
+<a name="l00027"></a>00027                 ((mode == <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">RECEPTION</a>) &amp;&amp; (!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#a9166be66497b1faa9e76c75298d42f85">isReceptionist</a>()))) {
+<a name="l00028"></a>00028             this-&gt;<a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">m_mode</a> = <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a96251739b593a8e10380d58a30e93fd8">ACCUEIL</a>;
+<a name="l00029"></a>00029         } <span class="keywordflow">else</span> {
+<a name="l00030"></a>00030             this-&gt;<a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">m_mode</a> = <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>;
+<a name="l00031"></a>00031         }
+<a name="l00032"></a>00032     }
+<a name="l00033"></a>00033 }
+<a name="l00034"></a>00034 
+<a name="l00035"></a><a class="code" href="../../d1/d6e/a00073.html#a3e30263eb37466f024f274f7bcc478ac">00035</a> <a class="code" href="../../d0/dc2/a00104.html">User</a> *<a class="code" href="../../d1/d6e/a00073.html#a3e30263eb37466f024f274f7bcc478ac">RestrictiveApplication::user</a>()<span class="keyword"> const</span>
+<a name="l00036"></a>00036 <span class="keyword"></span>{
+<a name="l00037"></a>00037     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>;
+<a name="l00038"></a>00038 }
+<a name="l00039"></a>00039 
+<a name="l00040"></a><a class="code" href="../../d1/d6e/a00073.html#a3a0ddf81e376939ebe0e4ced76e1ae96">00040</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6e/a00073.html#a3a0ddf81e376939ebe0e4ced76e1ae96">RestrictiveApplication::userLogOut</a>()
+<a name="l00041"></a>00041 {
+<a name="l00042"></a>00042     this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a> = <span class="keyword">new</span> <a class="code" href="../../d0/dc2/a00104.html">User</a>();
+<a name="l00043"></a>00043     <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#aac1b70a2ed67ead038c4d3f5ac4d8a81">isValid</a>()) {
+<a name="l00044"></a>00044         emit <a class="code" href="../../d1/d6e/a00073.html#a2045be5420135eeb57f2da6c6e22ae03">userLoggedOut</a>();
+<a name="l00045"></a>00045     }
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a><a class="code" href="../../d1/d6e/a00073.html#addb0f19e38bdf7eaaf91c63a50bbe3c2">00048</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#addb0f19e38bdf7eaaf91c63a50bbe3c2">RestrictiveApplication::setUser</a>(QString login, QString pass)
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050     this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a> = <a class="code" href="../../d0/dc2/a00104.html#a7a555b972b52910645d1a480b993bac3">User::logIn</a>(login,pass);
+<a name="l00051"></a>00051     <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#aac1b70a2ed67ead038c4d3f5ac4d8a81">isValid</a>()) {
+<a name="l00052"></a>00052         emit <a class="code" href="../../d1/d6e/a00073.html#a9646e44a00f6d1cecf3b79d678f36251">badPassword</a>();
+<a name="l00053"></a>00053     } <span class="keywordflow">else</span> {
+<a name="l00054"></a>00054         emit <a class="code" href="../../d1/d6e/a00073.html#ade1b502b9a1b6561f995e059b2529391">userLoggedIn</a>();
+<a name="l00055"></a>00055         emit <a class="code" href="../../d1/d6e/a00073.html#af19f10e317ef10b279047604f42d68e2">userChanged</a>(QVariant(this-&gt;<a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>-&gt;<a class="code" href="../../d0/dc2/a00104.html#abc29e461e01cc0c712944f8f47f91331">name</a>()));
+<a name="l00056"></a>00056     }
+<a name="l00057"></a>00057 }
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="../../d1/d6e/a00073.html#a2b0ba649e0922683b4f8d99d295c0da9">00060</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6e/a00073.html#a2b0ba649e0922683b4f8d99d295c0da9">RestrictiveApplication::userExists</a>(QString login)
+<a name="l00061"></a>00061 {
+<a name="l00062"></a>00062     <span class="keywordtype">bool</span> ok = <a class="code" href="../../d0/dc2/a00104.html#a9cdd1a63296e723ccc78edb9876666f3">User::exists</a>(login).toBool();
+<a name="l00063"></a>00063     <span class="keywordflow">if</span>(ok) {
+<a name="l00064"></a>00064         emit <a class="code" href="../../d1/d6e/a00073.html#a8e753610acb318014107d128ae18927e">userFound</a>();
+<a name="l00065"></a>00065     } <span class="keywordflow">else</span> {
+<a name="l00066"></a>00066         emit <a class="code" href="../../d1/d6e/a00073.html#a6b370ea60683c12b3ca86fba2129cea2">userNotFound</a>();
+<a name="l00067"></a>00067     }
+<a name="l00068"></a>00068     <span class="keywordflow">return</span> ok;
+<a name="l00069"></a>00069 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

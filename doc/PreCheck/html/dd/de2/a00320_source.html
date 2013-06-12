@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/tab_page_with_table.cpp</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">tab_page_with_table.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/de2/a00320.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00321.html">tab_page_with_table.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QtWidgets/QWidget&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="../../db/ddf/a00164.html">models/my_sql_relational_delegate.h</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="../../dc/d54/a00094.html#ae147b4cb93d4f36183ba4eace6d97a33">00006</a> <a class="code" href="../../dc/d54/a00094.html#ae147b4cb93d4f36183ba4eace6d97a33">TabPageWithTable::TabPageWithTable</a>(QString tabName, QWidget *parent) :
+<a name="l00007"></a>00007     <a class="code" href="../../d1/dc1/a00092.html">TabPage</a>(3, 3, tabName, parent)
+<a name="l00008"></a>00008 {
+<a name="l00009"></a>00009     this-&gt;<a class="code" href="../../dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b" title="TODO.">table</a> = <span class="keyword">new</span> QTableView(<span class="keyword">this</span>);
+<a name="l00010"></a>00010 }
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="../../dc/d54/a00094.html#a71487ab368acb4ee1a67f14b157d1855">00012</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/d54/a00094.html#a71487ab368acb4ee1a67f14b157d1855">TabPageWithTable::initTable</a>(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns) {
+<a name="l00013"></a>00013     <span class="keywordflow">try</span> {
+<a name="l00014"></a>00014         <span class="comment">/*this-&gt;table-&gt;setColumnCount(rows);</span>
+<a name="l00015"></a>00015 <span class="comment">        this-&gt;table-&gt;setRowCount(columns);</span>
+<a name="l00016"></a>00016 <span class="comment">        //désactivation du tri lors du remplissage du tableau</span>
+<a name="l00017"></a>00017 <span class="comment">        this-&gt;table-&gt;setSortingEnabled(false);*/</span>
+<a name="l00018"></a>00018         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a9ffbbe7e8ab82f959bd2740e598047d3">fetchDatas</a>();
+<a name="l00019"></a>00019         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b" title="TODO.">table</a>-&gt;setModel(this-&gt;<a class="code" href="../../dc/d54/a00094.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a>);
+<a name="l00020"></a>00020         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b" title="TODO.">table</a>-&gt;setItemDelegate(<span class="keyword">new</span> <a class="code" href="../../d2/dee/a00049.html">mySqlRelationalDelegate</a>(this-&gt;<a class="code" href="../../dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b" title="TODO.">table</a>));
+<a name="l00021"></a>00021         <span class="comment">//this-&gt;table-&gt;setItemDelegate(new QSqlRelationalDelegate(this-&gt;table));</span>
+<a name="l00022"></a>00022         this-&gt;<a class="code" href="../../dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b" title="TODO.">table</a>-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<a name="l00023"></a>00023         <span class="comment">//this-&gt;table-&gt;show();</span>
+<a name="l00024"></a>00024         this-&gt;<a class="code" href="../../d1/dc1/a00092.html#a51051d943e4726b18425669cb5155896" title="TODO.">tabLayout</a>-&gt;<a class="code" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a">insertWidget</a>(5,this-&gt;<a class="code" href="../../dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b" title="TODO.">table</a>);
+<a name="l00025"></a>00025     }
+<a name="l00026"></a>00026     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00027"></a>00027     {
+<a name="l00028"></a>00028         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00029"></a>00029     }
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/qquickabstractdialog_p.h</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">qquickabstractdialog_p.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/d5e/a00295.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">**</span>
+<a name="l00003"></a>00003 <span class="comment">** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).</span>
+<a name="l00004"></a>00004 <span class="comment">** Contact: http://www.qt-project.org/legal</span>
+<a name="l00005"></a>00005 <span class="comment">**</span>
+<a name="l00006"></a>00006 <span class="comment">** This file is part of the QtQuick.Dialogs module of the Qt Toolkit.</span>
+<a name="l00007"></a>00007 <span class="comment">**</span>
+<a name="l00008"></a>00008 <span class="comment">** $QT_BEGIN_LICENSE:LGPL$</span>
+<a name="l00009"></a>00009 <span class="comment">** Commercial License Usage</span>
+<a name="l00010"></a>00010 <span class="comment">** Licensees holding valid commercial Qt licenses may use this file in</span>
+<a name="l00011"></a>00011 <span class="comment">** accordance with the commercial license agreement provided with the</span>
+<a name="l00012"></a>00012 <span class="comment">** Software or, alternatively, in accordance with the terms contained in</span>
+<a name="l00013"></a>00013 <span class="comment">** a written agreement between you and Digia.  For licensing terms and</span>
+<a name="l00014"></a>00014 <span class="comment">** conditions see http://qt.digia.com/licensing.  For further information</span>
+<a name="l00015"></a>00015 <span class="comment">** use the contact form at http://qt.digia.com/contact-us.</span>
+<a name="l00016"></a>00016 <span class="comment">**</span>
+<a name="l00017"></a>00017 <span class="comment">** GNU Lesser General Public License Usage</span>
+<a name="l00018"></a>00018 <span class="comment">** Alternatively, this file may be used under the terms of the GNU Lesser</span>
+<a name="l00019"></a>00019 <span class="comment">** General Public License version 2.1 as published by the Free Software</span>
+<a name="l00020"></a>00020 <span class="comment">** Foundation and appearing in the file LICENSE.LGPL included in the</span>
+<a name="l00021"></a>00021 <span class="comment">** packaging of this file.  Please review the following information to</span>
+<a name="l00022"></a>00022 <span class="comment">** ensure the GNU Lesser General Public License version 2.1 requirements</span>
+<a name="l00023"></a>00023 <span class="comment">** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.</span>
+<a name="l00024"></a>00024 <span class="comment">**</span>
+<a name="l00025"></a>00025 <span class="comment">** In addition, as a special exception, Digia gives you certain additional</span>
+<a name="l00026"></a>00026 <span class="comment">** rights.  These rights are described in the Digia Qt LGPL Exception</span>
+<a name="l00027"></a>00027 <span class="comment">** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.</span>
+<a name="l00028"></a>00028 <span class="comment">**</span>
+<a name="l00029"></a>00029 <span class="comment">** GNU General Public License Usage</span>
+<a name="l00030"></a>00030 <span class="comment">** Alternatively, this file may be used under the terms of the GNU</span>
+<a name="l00031"></a>00031 <span class="comment">** General Public License version 3.0 as published by the Free Software</span>
+<a name="l00032"></a>00032 <span class="comment">** Foundation and appearing in the file LICENSE.GPL included in the</span>
+<a name="l00033"></a>00033 <span class="comment">** packaging of this file.  Please review the following information to</span>
+<a name="l00034"></a>00034 <span class="comment">** ensure the GNU General Public License version 3.0 requirements will be</span>
+<a name="l00035"></a>00035 <span class="comment">** met: http://www.gnu.org/copyleft/gpl.html.</span>
+<a name="l00036"></a>00036 <span class="comment">**</span>
+<a name="l00037"></a>00037 <span class="comment">**</span>
+<a name="l00038"></a>00038 <span class="comment">** $QT_END_LICENSE$</span>
+<a name="l00039"></a>00039 <span class="comment">**</span>
+<a name="l00040"></a>00040 <span class="comment">****************************************************************************/</span>
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="preprocessor">#ifndef QQUICKABSTRACTDIALOG_P_H</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#define QQUICKABSTRACTDIALOG_P_H</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="comment">//</span>
+<a name="l00046"></a>00046 <span class="comment">//  W A R N I N G</span>
+<a name="l00047"></a>00047 <span class="comment">//  -------------</span>
+<a name="l00048"></a>00048 <span class="comment">//</span>
+<a name="l00049"></a>00049 <span class="comment">// This file is not part of the Qt API.  It exists purely as an</span>
+<a name="l00050"></a>00050 <span class="comment">// implementation detail.  This header file may change from version to</span>
+<a name="l00051"></a>00051 <span class="comment">// version without notice, or even be removed.</span>
+<a name="l00052"></a>00052 <span class="comment">//</span>
+<a name="l00053"></a>00053 <span class="comment">// We mean it.</span>
+<a name="l00054"></a>00054 <span class="comment">//</span>
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="preprocessor">#include &lt;QtQml&gt;</span>
+<a name="l00057"></a>00057 <span class="preprocessor">#include &lt;QQuickView&gt;</span>
+<a name="l00058"></a>00058 <span class="preprocessor">#include &lt;QtGui/qpa/qplatformdialoghelper.h&gt;</span>
+<a name="l00059"></a>00059 <span class="preprocessor">#include &lt;qpa/qplatformtheme.h&gt;</span>
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 QT_BEGIN_NAMESPACE
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="../../df/d5f/a00064.html">00063</a> <span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">QQuickAbstractDialog</a> : <span class="keyword">public</span> QObject
+<a name="l00064"></a>00064 {
+<a name="l00065"></a>00065     Q_OBJECT
+<a name="l00066"></a><a class="code" href="../../df/d5f/a00064.html#aa54a57ae048476d840caf6d4d2c47aa3">00066</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../df/d5f/a00064.html#aa54a57ae048476d840caf6d4d2c47aa3">visible</a> READ <a class="code" href="../../df/d5f/a00064.html#a08422ee75ab02691943c1ca87e2bc563">isVisible</a> WRITE <a class="code" href="../../df/d5f/a00064.html#a5c07b501cc08c07fe40602be60ed99ae">setVisible</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#a66c6dac5b3502f7aad1259aba0ca12e5">visibilityChanged</a>)
+<a name="l00067"></a><a class="code" href="../../df/d5f/a00064.html#adf3b0981f3714fbdad9ac005f418ee3b">00067</a>     Q_PROPERTY(Qt::WindowModality <a class="code" href="../../df/d5f/a00064.html#aa0accba10d1d9dd8460b879e58b7968d">modality</a> READ <a class="code" href="../../df/d5f/a00064.html#aa0accba10d1d9dd8460b879e58b7968d">modality</a> WRITE <a class="code" href="../../df/d5f/a00064.html#a95c04b4ff6e0950c3be671c7d326753d">setModality</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#ad17274d01c19488821ceaabdc6f64bca">modalityChanged</a>)
+<a name="l00068"></a><a class="code" href="../../df/d5f/a00064.html#aa93d37c468bf6aea9c9823eb74bd1a48">00068</a>     Q_PROPERTY(QString <a class="code" href="../../df/d5f/a00064.html#a0c12fb0761e1e201a47ce51b283fdb11">title</a> READ <a class="code" href="../../df/d5f/a00064.html#a0c12fb0761e1e201a47ce51b283fdb11">title</a> WRITE <a class="code" href="../../df/d5f/a00064.html#ac5372189bb045fd9813a63d5485d31ea">setTitle</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#ac47a855a9a7e427cfe7d793761041655">titleChanged</a>)
+<a name="l00069"></a><a class="code" href="../../df/d5f/a00064.html#a6150e0515f7202e2fb518f7206ed97dc">00069</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a971a06eb44d062213dea454cf065b247">x</a> READ <a class="code" href="../../df/d5f/a00064.html#a971a06eb44d062213dea454cf065b247">x</a> WRITE <a class="code" href="../../df/d5f/a00064.html#abeb083e05807b6ae0ac07539afb458cc">setX</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#a2a071fb9ce12555dec75df4c9e096aa5">geometryChanged</a>)
+<a name="l00070"></a><a class="code" href="../../df/d5f/a00064.html#a0a2f84ed7838f07779ae24c5a9086d33">00070</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a5db7363c1b8382ca9e9479dbf7cdc5f8">y</a> READ <a class="code" href="../../df/d5f/a00064.html#a5db7363c1b8382ca9e9479dbf7cdc5f8">y</a> WRITE <a class="code" href="../../df/d5f/a00064.html#a58e14e52f1c9e91bd075810493797235">setY</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#a2a071fb9ce12555dec75df4c9e096aa5">geometryChanged</a>)
+<a name="l00071"></a><a class="code" href="../../df/d5f/a00064.html#a2474a5474cbff19523a51eb1de01cda4">00071</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a369399896761e31ae71db57fdd0ba431">width</a> READ <a class="code" href="../../df/d5f/a00064.html#a369399896761e31ae71db57fdd0ba431">width</a> WRITE <a class="code" href="../../df/d5f/a00064.html#abec8d333fa16f06c87678405d77f4af9">setWidth</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#a2a071fb9ce12555dec75df4c9e096aa5">geometryChanged</a>)
+<a name="l00072"></a><a class="code" href="../../df/d5f/a00064.html#ad12fc34ce789bce6c8a05d8a17138534">00072</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height</a> READ <a class="code" href="../../df/d5f/a00064.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height</a> WRITE <a class="code" href="../../df/d5f/a00064.html#afeb91af31a32fcf810f93bff8de464f0">setHeight</a> NOTIFY <a class="code" href="../../df/d5f/a00064.html#a2a071fb9ce12555dec75df4c9e096aa5">geometryChanged</a>)
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 public:
+<a name="l00075"></a>00075     <a class="code" href="../../df/d5f/a00064.html">QQuickAbstractDialog</a>(QObject *parent = 0);
+<a name="l00076"></a>00076     virtual ~<a class="code" href="../../df/d5f/a00064.html">QQuickAbstractDialog</a>();
+<a name="l00077"></a>00077 
+<a name="l00078"></a><a class="code" href="../../df/d5f/a00064.html#a08422ee75ab02691943c1ca87e2bc563">00078</a>     <span class="keywordtype">bool</span> <a class="code" href="../../df/d5f/a00064.html#a08422ee75ab02691943c1ca87e2bc563">isVisible</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d5f/a00064.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a>; }
+<a name="l00079"></a><a class="code" href="../../df/d5f/a00064.html#aa0accba10d1d9dd8460b879e58b7968d">00079</a>     Qt::WindowModality <a class="code" href="../../df/d5f/a00064.html#aa0accba10d1d9dd8460b879e58b7968d">modality</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d5f/a00064.html#aa871b0fc2547d200f44d5886bf36c793">m_modality</a>; }
+<a name="l00080"></a>00080     <span class="keyword">virtual</span> QString <a class="code" href="../../df/d5f/a00064.html#a0c12fb0761e1e201a47ce51b283fdb11">title</a>() <span class="keyword">const</span> = 0;
+<a name="l00081"></a><a class="code" href="../../df/d5f/a00064.html#a1b5585b11ff83f156f2e6b629cc0434f">00081</a>     QObject* <a class="code" href="../../df/d5f/a00064.html#a1b5585b11ff83f156f2e6b629cc0434f">qmlImplementation</a>() { <span class="keywordflow">return</span> <a class="code" href="../../df/d5f/a00064.html#a0444dfff8f1a782fc0b54618400a4345">m_qmlImplementation</a>; }
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a971a06eb44d062213dea454cf065b247">x</a>() <span class="keyword">const</span>;
+<a name="l00084"></a>00084     <span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a5db7363c1b8382ca9e9479dbf7cdc5f8">y</a>() <span class="keyword">const</span>;
+<a name="l00085"></a>00085     <span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a369399896761e31ae71db57fdd0ba431">width</a>() <span class="keyword">const</span>;
+<a name="l00086"></a>00086     <span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height</a>() <span class="keyword">const</span>;
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a5c07b501cc08c07fe40602be60ed99ae">setVisible</a>(<span class="keywordtype">bool</span> v);
+<a name="l00089"></a>00089     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a95c04b4ff6e0950c3be671c7d326753d">setModality</a>(Qt::WindowModality m);
+<a name="l00090"></a>00090     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#ac5372189bb045fd9813a63d5485d31ea">setTitle</a>(QString t) = 0;
+<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#ab71bfa60172186c5c9f0d0a5fab2a6f5">setQmlImplementation</a>(QObject* obj);
+<a name="l00092"></a>00092     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#abeb083e05807b6ae0ac07539afb458cc">setX</a>(<span class="keywordtype">int</span> arg);
+<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a58e14e52f1c9e91bd075810493797235">setY</a>(<span class="keywordtype">int</span> arg);
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#abec8d333fa16f06c87678405d77f4af9">setWidth</a>(<span class="keywordtype">int</span> arg);
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#afeb91af31a32fcf810f93bff8de464f0">setHeight</a>(<span class="keywordtype">int</span> arg);
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="keyword">public</span> Q_SLOTS:
+<a name="l00098"></a><a class="code" href="../../df/d5f/a00064.html#a9e8555112049fc2b4945120b3c45f8ab">00098</a>     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a9e8555112049fc2b4945120b3c45f8ab">open</a>() { <a class="code" href="../../df/d5f/a00064.html#a5c07b501cc08c07fe40602be60ed99ae">setVisible</a>(<span class="keyword">true</span>); }
+<a name="l00099"></a><a class="code" href="../../df/d5f/a00064.html#a5ae591df94fc66ccb85cbb6565368bca">00099</a>     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a5ae591df94fc66ccb85cbb6565368bca">close</a>() { <a class="code" href="../../df/d5f/a00064.html#a5c07b501cc08c07fe40602be60ed99ae">setVisible</a>(<span class="keyword">false</span>); }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 Q_SIGNALS:
+<a name="l00102"></a>00102     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a66c6dac5b3502f7aad1259aba0ca12e5">visibilityChanged</a>();
+<a name="l00103"></a>00103     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a2a071fb9ce12555dec75df4c9e096aa5">geometryChanged</a>();
+<a name="l00104"></a>00104     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#ad17274d01c19488821ceaabdc6f64bca">modalityChanged</a>();
+<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#ac47a855a9a7e427cfe7d793761041655">titleChanged</a>();
+<a name="l00106"></a>00106     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#aa1004c0515925862bdd5bf8e2feab133">accepted</a>();
+<a name="l00107"></a>00107     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a2d69e79a5bd7a45624a3eb555e82aa6e">rejected</a>();
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="keyword">protected</span> Q_SLOTS:
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#aadb9f3b844fb4cf98288cd3c60a3af91">accept</a>();
+<a name="l00111"></a>00111     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a84e832c2421763b25e1ae0d9a76f519c">reject</a>();
+<a name="l00112"></a>00112     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a4899bf6f1f8cee0d4b91118f9547daee">visibleChanged</a>(<span class="keywordtype">bool</span> v);
+<a name="l00113"></a>00113     <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#ace05640aa8dc076056c7c1d0344bbad4">windowGeometryChanged</a>();
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="keyword">protected</span>:
+<a name="l00116"></a>00116     <span class="keyword">virtual</span> QPlatformDialogHelper *<a class="code" href="../../df/d5f/a00064.html#ad3d56aac3236b6f39a2560a644500029">helper</a>() = 0;
+<a name="l00117"></a>00117     QQuickWindow *<a class="code" href="../../df/d5f/a00064.html#abf38fe5f753166b683b3f328f2deaf3c">parentWindow</a>();
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 <span class="keyword">protected</span>:
+<a name="l00120"></a><a class="code" href="../../df/d5f/a00064.html#a15e40792d9764fcd11d124891dc34599">00120</a>     QQuickWindow *<a class="code" href="../../df/d5f/a00064.html#a15e40792d9764fcd11d124891dc34599">m_parentWindow</a>;
+<a name="l00121"></a><a class="code" href="../../df/d5f/a00064.html#adf7ad65deb2fca5eab8d0674602fe3c4">00121</a>     <span class="keywordtype">bool</span> <a class="code" href="../../df/d5f/a00064.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a>;
+<a name="l00122"></a><a class="code" href="../../df/d5f/a00064.html#aa871b0fc2547d200f44d5886bf36c793">00122</a>     Qt::WindowModality <a class="code" href="../../df/d5f/a00064.html#aa871b0fc2547d200f44d5886bf36c793">m_modality</a>;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 <span class="keyword">protected</span>: <span class="comment">// variables for pure-QML implementations only</span>
+<a name="l00125"></a><a class="code" href="../../df/d5f/a00064.html#a0444dfff8f1a782fc0b54618400a4345">00125</a>     QObject *<a class="code" href="../../df/d5f/a00064.html#a0444dfff8f1a782fc0b54618400a4345">m_qmlImplementation</a>;
+<a name="l00126"></a><a class="code" href="../../df/d5f/a00064.html#a7d88e4f3740539a8a6141f3dd3d7e67d">00126</a>     QWindow *<a class="code" href="../../df/d5f/a00064.html#a7d88e4f3740539a8a6141f3dd3d7e67d">m_dialogWindow</a>;
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128     Q_DISABLE_COPY(<a class="code" href="../../df/d5f/a00064.html">QQuickAbstractDialog</a>)
+<a name="l00129"></a>00129 };
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 QT_END_NAMESPACE
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="preprocessor">#endif // QQUICKABSTRACTDIALOG_P_H</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

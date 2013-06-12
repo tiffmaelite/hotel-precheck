@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de views/qml/ContentView_old.qml</title>
+
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">client</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript" src="../../dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
+      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">ContentView_old.qml</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../db/d12/a00268.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../d0/dc0/a00033.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
+<a name="l00002"></a>00002 import QtQuick.Controls 1.0
+<a name="l00003"></a>00003 import QtQuick.Controls.Styles 1.0
+<a name="l00004"></a><a class="code" href="../../d0/dc0/a00033.html#a53eab16d9b647c309a4c12b7b32b66e0">00004</a> import PreCheck 1.0
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="../../d0/dc0/a00033.html#a6ff2ded34b0ddd0275a3b652eb9176ba">00006</a> ComplexGridView {
+<a name="l00007"></a>00007     <span class="keywordtype">id</span>: dataView
+<a name="l00008"></a>00008     <span class="keyword">property</span> <span class="keywordtype">string</span> dataDelegate
+<a name="l00009"></a>00009     <span class="keyword">property</span> variant activeFilterIndicatorIndexes
+<a name="l00010"></a>00010     <span class="comment">// maxi 10 lignes s&#39;il y a 6 colonnes; et maxi 15 lignes s&#39;il y a 12 colonnes; sinon 18 toutes petites colonnes et autant de lignes que nécessaire</span>
+<a name="l00011"></a>00011     maxNbRowsFew: 10
+<a name="l00012"></a>00012     maxNbColsFew: 6
+<a name="l00013"></a>00013     maxNbRowsStd: 15
+<a name="l00014"></a>00014     maxNbColsStd: 12
+<a name="l00015"></a>00015     maxNbFlowMany: 18
+<a name="l00016"></a>00016     <span class="keyword">function</span> removeFilterIndex(index) {
+<a name="l00017"></a>00017         <span class="keywordflow">if</span>(!activeFilterIndicatorIndexes) {
+<a name="l00018"></a>00018             activeFilterIndicatorIndexes = [];
+<a name="l00019"></a>00019         }
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021         var tmp = activeFilterIndicatorIndexes
+<a name="l00022"></a>00022         var pos = tmp.indexOf(index);
+<a name="l00023"></a>00023         tmp.splice(pos, 1);
+<a name="l00024"></a>00024         <span class="keywordflow">return</span> tmp;
+<a name="l00025"></a>00025     }
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027     <span class="keyword">function</span> addFilterIndex(index) {
+<a name="l00028"></a>00028         <span class="keywordflow">if</span>(!activeFilterIndicatorIndexes) {
+<a name="l00029"></a>00029             activeFilterIndicatorIndexes = [];
+<a name="l00030"></a>00030         }
+<a name="l00031"></a>00031         var tmp = activeFilterIndicatorIndexes
+<a name="l00032"></a>00032         tmp.push(index);
+<a name="l00033"></a>00033         <span class="keywordflow">return</span> tmp;
+<a name="l00034"></a>00034     }
+<a name="l00035"></a>00035     <span class="keyword">function</span> sort(index) {
+<a name="l00036"></a>00036         dataView.model.sort(index);
+<a name="l00037"></a>00037     }
+<a name="l00038"></a>00038     <span class="keyword">function</span> filter(index, <span class="keyword">remove</span>) {
+<a name="l00039"></a>00039         <span class="keywordflow">if</span>(<span class="keyword">remove</span>) {
+<a name="l00040"></a>00040             activeFilterIndicatorIndexes = addFilterIndex(index);
+<a name="l00041"></a>00041             dataView.model.setFilterKeyColumn(index);
+<a name="l00042"></a>00042         } <span class="keywordflow">else</span> {
+<a name="l00043"></a>00043             activeFilterIndicatorIndexes = removeFilterIndex(index);
+<a name="l00044"></a>00044             var nbFilters = activeFilterIndicatorIndexes.length;
+<a name="l00045"></a>00045             dataView.model.invalidateFilter(index);
+<a name="l00046"></a>00046             <span class="keywordflow">for</span>(var i = 0; i &lt; nbFilters; i++) {
+<a name="l00047"></a>00047                 dataView.model.setFilterKeyColumn(activeFilterIndicatorIndexes.at(i));
+<a name="l00048"></a>00048             }
+<a name="l00049"></a>00049         }
+<a name="l00050"></a>00050     }
+<a name="l00051"></a>00051     delegate: Loader {
+<a name="l00052"></a>00052         <span class="keywordtype">id</span>:contentLoader
+<a name="l00053"></a>00053         source: dataDelegate
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055         Binding {
+<a name="l00056"></a>00056             target: contentLoader.item
+<a name="l00057"></a>00057             <span class="keyword">property</span>: <span class="stringliteral">&quot;visible&quot;</span>
+<a name="l00058"></a>00058             value: dataView.enabled
+<a name="l00059"></a>00059         }
+<a name="l00060"></a>00060         Binding {
+<a name="l00061"></a>00061             target: contentLoader.item
+<a name="l00062"></a>00062             <span class="keyword">property</span>: <span class="stringliteral">&quot;width&quot;</span>
+<a name="l00063"></a>00063             value: dataView.cellWidth-dataView.cellSpacing
+<a name="l00064"></a>00064         }
+<a name="l00065"></a>00065         Binding {
+<a name="l00066"></a>00066             target: contentLoader.item
+<a name="l00067"></a>00067             <span class="keyword">property</span>: <span class="stringliteral">&quot;heigth&quot;</span>
+<a name="l00068"></a>00068             value: dataView.cellHeight-dataView.cellSpacing
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070         Connections {
+<a name="l00071"></a>00071             target: contentLoader.item
+<a name="l00072"></a>00072             onClicked: {
+<a name="l00073"></a>00073                 <span class="keywordflow">if</span>(dataView.enabled) {
+<a name="l00074"></a>00074                     dataView.selected(contentLoader.item.value);
+<a name="l00075"></a>00075                     dataView.currentIndex = index;
+<a name="l00076"></a>00076                 }
+<a name="l00077"></a>00077             }
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080 }
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>
