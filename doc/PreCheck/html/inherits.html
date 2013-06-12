@@ -6,9 +6,19 @@
 <title>PreCheck: Hiérarchie des classes</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
 <script type="text/javascript" src="dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li><a href="dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,6 +83,19 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('hierarchy.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">Hiérarchie des classes</div>  </div>
@@ -64,281 +106,182 @@
 </div><table border="0" cellspacing="10" cellpadding="0">
 <tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#AliasButtonStyle"/>
 <map name="AliasButtonStyle" id="AliasButtonStyle">
-<area shape="rect" id="node1" href="d7/d46/a00002.html" title="ButtonStyle &#160;QtQuick.Controls.Styles 1.0" alt="" coords="7,5,124,35"/></map>
+<area shape="rect" id="node1" href="d8/d84/a00001.html" title="ButtonStyle &#160;QtQuick.Controls.Styles 1.0" alt="" coords="7,5,124,35"/></map>
 </td></tr>
 <tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#AliasToolButtonStyle"/>
 <map name="AliasToolButtonStyle" id="AliasToolButtonStyle">
-<area shape="rect" id="node1" href="d1/d7c/a00003.html" title="ToolButtonStyle" alt="" coords="5,5,149,35"/></map>
+<area shape="rect" id="node1" href="d7/d46/a00002.html" title="ToolButtonStyle" alt="" coords="5,5,149,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#App"/>
-<map name="App" id="App">
-<area shape="rect" id="node1" href="d0/d0b/a00004.html" title="App" alt="" coords="5,5,51,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#app"/>
+<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#app"/>
 <map name="app" id="app">
-<area shape="rect" id="node1" href="dd/dad/a00005.html" title="app" alt="" coords="5,5,48,35"/></map>
+<area shape="rect" id="node1" href="d1/d7c/a00003.html" title="app" alt="" coords="5,5,48,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#AppDatabase"/>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#AppDatabase"/>
 <map name="AppDatabase" id="AppDatabase">
-<area shape="rect" id="node1" href="de/d21/a00006.html" title="AppDatabase" alt="" coords="5,5,107,35"/></map>
+<area shape="rect" id="node1" href="d0/d0b/a00004.html" title="AppDatabase" alt="" coords="5,5,107,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#Bills"/>
-<map name="Bills" id="Bills">
-<area shape="rect" id="node1" href="df/d86/a00012.html" title="Bills" alt="" coords="7,5,52,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#Booking"/>
-<map name="Booking" id="Booking">
-<area shape="rect" id="node1" href="dd/d1b/a00015.html" title="Booking" alt="" coords="5,5,75,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#CalendarDialog"/>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#CalendarDialog"/>
 <map name="CalendarDialog" id="CalendarDialog">
-<area shape="rect" id="node1" href="db/db2/a00020.html" title="CalendarDialog" alt="" coords="7,5,116,35"/></map>
+<area shape="rect" id="node1" href="d7/dd4/a00013.html" title="CalendarDialog" alt="" coords="7,5,116,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#CheckableSortFilterProxyModel"/>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#CheckableSortFilterProxyModel"/>
 <map name="CheckableSortFilterProxyModel" id="CheckableSortFilterProxyModel">
-<area shape="rect" id="node1" href="de/d11/a00021.html" title="CheckableSortFilterProxyModel" alt="" coords="7,192,212,221"/><area shape="rect" id="node3" href="d7/dec/a00010.html" title="BillingsTableModel" alt="" coords="268,5,399,35"/><area shape="rect" id="node5" href="d7/dd4/a00013.html" title="BillsTableModel" alt="" coords="276,59,391,88"/><area shape="rect" id="node7" href="d1/d2b/a00018.html" title="BookingsTableModel" alt="" coords="263,112,404,141"/><area shape="rect" id="node9" href="d3/d52/a00023.html" title="ClientsTableModel" alt="" coords="268,165,399,195"/><area shape="rect" id="node11" href="dd/d32/a00041.html" title="GroupsTableModel" alt="" coords="268,219,399,248"/><area shape="rect" id="node13" href="d4/d6d/a00055.html" title="OffersTableModel" alt="" coords="271,272,396,301"/><area shape="rect" id="node15" href="d9/da4/a00078.html" title="RoomsTableModel" alt="" coords="268,325,399,355"/><area shape="rect" id="node17" href="d4/d63/a00082.html" title="ServicesTableModel" alt="" coords="264,379,403,408"/></map>
+<area shape="rect" id="node1" href="d2/de7/a00014.html" title="CheckableSortFilterProxyModel" alt="" coords="7,165,212,195"/><area shape="rect" id="node3" href="d4/dee/a00008.html" title="BillingsTableModel" alt="" coords="268,5,399,35"/><area shape="rect" id="node5" href="da/da0/a00009.html" title="BillsTableModel" alt="" coords="276,59,391,88"/><area shape="rect" id="node7" href="df/d86/a00012.html" title="BookingsTableModel" alt="" coords="263,112,404,141"/><area shape="rect" id="node9" href="dd/d1b/a00015.html" title="ClientsTableModel" alt="" coords="268,165,399,195"/><area shape="rect" id="node11" href="d5/d79/a00030.html" title="GroupsTableModel" alt="" coords="268,219,399,248"/><area shape="rect" id="node13" href="d4/d6d/a00055.html" title="RoomsTableModel" alt="" coords="268,272,399,301"/><area shape="rect" id="node15" href="d1/d22/a00057.html" title="ServicesTableModel" alt="" coords="264,325,403,355"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#Client"/>
-<map name="Client" id="Client">
-<area shape="rect" id="node1" href="d7/de0/a00022.html" title="Client" alt="" coords="5,5,61,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#CollapsiblePanel"/>
-<map name="CollapsiblePanel" id="CollapsiblePanel">
-<area shape="rect" id="node1" href="dc/de2/a00024.html" title="CollapsiblePanel" alt="" coords="7,5,124,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#CommonPage"/>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#CommonPage"/>
 <map name="CommonPage" id="CommonPage">
-<area shape="rect" id="node1" href="d3/dfe/a00025.html" title="CommonPage" alt="" coords="7,5,111,35"/></map>
+<area shape="rect" id="node1" href="d7/d7a/a00016.html" title="CommonPage" alt="" coords="7,5,111,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#Company"/>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#Company"/>
 <map name="Company" id="Company">
-<area shape="rect" id="node1" href="d6/d5b/a00026.html#dd/d1d/a00336" title="Company" alt="" coords="7,5,84,35"/></map>
+<area shape="rect" id="node1" href="d4/d51/a00017.html#d9/dd0/a00191" title="Company" alt="" coords="7,5,84,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#ComplexAction"/>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#ComplexAction"/>
 <map name="ComplexAction" id="ComplexAction">
-<area shape="rect" id="node1" href="d0/d33/a00027.html" title="ComplexAction" alt="" coords="7,5,116,35"/></map>
+<area shape="rect" id="node1" href="d1/d2b/a00018.html" title="ComplexAction" alt="" coords="7,5,116,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#ComplexColumn"/>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#ComplexColumn"/>
 <map name="ComplexColumn" id="ComplexColumn">
-<area shape="rect" id="node1" href="dc/d3c/a00028.html" title="ComplexColumn" alt="" coords="7,5,124,35"/></map>
+<area shape="rect" id="node1" href="dd/da2/a00019.html" title="ComplexColumn" alt="" coords="7,5,124,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#ComplexGridView"/>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#ComplexGridView"/>
 <map name="ComplexGridView" id="ComplexGridView">
-<area shape="rect" id="node1" href="d5/d16/a00029.html" title="ComplexGridView" alt="" coords="7,5,132,35"/><area shape="rect" id="node3" href="d0/dc0/a00033.html" title="ContentView_old" alt="" coords="183,5,303,35"/></map>
+<area shape="rect" id="node1" href="db/db2/a00020.html" title="ComplexGridView" alt="" coords="7,5,132,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#ComplexRow"/>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#ComplexRow"/>
 <map name="ComplexRow" id="ComplexRow">
-<area shape="rect" id="node1" href="d5/d79/a00030.html" title="ComplexRow" alt="" coords="5,5,107,35"/></map>
+<area shape="rect" id="node1" href="de/d11/a00021.html" title="ComplexRow" alt="" coords="5,5,107,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#ConnexionPage"/>
+<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#ConnexionPage"/>
 <map name="ConnexionPage" id="ConnexionPage">
-<area shape="rect" id="node1" href="df/d61/a00031.html" title="ConnexionPage" alt="" coords="5,5,120,35"/></map>
+<area shape="rect" id="node1" href="d3/d52/a00023.html" title="ConnexionPage" alt="" coords="5,5,120,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#ContentView"/>
+<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#ContentView"/>
 <map name="ContentView" id="ContentView">
-<area shape="rect" id="node1" href="dc/d87/a00032.html" title="ContentView" alt="" coords="7,5,103,35"/></map>
+<area shape="rect" id="node1" href="dc/de2/a00024.html" title="ContentView" alt="" coords="7,5,103,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#CustomizableTabWidget"/>
-<map name="CustomizableTabWidget" id="CustomizableTabWidget">
-<area shape="rect" id="node1" href="db/df3/a00034.html" title="CustomizableTabWidget" alt="" coords="5,5,171,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#DataDelegate"/>
+<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#DataDelegate"/>
 <map name="DataDelegate" id="DataDelegate">
-<area shape="rect" id="node1" href="d4/d8c/a00035.html" title="DataDelegate" alt="" coords="7,85,108,115"/><area shape="rect" id="node3" href="d4/dee/a00008.html" title="BillingsDelegate" alt="" coords="164,5,279,35"/><area shape="rect" id="node5" href="d4/d51/a00017.html" title="BookingsDelegate" alt="" coords="157,59,285,88"/><area shape="rect" id="node7" href="d9/da5/a00075.html" title="RoomsDelegate" alt="" coords="164,112,279,141"/><area shape="rect" id="node9" href="d8/d53/a00081.html" title="ServicesDelegate" alt="" coords="159,165,284,195"/></map>
+<area shape="rect" id="node1" href="d6/d5b/a00026.html" title="DataDelegate" alt="" coords="7,85,108,115"/><area shape="rect" id="node3" href="de/d21/a00006.html" title="BillingsDelegate" alt="" coords="164,5,279,35"/><area shape="rect" id="node5" href="da/d45/a00011.html" title="BookingsDelegate" alt="" coords="157,59,285,88"/><area shape="rect" id="node7" href="dc/dee/a00053.html" title="RoomsDelegate" alt="" coords="164,112,279,141"/><area shape="rect" id="node9" href="d9/d2e/a00056.html" title="ServicesDelegate" alt="" coords="159,165,284,195"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#DefaultColorDialog"/>
-<map name="DefaultColorDialog" id="DefaultColorDialog">
-<area shape="rect" id="node1" href="de/d8c/a00036.html#d2/da3/a00520" title="DefaultColorDialog" alt="" coords="7,5,137,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#DefaultFileDialog"/>
-<map name="DefaultFileDialog" id="DefaultFileDialog">
-<area shape="rect" id="node1" href="d1/dc6/a00037.html" title="DefaultFileDialog" alt="" coords="5,5,128,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#FileHandler"/>
-<map name="FileHandler" id="FileHandler">
-<area shape="rect" id="node1" href="d8/d41/a00038.html" title="FileHandler" alt="" coords="5,5,93,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#FixedGridLayout"/>
-<map name="FixedGridLayout" id="FixedGridLayout">
-<area shape="rect" id="node1" href="d3/de7/a00039.html" title="FixedGridLayout" alt="" coords="5,5,123,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_25.png" border="0" alt="" usemap="#Group"/>
-<map name="Group" id="Group">
-<area shape="rect" id="node1" href="db/d3a/a00040.html" title="Group" alt="" coords="7,5,63,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_26.png" border="0" alt="" usemap="#HeaderView"/>
+<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#HeaderView"/>
 <map name="HeaderView" id="HeaderView">
-<area shape="rect" id="node1" href="d5/db6/a00042.html" title="HeaderView" alt="" coords="5,5,99,35"/></map>
+<area shape="rect" id="node1" href="df/d61/a00031.html" title="HeaderView" alt="" coords="5,5,99,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_27.png" border="0" alt="" usemap="#Keyboard"/>
+<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#Keyboard"/>
 <map name="Keyboard" id="Keyboard">
-<area shape="rect" id="node1" href="d6/d42/a00043.html" title="Keyboard" alt="" coords="5,5,83,35"/><area shape="rect" id="node3" href="d5/df9/a00044.html" title="KeyboardFromString" alt="" coords="131,5,272,35"/></map>
+<area shape="rect" id="node1" href="db/df3/a00034.html" title="Keyboard" alt="" coords="5,5,83,35"/><area shape="rect" id="node3" href="d4/d8c/a00035.html" title="KeyboardFromString" alt="" coords="131,5,272,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_28.png" border="0" alt="" usemap="#LetfPanel"/>
-<map name="LetfPanel" id="LetfPanel">
-<area shape="rect" id="node1" href="d3/dea/a00046.html#d9/d87/a00551" title="LetfPanel" alt="" coords="5,5,83,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_29.png" border="0" alt="" usemap="#MessageManager"/>
+<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#MessageManager"/>
 <map name="MessageManager" id="MessageManager">
-<area shape="rect" id="node1" href="d4/dca/a00048.html" title="MessageManager" alt="" coords="5,5,131,35"/></map>
+<area shape="rect" id="node1" href="d1/dc6/a00037.html" title="MessageManager" alt="" coords="5,5,131,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_30.png" border="0" alt="" usemap="#mySqlRelationalDelegate"/>
-<map name="mySqlRelationalDelegate" id="mySqlRelationalDelegate">
-<area shape="rect" id="node1" href="d2/dee/a00049.html" title="mySqlRelationalDelegate" alt="" coords="7,5,175,35"/></map>
+<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#NamedObject"/>
+<map name="NamedObject" id="NamedObject">
+<area shape="rect" id="node1" href="d8/d41/a00038.html" title="NamedObject" alt="" coords="7,272,108,301"/><area shape="rect" id="node3" href="d5/d16/a00029.html" title="GenericState" alt="" coords="167,245,265,275"/><area shape="rect" id="node27" href="d0/dc0/a00033.html" title="IOStateMachine" alt="" coords="159,299,273,328"/><area shape="rect" id="node5" href="dc/d87/a00032.html" title="IOState" alt="" coords="363,192,429,221"/><area shape="rect" id="node25" href="d3/dea/a00046.html" title="PrintingState" alt="" coords="348,245,444,275"/><area shape="rect" id="node7" href="d2/d79/a00051.html" title="QuestionState" alt="" coords="523,139,627,168"/><area shape="rect" id="node19" href="df/d03/a00062.html" title="StatementState" alt="" coords="519,245,631,275"/><area shape="rect" id="node9" href="d3/dfe/a00025.html" title="DatabaseContentQuestionState" alt="" coords="681,5,887,35"/><area shape="rect" id="node11" href="d0/d33/a00027.html" title="DateQuestionState" alt="" coords="717,59,851,88"/><area shape="rect" id="node13" href="dc/d3c/a00028.html" title="DecimalQuestionState" alt="" coords="708,112,860,141"/><area shape="rect" id="node15" href="d6/d42/a00043.html" title="NumericQuestionState" alt="" coords="707,165,861,195"/><area shape="rect" id="node17" href="d1/d6f/a00063.html" title="StringQuestionState" alt="" coords="715,219,853,248"/><area shape="rect" id="node21" href="d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ..." alt="" coords="721,272,847,301"/><area shape="rect" id="node23" href="d6/d2c/a00072.html" title="ValidationState" alt="" coords="937,272,1047,301"/><area shape="rect" id="node29" href="de/d8c/a00036.html" title="LoopingStateMachine" alt="" coords="323,299,469,328"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_31.png" border="0" alt="" usemap="#Offer"/>
-<map name="Offer" id="Offer">
-<area shape="rect" id="node1" href="d1/dea/a00054.html" title="Offer" alt="" coords="5,5,56,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_32.png" border="0" alt="" usemap="#OutputZone"/>
+<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#OutputZone"/>
 <map name="OutputZone" id="OutputZone">
-<area shape="rect" id="node1" href="d9/d2e/a00056.html" title="OutputZone" alt="" coords="5,5,96,35"/></map>
+<area shape="rect" id="node1" href="d5/df9/a00044.html" title="OutputZone" alt="" coords="5,5,96,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_33.png" border="0" alt="" usemap="#OutputZone__old"/>
-<map name="OutputZone__old" id="OutputZone__old">
-<area shape="rect" id="node1" href="d1/d22/a00057.html" title="OutputZone_old" alt="" coords="5,5,120,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_34.png" border="0" alt="" usemap="#PreCheckApp"/>
-<map name="PreCheckApp" id="PreCheckApp">
-<area shape="rect" id="node1" href="d7/df7/a00058.html" title="PreCheckApp" alt="" coords="7,5,108,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_35.png" border="0" alt="" usemap="#PreCheckQtApp"/>
-<map name="PreCheckQtApp" id="PreCheckQtApp">
-<area shape="rect" id="node1" href="d3/d8b/a00059.html" title="PreCheckQtApp" alt="" coords="5,5,123,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_36.png" border="0" alt="" usemap="#PreCheckThread"/>
+<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#PreCheckThread"/>
 <map name="PreCheckThread" id="PreCheckThread">
-<area shape="rect" id="node1" href="d9/d73/a00060.html" title="PreCheckThread" alt="" coords="5,165,125,195"/><area shape="rect" id="node3" href="de/d5e/a00007.html" title="BillingFactory" alt="" coords="193,5,295,35"/><area shape="rect" id="node5" href="da/da0/a00009.html" title="BillingsFactory" alt="" coords="191,59,297,88"/><area shape="rect" id="node7" href="d7/d7a/a00016.html" title="BookingFactory" alt="" coords="188,112,300,141"/><area shape="rect" id="node9" href="d5/de0/a00050.html" title="NewBillFactory" alt="" coords="189,165,299,195"/><area shape="rect" id="node11" href="d2/d79/a00051.html" title="NewBillingFactory" alt="" coords="180,219,308,248"/><area shape="rect" id="node13" href="d1/d84/a00052.html" title="NewBookingFactory" alt="" coords="175,272,313,301"/><area shape="rect" id="node15" href="dc/dee/a00053.html" title="NewClientFactory" alt="" coords="181,325,307,355"/></map>
+<area shape="rect" id="node1" href="d6/d97/a00045.html" title="PreCheckThread" alt="" coords="5,165,125,195"/><area shape="rect" id="node3" href="dd/dad/a00005.html" title="BillingFactory" alt="" coords="193,5,295,35"/><area shape="rect" id="node5" href="de/d5e/a00007.html" title="BillingsFactory" alt="" coords="191,59,297,88"/><area shape="rect" id="node7" href="d7/dec/a00010.html" title="BookingFactory" alt="" coords="188,112,300,141"/><area shape="rect" id="node9" href="d3/de7/a00039.html" title="NewBillFactory" alt="" coords="189,165,299,195"/><area shape="rect" id="node11" href="db/d3a/a00040.html" title="NewBillingFactory" alt="" coords="180,219,308,248"/><area shape="rect" id="node13" href="dd/d32/a00041.html" title="NewBookingFactory" alt="" coords="175,272,313,301"/><area shape="rect" id="node15" href="d5/db6/a00042.html" title="NewClientFactory" alt="" coords="181,325,307,355"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_37.png" border="0" alt="" usemap="#Pushable"/>
+<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#Pushable"/>
 <map name="Pushable" id="Pushable">
-<area shape="rect" id="node1" href="d4/de8/a00061.html" title="Pushable" alt="" coords="7,5,81,35"/><area shape="rect" id="node3" href="d0/d61/a00100.html" title="TouchButton" alt="" coords="131,5,227,35"/></map>
+<area shape="rect" id="node1" href="d6/d2d/a00047.html" title="Pushable" alt="" coords="7,5,81,35"/><area shape="rect" id="node3" href="dc/ddf/a00067.html" title="TouchButton" alt="" coords="131,5,227,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_38.png" border="0" alt="" usemap="#QQQuickAction"/>
+<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#QQQuickAction"/>
 <map name="QQQuickAction" id="QQQuickAction">
-<area shape="rect" id="node1" href="df/d03/a00062.html" title="QQQuickAction" alt="" coords="7,5,119,35"/></map>
+<area shape="rect" id="node1" href="d4/dca/a00048.html" title="QQQuickAction" alt="" coords="7,5,119,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_39.png" border="0" alt="" usemap="#QQuickAbstractDialog"/>
-<map name="QQuickAbstractDialog" id="QQuickAbstractDialog">
-<area shape="rect" id="node1" href="df/d5f/a00064.html" title="QQuickAbstractDialog" alt="" coords="5,32,157,61"/><area shape="rect" id="node3" href="d1/d6f/a00063.html" title="QQuickAbstractColorDialog" alt="" coords="207,5,388,35"/><area shape="rect" id="node7" href="de/de1/a00065.html" title="QQuickAbstractFileDialog" alt="" coords="211,59,384,88"/><area shape="rect" id="node5" href="d9/db3/a00066.html" title="AbstractColorDialog &#160;QQuickColorDialog &#160;QtQuick.Dialogs 1" alt="" coords="439,5,572,35"/><area shape="rect" id="node9" href="dc/ddf/a00067.html" title="AbstractFileDialog &#160;QQuickFileDialog &#160;QtQuick.Dialogs 1" alt="" coords="444,59,567,88"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_40.png" border="0" alt="" usemap="#QQuickRelationalTableModel"/>
-<map name="QQuickRelationalTableModel" id="QQuickRelationalTableModel">
-<area shape="rect" id="node1" href="da/d24/a00068.html" title="QQuickRelationalTableModel" alt="" coords="7,5,196,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_41.png" border="0" alt="" usemap="#QtQuick2ApplicationViewer"/>
+<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#QtQuick2ApplicationViewer"/>
 <map name="QtQuick2ApplicationViewer" id="QtQuick2ApplicationViewer">
-<area shape="rect" id="node1" href="d4/d31/a00069.html" title="QtQuick2ApplicationViewer" alt="" coords="5,5,187,35"/></map>
+<area shape="rect" id="node1" href="d2/dee/a00049.html" title="QtQuick2ApplicationViewer" alt="" coords="5,5,187,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_42.png" border="0" alt="" usemap="#QtQuick2ApplicationViewerPrivate"/>
+<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#QtQuick2ApplicationViewerPrivate"/>
 <map name="QtQuick2ApplicationViewerPrivate" id="QtQuick2ApplicationViewerPrivate">
-<area shape="rect" id="node1" href="d2/db1/a00070.html" title="QtQuick2ApplicationViewerPrivate" alt="" coords="7,5,228,35"/></map>
+<area shape="rect" id="node1" href="d5/de0/a00050.html" title="QtQuick2ApplicationViewerPrivate" alt="" coords="7,5,228,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_43.png" border="0" alt="" usemap="#Rent"/>
-<map name="Rent" id="Rent">
-<area shape="rect" id="node1" href="d6/d2c/a00072.html" title="Rent" alt="" coords="5,5,56,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_44.png" border="0" alt="" usemap="#RestrictiveApplication"/>
+<tr><td><img src="inherit_graph_25.png" border="0" alt="" usemap="#RestrictiveApplication"/>
 <map name="RestrictiveApplication" id="RestrictiveApplication">
-<area shape="rect" id="node1" href="d1/d6e/a00073.html" title="RestrictiveApplication" alt="" coords="5,5,155,35"/></map>
+<area shape="rect" id="node1" href="d1/d84/a00052.html" title="RestrictiveApplication" alt="" coords="5,5,155,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_45.png" border="0" alt="" usemap="#Room"/>
-<map name="Room" id="Room">
-<area shape="rect" id="node1" href="db/db6/a00074.html" title="Room" alt="" coords="7,5,63,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_46.png" border="0" alt="" usemap="#RoomsSectionsDelegate"/>
+<tr><td><img src="inherit_graph_26.png" border="0" alt="" usemap="#RoomsSectionsDelegate"/>
 <map name="RoomsSectionsDelegate" id="RoomsSectionsDelegate">
-<area shape="rect" id="node1" href="db/df8/a00076.html" title="RoomsSectionsDelegate" alt="" coords="7,5,172,35"/></map>
+<area shape="rect" id="node1" href="d1/dea/a00054.html" title="RoomsSectionsDelegate" alt="" coords="7,5,172,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_47.png" border="0" alt="" usemap="#roomsTableDelegate"/>
-<map name="roomsTableDelegate" id="roomsTableDelegate">
-<area shape="rect" id="node1" href="d1/d09/a00077.html#dd/de9/a00552" title="roomsTableDelegate" alt="" coords="7,5,148,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_48.png" border="0" alt="" usemap="#Service"/>
-<map name="Service" id="Service">
-<area shape="rect" id="node1" href="da/dec/a00080.html" title="Service" alt="" coords="5,5,72,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_49.png" border="0" alt="" usemap="#SqlDataFields"/>
+<tr><td><img src="inherit_graph_27.png" border="0" alt="" usemap="#SqlDataFields"/>
 <map name="SqlDataFields" id="SqlDataFields">
-<area shape="rect" id="node1" href="df/d5d/a00084.html" title="SqlDataFields" alt="" coords="5,5,109,35"/></map>
+<area shape="rect" id="node1" href="d7/df7/a00058.html" title="SqlDataFields" alt="" coords="5,5,109,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_50.png" border="0" alt="" usemap="#SqlDataModel"/>
+<tr><td><img src="inherit_graph_28.png" border="0" alt="" usemap="#SqlDataModel"/>
 <map name="SqlDataModel" id="SqlDataModel">
-<area shape="rect" id="node1" href="df/d13/a00085.html" title="SqlDataModel" alt="" coords="5,5,109,35"/></map>
+<area shape="rect" id="node1" href="d3/d8b/a00059.html" title="SqlDataModel" alt="" coords="5,5,109,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_51.png" border="0" alt="" usemap="#SqlDataView"/>
+<tr><td><img src="inherit_graph_29.png" border="0" alt="" usemap="#SqlDataView"/>
 <map name="SqlDataView" id="SqlDataView">
-<area shape="rect" id="node1" href="da/d2a/a00086.html" title="SqlDataView" alt="" coords="5,5,104,35"/></map>
+<area shape="rect" id="node1" href="d9/d73/a00060.html" title="SqlDataView" alt="" coords="5,5,104,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_52.png" border="0" alt="" usemap="#SqlTableView"/>
+<tr><td><img src="inherit_graph_30.png" border="0" alt="" usemap="#SqlTableView"/>
 <map name="SqlTableView" id="SqlTableView">
-<area shape="rect" id="node1" href="d1/d1e/a00087.html" title="SqlTableView" alt="" coords="7,5,108,35"/></map>
+<area shape="rect" id="node1" href="d4/de8/a00061.html" title="SqlTableView" alt="" coords="7,5,108,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_53.png" border="0" alt="" usemap="#sucessMessage"/>
-<map name="sucessMessage" id="sucessMessage">
-<area shape="rect" id="node1" href="db/ddf/a00088.html" title="sucessMessage" alt="" coords="5,5,123,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_54.png" border="0" alt="" usemap="#TabBar"/>
-<map name="TabBar" id="TabBar">
-<area shape="rect" id="node1" href="db/dab/a00089.html" title="TabBar" alt="" coords="5,5,69,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_55.png" border="0" alt="" usemap="#Table"/>
-<map name="Table" id="Table">
-<area shape="rect" id="node1" href="d9/dec/a00090.html#d0/d79/a00553" title="Table" alt="" coords="7,5,60,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_56.png" border="0" alt="" usemap="#TableTabPage"/>
-<map name="TableTabPage" id="TableTabPage">
-<area shape="rect" id="node1" href="da/d82/a00091.html" title="TableTabPage" alt="" coords="5,5,112,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_57.png" border="0" alt="" usemap="#TabPage"/>
-<map name="TabPage" id="TabPage">
-<area shape="rect" id="node1" href="d1/dc1/a00092.html" title="TabPage" alt="" coords="5,112,80,141"/><area shape="rect" id="node3" href="d4/d7d/a00093.html" title="TabPageWithKeys" alt="" coords="129,59,260,88"/><area shape="rect" id="node9" href="dc/d54/a00094.html" title="TabPageWithTable" alt="" coords="128,165,261,195"/><area shape="rect" id="node5" href="d6/d97/a00045.html" title="KeyboardTabPage" alt="" coords="311,5,439,35"/><area shape="rect" id="node7" href="d2/d1f/a00083.html" title="ServicesTabPage" alt="" coords="312,59,437,88"/><area shape="rect" id="node11" href="da/d45/a00011.html" title="BillingsTabPage" alt="" coords="317,112,432,141"/><area shape="rect" id="node13" href="d2/de7/a00014.html" title="BillsTabPage" alt="" coords="325,165,424,195"/><area shape="rect" id="node15" href="dd/da2/a00019.html" title="BookingsTabPage" alt="" coords="311,219,439,248"/><area shape="rect" id="node17" href="d1/d51/a00079.html" title="RoomsTabPage" alt="" coords="317,272,432,301"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_58.png" border="0" alt="" usemap="#TabsMenuWidget"/>
-<map name="TabsMenuWidget" id="TabsMenuWidget">
-<area shape="rect" id="node1" href="d9/d77/a00095.html" title="TabsMenuWidget" alt="" coords="7,5,129,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_59.png" border="0" alt="" usemap="#TabWidget"/>
-<map name="TabWidget" id="TabWidget">
-<area shape="rect" id="node1" href="d9/df8/a00096.html" title="TabWidget" alt="" coords="5,5,91,35"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_60.png" border="0" alt="" usemap="#TabZone"/>
+<tr><td><img src="inherit_graph_31.png" border="0" alt="" usemap="#TabZone"/>
 <map name="TabZone" id="TabZone">
-<area shape="rect" id="node1" href="d1/d84/a00097.html" title="TabZone" alt="" coords="7,5,79,35"/></map>
+<area shape="rect" id="node1" href="df/d5f/a00064.html" title="TabZone" alt="" coords="7,5,79,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_61.png" border="0" alt="" usemap="#ThreadsManager"/>
+<tr><td><img src="inherit_graph_32.png" border="0" alt="" usemap="#ThreadsManager"/>
 <map name="ThreadsManager" id="ThreadsManager">
-<area shape="rect" id="node1" href="d1/d44/a00098.html" title="ThreadsManager" alt="" coords="7,5,124,35"/></map>
+<area shape="rect" id="node1" href="de/de1/a00065.html" title="ThreadsManager" alt="" coords="7,5,124,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_62.png" border="0" alt="" usemap="#TouchArea"/>
+<tr><td><img src="inherit_graph_33.png" border="0" alt="" usemap="#TouchArea"/>
 <map name="TouchArea" id="TouchArea">
-<area shape="rect" id="node1" href="da/d74/a00099.html" title="TouchArea" alt="" coords="5,5,91,35"/></map>
+<area shape="rect" id="node1" href="d9/db3/a00066.html" title="TouchArea" alt="" coords="5,5,91,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_63.png" border="0" alt="" usemap="#UpDownCheckImage"/>
+<tr><td><img src="inherit_graph_34.png" border="0" alt="" usemap="#UpDownCheckImage"/>
 <map name="UpDownCheckImage" id="UpDownCheckImage">
-<area shape="rect" id="node1" href="d9/dcc/a00102.html" title="UpDownCheckImage" alt="" coords="5,5,152,35"/></map>
+<area shape="rect" id="node1" href="d4/d31/a00069.html" title="UpDownCheckImage" alt="" coords="5,5,152,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_64.png" border="0" alt="" usemap="#UpDownCheckStyle"/>
+<tr><td><img src="inherit_graph_35.png" border="0" alt="" usemap="#UpDownCheckStyle"/>
 <map name="UpDownCheckStyle" id="UpDownCheckStyle">
-<area shape="rect" id="node1" href="d5/d1e/a00103.html" title="UpDownCheckStyle" alt="" coords="5,5,147,35"/></map>
+<area shape="rect" id="node1" href="d2/db1/a00070.html" title="UpDownCheckStyle" alt="" coords="5,5,147,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_65.png" border="0" alt="" usemap="#User"/>
+<tr><td><img src="inherit_graph_36.png" border="0" alt="" usemap="#User"/>
 <map name="User" id="User">
-<area shape="rect" id="node1" href="d0/dc2/a00104.html" title="User" alt="" coords="5,85,56,115"/><area shape="rect" id="node3" href="d8/d84/a00001.html" title="Admin" alt="" coords="123,5,181,35"/><area shape="rect" id="node5" href="d6/d2d/a00047.html" title="Manager" alt="" coords="116,59,188,88"/><area shape="rect" id="node7" href="d0/d89/a00071.html" title="Receptionist" alt="" coords="105,112,199,141"/><area shape="rect" id="node9" href="d4/d3a/a00101.html" title="Trainee" alt="" coords="120,165,184,195"/></map>
+<area shape="rect" id="node1" href="d0/d89/a00071.html" title="User" alt="" coords="5,5,56,35"/><area shape="rect" id="node3" href="da/d24/a00068.html" title="Trainee" alt="" coords="105,5,169,35"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_66.png" border="0" alt="" usemap="#WelcomePage"/>
+<tr><td><img src="inherit_graph_37.png" border="0" alt="" usemap="#WelcomePage"/>
 <map name="WelcomePage" id="WelcomePage">
-<area shape="rect" id="node1" href="d3/d32/a00105.html" title="WelcomePage" alt="" coords="5,5,112,35"/></map>
+<area shape="rect" id="node1" href="d1/d6e/a00073.html" title="WelcomePage" alt="" coords="5,5,112,35"/></map>
 </td></tr>
 </table>
 </div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

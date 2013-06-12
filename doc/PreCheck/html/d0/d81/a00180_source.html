@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/rent.h</title>
+<title>PreCheck:  Fichier source de views/qml/TouchArea.qml</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,59 +80,89 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d0/d81/a00180.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">rent.h</div>  </div>
+<div class="title">TouchArea.qml</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/d81/a00180.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef RENT_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define RENT_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a><a class="code" href="../../d6/d2c/a00072.html">00004</a> <span class="keyword">class </span><a class="code" href="../../d6/d2c/a00072.html">Rent</a> : <span class="keyword">public</span> <a class="code" href="../../df/d6a/a00119.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>
-<a name="l00005"></a>00005 {
-<a name="l00006"></a>00006     Q_OBJECT
-<a name="l00007"></a><a class="code" href="../../d6/d2c/a00072.html#abc29e461e01cc0c712944f8f47f91331">00007</a>         Q_PROPERTY(QString <span class="keywordtype">id</span> READ ID);
-<a name="l00008"></a><a class="code" href="../../d6/d2c/a00072.html#a711b40f71b09a762457879637e052fc4">00008</a>         Q_PROPERTY(QString <a class="code" href="../../d6/d2c/a00072.html#abc29e461e01cc0c712944f8f47f91331">name</a> READ <a class="code" href="../../d6/d2c/a00072.html#abc29e461e01cc0c712944f8f47f91331">name</a>);
-<a name="l00009"></a><a class="code" href="../../d6/d2c/a00072.html#a8fa47f6f18663de634e52a5f1dfbd9bd">00009</a>         Q_PROPERTY(QString <a class="code" href="../../d6/d2c/a00072.html#a6a8e151eb9f245211596b967de72dd14">email</a> READ <a class="code" href="../../d6/d2c/a00072.html#a6a8e151eb9f245211596b967de72dd14">email</a> WRITE <a class="code" href="../../d6/d2c/a00072.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a> RESET <a class="code" href="../../d6/d2c/a00072.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a>);
-<a name="l00010"></a><a class="code" href="../../d6/d2c/a00072.html#a4dd49d9668b2da093ef3ba1de6adcf2c">00010</a>         Q_PROPERTY(QString <a class="code" href="../../d6/d2c/a00072.html#a8fa47f6f18663de634e52a5f1dfbd9bd">phone</a> READ <a class="code" href="../../d6/d2c/a00072.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a> WRITE <a class="code" href="../../d6/d2c/a00072.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber</a> RESET <a class="code" href="../../d6/d2c/a00072.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a>);
-<a name="l00011"></a>00011         Q_PROPERTY(<span class="keywordtype">boolean</span> <a class="code" href="../../d6/d2c/a00072.html#a4dd49d9668b2da093ef3ba1de6adcf2c">currentRent</a> READ <a class="code" href="../../d6/d2c/a00072.html#ad6f0514f3f91fd988aa9aee477478b87">isCurrentRent</a> WRITE <a class="code" href="../../d6/d2c/a00072.html#a8bdc682e0d1c738e5fc7e9ab9baa7baa">becomesCurrentRent</a>
-<a name="l00012"></a>00012                 
-<a name="l00013"></a>00013 <span class="keyword">public</span>:
-<a name="l00014"></a>00014     <a class="code" href="../../d6/d2c/a00072.html">Rent</a>(QString <a class="code" href="../../d6/d2c/a00072.html#abc29e461e01cc0c712944f8f47f91331">name</a>, QString <a class="code" href="../../d6/d2c/a00072.html#a6a8e151eb9f245211596b967de72dd14">email</a> = <span class="stringliteral">&quot;&quot;</span>, QString <a class="code" href="../../d6/d2c/a00072.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a> = <span class="stringliteral">&quot;&quot;</span>, <span class="keywordtype">boolean</span> <a class="code" href="../../d6/d2c/a00072.html#ad6f0514f3f91fd988aa9aee477478b87">isCurrentRent</a> = <span class="keyword">true</span>, QObject *parent = 0);
-<a name="l00015"></a>00015         
-<a name="l00016"></a>00016         <span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a>(QString <a class="code" href="../../d6/d2c/a00072.html#a6a8e151eb9f245211596b967de72dd14">email</a>);
-<a name="l00017"></a>00017         QString <a class="code" href="../../d6/d2c/a00072.html#a6a8e151eb9f245211596b967de72dd14">email</a>() <span class="keyword">const</span>;
-<a name="l00018"></a>00018         <span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a>();
-<a name="l00019"></a><a class="code" href="../../d6/d2c/a00072.html#a9692f6367ba08755c9ee9fc926ea0a86">00019</a>         QString name <span class="keyword">const</span>;
-<a name="l00020"></a>00020         <span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber</a>(QString <a class="code" href="../../d6/d2c/a00072.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>);
-<a name="l00021"></a>00021         QString <a class="code" href="../../d6/d2c/a00072.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>() <span class="keyword">const</span>;
-<a name="l00022"></a>00022         <span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a>();
-<a name="l00023"></a>00023         <span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a8bdc682e0d1c738e5fc7e9ab9baa7baa">becomesCurrentRent</a>(<span class="keywordtype">boolean</span> <a class="code" href="../../d6/d2c/a00072.html#ad6f0514f3f91fd988aa9aee477478b87">isCurrentRent</a>);
-<a name="l00024"></a>00024         <span class="keywordtype">boolean</span> <a class="code" href="../../d6/d2c/a00072.html#ad6f0514f3f91fd988aa9aee477478b87">isCurrentRent</a>() <span class="keyword">const</span>;
-<a name="l00025"></a>00025                 
-<a name="l00026"></a>00026         <span class="keyword">private</span>:
-<a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(QString name);
-<a name="l00028"></a><a class="code" href="../../d6/d2c/a00072.html#abbecd8a5609bb8dde66e088553fdffab">00028</a>         QString <a class="code" href="../../d6/d2c/a00072.html#abbecd8a5609bb8dde66e088553fdffab">m_email</a>;
-<a name="l00029"></a><a class="code" href="../../d6/d2c/a00072.html#aec1b16830cfc165031fefacc72226999">00029</a>         QString <a class="code" href="../../d6/d2c/a00072.html#aec1b16830cfc165031fefacc72226999">m_phone</a>;
-<a name="l00030"></a><a class="code" href="../../d6/d2c/a00072.html#afee43417cb99fa21e5a1a665d1a096c7">00030</a>         <span class="keywordtype">boolean</span> <a class="code" href="../../d6/d2c/a00072.html#afee43417cb99fa21e5a1a665d1a096c7">m_current</a>;
-<a name="l00031"></a><a class="code" href="../../d6/d2c/a00072.html#aab4578f53a46cee4b24f9a555eb552de">00031</a>         QString <a class="code" href="../../d6/d2c/a00072.html#aab4578f53a46cee4b24f9a555eb552de">m_name</a>;
-<a name="l00032"></a>00032 };
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="preprocessor">#endif // RENT_H</span>
+<a href="../../d0/d81/a00180.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../d9/db3/a00066.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
+<a name="l00002"></a>00002 import QtQuick.Window 2.1
+<a name="l00003"></a>00003 import QtQuick.Controls 1.0
+<a name="l00004"></a><a class="code" href="../../d9/db3/a00066.html#a47b3bc4953c2a0e914d3a7eeea7248c8">00004</a> import QtQuick.Controls.Styles 1.0
+<a name="l00005"></a>00005 import QtQuick.Layouts 1.0
+<a name="l00006"></a>00006 import PreCheck 1.0
+<a name="l00007"></a>00007 PinchArea {
+<a name="l00008"></a>00008     <span class="keywordtype">id</span>: area
+<a name="l00009"></a>00009     signal clicked
+<a name="l00010"></a>00010     signal doubleClicked
+<a name="l00011"></a>00011     signal canceled
+<a name="l00012"></a>00012     signal entered
+<a name="l00013"></a>00013     signal exited
+<a name="l00014"></a>00014     signal positionChanged
+<a name="l00015"></a>00015     signal pressAndHold
+<a name="l00016"></a>00016     signal pressed
+<a name="l00017"></a>00017     signal released
+<a name="l00018"></a>00018     <span class="keyword">property</span> <span class="keywordtype">bool</span> hoverEnabled
+<a name="l00019"></a>00019     anchors.fill: parent
+<a name="l00020"></a>00020     MouseArea {
+<a name="l00021"></a>00021         preventStealing:<span class="keyword">true</span>
+<a name="l00022"></a>00022         anchors.fill: parent
+<a name="l00023"></a>00023         onClicked: area.clicked(mouse);
+<a name="l00024"></a>00024         onDoubleClicked: area.doubleClicked(mouse);
+<a name="l00025"></a>00025         onCanceled: area.canceled(mouse);
+<a name="l00026"></a>00026         onEntered: area.entered(mouse);
+<a name="l00027"></a>00027         onExited: area.exited(mouse);
+<a name="l00028"></a>00028         onPositionChanged: area.positionChanged(mouse);
+<a name="l00029"></a>00029         onPressAndHold: area.pressAndHold(mouse);
+<a name="l00030"></a>00030         onPressed: area.pressed(mouse);
+<a name="l00031"></a>00031         onReleased:area.released(mouse);
+<a name="l00032"></a>00032         onWheel: area.wheel(wheel);
+<a name="l00033"></a>00033         hoverEnabled: area.hoverEnabled
+<a name="l00034"></a>00034     }
+<a name="l00035"></a>00035     onPinchFinished: area.released(pinch);
+<a name="l00036"></a>00036     onPinchStarted: area.clicked(pinch);
+<a name="l00037"></a>00037     onPinchUpdated: area.positionChanged(pinch);
+<a name="l00038"></a>00038 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d0/d81/a00180.html">TouchArea.qml</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

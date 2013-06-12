@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/appQtOnly.h</title>
+<title>PreCheck:  Fichier source de models/offersTableModel.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,83 +80,66 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('df/d24/a00217.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">appQtOnly.h</div>  </div>
+<div class="title">offersTableModel.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/d24/a00217.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef CAISSE_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CAISSE_H</span>
+<a href="../../df/d24/a00217.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef OFFER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define OFFER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtGui&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QKeyEvent&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="../../da/d2e/a00238.html">fixed_grid_layout.h</a>&quot;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="../../d1/d5d/a00311.html">services_tab.h</a>&quot;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="../../d0/da2/a00307.html">rooms_tab.h</a>&quot;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/df3/a00219.html">billings_tab.h</a>&quot;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/d98/a00225.html">bookings_tab.h</a>&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="../../d6/d08/a00244.html">keyboard_tab.h</a>&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="../../df/d17/a00231.html">customizable_tab_widget.h</a>&quot;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/ded/a00252.html">output_zone.h</a>&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;QtWidgets/QMainWindow&gt;</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 
-<a name="l00021"></a><a class="code" href="../../d3/d8b/a00059.html">00021</a> <span class="keyword">class </span><a class="code" href="../../d3/d8b/a00059.html">PreCheckQtApp</a> : <span class="keyword">public</span> QMainWindow
-<a name="l00022"></a>00022 {
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024     Q_OBJECT
-<a name="l00025"></a>00025     Q_ENUMS(<a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a>)
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">public</span>:
-<a name="l00028"></a>00028 
-<a name="l00033"></a><a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">00033</a>     <span class="keyword">enum</span> <a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> { <a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">RECEPTION</a>, <a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">MANAGEMENT_X</a>, <a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">MANAGEMENT_Z</a>, <a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30">ADMINISTRATION</a> };
-<a name="l00034"></a>00034 
-<a name="l00040"></a>00040     <a class="code" href="../../d3/d8b/a00059.html#a3edbb66ab8222b0d63d98edd71f219cf">PreCheckQtApp</a>(QWidget *parent = 0);
-<a name="l00041"></a>00041 
-<a name="l00046"></a>00046     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e">fill</a>();
-<a name="l00047"></a>00047 
-<a name="l00053"></a>00053     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#adf2e9d5e456a754a5459e8435b0b094b">keyPressEvent</a>(QKeyEvent *event);
-<a name="l00054"></a>00054 
-<a name="l00059"></a>00059     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#aa161ebc0690ae176c3b523be8f8e65a4">centerAndResize</a>();
-<a name="l00060"></a>00060 
-<a name="l00061"></a><a class="code" href="../../d3/d8b/a00059.html#a1d78cc486b0c5e2bc6e190a24c7422a9">00061</a>     <a class="code" href="../../db/df3/a00034.html">CustomizableTabWidget</a> *<a class="code" href="../../d3/d8b/a00059.html#a1d78cc486b0c5e2bc6e190a24c7422a9" title="TODO.">middlePanel</a>; 
-<a name="l00062"></a><a class="code" href="../../d3/d8b/a00059.html#aeac29d1e07878a89f67c77ce731b6068">00062</a>     QWidget *<a class="code" href="../../d3/d8b/a00059.html#aeac29d1e07878a89f67c77ce731b6068" title="TODO.">leftPanel</a>; 
-<a name="l00064"></a>00064 <span class="keyword">protected</span>:
-<a name="l00065"></a>00065 
-<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#a579b0060c135cb9d2ab97ce02e67eaf8">fillLeft</a>();
-<a name="l00071"></a>00071 
-<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36">fillRight</a>();
-<a name="l00077"></a>00077 
-<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#ab7cbfcdab3d3604c01f461ed8a01fb2f">initKeyboard</a>(<span class="keywordtype">int</span> rowsCount, <span class="keywordtype">int</span> columnsCount, QFrame* container);
-<a name="l00086"></a>00086 
-<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6">initTabs</a>(<span class="keywordtype">int</span> rowsCount, <span class="keywordtype">int</span> columnsCount);
-<a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="../../d3/d8b/a00059.html#ad139bab6c36c5fb943bfedca3bd9b9af">00095</a>     <a class="code" href="../../d3/de7/a00039.html">FixedGridLayout</a> *<a class="code" href="../../d3/d8b/a00059.html#ad139bab6c36c5fb943bfedca3bd9b9af" title="TODO.">affichage</a>; 
-<a name="l00096"></a><a class="code" href="../../d3/d8b/a00059.html#a6234f706127b975f7221ff58180ca3c6">00096</a>     <a class="code" href="../../d1/d51/a00079.html">RoomsTabPage</a> *<a class="code" href="../../d3/d8b/a00059.html#a6234f706127b975f7221ff58180ca3c6" title="TODO.">roomsTab</a>; 
-<a name="l00098"></a><a class="code" href="../../d3/d8b/a00059.html#a3afc3339d3268692d1b02f9ab0b2efc4">00098</a>     <a class="code" href="../../d9/d2e/a00056.html">OutputZone</a> *<a class="code" href="../../d3/d8b/a00059.html#a3afc3339d3268692d1b02f9ab0b2efc4" title="TODO.">outputZone</a>; 
-<a name="l00099"></a><a class="code" href="../../d3/d8b/a00059.html#a945ceeb6236fbaf00dcdb7a0109f0d40">00099</a>     <a class="code" href="../../d6/d42/a00043.html">Keyboard</a> *<a class="code" href="../../d3/d8b/a00059.html#a945ceeb6236fbaf00dcdb7a0109f0d40" title="TODO.">keyboard</a>; 
-<a name="l00100"></a><a class="code" href="../../d3/d8b/a00059.html#a25bfb51e811e3f18b363a96c3a4780c4">00100</a>     QWidget *<a class="code" href="../../d3/d8b/a00059.html#a25bfb51e811e3f18b363a96c3a4780c4" title="TODO.">zoneCentrale</a>; 
-<a name="l00102"></a>00102 <span class="keyword">private</span>:
-<a name="l00103"></a><a class="code" href="../../d3/d8b/a00059.html#ada7768cf1926a63ca92084c54dea97c2">00103</a>     <span class="keywordtype">double</span> <a class="code" href="../../d3/d8b/a00059.html#ada7768cf1926a63ca92084c54dea97c2" title="TODO.">spacing</a>; 
-<a name="l00104"></a><a class="code" href="../../d3/d8b/a00059.html#aa31bdfd58914cf2a382449e7cdb85ff1">00104</a>     <a class="code" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">PreCheckQtApp::AppMode</a> <a class="code" href="../../d3/d8b/a00059.html#aa31bdfd58914cf2a382449e7cdb85ff1" title="TODO.">mode</a>; 
-<a name="l00105"></a>00105 };
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 <span class="preprocessor">#endif // CAISSE_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d64/a00181.html">models/checkablesortfilterproxymodel.h</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">class </span><a class="code" href="../../de/de1/a00065.html">OffersTableModel</a> : <span class="keyword">public</span> <a class="code" href="../../de/d11/a00021.html">CheckableSortFilterProxyModel</a>
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008 <span class="keyword">public</span>:
+<a name="l00009"></a>00009     <a class="code" href="../../de/de1/a00065.html#a3c377537acbcd3780f02b762ff6a0e71">OffersTableModel</a>(QString filter=<span class="stringliteral">&quot;&quot;</span>, QObject *parent=0);
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">protected</span>:
+<a name="l00012"></a>00012     <span class="keywordtype">void</span> <a class="code" href="../../de/de1/a00065.html#a0f122710daefea8597daa94bb78ec142">fillModel</a>();
+<a name="l00013"></a>00013 };
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#endif // OFFER_H</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../df/d24/a00217.html">offersTableModel.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

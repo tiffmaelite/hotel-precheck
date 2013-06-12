@@ -1,21 +1,44 @@
 #include "RestrictiveApplication.h"
 #include <QDebug>
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::RestrictiveApplication
+ \param parent
+*/
 RestrictiveApplication::RestrictiveApplication(QObject* parent) :
     QObject(parent)
 {
     init();
 }
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::mode
+ \return RestrictiveApplication::AppMode
+*/
 RestrictiveApplication::AppMode RestrictiveApplication::mode() const
 {
     return m_mode;
 }
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::init
+*/
 void RestrictiveApplication::init() {
     this->m_currentUser = new User();
 }
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::setMode
+ \param mode
+*/
 void RestrictiveApplication::setMode(RestrictiveApplication::AppMode mode)
 {
     if(!this->m_currentUser || ! User::exists(QVariant(this->m_currentUser->name())).toBool()) {
@@ -32,11 +55,23 @@ void RestrictiveApplication::setMode(RestrictiveApplication::AppMode mode)
     }
 }
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::user
+ \return User
+*/
 User *RestrictiveApplication::user() const
 {
     return this->m_currentUser;
 }
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::userLogOut
+ \return bool
+*/
 bool RestrictiveApplication::userLogOut()
 {
     this->m_currentUser = new User();
@@ -45,6 +80,13 @@ bool RestrictiveApplication::userLogOut()
     }
 }
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::setUser
+ \param login
+ \param pass
+*/
 void RestrictiveApplication::setUser(QString login, QString pass)
 {
     this->m_currentUser = User::logIn(login,pass);
@@ -57,6 +99,13 @@ void RestrictiveApplication::setUser(QString login, QString pass)
 }
 
 
+/*!
+ \brief
+
+ \fn RestrictiveApplication::userExists
+ \param login
+ \return bool
+*/
 bool RestrictiveApplication::userExists(QString login)
 {
     bool ok = User::exists(login).toBool();

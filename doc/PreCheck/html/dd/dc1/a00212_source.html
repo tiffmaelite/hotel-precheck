@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de PreCheckThread.h</title>
+<title>PreCheck:  Fichier source de models/offer.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -52,54 +81,57 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('dd/dc1/a00212.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">PreCheckThread.h</div>  </div>
+<div class="title">offer.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/dc1/a00212.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PRECHECKTHREAD_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PRECHECKTHREAD_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QThread&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QMap&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QVariant&gt;</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a><a class="code" href="../../d9/d73/a00060.html">00008</a> <span class="keyword">class </span><a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a> : <span class="keyword">public</span> QThread
-<a name="l00009"></a>00009 {
-<a name="l00010"></a>00010     Q_OBJECT
-<a name="l00011"></a>00011 <span class="keyword">public</span>:
-<a name="l00012"></a>00012     <a class="code" href="../../d9/d73/a00060.html#ab777a5889c2746247c1c1d2029ad59ea">PreCheckThread</a>(QObject *parent = 0);
-<a name="l00013"></a>00013     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#ab0b246c9d2a0bd10b9d4f8c45f9a6f96">cancelProcess</a>() = 0;
-<a name="l00014"></a>00014     <span class="keyword">virtual</span> QString <a class="code" href="../../d9/d73/a00060.html#aaa57430c9d32f47c99cee9b6da4ef634">className</a>() = 0;
-<a name="l00015"></a>00015     <span class="keywordtype">bool</span> <a class="code" href="../../d9/d73/a00060.html#ab44f29646553590124591c01516854b3">insertUpdateDatabase</a>(QString tableName);
-<a name="l00016"></a>00016     
-<a name="l00017"></a>00017 signals:
-<a name="l00018"></a>00018     <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">sendText</a>(QVariant text);
-<a name="l00019"></a>00019     <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#ab84a740097037891b95b9bb6592c05ca">openTab</a>(QVariant tabPos);
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="keyword">public</span> slots:
-<a name="l00022"></a>00022     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#a0e50386b44a261b9630bdb9790a1a6ea">receiveInput</a>(QString text) = 0;
-<a name="l00023"></a>00023     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#a094562e46ab94d6c7fcaef95a37dade2">confirmInput</a>() = 0;
-<a name="l00024"></a>00024     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#a1d60c048d8b0bf5f5e45b68b3a4bf51c">validateInput</a>() = 0;
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#aa6ad595cc4a1ddac5a0a8bb12f377d00">replaceInput</a>(QString field);
-<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#af84400ac0e8815e91b0c13978e2deee5">cancelReplacement</a>();
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keyword">protected</span>:
-<a name="l00029"></a><a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">00029</a>     QVariantMap <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">content</a>;
-<a name="l00030"></a><a class="code" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">00030</a>     <span class="keywordtype">int</span> <a class="code" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">stepsCount</a>;
-<a name="l00031"></a><a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">00031</a>     <span class="keywordtype">int</span> <a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">currentStep</a>;
-<a name="l00032"></a><a class="code" href="../../d9/d73/a00060.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">00032</a>     QString <a class="code" href="../../d9/d73/a00060.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">toBeReplaced</a>;
-<a name="l00033"></a>00033 };
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="preprocessor">#endif // PRECHECKTHREAD_H</span>
+<a href="../../dd/dc1/a00212.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d1/de1/a00213.html">offer.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a><a class="code" href="../../df/d5f/a00064.html#a4c50b999facf018d64e5ce48b613dcce">00003</a> <a class="code" href="../../df/d5f/a00064.html#a4c50b999facf018d64e5ce48b613dcce">Offer::Offer</a>(QObject *parent) :
+<a name="l00004"></a>00004     <a class="code" href="../../db/d44/a00162.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>(parent)
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006    
+<a name="l00007"></a>00007 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dd/dc1/a00212.html">offer.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

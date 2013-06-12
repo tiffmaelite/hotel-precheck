@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/tabPageWithKeys.cpp</title>
+<title>PreCheck:  Fichier source de views/qml/SqlTableView.qml</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,46 +80,127 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d4/d8f/a00324.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">tabPageWithKeys.cpp</div>  </div>
+<div class="title">SqlTableView.qml</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d4/d8f/a00324.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../de/dc8/a00325.html">tabPageWithKeys.h</a>&quot;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QDebug&gt;</span>
-<a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <a class="code" href="../../d4/d7d/a00093.html#a132d5e477016017311e56c9c3ac13e93">TabPageWithKeys::TabPageWithKeys</a>(<span class="keywordtype">int</span> rowsCount, <span class="keywordtype">int</span> columnsCount, QString tabName, QWidget *parent) :
-<a name="l00005"></a>00005     <a class="code" href="../../d1/dc1/a00092.html">TabPage</a>(1, 1, tabName, parent)
-<a name="l00006"></a>00006 {
+<a href="../../d4/d8f/a00324.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../da/d74/a00099.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
+<a name="l00002"></a>00002 import QtQuick.Window 2.1
+<a name="l00003"></a>00003 import QtQuick.Controls 1.0
+<a name="l00004"></a>00004 import QtQuick.Controls.Styles 1.0
+<a name="l00005"></a>00005 import QtQuick.Layouts 1.0
+<a name="l00006"></a>00006 import PreCheck 1.0
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008     <span class="keywordflow">try</span> {
-<a name="l00009"></a>00009         this-&gt;keys = <span class="keyword">new</span> <a class="code" href="../../d6/d42/a00043.html">Keyboard</a>(rowsCount, columnsCount,<span class="keyword">this</span>);
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011     }
-<a name="l00012"></a>00012     <span class="keywordflow">catch</span>(std::exception &amp;exception)
-<a name="l00013"></a>00013     {
-<a name="l00014"></a>00014         qDebug() &lt;&lt; <span class="stringliteral">&quot;pb init prestations&quot;</span>;
-<a name="l00015"></a>00015     }
-<a name="l00016"></a>00016 }
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="keywordtype">void</span> <a class="code" href="../../d4/d7d/a00093.html#ab66670e05d5beec9e35842763920a1c6">TabPageWithKeys::initKeyboard</a>() {
-<a name="l00019"></a>00019     this-&gt;<a class="code" href="../../d4/d7d/a00093.html#ac093a4359f9ebd56dee4e4afe9287288">fillKeyboard</a>();
-<a name="l00020"></a>00020     this-&gt;<a class="code" href="../../d1/dc1/a00092.html#a51051d943e4726b18425669cb5155896" title="TODO.">tabLayout</a>-&gt;<a class="code" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a">insertWidget</a>(0,this-&gt;<a class="code" href="../../d4/d7d/a00093.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>);
-<a name="l00021"></a>00021 }
+<a name="l00008"></a>00008 TableView {
+<a name="l00009"></a>00009     <span class="keywordtype">id</span>: table
+<a name="l00010"></a>00010     columns: createColumns()
+<a name="l00011"></a>00011     signal selected(<span class="keywordtype">string</span> selectedItem)
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013     <span class="keyword">function</span> createColumns() {
+<a name="l00014"></a>00014         table.model.fetch();
+<a name="l00015"></a>00015         var count = table.model.fieldsCount();
+<a name="l00016"></a>00016         var tmp = [];
+<a name="l00017"></a>00017         <span class="keywordflow">for</span>(var index = 0; index &lt; count; index++) {
+<a name="l00018"></a>00018             <span class="keywordflow">if</span>(!table.model.containsFilterKeyColumn(index)) {
+<a name="l00019"></a>00019                 var col = Qt.createQmlObject(<span class="stringliteral">&#39;import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field(&#39;</span>+index+<span class="stringliteral">&#39;).text; role: table.model.field(&#39;</span>+index+<span class="stringliteral">&#39;).role}&#39;</span>,table,<span class="stringliteral">&#39;column&#39;</span>+index);
+<a name="l00020"></a>00020                 tmp.push(col);
+<a name="l00021"></a>00021             }
+<a name="l00022"></a>00022         }
+<a name="l00023"></a>00023         <span class="keywordflow">return</span> tmp;
+<a name="l00024"></a>00024     }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     itemDelegate:
+<a name="l00027"></a>00027         Item {
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029         Text {
+<a name="l00030"></a>00030             width: parent.width
+<a name="l00031"></a>00031             anchors.margins: 4
+<a name="l00032"></a>00032             anchors.left: parent.left
+<a name="l00033"></a>00033             anchors.verticalCenter: parent.verticalCenter
+<a name="l00034"></a>00034             elide: styleData.elideMode
+<a name="l00035"></a>00035             text: styleData.value !== undefined ? styleData.value : <span class="stringliteral">&quot;&quot;</span>
+<a name="l00036"></a>00036             color: styleData.textColor
+<a name="l00037"></a>00037             visible: !styleData.selected
+<a name="l00038"></a>00038         }
+<a name="l00039"></a>00039         Loader { <span class="comment">// Initialize text input lazily to improve performance</span>
+<a name="l00040"></a>00040             <span class="keywordtype">id</span>: loaderEditor
+<a name="l00041"></a>00041             anchors.fill: parent
+<a name="l00042"></a>00042             anchors.margins: 4
+<a name="l00043"></a>00043             Connections {
+<a name="l00044"></a>00044                 target: loaderEditor.item
+<a name="l00045"></a>00045                 onAccepted: {
+<a name="l00046"></a>00046                     <span class="comment">//if (typeof styleData.value === &#39;number&#39;)</span>
+<a name="l00047"></a>00047                     table.selected(styleData.row);
+<a name="l00048"></a>00048                     model.setData(styleData.row, styleData.role, styleData.value);
+<a name="l00049"></a>00049                 }
+<a name="l00050"></a>00050             }
+<a name="l00051"></a>00051             sourceComponent: styleData.selected ? editor : null
+<a name="l00052"></a>00052             Component {
+<a name="l00053"></a>00053                 <span class="keywordtype">id</span>: editor
+<a name="l00054"></a>00054                 TextInput {
+<a name="l00055"></a>00055                     <span class="keywordtype">id</span>: textinput
+<a name="l00056"></a>00056                     color: styleData.textColor
+<a name="l00057"></a>00057                     text: styleData.value
+<a name="l00058"></a>00058                     MouseArea {
+<a name="l00059"></a>00059                         <span class="keywordtype">id</span>: mouseArea
+<a name="l00060"></a>00060                         anchors.fill: parent
+<a name="l00061"></a>00061                         hoverEnabled: <span class="keyword">true</span>
+<a name="l00062"></a>00062                         onClicked: {
+<a name="l00063"></a>00063                             textinput.forceActiveFocus()
+<a name="l00064"></a>00064                         }
+<a name="l00065"></a>00065                     }
+<a name="l00066"></a>00066                     onFocusChanged: {
+<a name="l00067"></a>00067                         <span class="keywordflow">if</span>(styleData.value !== textinput.text) {
+<a name="l00068"></a>00068                             textinput.accepted();
+<a name="l00069"></a>00069                         }
+<a name="l00070"></a>00070                     }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072                 }
+<a name="l00073"></a>00073             }
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075     }
+<a name="l00076"></a>00076 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">SqlTableView.qml</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

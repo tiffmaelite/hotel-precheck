@@ -3,9 +3,15 @@
 #include "NewBookingFactory.h"
 #include "NewBillFactory.h"
 
-ThreadsManager *ThreadsManager::_instance = 0;
+ThreadsManager *ThreadsManager::_instance = 0; /*!< TODO */
 
 
+/*!
+ \brief
+
+ \fn ThreadsManager::getInstance
+ \return ThreadsManager
+*/
 ThreadsManager *ThreadsManager::getInstance()
 {
     if (_instance == 0)
@@ -15,11 +21,22 @@ ThreadsManager *ThreadsManager::getInstance()
     return _instance;
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::ThreadsManager
+*/
 ThreadsManager::ThreadsManager()
 {
     this->m_runningThread = NULL;
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::launchBillingsThread
+ \return bool
+*/
 bool ThreadsManager::launchBillingsThread()
 {
     if(this->m_runningThread != NULL) {
@@ -32,6 +49,12 @@ bool ThreadsManager::launchBillingsThread()
 
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::launchBookingsThread
+ \return bool
+*/
 bool ThreadsManager::launchBookingsThread()
 {
     if(this->m_runningThread != NULL) {
@@ -44,6 +67,13 @@ bool ThreadsManager::launchBookingsThread()
     return this->connectRunningThread();
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::launchBillThread
+ \param userId
+ \return bool
+*/
 bool ThreadsManager::launchBillThread(int userId)
 {
     if(this->m_runningThread != NULL) {
@@ -54,6 +84,12 @@ bool ThreadsManager::launchBillThread(int userId)
     return this->connectRunningThread();
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::cancelRunningThread
+ \return bool
+*/
 bool ThreadsManager::cancelRunningThread()
 {
     if(this->m_runningThread == NULL) {
@@ -66,6 +102,11 @@ bool ThreadsManager::cancelRunningThread()
     return ok;
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::customService
+*/
 void ThreadsManager::customService()
 {
     if(this->m_runningThread != NULL && this->m_runningThread->className() == "NewBillFactory") {
@@ -73,6 +114,11 @@ void ThreadsManager::customService()
     }
 }
 
+/*!
+ \brief
+
+ \fn ThreadsManager::customServiceWithoutName
+*/
 void ThreadsManager::customServiceWithoutName()
 {
     if(this->m_runningThread != NULL && this->m_runningThread->className() == "NewBillFactory") {
@@ -81,6 +127,12 @@ void ThreadsManager::customServiceWithoutName()
 }
 
 
+/*!
+ \brief
+
+ \fn ThreadsManager::connectRunningThread
+ \return bool
+*/
 bool ThreadsManager::connectRunningThread()
 {
     if(this->m_runningThread == NULL) {

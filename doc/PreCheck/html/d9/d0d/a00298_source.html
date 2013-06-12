@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/qquickaction.cpp</title>
+<title>PreCheck:  Fichier source de views/qml/AliasButtonStyle.qml</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,205 +80,182 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d9/d0d/a00298.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">qquickaction.cpp</div>  </div>
+<div class="title">AliasButtonStyle.qml</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/d0d/a00298.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../df/d95/a00299.html">qquickaction.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QtGui/QGuiApplication&gt;</span>
-<a name="l00004"></a>00004 <span class="comment">//#include &quot;../../src/gui/kernel/qguiapplication_p.h&quot;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QtQuick/QQuickItem&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QtQuick/QQuickWindow&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QQmlFile&gt;</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="../../df/d03/a00062.html#a3c7194764bd590abee2af24fa4cf21ff">00009</a> <a class="code" href="../../df/d03/a00062.html#a3c7194764bd590abee2af24fa4cf21ff">QQQuickAction::QQQuickAction</a>(QObject *parent)
-<a name="l00010"></a>00010     : QObject(parent)
-<a name="l00011"></a>00011     , m_enabled(true)
-<a name="l00012"></a>00012 {
-<a name="l00013"></a>00013 }
-<a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="../../df/d03/a00062.html#aa289a9f471533c2b3c186af420342168">00015</a> <a class="code" href="../../df/d03/a00062.html#aa289a9f471533c2b3c186af420342168">QQQuickAction::~QQQuickAction</a>()
-<a name="l00016"></a>00016 {
-<a name="l00017"></a>00017     <a class="code" href="../../df/d03/a00062.html#a58731bd314dcc97119cb265d120c05e3">setKeyShortcut</a>(Qt::Key_unknown);
-<a name="l00018"></a>00018     <a class="code" href="../../df/d03/a00062.html#a3c1e5e39712537e1c9b3c5133e6d3987">setMnemonicFromText</a>(QString());
-<a name="l00019"></a>00019 }
-<a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="../../df/d03/a00062.html#a02afb4d423475b9587fbe642e77bce5d">00021</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a02afb4d423475b9587fbe642e77bce5d">QQQuickAction::setText</a>(<span class="keyword">const</span> QString &amp;text)
-<a name="l00022"></a>00022 {
-<a name="l00023"></a>00023     <span class="keywordflow">if</span> (text == <a class="code" href="../../df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">m_text</a>)
-<a name="l00024"></a>00024         <span class="keywordflow">return</span>;
-<a name="l00025"></a>00025     <a class="code" href="../../df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">m_text</a> = <a class="code" href="../../df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">text</a>;
-<a name="l00026"></a>00026     <a class="code" href="../../df/d03/a00062.html#a3c1e5e39712537e1c9b3c5133e6d3987">setMnemonicFromText</a>(<a class="code" href="../../df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">m_text</a>);
-<a name="l00027"></a>00027     emit <a class="code" href="../../df/d03/a00062.html#a92832e204f5bab2138a91c2a248b0730">textChanged</a>();
-<a name="l00028"></a>00028 }
-<a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="../../d9/d0d/a00298.html#a209127c14b6e1470f87b7fec1ee04537">00030</a> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d0d/a00298.html#a209127c14b6e1470f87b7fec1ee04537">qShortcutContextMatcher</a>(QObject *o, Qt::ShortcutContext context)
-<a name="l00031"></a>00031 {
-<a name="l00032"></a>00032     <span class="keywordflow">switch</span> (context) {
-<a name="l00033"></a>00033     <span class="keywordflow">case</span> Qt::ApplicationShortcut:
-<a name="l00034"></a>00034         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00035"></a>00035     <span class="keywordflow">case</span> Qt::WindowShortcut: {
-<a name="l00036"></a>00036         QObject *w = o;
-<a name="l00037"></a>00037         <span class="keywordflow">while</span> (w &amp;&amp; !w-&gt;isWindowType()) {
-<a name="l00038"></a>00038             w = w-&gt;parent();
-<a name="l00039"></a>00039             <span class="keywordflow">if</span> (QQuickItem * item = qobject_cast&lt;QQuickItem*&gt;(w))
-<a name="l00040"></a>00040                 w = item-&gt;window();
-<a name="l00041"></a>00041         }
-<a name="l00042"></a>00042         <span class="keywordflow">if</span> (w &amp;&amp; w == QGuiApplication::focusWindow())
-<a name="l00043"></a>00043             <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00044"></a>00044     }
-<a name="l00045"></a>00045     <span class="keywordflow">case</span> Qt::WidgetShortcut:
-<a name="l00046"></a>00046     <span class="keywordflow">case</span> Qt::WidgetWithChildrenShortcut:
-<a name="l00047"></a>00047         <span class="keywordflow">break</span>;
-<a name="l00048"></a>00048     }
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00051"></a>00051 }
-<a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="../../df/d03/a00062.html#a4b0278f768551a27028870aed477413f">00053</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a4b0278f768551a27028870aed477413f">QQQuickAction::setKeySequence</a>(<span class="keyword">const</span> QKeySequence &amp;sequence) {
-<a name="l00054"></a>00054     <span class="keywordflow">if</span> (sequence == <a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a>)
-<a name="l00055"></a>00055         <span class="keywordflow">return</span>;
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057     <span class="comment">/*if (!m_shortcut.isEmpty())</span>
-<a name="l00058"></a>00058 <span class="comment">        QGuiApplicationPrivate::instance()-&gt;shortcutMap.removeShortcut(0, this, m_shortcut);</span>
-<a name="l00059"></a>00059 <span class="comment">    */</span>
-<a name="l00060"></a>00060     <a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a> = sequence;
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062     <span class="keywordflow">if</span> (!<a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a>.isEmpty()) {
-<a name="l00063"></a>00063         Qt::ShortcutContext context = Qt::WindowShortcut;
-<a name="l00064"></a>00064         <span class="comment">//QGuiApplicationPrivate::instance()-&gt;shortcutMap.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);</span>
-<a name="l00065"></a>00065     }
-<a name="l00066"></a>00066     emit <a class="code" href="../../df/d03/a00062.html#af806ac26b8e7c04f14bab7f25d1ae813">shortcutChanged</a>(<a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>());
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="../../df/d03/a00062.html#a58731bd314dcc97119cb265d120c05e3">00069</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a58731bd314dcc97119cb265d120c05e3">QQQuickAction::setKeyShortcut</a>(<span class="keyword">const</span> Qt::Key &amp;shortcut)
-<a name="l00070"></a>00070 {
-<a name="l00071"></a>00071     <a class="code" href="../../df/d03/a00062.html#a4b0278f768551a27028870aed477413f">setKeySequence</a>(QKeySequence(shortcut));
-<a name="l00072"></a>00072 }
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 QString <a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">QQQuickAction::shortcut</a>()<span class="keyword"> const</span>
-<a name="l00075"></a>00075 <span class="keyword"></span>{
-<a name="l00076"></a>00076     <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a>.toString(QKeySequence::NativeText);
-<a name="l00077"></a>00077 }
-<a name="l00078"></a>00078 
-<a name="l00079"></a><a class="code" href="../../df/d03/a00062.html#a85aa1de663149274e70fe50725446eb3">00079</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a85aa1de663149274e70fe50725446eb3">QQQuickAction::setShortcut</a>(<span class="keyword">const</span> QString &amp;arg)
-<a name="l00080"></a>00080 {
-<a name="l00081"></a>00081     <span class="keywordflow">if</span>(<a class="code" href="../../df/d03/a00062.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>() == arg)
-<a name="l00082"></a>00082         <span class="keywordflow">return</span>;
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     <a class="code" href="../../df/d03/a00062.html#a4b0278f768551a27028870aed477413f">setKeySequence</a>(QKeySequence::fromString(arg));
-<a name="l00085"></a>00085 }
-<a name="l00086"></a>00086 
-<a name="l00087"></a><a class="code" href="../../df/d03/a00062.html#a3c1e5e39712537e1c9b3c5133e6d3987">00087</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a3c1e5e39712537e1c9b3c5133e6d3987">QQQuickAction::setMnemonicFromText</a>(<span class="keyword">const</span> QString &amp;text)
-<a name="l00088"></a>00088 {
-<a name="l00089"></a>00089     QKeySequence sequence = QKeySequence::mnemonic(text);
-<a name="l00090"></a>00090     <span class="keywordflow">if</span> (<a class="code" href="../../df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">m_mnemonic</a> == sequence)
-<a name="l00091"></a>00091         <span class="keywordflow">return</span>;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093     <span class="comment">/*if (!m_mnemonic.isEmpty())</span>
-<a name="l00094"></a>00094 <span class="comment">        QGuiApplicationPrivate::instance()-&gt;shortcutMap.removeShortcut(0, this, m_mnemonic);</span>
-<a name="l00095"></a>00095 <span class="comment">    */</span>
-<a name="l00096"></a>00096     <a class="code" href="../../df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">m_mnemonic</a> = sequence;
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098     <span class="keywordflow">if</span> (!<a class="code" href="../../df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">m_mnemonic</a>.isEmpty()) {
-<a name="l00099"></a>00099         Qt::ShortcutContext context = Qt::WindowShortcut;
-<a name="l00100"></a>00100         <span class="comment">//QGuiApplicationPrivate::instance()-&gt;shortcutMap.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);</span>
-<a name="l00101"></a>00101     }
-<a name="l00102"></a>00102 }
-<a name="l00103"></a>00103 
-<a name="l00104"></a><a class="code" href="../../df/d03/a00062.html#a877fc019cb50572bf634aa75929a3935">00104</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a877fc019cb50572bf634aa75929a3935">QQQuickAction::setIconSource</a>(<span class="keyword">const</span> QUrl &amp;iconSource)
-<a name="l00105"></a>00105 {
-<a name="l00106"></a>00106     <span class="keywordflow">if</span> (iconSource == <a class="code" href="../../df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">m_iconSource</a>)
-<a name="l00107"></a>00107         <span class="keywordflow">return</span>;
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109     <a class="code" href="../../df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">m_iconSource</a> = <a class="code" href="../../df/d03/a00062.html#aabbac74c1f3b77b46934f5b0dcccb0e5">iconSource</a>;
-<a name="l00110"></a>00110     <span class="keywordflow">if</span> (<a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a>.isEmpty() || <a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a>.isNull()) {
-<a name="l00111"></a>00111         QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
-<a name="l00112"></a>00112         <a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a> = QIcon(fileString);
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114         emit <a class="code" href="../../df/d03/a00062.html#ad0292209ca5e2f7a499d1af4b2da5bd9">iconChanged</a>();
-<a name="l00115"></a>00115     }
-<a name="l00116"></a>00116     emit <a class="code" href="../../df/d03/a00062.html#a441d14cf34eec44c956fe49189707ee3">iconSourceChanged</a>();
-<a name="l00117"></a>00117 }
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119 QString <a class="code" href="../../df/d03/a00062.html#a038b22680aca535f9972908fe2f1f6a1">QQQuickAction::iconName</a>()<span class="keyword"> const</span>
-<a name="l00120"></a>00120 <span class="keyword"></span>{
-<a name="l00121"></a>00121     <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a>;
-<a name="l00122"></a>00122 }
-<a name="l00123"></a>00123 
-<a name="l00124"></a><a class="code" href="../../df/d03/a00062.html#a2cbbcacd79e815c3d10f14150910bedd">00124</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#a2cbbcacd79e815c3d10f14150910bedd">QQQuickAction::setIconName</a>(<span class="keyword">const</span> QString &amp;iconName)
-<a name="l00125"></a>00125 {
-<a name="l00126"></a>00126     <span class="keywordflow">if</span> (iconName == <a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a>)
-<a name="l00127"></a>00127         <span class="keywordflow">return</span>;
-<a name="l00128"></a>00128     <a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a> = <a class="code" href="../../df/d03/a00062.html#a038b22680aca535f9972908fe2f1f6a1">iconName</a>;
-<a name="l00129"></a>00129     <a class="code" href="../../df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a> = QIcon::fromTheme(<a class="code" href="../../df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a>, QIcon(QQmlFile::urlToLocalFileOrQrc(<a class="code" href="../../df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">m_iconSource</a>)));
-<a name="l00130"></a>00130     emit <a class="code" href="../../df/d03/a00062.html#a654233605ff8dfbebbcd3aa55f143c20">iconNameChanged</a>();
-<a name="l00131"></a>00131     emit <a class="code" href="../../df/d03/a00062.html#ad0292209ca5e2f7a499d1af4b2da5bd9">iconChanged</a>();
-<a name="l00132"></a>00132 }
-<a name="l00133"></a>00133 
-<a name="l00134"></a><a class="code" href="../../df/d03/a00062.html#ae1d830804aaa884e508dce8b1912b03c">00134</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ae1d830804aaa884e508dce8b1912b03c">QQQuickAction::setTooltip</a>(<span class="keyword">const</span> QString &amp;arg)
-<a name="l00135"></a>00135 {
-<a name="l00136"></a>00136     <span class="keywordflow">if</span> (<a class="code" href="../../df/d03/a00062.html#a5488ee724c7351b6fbb62ebfa1683cf8">m_tooltip</a> != arg) {
-<a name="l00137"></a>00137         <a class="code" href="../../df/d03/a00062.html#a5488ee724c7351b6fbb62ebfa1683cf8">m_tooltip</a> = arg;
-<a name="l00138"></a>00138         emit <a class="code" href="../../df/d03/a00062.html#a280c251e258eb277204eb5be5638f6a8">tooltipChanged</a>(arg);
-<a name="l00139"></a>00139     }
-<a name="l00140"></a>00140 }
-<a name="l00141"></a>00141 
-<a name="l00142"></a><a class="code" href="../../df/d03/a00062.html#ab80130c2c5da91e30e98ce96d4faa55b">00142</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ab80130c2c5da91e30e98ce96d4faa55b">QQQuickAction::setEnabled</a>(<span class="keywordtype">bool</span> e)
-<a name="l00143"></a>00143 {
-<a name="l00144"></a>00144     <span class="keywordflow">if</span> (e == <a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a>)
-<a name="l00145"></a>00145         <span class="keywordflow">return</span>;
-<a name="l00146"></a>00146     <a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a> = e;
-<a name="l00147"></a>00147     emit <a class="code" href="../../df/d03/a00062.html#a31f61d4786745b82d1ff19d4893dde2d">enabledChanged</a>();
-<a name="l00148"></a>00148 }
-<a name="l00149"></a>00149 
+<a href="../../d9/d0d/a00298.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/****************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">**</span>
+<a name="l00003"></a>00003 <span class="comment">** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).</span>
+<a name="l00004"></a>00004 <span class="comment">** Contact: http://www.qt-project.org/legal</span>
+<a name="l00005"></a>00005 <span class="comment">**</span>
+<a name="l00006"></a>00006 <span class="comment">** This file is part of the Qt Quick Controls module of the Qt Toolkit.</span>
+<a name="l00007"></a>00007 <span class="comment">**</span>
+<a name="l00008"></a>00008 <span class="comment">** $QT_BEGIN_LICENSE:BSD$</span>
+<a name="l00009"></a>00009 <span class="comment">** You may use this file under the terms of the BSD license as follows:</span>
+<a name="l00010"></a>00010 <span class="comment">**</span>
+<a name="l00011"></a>00011 <span class="comment">** &quot;Redistribution and use in source and binary forms, with or without</span>
+<a name="l00012"></a>00012 <span class="comment">** modification, are permitted provided that the following conditions are</span>
+<a name="l00013"></a>00013 <span class="comment">** met:</span>
+<a name="l00014"></a>00014 <span class="comment">**   * Redistributions of source code must retain the above copyright</span>
+<a name="l00015"></a>00015 <span class="comment">**     notice, this list of conditions and the following disclaimer.</span>
+<a name="l00016"></a>00016 <span class="comment">**   * Redistributions in binary form must reproduce the above copyright</span>
+<a name="l00017"></a>00017 <span class="comment">**     notice, this list of conditions and the following disclaimer in</span>
+<a name="l00018"></a>00018 <span class="comment">**     the documentation and/or other materials provided with the</span>
+<a name="l00019"></a>00019 <span class="comment">**     distribution.</span>
+<a name="l00020"></a>00020 <span class="comment">**   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names</span>
+<a name="l00021"></a>00021 <span class="comment">**     of its contributors may be used to endorse or promote products derived</span>
+<a name="l00022"></a>00022 <span class="comment">**     from this software without specific prior written permission.</span>
+<a name="l00023"></a>00023 <span class="comment">**</span>
+<a name="l00024"></a>00024 <span class="comment">**</span>
+<a name="l00025"></a>00025 <span class="comment">** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
+<a name="l00026"></a>00026 <span class="comment">** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
+<a name="l00027"></a>00027 <span class="comment">** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</span>
+<a name="l00028"></a>00028 <span class="comment">** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT</span>
+<a name="l00029"></a>00029 <span class="comment">** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</span>
+<a name="l00030"></a>00030 <span class="comment">** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT</span>
+<a name="l00031"></a>00031 <span class="comment">** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<a name="l00032"></a>00032 <span class="comment">** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<a name="l00033"></a>00033 <span class="comment">** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<a name="l00034"></a>00034 <span class="comment">** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
+<a name="l00035"></a>00035 <span class="comment">** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;</span>
+<a name="l00036"></a>00036 <span class="comment">**</span>
+<a name="l00037"></a>00037 <span class="comment">** $QT_END_LICENSE$</span>
+<a name="l00038"></a>00038 <span class="comment">**</span>
+<a name="l00039"></a>00039 <span class="comment">****************************************************************************/</span>
+<a name="l00040"></a>00040 <span class="keyword">import</span> QtQuick 2.1
+<a name="l00041"></a>00041 import QtQuick.Controls 1.0
+<a name="l00042"></a>00042 import QtQuick.Controls.Private 1.0
+<a name="l00043"></a>00043 
+<a name="l00075"></a><a class="code" href="../../d7/d46/a00002.html#a566540dbd5282f18dd8bf12f81544a5b">00075</a> Style {
+<a name="l00076"></a>00076     <span class="keywordtype">id</span>: buttonstyle
+<a name="l00077"></a><a class="code" href="../../d7/d46/a00002.html#a2c781106bebb563117597ae9b9519b7d">00077</a> 
+<a name="l00079"></a><a class="code" href="../../d7/d46/a00002.html#acc1c5dd6e9de11bad3048e7a26a7d5d2">00079</a>     readonly <span class="keyword">property</span> Button control: __control
+<a name="l00080"></a>00080 
+<a name="l00082"></a>00082     <span class="keyword">property</span> Margins padding: Margins { top: 4 ; left: 4 ; right: 4 ; bottom: 4 }
+<a name="l00083"></a><a class="code" href="../../d7/d46/a00002.html#a890c8ea1a347d254d02e7ff38fcc65d4">00083</a> 
+<a name="l00084"></a>00084     <span class="keyword">property</span> alias backgroundImageBorder: backgroundImage.border
+<a name="l00085"></a><a class="code" href="../../d7/d46/a00002.html#a0dd7f1276290d1cc809fd43158e973fa">00085</a>     <span class="keyword">property</span> alias borderRadius: background.radius
+<a name="l00086"></a>00086     <span class="keyword">property</span> alias backgroundColor: background.color
+<a name="l00087"></a><a class="code" href="../../d7/d46/a00002.html#a30b4372c6bffdba8c18a2ae3d9e21ac1">00087</a>     <span class="keyword">property</span> alias backgroundColorOpacity: background.opacity
+<a name="l00088"></a>00088     <span class="keyword">property</span> alias backgroundGradient: background.gradient
+<a name="l00089"></a><a class="code" href="../../d7/d46/a00002.html#ae11caf13eeb38e02f04c04b3ab458316">00089</a>     <span class="keyword">property</span> alias backgroundImage: backgroundImage.source
+<a name="l00090"></a>00090 
+<a name="l00092"></a>00092     <span class="keyword">property</span> Component background: Rectangle {
+<a name="l00093"></a><a class="code" href="../../d7/d46/a00002.html#a48b968da76a8a46f88bb6aaa0a107ab7">00093</a>         <span class="keywordtype">id</span>: background
+<a name="l00094"></a>00094         implicitWidth: 100
+<a name="l00095"></a><a class="code" href="../../d7/d46/a00002.html#a5601c7e31c4082955775c9c2c6b733f0">00095</a>         implicitHeight: 25
+<a name="l00096"></a>00096         BorderImage {
+<a name="l00097"></a><a class="code" href="../../d7/d46/a00002.html#ab1dbd5c513b8e109dc7816476575ac9f">00097</a>             <span class="keywordtype">id</span>: backgroundImage
+<a name="l00098"></a>00098             anchors.fill: parent
+<a name="l00099"></a><a class="code" href="../../d7/d46/a00002.html#a412de134ec9e1939eb7cbe25f0350e33">00099</a>             source: control.pressed ? <span class="stringliteral">&quot;img/button_down.png&quot;</span> : <span class="stringliteral">&quot;img/button.png&quot;</span>
+<a name="l00100"></a>00100             border.top: 6
+<a name="l00101"></a>00101             border.bottom: 6
+<a name="l00102"></a>00102             border.left: 6
+<a name="l00103"></a>00103             border.right: 6
+<a name="l00104"></a>00104             anchors.bottomMargin: -1
+<a name="l00105"></a>00105             BorderImage {
+<a name="l00106"></a>00106                 <span class="keywordtype">id</span>: focusImage
+<a name="l00107"></a>00107                 anchors.fill: parent
+<a name="l00108"></a>00108                 anchors.margins: -1
+<a name="l00109"></a>00109                 anchors.topMargin: -2
+<a name="l00110"></a>00110                 anchors.rightMargin: 0
+<a name="l00111"></a>00111                 anchors.bottomMargin: 1
+<a name="l00112"></a>00112                 source: <span class="stringliteral">&quot;images/focusframe.png&quot;</span>
+<a name="l00113"></a>00113                 visible: control.activeFocus
+<a name="l00114"></a>00114                 border.left: 4
+<a name="l00115"></a>00115                 border.right: 4
+<a name="l00116"></a>00116                 border.top: 4
+<a name="l00117"></a>00117                 border.bottom: 4
+<a name="l00118"></a>00118             }
+<a name="l00119"></a>00119         }
+<a name="l00120"></a>00120         Image {
+<a name="l00121"></a>00121             <span class="keywordtype">id</span>: imageItem
+<a name="l00122"></a>00122             visible: control.menu !== null
+<a name="l00123"></a>00123             source: <span class="stringliteral">&quot;images/arrow-down.png&quot;</span>
+<a name="l00124"></a>00124             anchors.verticalCenter: parent.verticalCenter
+<a name="l00125"></a>00125             anchors.right: parent.right
+<a name="l00126"></a>00126             anchors.rightMargin: 8
+<a name="l00127"></a>00127             opacity: control.enabled ? 0.7 : 0.5
+<a name="l00128"></a>00128         }
+<a name="l00129"></a>00129     }
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131     <span class="keyword">property</span> alias labelRendering: txt.renderType
+<a name="l00132"></a>00132     <span class="keyword">property</span> alias labelVerticalAlignement: txt.verticalAlignment
+<a name="l00133"></a>00133     <span class="keyword">property</span> alias labelHorizontalAlignement: txt.horizontalAlignment
+<a name="l00135"></a>00135     <span class="keyword">property</span> Component label: Text {
+<a name="l00136"></a>00136         <span class="keywordtype">id</span>: txt
+<a name="l00137"></a>00137         renderType: Text.NativeRendering
+<a name="l00138"></a>00138         verticalAlignment: Text.AlignVCenter
+<a name="l00139"></a>00139         horizontalAlignment: Text.AlignHCenter
+<a name="l00140"></a>00140         text: control.text
+<a name="l00141"></a>00141         color: __syspal.text
+<a name="l00142"></a>00142     }
+<a name="l00143"></a>00143 
+<a name="l00145"></a>00145     <span class="keyword">property</span> Component panel: Item {
+<a name="l00146"></a>00146         anchors.centerIn: parent
+<a name="l00147"></a>00147         anchors.fill: parent
+<a name="l00148"></a>00148         implicitWidth: Math.max(labelLoader.implicitWidth + padding.left + padding.right, backgroundLoader.implicitWidth)
+<a name="l00149"></a>00149         implicitHeight: Math.max(labelLoader.implicitHeight + padding.top + padding.bottom, backgroundLoader.implicitHeight)
 <a name="l00150"></a>00150 
-<a name="l00151"></a>00151 
-<a name="l00152"></a><a class="code" href="../../df/d03/a00062.html#a9e3917c02592fd8067ab396fc8de92a2">00152</a> <span class="keywordtype">bool</span> <a class="code" href="../../df/d03/a00062.html#a9e3917c02592fd8067ab396fc8de92a2">QQQuickAction::event</a>(QEvent *e)
-<a name="l00153"></a>00153 {
-<a name="l00154"></a>00154     <span class="keywordflow">if</span> (!<a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a>)
-<a name="l00155"></a>00155         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00151"></a>00151         Loader {
+<a name="l00152"></a>00152             <span class="keywordtype">id</span>: backgroundLoader
+<a name="l00153"></a>00153             anchors.fill: parent
+<a name="l00154"></a>00154             sourceComponent: background
+<a name="l00155"></a>00155         }
 <a name="l00156"></a>00156 
-<a name="l00157"></a>00157     <span class="keywordflow">if</span> (e-&gt;type() != QEvent::Shortcut)
-<a name="l00158"></a>00158         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00159"></a>00159 
-<a name="l00160"></a>00160     QShortcutEvent *se = <span class="keyword">static_cast&lt;</span>QShortcutEvent *<span class="keyword">&gt;</span>(e);
-<a name="l00161"></a>00161 
-<a name="l00162"></a>00162     Q_ASSERT_X(se-&gt;key() == <a class="code" href="../../df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a> || se-&gt;key() == <a class="code" href="../../df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">m_mnemonic</a>,
-<a name="l00163"></a>00163                <span class="stringliteral">&quot;QQQuickAction::event&quot;</span>,
-<a name="l00164"></a>00164                <span class="stringliteral">&quot;Received shortcut event from incorrect shortcut&quot;</span>);
-<a name="l00165"></a>00165     <span class="keywordflow">if</span> (se-&gt;isAmbiguous()) {
-<a name="l00166"></a>00166         qWarning(<span class="stringliteral">&quot;QQQuickAction::event: Ambiguous shortcut overload: %s&quot;</span>, se-&gt;key().toString(QKeySequence::NativeText).toLatin1().constData());
-<a name="l00167"></a>00167         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00168"></a>00168     }
-<a name="l00169"></a>00169 
-<a name="l00170"></a>00170     <a class="code" href="../../df/d03/a00062.html#ab0554cb7241c0b72d34402f0bb419462">trigger</a>();
-<a name="l00171"></a>00171 
-<a name="l00172"></a>00172     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00173"></a>00173 }
-<a name="l00174"></a>00174 
-<a name="l00175"></a><a class="code" href="../../df/d03/a00062.html#ab0554cb7241c0b72d34402f0bb419462">00175</a> <span class="keywordtype">void</span> <a class="code" href="../../df/d03/a00062.html#ab0554cb7241c0b72d34402f0bb419462">QQQuickAction::trigger</a>()
-<a name="l00176"></a>00176 {
-<a name="l00177"></a>00177     <span class="keywordflow">if</span> (!<a class="code" href="../../df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a>)
-<a name="l00178"></a>00178         <span class="keywordflow">return</span>;
-<a name="l00179"></a>00179     emit <a class="code" href="../../df/d03/a00062.html#ae23cf3eb9ac9f63b770681061b6825de">triggered</a>();
-<a name="l00180"></a>00180 }
+<a name="l00157"></a>00157         Loader {
+<a name="l00158"></a>00158             <span class="keywordtype">id</span>: labelLoader
+<a name="l00159"></a>00159             sourceComponent: label
+<a name="l00160"></a>00160             anchors.fill: parent
+<a name="l00161"></a>00161             anchors.leftMargin: padding.left
+<a name="l00162"></a>00162             anchors.topMargin: padding.top
+<a name="l00163"></a>00163             anchors.rightMargin: padding.right
+<a name="l00164"></a>00164             anchors.bottomMargin: padding.bottom
+<a name="l00165"></a>00165         }
+<a name="l00166"></a>00166     }
+<a name="l00167"></a>00167 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d9/d0d/a00298.html">AliasButtonStyle.qml</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

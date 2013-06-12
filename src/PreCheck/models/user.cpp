@@ -7,6 +7,18 @@
 #include <QDebug>
 
 
+/*!
+ \brief
+
+ \fn User::User
+ \param name
+ \param id
+ \param isReceptionist
+ \param isManagerX
+ \param isManagerZ
+ \param isAdministrator
+ \param parent
+*/
 User::User(QString name, int id, bool isReceptionist, bool isManagerX, bool isManagerZ, bool isAdministrator, QObject *parent)
     : QObject(parent)
 {
@@ -18,26 +30,56 @@ User::User(QString name, int id, bool isReceptionist, bool isManagerX, bool isMa
     this->m_administrator = isAdministrator;
 }
 
+/*!
+ \brief
+
+ \fn User::isValid
+ \return bool
+*/
 bool User::isValid() const {
     return ((!this->m_name.isEmpty()) && (this->m_id != 0));
 }
 
+/*!
+ \brief
+
+ \fn User::setName
+ \param name
+*/
 void User::setName(QString name)
 {
     m_name = name;
 }
 
 
+/*!
+ \brief
+
+ \fn User::name
+ \return QString
+*/
 QString User::name() const
 {
     return m_name;
 }
 
+/*!
+ \brief
+
+ \fn User::isReceptionist
+ \return bool
+*/
 bool User::isReceptionist() const
 {
     return this->m_receptionist;
 }
 
+/*!
+ \brief
+
+ \fn User::roles
+ \return int
+*/
 int User::roles() const
 {
     int nb = 0;
@@ -56,20 +98,48 @@ int User::roles() const
     return nb;
 }
 
+/*!
+ \brief
+
+ \fn User::setID
+ \param id
+*/
 void User::setID(int id)
 {
     m_id = id;
 }
 
+/*!
+ \brief
+
+ \fn User::userExists
+ \param login
+ \return bool
+*/
 bool User::userExists(QString login) {
     return (AppDatabase::getInstance()->dataExists("USERS", "LOGIN='"+login+"'") == 1);
 }
 
+/*!
+ \brief
+
+ \fn User::traineeExists
+ \param login
+ \return bool
+*/
 bool User::traineeExists(QString login) {
     return false;
     //return (AppDatabase::getInstance()->dataExists("TRAINEE", "LOGIN='"+login+"'") == 1);
 }
 
+/*!
+ \brief
+
+ \fn User::logIn
+ \param login
+ \param pass
+ \return User
+*/
 User *User::logIn(QString login, QString pass)
 {
     bool isValid = false;

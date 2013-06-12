@@ -2,6 +2,12 @@
 
 
 
+/*!
+ \brief
+
+ \fn BillingsTableModel::BillingsTableModel
+ \param parent
+*/
 BillingsTableModel::BillingsTableModel(QObject *parent):
     CheckableSortFilterProxyModel(parent)
 {
@@ -9,6 +15,11 @@ BillingsTableModel::BillingsTableModel(QObject *parent):
 }
 
 
+/*!
+ \brief
+
+ \fn BillingsTableModel::fillModel
+*/
 void BillingsTableModel::fillModel()
 {
     CheckableSortFilterProxyModel::model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom client"));

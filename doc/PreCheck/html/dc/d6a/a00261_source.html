@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/qml/CollapsiblePanel.qml</title>
+<title>PreCheck:  Fichier source de views/billings_tab.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,124 +80,71 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('dc/d6a/a00261.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">CollapsiblePanel.qml</div>  </div>
+<div class="title">billings_tab.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dc/d6a/a00261.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../dc/de2/a00024.html">00001</a> <span class="keyword">import</span> QtQuick 2.0
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 Rectangle {
-<a name="l00004"></a><a class="code" href="../../dc/de2/a00024.html#aa83076a26af82d13d0385c6b5a138dc7">00004</a>     <span class="keywordtype">id</span>: myRect
-<a name="l00005"></a>00005     gradient: Gradient {
-<a name="l00006"></a><a class="code" href="../../dc/de2/a00024.html#af90683b18e76dd1adbf48ff3c621140b">00006</a>         GradientStop { position: 0.0; color: <span class="stringliteral">&quot;#1753ce&quot;</span> }
-<a name="l00007"></a>00007         GradientStop { position: 1.0; color:  <span class="stringliteral">&quot;#15159c&quot;</span> }
-<a name="l00008"></a><a class="code" href="../../dc/de2/a00024.html#ac895f66a37725bd1708082bedf1fe420">00008</a>     }
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010     signal itemselected(<span class="keywordtype">int</span> index)
+<a href="../../dc/d6a/a00261.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d9/d8d/a00262.html">billings_tab.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../d0/d48/a00165.html">models/billings_table_model.h</a>&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtWidgets/QWidget&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="../../da/d45/a00011.html#abdb3b7161e4377feb350e73b6ae8ab6b">00006</a> <a class="code" href="../../da/d45/a00011.html#abdb3b7161e4377feb350e73b6ae8ab6b">BillingsTabPage::BillingsTabPage</a>(<span class="keywordtype">int</span> rowsCount, <span class="keywordtype">int</span> columnsCount, QString tabName, QWidget *parent) :
+<a name="l00007"></a>00007     <a class="code" href="../../d1/dd6/a00108.html">TabPageWithTable</a>(tabName, parent)
+<a name="l00008"></a>00008 {
+<a name="l00009"></a>00009     this-&gt;<a class="code" href="../../d1/dd6/a00108.html#a71487ab368acb4ee1a67f14b157d1855">initTable</a>(rowsCount, columnsCount);
+<a name="l00010"></a>00010 }
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012     <span class="keyword">property</span> alias titleText: titleTxt.text
-<a name="l00013"></a>00013     <span class="keyword">property</span> alias customModel: listView.model
-<a name="l00014"></a>00014     <span class="keyword">property</span> alias customDelegate: listView.delegate
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016     Rectangle{
-<a name="l00017"></a>00017         <span class="keywordtype">id</span>: titleRect
-<a name="l00018"></a>00018         width: parent.width
-<a name="l00019"></a>00019         height: 40
-<a name="l00020"></a>00020         gradient: Gradient {
-<a name="l00021"></a>00021             GradientStop { position: 0.0; color: <span class="stringliteral">&quot;#1141a7&quot;</span> }
-<a name="l00022"></a>00022             GradientStop { position: 1.0; color:  <span class="stringliteral">&quot;#0f1273&quot;</span> }
-<a name="l00023"></a>00023         }
-<a name="l00024"></a>00024         Image {
-<a name="l00025"></a>00025             <span class="keywordtype">id</span>: titleArrow
-<a name="l00026"></a>00026             width:  20
-<a name="l00027"></a>00027             height:  20
-<a name="l00028"></a>00028             anchors.left: parent.left
-<a name="l00029"></a>00029             anchors.leftMargin: 5
-<a name="l00030"></a>00030             anchors.verticalCenter: parent.verticalCenter
-<a name="l00031"></a>00031             source: <span class="stringliteral">&quot;images/arrowdown.png&quot;</span>
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033         }
-<a name="l00034"></a>00034         Text{
-<a name="l00035"></a>00035             <span class="keywordtype">id</span>: titleTxt
-<a name="l00036"></a>00036             anchors.left: titleArrow.right
-<a name="l00037"></a>00037             anchors.leftMargin: 10
-<a name="l00038"></a>00038             anchors.verticalCenter: parent.verticalCenter
-<a name="l00039"></a>00039             font.bold: <span class="keyword">true</span>
-<a name="l00040"></a>00040             font.pixelSize: 18
-<a name="l00041"></a>00041             color:  <span class="stringliteral">&quot;#c1c3c8&quot;</span>
-<a name="l00042"></a>00042         }
-<a name="l00043"></a>00043         MouseArea{
-<a name="l00044"></a>00044             width: parent.width
-<a name="l00045"></a>00045             height:  parent.height
-<a name="l00046"></a>00046             onClicked: {
-<a name="l00047"></a>00047                 <span class="keywordflow">if</span> (myRect.state == <span class="stringliteral">&quot;collapsed&quot;</span>)
-<a name="l00048"></a>00048                 {
-<a name="l00049"></a>00049                     myRect.state = <span class="stringliteral">&quot;&quot;</span>
-<a name="l00050"></a>00050                 }
-<a name="l00051"></a>00051                 <span class="keywordflow">else</span>
-<a name="l00052"></a>00052                 {
-<a name="l00053"></a>00053                     myRect.state = <span class="stringliteral">&quot;collapsed&quot;</span>
-<a name="l00054"></a>00054                 }
-<a name="l00055"></a>00055             }
-<a name="l00056"></a>00056         }
-<a name="l00057"></a>00057     }
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059     ListView{
-<a name="l00060"></a>00060         <span class="keywordtype">id</span>: listView
-<a name="l00061"></a>00061         width: parent.width
-<a name="l00062"></a>00062         height: parent.height-titleRect.height
-<a name="l00063"></a>00063         anchors.top: titleRect.bottom
-<a name="l00064"></a>00064         model: customModel
-<a name="l00065"></a>00065         delegate: customDelegate
-<a name="l00066"></a>00066     }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     states: [
-<a name="l00069"></a>00069         State {
-<a name="l00070"></a>00070             <a class="code" href="../../d9/d47/a00129.html#a2b0a198f837184bf6fff555cee3ce770">name</a>: <span class="stringliteral">&quot;collapsed&quot;</span>
-<a name="l00071"></a>00071             PropertyChanges {
-<a name="l00072"></a>00072                 target: listView
-<a name="l00073"></a>00073                 height: 0
-<a name="l00074"></a>00074                 opacity: 0
-<a name="l00075"></a>00075             }
-<a name="l00076"></a>00076             PropertyChanges {
-<a name="l00077"></a>00077                 target: myRect
-<a name="l00078"></a>00078                 height: titleRect.height
-<a name="l00079"></a>00079             }
-<a name="l00080"></a>00080             PropertyChanges {
-<a name="l00081"></a>00081                 target: titleArrow
-<a name="l00082"></a>00082                 rotation: -90
-<a name="l00083"></a>00083             }
-<a name="l00084"></a>00084         }
-<a name="l00085"></a>00085     ]
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087     transitions: [
-<a name="l00088"></a>00088         Transition {
-<a name="l00089"></a>00089             NumberAnimation { target: listView; <span class="keyword">property</span>: <span class="stringliteral">&quot;height&quot;</span>; duration: 400 }
-<a name="l00090"></a>00090             NumberAnimation { target: listView; <span class="keyword">property</span>: <span class="stringliteral">&quot;opacity&quot;</span>; duration: 400 }
-<a name="l00091"></a>00091             NumberAnimation { target: titleArrow; <span class="keyword">property</span>: <span class="stringliteral">&quot;rotation&quot;</span>; duration: 300 }
-<a name="l00092"></a>00092         }
-<a name="l00093"></a>00093     ]
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095     Component.onCompleted:  {
-<a name="l00096"></a>00096         myRect.height = titleRect.height+listView.contentHeight
-<a name="l00097"></a>00097     }
-<a name="l00098"></a>00098 }
+<a name="l00012"></a><a class="code" href="../../da/d45/a00011.html#a2b8e45414e7db14116a9a456b647c098">00012</a> <span class="keywordtype">void</span> <a class="code" href="../../da/d45/a00011.html#a2b8e45414e7db14116a9a456b647c098">BillingsTabPage::fetchDatas</a>() {
+<a name="l00013"></a>00013     <span class="keywordflow">try</span> {
+<a name="l00014"></a>00014         this-&gt;<a class="code" href="../../d1/dd6/a00108.html#a570ce0261541f4a80cfa49dde88c3732" title="TODO.">datas</a> = <span class="keyword">new</span> <a class="code" href="../../d7/dec/a00010.html">BillingsTableModel</a>();
+<a name="l00015"></a>00015     }
+<a name="l00016"></a>00016     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00017"></a>00017     {
+<a name="l00018"></a>00018         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00019"></a>00019     }
+<a name="l00020"></a>00020 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dc/d6a/a00261.html">billings_tab.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -5,17 +5,38 @@
 #include "views/message_manager.h"
 #include <QtSql/QSqlDriver>
 
+/*!
+ \brief
+
+ \fn SqlDataModel::SqlDataModel
+ \param parent
+*/
 SqlDataModel::SqlDataModel(QObject *parent) :
     QAbstractListModel(parent)
 {
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::rowCount
+ \param parent
+ \return int
+*/
 int SqlDataModel::rowCount(const QModelIndex &parent) const
 {
     return mRecords.count();
 }
 
 
+/*!
+ \brief
+
+ \fn SqlDataModel::data
+ \param index
+ \param role
+ \return QVariant
+*/
 QVariant SqlDataModel::data(const QModelIndex &index, int role) const
 {
     if (this->mRecords.count() > 0)
@@ -34,6 +55,16 @@ QVariant SqlDataModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::setHeaderData
+ \param section
+ \param orientation
+ \param value
+ \param role
+ \return bool
+*/
 bool SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
 {
     Q_UNUSED(role);
@@ -45,6 +76,12 @@ bool SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, const
     return false;
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::setQuery
+ \param query
+*/
 void SqlDataModel::setQuery(const QString &query)
 {
     try
@@ -107,21 +144,45 @@ void SqlDataModel::setQuery(const QString &query)
 }
 
 
+/*!
+ \brief
+
+ \fn SqlDataModel::query
+ \return const QString
+*/
 const QString &SqlDataModel::query()
 {
     return mSqlQuery.lastQuery();
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::tableName
+ \return const QString
+*/
 const QString &SqlDataModel::tableName()
 {
     return mTable;
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::filter
+ \return const QString
+*/
 const QString &SqlDataModel::filter()
 {
     return mFilter;
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::fieldsList
+ \return const QString
+*/
 const QString SqlDataModel::fieldsList()
 {
     if (mDataFields.empty())
@@ -140,6 +201,12 @@ const QString SqlDataModel::fieldsList()
     }
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::setTable
+ \param tableName
+*/
 void SqlDataModel::setTable(const QString &tableName)
 {
     if (mTable.toUpper() != tableName.toUpper() && tableName != "")
@@ -149,6 +216,12 @@ void SqlDataModel::setTable(const QString &tableName)
     }
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::setFilterCondition
+ \param filter
+*/
 void SqlDataModel::setFilterCondition(const QString &filter)
 {
     if (mFilter != filter && filter != "")
@@ -158,12 +231,27 @@ void SqlDataModel::setFilterCondition(const QString &filter)
     }
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::resetFilterCondition
+*/
 void SqlDataModel::resetFilterCondition()
 {
     mFilter = "";
     emit filterChanged();
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::fetch
+ \param tableName
+ \param filter
+ \param sort
+ \param fieldsList
+ \return bool
+*/
 bool SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStringList fieldsList)
 {
     this->setFields(fieldsList);
@@ -186,6 +274,13 @@ bool SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStrin
     return (!this->isEmpty());
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::field
+ \param i
+ \return SqlDataFields
+*/
 SqlDataFields *SqlDataModel::field(int i)
 {
     i = qMin(i, this->fieldsCount()-1);
@@ -193,6 +288,12 @@ SqlDataFields *SqlDataModel::field(int i)
     return this->mDataFields.at(i);
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::setFields
+ \param fields
+*/
 void SqlDataModel::setFields(QStringList fields)
 {
     fields.removeDuplicates();
@@ -210,6 +311,11 @@ void SqlDataModel::setFields(QStringList fields)
     }
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::resetFieldsToAll
+*/
 void SqlDataModel::resetFieldsToAll()
 {
     mDataFields.clear();
@@ -217,6 +323,12 @@ void SqlDataModel::resetFieldsToAll()
     emit fieldsChanged();
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::lastError
+ \return const QString
+*/
 const QString &SqlDataModel::lastError()
 {
     QSqlError error = mSqlQuery.lastError();
@@ -232,6 +344,11 @@ const QString &SqlDataModel::lastError()
 }
 
 
+/*!
+ \brief
+
+ \fn SqlDataModel::applyRoles
+*/
 void SqlDataModel::applyRoles()
 {
     this->mRoles.clear();
@@ -245,16 +362,34 @@ void SqlDataModel::applyRoles()
 }
 
 
+/*!
+ \brief
+
+ \fn SqlDataModel::fieldsCount
+ \return int
+*/
 int SqlDataModel::fieldsCount()
 {
     return mDataFields.count();
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::setOrderBy
+ \param sort
+*/
 void SqlDataModel::setOrderBy(QString sort)
 {
     this->mSort = sort;
 }
 
+/*!
+ \brief
+
+ \fn SqlDataModel::isEmpty
+ \return bool
+*/
 bool SqlDataModel::isEmpty()
 {
     return mRecords.empty();

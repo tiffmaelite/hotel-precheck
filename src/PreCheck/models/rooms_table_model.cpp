@@ -2,6 +2,12 @@
 #include "database_manager.h"
 #include "views/message_manager.h"
 
+/*!
+ \brief
+
+ \fn RoomsTableModel::RoomsTableModel
+ \param parent
+*/
 RoomsTableModel::RoomsTableModel(QObject *parent):
     CheckableSortFilterProxyModel(parent)
 {
@@ -9,6 +15,11 @@ RoomsTableModel::RoomsTableModel(QObject *parent):
     CheckableSortFilterProxyModel::model->setOrderBy("FLOOR ASC, NUMBER ASC");
 }
 
+/*!
+ \brief
+
+ \fn RoomsTableModel::fillModel
+*/
 void RoomsTableModel::fillModel()
 {
     CheckableSortFilterProxyModel::model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));

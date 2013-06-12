@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de BillingsFactory.cpp</title>
+<title>PreCheck:  Fichier source de logic/validationstate.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -52,97 +81,59 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d1/dd6/a00108.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">BillingsFactory.cpp</div>  </div>
+<div class="title">validationstate.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/dd6/a00108.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/d42/a00109.html">BillingsFactory.h</a>&quot;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">models/database_manager.h</a>&quot;</span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;QtSql&quot;</span>
+<a href="../../d1/dd6/a00108.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/d42/a00109.html">validationstate.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
 <a name="l00004"></a>00004 
-<a name="l00005"></a><a class="code" href="../../da/da0/a00009.html#a2a3eda8e95782fa211b1f11e4350dbef">00005</a> <a class="code" href="../../da/da0/a00009.html#a2a3eda8e95782fa211b1f11e4350dbef">BillingsFactory::BillingsFactory</a>(QObject *parent) :
-<a name="l00006"></a>00006     <a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a>(parent)
-<a name="l00007"></a>00007 {
-<a name="l00008"></a>00008     this-&gt;<a class="code" href="../../da/da0/a00009.html#a04de3b5db71b07ee09e478a905e224cf">currentPerson</a> = 0;
-<a name="l00009"></a>00009     <a class="code" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">PreCheckThread::stepsCount</a> = 8;
-<a name="l00010"></a>00010 }
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="../../da/da0/a00009.html#a011772fbba0d57f3c50e8e7a5a87dd1d">00012</a> <span class="keywordtype">void</span> <a class="code" href="../../da/da0/a00009.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BillingsFactory::cancelProcess</a>()
-<a name="l00013"></a>00013 {
-<a name="l00014"></a>00014     this-&gt;<a class="code" href="../../da/da0/a00009.html#a04de3b5db71b07ee09e478a905e224cf">currentPerson</a> = 0;
-<a name="l00015"></a>00015     this-&gt;<a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">currentStep</a> = 0;
-<a name="l00016"></a>00016     <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.empty();
+<a name="l00013"></a><a class="code" href="../../d6/d2c/a00072.html#a65b835c92e7a97f4a29ba3ce8f3e4ba7">00013</a> <a class="code" href="../../d6/d2c/a00072.html#a65b835c92e7a97f4a29ba3ce8f3e4ba7">ValidationState::ValidationState</a>(QString output, QString name, QState *parent) :
+<a name="l00014"></a>00014     <a class="code" href="../../d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">ConfirmationState</a>(output, name, parent)
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016 
 <a name="l00017"></a>00017 }
-<a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="../../da/da0/a00009.html#a13a43e6d814de94978c515cb084873b1">00019</a> <span class="keywordtype">void</span> <a class="code" href="../../da/da0/a00009.html#a13a43e6d814de94978c515cb084873b1">BillingsFactory::run</a>() {
-<a name="l00020"></a>00020     emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Création d&#39;une facturation\n&quot;</span>)));
-<a name="l00021"></a>00021     emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez entrer le nombre d&#39;adultes\n&quot;</span>)));
-<a name="l00022"></a>00022 }
-<a name="l00023"></a>00023 
-<a name="l00024"></a><a class="code" href="../../da/da0/a00009.html#a7dc3e898aae484518acd8c1f46c1b29a">00024</a> <span class="keywordtype">void</span> <a class="code" href="../../da/da0/a00009.html#a7dc3e898aae484518acd8c1f46c1b29a">BillingsFactory::receiveInput</a>(QString text) {
-<a name="l00025"></a>00025     <span class="keywordflow">if</span>(<a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread::currentStep</a> &lt; <a class="code" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">PreCheckThread::stepsCount</a>) {
-<a name="l00026"></a>00026         <span class="keywordflow">switch</span>(<a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread::currentStep</a>) {
-<a name="l00027"></a>00027         <span class="keywordflow">case</span> 1: {
-<a name="l00028"></a>00028             <span class="keywordtype">bool</span> ok;
-<a name="l00029"></a>00029             <span class="keywordtype">int</span> nb = text.toInt(&amp;ok, 10);
-<a name="l00030"></a>00030             <span class="keywordflow">if</span>(ok &amp;&amp; nb &gt; 0) {
-<a name="l00031"></a>00031                 <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.insert(<span class="stringliteral">&quot;NBADULTS&quot;</span>,QVariant(nb));
-<a name="l00032"></a>00032                 <a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread::currentStep</a>++;
-<a name="l00033"></a>00033                 emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez entrer le nombre d&#39;enfants\n&quot;</span>)));
-<a name="l00034"></a>00034             }
-<a name="l00035"></a>00035             <span class="keywordflow">break</span>;
-<a name="l00036"></a>00036         }
-<a name="l00037"></a>00037         <span class="keywordflow">case</span> 2: {
-<a name="l00038"></a>00038             <span class="keywordtype">bool</span> ok;
-<a name="l00039"></a>00039             <span class="keywordtype">int</span> nb = text.toInt(&amp;ok, 10);
-<a name="l00040"></a>00040             <span class="keywordflow">if</span>(ok) {
-<a name="l00041"></a>00041                 <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.insert(<span class="stringliteral">&quot;NBCHILDREN&quot;</span>,nb);
-<a name="l00042"></a>00042                 <a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread::currentStep</a>++;
-<a name="l00043"></a>00043                 emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez entrer la date de départ prévue\n&quot;</span>)));
-<a name="l00044"></a>00044                 <span class="comment">//emit displayCalendar();</span>
-<a name="l00045"></a>00045             }
-<a name="l00046"></a>00046             <span class="keywordflow">break</span>;
-<a name="l00047"></a>00047         }
-<a name="l00048"></a>00048         <span class="keywordflow">case</span> 3: {
-<a name="l00049"></a>00049             emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez entrer le code de nationalité&quot;</span>)));
-<a name="l00050"></a>00050             <span class="keywordflow">break</span>;
-<a name="l00051"></a>00051         }
-<a name="l00052"></a>00052         <span class="keywordflow">case</span> 4: {
-<a name="l00053"></a>00053             emit <a class="code" href="../../d9/d73/a00060.html#ab84a740097037891b95b9bb6592c05ca">openTab</a>(2);
-<a name="l00054"></a>00054             emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez choisir la chambre pour laquelle établir cette facturation&quot;</span>)));
-<a name="l00055"></a>00055             <span class="keywordflow">break</span>;
-<a name="l00056"></a>00056         }
-<a name="l00057"></a>00057         <span class="keywordflow">case</span> 5: {
-<a name="l00058"></a>00058             emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez choisir le type de facturation, puis appuyer sur la touche \&quot;VALIDER\&quot;&quot;</span>)));
-<a name="l00059"></a>00059             <span class="comment">//emit displayBillingsTypes(); //radio buttons ListElement</span>
-<a name="l00060"></a>00060             <span class="keywordflow">break</span>;
-<a name="l00061"></a>00061         }
-<a name="l00062"></a>00062         <span class="keywordflow">case</span> 6: {
-<a name="l00063"></a>00063             emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez appuyer sur la touche \&quot;CONFIRMER\&quot; pour confirmer les valeurs entrées et passer à l&#39;étape suivante.&quot;</span>)));
-<a name="l00064"></a>00064             <span class="keywordflow">break</span>;
-<a name="l00065"></a>00065         }
-<a name="l00066"></a>00066         <span class="keywordflow">case</span> 7: {
-<a name="l00067"></a>00067             <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../da/da0/a00009.html#a04de3b5db71b07ee09e478a905e224cf">currentPerson</a> &lt; <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.value(<span class="stringliteral">&quot;NBADULTS&quot;</span>).toInt()) {
-<a name="l00068"></a>00068                 emit <a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>(QVariant(QObject::tr(<span class="stringliteral">&quot;Veuillez entrer le nom du %Ln(ème) adulte occupant la chambre,puis appuyer sur la touche \&quot;ENTREE\&quot;&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,<a class="code" href="../../da/da0/a00009.html#a04de3b5db71b07ee09e478a905e224cf">currentPerson</a>)));
-<a name="l00069"></a>00069             }
-<a name="l00070"></a>00070             <span class="keywordflow">break</span>;
-<a name="l00071"></a>00071         }
-<a name="l00072"></a>00072         <span class="keywordflow">case</span> 8: {
-<a name="l00073"></a>00073             <a class="code" href="../../d9/d73/a00060.html#ab44f29646553590124591c01516854b3">PreCheckThread::insertUpdateDatabase</a>(<span class="stringliteral">&quot;BILLINGS&quot;</span>);
-<a name="l00074"></a>00074             <span class="keywordflow">break</span>;
-<a name="l00075"></a>00075         }
-<a name="l00076"></a>00076         }
-<a name="l00077"></a>00077     }
-<a name="l00078"></a>00078 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d1/dd6/a00108.html">validationstate.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

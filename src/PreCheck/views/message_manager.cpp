@@ -9,6 +9,13 @@
 #include <cstdio>
 
 
+/*!
+ \brief
+
+ \fn MessageManager::errorMessage
+ \param message
+ \param title
+*/
 void MessageManager::errorMessage(QString message, QString title)
 {
     if(!message.isEmpty()) {
@@ -26,6 +33,13 @@ void MessageManager::errorMessage(QString message, QString title)
 }
 
 
+/*!
+ \brief
+
+ \fn MessageManager::successMessage
+ \param message
+ \param title
+*/
 void MessageManager::successMessage(QString message, QString title)
 {
     if(!message.isEmpty()) {
@@ -42,6 +56,13 @@ void MessageManager::successMessage(QString message, QString title)
     }
 }
 
+/*!
+ \brief
+
+ \fn MessageManager::infoMessage
+ \param message
+ \param title
+*/
 void MessageManager::infoMessage(QString message, QString title)
 {
     if(!message.isEmpty()) {

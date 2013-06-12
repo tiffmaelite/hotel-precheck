@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de ThreadsManager.cpp</title>
+<title>PreCheck:  Fichier source de models/offer.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -52,115 +81,66 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d1/de1/a00213.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">ThreadsManager.cpp</div>  </div>
+<div class="title">offer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/de1/a00213.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/dd1/a00214.html">ThreadsManager.h</a>&quot;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../d5/df1/a00206.html">NewBillingFactory.h</a>&quot;</span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/d31/a00208.html">NewBookingFactory.h</a>&quot;</span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="../../d1/d72/a00204.html">NewBillFactory.h</a>&quot;</span>
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006 <a class="code" href="../../d1/d44/a00098.html">ThreadsManager</a> *<a class="code" href="../../d1/d44/a00098.html#aec8eef9205109d6e51a75e5ee56f0fd3">ThreadsManager::_instance</a> = 0;
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="../../d1/d44/a00098.html#a365c06a0a50252a7b71b3fa84ba9fc0c">00009</a> <a class="code" href="../../d1/d44/a00098.html">ThreadsManager</a> *<a class="code" href="../../d1/d44/a00098.html#a365c06a0a50252a7b71b3fa84ba9fc0c">ThreadsManager::getInstance</a>()
-<a name="l00010"></a>00010 {
-<a name="l00011"></a>00011     <span class="keywordflow">if</span> (<a class="code" href="../../d1/d44/a00098.html#aec8eef9205109d6e51a75e5ee56f0fd3">_instance</a> == 0)
-<a name="l00012"></a>00012     {
-<a name="l00013"></a>00013         <a class="code" href="../../d1/d44/a00098.html#aec8eef9205109d6e51a75e5ee56f0fd3">_instance</a> = <span class="keyword">new</span> <a class="code" href="../../d1/d44/a00098.html#adbf5e2b395ccb505d7a766dff3db79f8">ThreadsManager</a>;
-<a name="l00014"></a>00014     }
-<a name="l00015"></a>00015     <span class="keywordflow">return</span> <a class="code" href="../../d1/d44/a00098.html#aec8eef9205109d6e51a75e5ee56f0fd3">_instance</a>;
-<a name="l00016"></a>00016 }
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="../../d1/d44/a00098.html#adbf5e2b395ccb505d7a766dff3db79f8">00018</a> <a class="code" href="../../d1/d44/a00098.html#adbf5e2b395ccb505d7a766dff3db79f8">ThreadsManager::ThreadsManager</a>()
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> = NULL;
-<a name="l00021"></a>00021 }
-<a name="l00022"></a>00022 
-<a name="l00023"></a><a class="code" href="../../d1/d44/a00098.html#a5e30188bc0ed74ed89069ae7bb139cf3">00023</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d44/a00098.html#a5e30188bc0ed74ed89069ae7bb139cf3">ThreadsManager::launchBillingsThread</a>()
-<a name="l00024"></a>00024 {
-<a name="l00025"></a>00025     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> != NULL) {
-<a name="l00026"></a>00026         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00027"></a>00027     }
-<a name="l00028"></a>00028     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>= (<a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a> *)<span class="keyword">new</span> <a class="code" href="../../d2/d79/a00051.html">NewBillingFactory</a>();
-<a name="l00029"></a>00029     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;start();
-<a name="l00030"></a>00030     QObject::connect(((<a class="code" href="../../d2/d79/a00051.html">NewBillingFactory</a> *)this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>), &amp;<a class="code" href="../../d2/d79/a00051.html#a828260157c0d0e01d2d7dd28259dfb77">NewBillingFactory::displayCalendar</a>, <span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#a828260157c0d0e01d2d7dd28259dfb77">ThreadsManager::displayCalendar</a>, Qt::DirectConnection);
-<a name="l00031"></a>00031     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649">connectRunningThread</a>();
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 }
-<a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="../../d1/d44/a00098.html#a258588c7ce744eb51bd4a07792bcbd32">00035</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d44/a00098.html#a258588c7ce744eb51bd4a07792bcbd32">ThreadsManager::launchBookingsThread</a>()
-<a name="l00036"></a>00036 {
-<a name="l00037"></a>00037     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> != NULL) {
-<a name="l00038"></a>00038         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00039"></a>00039     }
-<a name="l00040"></a>00040     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>= (<a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a> *)<span class="keyword">new</span> <a class="code" href="../../d1/d84/a00052.html">NewBookingFactory</a>();
-<a name="l00041"></a>00041     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;start();
-<a name="l00042"></a>00042     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;start();
-<a name="l00043"></a>00043     QObject::connect(((<a class="code" href="../../d1/d84/a00052.html">NewBookingFactory</a> *)this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>), &amp;<a class="code" href="../../d1/d84/a00052.html#a828260157c0d0e01d2d7dd28259dfb77">NewBookingFactory::displayCalendar</a>, <span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#a828260157c0d0e01d2d7dd28259dfb77">ThreadsManager::displayCalendar</a>, Qt::DirectConnection);
-<a name="l00044"></a>00044     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649">connectRunningThread</a>();
-<a name="l00045"></a>00045 }
-<a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="../../d1/d44/a00098.html#a69ce066f0efca1978ccb4dd6c924956b">00047</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d44/a00098.html#a69ce066f0efca1978ccb4dd6c924956b">ThreadsManager::launchBillThread</a>(<span class="keywordtype">int</span> userId)
-<a name="l00048"></a>00048 {
-<a name="l00049"></a>00049     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> != NULL) {
-<a name="l00050"></a>00050         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00051"></a>00051     }
-<a name="l00052"></a>00052     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>= (<a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a> *)<span class="keyword">new</span> <a class="code" href="../../d5/de0/a00050.html">NewBillFactory</a>(userId);
-<a name="l00053"></a>00053     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;start();
-<a name="l00054"></a>00054     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649">connectRunningThread</a>();
-<a name="l00055"></a>00055 }
-<a name="l00056"></a>00056 
-<a name="l00057"></a><a class="code" href="../../d1/d44/a00098.html#a05cce05147bed730cc762d25b1008350">00057</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d44/a00098.html#a05cce05147bed730cc762d25b1008350">ThreadsManager::cancelRunningThread</a>()
-<a name="l00058"></a>00058 {
-<a name="l00059"></a>00059     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> == NULL) {
-<a name="l00060"></a>00060         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00061"></a>00061     }
-<a name="l00062"></a>00062     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;<a class="code" href="../../d9/d73/a00060.html#ab0b246c9d2a0bd10b9d4f8c45f9a6f96">cancelProcess</a>();
-<a name="l00063"></a>00063     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;exit();
-<a name="l00064"></a>00064     <span class="keywordtype">bool</span> ok = this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;isFinished();
-<a name="l00065"></a>00065     this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> = NULL;
-<a name="l00066"></a>00066     <span class="keywordflow">return</span> ok;
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="../../d1/d44/a00098.html#ae46eaef48ce37ba7f017d2b8ac0a046b">00069</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d44/a00098.html#ae46eaef48ce37ba7f017d2b8ac0a046b">ThreadsManager::customService</a>()
-<a name="l00070"></a>00070 {
-<a name="l00071"></a>00071     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> != NULL &amp;&amp; this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;<a class="code" href="../../d9/d73/a00060.html#aaa57430c9d32f47c99cee9b6da4ef634">className</a>() == <span class="stringliteral">&quot;NewBillFactory&quot;</span>) {
-<a name="l00072"></a>00072         ((<a class="code" href="../../d5/de0/a00050.html">NewBillFactory</a> *)this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>)-&gt;customService();
-<a name="l00073"></a>00073     }
-<a name="l00074"></a>00074 }
-<a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="../../d1/d44/a00098.html#acc8259ca0b0545e5f3972ddf28341558">00076</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d44/a00098.html#acc8259ca0b0545e5f3972ddf28341558">ThreadsManager::customServiceWithoutName</a>()
-<a name="l00077"></a>00077 {
-<a name="l00078"></a>00078     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> != NULL &amp;&amp; this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;<a class="code" href="../../d9/d73/a00060.html#aaa57430c9d32f47c99cee9b6da4ef634">className</a>() == <span class="stringliteral">&quot;NewBillFactory&quot;</span>) {
-<a name="l00079"></a>00079         ((<a class="code" href="../../d5/de0/a00050.html">NewBillFactory</a> *)this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>)-&gt;customServiceWithoutName();
-<a name="l00080"></a>00080     }
-<a name="l00081"></a>00081 }
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649">00084</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649">ThreadsManager::connectRunningThread</a>()
-<a name="l00085"></a>00085 {
-<a name="l00086"></a>00086     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a> == NULL) {
-<a name="l00087"></a>00087         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00088"></a>00088     }
-<a name="l00089"></a>00089     QObject::connect(this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>, &amp;<a class="code" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText</a>, <span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#a09b09963d36990d0d1096a63fac3243e">ThreadsManager::sendText</a>, Qt::DirectConnection);
-<a name="l00090"></a>00090     QObject::connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#abedc3eb5fba86fbc730bac6d3727068a">ThreadsManager::sendInput</a>, this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>, &amp;<a class="code" href="../../d9/d73/a00060.html#a0e50386b44a261b9630bdb9790a1a6ea">PreCheckThread::receiveInput</a>, Qt::DirectConnection);
-<a name="l00091"></a>00091     QObject::connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#a8f2f426f52671761b30bdc2fdb18bff7">ThreadsManager::confirmInput</a>, this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>, &amp;<a class="code" href="../../d9/d73/a00060.html#a094562e46ab94d6c7fcaef95a37dade2">PreCheckThread::confirmInput</a>, Qt::DirectConnection);
-<a name="l00092"></a>00092     QObject::connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#a00e165667cc30c6562882b37206bb97c">ThreadsManager::validateInput</a>, this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>, &amp;<a class="code" href="../../d9/d73/a00060.html#a1d60c048d8b0bf5f5e45b68b3a4bf51c">PreCheckThread::validateInput</a>, Qt::DirectConnection);
-<a name="l00093"></a>00093     QObject::connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#ac54b2751be09097ad229a439007887e2">ThreadsManager::replaceInput</a>, this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>, &amp;<a class="code" href="../../d9/d73/a00060.html#aa6ad595cc4a1ddac5a0a8bb12f377d00">PreCheckThread::replaceInput</a>, Qt::DirectConnection);
-<a name="l00094"></a>00094     QObject::connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d1/d44/a00098.html#af84400ac0e8815e91b0c13978e2deee5">ThreadsManager::cancelReplacement</a>, this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>, &amp;<a class="code" href="../../d9/d73/a00060.html#af84400ac0e8815e91b0c13978e2deee5">PreCheckThread::cancelReplacement</a>, Qt::DirectConnection);
-<a name="l00095"></a>00095     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">m_runningThread</a>-&gt;isRunning();
-<a name="l00096"></a>00096 }
+<a href="../../d1/de1/a00213.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef OFFER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define OFFER_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a><a class="code" href="../../df/d5f/a00064.html">00004</a> <span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">Offer</a> : <span class="keyword">public</span> <a class="code" href="../../db/d44/a00162.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006     Q_OBJECT
+<a name="l00007"></a>00007 <span class="keyword">public</span>:
+<a name="l00008"></a>00008     <a class="code" href="../../df/d5f/a00064.html#a4c50b999facf018d64e5ce48b613dcce">Offer</a>(QObject *parent = 0);
+<a name="l00009"></a>00009         
+<a name="l00010"></a><a class="code" href="../../df/d5f/a00064.html#abc29e461e01cc0c712944f8f47f91331">00010</a>          Q_PROPERTY(QString <span class="keywordtype">id</span> READ ID);
+<a name="l00011"></a>00011          Q_PROPERTY(QString <a class="code" href="../../df/d5f/a00064.html#abc29e461e01cc0c712944f8f47f91331">name</a> READ <a class="code" href="../../df/d5f/a00064.html#abc29e461e01cc0c712944f8f47f91331">name</a> WRITE <a class="code" href="../../d6/dfb/a00172.html#a6220fae15759fd0fa7d75e415df34e83">setName</a> RESET unsetName);
+<a name="l00012"></a>00012          Q_PROPERTY(QString <a class="code" href="../../df/d5f/a00064.html#abc29e461e01cc0c712944f8f47f91331">name</a> READ <a class="code" href="../../df/d5f/a00064.html#abc29e461e01cc0c712944f8f47f91331">name</a> WRITE <a class="code" href="../../d6/dfb/a00172.html#a6220fae15759fd0fa7d75e415df34e83">setName</a> RESET unsetName);
+<a name="l00013"></a>00013     
+<a name="l00014"></a>00014 };
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#endif // OFFER_H</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d1/de1/a00213.html">offer.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

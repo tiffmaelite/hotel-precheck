@@ -234,7 +234,7 @@ private:
      \brief
 
      \fn setQuery
-     \param query
+     \param[in] query
     */
     void setQuery(const QString &query);
     QString mTable; /*!< TODO */

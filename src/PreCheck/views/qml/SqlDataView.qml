@@ -7,10 +7,14 @@ import PreCheck 1.0
 
 Rectangle {
     id:display
+    /// le modèle
     property var sqlModel
     property string itemDelegate
     property string emptyDelegate : "DataDelegate.qml"
     property string sectionDelegate : "DataDelegate.qml"
+    /** type: bool
+      visibilité des cases à cocher permettant le tri du modèle
+    */
     property bool filterIndicatorsVisibles: true
     property string filtersTitle
     signal selected(string selectedItem)

@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de BookingFactory.cpp</title>
+<title>PreCheck:  Fichier source de main.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -52,52 +81,165 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d4/d81/a00110.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">BookingFactory.cpp</div>  </div>
+<div class="title">main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d4/d81/a00110.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6d/a00111.html">BookingFactory.h</a>&quot;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">models/database_manager.h</a>&quot;</span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QtSql&gt;</span>
-<a name="l00004"></a>00004 
-<a name="l00005"></a><a class="code" href="../../d7/d7a/a00016.html#acce92dc9b08982ec82d60f5830015056">00005</a> <a class="code" href="../../d7/d7a/a00016.html#acce92dc9b08982ec82d60f5830015056">BookingFactory::BookingFactory</a>(QObject *parent) :
-<a name="l00006"></a>00006     <a class="code" href="../../d9/d73/a00060.html">PreCheckThread</a>(parent)
-<a name="l00007"></a>00007 {
-<a name="l00008"></a>00008     <a class="code" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">PreCheckThread::stepsCount</a> = 4;
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010 }
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="../../d7/d7a/a00016.html#a011772fbba0d57f3c50e8e7a5a87dd1d">00012</a> <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BookingFactory::cancelProcess</a>()
-<a name="l00013"></a>00013 {
-<a name="l00014"></a>00014     this-&gt;<a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">currentStep</a> = 0;
-<a name="l00015"></a>00015     <a class="code" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread::content</a>.empty();
-<a name="l00016"></a>00016 }
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="../../d7/d7a/a00016.html#a13a43e6d814de94978c515cb084873b1">00018</a> <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a13a43e6d814de94978c515cb084873b1">BookingFactory::run</a>() {
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020     <a class="code" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread::currentStep</a>++;
-<a name="l00021"></a>00021 }
-<a name="l00022"></a>00022 
-<a name="l00023"></a><a class="code" href="../../d7/d7a/a00016.html#a7dc3e898aae484518acd8c1f46c1b29a">00023</a> <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a7dc3e898aae484518acd8c1f46c1b29a">BookingFactory::receiveInput</a>(QString text) {
-<a name="l00024"></a>00024 }
-<a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="../../d7/d7a/a00016.html#a8f2f426f52671761b30bdc2fdb18bff7">00026</a> <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a8f2f426f52671761b30bdc2fdb18bff7">BookingFactory::confirmInput</a>()
-<a name="l00027"></a>00027 {
-<a name="l00028"></a>00028 }
-<a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="../../d7/d7a/a00016.html#a00e165667cc30c6562882b37206bb97c">00030</a> <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a00e165667cc30c6562882b37206bb97c">BookingFactory::validateInput</a>()
-<a name="l00031"></a>00031 {
-<a name="l00032"></a>00032 }
-<a name="l00033"></a>00033 
+<a href="../../d4/d81/a00110.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;QtWidgets/QApplication&gt;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QtQml&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QtQuick&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/df8/a00155.html">views/message_manager.h</a>&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d87/a00118.html">models/checkable_sort_filter_proxy_model.h</a>&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="../../d9/d47/a00129.html">models/rooms_table_model.h</a>&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="../../d0/de8/a00133.html">models/sql_data_field.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="../../db/d57/a00112.html">models/billings_table_model.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">models/bills_table_model.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3e/a00116.html">models/bookings_table_model.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="../../d9/d47/a00129.html">models/rooms_table_model.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d98/a00120.html">models/clients_table_model.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="../../d7/d06/a00131.html">models/services_table_model.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/dfe/a00125.html">models/groups_table_model.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;models/offers_table_model.h&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="../../de/d14/a00139.html">models/user.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="../../df/dcd/a00127.html">models/RestrictiveApplication.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d00/a00186.html">views/qquickaction.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/db2/a00151.html">ThreadsManager.h</a>&quot;</span>
+<a name="l00020"></a>00020 
+<a name="l00029"></a><a class="code" href="../../d4/d81/a00110.html#a0ddf1224851353fc92bfbff6f499fa97">00029</a> <span class="keywordtype">int</span> <a class="code" href="../../d4/d81/a00110.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031     <span class="keywordflow">try</span>
+<a name="l00032"></a>00032     {
+<a name="l00033"></a>00033         qDebug() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         QApplication <a class="code" href="../../d1/d7c/a00003.html">app</a>(argc, argv);
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         QString appName = QString(QObject::tr(<span class="stringliteral">&quot;precheck&quot;</span>));
+<a name="l00038"></a>00038         QString locale = QLocale::system().name();
+<a name="l00039"></a>00039         QTranslator translator;
+<a name="l00040"></a>00040         <span class="keywordflow">if</span> (!QFile::exists(appName + <span class="stringliteral">&quot;_&quot;</span> + locale + <span class="stringliteral">&quot;.qm&quot;</span>))
+<a name="l00041"></a>00041         {
+<a name="l00042"></a>00042             locale = locale.section(<span class="charliteral">&#39;_&#39;</span>, 0, 0);
+<a name="l00043"></a>00043         }
+<a name="l00044"></a>00044         <span class="keywordflow">if</span> (QFile::exists(appName + <span class="stringliteral">&quot;_&quot;</span> + locale + <span class="stringliteral">&quot;.qm&quot;</span>))
+<a name="l00045"></a>00045         {
+<a name="l00046"></a>00046             translator.load(appName + <span class="stringliteral">&quot;_&quot;</span> + locale);
+<a name="l00047"></a>00047             app.installTranslator(&amp;translator);
+<a name="l00048"></a>00048         }
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050         QQmlEngine engine;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         qmlRegisterUncreatableType&lt;RestrictiveApplication&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;AppMode&quot;</span>,<span class="stringliteral">&quot;pour enum AppMode&quot;</span>);
+<a name="l00053"></a>00053         qmlRegisterType&lt;User&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;User&quot;</span>);
+<a name="l00054"></a>00054         <a class="code" href="../../d1/d84/a00052.html">RestrictiveApplication</a>* appManager = <span class="keyword">new</span> <a class="code" href="../../d1/d84/a00052.html">RestrictiveApplication</a>();
+<a name="l00055"></a>00055         engine.rootContext()-&gt;setContextProperty(<span class="stringliteral">&quot;App&quot;</span>, appManager);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         <span class="comment">//qmlRegisterInterface&lt;CheckableSortFilterProxyModel&gt;(&quot;PreCheck&quot;, 1, 0, &quot;ProxyModel&quot;);</span>
+<a name="l00058"></a>00058         qmlRegisterType&lt;RoomsTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;RoomsModel&quot;</span>);
+<a name="l00059"></a>00059         qmlRegisterType&lt;BillingsTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;BillingsModel&quot;</span>);
+<a name="l00060"></a>00060         qmlRegisterType&lt;BillsTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;BillsModel&quot;</span>);
+<a name="l00061"></a>00061         qmlRegisterType&lt;BookingsTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;BookingsModel&quot;</span>);
+<a name="l00062"></a>00062         qmlRegisterType&lt;OffersTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;OffersModel&quot;</span>);
+<a name="l00063"></a>00063         qmlRegisterType&lt;ServicesTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;ServicesModel&quot;</span>);
+<a name="l00064"></a>00064         qmlRegisterType&lt;ClientsTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;ClientsModel&quot;</span>);
+<a name="l00065"></a>00065         qmlRegisterType&lt;GroupsTableModel&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;GroupsModel&quot;</span>);
+<a name="l00066"></a>00066         qmlRegisterType&lt;SqlDataFields&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;SqlDataFields&quot;</span>);
+<a name="l00067"></a>00067         qmlRegisterType&lt;QQQuickAction&gt;(<span class="stringliteral">&quot;PreCheck&quot;</span>, 1, 0, <span class="stringliteral">&quot;ComplexAction&quot;</span>);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069         QQmlComponent component(&amp;engine);
+<a name="l00070"></a>00070         component.loadUrl(QUrl(<span class="stringliteral">&quot;qrc:/qml/app.qml&quot;</span>));
+<a name="l00071"></a>00071         <span class="keywordflow">if</span> (!component.isReady())
+<a name="l00072"></a>00072         {
+<a name="l00073"></a>00073             qWarning(<span class="stringliteral">&quot;%s&quot;</span>, qPrintable(component.errorString()));
+<a name="l00074"></a>00074             <span class="keywordflow">return</span> -1;
+<a name="l00075"></a>00075         }
+<a name="l00076"></a>00076         QObject *topLevel = component.create();
+<a name="l00077"></a>00077         QQuickWindow *window = qobject_cast&lt;QQuickWindow *&gt;(topLevel);
+<a name="l00078"></a>00078         <span class="keywordflow">if</span> (!window)
+<a name="l00079"></a>00079         {
+<a name="l00080"></a>00080             qWarning(<span class="stringliteral">&quot;Error: Your root item has to be a Window.&quot;</span>);
+<a name="l00081"></a>00081             <span class="keywordflow">return</span> -1;
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083         QObject::connect(&amp;engine, SIGNAL(quit()), &amp;app, SLOT(quit()));
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         QObject * connexionPage = window-&gt;findChild&lt;QObject *&gt;(<span class="stringliteral">&quot;Connexion&quot;</span>);
+<a name="l00086"></a>00086         QObject * welcomePage = window-&gt;findChild&lt;QObject *&gt;(<span class="stringliteral">&quot;Welcome&quot;</span>);
+<a name="l00087"></a>00087         QObject * commonPage = window-&gt;findChild&lt;QObject *&gt;(<span class="stringliteral">&quot;Common&quot;</span>);
+<a name="l00088"></a>00088         QObject * tabsZone = commonPage-&gt;findChild&lt;QObject *&gt;(<span class="stringliteral">&quot;TabView&quot;</span>);
+<a name="l00089"></a>00089         QObject * displayZone = commonPage-&gt;findChild&lt;QObject *&gt;(<span class="stringliteral">&quot;RightOutput&quot;</span>);
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091         <a class="code" href="../../de/de1/a00065.html">ThreadsManager</a>* threadManager = <a class="code" href="../../de/de1/a00065.html#afba86dd08ac8528cc6cfe07a44c91fbe">ThreadsManager::getInstance</a>();
+<a name="l00092"></a>00092         QObject::connect(appManager, SIGNAL(userLoggedIn()), connexionPage, SLOT(userLoggedIn()), Qt::DirectConnection);
+<a name="l00093"></a>00093         QObject::connect(appManager, SIGNAL(badPassword()), connexionPage, SLOT(badPassword()), Qt::DirectConnection);
+<a name="l00094"></a>00094         QObject::connect(appManager, SIGNAL(userNotFound()), connexionPage, SLOT(userNotFound()), Qt::DirectConnection);
+<a name="l00095"></a>00095         QObject::connect(connexionPage, SIGNAL(checkUsername(QString)), appManager, SLOT(userExists(QString)), Qt::DirectConnection);
+<a name="l00096"></a>00096         QObject::connect(connexionPage, SIGNAL(logIn(QString,QString)), appManager, SLOT(setUser(QString,QString)), Qt::DirectConnection);
+<a name="l00097"></a>00097         QObject::connect(appManager, SIGNAL(userLoggedOut()), welcomePage, SLOT(userLoggedOut()), Qt::DirectConnection);
+<a name="l00098"></a>00098         QObject::connect(welcomePage, SIGNAL(logOut()), appManager, SLOT(userLogOut()), Qt::DirectConnection);
+<a name="l00099"></a>00099         QObject::connect(commonPage, SIGNAL(selected(QString)), threadManager, SIGNAL(sendInput(QString)), Qt::QueuedConnection);
+<a name="l00100"></a>00100         QObject::connect(commonPage, SIGNAL(cancelProcess()), threadManager, SLOT(cancelRunningThread()), Qt::QueuedConnection);
+<a name="l00101"></a>00101         QObject::connect(commonPage, SIGNAL(validate()), threadManager, SIGNAL(validateInput()), Qt::DirectConnection);
+<a name="l00102"></a>00102         QObject::connect(commonPage, SIGNAL(confirm()), threadManager, SIGNAL(confirmInput()), Qt::DirectConnection);
+<a name="l00103"></a>00103         QObject::connect(commonPage, SIGNAL(replace(QString)), threadManager, SIGNAL(replaceInput(QString)), Qt::DirectConnection);
+<a name="l00104"></a>00104         QObject::connect(commonPage, SIGNAL(cancelReplace()), threadManager, SIGNAL(cancelReplacement()), Qt::DirectConnection);
+<a name="l00105"></a>00105         QObject::connect(threadManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
+<a name="l00106"></a>00106         QObject::connect(tabsZone, SIGNAL(newBilling()), threadManager, SLOT(launchBillingsThread()), Qt::DirectConnection);
+<a name="l00107"></a>00107         QObject::connect(tabsZone, SIGNAL(newBooking()), threadManager, SLOT(launchBookingsThread()), Qt::DirectConnection);
+<a name="l00108"></a>00108         QObject::connect(tabsZone, SIGNAL(newSelling(<span class="keywordtype">int</span>)), threadManager, SLOT(launchBillThread(<span class="keywordtype">int</span>)), Qt::DirectConnection);
+<a name="l00109"></a>00109         QObject::connect(tabsZone, SIGNAL(otherService()), threadManager, SLOT(customService()), Qt::DirectConnection);
+<a name="l00110"></a>00110         QObject::connect(tabsZone, SIGNAL(otherServiceNoName()), threadManager, SLOT(customServiceWithoutName()), Qt::DirectConnection);
+<a name="l00111"></a>00111         QObject::connect(threadManager, SIGNAL(sendText(QVariant)), displayZone, SLOT(displayText(QVariant)), Qt::QueuedConnection);
+<a name="l00112"></a>00112         QObject::connect(threadManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114         window-&gt;show();
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116         <span class="keywordflow">return</span> app.exec();
+<a name="l00117"></a>00117     }
+<a name="l00118"></a>00118     <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e)
+<a name="l00119"></a>00119     {
+<a name="l00120"></a>00120         <a class="code" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260">MessageManager::errorMessage</a>(e.what());
+<a name="l00121"></a>00121     }
+<a name="l00122"></a>00122 }
+<a name="l00123"></a>00123 
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d4/d81/a00110.html">main.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

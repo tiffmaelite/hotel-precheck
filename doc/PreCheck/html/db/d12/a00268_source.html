@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/qml/ContentView_old.qml</title>
+<title>PreCheck:  Fichier source de views/bookings_tab.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,106 +80,76 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('db/d12/a00268.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">ContentView_old.qml</div>  </div>
+<div class="title">bookings_tab.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/d12/a00268.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../d0/dc0/a00033.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
-<a name="l00002"></a>00002 import QtQuick.Controls 1.0
-<a name="l00003"></a>00003 import QtQuick.Controls.Styles 1.0
-<a name="l00004"></a><a class="code" href="../../d0/dc0/a00033.html#a53eab16d9b647c309a4c12b7b32b66e0">00004</a> import PreCheck 1.0
-<a name="l00005"></a>00005 
-<a name="l00006"></a><a class="code" href="../../d0/dc0/a00033.html#a6ff2ded34b0ddd0275a3b652eb9176ba">00006</a> ComplexGridView {
-<a name="l00007"></a>00007     <span class="keywordtype">id</span>: dataView
-<a name="l00008"></a>00008     <span class="keyword">property</span> <span class="keywordtype">string</span> dataDelegate
-<a name="l00009"></a>00009     <span class="keyword">property</span> variant activeFilterIndicatorIndexes
-<a name="l00010"></a>00010     <span class="comment">// maxi 10 lignes s&#39;il y a 6 colonnes; et maxi 15 lignes s&#39;il y a 12 colonnes; sinon 18 toutes petites colonnes et autant de lignes que nécessaire</span>
-<a name="l00011"></a>00011     maxNbRowsFew: 10
-<a name="l00012"></a>00012     maxNbColsFew: 6
-<a name="l00013"></a>00013     maxNbRowsStd: 15
-<a name="l00014"></a>00014     maxNbColsStd: 12
-<a name="l00015"></a>00015     maxNbFlowMany: 18
-<a name="l00016"></a>00016     <span class="keyword">function</span> removeFilterIndex(index) {
-<a name="l00017"></a>00017         <span class="keywordflow">if</span>(!activeFilterIndicatorIndexes) {
-<a name="l00018"></a>00018             activeFilterIndicatorIndexes = [];
-<a name="l00019"></a>00019         }
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021         var tmp = activeFilterIndicatorIndexes
-<a name="l00022"></a>00022         var pos = tmp.indexOf(index);
-<a name="l00023"></a>00023         tmp.splice(pos, 1);
-<a name="l00024"></a>00024         <span class="keywordflow">return</span> tmp;
-<a name="l00025"></a>00025     }
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027     <span class="keyword">function</span> addFilterIndex(index) {
-<a name="l00028"></a>00028         <span class="keywordflow">if</span>(!activeFilterIndicatorIndexes) {
-<a name="l00029"></a>00029             activeFilterIndicatorIndexes = [];
-<a name="l00030"></a>00030         }
-<a name="l00031"></a>00031         var tmp = activeFilterIndicatorIndexes
-<a name="l00032"></a>00032         tmp.push(index);
-<a name="l00033"></a>00033         <span class="keywordflow">return</span> tmp;
-<a name="l00034"></a>00034     }
-<a name="l00035"></a>00035     <span class="keyword">function</span> sort(index) {
-<a name="l00036"></a>00036         dataView.model.sort(index);
-<a name="l00037"></a>00037     }
-<a name="l00038"></a>00038     <span class="keyword">function</span> filter(index, <span class="keyword">remove</span>) {
-<a name="l00039"></a>00039         <span class="keywordflow">if</span>(<span class="keyword">remove</span>) {
-<a name="l00040"></a>00040             activeFilterIndicatorIndexes = addFilterIndex(index);
-<a name="l00041"></a>00041             dataView.model.setFilterKeyColumn(index);
-<a name="l00042"></a>00042         } <span class="keywordflow">else</span> {
-<a name="l00043"></a>00043             activeFilterIndicatorIndexes = removeFilterIndex(index);
-<a name="l00044"></a>00044             var nbFilters = activeFilterIndicatorIndexes.length;
-<a name="l00045"></a>00045             dataView.model.invalidateFilter(index);
-<a name="l00046"></a>00046             <span class="keywordflow">for</span>(var i = 0; i &lt; nbFilters; i++) {
-<a name="l00047"></a>00047                 dataView.model.setFilterKeyColumn(activeFilterIndicatorIndexes.at(i));
-<a name="l00048"></a>00048             }
-<a name="l00049"></a>00049         }
-<a name="l00050"></a>00050     }
-<a name="l00051"></a>00051     delegate: Loader {
-<a name="l00052"></a>00052         <span class="keywordtype">id</span>:contentLoader
-<a name="l00053"></a>00053         source: dataDelegate
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055         Binding {
-<a name="l00056"></a>00056             target: contentLoader.item
-<a name="l00057"></a>00057             <span class="keyword">property</span>: <span class="stringliteral">&quot;visible&quot;</span>
-<a name="l00058"></a>00058             value: dataView.enabled
-<a name="l00059"></a>00059         }
-<a name="l00060"></a>00060         Binding {
-<a name="l00061"></a>00061             target: contentLoader.item
-<a name="l00062"></a>00062             <span class="keyword">property</span>: <span class="stringliteral">&quot;width&quot;</span>
-<a name="l00063"></a>00063             value: dataView.cellWidth-dataView.cellSpacing
-<a name="l00064"></a>00064         }
-<a name="l00065"></a>00065         Binding {
-<a name="l00066"></a>00066             target: contentLoader.item
-<a name="l00067"></a>00067             <span class="keyword">property</span>: <span class="stringliteral">&quot;heigth&quot;</span>
-<a name="l00068"></a>00068             value: dataView.cellHeight-dataView.cellSpacing
-<a name="l00069"></a>00069         }
-<a name="l00070"></a>00070         Connections {
-<a name="l00071"></a>00071             target: contentLoader.item
-<a name="l00072"></a>00072             onClicked: {
-<a name="l00073"></a>00073                 <span class="keywordflow">if</span>(dataView.enabled) {
-<a name="l00074"></a>00074                     dataView.selected(contentLoader.item.value);
-<a name="l00075"></a>00075                     dataView.currentIndex = index;
-<a name="l00076"></a>00076                 }
-<a name="l00077"></a>00077             }
-<a name="l00078"></a>00078         }
-<a name="l00079"></a>00079     }
-<a name="l00080"></a>00080 }
+<a href="../../db/d12/a00268.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/d59/a00364.html">tab_page_with_table.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="preprocessor">#ifndef BOOKINGSTAB_H</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define BOOKINGSTAB_H</span>
+<a name="l00006"></a>00006 <span class="preprocessor"></span>
+<a name="l00007"></a>00007 
+<a name="l00012"></a><a class="code" href="../../dd/da2/a00019.html">00012</a> <span class="keyword">class </span><a class="code" href="../../dd/da2/a00019.html">BookingsTabPage</a> : <span class="keyword">public</span> <a class="code" href="../../d1/dd6/a00108.html">TabPageWithTable</a>
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014     Q_OBJECT
+<a name="l00015"></a>00015 <span class="keyword">public</span>:
+<a name="l00016"></a>00016 
+<a name="l00025"></a>00025     <a class="code" href="../../dd/da2/a00019.html#aad5187f179253b72cee08aace440f308">BookingsTabPage</a>(<span class="keywordtype">int</span> <a class="code" href="../../d7/d70/a00106.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>, <span class="keywordtype">int</span> <a class="code" href="../../d7/d70/a00106.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>, QString tabName, QWidget *parent = 0);
+<a name="l00026"></a>00026     
+<a name="l00027"></a>00027 signals:
+<a name="l00028"></a>00028     
+<a name="l00029"></a>00029 <span class="keyword">public</span> slots:
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keyword">private</span>:
+<a name="l00032"></a>00032 
+<a name="l00037"></a>00037     <span class="keywordtype">void</span> <a class="code" href="../../dd/da2/a00019.html#a2b8e45414e7db14116a9a456b647c098">fetchDatas</a>();
+<a name="l00038"></a>00038     
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="preprocessor">#endif // BOOKINGSTAB_H</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../db/d12/a00268.html">bookings_tab.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

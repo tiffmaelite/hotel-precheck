@@ -84,7 +84,8 @@ HEADERS += \
     logic/decimalquestionstate.h \
     logic/loopingstatemachine.h \
     logic/namedobject.h \
-    logic/iostatemachine.h
+    logic/iostatemachine.h \
+    logic/datequestionstate.h
 
 SOURCES += \
     models/user.cpp \
@@ -127,7 +128,8 @@ SOURCES += \
     logic/decimalquestionstate.cpp \
     logic/loopingstatemachine.cpp \
     logic/namedobject.cpp \
-    logic/iostatemachine.cpp
+    logic/iostatemachine.cpp \
+    logic/datequestionstate.cpp
 
 
 # QML-files as a ressource

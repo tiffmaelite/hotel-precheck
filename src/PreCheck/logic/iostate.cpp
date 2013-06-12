@@ -1,26 +1,58 @@
 #include "iostate.h"
 
+/*!
+ \brief
+
+ \fn IOState::IOState
+ \param output
+ \param name
+ \param parent
+*/
 IOState::IOState(QString output, QString name, QState *parent) :
     GenericState(name, parent), m_output(output)
 {
 }
 
+/*!
+ \brief
+
+ \fn IOState::input
+ \return QVariant
+*/
 QVariant IOState::input() const
 {
     return m_input;
 }
 
+/*!
+ \brief
+
+ \fn IOState::setInput
+ \param input
+*/
 void IOState::setInput(const QVariant &input)
 {
     m_input = input;
     emit resendInput(m_input);
 }
 
+/*!
+ \brief
+
+ \fn IOState::output
+ \return QString
+*/
 QString IOState::output() const
 {
     return m_output;
 }
 
+/*!
+ \brief
+
+ \fn IOState::onEntry
+ \param event
+*/
 void IOState::onEntry(QEvent *event)
 {
     GenericState::onEntry(event);
@@ -29,12 +61,24 @@ void IOState::onEntry(QEvent *event)
     }
 }
 
+/*!
+ \brief
+
+ \fn IOState::setOutput
+ \param output
+*/
 void IOState::setOutput(const QString &output)
 {
     m_output = output;
     emit sendOutput(QVariant(m_output));
 }
 
+/*!
+ \brief
+
+ \fn IOState::onExit
+ \param event
+*/
 void IOState::onExit(QEvent *event)
 {
     GenericState::onExit(event);

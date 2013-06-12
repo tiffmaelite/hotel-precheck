@@ -6,18 +6,35 @@
 #include <QtQuick/QQuickWindow>
 #include <QQmlFile>
 
+/*!
+ \brief
+
+ \fn QQQuickAction::QQQuickAction
+ \param parent
+*/
 QQQuickAction::QQQuickAction(QObject *parent)
     : QObject(parent)
     , m_enabled(true)
 {
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::~QQQuickAction
+*/
 QQQuickAction::~QQQuickAction()
 {
     setKeyShortcut(Qt::Key_unknown);
     setMnemonicFromText(QString());
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setText
+ \param text
+*/
 void QQQuickAction::setText(const QString &text)
 {
     if (text == m_text)
@@ -27,6 +44,14 @@ void QQQuickAction::setText(const QString &text)
     emit textChanged();
 }
 
+/*!
+ \brief
+
+ \fn qShortcutContextMatcher
+ \param o
+ \param context
+ \return bool
+*/
 bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
 {
     switch (context) {
@@ -50,6 +75,12 @@ bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
     return false;
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setKeySequence
+ \param sequence
+*/
 void QQQuickAction::setKeySequence(const QKeySequence &sequence) {
     if (sequence == m_shortcut)
         return;
@@ -66,16 +97,34 @@ void QQQuickAction::setKeySequence(const QKeySequence &sequence) {
     emit shortcutChanged(shortcut());
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setKeyShortcut
+ \param shortcut
+*/
 void QQQuickAction::setKeyShortcut(const Qt::Key &shortcut)
 {
     setKeySequence(QKeySequence(shortcut));
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::shortcut
+ \return QString
+*/
 QString QQQuickAction::shortcut() const
 {
     return m_shortcut.toString(QKeySequence::NativeText);
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setShortcut
+ \param arg
+*/
 void QQQuickAction::setShortcut(const QString &arg)
 {
     if(shortcut() == arg)
@@ -84,6 +133,12 @@ void QQQuickAction::setShortcut(const QString &arg)
     setKeySequence(QKeySequence::fromString(arg));
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setMnemonicFromText
+ \param text
+*/
 void QQQuickAction::setMnemonicFromText(const QString &text)
 {
     QKeySequence sequence = QKeySequence::mnemonic(text);
@@ -101,6 +156,12 @@ void QQQuickAction::setMnemonicFromText(const QString &text)
     }
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setIconSource
+ \param iconSource
+*/
 void QQQuickAction::setIconSource(const QUrl &iconSource)
 {
     if (iconSource == m_iconSource)
@@ -116,11 +177,23 @@ void QQQuickAction::setIconSource(const QUrl &iconSource)
     emit iconSourceChanged();
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::iconName
+ \return QString
+*/
 QString QQQuickAction::iconName() const
 {
     return m_iconName;
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setIconName
+ \param iconName
+*/
 void QQQuickAction::setIconName(const QString &iconName)
 {
     if (iconName == m_iconName)
@@ -131,6 +204,12 @@ void QQQuickAction::setIconName(const QString &iconName)
     emit iconChanged();
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setTooltip
+ \param arg
+*/
 void QQQuickAction::setTooltip(const QString &arg)
 {
     if (m_tooltip != arg) {
@@ -139,6 +218,12 @@ void QQQuickAction::setTooltip(const QString &arg)
     }
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::setEnabled
+ \param e
+*/
 void QQQuickAction::setEnabled(bool e)
 {
     if (e == m_enabled)
@@ -149,6 +234,13 @@ void QQQuickAction::setEnabled(bool e)
 
 
 
+/*!
+ \brief
+
+ \fn QQQuickAction::event
+ \param e
+ \return bool
+*/
 bool QQQuickAction::event(QEvent *e)
 {
     if (!m_enabled)
@@ -172,6 +264,11 @@ bool QQQuickAction::event(QEvent *e)
     return true;
 }
 
+/*!
+ \brief
+
+ \fn QQQuickAction::trigger
+*/
 void QQQuickAction::trigger()
 {
     if (!m_enabled)

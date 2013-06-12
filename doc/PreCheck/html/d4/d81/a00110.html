@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence du fichier BookingFactory.cpp</title>
+<title>PreCheck: Référence du fichier main.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -52,33 +81,129 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d4/d81/a00110.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
-<div class="title">Référence du fichier BookingFactory.cpp</div>  </div>
+<div class="title">Référence du fichier main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d6d/a00111_source.html">BookingFactory.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/d1e/a00149_source.html">models/database_manager.h</a>&quot;</code><br/>
-<code>#include &lt;QtSql&gt;</code><br/>
+<div class="textblock"><code>#include &lt;QtWidgets/QApplication&gt;</code><br/>
+<code>#include &lt;QtQml&gt;</code><br/>
+<code>#include &lt;QtQuick&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d3/df8/a00155_source.html">views/message_manager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d87/a00118_source.html">models/checkable_sort_filter_proxy_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d47/a00129_source.html">models/rooms_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/de8/a00133_source.html">models/sql_data_field.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d57/a00112_source.html">models/billings_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d17/a00114_source.html">models/bills_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/d3e/a00116_source.html">models/bookings_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/d98/a00120_source.html">models/clients_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d06/a00131_source.html">models/services_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dc/dfe/a00125_source.html">models/groups_table_model.h</a>&quot;</code><br/>
+<code>#include &quot;models/offers_table_model.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d14/a00139_source.html">models/user.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../df/dcd/a00127_source.html">models/RestrictiveApplication.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d00/a00186_source.html">views/qquickaction.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/db2/a00151_source.html">ThreadsManager.h</a>&quot;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe des dépendances par inclusion de BookingFactory.cpp:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe des dépendances par inclusion de main.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d0/dc5/a00343.png" border="0" usemap="#BookingFactory_8cpp" alt=""/></div>
-<map name="BookingFactory_8cpp" id="BookingFactory_8cpp">
-<area shape="rect" id="node3" href="../../dd/d6d/a00111.html" title="BookingFactory.h" alt="" coords="136,83,259,112"/><area shape="rect" id="node18" href="../../da/d1e/a00149.html" title="models/database_manager.h" alt="" coords="339,83,528,112"/><area shape="rect" id="node11" href="../../dd/dc1/a00212.html" title="PreCheckThread.h" alt="" coords="132,160,263,189"/></map>
+<div class="center"><img src="../../d0/d1f/a00247.png" border="0" usemap="#main_8cpp" alt=""/></div>
+<map name="main_8cpp" id="main_8cpp">
+<area shape="rect" id="node9" href="../../d3/df8/a00155.html" title="views/message_manager.h" alt="" coords="1911,315,2092,344"/><area shape="rect" id="node13" href="../../d8/d87/a00118.html" title="models/checkable_sort_filter_proxy_model.h" alt="" coords="800,160,1080,189"/><area shape="rect" id="node21" href="../../d0/de8/a00133.html" title="sql_data_field.h" alt="" coords="467,315,579,344"/><area shape="rect" id="node27" href="../../d9/d47/a00129.html" title="models/rooms_table_model.h" alt="" coords="293,83,485,112"/><area shape="rect" id="node34" href="../../db/d57/a00112.html" title="models/billings_table_model.h" alt="" coords="1509,83,1704,112"/><area shape="rect" id="node39" href="../../d8/d17/a00114.html" title="models/bills_table_model.h" alt="" coords="1728,83,1907,112"/><area shape="rect" id="node43" href="../../d4/d3e/a00116.html" title="models/bookings_table_model.h" alt="" coords="611,83,819,112"/><area shape="rect" id="node47" href="../../d4/d98/a00120.html" title="models/clients_table_model.h" alt="" coords="843,83,1037,112"/><area shape="rect" id="node51" href="../../d7/d06/a00131.html" title="models/services_table_model.h" alt="" coords="1061,83,1267,112"/><area shape="rect" id="node55" href="../../dc/dfe/a00125.html" title="models/groups_table_model.h" alt="" coords="1291,83,1485,112"/><area shape="rect" id="node61" href="../../de/d14/a00139.html" title="models/user.h" alt="" coords="2315,160,2419,189"/><area shape="rect" id="node69" href="../../df/dcd/a00127.html" title="models/RestrictiveApplication.h" alt="" coords="2400,83,2605,112"/><area shape="rect" id="node74" href="../../d8/d00/a00186.html" title="views/qquickaction.h" alt="" coords="2804,83,2948,112"/><area shape="rect" id="node88" href="../../dd/db2/a00151.html" title="ThreadsManager.h" alt="" coords="1931,83,2061,112"/><area shape="rect" id="node17" href="../../d5/d5b/a00135.html" title="SqlDataModel.h" alt="" coords="648,237,763,267"/><area shape="rect" id="node93" href="../../da/d1e/a00149.html" title="PreCheckThread.h" alt="" coords="1919,160,2049,189"/></map>
 </div>
 </div>
 <p><a href="../../d4/d81/a00110_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+</table>
+<hr/><h2>Documentation des fonctions</h2>
+<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a><!-- doxytag: member="main.cpp::main" ref="a0ddf1224851353fc92bfbff6f499fa97" args="(int argc, char *argv[])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../d4/d81/a00110.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../d4/d81/a00110_source.html#l00029">29</a> du fichier <a class="el" href="../../d4/d81/a00110_source.html">main.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d3/d65/a00154_source.html#l00019">MessageManager::errorMessage()</a>, et <a class="el" href="../../d9/d7d/a00150_source.html#l00015">ThreadsManager::getInstance()</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d81/a00110_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#d4/d81/a00110_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
+<map name="d4/d81/a00110_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="d4/d81/a00110_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
+<area shape="rect" id="node3" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260" title="MessageManager::errorMessage" alt="" coords="105,5,316,35"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#afba86dd08ac8528cc6cfe07a44c91fbe" title="ThreadsManager::getInstance" alt="" coords="113,59,308,88"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#adbf5e2b395ccb505d7a766dff3db79f8" title="ThreadsManager::ThreadsManager" alt="" coords="365,59,589,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d4/d81/a00110.html">main.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -11,6 +11,12 @@
 #include <QTextLayout>
 #include <QTextLine>
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::NewBillingFactory
+ \param parent
+*/
 NewBillingFactory::NewBillingFactory(QObject *parent) :
     PreCheckThread(parent)
 {
@@ -19,6 +25,11 @@ NewBillingFactory::NewBillingFactory(QObject *parent) :
     this->newClient = false;
 }
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::cancelProcess
+*/
 void NewBillingFactory::cancelProcess()
 {
     this->currentPerson = 0;
@@ -31,12 +42,23 @@ void NewBillingFactory::cancelProcess()
     PreCheckThread::content.empty();
 }
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::run
+*/
 void NewBillingFactory::run() {
     emit PreCheckThread::sendText(QVariant(QObject::tr("Création d'une facturation\n")));
     emit PreCheckThread::sendText(QVariant(QObject::tr("Veuillez entrer le nombre d'adultes\n")));
     PreCheckThread::currentStep++;
 }
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::receiveInput
+ \param text
+*/
 void NewBillingFactory::receiveInput(QString text) {
     text = text.trimmed();
     if(PreCheckThread::currentStep < PreCheckThread::stepsCount) {
@@ -156,6 +178,11 @@ void NewBillingFactory::receiveInput(QString text) {
     }
 }
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::confirmInput
+*/
 void NewBillingFactory::confirmInput()
 {
     if(PreCheckThread::currentStep==6) {
@@ -163,6 +190,11 @@ void NewBillingFactory::confirmInput()
     }
 }
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::validateInput
+*/
 void NewBillingFactory::validateInput()
 {
     if(PreCheckThread::currentStep==5) {
@@ -171,6 +203,11 @@ void NewBillingFactory::validateInput()
 }
 
 
+/*!
+ \brief
+
+ \fn NewBillingFactory::print
+*/
 void NewBillingFactory::print() {
     QPrinter* printer = new QPrinter();
     QPainter painter(printer);

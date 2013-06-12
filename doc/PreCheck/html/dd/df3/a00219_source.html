@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/billings_tab.h</title>
+<title>PreCheck:  Fichier source de models/qQuickRelationalTableModel.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,49 +80,80 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('dd/df3/a00219.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">billings_tab.h</div>  </div>
+<div class="title">qQuickRelationalTableModel.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/df3/a00219.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00321.html">tab_page_with_table.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 <span class="preprocessor">#ifndef BILLSTAB_H</span>
-<a name="l00004"></a>00004 <span class="preprocessor"></span><span class="preprocessor">#define BILLSTAB_H</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span>
-<a name="l00006"></a>00006 
-<a name="l00011"></a><a class="code" href="../../da/d45/a00011.html">00011</a> <span class="keyword">class </span><a class="code" href="../../da/d45/a00011.html">BillingsTabPage</a> : <span class="keyword">public</span> <a class="code" href="../../dc/d54/a00094.html">TabPageWithTable</a>
-<a name="l00012"></a>00012 {
-<a name="l00013"></a>00013     Q_OBJECT
-<a name="l00014"></a>00014 <span class="keyword">public</span>:
-<a name="l00015"></a>00015 
-<a name="l00024"></a>00024     <a class="code" href="../../da/d45/a00011.html#abdb3b7161e4377feb350e73b6ae8ab6b">BillingsTabPage</a>(<span class="keywordtype">int</span> <a class="code" href="../../d1/dc1/a00092.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>, <span class="keywordtype">int</span> <a class="code" href="../../d1/dc1/a00092.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>, QString tabName, QWidget *parent = 0);
-<a name="l00025"></a>00025     
-<a name="l00026"></a>00026 signals:
-<a name="l00027"></a>00027     
-<a name="l00028"></a>00028 <span class="keyword">public</span> slots:
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">private</span>:
-<a name="l00031"></a>00031 
-<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="../../da/d45/a00011.html#a2b8e45414e7db14116a9a456b647c098">fetchDatas</a>();
-<a name="l00037"></a>00037     
-<a name="l00038"></a>00038 };
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#endif // BILLSTAB_H</span>
+<a href="../../dd/df3/a00219.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QQUICKRELATIONALTABLEMODEL_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QQUICKRELATIONALTABLEMODEL_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtSql/QSqlRelationalTableModel&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">class </span><a class="code" href="../../d1/d51/a00079.html">QQuickRelationalTableModel</a> : <span class="keyword">public</span> <a class="code" href="../../db/d44/a00162.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     Q_OBJECT
+<a name="l00009"></a>00009 <span class="keyword">private</span>:
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011     QHash&lt;int, QByteArray&gt; <a class="code" href="../../d1/d51/a00079.html#aa5b476edb975f237c4166263a932fc8a">roles</a>;
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">public</span>:
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015     <a class="code" href="../../d1/d51/a00079.html#a963a780f6657801752f866a36acda868">QQuickRelationalTableModel</a>(QString tableName, QString filter = <span class="stringliteral">&quot;&quot;</span>, QObject *parent=0);
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017     <span class="keywordtype">bool</span> <a class="code" href="../../d1/d51/a00079.html#a0c83d408d22a89727ef999f1d0f4a641">select</a>();
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019     QSqlRecord <a class="code" href="../../d1/d51/a00079.html#a7f89a986aeb413478df4f3c293d5f8fd">record</a>(<span class="keywordtype">int</span> row) <span class="keyword">const</span>;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022     QVariant <a class="code" href="../../d1/d51/a00079.html#adcd3df47ac02021a2c18b8a921b26b54">data</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keywordtype">int</span> role) <span class="keyword">const</span>;
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="../../d1/d51/a00079.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a>();
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="../../d1/d51/a00079.html#a2038dc6a6621e570c65761203c64d507">00027</a>     <span class="keyword">virtual</span> QHash&lt;int, QByteArray&gt; <a class="code" href="../../d1/d51/a00079.html#a2038dc6a6621e570c65761203c64d507">roleNames</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> <a class="code" href="../../d1/d51/a00079.html#aa5b476edb975f237c4166263a932fc8a">roles</a>;}
+<a name="l00028"></a>00028 }; <span class="comment">//end QQUICKRELATIONALTABLEMODEL_H</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dd/df3/a00219.html">qQuickRelationalTableModel.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

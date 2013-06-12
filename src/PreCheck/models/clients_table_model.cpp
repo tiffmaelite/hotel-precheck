@@ -1,6 +1,12 @@
 #include "clients_table_model.h"
 
 
+/*!
+ \brief
+
+ \fn ClientsTableModel::ClientsTableModel
+ \param parent
+*/
 ClientsTableModel::ClientsTableModel(QObject *parent):
     CheckableSortFilterProxyModel(parent)
 {
@@ -8,6 +14,11 @@ ClientsTableModel::ClientsTableModel(QObject *parent):
 }
 
 
+/*!
+ \brief
+
+ \fn ClientsTableModel::fillModel
+*/
 void ClientsTableModel::fillModel()
 {
 }

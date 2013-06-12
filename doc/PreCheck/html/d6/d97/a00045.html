@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence de la classe KeyboardTabPage</title>
+<title>PreCheck: Référence de la classe PreCheckThread</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,239 +83,266 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d6/d97/a00045.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Connecteurs publics</a> &#124;
+<a href="#signals">Signaux</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
-<a href="#pro-methods">Fonctions membres protégées</a> &#124;
-<a href="#pro-attribs">Attributs protégés</a> &#124;
-<a href="#properties">Propriétés</a>  </div>
+<a href="#pro-attribs">Attributs protégés</a>  </div>
   <div class="headertitle">
-<div class="title">Référence de la classe KeyboardTabPage</div>  </div>
+<div class="title">Référence de la classe PreCheckThread</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="KeyboardTabPage" --><!-- doxytag: inherits="TabPageWithKeys" -->
-<p><code>#include &lt;<a class="el" href="../../d6/d08/a00244_source.html">keyboard_tab.h</a>&gt;</code></p>
+<!-- doxytag: class="PreCheckThread" -->
+<p><code>#include &lt;<a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de KeyboardTabPage:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de PreCheckThread:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../dd/d57/a00701.png" border="0" usemap="#KeyboardTabPage_inherit__map" alt="Inheritance graph"/></div>
-<map name="KeyboardTabPage_inherit__map" id="KeyboardTabPage_inherit__map">
-<area shape="rect" id="node2" href="../../d4/d7d/a00093.html" title="{TabPageWithKeys\n|# keys\l|+ TabPageWithKeys()\l# fillKeyboard()\l# initKeyboard()\l}" alt="" coords="5,277,155,397"/><area shape="rect" id="node4" href="../../d1/dc1/a00092.html" title="{TabPage\n|+ icon\l+ name\l# name\l# tabLayout\l&#45; columnsCount\l&#45; rowsCount\l|+ TabPage()\l+ TabPage()\l+ getName()\l+ getName()\l}" alt="" coords="23,5,137,229"/></map>
-<center><span class="legend">[<a href="../../graph_legend.html">légende</a>]</span></center></div>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Graphe de collaboration de KeyboardTabPage:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../dd/d85/a00702.png" border="0" usemap="#KeyboardTabPage_coll__map" alt="Collaboration graph"/></div>
-<map name="KeyboardTabPage_coll__map" id="KeyboardTabPage_coll__map">
-<area shape="rect" id="node2" href="../../d4/d7d/a00093.html" title="{TabPageWithKeys\n|# keys\l|+ TabPageWithKeys()\l# fillKeyboard()\l# initKeyboard()\l}" alt="" coords="39,779,188,899"/><area shape="rect" id="node4" href="../../d1/dc1/a00092.html" title="{TabPage\n|+ icon\l+ name\l# name\l# tabLayout\l&#45; columnsCount\l&#45; rowsCount\l|+ TabPage()\l+ TabPage()\l+ getName()\l+ getName()\l}" alt="" coords="5,444,120,668"/><area shape="rect" id="node6" href="../../d3/de7/a00039.html" title="{FixedGridLayout\n|# columnsCount\l# currentColumn\l# currentRow\l# rowsCount\l|+ FixedGridLayout()\l+ FixedGridLayout()\l+ addLayout()\l+ addLayout()\l+ addLayout()\l+ addLayout()\l+ addWidget()\l+ addWidget()\l+ addWidget()\l+ addWidget()\land 7 more...&#45; computePosition()\l&#45; computePosition()\l}" alt="" coords="45,5,256,333"/><area shape="rect" id="node8" href="../../d6/d42/a00043.html" title="{Keyboard\n|+ actionsList\l# buttonsFont\l# maxHeight\l# maxWidth\l&#45; keysLayout\l|+ Keyboard()\l+ getColumnsCount()\l+ getKeysHeight()\l+ getKeysWidth()\l+ getRowsCount()\l+ setButton()\l+ setContentsMargins()\l+ setSpacing()\l# getLineLength()\l# resizeKeys()\l}" alt="" coords="144,401,301,711"/></map>
-<center><span class="legend">[<a href="../../graph_legend.html">légende</a>]</span></center></div>
+<div class="center"><img src="../../d1/d05/a00423.png" border="0" usemap="#PreCheckThread_inherit__map" alt="Inheritance graph"/></div>
+<map name="PreCheckThread_inherit__map" id="PreCheckThread_inherit__map">
+<area shape="rect" id="node3" href="../../dd/dad/a00005.html" title="{BillingFactory\n||+ BillingFactory()\l+ cancelProcess()\l+ className()\l+ confirmInput()\l+ receiveInput()\l+ validateInput()\l# run()\l}" alt="" coords="5,365,133,555"/><area shape="rect" id="node5" href="../../de/d5e/a00007.html" title="{BillingsFactory\n|&#45; currentPerson\l|+ BillingsFactory()\l+ cancelProcess()\l+ receiveInput()\l# run()\l}" alt="" coords="157,391,285,529"/><area shape="rect" id="node7" href="../../d7/dec/a00010.html" title="{BookingFactory\n||+ BookingFactory()\l+ cancelProcess()\l+ className()\l+ confirmInput()\l+ receiveInput()\l+ validateInput()\l# run()\l}" alt="" coords="309,365,443,555"/><area shape="rect" id="node9" href="../../d3/de7/a00039.html" title="{NewBillFactory\n|&#45; currentServiceMaxPrice\l&#45; currentServiceMinPrice\l|+ NewBillFactory()\l+ cancelProcess()\l+ className()\l+ confirmInput()\l+ customService()\l+ customServiceWithoutName()\l+ receiveInput()\l+ validateInput()\l# run()\l}" alt="" coords="467,339,675,581"/><area shape="rect" id="node11" href="../../db/d3a/a00040.html" title="{NewBillingFactory\n|&#45; currentPerson\l&#45; currentPersonOk\l&#45; newClient\l&#45; newClientProcess\l|+ NewBillingFactory()\l+ cancelProcess()\l+ className()\l+ print()\l+ confirmInput()\l+ receiveInput()\l+ validateInput()\l# run()\l}" alt="" coords="699,331,845,589"/><area shape="rect" id="node13" href="../../dd/d32/a00041.html" title="{NewBookingFactory\n||+ NewBookingFactory()\l+ cancelProcess()\l+ className()\l+ confirmInput()\l+ receiveInput()\l+ validateInput()\l# run()\l}" alt="" coords="869,365,1029,555"/><area shape="rect" id="node15" href="../../d5/db6/a00042.html" title="{NewClientFactory\n||+ NewClientFactory()\l+ cancelProcess()\l+ className()\l+ confirmInput()\l+ receiveInput()\l+ validateInput()\l# run()\l}" alt="" coords="1053,365,1200,555"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
 
-<p><a href="../../d8/d86/a00703.html">Liste de tous les membres</a></p>
+<p><a href="../../dc/df3/a00424.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-slots"></a>
+Connecteurs publics</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a35b129f60b5659b57db955a429e0634c">cancelReplacement</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#adb87c42b74037505cb9dbc057ad57a01">confirmInput</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a5611a059dacaa21bd37d0013e322dce4">receiveInput</a> (QString text)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#ae526a15bd8098bf6189a4f47448d8517">replaceInput</a> (QString field)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#ac893dd96c987aa22b8247d6ef5c3f91a">validateInput</a> ()=0</td></tr>
+<tr><td colspan="2"><h2><a name="signals"></a>
+Signaux</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a1cb9f3832b9faf6a27dd87cfab573e47">openTab</a> (QVariant tabPos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a9915de5b9a12ab6b9d095d0a61f35543">sendText</a> (QVariant text)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#aa0c771a0705af6b2ebead7b8bfcc79a3">KeyboardTabPage</a> (int <a class="el" href="../../d1/dc1/a00092.html#a8f276c3de4e13200d6b66642f6c50ec4">rowsCount</a>, int <a class="el" href="../../d1/dc1/a00092.html#a195df85d35bf6c6d89014cd7ae739b67">columnsCount</a>, QString tabName, QWidget *parent=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b">getName</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b">getName</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-methods"></a>
-Fonctions membres protégées</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a7b8b9da7ee07f5f78df187ccdc4ea410">fillKeyboard</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#ab66670e05d5beec9e35842763920a1c6">initKeyboard</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#ab777a5889c2746247c1c1d2029ad59ea">PreCheckThread</a> (QObject *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a0d7bc2c96da7b3fab646b8dc1201c3bf">cancelProcess</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a0f8f2093d7fb61b09b5b0f556cbdbf97">className</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#acce573a875c0a3733ec81668b345afb4">insertUpdateDatabase</a> (QString tableName)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Attributs protégés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d42/a00043.html">Keyboard</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html#abc29e461e01cc0c712944f8f47f91331">name</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#abc29e461e01cc0c712944f8f47f91331"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/de7/a00039.html">FixedGridLayout</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html#a51051d943e4726b18425669cb5155896">tabLayout</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a51051d943e4726b18425669cb5155896"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="properties"></a>
-Propriétés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html#ac8d9406f640b46f65573a181bb453884">icon</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html#abc29e461e01cc0c712944f8f47f91331">name</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QVariantMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a94270b6bedcff3632f0d170e37a88460">content</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a94270b6bedcff3632f0d170e37a88460"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a61a56b55f026894815c3a945bd459a93">currentStep</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a61a56b55f026894815c3a945bd459a93"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#af331d46db481d05422cf1b8b127233c5">stepsCount</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#af331d46db481d05422cf1b8b127233c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">toBeReplaced</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a00b06bd85368ad4b80ff6dcf5c5fb53c"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock">
-<p>Définition à la ligne <a class="el" href="../../d6/d08/a00244_source.html#l00014">14</a> du fichier <a class="el" href="../../d6/d08/a00244_source.html">keyboard_tab.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../da/d1e/a00149_source.html#l00013">13</a> du fichier <a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a>.</p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="aa0c771a0705af6b2ebead7b8bfcc79a3"></a><!-- doxytag: member="KeyboardTabPage::KeyboardTabPage" ref="aa0c771a0705af6b2ebead7b8bfcc79a3" args="(int rowsCount, int columnsCount, QString tabName, QWidget *parent=0)" -->
+<a class="anchor" id="ab777a5889c2746247c1c1d2029ad59ea"></a><!-- doxytag: member="PreCheckThread::PreCheckThread" ref="ab777a5889c2746247c1c1d2029ad59ea" args="(QObject *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d97/a00045.html">KeyboardTabPage</a> </td>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html">PreCheckThread</a> </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rowsCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>columnsCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>tabName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">rowsCount</td><td></td></tr>
-    <tr><td class="paramname">columnsCount</td><td></td></tr>
-    <tr><td class="paramname">tabName</td><td></td></tr>
     <tr><td class="paramname">parent</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d82/a00243_source.html#l00007">7</a> du fichier <a class="el" href="../../d6/d82/a00243_source.html">keyboard_tab.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../db/d48/a00148_source.html#l00011">11</a> du fichier <a class="el" href="../../db/d48/a00148_source.html">PreCheckThread.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../d2/d41/a00318_source.html#l00018">TabPageWithKeys::initKeyboard()</a>.</p>
-
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/d97/a00045_aa0c771a0705af6b2ebead7b8bfcc79a3_cgraph.png" border="0" usemap="#d6/d97/a00045_aa0c771a0705af6b2ebead7b8bfcc79a3_cgraph" alt=""/></div>
-<map name="d6/d97/a00045_aa0c771a0705af6b2ebead7b8bfcc79a3_cgraph" id="d6/d97/a00045_aa0c771a0705af6b2ebead7b8bfcc79a3_cgraph">
-<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#ab66670e05d5beec9e35842763920a1c6" title="TabPageWithKeys::initKeyboard" alt="" coords="184,32,395,61"/><area shape="rect" id="node5" href="../../d4/d7d/a00093.html#ac093a4359f9ebd56dee4e4afe9287288" title="TabPageWithKeys::fillKeyboard" alt="" coords="444,5,649,35"/><area shape="rect" id="node7" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a" title="FixedGridLayout::insertWidget" alt="" coords="448,59,645,88"/><area shape="rect" id="node9" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7" title="FixedGridLayout::addWidget" alt="" coords="699,32,885,61"/><area shape="rect" id="node11" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6" title="FixedGridLayout::computePosition" alt="" coords="935,59,1156,88"/></map>
-</div>
-</p>
+<p>Références <a class="el" href="../../da/d1e/a00149_source.html#l00099">currentStep</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="a7b8b9da7ee07f5f78df187ccdc4ea410"></a><!-- doxytag: member="KeyboardTabPage::fillKeyboard" ref="a7b8b9da7ee07f5f78df187ccdc4ea410" args="()" -->
+<a class="anchor" id="a0d7bc2c96da7b3fab646b8dc1201c3bf"></a><!-- doxytag: member="PreCheckThread::cancelProcess" ref="a0d7bc2c96da7b3fab646b8dc1201c3bf" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d6/d97/a00045.html#a7b8b9da7ee07f5f78df187ccdc4ea410">fillKeyboard</a> </td>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#a0d7bc2c96da7b3fab646b8dc1201c3bf">cancelProcess</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [protected, virtual]</code></td>
+          <td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Implémente <a class="el" href="../../d4/d7d/a00093.html#ac093a4359f9ebd56dee4e4afe9287288">TabPageWithKeys</a>.</p>
+<p>Implémenté dans <a class="el" href="../../d3/de7/a00039.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewBillFactory</a>, <a class="el" href="../../d5/db6/a00042.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewClientFactory</a>, <a class="el" href="../../dd/dad/a00005.html#a2929f779f323bb3b6be6cd2ac9a1cedb">BillingFactory</a>, <a class="el" href="../../d7/dec/a00010.html#a2929f779f323bb3b6be6cd2ac9a1cedb">BookingFactory</a>, <a class="el" href="../../db/d3a/a00040.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewBillingFactory</a>, <a class="el" href="../../dd/d32/a00041.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewBookingFactory</a>, et <a class="el" href="../../de/d5e/a00007.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BillingsFactory</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d82/a00243_source.html#l00013">13</a> du fichier <a class="el" href="../../d6/d82/a00243_source.html">keyboard_tab.cpp</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00093">ThreadsManager::cancelRunningThread()</a>.</p>
 
-<p>Références <a class="el" href="../../de/dc8/a00325_source.html#l00013">TabPageWithKeys::keys</a>, et <a class="el" href="../../d6/db6/a00241_source.html#l00053">Keyboard::setButton()</a>.</p>
-
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/d97/a00045_a7b8b9da7ee07f5f78df187ccdc4ea410_cgraph.png" border="0" usemap="#d6/d97/a00045_a7b8b9da7ee07f5f78df187ccdc4ea410_cgraph" alt=""/></div>
-<map name="d6/d97/a00045_a7b8b9da7ee07f5f78df187ccdc4ea410_cgraph" id="d6/d97/a00045_a7b8b9da7ee07f5f78df187ccdc4ea410_cgraph">
-<area shape="rect" id="node3" href="../../d6/d42/a00043.html#a6d20b0ea993a059f3de8d38314620d83" title="Keyboard::setButton" alt="" coords="144,59,285,88"/><area shape="rect" id="node5" href="../../d6/d42/a00043.html#ac8ad7acf3956c04de0bce0a621ef26da" title="Keyboard::getKeysHeight" alt="" coords="348,5,519,35"/><area shape="rect" id="node11" href="../../d6/d42/a00043.html#a7914261c1a137a5a03b52b75addc7843" title="Keyboard::getKeysWidth" alt="" coords="351,59,516,88"/><area shape="rect" id="node17" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a" title="FixedGridLayout::insertWidget" alt="" coords="335,112,532,141"/><area shape="rect" id="node7" href="../../d6/d42/a00043.html#a223cd2438bf5d255137bab033cbc2a0c" title="Keyboard::getRowsCount" alt="" coords="592,5,763,35"/><area shape="rect" id="node9" href="../../d3/de7/a00039.html#a223cd2438bf5d255137bab033cbc2a0c" title="FixedGridLayout::getRowsCount" alt="" coords="832,5,1043,35"/><area shape="rect" id="node13" href="../../d6/d42/a00043.html#a86eb57a359678346a9009bb8683a14d6" title="Keyboard::getColumnsCount" alt="" coords="583,59,772,88"/><area shape="rect" id="node15" href="../../d3/de7/a00039.html#a86eb57a359678346a9009bb8683a14d6" title="FixedGridLayout::getColumnsCount" alt="" coords="823,59,1052,88"/><area shape="rect" id="node19" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7" title="FixedGridLayout::addWidget" alt="" coords="584,112,771,141"/><area shape="rect" id="node21" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6" title="FixedGridLayout::computePosition" alt="" coords="827,137,1048,167"/></map>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_a0d7bc2c96da7b3fab646b8dc1201c3bf_icgraph.png" border="0" usemap="#d6/d97/a00045_a0d7bc2c96da7b3fab646b8dc1201c3bf_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_a0d7bc2c96da7b3fab646b8dc1201c3bf_icgraph" id="d6/d97/a00045_a0d7bc2c96da7b3fab646b8dc1201c3bf_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a00a948d25e8b933cd805f498d8eb0ed8" title="ThreadsManager::cancelRunningThread" alt="" coords="163,5,416,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ab6b223a95a460d422d940396d9a5657b"></a><!-- doxytag: member="KeyboardTabPage::getName" ref="ab6b223a95a460d422d940396d9a5657b" args="()" -->
+<a class="anchor" id="a35b129f60b5659b57db955a429e0634c"></a><!-- doxytag: member="PreCheckThread::cancelReplacement" ref="a35b129f60b5659b57db955a429e0634c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b">getName</a> </td>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#a35b129f60b5659b57db955a429e0634c">cancelReplacement</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td><code> [slot]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Définition à la ligne <a class="el" href="../../db/d48/a00148_source.html#l00077">77</a> du fichier <a class="el" href="../../db/d48/a00148_source.html">PreCheckThread.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d1e/a00149_source.html#l00100">toBeReplaced</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00136">ThreadsManager::connectRunningThread()</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_a35b129f60b5659b57db955a429e0634c_icgraph.png" border="0" usemap="#d6/d97/a00045_a35b129f60b5659b57db955a429e0634c_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_a35b129f60b5659b57db955a429e0634c_icgraph" id="d6/d97/a00045_a35b129f60b5659b57db955a429e0634c_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8" title="ThreadsManager::connectRunningThread" alt="" coords="192,59,453,88"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a807625d011a0c236db1bffc1b62a31a5" title="ThreadsManager::launchBillingsThread" alt="" coords="508,5,753,35"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#a9c9cc5b098d89f65534bdf1d8f14afba" title="ThreadsManager::launchBookingsThread" alt="" coords="501,59,760,88"/><area shape="rect" id="node9" href="../../de/de1/a00065.html#a7367dd45daec2df65640bdbc908d4e61" title="ThreadsManager::launchBillThread" alt="" coords="520,112,741,141"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="ab6b223a95a460d422d940396d9a5657b"></a><!-- doxytag: member="KeyboardTabPage::getName" ref="ab6b223a95a460d422d940396d9a5657b" args="()" -->
+<a class="anchor" id="a0f8f2093d7fb61b09b5b0f556cbdbf97"></a><!-- doxytag: member="PreCheckThread::className" ref="a0f8f2093d7fb61b09b5b0f556cbdbf97" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b">getName</a> </td>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#a0f8f2093d7fb61b09b5b0f556cbdbf97">className</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d3/db8/a00316_source.html#l00031">31</a> du fichier <a class="el" href="../../d3/db8/a00316_source.html">tab_page.cpp</a>.</p>
+<p>Implémenté dans <a class="el" href="../../d3/de7/a00039.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewBillFactory</a>, <a class="el" href="../../d5/db6/a00042.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewClientFactory</a>, <a class="el" href="../../dd/dad/a00005.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">BillingFactory</a>, <a class="el" href="../../d7/dec/a00010.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">BookingFactory</a>, <a class="el" href="../../db/d3a/a00040.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewBillingFactory</a>, et <a class="el" href="../../dd/d32/a00041.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewBookingFactory</a>.</p>
 
-<p>Références <a class="el" href="../../db/dc3/a00284_source.html#l00004">TabPage::name</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00110">ThreadsManager::customService()</a>, et <a class="el" href="../../d9/d7d/a00150_source.html#l00122">ThreadsManager::customServiceWithoutName()</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00031">CustomizableTabWidget::addTab()</a>.</p>
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_a0f8f2093d7fb61b09b5b0f556cbdbf97_icgraph.png" border="0" usemap="#d6/d97/a00045_a0f8f2093d7fb61b09b5b0f556cbdbf97_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_a0f8f2093d7fb61b09b5b0f556cbdbf97_icgraph" id="d6/d97/a00045_a0f8f2093d7fb61b09b5b0f556cbdbf97_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a1cf9d59be21f496a2ec1d35f6c8e29e0" title="ThreadsManager::customService" alt="" coords="183,5,396,35"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a0a56e02935a7a690f030dfd5030cb0f6" title="ThreadsManager::customServiceWithoutName" alt="" coords="143,59,436,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adb87c42b74037505cb9dbc057ad57a01"></a><!-- doxytag: member="PreCheckThread::confirmInput" ref="adb87c42b74037505cb9dbc057ad57a01" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#adb87c42b74037505cb9dbc057ad57a01">confirmInput</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="../../d3/de7/a00039.html#a178170502955a41fa9492bb3e1bc4321">NewBillFactory</a>, <a class="el" href="../../db/d3a/a00040.html#a178170502955a41fa9492bb3e1bc4321">NewBillingFactory</a>, <a class="el" href="../../dd/d32/a00041.html#a178170502955a41fa9492bb3e1bc4321">NewBookingFactory</a>, <a class="el" href="../../d5/db6/a00042.html#a178170502955a41fa9492bb3e1bc4321">NewClientFactory</a>, <a class="el" href="../../dd/dad/a00005.html#a178170502955a41fa9492bb3e1bc4321">BillingFactory</a>, et <a class="el" href="../../d7/dec/a00010.html#a178170502955a41fa9492bb3e1bc4321">BookingFactory</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00136">ThreadsManager::connectRunningThread()</a>.</p>
 
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/dc1/a00092_ab6b223a95a460d422d940396d9a5657b_icgraph.png" border="0" usemap="#d1/dc1/a00092_ab6b223a95a460d422d940396d9a5657b_icgraph" alt=""/></div>
-<map name="d1/dc1/a00092_ab6b223a95a460d422d940396d9a5657b_icgraph" id="d1/dc1/a00092_ab6b223a95a460d422d940396d9a5657b_icgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="CustomizableTabWidget::addTab" alt="" coords="128,32,344,61"/><area shape="rect" id="node5" href="../../db/df3/a00034.html#a9b4b62e0a8082b3be37f69b5dab4f0a9" title="CustomizableTabWidget::addTab" alt="" coords="392,5,608,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6" title="PreCheckQtApp::initTabs" alt="" coords="415,59,585,88"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36" title="PreCheckQtApp::fillRight" alt="" coords="657,59,825,88"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="PreCheckQtApp::fill" alt="" coords="875,59,1013,88"/><area shape="rect" id="node13" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="1061,59,1152,88"/></map>
+<div class="center"><img src="../../d6/d97/a00045_adb87c42b74037505cb9dbc057ad57a01_icgraph.png" border="0" usemap="#d6/d97/a00045_adb87c42b74037505cb9dbc057ad57a01_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_adb87c42b74037505cb9dbc057ad57a01_icgraph" id="d6/d97/a00045_adb87c42b74037505cb9dbc057ad57a01_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8" title="ThreadsManager::connectRunningThread" alt="" coords="149,59,411,88"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a807625d011a0c236db1bffc1b62a31a5" title="ThreadsManager::launchBillingsThread" alt="" coords="465,5,711,35"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#a9c9cc5b098d89f65534bdf1d8f14afba" title="ThreadsManager::launchBookingsThread" alt="" coords="459,59,717,88"/><area shape="rect" id="node9" href="../../de/de1/a00065.html#a7367dd45daec2df65640bdbc908d4e61" title="ThreadsManager::launchBillThread" alt="" coords="477,112,699,141"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ab66670e05d5beec9e35842763920a1c6"></a><!-- doxytag: member="KeyboardTabPage::initKeyboard" ref="ab66670e05d5beec9e35842763920a1c6" args="()" -->
+<a class="anchor" id="acce573a875c0a3733ec81668b345afb4"></a><!-- doxytag: member="PreCheckThread::insertUpdateDatabase" ref="acce573a875c0a3733ec81668b345afb4" args="(QString tableName)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d4/d7d/a00093.html#ab66670e05d5beec9e35842763920a1c6">initKeyboard</a> </td>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#acce573a875c0a3733ec81668b345afb4">insertUpdateDatabase</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [protected, inherited]</code></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d2/d41/a00318_source.html#l00018">18</a> du fichier <a class="el" href="../../d2/d41/a00318_source.html">tab_page_with_keys.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../db/d48/a00148_source.html#l00024">24</a> du fichier <a class="el" href="../../db/d48/a00148_source.html">PreCheckThread.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../d4/d7d/a00093.html#ac093a4359f9ebd56dee4e4afe9287288">TabPageWithKeys::fillKeyboard()</a>, <a class="el" href="../../d4/d08/a00237_source.html#l00080">FixedGridLayout::insertWidget()</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00013">TabPageWithKeys::keys</a>, et <a class="el" href="../../da/de0/a00317_source.html#l00037">TabPage::tabLayout</a>.</p>
+<p>Références <a class="el" href="../../da/d1e/a00149_source.html#l00097">content</a>, et <a class="el" href="../../df/dc8/a00122_source.html#l00015">AppDatabase::getInstance()</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d82/a00243_source.html#l00007">KeyboardTabPage()</a>, et <a class="el" href="../../d1/d67/a00310_source.html#l00009">ServicesTabPage::ServicesTabPage()</a>.</p>
+<p>Référencé par <a class="el" href="../../db/df8/a00076_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>, et <a class="el" href="../../d5/db1/a00140_source.html#l00141">NewBillFactory::validateInput()</a>.</p>
 
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_cgraph.png" border="0" usemap="#d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_cgraph" alt=""/></div>
-<map name="d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_cgraph" id="d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_cgraph">
-<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#ac093a4359f9ebd56dee4e4afe9287288" title="fillKeyboard" alt="" coords="204,5,295,35"/><area shape="rect" id="node5" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a" title="FixedGridLayout::insertWidget" alt="" coords="151,59,348,88"/><area shape="rect" id="node7" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7" title="FixedGridLayout::addWidget" alt="" coords="397,32,584,61"/><area shape="rect" id="node9" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6" title="FixedGridLayout::computePosition" alt="" coords="633,59,855,88"/></map>
+<div class="center"><img src="../../d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_cgraph.png" border="0" usemap="#d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_cgraph" alt=""/></div>
+<map name="d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_cgraph" id="d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_cgraph">
+<area shape="rect" id="node3" href="../../d0/d0b/a00004.html#afba86dd08ac8528cc6cfe07a44c91fbe" title="AppDatabase::getInstance" alt="" coords="207,32,383,61"/><area shape="rect" id="node5" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="433,32,620,61"/><area shape="rect" id="node7" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f" title="AppDatabase::dbConnect" alt="" coords="671,5,841,35"/><area shape="rect" id="node9" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260" title="MessageManager::errorMessage" alt="" coords="892,32,1103,61"/></map>
 </div>
 </p>
 
@@ -295,38 +351,202 @@ Propriétés</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_icgraph.png" border="0" usemap="#d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_icgraph" alt=""/></div>
-<map name="d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_icgraph" id="d4/d7d/a00093_ab66670e05d5beec9e35842763920a1c6_icgraph">
-<area shape="rect" id="node3" href="../../d6/d97/a00045.html#aa0c771a0705af6b2ebead7b8bfcc79a3" title="KeyboardTabPage::KeyboardTabPage" alt="" coords="151,5,393,35"/><area shape="rect" id="node5" href="../../d2/d1f/a00083.html#a4cee3de33f196eae5d5868599fd9a1cb" title="ServicesTabPage::ServicesTabPage" alt="" coords="155,59,389,88"/></map>
+<div class="center"><img src="../../d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_icgraph.png" border="0" usemap="#d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_icgraph" id="d6/d97/a00045_acce573a875c0a3733ec81668b345afb4_icgraph">
+<area shape="rect" id="node3" href="../../de/d5e/a00007.html#a7dc3e898aae484518acd8c1f46c1b29a" title="BillingsFactory::receiveInput" alt="" coords="216,5,403,35"/><area shape="rect" id="node5" href="../../db/d3a/a00040.html#a708be28b366f8a7b1ac9fe970fa04df0" title="NewBillingFactory::receiveInput" alt="" coords="207,59,412,88"/><area shape="rect" id="node7" href="../../d3/de7/a00039.html#aced64a0f4fd1647229efda490d90b8a0" title="NewBillFactory::validateInput" alt="" coords="213,112,405,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1cb9f3832b9faf6a27dd87cfab573e47"></a><!-- doxytag: member="PreCheckThread::openTab" ref="a1cb9f3832b9faf6a27dd87cfab573e47" args="(QVariant tabPos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#a1cb9f3832b9faf6a27dd87cfab573e47">openTab</a> </td>
+          <td>(</td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>tabPos</em></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tabPos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Référencé par <a class="el" href="../../db/df8/a00076_source.html#l00024">BillingsFactory::receiveInput()</a>, et <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_a1cb9f3832b9faf6a27dd87cfab573e47_icgraph.png" border="0" usemap="#d6/d97/a00045_a1cb9f3832b9faf6a27dd87cfab573e47_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_a1cb9f3832b9faf6a27dd87cfab573e47_icgraph" id="d6/d97/a00045_a1cb9f3832b9faf6a27dd87cfab573e47_icgraph">
+<area shape="rect" id="node3" href="../../de/d5e/a00007.html#a7dc3e898aae484518acd8c1f46c1b29a" title="BillingsFactory::receiveInput" alt="" coords="136,5,323,35"/><area shape="rect" id="node5" href="../../db/d3a/a00040.html#a708be28b366f8a7b1ac9fe970fa04df0" title="NewBillingFactory::receiveInput" alt="" coords="127,59,332,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5611a059dacaa21bd37d0013e322dce4"></a><!-- doxytag: member="PreCheckThread::receiveInput" ref="a5611a059dacaa21bd37d0013e322dce4" args="(QString text)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#a5611a059dacaa21bd37d0013e322dce4">receiveInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td><code> [pure virtual, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implémenté dans <a class="el" href="../../db/d3a/a00040.html#a708be28b366f8a7b1ac9fe970fa04df0">NewBillingFactory</a>, <a class="el" href="../../dd/d32/a00041.html#a708be28b366f8a7b1ac9fe970fa04df0">NewBookingFactory</a>, <a class="el" href="../../d3/de7/a00039.html#a708be28b366f8a7b1ac9fe970fa04df0">NewBillFactory</a>, <a class="el" href="../../d5/db6/a00042.html#a708be28b366f8a7b1ac9fe970fa04df0">NewClientFactory</a>, <a class="el" href="../../dd/dad/a00005.html#a708be28b366f8a7b1ac9fe970fa04df0">BillingFactory</a>, <a class="el" href="../../d7/dec/a00010.html#a708be28b366f8a7b1ac9fe970fa04df0">BookingFactory</a>, et <a class="el" href="../../de/d5e/a00007.html#a7dc3e898aae484518acd8c1f46c1b29a">BillingsFactory</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00136">ThreadsManager::connectRunningThread()</a>, et <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_a5611a059dacaa21bd37d0013e322dce4_icgraph.png" border="0" usemap="#d6/d97/a00045_a5611a059dacaa21bd37d0013e322dce4_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_a5611a059dacaa21bd37d0013e322dce4_icgraph" id="d6/d97/a00045_a5611a059dacaa21bd37d0013e322dce4_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8" title="ThreadsManager::connectRunningThread" alt="" coords="147,59,408,88"/><area shape="rect" id="node11" href="../../db/d3a/a00040.html#a708be28b366f8a7b1ac9fe970fa04df0" title="NewBillingFactory::receiveInput" alt="" coords="175,112,380,141"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a807625d011a0c236db1bffc1b62a31a5" title="ThreadsManager::launchBillingsThread" alt="" coords="463,5,708,35"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#a9c9cc5b098d89f65534bdf1d8f14afba" title="ThreadsManager::launchBookingsThread" alt="" coords="456,59,715,88"/><area shape="rect" id="node9" href="../../de/de1/a00065.html#a7367dd45daec2df65640bdbc908d4e61" title="ThreadsManager::launchBillThread" alt="" coords="475,112,696,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae526a15bd8098bf6189a4f47448d8517"></a><!-- doxytag: member="PreCheckThread::replaceInput" ref="ae526a15bd8098bf6189a4f47448d8517" args="(QString field)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#ae526a15bd8098bf6189a4f47448d8517">replaceInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>field</em></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">field</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../db/d48/a00148_source.html#l00067">67</a> du fichier <a class="el" href="../../db/d48/a00148_source.html">PreCheckThread.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d1e/a00149_source.html#l00100">toBeReplaced</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00136">ThreadsManager::connectRunningThread()</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_ae526a15bd8098bf6189a4f47448d8517_icgraph.png" border="0" usemap="#d6/d97/a00045_ae526a15bd8098bf6189a4f47448d8517_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_ae526a15bd8098bf6189a4f47448d8517_icgraph" id="d6/d97/a00045_ae526a15bd8098bf6189a4f47448d8517_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8" title="ThreadsManager::connectRunningThread" alt="" coords="147,59,408,88"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a807625d011a0c236db1bffc1b62a31a5" title="ThreadsManager::launchBillingsThread" alt="" coords="463,5,708,35"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#a9c9cc5b098d89f65534bdf1d8f14afba" title="ThreadsManager::launchBookingsThread" alt="" coords="456,59,715,88"/><area shape="rect" id="node9" href="../../de/de1/a00065.html#a7367dd45daec2df65640bdbc908d4e61" title="ThreadsManager::launchBillThread" alt="" coords="475,112,696,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9915de5b9a12ab6b9d095d0a61f35543"></a><!-- doxytag: member="PreCheckThread::sendText" ref="a9915de5b9a12ab6b9d095d0a61f35543" args="(QVariant text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#a9915de5b9a12ab6b9d095d0a61f35543">sendText</a> </td>
+          <td>(</td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00136">ThreadsManager::connectRunningThread()</a>, <a class="el" href="../../db/df8/a00076_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00049">NewBillFactory::receiveInput()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>, <a class="el" href="../../db/df8/a00076_source.html#l00019">BillingsFactory::run()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00035">NewClientFactory::run()</a>, et <a class="el" href="../../d2/d82/a00142_source.html#l00050">NewBillingFactory::run()</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_a9915de5b9a12ab6b9d095d0a61f35543_icgraph.png" border="0" usemap="#d6/d97/a00045_a9915de5b9a12ab6b9d095d0a61f35543_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_a9915de5b9a12ab6b9d095d0a61f35543_icgraph" id="d6/d97/a00045_a9915de5b9a12ab6b9d095d0a61f35543_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8" title="ThreadsManager::connectRunningThread" alt="" coords="131,59,392,88"/><area shape="rect" id="node11" href="../../de/d5e/a00007.html#a7dc3e898aae484518acd8c1f46c1b29a" title="BillingsFactory::receiveInput" alt="" coords="168,112,355,141"/><area shape="rect" id="node13" href="../../d3/de7/a00039.html#a708be28b366f8a7b1ac9fe970fa04df0" title="NewBillFactory::receiveInput" alt="" coords="167,165,356,195"/><area shape="rect" id="node15" href="../../db/d3a/a00040.html#a708be28b366f8a7b1ac9fe970fa04df0" title="NewBillingFactory::receiveInput" alt="" coords="159,219,364,248"/><area shape="rect" id="node17" href="../../de/d5e/a00007.html#a13a43e6d814de94978c515cb084873b1" title="BillingsFactory::run" alt="" coords="195,272,328,301"/><area shape="rect" id="node19" href="../../d5/db6/a00042.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="NewClientFactory::run" alt="" coords="185,325,337,355"/><area shape="rect" id="node21" href="../../db/d3a/a00040.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="NewBillingFactory::run" alt="" coords="184,379,339,408"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a807625d011a0c236db1bffc1b62a31a5" title="ThreadsManager::launchBillingsThread" alt="" coords="447,5,692,35"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#a9c9cc5b098d89f65534bdf1d8f14afba" title="ThreadsManager::launchBookingsThread" alt="" coords="440,59,699,88"/><area shape="rect" id="node9" href="../../de/de1/a00065.html#a7367dd45daec2df65640bdbc908d4e61" title="ThreadsManager::launchBillThread" alt="" coords="459,112,680,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac893dd96c987aa22b8247d6ef5c3f91a"></a><!-- doxytag: member="PreCheckThread::validateInput" ref="ac893dd96c987aa22b8247d6ef5c3f91a" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d97/a00045.html#ac893dd96c987aa22b8247d6ef5c3f91a">validateInput</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="../../d3/de7/a00039.html#aced64a0f4fd1647229efda490d90b8a0">NewBillFactory</a>, <a class="el" href="../../db/d3a/a00040.html#aced64a0f4fd1647229efda490d90b8a0">NewBillingFactory</a>, <a class="el" href="../../dd/d32/a00041.html#aced64a0f4fd1647229efda490d90b8a0">NewBookingFactory</a>, <a class="el" href="../../d5/db6/a00042.html#aced64a0f4fd1647229efda490d90b8a0">NewClientFactory</a>, <a class="el" href="../../dd/dad/a00005.html#aced64a0f4fd1647229efda490d90b8a0">BillingFactory</a>, et <a class="el" href="../../d7/dec/a00010.html#aced64a0f4fd1647229efda490d90b8a0">BookingFactory</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/d7d/a00150_source.html#l00136">ThreadsManager::connectRunningThread()</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d97/a00045_ac893dd96c987aa22b8247d6ef5c3f91a_icgraph.png" border="0" usemap="#d6/d97/a00045_ac893dd96c987aa22b8247d6ef5c3f91a_icgraph" alt=""/></div>
+<map name="d6/d97/a00045_ac893dd96c987aa22b8247d6ef5c3f91a_icgraph" id="d6/d97/a00045_ac893dd96c987aa22b8247d6ef5c3f91a_icgraph">
+<area shape="rect" id="node3" href="../../de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8" title="ThreadsManager::connectRunningThread" alt="" coords="149,59,411,88"/><area shape="rect" id="node5" href="../../de/de1/a00065.html#a807625d011a0c236db1bffc1b62a31a5" title="ThreadsManager::launchBillingsThread" alt="" coords="465,5,711,35"/><area shape="rect" id="node7" href="../../de/de1/a00065.html#a9c9cc5b098d89f65534bdf1d8f14afba" title="ThreadsManager::launchBookingsThread" alt="" coords="459,59,717,88"/><area shape="rect" id="node9" href="../../de/de1/a00065.html#a7367dd45daec2df65640bdbc908d4e61" title="ThreadsManager::launchBillThread" alt="" coords="477,112,699,141"/></map>
 </div>
 </p>
 
 </div>
 </div>
 <hr/><h2>Documentation des données membres</h2>
-<a class="anchor" id="a3daeef9125bfc05f0b6e4cf95b5bfee6"></a><!-- doxytag: member="KeyboardTabPage::keys" ref="a3daeef9125bfc05f0b6e4cf95b5bfee6" args="" -->
+<a class="anchor" id="a94270b6bedcff3632f0d170e37a88460"></a><!-- doxytag: member="PreCheckThread::content" ref="a94270b6bedcff3632f0d170e37a88460" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d42/a00043.html">Keyboard</a>* <a class="el" href="../../d4/d7d/a00093.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../de/dc8/a00325_source.html#l00013">13</a> du fichier <a class="el" href="../../de/dc8/a00325_source.html">tabPageWithKeys.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/d67/a00310_source.html#l00015">ServicesTabPage::fillKeyboard()</a>, <a class="el" href="../../d6/d82/a00243_source.html#l00013">fillKeyboard()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00018">TabPageWithKeys::initKeyboard()</a>, et <a class="el" href="../../d2/d41/a00318_source.html#l00004">TabPageWithKeys::TabPageWithKeys()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abc29e461e01cc0c712944f8f47f91331"></a><!-- doxytag: member="KeyboardTabPage::name" ref="abc29e461e01cc0c712944f8f47f91331" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d1/dc1/a00092.html#abc29e461e01cc0c712944f8f47f91331">name</a><code> [protected, inherited]</code></td>
+          <td class="memname">QVariantMap <a class="el" href="../../d6/d97/a00045.html#a94270b6bedcff3632f0d170e37a88460">content</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -334,16 +554,18 @@ Propriétés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../da/de0/a00317_source.html#l00044">44</a> du fichier <a class="el" href="../../da/de0/a00317_source.html">tab_page.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../da/d1e/a00149_source.html#l00097">97</a> du fichier <a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../db/df8/a00076_source.html#l00012">BillingsFactory::cancelProcess()</a>, <a class="el" href="../../db/db6/a00074_source.html#l00016">BillingFactory::cancelProcess()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00033">NewBillingFactory::cancelProcess()</a>, <a class="el" href="../../d5/da7/a00144_source.html#l00023">NewBookingFactory::cancelProcess()</a>, <a class="el" href="../../d9/da4/a00078_source.html#l00023">BookingFactory::cancelProcess()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00024">NewClientFactory::cancelProcess()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00026">NewBillFactory::cancelProcess()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00128">NewBillFactory::confirmInput()</a>, <a class="el" href="../../db/d48/a00148_source.html#l00024">insertUpdateDatabase()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00013">NewBillFactory::NewBillFactory()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00012">NewClientFactory::NewClientFactory()</a>, <a class="el" href="../../db/df8/a00076_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00049">NewBillFactory::receiveInput()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00035">NewClientFactory::run()</a>, et <a class="el" href="../../d5/db1/a00140_source.html#l00141">NewBillFactory::validateInput()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a51051d943e4726b18425669cb5155896"></a><!-- doxytag: member="KeyboardTabPage::tabLayout" ref="a51051d943e4726b18425669cb5155896" args="" -->
+<a class="anchor" id="a61a56b55f026894815c3a945bd459a93"></a><!-- doxytag: member="PreCheckThread::currentStep" ref="a61a56b55f026894815c3a945bd459a93" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/de7/a00039.html">FixedGridLayout</a> * <a class="el" href="../../d1/dc1/a00092.html#a51051d943e4726b18425669cb5155896">tabLayout</a><code> [protected, inherited]</code></td>
+          <td class="memname">int <a class="el" href="../../d6/d97/a00045.html#a61a56b55f026894815c3a945bd459a93">currentStep</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -351,58 +573,80 @@ Propriétés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../da/de0/a00317_source.html#l00037">37</a> du fichier <a class="el" href="../../da/de0/a00317_source.html">tab_page.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../da/d1e/a00149_source.html#l00099">99</a> du fichier <a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d2/d41/a00318_source.html#l00018">TabPageWithKeys::initKeyboard()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00012">TabPageWithTable::initTable()</a>, et <a class="el" href="../../d3/db8/a00316_source.html#l00006">TabPage::TabPage()</a>.</p>
+<p>Référencé par <a class="el" href="../../db/df8/a00076_source.html#l00012">BillingsFactory::cancelProcess()</a>, <a class="el" href="../../d9/da4/a00078_source.html#l00023">BookingFactory::cancelProcess()</a>, <a class="el" href="../../db/db6/a00074_source.html#l00016">BillingFactory::cancelProcess()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00033">NewBillingFactory::cancelProcess()</a>, <a class="el" href="../../d5/da7/a00144_source.html#l00023">NewBookingFactory::cancelProcess()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00024">NewClientFactory::cancelProcess()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00026">NewBillFactory::cancelProcess()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00186">NewBillingFactory::confirmInput()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00128">NewBillFactory::confirmInput()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00106">NewBillFactory::customService()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00117">NewBillFactory::customServiceWithoutName()</a>, <a class="el" href="../../db/d48/a00148_source.html#l00011">PreCheckThread()</a>, <a class="el" href="../../db/df8/a00076_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00049">NewBillFactory::receiveInput()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00035">NewClientFactory::run()</a>, <a class="el" href="../../d9/da4/a00078_source.html#l00034">BookingFactory::run()</a>, <a class="el" href="../../db/db6/a00074_source.html#l00027">BillingFactory::run()</a>, <a class="el" href="../../d5/da7/a00144_source.html#l00034">NewBookingFactory::run()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00050">NewBillingFactory::run()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00198">NewBillingFactory::validateInput()</a>, et <a class="el" href="../../d5/db1/a00140_source.html#l00141">NewBillFactory::validateInput()</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Documentation des propriétés</h2>
-<a class="anchor" id="ac8d9406f640b46f65573a181bb453884"></a><!-- doxytag: member="KeyboardTabPage::icon" ref="ac8d9406f640b46f65573a181bb453884" args="" -->
+<a class="anchor" id="af331d46db481d05422cf1b8b127233c5"></a><!-- doxytag: member="PreCheckThread::stepsCount" ref="af331d46db481d05422cf1b8b127233c5" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string <a class="el" href="../../d1/dc1/a00092.html#ac8d9406f640b46f65573a181bb453884">icon</a><code> [inherited]</code></td>
+          <td class="memname">int <a class="el" href="../../d6/d97/a00045.html#af331d46db481d05422cf1b8b127233c5">stepsCount</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="../../db/dc3/a00284_source.html#l00006">6</a> du fichier <a class="el" href="../../db/dc3/a00284_source.html">TabPage.qml</a>.</p>
+<p>TODO. </p>
+
+<p>Définition à la ligne <a class="el" href="../../da/d1e/a00149_source.html#l00098">98</a> du fichier <a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../db/db6/a00074_source.html#l00005">BillingFactory::BillingFactory()</a>, <a class="el" href="../../db/df8/a00076_source.html#l00005">BillingsFactory::BillingsFactory()</a>, <a class="el" href="../../d9/da4/a00078_source.html#l00011">BookingFactory::BookingFactory()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00013">NewBillFactory::NewBillFactory()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00020">NewBillingFactory::NewBillingFactory()</a>, <a class="el" href="../../d5/da7/a00144_source.html#l00011">NewBookingFactory::NewBookingFactory()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00012">NewClientFactory::NewClientFactory()</a>, <a class="el" href="../../db/df8/a00076_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00049">NewBillFactory::receiveInput()</a>, et <a class="el" href="../../d2/d82/a00142_source.html#l00062">NewBillingFactory::receiveInput()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abc29e461e01cc0c712944f8f47f91331"></a><!-- doxytag: member="KeyboardTabPage::name" ref="abc29e461e01cc0c712944f8f47f91331" args="" -->
+<a class="anchor" id="a00b06bd85368ad4b80ff6dcf5c5fb53c"></a><!-- doxytag: member="PreCheckThread::toBeReplaced" ref="a00b06bd85368ad4b80ff6dcf5c5fb53c" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d1/dc1/a00092.html#abc29e461e01cc0c712944f8f47f91331">name</a><code> [inherited]</code></td>
+          <td class="memname">QString <a class="el" href="../../d6/d97/a00045.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">toBeReplaced</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="../../db/dc3/a00284_source.html#l00004">4</a> du fichier <a class="el" href="../../db/dc3/a00284_source.html">TabPage.qml</a>.</p>
+<p>TODO. </p>
 
-<p>Référencé par <a class="el" href="../../d3/db8/a00316_source.html#l00031">TabPage::getName()</a>, et <a class="el" href="../../d3/db8/a00316_source.html#l00006">TabPage::TabPage()</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../da/d1e/a00149_source.html#l00100">100</a> du fichier <a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../db/d48/a00148_source.html#l00077">cancelReplacement()</a>, et <a class="el" href="../../db/d48/a00148_source.html#l00067">replaceInput()</a>.</p>
 
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li>views/<a class="el" href="../../d6/d08/a00244_source.html">keyboard_tab.h</a></li>
-<li>views/<a class="el" href="../../d6/d82/a00243_source.html">keyboard_tab.cpp</a></li>
-<li>views/<a class="el" href="../../d6/d22/a00245_source.html">keyboardTab.cpp</a></li>
+<li><a class="el" href="../../da/d1e/a00149_source.html">PreCheckThread.h</a></li>
+<li><a class="el" href="../../db/d48/a00148_source.html">PreCheckThread.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d6/d97/a00045.html">PreCheckThread</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

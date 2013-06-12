@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence de la classe PreCheckQtApp</title>
+<title>PreCheck: Référence de la classe SqlDataModel</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,118 +83,110 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d3/d8b/a00059.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Types publics</a> &#124;
+<a href="#signals">Signaux</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
-<a href="#pub-attribs">Attributs publics</a> &#124;
 <a href="#pro-methods">Fonctions membres protégées</a> &#124;
-<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="#properties">Propriétés</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
 <a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
-<div class="title">Référence de la classe PreCheckQtApp</div>  </div>
+<div class="title">Référence de la classe SqlDataModel</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="PreCheckQtApp" -->
-<p><code>#include &lt;<a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>&gt;</code></p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe de collaboration de PreCheckQtApp:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d3b/a00728.png" border="0" usemap="#PreCheckQtApp_coll__map" alt="Collaboration graph"/></div>
-<map name="PreCheckQtApp_coll__map" id="PreCheckQtApp_coll__map">
-<area shape="rect" id="node2" href="../../d9/d2e/a00056.html" title="{OutputZone\n|+ lastVisibleRow\l|+ OutputZone()\l+ OutputZone()\l+ clear()\l+ clearAll()\l+ displayCalendar()\l+ displaySqlDatas()\l+ displaySqlDetail()\l+ displayText()\l}" alt="" coords="5,1710,141,1917"/><area shape="rect" id="node4" href="../../d1/d51/a00079.html" title="{RoomsTabPage\n||+ RoomsTabPage()\l&#45; fetchDatas()\l}" alt="" coords="293,1762,429,1865"/><area shape="rect" id="node6" href="../../dc/d54/a00094.html" title="{TabPageWithTable\n|# datas\l# table\l|+ TabPageWithTable()\l# fetchDatas()\l# initTable()\l}" alt="" coords="337,1435,489,1573"/><area shape="rect" id="node8" href="../../d1/dc1/a00092.html" title="{TabPage\n|+ icon\l+ name\l# name\l# tabLayout\l&#45; columnsCount\l&#45; rowsCount\l|+ TabPage()\l+ TabPage()\l+ getName()\l+ getName()\l}" alt="" coords="293,677,408,901"/><area shape="rect" id="node10" href="../../d3/de7/a00039.html" title="{FixedGridLayout\n|# columnsCount\l# currentColumn\l# currentRow\l# rowsCount\l|+ FixedGridLayout()\l+ FixedGridLayout()\l+ addLayout()\l+ addLayout()\l+ addLayout()\l+ addLayout()\l+ addWidget()\l+ addWidget()\l+ addWidget()\l+ addWidget()\land 7 more...&#45; computePosition()\l&#45; computePosition()\l}" alt="" coords="151,57,361,385"/><area shape="rect" id="node18" href="../../d6/d42/a00043.html" title="{Keyboard\n|+ actionsList\l# buttonsFont\l# maxHeight\l# maxWidth\l&#45; keysLayout\l|+ Keyboard()\l+ getColumnsCount()\l+ getKeysHeight()\l+ getKeysWidth()\l+ getRowsCount()\l+ setButton()\l+ setContentsMargins()\l+ setSpacing()\l# getLineLength()\l# resizeKeys()\l}" alt="" coords="79,1099,236,1410"/><area shape="rect" id="node12" href="../../de/d11/a00021.html" title="{CheckableSortFilterProxyModel\n|+ empty\l+ fieldsList\l+ lastError\l+ model\l+ sortKeyColumn\l+ table\l# model\l&#45; booleanSet\l&#45; filters\l&#45; m_model\l&#45; notNullSet\l&#45; nullSet\l&#45; passwordSet\l&#45; readonlySet\l&#45; sortIndex\l|+ CheckableSortFilterProxyModel()\l+ CheckableSortFilterProxyModel()\l+ addFilterKeyColumn()\l+ containsFilterKeyColumn()\l+ currentSortKeyColumn()\l+ data()\l+ data()\l+ data()\l+ fetch()\l+ field()\land 23 more...# fillModel()\l# fillModel()\l# filterAcceptsRow()\l# filterAcceptsRow()\l&#45; replaceSet()\l}" alt="" coords="432,504,659,1075"/><area shape="rect" id="node14" href="../../df/d13/a00085.html" title="{SqlDataModel\n|+ filter\l+ lastError\l+ table\l&#45; mDataFields\l&#45; mFilter\l&#45; mRecords\l&#45; mRoles\l&#45; mSort\l&#45; mSqlQuery\l&#45; mTable\l|+ SqlDataModel()\l+ data()\l+ fetch()\l+ field()\l+ fieldFromRole()\l+ fieldsCount()\l+ fieldsList()\l+ filter()\l+ isEmpty()\l+ lastError()\land 11 more...# applyRoles()\l&#45; setQuery()\l}" alt="" coords="417,5,607,437"/><area shape="rect" id="node16" href="../../da/d24/a00068.html" title="{QQuickRelationalTableModel\n|&#45; roles\l|+ QQuickRelationalTableModel()\l+ QQuickRelationalTableModel()\l+ applyRoles()\l+ applyRoles()\l+ data()\l+ data()\l+ init()\l+ record()\l+ record()\l+ roleNames()\l+ roleNames()\l+ select()\l+ select()\l}" alt="" coords="631,75,841,368"/><area shape="rect" id="node22" href="../../db/df3/a00034.html" title="{CustomizableTabWidget\n|&#45; baseStyle\l&#45; heightStyle\l&#45; widthStyle\l|+ CustomizableTabWidget()\l+ CustomizableTabWidget()\l+ addTab()\l+ addTab()\l+ addTab()\l+ addTab()\l+ addTab()\l+ addTab()\l+ removeTab()\l+ removeTab()\l# setStyleWidth()\l# setStyleWidth()\l&#45; refreshStyleSheet()\l&#45; refreshStyleSheet()\l}" alt="" coords="453,1641,637,1986"/></map>
-<center><span class="legend">[<a href="../../graph_legend.html">légende</a>]</span></center></div>
+<!-- doxytag: class="SqlDataModel" -->
+<p><code>#include &lt;<a class="el" href="../../d5/d5b/a00135_source.html">models/SqlDataModel.h</a>&gt;</code></p>
 
-<p><a href="../../d8/d52/a00729.html">Liste de tous les membres</a></p>
+<p><a href="../../da/dc3/a00453.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Types publics</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> { <a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">RECEPTION</a>, 
-<a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">MANAGEMENT_X</a>, 
-<a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">MANAGEMENT_Z</a>, 
-<a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30">ADMINISTRATION</a>
- }</td></tr>
+<tr><td colspan="2"><h2><a name="signals"></a>
+Signaux</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198">fieldsChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0">filterChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#afd2393c4054daa643aa6eddc70442cd4">lastErrorChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753">rolesChanged</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714">tableChanged</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a3edbb66ab8222b0d63d98edd71f219cf">PreCheckQtApp</a> (QWidget *parent=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aa161ebc0690ae176c3b523be8f8e65a4">centerAndResize</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e">fill</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#adf2e9d5e456a754a5459e8435b0b094b">keyPressEvent</a> (QKeyEvent *event)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Attributs publics</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aeac29d1e07878a89f67c77ce731b6068">leftPanel</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#aeac29d1e07878a89f67c77ce731b6068"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/df3/a00034.html">CustomizableTabWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a1d78cc486b0c5e2bc6e190a24c7422a9">middlePanel</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a1d78cc486b0c5e2bc6e190a24c7422a9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aa0c978e535defccb2574edf8704a2508">SqlDataModel</a> (QObject *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#accd857298840ebb7a16be79ae6fe1997">data</a> (const QModelIndex &amp;index, int role) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557">fetch</a> (QString <a class="el" href="../../d3/d8b/a00059.html#a4994a8da8f74295c0caeb7239e4b90ac">tableName</a>=&quot;&quot;, QString <a class="el" href="../../d3/d8b/a00059.html#a610876e02cee64e29fe4376ffeb6b9b9">filter</a>=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/df7/a00058.html">SqlDataFields</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba">field</a> (int i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aa8ca76f87aba398b7579b4b6f5dfbb6f">fieldFromRole</a> (int role) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83">fieldsCount</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ae9a20ff77d8d46aaf20689f90f2e2511">fieldsList</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aedcc52b3673b8df9425e52f13accb2a1">isEmpty</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a8dbd35d765e8ff0d1c34461ef67c5abf">query</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a790a1115e7df5fd3de853b3341d5400b">resetFieldsToAll</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#adfa0de6d9cdebdf59fd93ddcf2cb49ea">resetFilterCondition</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a">roleForField</a> (int fieldIndex) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QHash&lt; int, QByteArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aa3c7fedefa9cf58507bc7089f9049d9c">roleNames</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This function allows mapping of role identifiers to role property names in scripting languages.  <a href="#aa3c7fedefa9cf58507bc7089f9049d9c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a633dd87b49ec81f5b3ff246bb39f259e">rowCount</a> (const QModelIndex &amp;parent) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e">setFields</a> (QStringList fieldList)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a0dfa1974a45d97bccf405b376dacc388">setFilterCondition</a> (const QString &amp;<a class="el" href="../../d3/d8b/a00059.html#a610876e02cee64e29fe4376ffeb6b9b9">filter</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a93cff7ab7afb621cc39388588cacbe7f">setHeaderData</a> (int section, Qt::Orientation orientation, const QVariant &amp;value, int role=Qt::EditRole)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#adb17cbb795f19bf7435f2157373c93d3">setOrderBy</a> (QString sort)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a3d9cf736a5abde06ac62fb5afd0f03ac">setTable</a> (const QString &amp;<a class="el" href="../../d3/d8b/a00059.html#a4994a8da8f74295c0caeb7239e4b90ac">tableName</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a4994a8da8f74295c0caeb7239e4b90ac">tableName</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Fonctions membres protégées</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a579b0060c135cb9d2ab97ce02e67eaf8">fillLeft</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36">fillRight</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ab7cbfcdab3d3604c01f461ed8a01fb2f">initKeyboard</a> (int rowsCount, int columnsCount, QFrame *container)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6">initTabs</a> (int rowsCount, int columnsCount)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Attributs protégés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/de7/a00039.html">FixedGridLayout</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ad139bab6c36c5fb943bfedca3bd9b9af">affichage</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ad139bab6c36c5fb943bfedca3bd9b9af"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d42/a00043.html">Keyboard</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a945ceeb6236fbaf00dcdb7a0109f0d40">keyboard</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a945ceeb6236fbaf00dcdb7a0109f0d40"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d2e/a00056.html">OutputZone</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a3afc3339d3268692d1b02f9ab0b2efc4">outputZone</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a3afc3339d3268692d1b02f9ab0b2efc4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d51/a00079.html">RoomsTabPage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a6234f706127b975f7221ff58180ca3c6">roomsTab</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a6234f706127b975f7221ff58180ca3c6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a25bfb51e811e3f18b363a96c3a4780c4">zoneCentrale</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a25bfb51e811e3f18b363a96c3a4780c4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763">applyRoles</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="properties"></a>
+Propriétés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a610876e02cee64e29fe4376ffeb6b9b9">filter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a44acf23867202902022213a2b1204d69">lastError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a850368dedc06eb94185edfae3670cbc8">table</a></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b">setQuery</a> (const QString &amp;<a class="el" href="../../d3/d8b/a00059.html#a8dbd35d765e8ff0d1c34461ef67c5abf">query</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">PreCheckQtApp::AppMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aa31bdfd58914cf2a382449e7cdb85ff1">mode</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#aa31bdfd58914cf2a382449e7cdb85ff1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ada7768cf1926a63ca92084c54dea97c2">spacing</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ada7768cf1926a63ca92084c54dea97c2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="../../d7/df7/a00058.html">SqlDataFields</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#afdc359cef837c2dc8102f20b90815f47"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a54baed2fcbc794c6fd5b8564f9409bcf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; QSqlRecord &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ad22951546a29792298e909e3540bfd4b">mRecords</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ad22951546a29792298e909e3540bfd4b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QHash&lt; int, QByteArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a5029a1f03131f6ac8d5377c2ff16c516"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ab6524708dbad962e61b904e6f5c30cb7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QSqlQuery&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a7ac715b89b82c754d5e8bd7ef2eca8e6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ab1d03b34d42c6127e0267bf9afc3ea14"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock">
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00021">21</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
-</div><hr/><h2>Documentation des énumérations membres</h2>
-<a class="anchor" id="a91afa6adb4e559730e8da5ddfb277830"></a><!-- doxytag: member="PreCheckQtApp::AppMode" ref="a91afa6adb4e559730e8da5ddfb277830" args="" -->
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00013">13</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
+</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="aa0c978e535defccb2574edf8704a2508"></a><!-- doxytag: member="SqlDataModel::SqlDataModel" ref="aa0c978e535defccb2574edf8704a2508" args="(QObject *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Valeurs énumérées: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6"></a><!-- doxytag: member="RECEPTION" ref="a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6" args="" -->RECEPTION</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6"></a><!-- doxytag: member="MANAGEMENT_X" ref="a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6" args="" -->MANAGEMENT_X</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791"></a><!-- doxytag: member="MANAGEMENT_Z" ref="a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791" args="" -->MANAGEMENT_Z</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30"></a><!-- doxytag: member="ADMINISTRATION" ref="a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30" args="" -->ADMINISTRATION</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00033">33</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a3edbb66ab8222b0d63d98edd71f219cf"></a><!-- doxytag: member="PreCheckQtApp::PreCheckQtApp" ref="a3edbb66ab8222b0d63d98edd71f219cf" args="(QWidget *parent=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html">PreCheckQtApp</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a> </td>
           <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramtype">QObject *&#160;</td>
           <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
-          <td></td>
+          <td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
@@ -177,72 +198,102 @@ Attributs privés</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00009">9</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../df/d24/a00217_source.html#l00095">affichage</a>, <a class="el" href="../../df/d24/a00217_source.html#l00104">mode</a>, <a class="el" href="../../df/d24/a00217_source.html#l00033">RECEPTION</a>, <a class="el" href="../../df/d24/a00217_source.html#l00103">spacing</a>, et <a class="el" href="../../df/d24/a00217_source.html#l00100">zoneCentrale</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00014">14</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="aa161ebc0690ae176c3b523be8f8e65a4"></a><!-- doxytag: member="PreCheckQtApp::centerAndResize" ref="aa161ebc0690ae176c3b523be8f8e65a4" args="()" -->
+<a class="anchor" id="ab9b4c601d9d3b675f95303198c615763"></a><!-- doxytag: member="SqlDataModel::applyRoles" ref="ab9b4c601d9d3b675f95303198c615763" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#aa161ebc0690ae176c3b523be8f8e65a4">centerAndResize</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763">applyRoles</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00198">198</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00352">352</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d8/d17/a00114_source.html#l00008">mainQtOnly()</a>.</p>
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00244">mRoles</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00063">roleForField()</a>, et <a class="el" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753">rolesChanged()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00319">resetFieldsToAll()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00297">setFields()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
+
+<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_cgraph.png" border="0" usemap="#d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_cgraph" id="d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a" title="roleForField" alt="" coords="148,5,239,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753" title="rolesChanged" alt="" coords="143,59,244,88"/></map>
+</div>
+</p>
 
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_aa161ebc0690ae176c3b523be8f8e65a4_icgraph.png" border="0" usemap="#d3/d8b/a00059_aa161ebc0690ae176c3b523be8f8e65a4_icgraph" alt=""/></div>
-<map name="d3/d8b/a00059_aa161ebc0690ae176c3b523be8f8e65a4_icgraph" id="d3/d8b/a00059_aa161ebc0690ae176c3b523be8f8e65a4_icgraph">
-<area shape="rect" id="node3" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="176,5,267,35"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_icgraph.png" border="0" usemap="#d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_icgraph" id="d3/d8b/a00059_ab9b4c601d9d3b675f95303198c615763_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a790a1115e7df5fd3de853b3341d5400b" title="resetFieldsToAll" alt="" coords="143,5,257,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="163,59,237,88"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="163,112,237,141"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="307,85,357,115"/><area shape="rect" id="node9" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="405,59,805,88"/><area shape="rect" id="node11" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="484,112,727,141"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aed2e8e8986e7d641f74b6dc70f26cb0e"></a><!-- doxytag: member="PreCheckQtApp::fill" ref="aed2e8e8986e7d641f74b6dc70f26cb0e" args="()" -->
+<a class="anchor" id="accd857298840ebb7a16be79ae6fe1997"></a><!-- doxytag: member="SqlDataModel::data" ref="accd857298840ebb7a16be79ae6fe1997" args="(const QModelIndex &amp;index, int role) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e">fill</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#accd857298840ebb7a16be79ae6fe1997">data</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QVariant </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00035">35</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00040">40</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../df/d24/a00217_source.html#l00095">affichage</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00087">fillRight()</a>, <a class="el" href="../../d4/d08/a00237_source.html#l00080">FixedGridLayout::insertWidget()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00062">leftPanel</a>, <a class="el" href="../../df/d24/a00217_source.html#l00061">middlePanel</a>, et <a class="el" href="../../df/d24/a00217_source.html#l00100">zoneCentrale</a>.</p>
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00071">fieldFromRole()</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00246">mRecords</a>, et <a class="el" href="../../d5/d5b/a00135_source.html#l00244">mRoles</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d8/d17/a00114_source.html#l00008">mainQtOnly()</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/d4b/a00117_source.html#l00140">CheckableSortFilterProxyModel::data()</a>.</p>
 
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_cgraph.png" border="0" usemap="#d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_cgraph" alt=""/></div>
-<map name="d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_cgraph" id="d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_cgraph">
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a579b0060c135cb9d2ab97ce02e67eaf8" title="fillLeft" alt="" coords="99,103,155,132"/><area shape="rect" id="node30" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a" title="FixedGridLayout::insertWidget" alt="" coords="645,29,843,59"/><area shape="rect" id="node38" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36" title="fillRight" alt="" coords="93,195,160,224"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#ab7cbfcdab3d3604c01f461ed8a01fb2f" title="initKeyboard" alt="" coords="209,160,303,189"/><area shape="rect" id="node32" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7" title="FixedGridLayout::addWidget" alt="" coords="965,31,1152,60"/><area shape="rect" id="node7" href="../../d6/d42/a00043.html#aafd70b2f0fc9bc4494c58d92e071afe4" title="Keyboard::setContentsMargins" alt="" coords="359,187,561,216"/><area shape="rect" id="node11" href="../../d6/d42/a00043.html#a86eb57a359678346a9009bb8683a14d6" title="Keyboard::getColumnsCount" alt="" coords="1263,239,1452,268"/><area shape="rect" id="node26" href="../../d6/d42/a00043.html#a6d20b0ea993a059f3de8d38314620d83" title="Keyboard::setButton" alt="" coords="389,133,531,163"/><area shape="rect" id="node9" href="../../d6/d42/a00043.html#a28bea8c8cc3729b623e1abc94c5c9c85" title="Keyboard::resizeKeys" alt="" coords="669,187,819,216"/><area shape="rect" id="node15" href="../../d6/d42/a00043.html#ac8ad7acf3956c04de0bce0a621ef26da" title="Keyboard::getKeysHeight" alt="" coords="973,84,1144,113"/><area shape="rect" id="node17" href="../../d6/d42/a00043.html#a223cd2438bf5d255137bab033cbc2a0c" title="Keyboard::getRowsCount" alt="" coords="1272,111,1443,140"/><area shape="rect" id="node21" href="../../d6/d42/a00043.html#a7914261c1a137a5a03b52b75addc7843" title="Keyboard::getKeysWidth" alt="" coords="976,239,1141,268"/><area shape="rect" id="node13" href="../../d3/de7/a00039.html#a86eb57a359678346a9009bb8683a14d6" title="FixedGridLayout::getColumnsCount" alt="" coords="1519,239,1748,268"/><area shape="rect" id="node19" href="../../d3/de7/a00039.html#a223cd2438bf5d255137bab033cbc2a0c" title="FixedGridLayout::getRowsCount" alt="" coords="1528,111,1739,140"/><area shape="rect" id="node34" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6" title="FixedGridLayout::computePosition" alt="" coords="1247,5,1468,35"/><area shape="rect" id="node40" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6" title="initTabs" alt="" coords="223,213,289,243"/><area shape="rect" id="node42" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="CustomizableTabWidget::addTab" alt="" coords="352,343,568,372"/><area shape="rect" id="node44" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b" title="TabPage::getName" alt="" coords="677,343,811,372"/><area shape="rect" id="node46" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="CustomizableTabWidget::setStyleWidth" alt="" coords="617,396,871,425"/><area shape="rect" id="node48" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="CustomizableTabWidget::refreshStyleSheet" alt="" coords="920,396,1197,425"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_cgraph.png" border="0" usemap="#d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_cgraph" id="d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#aa8ca76f87aba398b7579b4b6f5dfbb6f" title="fieldFromRole" alt="" coords="103,5,204,35"/></map>
 </div>
 </p>
 
@@ -251,42 +302,85 @@ Attributs privés</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_icgraph.png" border="0" usemap="#d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_icgraph" alt=""/></div>
-<map name="d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_icgraph" id="d3/d8b/a00059_aed2e8e8986e7d641f74b6dc70f26cb0e_icgraph">
-<area shape="rect" id="node3" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="93,5,184,35"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_icgraph.png" border="0" usemap="#d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_icgraph" id="d3/d8b/a00059_accd857298840ebb7a16be79ae6fe1997_icgraph">
+<area shape="rect" id="node3" href="../../d2/de7/a00014.html#a0d62b2fa860a10b1e59f7b93aa39aa5e" title="CheckableSortFilterProxyModel::data" alt="" coords="103,5,340,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a579b0060c135cb9d2ab97ce02e67eaf8"></a><!-- doxytag: member="PreCheckQtApp::fillLeft" ref="a579b0060c135cb9d2ab97ce02e67eaf8" args="()" -->
+<a class="anchor" id="add9f84cc106324bddc85420bafb10557"></a><!-- doxytag: member="SqlDataModel::fetch" ref="add9f84cc106324bddc85420bafb10557" args="(QString tableName=&quot;&quot;, QString filter=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#a579b0060c135cb9d2ab97ce02e67eaf8">fillLeft</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557">fetch</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [protected]</code></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>tableName</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>filter</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>sort</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QStringList&#160;</td>
+          <td class="paramname"><em>fields</em> = <code>QStringList()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td></td></tr>
+    <tr><td class="paramname">filter</td><td></td></tr>
+    <tr><td class="paramname">sort</td><td></td></tr>
+    <tr><td class="paramname">fieldsList</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool</dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td></td></tr>
+    <tr><td class="paramname">filter</td><td></td></tr>
+    <tr><td class="paramname">sort</td><td></td></tr>
+    <tr><td class="paramname">fields</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00054">54</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00255">255</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../d4/d08/a00237_source.html#l00049">FixedGridLayout::addWidget()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00115">initKeyboard()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00099">keyboard</a>, <a class="el" href="../../df/d24/a00217_source.html#l00062">leftPanel</a>, <a class="el" href="../../df/d24/a00217_source.html#l00098">outputZone</a>, <a class="el" href="../../df/d24/a00217_source.html#l00103">spacing</a>, et <a class="el" href="../../df/d24/a00217_source.html#l00100">zoneCentrale</a>.</p>
+<p>Références <a class="el" href="../../de/d76/a00134_source.html#l00186">fieldsList()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00393">isEmpty()</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00241">mFilter</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00242">mSort</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00240">mTable</a>, <a class="el" href="../../de/d76/a00134_source.html#l00297">setFields()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00225">setFilterCondition()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00382">setOrderBy()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00210">setTable()</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00035">fill()</a>.</p>
+<p>Référencé par <a class="el" href="../../d4/d63/a00082_source.html#l00015">DatabaseContentQuestionState::DatabaseContentQuestionState()</a>, et <a class="el" href="../../d9/d4b/a00117_source.html#l00314">CheckableSortFilterProxyModel::fetch()</a>.</p>
 
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_cgraph.png" border="0" usemap="#d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_cgraph" alt=""/></div>
-<map name="d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_cgraph" id="d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_cgraph">
-<area shape="rect" id="node3" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7" title="FixedGridLayout::addWidget" alt="" coords="755,5,941,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#ab7cbfcdab3d3604c01f461ed8a01fb2f" title="initKeyboard" alt="" coords="113,136,207,165"/><area shape="rect" id="node5" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6" title="FixedGridLayout::computePosition" alt="" coords="991,32,1212,61"/><area shape="rect" id="node9" href="../../d6/d42/a00043.html#aafd70b2f0fc9bc4494c58d92e071afe4" title="Keyboard::setContentsMargins" alt="" coords="256,215,459,244"/><area shape="rect" id="node13" href="../../d6/d42/a00043.html#a86eb57a359678346a9009bb8683a14d6" title="Keyboard::getColumnsCount" alt="" coords="1007,161,1196,191"/><area shape="rect" id="node28" href="../../d6/d42/a00043.html#a6d20b0ea993a059f3de8d38314620d83" title="Keyboard::setButton" alt="" coords="287,161,428,191"/><area shape="rect" id="node11" href="../../d6/d42/a00043.html#a28bea8c8cc3729b623e1abc94c5c9c85" title="Keyboard::resizeKeys" alt="" coords="532,215,681,244"/><area shape="rect" id="node17" href="../../d6/d42/a00043.html#ac8ad7acf3956c04de0bce0a621ef26da" title="Keyboard::getKeysHeight" alt="" coords="763,316,933,345"/><area shape="rect" id="node19" href="../../d6/d42/a00043.html#a223cd2438bf5d255137bab033cbc2a0c" title="Keyboard::getRowsCount" alt="" coords="1016,289,1187,319"/><area shape="rect" id="node23" href="../../d6/d42/a00043.html#a7914261c1a137a5a03b52b75addc7843" title="Keyboard::getKeysWidth" alt="" coords="765,161,931,191"/><area shape="rect" id="node15" href="../../d3/de7/a00039.html#a86eb57a359678346a9009bb8683a14d6" title="FixedGridLayout::getColumnsCount" alt="" coords="1263,161,1492,191"/><area shape="rect" id="node21" href="../../d3/de7/a00039.html#a223cd2438bf5d255137bab033cbc2a0c" title="FixedGridLayout::getRowsCount" alt="" coords="1272,289,1483,319"/><area shape="rect" id="node32" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a" title="FixedGridLayout::insertWidget" alt="" coords="508,57,705,87"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_cgraph.png" border="0" usemap="#d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_cgraph" id="d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#ae9a20ff77d8d46aaf20689f90f2e2511" title="fieldsList" alt="" coords="129,115,204,144"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#aedcc52b3673b8df9425e52f13accb2a1" title="isEmpty" alt="" coords="348,59,417,88"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="129,219,204,248"/><area shape="rect" id="node36" href="../../d3/d8b/a00059.html#a0dfa1974a45d97bccf405b376dacc388" title="setFilterCondition" alt="" coords="105,377,228,407"/><area shape="rect" id="node42" href="../../d3/d8b/a00059.html#adb17cbb795f19bf7435f2157373c93d3" title="setOrderBy" alt="" coords="123,431,211,460"/><area shape="rect" id="node44" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="129,272,204,301"/><area shape="rect" id="node65" href="../../d3/d8b/a00059.html#a3d9cf736a5abde06ac62fb5afd0f03ac" title="setTable" alt="" coords="131,589,203,619"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba" title="field" alt="" coords="360,112,405,141"/><area shape="rect" id="node13" href="../../d7/df7/a00058.html#a0ecb3bed54206240ba05ffb172c73cb3" title="SqlDataFields::setName" alt="" coords="300,219,465,248"/><area shape="rect" id="node28" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="applyRoles" alt="" coords="340,272,425,301"/><area shape="rect" id="node34" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198" title="fieldsChanged" alt="" coords="331,165,435,195"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83" title="fieldsCount" alt="" coords="591,5,679,35"/><area shape="rect" id="node15" href="../../d7/df7/a00058.html#a417a2c42aec8c267c846ac715ad22664" title="SqlDataFields::nameChanged" alt="" coords="537,219,732,248"/><area shape="rect" id="node17" href="../../d7/df7/a00058.html#ab5a767f8c537f44230fa7a6f1a2e64db" title="SqlDataFields::roleChanged" alt="" coords="543,59,727,88"/><area shape="rect" id="node19" href="../../d7/df7/a00058.html#aaa8426da318c41270dd942543b6f3cc6" title="SqlDataFields::setSortOrder" alt="" coords="541,112,728,141"/><area shape="rect" id="node23" href="../../d7/df7/a00058.html#a562cce1c5342538e3fa78cddc7de03d2" title="SqlDataFields::setText" alt="" coords="557,165,712,195"/><area shape="rect" id="node21" href="../../d7/df7/a00058.html#a0a8a4c559ac66e8e9315d764ccc037d2" title="SqlDataFields::sortOrderChanged" alt="" coords="781,112,1000,141"/><area shape="rect" id="node26" href="../../d7/df7/a00058.html#ad4cb54bce44787c508c0cee6a01d4748" title="SqlDataFields::textChanged" alt="" coords="797,165,984,195"/><area shape="rect" id="node30" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a" title="roleForField" alt="" coords="589,325,680,355"/><area shape="rect" id="node32" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753" title="rolesChanged" alt="" coords="584,272,685,301"/><area shape="rect" id="node38" href="../../d3/d8b/a00059.html#a5ad93e3e39ebf61e2b111d27a7708898" title="filter" alt="" coords="360,536,405,565"/><area shape="rect" id="node40" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0" title="filterChanged" alt="" coords="333,589,432,619"/><area shape="rect" id="node46" href="../../d0/d0b/a00004.html#afba86dd08ac8528cc6cfe07a44c91fbe" title="AppDatabase::getInstance" alt="" coords="295,325,471,355"/><area shape="rect" id="node52" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260" title="MessageManager::errorMessage" alt="" coords="1049,379,1260,408"/><area shape="rect" id="node55" href="../../d0/d0b/a00004.html#a1cad0fdd11c50e747a10b8b23556e596" title="AppDatabase::getDbConnection" alt="" coords="277,429,488,459"/><area shape="rect" id="node62" href="../../d3/d8b/a00059.html#a80378cc6261c1ba7a1501587e4df4e9b" title="lastError" alt="" coords="348,483,417,512"/><area shape="rect" id="node48" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="541,379,728,408"/><area shape="rect" id="node50" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f" title="AppDatabase::dbConnect" alt="" coords="805,379,976,408"/><area shape="rect" id="node67" href="../../d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714" title="tableChanged" alt="" coords="332,643,433,672"/></map>
 </div>
 </p>
 
@@ -295,42 +389,50 @@ Attributs privés</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_icgraph.png" border="0" usemap="#d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_icgraph" alt=""/></div>
-<map name="d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_icgraph" id="d3/d8b/a00059_a579b0060c135cb9d2ab97ce02e67eaf8_icgraph">
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="fill" alt="" coords="113,5,151,35"/><area shape="rect" id="node5" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="200,5,291,35"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_icgraph.png" border="0" usemap="#d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_icgraph" id="d3/d8b/a00059_add9f84cc106324bddc85420bafb10557_icgraph">
+<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="104,5,504,35"/><area shape="rect" id="node5" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="183,59,425,88"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a3b581d10a5ddd9def82f1915a936ce36"></a><!-- doxytag: member="PreCheckQtApp::fillRight" ref="a3b581d10a5ddd9def82f1915a936ce36" args="()" -->
+<a class="anchor" id="a62219a30596b25f41fa6ec94f39bcaba"></a><!-- doxytag: member="SqlDataModel::field" ref="a62219a30596b25f41fa6ec94f39bcaba" args="(int i)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36">fillRight</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba">field</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [protected]</code></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><a class="el" href="../../d7/df7/a00058.html">SqlDataFields</a> </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00087">87</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00284">284</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../d6/d43/a00216_source.html#l00169">initTabs()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00061">middlePanel</a>, <a class="el" href="../../df/d24/a00217_source.html#l00103">spacing</a>, et <a class="el" href="../../df/d24/a00217_source.html#l00100">zoneCentrale</a>.</p>
+<p>Références <a class="el" href="../../de/d76/a00134_source.html#l00371">fieldsCount()</a>, et <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00035">fill()</a>.</p>
+<p>Référencé par <a class="el" href="../../d8/d87/a00118_source.html#l00081">CheckableSortFilterProxyModel::field()</a>, <a class="el" href="../../dd/d6d/a00111_source.html#l00023">BillingsTableModel::fillModel()</a>, <a class="el" href="../../d2/da3/a00115_source.html#l00023">BookingsTableModel::fillModel()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00297">setFields()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>, <a class="el" href="../../d9/d4b/a00117_source.html#l00271">CheckableSortFilterProxyModel::setSortKeyColumn()</a>, et <a class="el" href="../../d9/d4b/a00117_source.html#l00259">CheckableSortFilterProxyModel::sort()</a>.</p>
 
 <p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_cgraph.png" border="0" usemap="#d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_cgraph" alt=""/></div>
-<map name="d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_cgraph" id="d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_cgraph">
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6" title="initTabs" alt="" coords="121,32,188,61"/><area shape="rect" id="node5" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="CustomizableTabWidget::addTab" alt="" coords="237,32,453,61"/><area shape="rect" id="node7" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b" title="TabPage::getName" alt="" coords="563,5,696,35"/><area shape="rect" id="node9" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="CustomizableTabWidget::setStyleWidth" alt="" coords="503,59,756,88"/><area shape="rect" id="node11" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="CustomizableTabWidget::refreshStyleSheet" alt="" coords="805,59,1083,88"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_cgraph.png" border="0" usemap="#d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_cgraph" id="d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83" title="fieldsCount" alt="" coords="101,5,189,35"/></map>
 </div>
 </p>
 
@@ -339,154 +441,512 @@ Attributs privés</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_icgraph.png" border="0" usemap="#d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_icgraph" alt=""/></div>
-<map name="d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_icgraph" id="d3/d8b/a00059_a3b581d10a5ddd9def82f1915a936ce36_icgraph">
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="fill" alt="" coords="121,5,159,35"/><area shape="rect" id="node5" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="208,5,299,35"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_icgraph.png" border="0" usemap="#d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_icgraph" id="d3/d8b/a00059_a62219a30596b25f41fa6ec94f39bcaba_icgraph">
+<area shape="rect" id="node3" href="../../d2/de7/a00014.html#a3483482509acef516f768394f896a4d9" title="CheckableSortFilterProxyModel::field" alt="" coords="145,5,383,35"/><area shape="rect" id="node5" href="../../d4/dee/a00008.html#a2b701ad24a1b786f6412175537ec09cd" title="BillingsTableModel::fillModel" alt="" coords="171,59,357,88"/><area shape="rect" id="node7" href="../../df/d86/a00012.html#a2b701ad24a1b786f6412175537ec09cd" title="BookingsTableModel::fillModel" alt="" coords="165,112,363,141"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="227,165,301,195"/><area shape="rect" id="node17" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="227,219,301,248"/><area shape="rect" id="node20" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22" title="CheckableSortFilterProxyModel::setSortKeyColumn" alt="" coords="103,272,425,301"/><area shape="rect" id="node22" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9" title="CheckableSortFilterProxyModel::sort" alt="" coords="476,272,711,301"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="568,179,619,208"/><area shape="rect" id="node13" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="760,125,1160,155"/><area shape="rect" id="node15" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="839,179,1081,208"/><area shape="rect" id="node24" href="../../d4/d6d/a00055.html#a2b701ad24a1b786f6412175537ec09cd" title="RoomsTableModel::fillModel" alt="" coords="867,245,1053,275"/><area shape="rect" id="node26" href="../../d1/d22/a00057.html#a2b701ad24a1b786f6412175537ec09cd" title="ServicesTableModel::fillModel" alt="" coords="863,299,1057,328"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ab7cbfcdab3d3604c01f461ed8a01fb2f"></a><!-- doxytag: member="PreCheckQtApp::initKeyboard" ref="ab7cbfcdab3d3604c01f461ed8a01fb2f" args="(int rowsCount, int columnsCount, QFrame *container)" -->
+<a class="anchor" id="aa8ca76f87aba398b7579b4b6f5dfbb6f"></a><!-- doxytag: member="SqlDataModel::fieldFromRole" ref="aa8ca76f87aba398b7579b4b6f5dfbb6f" args="(int role) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#ab7cbfcdab3d3604c01f461ed8a01fb2f">initKeyboard</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#aa8ca76f87aba398b7579b4b6f5dfbb6f">fieldFromRole</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rowsCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>columnsCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QFrame *&#160;</td>
-          <td class="paramname"><em>container</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [protected]</code></td>
+          <td class="paramname"><em>role</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">rowsCount</td><td></td></tr>
-    <tr><td class="paramname">columnsCount</td><td></td></tr>
-    <tr><td class="paramname">container</td><td></td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00115">115</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00071">71</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Références <a class="el" href="../../d6/db6/a00241_source.html#l00044">Keyboard::getColumnsCount()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00099">keyboard</a>, <a class="el" href="../../d6/db6/a00241_source.html#l00053">Keyboard::setButton()</a>, et <a class="el" href="../../d6/db6/a00241_source.html#l00078">Keyboard::setContentsMargins()</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00040">data()</a>.</p>
 
 <p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_cgraph.png" border="0" usemap="#d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_cgraph" alt=""/></div>
-<map name="d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_cgraph" id="d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_cgraph">
-<area shape="rect" id="node3" href="../../d6/d42/a00043.html#a86eb57a359678346a9009bb8683a14d6" title="Keyboard::getColumnsCount" alt="" coords="849,5,1039,35"/><area shape="rect" id="node7" href="../../d6/d42/a00043.html#a6d20b0ea993a059f3de8d38314620d83" title="Keyboard::setButton" alt="" coords="405,136,547,165"/><area shape="rect" id="node25" href="../../d6/d42/a00043.html#aafd70b2f0fc9bc4494c58d92e071afe4" title="Keyboard::setContentsMargins" alt="" coords="149,83,352,112"/><area shape="rect" id="node5" href="../../d3/de7/a00039.html#a86eb57a359678346a9009bb8683a14d6" title="FixedGridLayout::getColumnsCount" alt="" coords="1089,5,1319,35"/><area shape="rect" id="node9" href="../../d6/d42/a00043.html#ac8ad7acf3956c04de0bce0a621ef26da" title="Keyboard::getKeysHeight" alt="" coords="615,161,785,191"/><area shape="rect" id="node15" href="../../d6/d42/a00043.html#a7914261c1a137a5a03b52b75addc7843" title="Keyboard::getKeysWidth" alt="" coords="617,108,783,137"/><area shape="rect" id="node18" href="../../d3/de7/a00039.html#ab0475c201ff53b57aa6eab74c9f2371a" title="FixedGridLayout::insertWidget" alt="" coords="601,215,799,244"/><area shape="rect" id="node11" href="../../d6/d42/a00043.html#a223cd2438bf5d255137bab033cbc2a0c" title="Keyboard::getRowsCount" alt="" coords="859,97,1029,127"/><area shape="rect" id="node13" href="../../d3/de7/a00039.html#a223cd2438bf5d255137bab033cbc2a0c" title="FixedGridLayout::getRowsCount" alt="" coords="1099,97,1309,127"/><area shape="rect" id="node20" href="../../d3/de7/a00039.html#a24cb17784993de98812e9ce0e280fdb7" title="FixedGridLayout::addWidget" alt="" coords="851,240,1037,269"/><area shape="rect" id="node22" href="../../d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6" title="FixedGridLayout::computePosition" alt="" coords="1093,213,1315,243"/><area shape="rect" id="node27" href="../../d6/d42/a00043.html#a28bea8c8cc3729b623e1abc94c5c9c85" title="Keyboard::resizeKeys" alt="" coords="401,83,551,112"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_aa8ca76f87aba398b7579b4b6f5dfbb6f_icgraph.png" border="0" usemap="#d3/d8b/a00059_aa8ca76f87aba398b7579b4b6f5dfbb6f_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_aa8ca76f87aba398b7579b4b6f5dfbb6f_icgraph" id="d3/d8b/a00059_aa8ca76f87aba398b7579b4b6f5dfbb6f_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#accd857298840ebb7a16be79ae6fe1997" title="data" alt="" coords="159,5,204,35"/><area shape="rect" id="node5" href="../../d2/de7/a00014.html#a0d62b2fa860a10b1e59f7b93aa39aa5e" title="CheckableSortFilterProxyModel::data" alt="" coords="255,5,492,35"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a2c90d0af13ec03ff12c4dc43e88b2198"></a><!-- doxytag: member="SqlDataModel::fieldsChanged" ref="a2c90d0af13ec03ff12c4dc43e88b2198" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198">fieldsChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00319">resetFieldsToAll()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00297">setFields()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
 
 <p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_icgraph.png" border="0" usemap="#d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_icgraph" alt=""/></div>
-<map name="d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_icgraph" id="d3/d8b/a00059_ab7cbfcdab3d3604c01f461ed8a01fb2f_icgraph">
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a579b0060c135cb9d2ab97ce02e67eaf8" title="fillLeft" alt="" coords="151,5,207,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="fill" alt="" coords="257,5,295,35"/><area shape="rect" id="node7" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="344,5,435,35"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_a2c90d0af13ec03ff12c4dc43e88b2198_icgraph.png" border="0" usemap="#d3/d8b/a00059_a2c90d0af13ec03ff12c4dc43e88b2198_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a2c90d0af13ec03ff12c4dc43e88b2198_icgraph" id="d3/d8b/a00059_a2c90d0af13ec03ff12c4dc43e88b2198_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a790a1115e7df5fd3de853b3341d5400b" title="resetFieldsToAll" alt="" coords="161,5,276,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="181,59,256,88"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="181,112,256,141"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="325,85,376,115"/><area shape="rect" id="node9" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="424,59,824,88"/><area shape="rect" id="node11" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="503,112,745,141"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a6574a8c5b18c69fcdf39d9f185f845a6"></a><!-- doxytag: member="PreCheckQtApp::initTabs" ref="a6574a8c5b18c69fcdf39d9f185f845a6" args="(int rowsCount, int columnsCount)" -->
+<a class="anchor" id="acdce7ef536264a6d724ae25e91e66c83"></a><!-- doxytag: member="SqlDataModel::fieldsCount" ref="acdce7ef536264a6d724ae25e91e66c83" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6">initTabs</a> </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83">fieldsCount</a> </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rowsCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>columnsCount</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rowsCount</td><td></td></tr>
-    <tr><td class="paramname">columnsCount</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00169">169</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00371">371</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../d1/da8/a00230_source.html#l00031">CustomizableTabWidget::addTab()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00061">middlePanel</a>, <a class="el" href="../../df/d24/a00217_source.html#l00104">mode</a>, <a class="el" href="../../df/d24/a00217_source.html#l00033">RECEPTION</a>, et <a class="el" href="../../df/d24/a00217_source.html#l00096">roomsTab</a>.</p>
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00087">fillRight()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00284">field()</a>, et <a class="el" href="../../d8/d87/a00118_source.html#l00088">CheckableSortFilterProxyModel::fieldsCount()</a>.</p>
 
 <p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_cgraph.png" border="0" usemap="#d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_cgraph" alt=""/></div>
-<map name="d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_cgraph" id="d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_cgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="CustomizableTabWidget::addTab" alt="" coords="123,32,339,61"/><area shape="rect" id="node5" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b" title="TabPage::getName" alt="" coords="448,5,581,35"/><area shape="rect" id="node7" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="CustomizableTabWidget::setStyleWidth" alt="" coords="388,59,641,88"/><area shape="rect" id="node9" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="CustomizableTabWidget::refreshStyleSheet" alt="" coords="691,59,968,88"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_acdce7ef536264a6d724ae25e91e66c83_icgraph.png" border="0" usemap="#d3/d8b/a00059_acdce7ef536264a6d724ae25e91e66c83_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_acdce7ef536264a6d724ae25e91e66c83_icgraph" id="d3/d8b/a00059_acdce7ef536264a6d724ae25e91e66c83_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba" title="field" alt="" coords="259,165,304,195"/><area shape="rect" id="node32" href="../../d2/de7/a00014.html#a1d23e0874aab14e739f3409369463691" title="CheckableSortFilterProxyModel::fieldsCount" alt="" coords="141,219,421,248"/><area shape="rect" id="node5" href="../../d2/de7/a00014.html#a3483482509acef516f768394f896a4d9" title="CheckableSortFilterProxyModel::field" alt="" coords="513,5,751,35"/><area shape="rect" id="node7" href="../../d4/dee/a00008.html#a2b701ad24a1b786f6412175537ec09cd" title="BillingsTableModel::fillModel" alt="" coords="539,59,725,88"/><area shape="rect" id="node9" href="../../df/d86/a00012.html#a2b701ad24a1b786f6412175537ec09cd" title="BookingsTableModel::fillModel" alt="" coords="533,112,731,141"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="595,165,669,195"/><area shape="rect" id="node19" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="595,219,669,248"/><area shape="rect" id="node22" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22" title="CheckableSortFilterProxyModel::setSortKeyColumn" alt="" coords="471,272,793,301"/><area shape="rect" id="node24" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9" title="CheckableSortFilterProxyModel::sort" alt="" coords="844,272,1079,301"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="936,179,987,208"/><area shape="rect" id="node15" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="1128,125,1528,155"/><area shape="rect" id="node17" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="1207,179,1449,208"/><area shape="rect" id="node26" href="../../d4/d6d/a00055.html#a2b701ad24a1b786f6412175537ec09cd" title="RoomsTableModel::fillModel" alt="" coords="1235,245,1421,275"/><area shape="rect" id="node28" href="../../d1/d22/a00057.html#a2b701ad24a1b786f6412175537ec09cd" title="ServicesTableModel::fillModel" alt="" coords="1231,299,1425,328"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="ae9a20ff77d8d46aaf20689f90f2e2511"></a><!-- doxytag: member="SqlDataModel::fieldsList" ref="ae9a20ff77d8d46aaf20689f90f2e2511" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#ae9a20ff77d8d46aaf20689f90f2e2511">fieldsList</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>const QString </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00186">186</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, et <a class="el" href="../../d8/d87/a00118_source.html#l00051">CheckableSortFilterProxyModel::fields()</a>.</p>
 
 <p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_icgraph.png" border="0" usemap="#d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_icgraph" alt=""/></div>
-<map name="d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_icgraph" id="d3/d8b/a00059_a6574a8c5b18c69fcdf39d9f185f845a6_icgraph">
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36" title="fillRight" alt="" coords="123,5,189,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="fill" alt="" coords="239,5,276,35"/><area shape="rect" id="node7" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="325,5,416,35"/></map>
+<div class="center"><img src="../../d3/d8b/a00059_ae9a20ff77d8d46aaf20689f90f2e2511_icgraph.png" border="0" usemap="#d3/d8b/a00059_ae9a20ff77d8d46aaf20689f90f2e2511_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_ae9a20ff77d8d46aaf20689f90f2e2511_icgraph" id="d3/d8b/a00059_ae9a20ff77d8d46aaf20689f90f2e2511_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="225,32,276,61"/><area shape="rect" id="node9" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515" title="CheckableSortFilterProxyModel::fields" alt="" coords="128,85,373,115"/><area shape="rect" id="node5" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="421,5,821,35"/><area shape="rect" id="node7" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="500,59,743,88"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="adf2e9d5e456a754a5459e8435b0b094b"></a><!-- doxytag: member="PreCheckQtApp::keyPressEvent" ref="adf2e9d5e456a754a5459e8435b0b094b" args="(QKeyEvent *event)" -->
+<a class="anchor" id="a5ad93e3e39ebf61e2b111d27a7708898"></a><!-- doxytag: member="SqlDataModel::filter" ref="a5ad93e3e39ebf61e2b111d27a7708898" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/d8b/a00059.html#adf2e9d5e456a754a5459e8435b0b094b">keyPressEvent</a> </td>
+          <td class="memname">const QString&amp; <a class="el" href="../../d3/d8b/a00059.html#a610876e02cee64e29fe4376ffeb6b9b9">filter</a> </td>
           <td>(</td>
-          <td class="paramtype">QKeyEvent *&#160;</td>
-          <td class="paramname"><em>event</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00225">setFilterCondition()</a>.</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a5ad93e3e39ebf61e2b111d27a7708898_icgraph.png" border="0" usemap="#d3/d8b/a00059_a5ad93e3e39ebf61e2b111d27a7708898_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a5ad93e3e39ebf61e2b111d27a7708898_icgraph" id="d3/d8b/a00059_a5ad93e3e39ebf61e2b111d27a7708898_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a0dfa1974a45d97bccf405b376dacc388" title="setFilterCondition" alt="" coords="103,32,225,61"/><area shape="rect" id="node5" href="../../df/d86/a00012.html#a385b020415b12fad30b144a91c84f94e" title="BookingsTableModel::BookingsTableModel" alt="" coords="275,5,547,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="385,59,436,88"/><area shape="rect" id="node9" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="595,32,995,61"/><area shape="rect" id="node11" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="673,85,916,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abc9ca77be83f03bb6d693e57427636f0"></a><!-- doxytag: member="SqlDataModel::filterChanged" ref="abc9ca77be83f03bb6d693e57427636f0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0">filterChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00239">resetFilterCondition()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00225">setFilterCondition()</a>.</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_abc9ca77be83f03bb6d693e57427636f0_icgraph.png" border="0" usemap="#d3/d8b/a00059_abc9ca77be83f03bb6d693e57427636f0_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_abc9ca77be83f03bb6d693e57427636f0_icgraph" id="d3/d8b/a00059_abc9ca77be83f03bb6d693e57427636f0_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#adfa0de6d9cdebdf59fd93ddcf2cb49ea" title="resetFilterCondition" alt="" coords="153,5,287,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a0dfa1974a45d97bccf405b376dacc388" title="setFilterCondition" alt="" coords="159,59,281,88"/><area shape="rect" id="node7" href="../../df/d86/a00012.html#a385b020415b12fad30b144a91c84f94e" title="BookingsTableModel::BookingsTableModel" alt="" coords="336,32,608,61"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="447,85,497,115"/><area shape="rect" id="node11" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="656,59,1056,88"/><area shape="rect" id="node13" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="735,112,977,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aedcc52b3673b8df9425e52f13accb2a1"></a><!-- doxytag: member="SqlDataModel::isEmpty" ref="aedcc52b3673b8df9425e52f13accb2a1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#aedcc52b3673b8df9425e52f13accb2a1">isEmpty</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00393">393</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00246">mRecords</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, <a class="el" href="../../d8/d87/a00118_source.html#l00065">CheckableSortFilterProxyModel::isEmpty()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
+
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_aedcc52b3673b8df9425e52f13accb2a1_icgraph.png" border="0" usemap="#d3/d8b/a00059_aedcc52b3673b8df9425e52f13accb2a1_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_aedcc52b3673b8df9425e52f13accb2a1_icgraph" id="d3/d8b/a00059_aedcc52b3673b8df9425e52f13accb2a1_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="437,34,488,63"/><area shape="rect" id="node9" href="../../d2/de7/a00014.html#aa4bec6d0a34d7a996f7eb7179a18f1a2" title="CheckableSortFilterProxyModel::isEmpty" alt="" coords="127,32,388,62"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="220,86,295,115"/><area shape="rect" id="node5" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="536,7,936,36"/><area shape="rect" id="node7" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="615,60,857,90"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a80378cc6261c1ba7a1501587e4df4e9b"></a><!-- doxytag: member="SqlDataModel::lastError" ref="a80378cc6261c1ba7a1501587e4df4e9b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; <a class="el" href="../../d3/d8b/a00059.html#a44acf23867202902022213a2b1204d69">lastError</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
+
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a80378cc6261c1ba7a1501587e4df4e9b_icgraph.png" border="0" usemap="#d3/d8b/a00059_a80378cc6261c1ba7a1501587e4df4e9b_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a80378cc6261c1ba7a1501587e4df4e9b_icgraph" id="d3/d8b/a00059_a80378cc6261c1ba7a1501587e4df4e9b_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="125,32,200,61"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="248,32,299,61"/><area shape="rect" id="node7" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="347,5,747,35"/><area shape="rect" id="node9" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="425,59,668,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afd2393c4054daa643aa6eddc70442cd4"></a><!-- doxytag: member="SqlDataModel::lastErrorChanged" ref="afd2393c4054daa643aa6eddc70442cd4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#afd2393c4054daa643aa6eddc70442cd4">lastErrorChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8dbd35d765e8ff0d1c34461ef67c5abf"></a><!-- doxytag: member="SqlDataModel::query" ref="a8dbd35d765e8ff0d1c34461ef67c5abf" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a8dbd35d765e8ff0d1c34461ef67c5abf">query</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>const QString </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00153">153</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00245">mSqlQuery</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a790a1115e7df5fd3de853b3341d5400b"></a><!-- doxytag: member="SqlDataModel::resetFieldsToAll" ref="a790a1115e7df5fd3de853b3341d5400b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a790a1115e7df5fd3de853b3341d5400b">resetFieldsToAll</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00319">319</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>, <a class="el" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198">fieldsChanged()</a>, et <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>.</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a790a1115e7df5fd3de853b3341d5400b_cgraph.png" border="0" usemap="#d3/d8b/a00059_a790a1115e7df5fd3de853b3341d5400b_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a790a1115e7df5fd3de853b3341d5400b_cgraph" id="d3/d8b/a00059_a790a1115e7df5fd3de853b3341d5400b_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="applyRoles" alt="" coords="181,32,267,61"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198" title="fieldsChanged" alt="" coords="172,85,276,115"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a" title="roleForField" alt="" coords="332,5,423,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753" title="rolesChanged" alt="" coords="327,59,428,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adfa0de6d9cdebdf59fd93ddcf2cb49ea"></a><!-- doxytag: member="SqlDataModel::resetFilterCondition" ref="adfa0de6d9cdebdf59fd93ddcf2cb49ea" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#adfa0de6d9cdebdf59fd93ddcf2cb49ea">resetFilterCondition</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00239">239</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0">filterChanged()</a>, et <a class="el" href="../../d5/d5b/a00135_source.html#l00241">mFilter</a>.</p>
+
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_adfa0de6d9cdebdf59fd93ddcf2cb49ea_cgraph.png" border="0" usemap="#d3/d8b/a00059_adfa0de6d9cdebdf59fd93ddcf2cb49ea_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_adfa0de6d9cdebdf59fd93ddcf2cb49ea_cgraph" id="d3/d8b/a00059_adfa0de6d9cdebdf59fd93ddcf2cb49ea_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0" title="filterChanged" alt="" coords="189,5,288,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af2456411865113dc581cc94669f6180a"></a><!-- doxytag: member="SqlDataModel::roleForField" ref="af2456411865113dc581cc94669f6180a" args="(int fieldIndex) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a">roleForField</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldIndex</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fieldIndex</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00063">63</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>, <a class="el" href="../../d9/d4b/a00117_source.html#l00298">CheckableSortFilterProxyModel::data()</a>, et <a class="el" href="../../d9/d4b/a00117_source.html#l00271">CheckableSortFilterProxyModel::setSortKeyColumn()</a>.</p>
+
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_af2456411865113dc581cc94669f6180a_icgraph.png" border="0" usemap="#d3/d8b/a00059_af2456411865113dc581cc94669f6180a_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_af2456411865113dc581cc94669f6180a_icgraph" id="d3/d8b/a00059_af2456411865113dc581cc94669f6180a_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="applyRoles" alt="" coords="264,85,349,115"/><area shape="rect" id="node18" href="../../d2/de7/a00014.html#a8b507f52d17d06d42aa80985017727bf" title="CheckableSortFilterProxyModel::data" alt="" coords="188,165,425,195"/><area shape="rect" id="node22" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22" title="CheckableSortFilterProxyModel::setSortKeyColumn" alt="" coords="145,219,468,248"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a790a1115e7df5fd3de853b3341d5400b" title="resetFieldsToAll" alt="" coords="591,5,705,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="611,59,685,88"/><area shape="rect" id="node15" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="611,112,685,141"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="900,85,951,115"/><area shape="rect" id="node11" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="1072,59,1472,88"/><area shape="rect" id="node13" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="1151,112,1393,141"/><area shape="rect" id="node20" href="../../d2/de7/a00014.html#a9e22272c821b1606127baeda26f7dfe4" title="CheckableSortFilterProxyModel::setData" alt="" coords="519,165,777,195"/><area shape="rect" id="node24" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9" title="CheckableSortFilterProxyModel::sort" alt="" coords="531,219,765,248"/><area shape="rect" id="node26" href="../../d4/d6d/a00055.html#a2b701ad24a1b786f6412175537ec09cd" title="RoomsTableModel::fillModel" alt="" coords="832,192,1019,221"/><area shape="rect" id="node28" href="../../d1/d22/a00057.html#a2b701ad24a1b786f6412175537ec09cd" title="ServicesTableModel::fillModel" alt="" coords="828,245,1023,275"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3c7fedefa9cf58507bc7089f9049d9c"></a><!-- doxytag: member="SqlDataModel::roleNames" ref="aa3c7fedefa9cf58507bc7089f9049d9c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#aa3c7fedefa9cf58507bc7089f9049d9c">roleNames</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This function allows mapping of role identifiers to role property names in scripting languages. </p>
+<p>!</p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QHash&lt;int, QByteArray&gt; </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00169">169</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00244">mRoles</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d8/d87/a00118_source.html#l00164">CheckableSortFilterProxyModel::roleNames()</a>.</p>
+
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_aa3c7fedefa9cf58507bc7089f9049d9c_icgraph.png" border="0" usemap="#d3/d8b/a00059_aa3c7fedefa9cf58507bc7089f9049d9c_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_aa3c7fedefa9cf58507bc7089f9049d9c_icgraph" id="d3/d8b/a00059_aa3c7fedefa9cf58507bc7089f9049d9c_icgraph">
+<area shape="rect" id="node3" href="../../d2/de7/a00014.html#aa3c7fedefa9cf58507bc7089f9049d9c" title="CheckableSortFilterProxyModel::roleNames" alt="" coords="139,5,416,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6aefd3944be6e9f62c5defd518922753"></a><!-- doxytag: member="SqlDataModel::rolesChanged" ref="a6aefd3944be6e9f62c5defd518922753" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753">rolesChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>.</p>
+
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a6aefd3944be6e9f62c5defd518922753_icgraph.png" border="0" usemap="#d3/d8b/a00059_a6aefd3944be6e9f62c5defd518922753_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a6aefd3944be6e9f62c5defd518922753_icgraph" id="d3/d8b/a00059_a6aefd3944be6e9f62c5defd518922753_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="applyRoles" alt="" coords="159,59,244,88"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a790a1115e7df5fd3de853b3341d5400b" title="resetFieldsToAll" alt="" coords="295,5,409,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="setFields" alt="" coords="315,59,389,88"/><area shape="rect" id="node15" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="setQuery" alt="" coords="315,112,389,141"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="459,85,509,115"/><area shape="rect" id="node11" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="557,59,957,88"/><area shape="rect" id="node13" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="636,112,879,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a633dd87b49ec81f5b3ff246bb39f259e"></a><!-- doxytag: member="SqlDataModel::rowCount" ref="a633dd87b49ec81f5b3ff246bb39f259e" args="(const QModelIndex &amp;parent) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a633dd87b49ec81f5b3ff246bb39f259e">rowCount</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00026">26</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00246">mRecords</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40db81b8e80022c511504feff27f6c4e"></a><!-- doxytag: member="SqlDataModel::setFields" ref="a40db81b8e80022c511504feff27f6c4e" args="(QStringList fieldList)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e">setFields</a> </td>
+          <td>(</td>
+          <td class="paramtype">QStringList&#160;</td>
+          <td class="paramname"><em>fieldList</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -494,22 +954,372 @@ Attributs privés</h2></td></tr>
 <div class="memdoc">
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td></td></tr>
+    <tr><td class="paramname">fields</td><td></td></tr>
+    <tr><td class="paramname">fieldList</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="../../d6/d43/a00216_source.html#l00103">103</a> du fichier <a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00297">297</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00284">field()</a>, <a class="el" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198">fieldsChanged()</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>, et <a class="el" href="../../d5/deb/a00132_source.html#l00038">SqlDataFields::setName()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>.</p>
+
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_cgraph.png" border="0" usemap="#d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_cgraph" id="d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="applyRoles" alt="" coords="168,59,253,88"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba" title="field" alt="" coords="188,112,233,141"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198" title="fieldsChanged" alt="" coords="159,165,263,195"/><area shape="rect" id="node15" href="../../d7/df7/a00058.html#a0ecb3bed54206240ba05ffb172c73cb3" title="SqlDataFields::setName" alt="" coords="128,245,293,275"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a" title="roleForField" alt="" coords="395,5,485,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753" title="rolesChanged" alt="" coords="389,59,491,88"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83" title="fieldsCount" alt="" coords="396,112,484,141"/><area shape="rect" id="node17" href="../../d7/df7/a00058.html#a417a2c42aec8c267c846ac715ad22664" title="SqlDataFields::nameChanged" alt="" coords="343,165,537,195"/><area shape="rect" id="node19" href="../../d7/df7/a00058.html#ab5a767f8c537f44230fa7a6f1a2e64db" title="SqlDataFields::roleChanged" alt="" coords="348,219,532,248"/><area shape="rect" id="node21" href="../../d7/df7/a00058.html#aaa8426da318c41270dd942543b6f3cc6" title="SqlDataFields::setSortOrder" alt="" coords="347,272,533,301"/><area shape="rect" id="node25" href="../../d7/df7/a00058.html#a562cce1c5342538e3fa78cddc7de03d2" title="SqlDataFields::setText" alt="" coords="363,325,517,355"/><area shape="rect" id="node23" href="../../d7/df7/a00058.html#a0a8a4c559ac66e8e9315d764ccc037d2" title="SqlDataFields::sortOrderChanged" alt="" coords="587,272,805,301"/><area shape="rect" id="node28" href="../../d7/df7/a00058.html#ad4cb54bce44787c508c0cee6a01d4748" title="SqlDataFields::textChanged" alt="" coords="603,325,789,355"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_icgraph.png" border="0" usemap="#d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_icgraph" id="d3/d8b/a00059_a40db81b8e80022c511504feff27f6c4e_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="128,32,179,61"/><area shape="rect" id="node5" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="227,5,627,35"/><area shape="rect" id="node7" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="305,59,548,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0dfa1974a45d97bccf405b376dacc388"></a><!-- doxytag: member="SqlDataModel::setFilterCondition" ref="a0dfa1974a45d97bccf405b376dacc388" args="(const QString &amp;filter)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a0dfa1974a45d97bccf405b376dacc388">setFilterCondition</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filter</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00225">225</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d3/d8b/a00059.html#a5ad93e3e39ebf61e2b111d27a7708898">filter()</a>, <a class="el" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0">filterChanged()</a>, et <a class="el" href="../../d5/d5b/a00135_source.html#l00241">mFilter</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d2/da3/a00115_source.html#l00010">BookingsTableModel::BookingsTableModel()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>.</p>
+
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_cgraph.png" border="0" usemap="#d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_cgraph" id="d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a5ad93e3e39ebf61e2b111d27a7708898" title="filter" alt="" coords="205,5,251,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0" title="filterChanged" alt="" coords="179,59,277,88"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_icgraph.png" border="0" usemap="#d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_icgraph" id="d3/d8b/a00059_a0dfa1974a45d97bccf405b376dacc388_icgraph">
+<area shape="rect" id="node3" href="../../df/d86/a00012.html#a385b020415b12fad30b144a91c84f94e" title="BookingsTableModel::BookingsTableModel" alt="" coords="179,5,451,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="289,59,340,88"/><area shape="rect" id="node7" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="499,32,899,61"/><area shape="rect" id="node9" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="577,85,820,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a93cff7ab7afb621cc39388588cacbe7f"></a><!-- doxytag: member="SqlDataModel::setHeaderData" ref="a93cff7ab7afb621cc39388588cacbe7f" args="(int section, Qt::Orientation orientation, const QVariant &amp;value, int role=Qt::EditRole)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a93cff7ab7afb621cc39388588cacbe7f">setHeaderData</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>section</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Qt::Orientation&#160;</td>
+          <td class="paramname"><em>orientation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em> = <code>Qt::EditRole</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">section</td><td></td></tr>
+    <tr><td class="paramname">orientation</td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00068">68</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d1/d88/a00128_source.html#l00023">RoomsTableModel::fillModel()</a>, <a class="el" href="../../dd/d6d/a00111_source.html#l00023">BillingsTableModel::fillModel()</a>, et <a class="el" href="../../d2/da3/a00115_source.html#l00023">BookingsTableModel::fillModel()</a>.</p>
+
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a93cff7ab7afb621cc39388588cacbe7f_icgraph.png" border="0" usemap="#d3/d8b/a00059_a93cff7ab7afb621cc39388588cacbe7f_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a93cff7ab7afb621cc39388588cacbe7f_icgraph" id="d3/d8b/a00059_a93cff7ab7afb621cc39388588cacbe7f_icgraph">
+<area shape="rect" id="node3" href="../../d4/d6d/a00055.html#a2b701ad24a1b786f6412175537ec09cd" title="RoomsTableModel::fillModel" alt="" coords="172,5,359,35"/><area shape="rect" id="node5" href="../../d4/dee/a00008.html#a2b701ad24a1b786f6412175537ec09cd" title="BillingsTableModel::fillModel" alt="" coords="172,59,359,88"/><area shape="rect" id="node7" href="../../df/d86/a00012.html#a2b701ad24a1b786f6412175537ec09cd" title="BookingsTableModel::fillModel" alt="" coords="167,112,364,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adb17cbb795f19bf7435f2157373c93d3"></a><!-- doxytag: member="SqlDataModel::setOrderBy" ref="adb17cbb795f19bf7435f2157373c93d3" args="(QString sort)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#adb17cbb795f19bf7435f2157373c93d3">setOrderBy</a> </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>sort</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sort</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00382">382</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00242">mSort</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, et <a class="el" href="../../d1/d88/a00128_source.html#l00011">RoomsTableModel::RoomsTableModel()</a>.</p>
+
+<p><div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_adb17cbb795f19bf7435f2157373c93d3_icgraph.png" border="0" usemap="#d3/d8b/a00059_adb17cbb795f19bf7435f2157373c93d3_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_adb17cbb795f19bf7435f2157373c93d3_icgraph" id="d3/d8b/a00059_adb17cbb795f19bf7435f2157373c93d3_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="240,32,291,61"/><area shape="rect" id="node9" href="../../d4/d6d/a00055.html#abac7606e5e8d6d2cbe0cda9f8bb7aee5" title="RoomsTableModel::RoomsTableModel" alt="" coords="141,85,389,115"/><area shape="rect" id="node5" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="437,5,837,35"/><area shape="rect" id="node7" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="516,59,759,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af3fed659e41f839b5e0c5c8578a6ec7b"></a><!-- doxytag: member="SqlDataModel::setQuery" ref="af3fed659e41f839b5e0c5c8578a6ec7b" args="(const QString &amp;query)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b">setQuery</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">query</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">query</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00085">85</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>, <a class="el" href="../../d3/d65/a00154_source.html#l00019">MessageManager::errorMessage()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00284">field()</a>, <a class="el" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198">fieldsChanged()</a>, <a class="el" href="../../df/dc8/a00122_source.html#l00152">AppDatabase::getDbConnection()</a>, <a class="el" href="../../df/dc8/a00122_source.html#l00015">AppDatabase::getInstance()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00393">isEmpty()</a>, <a class="el" href="../../d3/d8b/a00059.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError()</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00243">mDataFields</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00246">mRecords</a>, <a class="el" href="../../d5/d5b/a00135_source.html#l00245">mSqlQuery</a>, et <a class="el" href="../../d5/deb/a00132_source.html#l00038">SqlDataFields::setName()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>.</p>
+
+<p><div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_cgraph.png" border="0" usemap="#d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_cgraph" id="d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="applyRoles" alt="" coords="191,59,276,88"/><area shape="rect" id="node9" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260" title="MessageManager::errorMessage" alt="" coords="900,217,1111,247"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba" title="field" alt="" coords="211,163,256,192"/><area shape="rect" id="node15" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198" title="fieldsChanged" alt="" coords="181,216,285,245"/><area shape="rect" id="node17" href="../../d0/d0b/a00004.html#a1cad0fdd11c50e747a10b8b23556e596" title="AppDatabase::getDbConnection" alt="" coords="128,269,339,299"/><area shape="rect" id="node19" href="../../d0/d0b/a00004.html#afba86dd08ac8528cc6cfe07a44c91fbe" title="AppDatabase::getInstance" alt="" coords="145,323,321,352"/><area shape="rect" id="node27" href="../../d3/d8b/a00059.html#aedcc52b3673b8df9425e52f13accb2a1" title="isEmpty" alt="" coords="199,376,268,405"/><area shape="rect" id="node29" href="../../d3/d8b/a00059.html#a80378cc6261c1ba7a1501587e4df4e9b" title="lastError" alt="" coords="199,429,268,459"/><area shape="rect" id="node31" href="../../d7/df7/a00058.html#a0ecb3bed54206240ba05ffb172c73cb3" title="SqlDataFields::setName" alt="" coords="151,483,316,512"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a" title="roleForField" alt="" coords="440,5,531,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753" title="rolesChanged" alt="" coords="435,59,536,88"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83" title="fieldsCount" alt="" coords="441,163,529,192"/><area shape="rect" id="node21" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="392,269,579,299"/><area shape="rect" id="node23" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f" title="AppDatabase::dbConnect" alt="" coords="656,269,827,299"/><area shape="rect" id="node33" href="../../d7/df7/a00058.html#a417a2c42aec8c267c846ac715ad22664" title="SqlDataFields::nameChanged" alt="" coords="388,376,583,405"/><area shape="rect" id="node35" href="../../d7/df7/a00058.html#ab5a767f8c537f44230fa7a6f1a2e64db" title="SqlDataFields::roleChanged" alt="" coords="393,429,577,459"/><area shape="rect" id="node37" href="../../d7/df7/a00058.html#aaa8426da318c41270dd942543b6f3cc6" title="SqlDataFields::setSortOrder" alt="" coords="392,483,579,512"/><area shape="rect" id="node41" href="../../d7/df7/a00058.html#a562cce1c5342538e3fa78cddc7de03d2" title="SqlDataFields::setText" alt="" coords="408,536,563,565"/><area shape="rect" id="node39" href="../../d7/df7/a00058.html#a0a8a4c559ac66e8e9315d764ccc037d2" title="SqlDataFields::sortOrderChanged" alt="" coords="632,483,851,512"/><area shape="rect" id="node44" href="../../d7/df7/a00058.html#ad4cb54bce44787c508c0cee6a01d4748" title="SqlDataFields::textChanged" alt="" coords="648,536,835,565"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_icgraph.png" border="0" usemap="#d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_icgraph" id="d3/d8b/a00059_af3fed659e41f839b5e0c5c8578a6ec7b_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="128,32,179,61"/><area shape="rect" id="node5" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="227,5,627,35"/><area shape="rect" id="node7" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="305,59,548,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d9cf736a5abde06ac62fb5afd0f03ac"></a><!-- doxytag: member="SqlDataModel::setTable" ref="a3d9cf736a5abde06ac62fb5afd0f03ac" args="(const QString &amp;tableName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a3d9cf736a5abde06ac62fb5afd0f03ac">setTable</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00210">210</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00240">mTable</a>, et <a class="el" href="../../d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714">tableChanged()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../dd/d6d/a00111_source.html#l00011">BillingsTableModel::BillingsTableModel()</a>, <a class="el" href="../../d3/d00/a00113_source.html#l00010">BillsTableModel::BillsTableModel()</a>, <a class="el" href="../../d2/da3/a00115_source.html#l00010">BookingsTableModel::BookingsTableModel()</a>, <a class="el" href="../../df/d6a/a00119_source.html#l00010">ClientsTableModel::ClientsTableModel()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, <a class="el" href="../../da/d72/a00124_source.html#l00010">GroupsTableModel::GroupsTableModel()</a>, <a class="el" href="../../d1/d88/a00128_source.html#l00011">RoomsTableModel::RoomsTableModel()</a>, et <a class="el" href="../../d6/db3/a00130_source.html#l00010">ServicesTableModel::ServicesTableModel()</a>.</p>
+
+<p><div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_cgraph.png" border="0" usemap="#d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_cgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_cgraph" id="d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714" title="tableChanged" alt="" coords="127,5,228,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_icgraph.png" border="0" usemap="#d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_icgraph" id="d3/d8b/a00059_a3d9cf736a5abde06ac62fb5afd0f03ac_icgraph">
+<area shape="rect" id="node3" href="../../d4/dee/a00008.html#a7703bb1f286fe0935a36ce4d8b61cfc6" title="BillingsTableModel::BillingsTableModel" alt="" coords="137,5,385,35"/><area shape="rect" id="node5" href="../../da/da0/a00009.html#a1b38c1de2919925ab41b9f6aa8e06ede" title="BillsTableModel::BillsTableModel" alt="" coords="155,59,368,88"/><area shape="rect" id="node7" href="../../df/d86/a00012.html#a385b020415b12fad30b144a91c84f94e" title="BookingsTableModel::BookingsTableModel" alt="" coords="125,112,397,141"/><area shape="rect" id="node9" href="../../dd/d1b/a00015.html#ae8b3f11f82bf9a24d277d0ae3d54973f" title="ClientsTableModel::ClientsTableModel" alt="" coords="139,165,384,195"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="236,219,287,248"/><area shape="rect" id="node17" href="../../d5/d79/a00030.html#aed46d522f2360f9b0a0c275c70fa608c" title="GroupsTableModel::GroupsTableModel" alt="" coords="137,272,385,301"/><area shape="rect" id="node19" href="../../d4/d6d/a00055.html#abac7606e5e8d6d2cbe0cda9f8bb7aee5" title="RoomsTableModel::RoomsTableModel" alt="" coords="137,325,385,355"/><area shape="rect" id="node21" href="../../d1/d22/a00057.html#aeb147363770276e2edb8ea236da66ca5" title="ServicesTableModel::ServicesTableModel" alt="" coords="128,379,395,408"/><area shape="rect" id="node13" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="445,192,845,221"/><area shape="rect" id="node15" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="524,245,767,275"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abed06f2478a59689ba14d62073624714"></a><!-- doxytag: member="SqlDataModel::tableChanged" ref="abed06f2478a59689ba14d62073624714" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714">tableChanged</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00210">setTable()</a>.</p>
+
+<p><div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_abed06f2478a59689ba14d62073624714_icgraph.png" border="0" usemap="#d3/d8b/a00059_abed06f2478a59689ba14d62073624714_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_abed06f2478a59689ba14d62073624714_icgraph" id="d3/d8b/a00059_abed06f2478a59689ba14d62073624714_icgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a3d9cf736a5abde06ac62fb5afd0f03ac" title="setTable" alt="" coords="157,192,229,221"/><area shape="rect" id="node5" href="../../d4/dee/a00008.html#a7703bb1f286fe0935a36ce4d8b61cfc6" title="BillingsTableModel::BillingsTableModel" alt="" coords="289,5,537,35"/><area shape="rect" id="node7" href="../../da/da0/a00009.html#a1b38c1de2919925ab41b9f6aa8e06ede" title="BillsTableModel::BillsTableModel" alt="" coords="307,59,520,88"/><area shape="rect" id="node9" href="../../df/d86/a00012.html#a385b020415b12fad30b144a91c84f94e" title="BookingsTableModel::BookingsTableModel" alt="" coords="277,112,549,141"/><area shape="rect" id="node11" href="../../dd/d1b/a00015.html#ae8b3f11f82bf9a24d277d0ae3d54973f" title="ClientsTableModel::ClientsTableModel" alt="" coords="291,165,536,195"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="fetch" alt="" coords="388,219,439,248"/><area shape="rect" id="node19" href="../../d5/d79/a00030.html#aed46d522f2360f9b0a0c275c70fa608c" title="GroupsTableModel::GroupsTableModel" alt="" coords="289,272,537,301"/><area shape="rect" id="node21" href="../../d4/d6d/a00055.html#abac7606e5e8d6d2cbe0cda9f8bb7aee5" title="RoomsTableModel::RoomsTableModel" alt="" coords="289,325,537,355"/><area shape="rect" id="node23" href="../../d1/d22/a00057.html#aeb147363770276e2edb8ea236da66ca5" title="ServicesTableModel::ServicesTableModel" alt="" coords="280,379,547,408"/><area shape="rect" id="node15" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e" title="DatabaseContentQuestionState::DatabaseContentQuestionState" alt="" coords="597,192,997,221"/><area shape="rect" id="node17" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557" title="CheckableSortFilterProxyModel::fetch" alt="" coords="676,245,919,275"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4994a8da8f74295c0caeb7239e4b90ac"></a><!-- doxytag: member="SqlDataModel::tableName" ref="a4994a8da8f74295c0caeb7239e4b90ac" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a4994a8da8f74295c0caeb7239e4b90ac">tableName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>const QString </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../de/d76/a00134_source.html#l00164">164</a> du fichier <a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d5b/a00135_source.html#l00240">mTable</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d8/d87/a00118_source.html#l00044">CheckableSortFilterProxyModel::tableName()</a>.</p>
+
+<p><div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d8b/a00059_a4994a8da8f74295c0caeb7239e4b90ac_icgraph.png" border="0" usemap="#d3/d8b/a00059_a4994a8da8f74295c0caeb7239e4b90ac_icgraph" alt=""/></div>
+<map name="d3/d8b/a00059_a4994a8da8f74295c0caeb7239e4b90ac_icgraph" id="d3/d8b/a00059_a4994a8da8f74295c0caeb7239e4b90ac_icgraph">
+<area shape="rect" id="node3" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2" title="CheckableSortFilterProxyModel::tableName" alt="" coords="139,5,416,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
 <hr/><h2>Documentation des données membres</h2>
-<a class="anchor" id="ad139bab6c36c5fb943bfedca3bd9b9af"></a><!-- doxytag: member="PreCheckQtApp::affichage" ref="ad139bab6c36c5fb943bfedca3bd9b9af" args="" -->
+<a class="anchor" id="afdc359cef837c2dc8102f20b90815f47"></a><!-- doxytag: member="SqlDataModel::mDataFields" ref="afdc359cef837c2dc8102f20b90815f47" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/de7/a00039.html">FixedGridLayout</a>* <a class="el" href="../../d3/d8b/a00059.html#ad139bab6c36c5fb943bfedca3bd9b9af">affichage</a><code> [protected]</code></td>
+          <td class="memname">QList&lt;<a class="el" href="../../d7/df7/a00058.html">SqlDataFields</a> *&gt; <a class="el" href="../../d3/d8b/a00059.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -517,18 +1327,18 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00095">95</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00243">243</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00035">fill()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00009">PreCheckQtApp()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00284">field()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00371">fieldsCount()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00186">fieldsList()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00319">resetFieldsToAll()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00297">setFields()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00068">setHeaderData()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a945ceeb6236fbaf00dcdb7a0109f0d40"></a><!-- doxytag: member="PreCheckQtApp::keyboard" ref="a945ceeb6236fbaf00dcdb7a0109f0d40" args="" -->
+<a class="anchor" id="a54baed2fcbc794c6fd5b8564f9409bcf"></a><!-- doxytag: member="SqlDataModel::mFilter" ref="a54baed2fcbc794c6fd5b8564f9409bcf" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d42/a00043.html">Keyboard</a>* <a class="el" href="../../d3/d8b/a00059.html#a945ceeb6236fbaf00dcdb7a0109f0d40">keyboard</a><code> [protected]</code></td>
+          <td class="memname">QString <a class="el" href="../../d3/d8b/a00059.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -536,18 +1346,18 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00099">99</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00241">241</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00115">initKeyboard()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00239">resetFilterCondition()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00225">setFilterCondition()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aeac29d1e07878a89f67c77ce731b6068"></a><!-- doxytag: member="PreCheckQtApp::leftPanel" ref="aeac29d1e07878a89f67c77ce731b6068" args="" -->
+<a class="anchor" id="ad22951546a29792298e909e3540bfd4b"></a><!-- doxytag: member="SqlDataModel::mRecords" ref="ad22951546a29792298e909e3540bfd4b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QWidget* <a class="el" href="../../d3/d8b/a00059.html#aeac29d1e07878a89f67c77ce731b6068">leftPanel</a></td>
+          <td class="memname">QList&lt;QSqlRecord&gt; <a class="el" href="../../d3/d8b/a00059.html#ad22951546a29792298e909e3540bfd4b">mRecords</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -555,18 +1365,18 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00062">62</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00246">246</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00035">fill()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00040">data()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00393">isEmpty()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00026">rowCount()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1d78cc486b0c5e2bc6e190a24c7422a9"></a><!-- doxytag: member="PreCheckQtApp::middlePanel" ref="a1d78cc486b0c5e2bc6e190a24c7422a9" args="" -->
+<a class="anchor" id="a5029a1f03131f6ac8d5377c2ff16c516"></a><!-- doxytag: member="SqlDataModel::mRoles" ref="a5029a1f03131f6ac8d5377c2ff16c516" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/df3/a00034.html">CustomizableTabWidget</a>* <a class="el" href="../../d3/d8b/a00059.html#a1d78cc486b0c5e2bc6e190a24c7422a9">middlePanel</a></td>
+          <td class="memname">QHash&lt;int, QByteArray&gt; <a class="el" href="../../d3/d8b/a00059.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -574,18 +1384,18 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00061">61</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00244">244</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00035">fill()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00087">fillRight()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00169">initTabs()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00352">applyRoles()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00040">data()</a>, et <a class="el" href="../../d5/d5b/a00135_source.html#l00169">roleNames()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa31bdfd58914cf2a382449e7cdb85ff1"></a><!-- doxytag: member="PreCheckQtApp::mode" ref="aa31bdfd58914cf2a382449e7cdb85ff1" args="" -->
+<a class="anchor" id="ab6524708dbad962e61b904e6f5c30cb7"></a><!-- doxytag: member="SqlDataModel::mSort" ref="ab6524708dbad962e61b904e6f5c30cb7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830">PreCheckQtApp::AppMode</a> <a class="el" href="../../d3/d8b/a00059.html#aa31bdfd58914cf2a382449e7cdb85ff1">mode</a><code> [private]</code></td>
+          <td class="memname">QString <a class="el" href="../../d3/d8b/a00059.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -593,18 +1403,18 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00104">104</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00242">242</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00169">initTabs()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00009">PreCheckQtApp()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00382">setOrderBy()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3afc3339d3268692d1b02f9ab0b2efc4"></a><!-- doxytag: member="PreCheckQtApp::outputZone" ref="a3afc3339d3268692d1b02f9ab0b2efc4" args="" -->
+<a class="anchor" id="a7ac715b89b82c754d5e8bd7ef2eca8e6"></a><!-- doxytag: member="SqlDataModel::mSqlQuery" ref="a7ac715b89b82c754d5e8bd7ef2eca8e6" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d2e/a00056.html">OutputZone</a>* <a class="el" href="../../d3/d8b/a00059.html#a3afc3339d3268692d1b02f9ab0b2efc4">outputZone</a><code> [protected]</code></td>
+          <td class="memname">QSqlQuery <a class="el" href="../../d3/d8b/a00059.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -612,18 +1422,18 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00098">98</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00245">245</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00153">query()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00085">setQuery()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6234f706127b975f7221ff58180ca3c6"></a><!-- doxytag: member="PreCheckQtApp::roomsTab" ref="a6234f706127b975f7221ff58180ca3c6" args="" -->
+<a class="anchor" id="ab1d03b34d42c6127e0267bf9afc3ea14"></a><!-- doxytag: member="SqlDataModel::mTable" ref="ab1d03b34d42c6127e0267bf9afc3ea14" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/d51/a00079.html">RoomsTabPage</a>* <a class="el" href="../../d3/d8b/a00059.html#a6234f706127b975f7221ff58180ca3c6">roomsTab</a><code> [protected]</code></td>
+          <td class="memname">QString <a class="el" href="../../d3/d8b/a00059.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -631,62 +1441,92 @@ Attributs privés</h2></td></tr>
 
 <p>TODO. </p>
 
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00096">96</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00240">240</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00169">initTabs()</a>.</p>
+<p>Référencé par <a class="el" href="../../de/d76/a00134_source.html#l00255">fetch()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00210">setTable()</a>, et <a class="el" href="../../de/d76/a00134_source.html#l00164">tableName()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ada7768cf1926a63ca92084c54dea97c2"></a><!-- doxytag: member="PreCheckQtApp::spacing" ref="ada7768cf1926a63ca92084c54dea97c2" args="" -->
+<hr/><h2>Documentation des propriétés</h2>
+<a class="anchor" id="a610876e02cee64e29fe4376ffeb6b9b9"></a><!-- doxytag: member="SqlDataModel::filter" ref="a610876e02cee64e29fe4376ffeb6b9b9" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="../../d3/d8b/a00059.html#ada7768cf1926a63ca92084c54dea97c2">spacing</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a610876e02cee64e29fe4376ffeb6b9b9">filter</a><code> [read, write]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>const QString </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00017">17</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44acf23867202902022213a2b1204d69"></a><!-- doxytag: member="SqlDataModel::lastError" ref="a44acf23867202902022213a2b1204d69" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html#a44acf23867202902022213a2b1204d69">lastError</a><code> [read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>const QString </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00018">18</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d8/d87/a00118_source.html#l00058">CheckableSortFilterProxyModel::lastError()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a850368dedc06eb94185edfae3670cbc8"></a><!-- doxytag: member="SqlDataModel::table" ref="a850368dedc06eb94185edfae3670cbc8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../d3/d8b/a00059.html#a850368dedc06eb94185edfae3670cbc8">table</a><code> [read, write]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>TODO. </p>
-
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00103">103</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00087">fillRight()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00009">PreCheckQtApp()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a25bfb51e811e3f18b363a96c3a4780c4"></a><!-- doxytag: member="PreCheckQtApp::zoneCentrale" ref="a25bfb51e811e3f18b363a96c3a4780c4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QWidget* <a class="el" href="../../d3/d8b/a00059.html#a25bfb51e811e3f18b363a96c3a4780c4">zoneCentrale</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>TODO. </p>
-
-<p>Définition à la ligne <a class="el" href="../../df/d24/a00217_source.html#l00100">100</a> du fichier <a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d6/d43/a00216_source.html#l00035">fill()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00054">fillLeft()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00087">fillRight()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00009">PreCheckQtApp()</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d5b/a00135_source.html#l00016">16</a> du fichier <a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a>.</p>
 
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li>views/<a class="el" href="../../df/d24/a00217_source.html">appQtOnly.h</a></li>
-<li>views/<a class="el" href="../../d6/d43/a00216_source.html">appQtOnly.cpp</a></li>
+<li>models/<a class="el" href="../../d5/d5b/a00135_source.html">SqlDataModel.h</a></li>
+<li>models/<a class="el" href="../../de/d76/a00134_source.html">SqlDataModel.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/billingsTableModel.h</title>
+<title>PreCheck:  Fichier source de logic/decimalquestionstate.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -23,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">PreCheck
-   
+   &#160;<span id="projectnumber">0.3</span>
    </div>
-   
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,42 +80,78 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d1/d1e/a00087.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">billingsTableModel.h</div>  </div>
+<div class="title">decimalquestionstate.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/d1e/a00087.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;QtSql/QSqlRelationalTableModel&gt;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#ifndef RENT_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#define RENT_H</span>
-<a name="l00004"></a>00004 <span class="preprocessor"></span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/a00101.html">models/checkablesortfilterproxymodel.h</a>&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="../../de/d21/a00006.html">BillingsTableModel</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d1b/a00015.html">CheckableSortFilterProxyModel</a>
-<a name="l00008"></a>00008 {
-<a name="l00009"></a>00009 <span class="keyword">public</span>:
-<a name="l00010"></a>00010     <a class="code" href="../../de/d21/a00006_a7703bb1f286fe0935a36ce4d8b61cfc6.html#a7703bb1f286fe0935a36ce4d8b61cfc6">BillingsTableModel</a>(QString filter=<span class="stringliteral">&quot;&quot;</span>, QObject *parent=0);
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="keyword">protected</span>:
-<a name="l00013"></a>00013     <span class="keywordtype">void</span> <a class="code" href="../../de/d21/a00006_a0f122710daefea8597daa94bb78ec142.html#a0f122710daefea8597daa94bb78ec142">fillModel</a>();
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015 };
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 <span class="preprocessor">#endif // RENT_H</span>
+<a href="../../d1/d1e/a00087.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef DECIMALQUESTIONSTATE_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define DECIMALQUESTIONSTATE_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d1e/a00103.html">questionstate.h</a>&quot;</span>
+<a name="l00004"></a>00004 
+<a name="l00010"></a><a class="code" href="../../dc/d3c/a00028.html">00010</a> <span class="keyword">class </span><a class="code" href="../../dc/d3c/a00028.html">DecimalQuestionState</a> : <span class="keyword">public</span> <a class="code" href="../../d2/d79/a00051.html">QuestionState</a>
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012     Q_OBJECT
+<a name="l00013"></a>00013 <span class="keyword">public</span>:
+<a name="l00024"></a>00024     <a class="code" href="../../dc/d3c/a00028.html#a8849994d6d7993d2d80195675929a5ec">DecimalQuestionState</a>(QString question, QString <a class="code" href="../../d8/d41/a00038.html#a8ed2e2052fd239e296c60365ed5f3f61">name</a>, qreal <a class="code" href="../../dc/d3c/a00028.html#a178fcc263e2cc10fb33d47eb1d3357c6">min</a>=0, qreal <a class="code" href="../../dc/d3c/a00028.html#ad0c871f69045c2d62acc6b1bb6ba2c8a">max</a>=-1, QState *parent = 0);
+<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="../../dc/d3c/a00028.html#a60c7dd00fefe94384cdcbd3db17f01b6">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a>);
+<a name="l00032"></a>00032 
+<a name="l00039"></a>00039     qreal <a class="code" href="../../dc/d3c/a00028.html#a178fcc263e2cc10fb33d47eb1d3357c6">min</a>() <span class="keyword">const</span>;
+<a name="l00046"></a>00046     <span class="keywordtype">void</span> <a class="code" href="../../dc/d3c/a00028.html#a5ae821873d607473e833ea554b4d1431">setMin</a>(<span class="keyword">const</span> qreal &amp;min);
+<a name="l00047"></a>00047 
+<a name="l00054"></a>00054     qreal <a class="code" href="../../dc/d3c/a00028.html#ad0c871f69045c2d62acc6b1bb6ba2c8a">max</a>() <span class="keyword">const</span>;
+<a name="l00061"></a>00061     <span class="keywordtype">void</span> <a class="code" href="../../dc/d3c/a00028.html#a353f1a0df8ea54e65d0615d582a45e5c">setMax</a>(<span class="keyword">const</span> qreal &amp;max);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 signals:
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keyword">public</span> slots:
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="keyword">private</span>:
+<a name="l00068"></a><a class="code" href="../../dc/d3c/a00028.html#a1b476754a829c6795102ed234deb2911">00068</a>     qreal <a class="code" href="../../dc/d3c/a00028.html#a1b476754a829c6795102ed234deb2911" title="TODO.">m_min</a>; 
+<a name="l00069"></a><a class="code" href="../../dc/d3c/a00028.html#a32f43c06ecaa75461b146ab248ef01f5">00069</a>     qreal <a class="code" href="../../dc/d3c/a00028.html#a32f43c06ecaa75461b146ab248ef01f5" title="TODO.">m_max</a>; 
+<a name="l00070"></a>00070 };
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="preprocessor">#endif // DECIMALQUESTIONSTATE_H</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 07:41:52 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d1/d1e/a00087.html">decimalquestionstate.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

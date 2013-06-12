@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/billings_table_model.h</title>
+<title>PreCheck:  Fichier source de models/database_manager.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,49 +80,196 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('df/dc8/a00122.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">billings_table_model.h</div>  </div>
+<div class="title">database_manager.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/dc8/a00122.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;QtSql/QSqlRelationalTableModel&gt;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#ifndef RENT_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#define RENT_H</span>
-<a name="l00004"></a>00004 <span class="preprocessor"></span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../d0/d5e/a00136.html">checkable_sort_filter_proxy_model.h</a>&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="../../d7/dec/a00010.html">00009</a> <span class="keyword">class </span><a class="code" href="../../d7/dec/a00010.html">BillingsTableModel</a> : <span class="keyword">public</span> <a class="code" href="../../de/d11/a00021.html">CheckableSortFilterProxyModel</a>
-<a name="l00010"></a>00010 {
-<a name="l00011"></a>00011     Q_OBJECT
-<a name="l00012"></a>00012     <span class="keyword">public</span>:
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015         <a class="code" href="../../d7/dec/a00010.html#a7703bb1f286fe0935a36ce4d8b61cfc6">BillingsTableModel</a>(QObject *parent = 0);
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017     <span class="keyword">protected</span>:
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020         <span class="keywordtype">void</span> <a class="code" href="../../d7/dec/a00010.html#a0f122710daefea8597daa94bb78ec142">fillModel</a>();
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 };
+<a href="../../df/dc8/a00122.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../de/d36/a00123.html">database_manager.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/df8/a00155.html">views/message_manager.h</a>&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtSql&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <a class="code" href="../../d0/d0b/a00004.html">AppDatabase</a> *<a class="code" href="../../d0/d0b/a00004.html#a4709c6c40479cf80d37397a7e4a314ed" title="TODO.">AppDatabase::_instance</a> = 0; 
+<a name="l00015"></a><a class="code" href="../../d0/d0b/a00004.html#afba86dd08ac8528cc6cfe07a44c91fbe">00015</a> <a class="code" href="../../d0/d0b/a00004.html">AppDatabase</a> *<a class="code" href="../../d0/d0b/a00004.html#afba86dd08ac8528cc6cfe07a44c91fbe">AppDatabase::getInstance</a>()
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     <span class="keywordflow">if</span> (<a class="code" href="../../d0/d0b/a00004.html#a4709c6c40479cf80d37397a7e4a314ed" title="TODO.">_instance</a> == 0)
+<a name="l00018"></a>00018     {
+<a name="l00019"></a>00019         <a class="code" href="../../d0/d0b/a00004.html#a4709c6c40479cf80d37397a7e4a314ed" title="TODO.">_instance</a> = <span class="keyword">new</span> <a class="code" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803">AppDatabase</a>;
+<a name="l00020"></a>00020     }
+<a name="l00021"></a>00021     <span class="keywordflow">return</span> <a class="code" href="../../d0/d0b/a00004.html#a4709c6c40479cf80d37397a7e4a314ed" title="TODO.">_instance</a>;
+<a name="l00022"></a>00022 }
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#endif // RENT_H</span>
+<a name="l00024"></a>00024 
+<a name="l00030"></a><a class="code" href="../../d0/d0b/a00004.html#ab5e656797f23373d5d5baca02009a76d">00030</a> <a class="code" href="../../d0/d0b/a00004.html#ab5e656797f23373d5d5baca02009a76d">AppDatabase::~AppDatabase</a>()
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032     <a class="code" href="../../d0/d0b/a00004.html#ad754e9b8c64ecfc3290b6c718c664471">dbDisconnect</a>();
+<a name="l00033"></a>00033 }
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 
+<a name="l00041"></a><a class="code" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803">00041</a> <a class="code" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803">AppDatabase::AppDatabase</a>()
+<a name="l00042"></a>00042 {
+<a name="l00043"></a>00043     <span class="comment">/*</span>
+<a name="l00044"></a>00044 <span class="comment">     *Check the existence of the database driver.</span>
+<a name="l00045"></a>00045 <span class="comment">     */</span>
+<a name="l00046"></a>00046     <span class="keywordflow">if</span> (!QSqlDatabase::isDriverAvailable(<a class="code" href="../../de/d36/a00123.html#a867ada6d1926e2ded0e68678e02a19c7" title="TODO.">dbDriverStr</a>))
+<a name="l00047"></a>00047     {
+<a name="l00048"></a>00048         <span class="comment">/*</span>
+<a name="l00049"></a>00049 <span class="comment">        *Gui message that informs that the driver does not exist</span>
+<a name="l00050"></a>00050 <span class="comment">        */</span>
+<a name="l00051"></a>00051         <a class="code" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260">MessageManager::errorMessage</a>(<a class="code" href="../../de/d36/a00123.html#adeeb3449586b533bdd3cd5938d501807" title="TODO.">dbDriverNotExistStr</a>);
+<a name="l00052"></a>00052         qDebug() &lt;&lt; <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.lastError();
+<a name="l00053"></a>00053         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.drivers().count(); i++)
+<a name="l00054"></a>00054         {
+<a name="l00055"></a>00055             qDebug() &lt;&lt; <span class="stringliteral">&quot;AVAILABLE DRIVERS : &quot;</span> &lt;&lt; <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.drivers()[i] &lt;&lt; endl;
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057         exit(1);
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <span class="comment">/*</span>
+<a name="l00061"></a>00061 <span class="comment">    *Connect to the database with the following driver.</span>
+<a name="l00062"></a>00062 <span class="comment">    */</span>
+<a name="l00063"></a>00063     <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a> = QSqlDatabase::addDatabase(<a class="code" href="../../de/d36/a00123.html#a867ada6d1926e2ded0e68678e02a19c7" title="TODO.">dbDriverStr</a>);
+<a name="l00064"></a>00064     <span class="keywordflow">if</span> (<a class="code" href="../../de/d36/a00123.html#a867ada6d1926e2ded0e68678e02a19c7" title="TODO.">dbDriverStr</a> == <span class="stringliteral">&quot;QIBASE&quot;</span>)
+<a name="l00065"></a>00065     {
+<a name="l00066"></a>00066         <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.setDatabaseName(<a class="code" href="../../de/d36/a00123.html#acee79beb6e5aec996fd46b84264d072a" title="TODO.">dbFilePathStr</a> + <a class="code" href="../../de/d36/a00123.html#a6c6a636455d1d86d7215a52de4bc6828" title="TODO.">dbFileNameStr</a>);
+<a name="l00067"></a>00067     }
+<a name="l00068"></a>00068     <span class="keywordflow">else</span>
+<a name="l00069"></a>00069     {
+<a name="l00070"></a>00070         <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.setDatabaseName(<a class="code" href="../../de/d36/a00123.html#a6c6a636455d1d86d7215a52de4bc6828" title="TODO.">dbFileNameStr</a>);
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072     <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.setUserName(<a class="code" href="../../de/d36/a00123.html#a15964752bd7d7c2075f3bafca2218411" title="TODO.">dbUsernameStr</a>);
+<a name="l00073"></a>00073     <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.setPassword(<a class="code" href="../../de/d36/a00123.html#a5dbd4602b69f5a87243d49f9c873ac64" title="TODO.">dbPasswordStr</a>);
+<a name="l00074"></a>00074     <a class="code" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f">dbConnect</a>();
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="comment">/*</span>
+<a name="l00079"></a>00079 <span class="comment"> *connect to database</span>
+<a name="l00080"></a>00080 <span class="comment"> */</span>
+<a name="l00081"></a>00081 
+<a name="l00088"></a><a class="code" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f">00088</a> <span class="keywordtype">bool</span> <a class="code" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f">AppDatabase::dbConnect</a>()
+<a name="l00089"></a>00089 {
+<a name="l00090"></a>00090     <span class="comment">/*</span>
+<a name="l00091"></a>00091 <span class="comment">    *Open database, if the database cannot open for</span>
+<a name="l00092"></a>00092 <span class="comment">    *any reason print a warning.</span>
+<a name="l00093"></a>00093 <span class="comment">    */</span>
+<a name="l00094"></a>00094     <span class="keywordflow">if</span> (!<a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.open())
+<a name="l00095"></a>00095     {
+<a name="l00096"></a>00096         <span class="comment">/*</span>
+<a name="l00097"></a>00097 <span class="comment">         *Gui message that informs that the database cannot open</span>
+<a name="l00098"></a>00098 <span class="comment">         */</span>
+<a name="l00099"></a>00099         <a class="code" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260">MessageManager::errorMessage</a>(<a class="code" href="../../de/d36/a00123.html#a19d48066a97c8a9a81827ccf23fd736f">dbCannotOpenStr</a>);
+<a name="l00100"></a>00100         qDebug() &lt;&lt; <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.lastError();
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102         <span class="comment">/*</span>
+<a name="l00103"></a>00103 <span class="comment">         *@return false if database connection failed.</span>
+<a name="l00104"></a>00104 <span class="comment">         */</span>
+<a name="l00105"></a>00105         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="comment">/*</span>
+<a name="l00109"></a>00109 <span class="comment">     *@return true if database connection successed</span>
+<a name="l00110"></a>00110 <span class="comment">     */</span>
+<a name="l00111"></a>00111     <span class="keywordflow">return</span> <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.isOpen();
+<a name="l00112"></a>00112 }
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="comment">/*</span>
+<a name="l00115"></a>00115 <span class="comment"> *disconnects from a database</span>
+<a name="l00116"></a>00116 <span class="comment"> */</span>
+<a name="l00117"></a>00117 
+<a name="l00124"></a><a class="code" href="../../d0/d0b/a00004.html#ad754e9b8c64ecfc3290b6c718c664471">00124</a> <span class="keywordtype">bool</span> <a class="code" href="../../d0/d0b/a00004.html#ad754e9b8c64ecfc3290b6c718c664471">AppDatabase::dbDisconnect</a>()
+<a name="l00125"></a>00125 {
+<a name="l00126"></a>00126     <span class="comment">/*</span>
+<a name="l00127"></a>00127 <span class="comment">     *close database</span>
+<a name="l00128"></a>00128 <span class="comment">     */</span>
+<a name="l00129"></a>00129     <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.close();
+<a name="l00130"></a>00130     <span class="keywordflow">return</span> (!<a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.isOpen());
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 
+<a name="l00140"></a><a class="code" href="../../d0/d0b/a00004.html#af160f7fbbf281d018ae3162521b8267d">00140</a> <span class="keywordtype">bool</span> <a class="code" href="../../d0/d0b/a00004.html#af160f7fbbf281d018ae3162521b8267d">AppDatabase::isConnected</a>()
+<a name="l00141"></a>00141 {
+<a name="l00142"></a>00142     <span class="keywordflow">return</span> <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.isOpen();
+<a name="l00143"></a>00143 }
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 
+<a name="l00152"></a><a class="code" href="../../d0/d0b/a00004.html#a1cad0fdd11c50e747a10b8b23556e596">00152</a> QSqlDatabase <a class="code" href="../../d0/d0b/a00004.html#a1cad0fdd11c50e747a10b8b23556e596">AppDatabase::getDbConnection</a>()
+<a name="l00153"></a>00153 {
+<a name="l00154"></a>00154     <span class="keywordflow">return</span> <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>;
+<a name="l00155"></a>00155 }
+<a name="l00156"></a>00156 
+<a name="l00164"></a><a class="code" href="../../d0/d0b/a00004.html#a5a55304124a0b0b92db1ac9b35cf6b1f">00164</a> <span class="keywordtype">bool</span> <a class="code" href="../../d0/d0b/a00004.html#a5a55304124a0b0b92db1ac9b35cf6b1f">AppDatabase::tableExists</a>(QString tableName)
+<a name="l00165"></a>00165 {
+<a name="l00166"></a>00166     <span class="keywordflow">return</span> <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) || <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.tables(QSql::Tables).contains(tableName.toUpper(), Qt::CaseInsensitive);
+<a name="l00167"></a>00167 }
+<a name="l00168"></a>00168 
+<a name="l00177"></a><a class="code" href="../../d0/d0b/a00004.html#a42bda0b1b2433ff60e8091e851f18469">00177</a> <span class="keywordtype">int</span> <a class="code" href="../../d0/d0b/a00004.html#a42bda0b1b2433ff60e8091e851f18469">AppDatabase::dataExists</a>(QString tableName, QString filter) {
+<a name="l00178"></a>00178     <span class="keywordflow">if</span>(!tableName.isEmpty() &amp;&amp; !filter.isEmpty()) {
+<a name="l00179"></a>00179         QString query = QString(<span class="stringliteral">&quot;SELECT COUNT(*) AS MATCH FROM %1 WHERE %2&quot;</span>).arg(tableName).arg(filter);
+<a name="l00180"></a>00180         QSqlQuery result = <a class="code" href="../../d0/d0b/a00004.html#a932d8955992b2a3b05a349538c33870f">execQuery</a>(query);
+<a name="l00181"></a>00181         <span class="keywordflow">if</span>(<a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.driver()-&gt;hasFeature(QSqlDriver::QuerySize)) {
+<a name="l00182"></a>00182             <span class="keywordflow">return</span> result.size();
+<a name="l00183"></a>00183         } <span class="keywordflow">else</span> {
+<a name="l00184"></a>00184             <span class="keywordflow">if</span>(result.next()) {
+<a name="l00185"></a>00185                 QSqlRecord rec = result.record();
+<a name="l00186"></a>00186                 <span class="keywordflow">if</span>(rec.isEmpty() || !result.isValid()) {
+<a name="l00187"></a>00187                     <span class="keywordflow">return</span> 0;
+<a name="l00188"></a>00188                 } <span class="keywordflow">else</span> {
+<a name="l00189"></a>00189                     <span class="keywordflow">return</span> rec.value(rec.indexOf(<span class="stringliteral">&quot;MATCH&quot;</span>)).toInt();
+<a name="l00190"></a>00190                 }
+<a name="l00191"></a>00191             } <span class="keywordflow">else</span> {
+<a name="l00192"></a>00192                 <span class="keywordflow">return</span> 0;
+<a name="l00193"></a>00193             }
+<a name="l00194"></a>00194         }
+<a name="l00195"></a>00195     }
+<a name="l00196"></a>00196     <span class="keywordflow">return</span> 0;
+<a name="l00197"></a>00197 }
+<a name="l00198"></a>00198 
+<a name="l00199"></a>00199 
+<a name="l00207"></a><a class="code" href="../../d0/d0b/a00004.html#a932d8955992b2a3b05a349538c33870f">00207</a> QSqlQuery <a class="code" href="../../d0/d0b/a00004.html#a932d8955992b2a3b05a349538c33870f">AppDatabase::execQuery</a>(QString query) {
+<a name="l00208"></a>00208     <span class="keywordflow">return</span> <a class="code" href="../../d0/d0b/a00004.html#ab881b2893bc01b2b7b635abfc7a6a91e" title="TODO.">dbConnection</a>.exec(query);
+<a name="l00209"></a>00209 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../df/dc8/a00122.html">database_manager.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

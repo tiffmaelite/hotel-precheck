@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence de la classe Client</title>
+<title>PreCheck: Référence de la classe ConfirmationState</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,66 +83,88 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d7/de0/a00022.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Fonctions membres publiques</a> &#124;
-<a href="#pub-attribs">Attributs publics</a> &#124;
-<a href="#properties">Propriétés</a> &#124;
-<a href="#pri-methods">Fonctions membres privées</a> &#124;
-<a href="#pri-attribs">Attributs privés</a>  </div>
+<a href="#pub-slots">Connecteurs publics</a> &#124;
+<a href="#signals">Signaux</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a>  </div>
   <div class="headertitle">
-<div class="title">Référence de la classe Client</div>  </div>
+<div class="title">Référence de la classe ConfirmationState</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="Client" -->
-<p><code>#include &lt;<a class="el" href="../../d5/db1/a00140_source.html">client.h</a>&gt;</code></p>
+<!-- doxytag: class="ConfirmationState" --><!-- doxytag: inherits="StatementState" -->
+<p>La class <a class="el" href="../../d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">ConfirmationState</a> représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation.  
+ <a href="../../d7/de0/a00022.html#details">Plus de détails...</a></p>
 
-<p><a href="../../d2/d6e/a00667.html">Liste de tous les membres</a></p>
+<p><code>#include &lt;<a class="el" href="../../d8/d53/a00081_source.html">logic/confirmationstate.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de ConfirmationState:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/dc2/a00367.png" border="0" usemap="#ConfirmationState_inherit__map" alt="Inheritance graph"/></div>
+<map name="ConfirmationState_inherit__map" id="ConfirmationState_inherit__map">
+<area shape="rect" id="node11" href="../../d6/d2c/a00072.html" title="{ValidationState\n||+ ValidationState()\l}" alt="" coords="13,955,144,1040"/><area shape="rect" id="node2" href="../../df/d03/a00062.html" title="{StatementState\n||+ StatementState()\l+ onEntry()\l+ setInput()\l}" alt="" coords="12,635,145,755"/><area shape="rect" id="node4" href="../../dc/d87/a00032.html" title="{IOState\n|&#45; m_input\l&#45; m_output\l|+ IOState()\l+ input()\l+ onEntry()\l+ onExit()\l+ output()\l+ setInput()\l+ setOutput()\l}" alt="" coords="29,379,128,586"/><area shape="rect" id="node6" href="../../d5/d16/a00029.html" title="{GenericState\n||+ GenericState()\l+ toString()\l}" alt="" coords="20,227,137,330"/><area shape="rect" id="node8" href="../../d8/d41/a00038.html" title="{NamedObject\n|&#45; m_name\l&#45; m_ptraddress\l|+ NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}" alt="" coords="17,6,140,178"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Graphe de collaboration de ConfirmationState:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d21/a00368.png" border="0" usemap="#ConfirmationState_coll__map" alt="Collaboration graph"/></div>
+<map name="ConfirmationState_coll__map" id="ConfirmationState_coll__map">
+<area shape="rect" id="node2" href="../../df/d03/a00062.html" title="{StatementState\n||+ StatementState()\l+ onEntry()\l+ setInput()\l}" alt="" coords="12,635,145,755"/><area shape="rect" id="node4" href="../../dc/d87/a00032.html" title="{IOState\n|&#45; m_input\l&#45; m_output\l|+ IOState()\l+ input()\l+ onEntry()\l+ onExit()\l+ output()\l+ setInput()\l+ setOutput()\l}" alt="" coords="29,379,128,586"/><area shape="rect" id="node6" href="../../d5/d16/a00029.html" title="{GenericState\n||+ GenericState()\l+ toString()\l}" alt="" coords="20,227,137,330"/><area shape="rect" id="node8" href="../../d8/d41/a00038.html" title="{NamedObject\n|&#45; m_name\l&#45; m_ptraddress\l|+ NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}" alt="" coords="17,6,140,178"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
+
+<p><a href="../../df/dee/a00369.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-slots"></a>
+Connecteurs publics</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321">confirmInput</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b">setOutput</a> (const QString &amp;<a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>)</td></tr>
+<tr><td colspan="2"><h2><a name="signals"></a>
+Signaux</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">next</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">resendInput</a> (QVariant <a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">sendOutput</a> (QVariant <a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a">Client</a> (int ID, QString <a class="el" href="../../d7/de0/a00022.html#abc29e461e01cc0c712944f8f47f91331">name</a>, QString <a class="el" href="../../d7/de0/a00022.html#a711b40f71b09a762457879637e052fc4">email</a>=&quot;&quot;, QString <a class="el" href="../../d7/de0/a00022.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>=&quot;&quot;, boolean <a class="el" href="../../d7/de0/a00022.html#af1cb89b895dab5e97508da2bee3188a0">isCurrentClient</a>=true, QObject *parent=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#acdef8f5bf649a17c710a4aec91103195">becomesCurrentClient</a> (boolean <a class="el" href="../../d7/de0/a00022.html#af1cb89b895dab5e97508da2bee3188a0">isCurrentClient</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a6a8e151eb9f245211596b967de72dd14">email</a> () <a class="el" href="../../d7/de0/a00022.html#a9692f6367ba08755c9ee9fc926ea0a86">const</a> </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#af1cb89b895dab5e97508da2bee3188a0">isCurrentClient</a> () <a class="el" href="../../d7/de0/a00022.html#a9692f6367ba08755c9ee9fc926ea0a86">const</a> </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a> () <a class="el" href="../../d7/de0/a00022.html#a9692f6367ba08755c9ee9fc926ea0a86">const</a> </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a> (QString <a class="el" href="../../d7/de0/a00022.html#a711b40f71b09a762457879637e052fc4">email</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber</a> (QString <a class="el" href="../../d7/de0/a00022.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Attributs publics</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString <a class="el" href="../../d7/de0/a00022.html#abc29e461e01cc0c712944f8f47f91331">name</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a9692f6367ba08755c9ee9fc926ea0a86">const</a></td></tr>
-<tr><td colspan="2"><h2><a name="properties"></a>
-Propriétés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#acee4f8e36659987bb81aab81d4aeee24">currentClient</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a711b40f71b09a762457879637e052fc4">email</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#abc29e461e01cc0c712944f8f47f91331">name</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a8fa47f6f18663de634e52a5f1dfbd9bd">phone</a></td></tr>
-<tr><td colspan="2"><h2><a name="pri-methods"></a>
-Fonctions membres privées</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a6220fae15759fd0fa7d75e415df34e83">setName</a> (QString <a class="el" href="../../d7/de0/a00022.html#abc29e461e01cc0c712944f8f47f91331">name</a>)</td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Attributs privés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#afee43417cb99fa21e5a1a665d1a096c7">m_current</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#abbecd8a5609bb8dde66e088553fdffab">m_email</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aad966617e7e050bedbead762727808a5">m_id</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aab4578f53a46cee4b24f9a555eb552de">m_name</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aec1b16830cfc165031fefacc72226999">m_phone</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a28ea2e240243e4edcabd5b584bb8abc4">ConfirmationState</a> (QString <a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>, QString <a class="el" href="../../d8/d41/a00038.html#a8ed2e2052fd239e296c60365ed5f3f61">name</a>, QState *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b">onEntry</a> (QEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f">onExit</a> (QEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ada5a250568597442e91778790424ac54">setInput</a> (const QVariant &amp;<a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
-<div class="textblock">
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00004">4</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<div class="textblock"><p>La class <a class="el" href="../../d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">ConfirmationState</a> représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation. </p>
+<p>L'état <a class="el" href="../../d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">ConfirmationState</a> correspond à un état de quasi-déclaration où la seule entrée acceptée de l'utilisateur est une confirmation. </p>
+
+<p>Définition à la ligne <a class="el" href="../../d8/d53/a00081_source.html#l00013">13</a> du fichier <a class="el" href="../../d8/d53/a00081_source.html">confirmationstate.h</a>.</p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a8d74ec9d0e17004abfc3cf900346ae6a"></a><!-- doxytag: member="Client::Client" ref="a8d74ec9d0e17004abfc3cf900346ae6a" args="(int ID, QString name, QString email=&quot;&quot;, QString phoneNumber=&quot;&quot;, boolean isCurrentClient=true, QObject *parent=0)" -->
+<a class="anchor" id="a28ea2e240243e4edcabd5b584bb8abc4"></a><!-- doxytag: member="ConfirmationState::ConfirmationState" ref="a28ea2e240243e4edcabd5b584bb8abc4" args="(QString output, QString name, QState *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/de0/a00022.html">Client</a> </td>
+          <td class="memname"><a class="el" href="../../d7/de0/a00022.html">ConfirmationState</a> </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ID</em>, </td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -124,25 +175,7 @@ Attributs privés</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>email</em> = <code>&quot;&quot;</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>phoneNumber</em> = <code>&quot;&quot;</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">boolean&#160;</td>
-          <td class="paramname"><em>isCurrentClient</em> = <code>true</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramtype">QState *&#160;</td>
           <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
@@ -153,417 +186,453 @@ Attributs privés</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../de/d14/a00139_source.html#l00003">3</a> du fichier <a class="el" href="../../de/d14/a00139_source.html">client.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../d7/de0/a00022.html#acdef8f5bf649a17c710a4aec91103195">becomesCurrentClient()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00031">m_id</a>, <a class="el" href="../../d7/de0/a00022.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail()</a>, <a class="el" href="../../d7/de0/a00022.html#a6220fae15759fd0fa7d75e415df34e83">setName()</a>, <a class="el" href="../../d7/de0/a00022.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber()</a>, <a class="el" href="../../d7/de0/a00022.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail()</a>, et <a class="el" href="../../d7/de0/a00022.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber()</a>.</p>
-
-<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_a8d74ec9d0e17004abfc3cf900346ae6a_cgraph.png" border="0" usemap="#d7/de0/a00022_a8d74ec9d0e17004abfc3cf900346ae6a_cgraph" alt=""/></div>
-<map name="d7/de0/a00022_a8d74ec9d0e17004abfc3cf900346ae6a_cgraph" id="d7/de0/a00022_a8d74ec9d0e17004abfc3cf900346ae6a_cgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#acdef8f5bf649a17c710a4aec91103195" title="becomesCurrentClient" alt="" coords="109,5,261,35"/><area shape="rect" id="node5" href="../../d7/de0/a00022.html#adf0a5b518efbbcb4da139dd419f961c7" title="setEmail" alt="" coords="149,59,221,88"/><area shape="rect" id="node7" href="../../d7/de0/a00022.html#a6220fae15759fd0fa7d75e415df34e83" title="setName" alt="" coords="148,112,223,141"/><area shape="rect" id="node9" href="../../d7/de0/a00022.html#a3c3203114d2e1740f51c11c9e0529c1c" title="setPhoneNumber" alt="" coords="124,165,247,195"/><area shape="rect" id="node11" href="../../d7/de0/a00022.html#a39972b72c00d8bb4264747ba0a73d8b8" title="unsetEmail" alt="" coords="143,219,228,248"/><area shape="rect" id="node13" href="../../d7/de0/a00022.html#a09194a309d1fa7aaeb95ca9d477051d9" title="unsetPhoneNumber" alt="" coords="117,272,253,301"/></map>
-</div>
-</p>
+<p>Définition à la ligne <a class="el" href="../../da/dec/a00080_source.html#l00012">12</a> du fichier <a class="el" href="../../da/dec/a00080_source.html">confirmationstate.cpp</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="acdef8f5bf649a17c710a4aec91103195"></a><!-- doxytag: member="Client::becomesCurrentClient" ref="acdef8f5bf649a17c710a4aec91103195" args="(boolean isCurrentClient)" -->
+<a class="anchor" id="a178170502955a41fa9492bb3e1bc4321"></a><!-- doxytag: member="ConfirmationState::confirmInput" ref="a178170502955a41fa9492bb3e1bc4321" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d7/de0/a00022.html#acdef8f5bf649a17c710a4aec91103195">becomesCurrentClient</a> </td>
-          <td>(</td>
-          <td class="paramtype">boolean&#160;</td>
-          <td class="paramname"><em>isCurrentClient</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
-
-<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_acdef8f5bf649a17c710a4aec91103195_icgraph.png" border="0" usemap="#d7/de0/a00022_acdef8f5bf649a17c710a4aec91103195_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_acdef8f5bf649a17c710a4aec91103195_icgraph" id="d7/de0/a00022_acdef8f5bf649a17c710a4aec91103195_icgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a" title="Client" alt="" coords="205,5,261,35"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a6a8e151eb9f245211596b967de72dd14"></a><!-- doxytag: member="Client::email" ref="a6a8e151eb9f245211596b967de72dd14" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#a711b40f71b09a762457879637e052fc4">email</a> </td>
+          <td class="memname"><a class="el" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321">confirmInput</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [slot]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="af1cb89b895dab5e97508da2bee3188a0"></a><!-- doxytag: member="Client::isCurrentClient" ref="af1cb89b895dab5e97508da2bee3188a0" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boolean <a class="el" href="../../d7/de0/a00022.html#af1cb89b895dab5e97508da2bee3188a0">isCurrentClient</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Définition à la ligne <a class="el" href="../../da/dec/a00080_source.html#l00023">23</a> du fichier <a class="el" href="../../da/dec/a00080_source.html">confirmationstate.cpp</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a321b089bf1e6fc413130975a7327c253"></a><!-- doxytag: member="Client::phoneNumber" ref="a321b089bf1e6fc413130975a7327c253" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Références <a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">GenericState::next()</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="adf0a5b518efbbcb4da139dd419f961c7"></a><!-- doxytag: member="Client::setEmail" ref="adf0a5b518efbbcb4da139dd419f961c7" args="(QString email)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d7/de0/a00022.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a> </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>email</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>.</p>
 
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_adf0a5b518efbbcb4da139dd419f961c7_icgraph.png" border="0" usemap="#d7/de0/a00022_adf0a5b518efbbcb4da139dd419f961c7_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_adf0a5b518efbbcb4da139dd419f961c7_icgraph" id="d7/de0/a00022_adf0a5b518efbbcb4da139dd419f961c7_icgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a" title="Client" alt="" coords="128,5,184,35"/></map>
+<div class="center"><img src="../../d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_cgraph.png" border="0" usemap="#d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_cgraph" id="d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_cgraph">
+<area shape="rect" id="node3" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a" title="GenericState::next" alt="" coords="149,5,280,35"/></map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="a6220fae15759fd0fa7d75e415df34e83"></a><!-- doxytag: member="Client::setName" ref="a6220fae15759fd0fa7d75e415df34e83" args="(QString name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d7/de0/a00022.html#a6220fae15759fd0fa7d75e415df34e83">setName</a> </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
 
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_a6220fae15759fd0fa7d75e415df34e83_icgraph.png" border="0" usemap="#d7/de0/a00022_a6220fae15759fd0fa7d75e415df34e83_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_a6220fae15759fd0fa7d75e415df34e83_icgraph" id="d7/de0/a00022_a6220fae15759fd0fa7d75e415df34e83_icgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a" title="Client" alt="" coords="128,5,184,35"/></map>
+<div class="center"><img src="../../d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_icgraph.png" border="0" usemap="#d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_icgraph" alt=""/></div>
+<map name="d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_icgraph" id="d7/de0/a00022_a178170502955a41fa9492bb3e1bc4321_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="151,5,340,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a3c3203114d2e1740f51c11c9e0529c1c"></a><!-- doxytag: member="Client::setPhoneNumber" ref="a3c3203114d2e1740f51c11c9e0529c1c" args="(QString phoneNumber)" -->
+<a class="anchor" id="ad692ec3c90700ec6e27b18af72eee635"></a><!-- doxytag: member="ConfirmationState::input" ref="ad692ec3c90700ec6e27b18af72eee635" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d7/de0/a00022.html#a3c3203114d2e1740f51c11c9e0529c1c">setPhoneNumber</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a> </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>phoneNumber</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QVariant </dd></dl>
 
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00022">22</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00087">IOState::m_input</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00033">IOState::setInput()</a>.</p>
 
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_a3c3203114d2e1740f51c11c9e0529c1c_icgraph.png" border="0" usemap="#d7/de0/a00022_a3c3203114d2e1740f51c11c9e0529c1c_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_a3c3203114d2e1740f51c11c9e0529c1c_icgraph" id="d7/de0/a00022_a3c3203114d2e1740f51c11c9e0529c1c_icgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a" title="Client" alt="" coords="176,5,232,35"/></map>
+<div class="center"><img src="../../dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph.png" border="0" usemap="#dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph" id="dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="223,5,412,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="104,31,173,60"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a39972b72c00d8bb4264747ba0a73d8b8"></a><!-- doxytag: member="Client::unsetEmail" ref="a39972b72c00d8bb4264747ba0a73d8b8" args="()" -->
+<a class="anchor" id="acea62048bfee7b3cd80ed446c86fb78a"></a><!-- doxytag: member="ConfirmationState::next" ref="acea62048bfee7b3cd80ed446c86fb78a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d7/de0/a00022.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">next</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">QuestionState::checkValidity()</a>, <a class="el" href="../../da/dec/a00080_source.html#l00023">confirmInput()</a>, et <a class="el" href="../../d0/dc2/a00104_source.html#l00035">StatementState::onEntry()</a>.</p>
 
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_a39972b72c00d8bb4264747ba0a73d8b8_icgraph.png" border="0" usemap="#d7/de0/a00022_a39972b72c00d8bb4264747ba0a73d8b8_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_a39972b72c00d8bb4264747ba0a73d8b8_icgraph" id="d7/de0/a00022_a39972b72c00d8bb4264747ba0a73d8b8_icgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a" title="Client" alt="" coords="141,5,197,35"/></map>
+<div class="center"><img src="../../d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph.png" border="0" usemap="#d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph" alt=""/></div>
+<map name="d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph" id="d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="QuestionState::checkValidity" alt="" coords="111,5,300,35"/><area shape="rect" id="node5" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321" title="ConfirmationState::confirmInput" alt="" coords="103,59,308,88"/><area shape="rect" id="node9" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b" title="StatementState::onEntry" alt="" coords="123,112,288,141"/><area shape="rect" id="node7" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="359,59,548,88"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a09194a309d1fa7aaeb95ca9d477051d9"></a><!-- doxytag: member="Client::unsetPhoneNumber" ref="a09194a309d1fa7aaeb95ca9d477051d9" args="()" -->
+<a class="anchor" id="a31b61d841fca82187cb7d94cb990611b"></a><!-- doxytag: member="ConfirmationState::onEntry" ref="a31b61d841fca82187cb7d94cb990611b" args="(QEvent *event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d7/de0/a00022.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a> </td>
+          <td class="memname"><a class="el" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b">onEntry</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
+<p>Réimplémentée à partir de <a class="el" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b">IOState</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../d0/dc2/a00104_source.html#l00035">35</a> du fichier <a class="el" href="../../d0/dc2/a00104_source.html">statementstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">GenericState::next()</a>.</p>
 
 <p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/de0/a00022_a09194a309d1fa7aaeb95ca9d477051d9_icgraph.png" border="0" usemap="#d7/de0/a00022_a09194a309d1fa7aaeb95ca9d477051d9_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_a09194a309d1fa7aaeb95ca9d477051d9_icgraph" id="d7/de0/a00022_a09194a309d1fa7aaeb95ca9d477051d9_icgraph">
-<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a" title="Client" alt="" coords="192,5,248,35"/></map>
+<div class="center"><img src="../../df/d03/a00062_a31b61d841fca82187cb7d94cb990611b_cgraph.png" border="0" usemap="#df/d03/a00062_a31b61d841fca82187cb7d94cb990611b_cgraph" alt=""/></div>
+<map name="df/d03/a00062_a31b61d841fca82187cb7d94cb990611b_cgraph" id="df/d03/a00062_a31b61d841fca82187cb7d94cb990611b_cgraph">
+<area shape="rect" id="node3" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a" title="GenericState::next" alt="" coords="120,5,251,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<hr/><h2>Documentation des données membres</h2>
-<a class="anchor" id="a9692f6367ba08755c9ee9fc926ea0a86"></a><!-- doxytag: member="Client::const" ref="a9692f6367ba08755c9ee9fc926ea0a86" args="" -->
+<a class="anchor" id="ace3bc8cea2ce9a73fab833e83d6bc14f"></a><!-- doxytag: member="ConfirmationState::onExit" ref="ace3bc8cea2ce9a73fab833e83d6bc14f" args="(QEvent *event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#abc29e461e01cc0c712944f8f47f91331">name</a> <a class="el" href="../../d7/de0/a00022.html#a9692f6367ba08755c9ee9fc926ea0a86">const</a></td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f">onExit</a> </td>
+          <td>(</td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00018">18</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00082">82</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00087">IOState::m_input</a>, et <a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">IOState::resendInput()</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph.png" border="0" usemap="#dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph" id="dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952" title="resendInput" alt="" coords="112,5,203,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="afee43417cb99fa21e5a1a665d1a096c7"></a><!-- doxytag: member="Client::m_current" ref="afee43417cb99fa21e5a1a665d1a096c7" args="" -->
+<a class="anchor" id="aa50ed472c808b4af396048306b39e23f"></a><!-- doxytag: member="ConfirmationState::output" ref="aa50ed472c808b4af396048306b39e23f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boolean <a class="el" href="../../d7/de0/a00022.html#afee43417cb99fa21e5a1a665d1a096c7">m_current</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00029">29</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00045">45</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dec/a00090_source.html#l00070">IOState::setOutput()</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph.png" border="0" usemap="#dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph" id="dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b" title="setOutput" alt="" coords="113,5,191,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="abbecd8a5609bb8dde66e088553fdffab"></a><!-- doxytag: member="Client::m_email" ref="abbecd8a5609bb8dde66e088553fdffab" args="" -->
+<a class="anchor" id="a8f5c8a9300aa4835a1b08d32e24ce952"></a><!-- doxytag: member="ConfirmationState::resendInput" ref="a8f5c8a9300aa4835a1b08d32e24ce952" args="(QVariant input)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#abbecd8a5609bb8dde66e088553fdffab">m_email</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">resendInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00027">27</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00082">IOState::onExit()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00033">IOState::setInput()</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph.png" border="0" usemap="#dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph" id="dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="263,21,452,51"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f" title="onExit" alt="" coords="149,20,208,49"/><area shape="rect" id="node7" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="144,73,213,103"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aad966617e7e050bedbead762727808a5"></a><!-- doxytag: member="Client::m_id" ref="aad966617e7e050bedbead762727808a5" args="" -->
+<a class="anchor" id="a33f3bdead52e00999ff434c1306cb9ca"></a><!-- doxytag: member="ConfirmationState::sendOutput" ref="a33f3bdead52e00999ff434c1306cb9ca" args="(QVariant output)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="../../d7/de0/a00022.html#aad966617e7e050bedbead762727808a5">m_id</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">sendOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00031">31</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00056">IOState::onEntry()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00070">IOState::setOutput()</a>.</p>
 
-<p>Référencé par <a class="el" href="../../de/d14/a00139_source.html#l00003">Client()</a>.</p>
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph.png" border="0" usemap="#dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph" id="dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="145,5,335,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b" title="onEntry" alt="" coords="207,59,273,88"/><area shape="rect" id="node7" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b" title="setOutput" alt="" coords="201,112,279,141"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aab4578f53a46cee4b24f9a555eb552de"></a><!-- doxytag: member="Client::m_name" ref="aab4578f53a46cee4b24f9a555eb552de" args="" -->
+<a class="anchor" id="ada5a250568597442e91778790424ac54"></a><!-- doxytag: member="ConfirmationState::setInput" ref="ada5a250568597442e91778790424ac54" args="(const QVariant &amp;input)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#aab4578f53a46cee4b24f9a555eb552de">m_name</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../df/d03/a00062.html#ada5a250568597442e91778790424ac54">setInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td><code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00030">30</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Réimplémentée à partir de <a class="el" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54">IOState</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../d0/dc2/a00104_source.html#l00023">23</a> du fichier <a class="el" href="../../d0/dc2/a00104_source.html">statementstate.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aec1b16830cfc165031fefacc72226999"></a><!-- doxytag: member="Client::m_phone" ref="aec1b16830cfc165031fefacc72226999" args="" -->
+<a class="anchor" id="ab23253247c06e649614b95d165ba934b"></a><!-- doxytag: member="ConfirmationState::setOutput" ref="ab23253247c06e649614b95d165ba934b" args="(const QString &amp;output)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#aec1b16830cfc165031fefacc72226999">m_phone</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b">setOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td><code> [virtual, slot, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00028">28</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00070">70</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00045">IOState::output()</a>, et <a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">IOState::sendOutput()</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph.png" border="0" usemap="#dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph" id="dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f" title="output" alt="" coords="149,5,208,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca" title="sendOutput" alt="" coords="135,59,223,88"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<hr/><h2>Documentation des propriétés</h2>
-<a class="anchor" id="acee4f8e36659987bb81aab81d4aeee24"></a><!-- doxytag: member="Client::currentClient" ref="acee4f8e36659987bb81aab81d4aeee24" args="" -->
+<a class="anchor" id="a5558c5d549f41597377fa1ea8a1cefa3"></a><!-- doxytag: member="ConfirmationState::toString" ref="a5558c5d549f41597377fa1ea8a1cefa3" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boolean <a class="el" href="../../d7/de0/a00022.html#acee4f8e36659987bb81aab81d4aeee24">currentClient</a><code> [read, write]</code></td>
+          <td class="memname"><a class="el" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00009">9</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Réimplémentée à partir de <a class="el" href="../../d8/d41/a00038.html#a5558c5d549f41597377fa1ea8a1cefa3">NamedObject</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a711b40f71b09a762457879637e052fc4"></a><!-- doxytag: member="Client::email" ref="a711b40f71b09a762457879637e052fc4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#a711b40f71b09a762457879637e052fc4">email</a><code> [read, write]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Définition à la ligne <a class="el" href="../../db/ddf/a00088_source.html#l00022">22</a> du fichier <a class="el" href="../../db/ddf/a00088_source.html">genericstate.cpp</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00007">7</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p>Références <a class="el" href="../../d1/dc1/a00092_source.html#l00025">IOStateMachine::toString()</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="abc29e461e01cc0c712944f8f47f91331"></a><!-- doxytag: member="Client::name" ref="abc29e461e01cc0c712944f8f47f91331" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#abc29e461e01cc0c712944f8f47f91331">name</a><code> [read]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00025">IOStateMachine::toString()</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00007">7</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph.png" border="0" usemap="#d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph" alt=""/></div>
+<map name="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph" id="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3" title="IOStateMachine::toString" alt="" coords="121,5,289,35"/></map>
+</div>
+</p>
 
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph.png" border="0" usemap="#d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph" alt=""/></div>
+<map name="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph" id="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3" title="IOStateMachine::toString" alt="" coords="121,5,289,35"/></map>
 </div>
-<a class="anchor" id="a8fa47f6f18663de634e52a5f1dfbd9bd"></a><!-- doxytag: member="Client::phone" ref="a8fa47f6f18663de634e52a5f1dfbd9bd" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d7/de0/a00022.html#a8fa47f6f18663de634e52a5f1dfbd9bd">phone</a><code> [read, write]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../d5/db1/a00140_source.html#l00008">8</a> du fichier <a class="el" href="../../d5/db1/a00140_source.html">client.h</a>.</p>
+</p>
 
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li>models/<a class="el" href="../../d5/db1/a00140_source.html">client.h</a></li>
-<li>models/<a class="el" href="../../de/d14/a00139_source.html">client.cpp</a></li>
+<li>logic/<a class="el" href="../../d8/d53/a00081_source.html">confirmationstate.h</a></li>
+<li>logic/<a class="el" href="../../da/dec/a00080_source.html">confirmationstate.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d7/de0/a00022.html">ConfirmationState</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

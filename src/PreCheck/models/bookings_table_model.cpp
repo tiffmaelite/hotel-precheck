@@ -1,6 +1,12 @@
 #include "bookings_table_model.h"
 
 
+/*!
+ \brief
+
+ \fn BookingsTableModel::BookingsTableModel
+ \param parent
+*/
 BookingsTableModel::BookingsTableModel(QObject *parent):
     CheckableSortFilterProxyModel(parent)
 {
@@ -9,6 +15,11 @@ BookingsTableModel::BookingsTableModel(QObject *parent):
 }
 
 
+/*!
+ \brief
+
+ \fn BookingsTableModel::fillModel
+*/
 void BookingsTableModel::fillModel()
 {
     CheckableSortFilterProxyModel::model->setHeaderData(0, Qt::Horizontal, QObject::tr("Date réservation"));

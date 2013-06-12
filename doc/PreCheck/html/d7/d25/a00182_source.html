@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/RestrictiveApplication.h</title>
+<title>PreCheck:  Fichier source de views/qml/UpDownCheckImage.qml</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,66 +80,121 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d7/d25/a00182.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">RestrictiveApplication.h</div>  </div>
+<div class="title">UpDownCheckImage.qml</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/d25/a00182.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef RESTRICTIVEAPPLICATION_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define RESTRICTIVEAPPLICATION_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00202.html">user.h</a>&quot;</span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QApplication&gt;</span>
-<a name="l00005"></a>00005 
-<a name="l00006"></a><a class="code" href="../../d1/d6e/a00073.html">00006</a> <span class="keyword">class </span><a class="code" href="../../d1/d6e/a00073.html">RestrictiveApplication</a> : <span class="keyword">public</span> QObject
-<a name="l00007"></a>00007 {
-<a name="l00008"></a>00008     Q_OBJECT
-<a name="l00009"></a><a class="code" href="../../d1/d6e/a00073.html#aa4619738725295c53116ed1a27282fbc">00009</a>     Q_PROPERTY(<a class="code" href="../../d0/dc2/a00104.html">User</a>* <a class="code" href="../../d1/d6e/a00073.html#aa4619738725295c53116ed1a27282fbc">currentUser</a> READ <a class="code" href="../../d1/d6e/a00073.html#a3e30263eb37466f024f274f7bcc478ac">user</a> NOTIFY <a class="code" href="../../d1/d6e/a00073.html#af19f10e317ef10b279047604f42d68e2">userChanged</a>)
-<a name="l00010"></a><a class="code" href="../../d1/d6e/a00073.html#a9fc17d5e89135290228a12fcda5e6e7e">00010</a>     Q_PROPERTY(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a9fc17d5e89135290228a12fcda5e6e7e">currentMode</a> READ <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a> WRITE <a class="code" href="../../d1/d6e/a00073.html#a1fbf4a2fdb33b23e5aece5db3468787d">setMode</a> NOTIFY <a class="code" href="../../d1/d6e/a00073.html#a536f1cec593cb466e4731b89be006caa">modeChanged</a>)
-<a name="l00011"></a>00011     Q_ENUMS(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a>)
-<a name="l00012"></a>00012 public:
-<a name="l00013"></a><a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">00013</a>     enum <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> { <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a7a40644eb43180cb6bf7236975c64d4c">CONNEXION</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a96251739b593a8e10380d58a30e93fd8">ACCUEIL</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">RECEPTION</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">MANAGEMENT_X</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">MANAGEMENT_Z</a>, <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30">ADMINISTRATION</a> };
-<a name="l00014"></a>00014     <a class="code" href="../../d1/d6e/a00073.html#a67ccd544201d679e59bf4a04693a66a4">RestrictiveApplication</a>(QObject* parent=0);
-<a name="l00015"></a>00015     <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>() <span class="keyword">const</span>;
-<a name="l00016"></a>00016     <a class="code" href="../../d0/dc2/a00104.html">User</a>* <a class="code" href="../../d1/d6e/a00073.html#a3e30263eb37466f024f274f7bcc478ac">user</a>() <span class="keyword">const</span>;
-<a name="l00017"></a>00017     <span class="comment">//Q_INVOKABLE User* currentUser() const;</span>
-<a name="l00018"></a>00018     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>();
-<a name="l00019"></a>00019     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a1fbf4a2fdb33b23e5aece5db3468787d">setMode</a>(<a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>);
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 signals:
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#af19f10e317ef10b279047604f42d68e2">userChanged</a>(QVariant <a class="code" href="../../d9/d47/a00129.html#a2b0a198f837184bf6fff555cee3ce770">name</a>);
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a536f1cec593cb466e4731b89be006caa">modeChanged</a>(QVariant <a class="code" href="../../d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">mode</a>);
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a8e753610acb318014107d128ae18927e">userFound</a>();
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a6b370ea60683c12b3ca86fba2129cea2">userNotFound</a>();
-<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#ade1b502b9a1b6561f995e059b2529391">userLoggedIn</a>();
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a2045be5420135eeb57f2da6c6e22ae03">userLoggedOut</a>();
-<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#a9646e44a00f6d1cecf3b79d678f36251">badPassword</a>();
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">public</span> slots:
-<a name="l00031"></a>00031     <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6e/a00073.html#a2b0ba649e0922683b4f8d99d295c0da9">userExists</a>(QString login);
-<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="../../d1/d6e/a00073.html#addb0f19e38bdf7eaaf91c63a50bbe3c2">setUser</a>(QString login, QString pass);
-<a name="l00033"></a>00033     <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6e/a00073.html#a3a0ddf81e376939ebe0e4ced76e1ae96">userLogOut</a>();
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">private</span>:
-<a name="l00036"></a><a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">00036</a>     <a class="code" href="../../d0/dc2/a00104.html">User</a>* <a class="code" href="../../d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">m_currentUser</a>;
-<a name="l00037"></a><a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">00037</a>     <a class="code" href="../../d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> <a class="code" href="../../d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">m_mode</a>;
-<a name="l00038"></a>00038     
-<a name="l00039"></a>00039 };
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="preprocessor">#endif // RESTRICTIVEAPPLICATION_H</span>
+<a href="../../d7/d25/a00182.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../d4/d31/a00069.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
+<a name="l00002"></a>00002 import QtQuick.Window 2.1
+<a name="l00003"></a>00003 import QtQuick.Controls 1.0
+<a name="l00004"></a><a class="code" href="../../d4/d31/a00069.html#af7207ba9a7bbec1e8bdcaa466ae83e64">00004</a> import QtQuick.Controls.Styles 1.0
+<a name="l00005"></a>00005 import QtQuick.Layouts 1.0
+<a name="l00006"></a><a class="code" href="../../d4/d31/a00069.html#a7155f867ab504d48e40f4b43a4d9daf6">00006</a> import PreCheck 1.0
+<a name="l00007"></a>00007 
+<a name="l00008"></a><a class="code" href="../../d4/d31/a00069.html#a38263c12633d2bc2ebc42563750cd38a">00008</a> FocusScope {
+<a name="l00009"></a>00009     <span class="keywordtype">id</span>:root
+<a name="l00010"></a><a class="code" href="../../d4/d31/a00069.html#a51927a428d44936241329e1608abc77e">00010</a> 
+<a name="l00011"></a>00011     signal pressed
+<a name="l00012"></a><a class="code" href="../../d4/d31/a00069.html#a312376e8545ff9d80b006c1f149f8548">00012</a> 
+<a name="l00013"></a>00013     <span class="keyword">property</span> <span class="keywordtype">bool</span> checked
+<a name="l00014"></a><a class="code" href="../../d4/d31/a00069.html#a4f0981be3b90e564d3674cd291952382">00014</a>     <span class="keyword">property</span> <span class="keywordtype">bool</span> up
+<a name="l00015"></a>00015     <span class="keyword">property</span> real labelSpacing: 0
+<a name="l00016"></a><a class="code" href="../../d4/d31/a00069.html#a780020b647987365a5a7280ba79e059c">00016</a> 
+<a name="l00017"></a>00017     <span class="keyword">property</span> alias text: txtPart.text
+<a name="l00018"></a><a class="code" href="../../d4/d31/a00069.html#a29759ca8e808161d282bd6b6ac6e7085">00018</a> 
+<a name="l00019"></a>00019     readonly <span class="keyword">property</span> <span class="keywordtype">string</span> imgUp: <span class="stringliteral">&quot;../img/up.png&quot;</span>
+<a name="l00020"></a><a class="code" href="../../d4/d31/a00069.html#a1353d905133bbfedbdb09e6dc400c4bf">00020</a>     readonly <span class="keyword">property</span> <span class="keywordtype">string</span> imgDown: <span class="stringliteral">&quot;../img/down.png&quot;</span>
+<a name="l00021"></a>00021     readonly <span class="keyword">property</span> real length: txtPart.paintedWidth+imgPart.paintedWidth
+<a name="l00022"></a>00022     readonly <span class="keyword">property</span> real innerHeight: root.height-root.anchors.topMargin-root.anchors.bottomMargin
+<a name="l00023"></a>00023     readonly <span class="keyword">property</span> real innerWidth: root.width-root.anchors.rightMargin-root.anchors.leftMargin
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025     Image {
+<a name="l00026"></a>00026         <span class="keywordtype">id</span>: imgPart
+<a name="l00027"></a>00027         fillMode: Image.PreserveAspectFit
+<a name="l00028"></a>00028         width: root.innerHeight
+<a name="l00029"></a>00029         height: root.innerHeight
+<a name="l00030"></a>00030         source: root.up ? root.imgUp : root.imgDown
+<a name="l00031"></a>00031         visible: root.checked
+<a name="l00032"></a>00032         anchors.left: root.left
+<a name="l00033"></a>00033         anchors.top: root.top
+<a name="l00034"></a>00034         anchors.bottom: root.bottom
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036         <span class="comment">//TouchArea {</span>
+<a name="l00037"></a>00037         MouseArea {
+<a name="l00038"></a>00038             onClicked: {
+<a name="l00039"></a>00039                 root.pressed();
+<a name="l00040"></a>00040                 root.up = !root.up;
+<a name="l00041"></a>00041             }
+<a name="l00042"></a>00042             focus: imgPart.visible
+<a name="l00043"></a>00043             anchors.fill: imgPart
+<a name="l00044"></a>00044             hoverEnabled: <span class="keyword">true</span>
+<a name="l00045"></a>00045         }
+<a name="l00046"></a>00046     }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     Text {
+<a name="l00049"></a>00049         <span class="keywordtype">id</span>:txtPart
+<a name="l00050"></a>00050         visible: <span class="keyword">true</span>
+<a name="l00051"></a>00051         height: root.innerHeight
+<a name="l00052"></a>00052         width: imgPart.visible ? root.innerWidth-imgPart.paintedWidth-root.labelSpacing : root.innerWidth
+<a name="l00053"></a>00053         anchors.left: imgPart.visible ? imgPart.right : root.left
+<a name="l00054"></a>00054         anchors.right: root.right
+<a name="l00055"></a>00055         anchors.top: root.top
+<a name="l00056"></a>00056         anchors.bottom: root.bottom
+<a name="l00057"></a>00057         font.strikeout: !root.checked
+<a name="l00058"></a>00058         wrapMode: Text.Wrap
+<a name="l00059"></a>00059         <span class="comment">//TouchArea {</span>
+<a name="l00060"></a>00060         MouseArea {
+<a name="l00061"></a>00061             onClicked: {
+<a name="l00062"></a>00062                 root.pressed();
+<a name="l00063"></a>00063                 root.checked = !root.checked;
+<a name="l00064"></a>00064             }
+<a name="l00065"></a>00065             focus: !imgPart.visible
+<a name="l00066"></a>00066             anchors.fill: txtPart
+<a name="l00067"></a>00067             hoverEnabled: <span class="keyword">true</span>
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d7/d25/a00182.html">UpDownCheckImage.qml</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

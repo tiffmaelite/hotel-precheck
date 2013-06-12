@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/qml/TabZone.qml</title>
+<title>PreCheck:  Fichier source de views/keyboard_tab.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,213 +80,80 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d5/d7b/a00286.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">TabZone.qml</div>  </div>
+<div class="title">keyboard_tab.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/d7b/a00286.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../d1/d84/a00097.html">00001</a> <span class="keyword">import</span> QtQuick 2.1
-<a name="l00002"></a>00002 import QtQuick.Window 2.1
-<a name="l00003"></a>00003 import QtQuick.Controls 1.0
-<a name="l00004"></a><a class="code" href="../../d1/d84/a00097.html#a1d9de36d63962b81871645136cc794bb">00004</a> import QtQuick.Controls.Styles 1.0
-<a name="l00005"></a>00005 import QtQuick.Layouts 1.0
-<a name="l00006"></a>00006 import PreCheck 1.0
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 TabView {
-<a name="l00009"></a>00009     <span class="keywordtype">id</span>: tabView
-<a name="l00010"></a>00010     currentIndex: 0
-<a name="l00011"></a>00011     signal selected(<span class="keywordtype">string</span> selectedItem)
-<a name="l00012"></a>00012     signal selectedForDetail(<span class="keywordtype">string</span> selectedTable, <span class="keywordtype">int</span> selectedRow)
-<a name="l00013"></a>00013     <span class="keyword">property</span> var stdKeyboard: []
-<a name="l00014"></a>00014     signal reload()
-<a name="l00015"></a>00015     signal newBilling()
-<a name="l00016"></a>00016     signal newSelling(<span class="keywordtype">int</span> userId)
-<a name="l00017"></a>00017     signal newBooking()
-<a name="l00018"></a>00018     signal otherService()
-<a name="l00019"></a>00019     signal otherServiceNoName()
-<a name="l00020"></a>00020     <span class="keyword">function</span> openTab(tabIndex) {
-<a name="l00021"></a>00021         tabView.currentIndex = tabIndex;
-<a name="l00022"></a>00022     }
-<a name="l00023"></a>00023     style: TabViewStyle {
-<a name="l00024"></a>00024         <span class="keywordtype">id</span>:style
-<a name="l00025"></a>00025         frame: Rectangle {
-<a name="l00026"></a>00026             anchors.fill: parent
-<a name="l00027"></a>00027             height: tabView.height-style.frameOverlap
-<a name="l00028"></a>00028             width: tabView.width
-<a name="l00029"></a>00029             color: <span class="stringliteral">&quot;#dcdcdc&quot;</span>
-<a name="l00030"></a>00030             border.color: <span class="stringliteral">&quot;#aaa&quot;</span>
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032             Rectangle {
-<a name="l00033"></a>00033                 anchors.fill: parent
-<a name="l00034"></a>00034                 color: <span class="stringliteral">&quot;transparent&quot;</span>
-<a name="l00035"></a>00035                 border.color: <span class="stringliteral">&quot;#66ffffff&quot;</span>
-<a name="l00036"></a>00036                 anchors.margins: 2
-<a name="l00037"></a>00037             }
-<a name="l00038"></a>00038         }
-<a name="l00039"></a>00039     }
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041     Component.onCompleted: {
-<a name="l00042"></a>00042         tabView.addTab(qsTr(<span class="stringliteral">&quot;Clavier complet&quot;</span>), fullKeyboardTab);
-<a name="l00043"></a>00043         tabView.reload();
-<a name="l00044"></a>00044     }
-<a name="l00045"></a>00045     onReload: {
-<a name="l00046"></a>00046         var nbTabs = tabView.count;
-<a name="l00047"></a>00047         <span class="keywordflow">for</span>(var i = 1; i &lt; nbTabs; i++) {
-<a name="l00048"></a>00048             tabView.removeTab(i)
-<a name="l00049"></a>00049         }
-<a name="l00050"></a>00050         <span class="keywordflow">switch</span>(<a class="code" href="../../d0/d0b/a00004.html">App</a>.currentMode) {
-<a name="l00051"></a>00051         <span class="keywordflow">case</span> AppMode.RECEPTION:
-<a name="l00052"></a>00052             tabView.addTab(qsTr(<span class="stringliteral">&quot;Prestations&quot;</span>), servicesTab);
-<a name="l00053"></a>00053             tabView.addTab(qsTr(<span class="stringliteral">&quot;Chambres&quot;</span>), roomsTab);
-<a name="l00054"></a>00054             tabView.addTab(qsTr(<span class="stringliteral">&quot;Facturations&quot;</span>), billingsTab);
-<a name="l00055"></a>00055             tabView.addTab(qsTr(<span class="stringliteral">&quot;Réservations&quot;</span>), bookingsTab);
-<a name="l00056"></a>00056             <span class="comment">//tabView.addTab(qsTr(&quot;Offres&quot;), offersTab);</span>
-<a name="l00057"></a>00057             <span class="keywordflow">break</span>;
-<a name="l00058"></a>00058         <span class="keywordflow">case</span> AppMode.MANAGEMENT_Z:
-<a name="l00059"></a>00059             <span class="comment">//tabView.addTab(qsTr(&quot;Clôtures&quot;), accountsTab);</span>
-<a name="l00060"></a>00060         <span class="keywordflow">case</span> AppMode.MANAGEMENT_X:
-<a name="l00061"></a>00061             <span class="comment">//tabView.addTab(qsTr(&quot;Prestations&quot;), servicesEditTab);</span>
-<a name="l00062"></a>00062             tabView.addTab(qsTr(<span class="stringliteral">&quot;Chambres&quot;</span>), roomsEditTab);
-<a name="l00063"></a>00063             <span class="comment">//tabView.addTab(qsTr(&quot;Clients privés&quot;), clientsEditTab);</span>
-<a name="l00064"></a>00064             <span class="comment">//tabView.addTab(qsTr(&quot;Groupes&quot;), groupsEditTab);</span>
-<a name="l00065"></a>00065             <span class="comment">//tabView.addTab(qsTr(&quot;Rapports&quot;), reportsTab);</span>
-<a name="l00066"></a>00066             <span class="keywordflow">break</span>;
-<a name="l00067"></a>00067         <span class="keywordflow">case</span> AppMode.ADMINISTRATION :
-<a name="l00068"></a>00068             <span class="comment">//tabView.addTab(qsTr(&quot;Paramètres&quot;), settingsTab);</span>
-<a name="l00069"></a>00069             <span class="comment">//tabView.addTab(qsTr(&quot;Utilisateurs&quot;), usersTab);</span>
-<a name="l00070"></a>00070             <span class="comment">//tabView.addTab(qsTr(&quot;Design&quot;), skinTab);</span>
-<a name="l00071"></a>00071             <span class="keywordflow">break</span>;
-<a name="l00072"></a>00072         }
-<a name="l00073"></a>00073     }
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075     resources: [
-<a name="l00076"></a>00076         Component {
-<a name="l00077"></a>00077             <span class="keywordtype">id</span>:fullKeyboardTab
-<a name="l00078"></a>00078             <a class="code" href="../../d6/d42/a00043.html">Keyboard</a> {
-<a name="l00079"></a>00079                 <span class="keywordtype">id</span>:fullKeyboard
-<a name="l00080"></a>00080                 actionsList: stdKeyboard
-<a name="l00081"></a>00081                 columns: 11
-<a name="l00082"></a>00082                 enabled: tabView.enabled
-<a name="l00083"></a>00083                 height: tabView.height-style.frameOverlap
-<a name="l00084"></a>00084                 width: tabView.width
-<a name="l00085"></a>00085             }
-<a name="l00086"></a>00086         },
-<a name="l00087"></a>00087         Component {
-<a name="l00088"></a>00088             <span class="keywordtype">id</span>: servicesTab
-<a name="l00089"></a>00089             ColumnLayout {
-<a name="l00090"></a>00090                 Rectangle {
-<a name="l00091"></a>00091                     color:<span class="stringliteral">&quot;transparent&quot;</span>
-<a name="l00092"></a>00092                     Layout.fillWidth: <span class="keyword">true</span>
-<a name="l00093"></a>00093                     Layout.minimumHeight: 20
-<a name="l00094"></a>00094                     RowLayout {
-<a name="l00095"></a>00095                         <a class="code" href="../../d4/d8c/a00035.html">DataDelegate</a> {
-<a name="l00096"></a>00096                             Layout.minimumHeight: childrenRect.height
-<a name="l00097"></a>00097                             Layout.minimumWidth: childrenRect.width
-<a name="l00098"></a>00098                             text: qsTr(<span class="stringliteral">&quot;Autre&quot;</span>);
-<a name="l00099"></a>00099                             value: <span class="stringliteral">&quot;0&quot;</span>
-<a name="l00100"></a>00100                             onClicked: {
-<a name="l00101"></a>00101                                 tabView.otherServiceNoName();
-<a name="l00102"></a>00102                             }
-<a name="l00103"></a>00103                         }
-<a name="l00104"></a>00104                         <a class="code" href="../../d4/d8c/a00035.html">DataDelegate</a> {
-<a name="l00105"></a>00105                             Layout.minimumHeight: childrenRect.height
-<a name="l00106"></a>00106                             Layout.minimumWidth: childrenRect.width
-<a name="l00107"></a>00107                             text: qsTr(<span class="stringliteral">&quot;Autre...&quot;</span>);
-<a name="l00108"></a>00108                             value: <span class="stringliteral">&quot;0&quot;</span>
-<a name="l00109"></a>00109                             onClicked: {
-<a name="l00110"></a>00110                                 tabView.otherService();
-<a name="l00111"></a>00111                             }
-<a name="l00112"></a>00112                         }
-<a name="l00113"></a>00113                     }
-<a name="l00114"></a>00114                 }
-<a name="l00115"></a>00115                 <a class="code" href="../../da/d2a/a00086.html">SqlDataView</a> {
-<a name="l00116"></a>00116                     Layout.fillWidth: <span class="keyword">true</span>
-<a name="l00117"></a>00117                     Layout.fillHeight: <span class="keyword">true</span>
-<a name="l00118"></a>00118                     enabled: tabView.enabled
-<a name="l00119"></a>00119                     filtersTitle: qsTr(<span class="stringliteral">&quot;Tri des prestations&quot;</span>)
-<a name="l00120"></a>00120                     sqlModel: ServicesModel { }
-<a name="l00121"></a>00121                     itemDelegate: <span class="stringliteral">&quot;ServicesDelegate.qml&quot;</span>
-<a name="l00122"></a>00122                     emptyDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00123"></a>00123                     sectionDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00124"></a>00124                     onSelected: {
-<a name="l00125"></a>00125                         tabView.<a class="code" href="../../da/d2a/a00086.html#aad74a6a6879d2c0a9fb09726e5c08945">selected</a>(selectedItem);
-<a name="l00126"></a>00126                     }
-<a name="l00127"></a>00127                 }
-<a name="l00128"></a>00128             }
-<a name="l00129"></a>00129         },
-<a name="l00130"></a>00130         Component {
-<a name="l00131"></a>00131             <span class="keywordtype">id</span>: roomsTab
-<a name="l00132"></a>00132             <a class="code" href="../../da/d2a/a00086.html">SqlDataView</a> {
-<a name="l00133"></a>00133                 filtersTitle: qsTr(<span class="stringliteral">&quot;Tri des chambres&quot;</span>)
-<a name="l00134"></a>00134                 sqlModel: RoomsModel { }
-<a name="l00135"></a>00135                 itemDelegate: <span class="stringliteral">&quot;RoomsDelegate.qml&quot;</span>
-<a name="l00136"></a>00136                 emptyDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00137"></a>00137                 sectionDelegate: <span class="stringliteral">&quot;RoomsSectionDelegate.qml&quot;</span>
-<a name="l00138"></a>00138                 onSelected: {
-<a name="l00139"></a>00139                     tabView.<a class="code" href="../../da/d2a/a00086.html#aad74a6a6879d2c0a9fb09726e5c08945">selected</a>(selectedItem);
-<a name="l00140"></a>00140                 }
-<a name="l00141"></a>00141             }
-<a name="l00142"></a>00142         },
-<a name="l00143"></a>00143         Component {
-<a name="l00144"></a>00144             <span class="keywordtype">id</span>: roomsEditTab
-<a name="l00145"></a>00145             <a class="code" href="../../d1/d1e/a00087.html">SqlTableView</a> {
-<a name="l00146"></a>00146                 <span class="keywordtype">id</span>: roomsEditView
-<a name="l00147"></a>00147                 model: RoomsModel { }
-<a name="l00148"></a>00148                 onSelected: {
-<a name="l00149"></a>00149                     tabView.selectedForDetail(roomsEditView.model.table, selectedItem);
-<a name="l00150"></a>00150                 }
-<a name="l00151"></a>00151             }
-<a name="l00152"></a>00152         },
-<a name="l00153"></a>00153         Component {
-<a name="l00154"></a>00154             <span class="keywordtype">id</span>: billingsTab
-<a name="l00155"></a>00155             <a class="code" href="../../da/d2a/a00086.html">SqlDataView</a> {
-<a name="l00156"></a>00156                 sqlModel: BillingsModel {}
-<a name="l00157"></a>00157                 filtersTitle: qsTr(<span class="stringliteral">&quot;Tri des facturations&quot;</span>)
-<a name="l00158"></a>00158                 itemDelegate: <span class="stringliteral">&quot;BillingsDelegate.qml&quot;</span>
-<a name="l00159"></a>00159                 emptyDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00160"></a>00160                 sectionDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00161"></a>00161                 onSelected: {
-<a name="l00162"></a>00162                     tabView.<a class="code" href="../../da/d2a/a00086.html#aad74a6a6879d2c0a9fb09726e5c08945">selected</a>(selectedItem);
-<a name="l00163"></a>00163                 }
-<a name="l00164"></a>00164                 onNewItem: {
-<a name="l00165"></a>00165                     tabView.newBilling();
-<a name="l00166"></a>00166                 }
-<a name="l00167"></a>00167             }
-<a name="l00168"></a>00168         },
-<a name="l00169"></a>00169         Component {
-<a name="l00170"></a>00170             <span class="keywordtype">id</span>: bookingsTab
-<a name="l00171"></a>00171             <a class="code" href="../../da/d2a/a00086.html">SqlDataView</a> {
-<a name="l00172"></a>00172                 sqlModel: BookingsModel
-<a name="l00173"></a>00173                 filtersTitle: qsTr(<span class="stringliteral">&quot;Tri des réservations&quot;</span>)
-<a name="l00174"></a>00174                 itemDelegate: <span class="stringliteral">&quot;BookingsDelegate.qml&quot;</span>
-<a name="l00175"></a>00175                 emptyDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00176"></a>00176                 sectionDelegate: <span class="stringliteral">&quot;DataDelegate.qml&quot;</span>
-<a name="l00177"></a>00177                 onSelected: {
-<a name="l00178"></a>00178                     tabView.<a class="code" href="../../da/d2a/a00086.html#aad74a6a6879d2c0a9fb09726e5c08945">selected</a>(selectedItem);
-<a name="l00179"></a>00179                 }
-<a name="l00180"></a>00180                 onNewItem: {
-<a name="l00181"></a>00181                     tabView.newBooking();
-<a name="l00182"></a>00182                 }
-<a name="l00183"></a>00183             }
-<a name="l00184"></a>00184         }
-<a name="l00185"></a>00185 
-<a name="l00186"></a>00186     ]
-<a name="l00187"></a>00187 }
+<a href="../../d5/d7b/a00286.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/d58/a00285.html">keyboard.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QtGlobal&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtWidgets/QWidget&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../d6/d7f/a00287.html">keyboard_tab.h</a>&quot;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a><a class="code" href="../../d1/d84/a00052.html#aa0c771a0705af6b2ebead7b8bfcc79a3">00007</a> <a class="code" href="../../d1/d84/a00052.html#aa0c771a0705af6b2ebead7b8bfcc79a3">KeyboardTabPage::KeyboardTabPage</a>(<span class="keywordtype">int</span> rowsCount, <span class="keywordtype">int</span> columnsCount, QString tabName,  QWidget *parent) :
+<a name="l00008"></a>00008     <a class="code" href="../../df/d98/a00107.html">TabPageWithKeys</a>(rowsCount,columnsCount, tabName, parent)
+<a name="l00009"></a>00009 {
+<a name="l00010"></a>00010     <a class="code" href="../../df/d98/a00107.html#ab66670e05d5beec9e35842763920a1c6">initKeyboard</a>();
+<a name="l00011"></a>00011 }
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="../../d1/d84/a00052.html#a7b8b9da7ee07f5f78df187ccdc4ea410">00013</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d84/a00052.html#a7b8b9da7ee07f5f78df187ccdc4ea410">KeyboardTabPage::fillKeyboard</a>() {
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015     <span class="keywordflow">try</span> {
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017         this-&gt;<a class="code" href="../../df/d98/a00107.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>-&gt;<a class="code" href="../../d5/de0/a00050.html#a6d20b0ea993a059f3de8d38314620d83">setButton</a>(<span class="stringliteral">&quot;Q&quot;</span>,0);
+<a name="l00018"></a>00018         this-&gt;<a class="code" href="../../df/d98/a00107.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>-&gt;<a class="code" href="../../d5/de0/a00050.html#a6d20b0ea993a059f3de8d38314620d83">setButton</a>(<span class="stringliteral">&quot;W&quot;</span>,1);
+<a name="l00019"></a>00019         this-&gt;<a class="code" href="../../df/d98/a00107.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>-&gt;<a class="code" href="../../d5/de0/a00050.html#a6d20b0ea993a059f3de8d38314620d83">setButton</a>(<span class="stringliteral">&quot;E&quot;</span>,2);
+<a name="l00020"></a>00020         this-&gt;<a class="code" href="../../df/d98/a00107.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>-&gt;<a class="code" href="../../d5/de0/a00050.html#a6d20b0ea993a059f3de8d38314620d83">setButton</a>(<span class="stringliteral">&quot;R&quot;</span>,3);
+<a name="l00021"></a>00021         this-&gt;<a class="code" href="../../df/d98/a00107.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>-&gt;<a class="code" href="../../d5/de0/a00050.html#a6d20b0ea993a059f3de8d38314620d83">setButton</a>(<span class="stringliteral">&quot;T&quot;</span>,4);
+<a name="l00022"></a>00022         this-&gt;<a class="code" href="../../df/d98/a00107.html#a3daeef9125bfc05f0b6e4cf95b5bfee6">keys</a>-&gt;<a class="code" href="../../d5/de0/a00050.html#a6d20b0ea993a059f3de8d38314620d83">setButton</a>(<span class="stringliteral">&quot;Z&quot;</span>,5);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024     }
+<a name="l00025"></a>00025     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00026"></a>00026     {
+<a name="l00027"></a>00027         qDebug() &lt;&lt; <span class="stringliteral">&quot;pb init prestations&quot;</span>;
+<a name="l00028"></a>00028     }
+<a name="l00029"></a>00029 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d5/d7b/a00286.html">keyboard_tab.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

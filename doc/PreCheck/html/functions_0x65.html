@@ -6,9 +6,19 @@
 <title>PreCheck: Membres de classe</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
 <script type="text/javascript" src="dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li><a href="dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -89,77 +118,93 @@
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
-      <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
-      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
-      <li><a href="functions_0x7a.html#index_z"><span>z</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions_0x65.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Liste de tous les membres de classe avec des liens vers les classes auxquelles ils appartiennent :</div>
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
-<li>email
-: <a class="el" href="dd/d1b/a00015.html#a711b40f71b09a762457879637e052fc4">Booking</a>
-, <a class="el" href="d7/de0/a00022.html#a711b40f71b09a762457879637e052fc4">Client</a>
-, <a class="el" href="db/db6/a00074.html#a711b40f71b09a762457879637e052fc4">Room</a>
-, <a class="el" href="d6/d2c/a00072.html#a6a8e151eb9f245211596b967de72dd14">Rent</a>
-, <a class="el" href="db/db6/a00074.html#a6a8e151eb9f245211596b967de72dd14">Room</a>
-, <a class="el" href="da/dec/a00080.html#a711b40f71b09a762457879637e052fc4">Service</a>
-, <a class="el" href="d6/d2c/a00072.html#a711b40f71b09a762457879637e052fc4">Rent</a>
-, <a class="el" href="dd/d1b/a00015.html#a6a8e151eb9f245211596b967de72dd14">Booking</a>
-, <a class="el" href="d7/de0/a00022.html#a6a8e151eb9f245211596b967de72dd14">Client</a>
-</li>
 <li>empty
-: <a class="el" href="de/d11/a00021.html#a9625b002313a3fef67010c74415e5911">CheckableSortFilterProxyModel</a>
+: <a class="el" href="d2/de7/a00014.html#a9625b002313a3fef67010c74415e5911">CheckableSortFilterProxyModel</a>
 </li>
 <li>emptyDelegate
-: <a class="el" href="dc/d87/a00032.html#a0bd72e057232b1d69433a9a21f4b429c">ContentView</a>
-, <a class="el" href="da/d2a/a00086.html#a0bd72e057232b1d69433a9a21f4b429c">SqlDataView</a>
+: <a class="el" href="dc/de2/a00024.html#a0bd72e057232b1d69433a9a21f4b429c">ContentView</a>
+, <a class="el" href="d9/d73/a00060.html#a0bd72e057232b1d69433a9a21f4b429c">SqlDataView</a>
 </li>
 <li>enabled
-: <a class="el" href="df/d03/a00062.html#a8740ba80e30dd75e71d09fa1dcf04f3d">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a8740ba80e30dd75e71d09fa1dcf04f3d">QQQuickAction</a>
 </li>
 <li>enabledChanged()
-: <a class="el" href="df/d03/a00062.html#a31f61d4786745b82d1ff19d4893dde2d">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#af8fafec03294bf80f62ddecc9cfe0513">QQQuickAction</a>
 </li>
 <li>entered()
-: <a class="el" href="da/d74/a00099.html#a9d8cdccb9858f31e444050c952baca7e">TouchArea</a>
+: <a class="el" href="d9/db3/a00066.html#a9d8cdccb9858f31e444050c952baca7e">TouchArea</a>
 </li>
 <li>ERROR
-: <a class="el" href="d4/dca/a00048.html#a9aad67b20568c365a783dba2ff280220a2fd6f336d08340583bd620a7f5694c90">MessageManager</a>
+: <a class="el" href="d1/dc6/a00037.html#a9aad67b20568c365a783dba2ff280220a2fd6f336d08340583bd620a7f5694c90">MessageManager</a>
 </li>
 <li>errorMessage()
-: <a class="el" href="d4/dca/a00048.html#ad68efa6d4d43df08d8d4e39ca26a22e2">MessageManager</a>
-</li>
-<li>errorMode
-: <a class="el" href="d4/dca/a00048.html#a0c22a34a440689f1434d7d8793076264">MessageManager</a>
+: <a class="el" href="d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260">MessageManager</a>
 </li>
 <li>ErrorMode
-: <a class="el" href="d4/dca/a00048.html#a9aad67b20568c365a783dba2ff280220">MessageManager</a>
+: <a class="el" href="d1/dc6/a00037.html#a9aad67b20568c365a783dba2ff280220">MessageManager</a>
+</li>
+<li>errorMode
+: <a class="el" href="d1/dc6/a00037.html#aea36cb69a46b4a230e4c81b883133750">MessageManager</a>
 </li>
 <li>event()
-: <a class="el" href="df/d03/a00062.html#a9e3917c02592fd8067ab396fc8de92a2">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#aca4b75c94a947d58f76ff4bfc08f42ff">QQQuickAction</a>
 </li>
 <li>execQuery()
-: <a class="el" href="de/d21/a00006.html#a54a60f9702627f4326b17872f8432702">AppDatabase</a>
+: <a class="el" href="d0/d0b/a00004.html#a932d8955992b2a3b05a349538c33870f">AppDatabase</a>
 </li>
 <li>exists()
-: <a class="el" href="d0/dc2/a00104.html#a9cdd1a63296e723ccc78edb9876666f3">User</a>
+: <a class="el" href="d0/d89/a00071.html#ab0767bc68c39ab410dd0d5bb59dc60dd">User</a>
 </li>
 <li>exited()
-: <a class="el" href="da/d74/a00099.html#ae6d3e245de032e15942a2e7d230b2bf6">TouchArea</a>
+: <a class="el" href="d9/db3/a00066.html#ae6d3e245de032e15942a2e7d230b2bf6">TouchArea</a>
 </li>
 </ul>
 </div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

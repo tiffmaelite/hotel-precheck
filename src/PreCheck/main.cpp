@@ -18,6 +18,14 @@
 #include "views/qquickaction.h"
 #include "ThreadsManager.h"
 
+/*!
+ \brief
+
+ \fn main
+ \param argc
+ \param argv[]
+ \return int
+*/
 int main(int argc, char *argv[])
 {
     try

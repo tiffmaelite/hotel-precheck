@@ -6,9 +6,19 @@
 <title>PreCheck: Membres de classe</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
 <script type="text/javascript" src="dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li><a href="dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -89,128 +118,118 @@
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
-      <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
-      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
-      <li><a href="functions_0x7a.html#index_z"><span>z</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions_0x74.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Liste de tous les membres de classe avec des liens vers les classes auxquelles ils appartiennent :</div>
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>tabClicked()
-: <a class="el" href="d9/df8/a00096.html#a06174c63b4fda256f890cb2e2b305e27">TabWidget</a>
-</li>
-<li>tabLayout
-: <a class="el" href="d1/dc1/a00092.html#a51051d943e4726b18425669cb5155896">TabPage</a>
-</li>
 <li>table
-: <a class="el" href="df/d13/a00085.html#a850368dedc06eb94185edfae3670cbc8">SqlDataModel</a>
-, <a class="el" href="dc/d54/a00094.html#a07889c65a527b29ba9ba0750793d607b">TabPageWithTable</a>
-, <a class="el" href="de/d11/a00021.html#a850368dedc06eb94185edfae3670cbc8">CheckableSortFilterProxyModel</a>
+: <a class="el" href="d2/de7/a00014.html#a850368dedc06eb94185edfae3670cbc8">CheckableSortFilterProxyModel</a>
+, <a class="el" href="d3/d8b/a00059.html#a850368dedc06eb94185edfae3670cbc8">SqlDataModel</a>
 </li>
 <li>tableChanged()
-: <a class="el" href="df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714">SqlDataModel</a>
 </li>
 <li>tableExists()
-: <a class="el" href="de/d21/a00006.html#ae1de2372458965a609cb405b5d5ae6e7">AppDatabase</a>
-</li>
-<li>tableModel
-: <a class="el" href="da/d82/a00091.html#af581ba029bfe706622df10ed96cbf568">TableTabPage</a>
+: <a class="el" href="d0/d0b/a00004.html#a5a55304124a0b0b92db1ac9b35cf6b1f">AppDatabase</a>
 </li>
 <li>tableName()
-: <a class="el" href="de/d11/a00021.html#a6c48ddb30bd545773021034cedf5e4df">CheckableSortFilterProxyModel</a>
-, <a class="el" href="df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">SqlDataModel</a>
-</li>
-<li>TabPage()
-: <a class="el" href="d1/dc1/a00092.html#abda8ffc4f77eaf4e201c0deb48e54e2a">TabPage</a>
-</li>
-<li>TabPageWithKeys()
-: <a class="el" href="d4/d7d/a00093.html#a132d5e477016017311e56c9c3ac13e93">TabPageWithKeys</a>
-</li>
-<li>TabPageWithTable()
-: <a class="el" href="dc/d54/a00094.html#ae147b4cb93d4f36183ba4eace6d97a33">TabPageWithTable</a>
-</li>
-<li>tabsHeight
-: <a class="el" href="d9/df8/a00096.html#ad44e010e01af84307887b3466849b8be">TabWidget</a>
-</li>
-<li>tabsList
-: <a class="el" href="d9/df8/a00096.html#aa96867bc2195d2f793e05d4a9842d32e">TabWidget</a>
-</li>
-<li>TabsMenuWidget()
-: <a class="el" href="d9/d77/a00095.html#a04109edb1d0ec40c9a8d1295b4fd5e98">TabsMenuWidget</a>
+: <a class="el" href="d0/dc0/a00033.html#aed684c97d757ad0bc579127609ff19f2">IOStateMachine</a>
+, <a class="el" href="d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">CheckableSortFilterProxyModel</a>
+, <a class="el" href="d3/d8b/a00059.html#a4994a8da8f74295c0caeb7239e4b90ac">SqlDataModel</a>
 </li>
 <li>TEST
-: <a class="el" href="d4/dca/a00048.html#a9aad67b20568c365a783dba2ff280220ab2f0cd22b1963becef8b91d29d567fe8">MessageManager</a>
+: <a class="el" href="d1/dc6/a00037.html#a9aad67b20568c365a783dba2ff280220ab2f0cd22b1963becef8b91d29d567fe8">MessageManager</a>
 </li>
 <li>text
-: <a class="el" href="df/d5d/a00084.html#a3d39cc5a71db46029fdbdb1183d46e98">SqlDataFields</a>
-, <a class="el" href="db/db2/a00020.html#a739bd7e413e61c963681e085a990979a">CalendarDialog</a>
-, <a class="el" href="d9/dcc/a00102.html#a51927a428d44936241329e1608abc77e">UpDownCheckImage</a>
-, <a class="el" href="df/d03/a00062.html#a3d39cc5a71db46029fdbdb1183d46e98">QQQuickAction</a>
-, <a class="el" href="df/d5d/a00084.html#a90401273d9677d4b4239aa27bfe69987">SqlDataFields</a>
-, <a class="el" href="df/d03/a00062.html#a90401273d9677d4b4239aa27bfe69987">QQQuickAction</a>
+: <a class="el" href="d7/df7/a00058.html#af575f17e6be3f269b86b041a60560dbf">SqlDataFields</a>
+, <a class="el" href="d7/dd4/a00013.html#a739bd7e413e61c963681e085a990979a">CalendarDialog</a>
+, <a class="el" href="d4/d31/a00069.html#a51927a428d44936241329e1608abc77e">UpDownCheckImage</a>
+, <a class="el" href="d4/dca/a00048.html#af575f17e6be3f269b86b041a60560dbf">QQQuickAction</a>
+, <a class="el" href="d7/df7/a00058.html#a90401273d9677d4b4239aa27bfe69987">SqlDataFields</a>
+, <a class="el" href="d4/dca/a00048.html#a90401273d9677d4b4239aa27bfe69987">QQQuickAction</a>
 </li>
 <li>textChanged()
-: <a class="el" href="df/d03/a00062.html#a92832e204f5bab2138a91c2a248b0730">QQQuickAction</a>
-, <a class="el" href="df/d5d/a00084.html#a92832e204f5bab2138a91c2a248b0730">SqlDataFields</a>
-</li>
-<li>textX
-: <a class="el" href="d1/dc6/a00037.html#a184839786511251372bb2b11ea554b08">DefaultFileDialog</a>
+: <a class="el" href="d4/dca/a00048.html#ad4cb54bce44787c508c0cee6a01d4748">QQQuickAction</a>
+, <a class="el" href="d7/df7/a00058.html#ad4cb54bce44787c508c0cee6a01d4748">SqlDataFields</a>
 </li>
 <li>ThreadsManager()
-: <a class="el" href="d1/d44/a00098.html#adbf5e2b395ccb505d7a766dff3db79f8">ThreadsManager</a>
-</li>
-<li>title()
-: <a class="el" href="df/d5f/a00064.html#a0c12fb0761e1e201a47ce51b283fdb11">QQuickAbstractDialog</a>
-, <a class="el" href="de/de1/a00065.html#aec7f0fb0be1d3a0a946f0ded3a860d20">QQuickAbstractFileDialog</a>
-, <a class="el" href="d1/d6f/a00063.html#aec7f0fb0be1d3a0a946f0ded3a860d20">QQuickAbstractColorDialog</a>
-, <a class="el" href="df/d5f/a00064.html#aa93d37c468bf6aea9c9823eb74bd1a48">QQuickAbstractDialog</a>
-</li>
-<li>titleChanged()
-: <a class="el" href="df/d5f/a00064.html#ac47a855a9a7e427cfe7d793761041655">QQuickAbstractDialog</a>
-</li>
-<li>titleText
-: <a class="el" href="dc/de2/a00024.html#aa83076a26af82d13d0385c6b5a138dc7">CollapsiblePanel</a>
+: <a class="el" href="de/de1/a00065.html#adbf5e2b395ccb505d7a766dff3db79f8">ThreadsManager</a>
 </li>
 <li>toBeReplaced
-: <a class="el" href="d9/d73/a00060.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">PreCheckThread</a>
+: <a class="el" href="d6/d97/a00045.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">PreCheckThread</a>
 </li>
 <li>toggled()
-: <a class="el" href="df/d03/a00062.html#a528e3c561e4e73d9053d67301a25072c">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#ab0b9eba8f3b1aa6d088ed4a28b5077ed">QQQuickAction</a>
 </li>
 <li>tooltip
-: <a class="el" href="df/d03/a00062.html#a7bec7d0ff0c35f5e2c98d6c1de9e3c4b">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a521eab1d148d9186af26599d212f8eaa">QQQuickAction</a>
 </li>
 <li>tooltipChanged()
-: <a class="el" href="df/d03/a00062.html#a280c251e258eb277204eb5be5638f6a8">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#aba0a265e263d35768b49ca139ce3a347">QQQuickAction</a>
+</li>
+<li>toString()
+: <a class="el" href="d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">GenericState</a>
+, <a class="el" href="d8/d41/a00038.html#a5558c5d549f41597377fa1ea8a1cefa3">NamedObject</a>
+, <a class="el" href="d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3">IOStateMachine</a>
 </li>
 <li>TouchButton()
-: <a class="el" href="d0/d61/a00100.html#af2df14e7226144691e192cecc8a658da">TouchButton</a>
+: <a class="el" href="dc/ddf/a00067.html#af2df14e7226144691e192cecc8a658da">TouchButton</a>
 </li>
 <li>Trainee()
-: <a class="el" href="d4/d3a/a00101.html#ab6968f36882d4f44c22c257045698224">Trainee</a>
+: <a class="el" href="da/d24/a00068.html#ab6968f36882d4f44c22c257045698224">Trainee</a>
 </li>
 <li>traineeExists()
-: <a class="el" href="d0/dc2/a00104.html#a858314b8da64bd720720fb79d7f624a6">User</a>
+: <a class="el" href="d0/d89/a00071.html#a59d5711a44d93d40849d3368d813126c">User</a>
 </li>
 <li>trigger()
-: <a class="el" href="df/d03/a00062.html#ab0554cb7241c0b72d34402f0bb419462">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a9eed921e96fce5ad3508f61d8aa7f40c">QQQuickAction</a>
 </li>
 <li>triggered()
-: <a class="el" href="df/d03/a00062.html#ae23cf3eb9ac9f63b770681061b6825de">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a14f6a74219a7bca77f3475f5524b747f">QQQuickAction</a>
 </li>
 </ul>
 </div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

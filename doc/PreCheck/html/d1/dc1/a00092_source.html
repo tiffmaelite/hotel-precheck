@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/booking.cpp</title>
+<title>PreCheck:  Fichier source de logic/iostatemachine.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -23,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">PreCheck
-   
+   &#160;<span id="projectnumber">0.3</span>
    </div>
-   
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,83 +80,208 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d1/dc1/a00092.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">booking.cpp</div>  </div>
+<div class="title">iostatemachine.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/dc1/a00092.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d7d/a00093.html">booking.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 Booking::Booking(QString <a class="code" href="../../d1/dc1/a00092_a2b0a198f837184bf6fff555cee3ce770.html#a2b0a198f837184bf6fff555cee3ce770">name</a>, QString <a class="code" href="../../d1/dc1/a00092_a6a8e151eb9f245211596b967de72dd14.html#a6a8e151eb9f245211596b967de72dd14">email</a>, QString <a class="code" href="../../d1/dc1/a00092_a321b089bf1e6fc413130975a7327c253.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>, <span class="keywordtype">boolean</span> <a class="code" href="../../d1/dc1/a00092_a19789c094ae891356c33ecb73e91eaff.html#a19789c094ae891356c33ecb73e91eaff">isCurrentBooking</a>, QObject *parent = 0);
-<a name="l00004"></a><a class="code" href="../../d1/dc1/a00092_ac3d789543f54653c199e7d5bb37678ce.html#ac3d789543f54653c199e7d5bb37678ce">00004</a>     <a class="code" href="../../d4/d63/a00082_ac3d789543f54653c199e7d5bb37678ce.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>(parent)
-<a name="l00005"></a>00005 {
-<a name="l00006"></a>00006    this-&gt;<a class="code" href="../../d1/dc1/a00092_a6220fae15759fd0fa7d75e415df34e83.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(<a class="code" href="../../d1/dc1/a00092_a2b0a198f837184bf6fff555cee3ce770.html#a2b0a198f837184bf6fff555cee3ce770">name</a>);
-<a name="l00007"></a>00007    this-&gt;<a class="code" href="../../d1/dc1/a00092_adf0a5b518efbbcb4da139dd419f961c7.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a>(<a class="code" href="../../d1/dc1/a00092_a6a8e151eb9f245211596b967de72dd14.html#a6a8e151eb9f245211596b967de72dd14">email</a>);
-<a name="l00008"></a>00008    this-&gt;<a class="code" href="../../d1/dc1/a00092_a2a674b32e7b643b4359a5c7193210d50.html#a2a674b32e7b643b4359a5c7193210d50">setPhoneNumber</a>(<a class="code" href="../../d1/dc1/a00092_a321b089bf1e6fc413130975a7327c253.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>);
-<a name="l00009"></a>00009    this-&gt;<a class="code" href="../../d1/dc1/a00092_a470945d159dae1b0d237198687c8c71f.html#a470945d159dae1b0d237198687c8c71f">becomesCurrentBooking</a>(<a class="code" href="../../d1/dc1/a00092_a19789c094ae891356c33ecb73e91eaff.html#a19789c094ae891356c33ecb73e91eaff">isCurrentBooking</a>);
-<a name="l00010"></a>00010 }
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="../../d1/dc1/a00092_a6220fae15759fd0fa7d75e415df34e83.html#a6220fae15759fd0fa7d75e415df34e83">00012</a>                 <span class="keywordtype">void</span> <a class="code" href="../../d1/dc1/a00092_a6220fae15759fd0fa7d75e415df34e83.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(QString <a class="code" href="../../d1/dc1/a00092_a2b0a198f837184bf6fff555cee3ce770.html#a2b0a198f837184bf6fff555cee3ce770">name</a>)
-<a name="l00013"></a>00013                 {
-<a name="l00014"></a>00014                                 m_name = <a class="code" href="../../d1/dc1/a00092_a2b0a198f837184bf6fff555cee3ce770.html#a2b0a198f837184bf6fff555cee3ce770">name</a>;
-<a name="l00015"></a>00015                 }
-<a name="l00016"></a>00016                 
-<a name="l00017"></a><a class="code" href="../../d1/dc1/a00092_a2b0a198f837184bf6fff555cee3ce770.html#a2b0a198f837184bf6fff555cee3ce770">00017</a>                 QString <a class="code" href="../../d1/dc1/a00092_a2b0a198f837184bf6fff555cee3ce770.html#a2b0a198f837184bf6fff555cee3ce770">name</a>()<span class="keyword"> const</span>
-<a name="l00018"></a>00018 <span class="keyword">                </span>{
-<a name="l00019"></a>00019                                 <span class="keywordflow">return</span> m_name;
-<a name="l00020"></a>00020                 }
-<a name="l00021"></a>00021                 
-<a name="l00022"></a><a class="code" href="../../d1/dc1/a00092_adf0a5b518efbbcb4da139dd419f961c7.html#adf0a5b518efbbcb4da139dd419f961c7">00022</a>                                 <span class="keywordtype">void</span> <a class="code" href="../../d1/dc1/a00092_adf0a5b518efbbcb4da139dd419f961c7.html#adf0a5b518efbbcb4da139dd419f961c7">setEmail</a>(QString <a class="code" href="../../d1/dc1/a00092_a6a8e151eb9f245211596b967de72dd14.html#a6a8e151eb9f245211596b967de72dd14">email</a>)
-<a name="l00023"></a>00023                 {
-<a name="l00024"></a>00024                                 m_email = <a class="code" href="../../d1/dc1/a00092_a6a8e151eb9f245211596b967de72dd14.html#a6a8e151eb9f245211596b967de72dd14">email</a>;
-<a name="l00025"></a>00025                 }
-<a name="l00026"></a>00026                 
-<a name="l00027"></a><a class="code" href="../../d1/dc1/a00092_a6a8e151eb9f245211596b967de72dd14.html#a6a8e151eb9f245211596b967de72dd14">00027</a>                 QString <a class="code" href="../../d1/dc1/a00092_a6a8e151eb9f245211596b967de72dd14.html#a6a8e151eb9f245211596b967de72dd14">email</a>()<span class="keyword"> const</span>
-<a name="l00028"></a>00028 <span class="keyword">                </span>{
-<a name="l00029"></a>00029                                 <span class="keywordflow">return</span> m_email;
-<a name="l00030"></a>00030                 }
-<a name="l00031"></a>00031                 
-<a name="l00032"></a><a class="code" href="../../d1/dc1/a00092_a39972b72c00d8bb4264747ba0a73d8b8.html#a39972b72c00d8bb4264747ba0a73d8b8">00032</a>                 <span class="keywordtype">void</span> <a class="code" href="../../d1/dc1/a00092_a39972b72c00d8bb4264747ba0a73d8b8.html#a39972b72c00d8bb4264747ba0a73d8b8">unsetEmail</a>() {
-<a name="l00033"></a>00033                                 m_email = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00034"></a>00034                 }
-<a name="l00035"></a>00035                 
-<a name="l00036"></a><a class="code" href="../../d1/dc1/a00092_a2a674b32e7b643b4359a5c7193210d50.html#a2a674b32e7b643b4359a5c7193210d50">00036</a>                                 <span class="keywordtype">void</span> <a class="code" href="../../d1/dc1/a00092_a2a674b32e7b643b4359a5c7193210d50.html#a2a674b32e7b643b4359a5c7193210d50">setPhoneNumber</a>(QString phone)
-<a name="l00037"></a>00037                 {
-<a name="l00038"></a>00038                                 m_phone = phone;
-<a name="l00039"></a>00039                 }
-<a name="l00040"></a>00040                 
-<a name="l00041"></a><a class="code" href="../../d1/dc1/a00092_a321b089bf1e6fc413130975a7327c253.html#a321b089bf1e6fc413130975a7327c253">00041</a>                 QString <a class="code" href="../../d1/dc1/a00092_a321b089bf1e6fc413130975a7327c253.html#a321b089bf1e6fc413130975a7327c253">phoneNumber</a>()<span class="keyword"> const</span>
-<a name="l00042"></a>00042 <span class="keyword">                </span>{
-<a name="l00043"></a>00043                                 <span class="keywordflow">return</span> m_phone;
-<a name="l00044"></a>00044                 }
-<a name="l00045"></a>00045                 
-<a name="l00046"></a><a class="code" href="../../d1/dc1/a00092_a09194a309d1fa7aaeb95ca9d477051d9.html#a09194a309d1fa7aaeb95ca9d477051d9">00046</a>                 <span class="keywordtype">void</span> <a class="code" href="../../d1/dc1/a00092_a09194a309d1fa7aaeb95ca9d477051d9.html#a09194a309d1fa7aaeb95ca9d477051d9">unsetPhoneNumber</a>() {
-<a name="l00047"></a>00047                                 m_phone = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00048"></a>00048                 }
-<a name="l00049"></a>00049                 
-<a name="l00050"></a><a class="code" href="../../d1/dc1/a00092_a470945d159dae1b0d237198687c8c71f.html#a470945d159dae1b0d237198687c8c71f">00050</a>                                 <span class="keywordtype">void</span> <a class="code" href="../../d1/dc1/a00092_a470945d159dae1b0d237198687c8c71f.html#a470945d159dae1b0d237198687c8c71f">becomesCurrentBooking</a>(<span class="keywordtype">boolean</span> current)
-<a name="l00051"></a>00051                 {
-<a name="l00052"></a>00052                                 m_current = current;
-<a name="l00053"></a>00053                 }
-<a name="l00054"></a>00054                 
-<a name="l00055"></a><a class="code" href="../../d1/dc1/a00092_a19789c094ae891356c33ecb73e91eaff.html#a19789c094ae891356c33ecb73e91eaff">00055</a>                 QString <a class="code" href="../../d1/dc1/a00092_a19789c094ae891356c33ecb73e91eaff.html#a19789c094ae891356c33ecb73e91eaff">isCurrentBooking</a>()<span class="keyword"> const</span>
-<a name="l00056"></a>00056 <span class="keyword">                </span>{
-<a name="l00057"></a>00057                                 <span class="keywordflow">return</span> m_current;
-<a name="l00058"></a>00058                 }
+<a href="../../d1/dc1/a00092.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d7d/a00093.html">iostatemachine.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/d42/a00109.html">validationstate.h</a>&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d53/a00081.html">confirmationstate.h</a>&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">datequestionstate.h</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00014"></a><a class="code" href="../../d0/dc0/a00033.html#ad501da21458eb8150267bc156d71edcc">00014</a> <a class="code" href="../../d0/dc0/a00033.html#ad501da21458eb8150267bc156d71edcc">IOStateMachine::IOStateMachine</a>(QString tableName, QString name, QObject *parent) :
+<a name="l00015"></a>00015     QStateMachine(parent), <a class="code" href="../../d8/d41/a00038.html">NamedObject</a>(name), m_tableName(tableName)
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017 }
+<a name="l00018"></a>00018 
+<a name="l00025"></a><a class="code" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3">00025</a> QString <a class="code" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3">IOStateMachine::toString</a>()
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027     QObject* parent = this-&gt;parent();
+<a name="l00028"></a>00028     <a class="code" href="../../d5/d16/a00029.html">GenericState</a>* par = qobject_cast&lt;<a class="code" href="../../d5/d16/a00029.html">GenericState</a> *&gt;(parent);
+<a name="l00029"></a>00029     <span class="keywordflow">if</span>(par) {
+<a name="l00030"></a>00030         <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3">NamedObject::toString</a>()+ <span class="stringliteral">&quot; [descending from &quot;</span>+par-&gt;<a class="code" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a>()+<span class="stringliteral">&quot;] &quot;</span>;
+<a name="l00031"></a>00031     } <span class="keywordflow">else</span> {
+<a name="l00032"></a>00032         <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3">NamedObject::toString</a>();
+<a name="l00033"></a>00033     }
+<a name="l00034"></a>00034 }
+<a name="l00035"></a>00035 
+<a name="l00042"></a><a class="code" href="../../d0/dc0/a00033.html#a2c883fe0b036c92b75c9aedae2d7ff98">00042</a> QVariantMap <a class="code" href="../../d0/dc0/a00033.html#a2c883fe0b036c92b75c9aedae2d7ff98">IOStateMachine::ioContent</a>()<span class="keyword"> const</span>
+<a name="l00043"></a>00043 <span class="keyword"></span>{
+<a name="l00044"></a>00044     <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#a12614329f4dc8c4db3309c74bfada320" title="TODO.">m_ioContent</a>;
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 
+<a name="l00053"></a><a class="code" href="../../d0/dc0/a00033.html#a1e7eb1b2b42108b1d61f98c8359a03c3">00053</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a1e7eb1b2b42108b1d61f98c8359a03c3">IOStateMachine::setIOcontent</a>(<span class="keyword">const</span> QVariantMap &amp;ioContent)
+<a name="l00054"></a>00054 {
+<a name="l00055"></a>00055     <a class="code" href="../../d0/dc0/a00033.html#a12614329f4dc8c4db3309c74bfada320" title="TODO.">m_ioContent</a> = <a class="code" href="../../d0/dc0/a00033.html#a2c883fe0b036c92b75c9aedae2d7ff98">ioContent</a>;
+<a name="l00056"></a>00056 }
+<a name="l00057"></a>00057 
+<a name="l00065"></a><a class="code" href="../../d0/dc0/a00033.html#a866194fc867d009a5e69d2bf3d589641">00065</a> QVariant <a class="code" href="../../d0/dc0/a00033.html#a866194fc867d009a5e69d2bf3d589641">IOStateMachine::getContentValue</a>(QString field)
+<a name="l00066"></a>00066 {
+<a name="l00067"></a>00067     <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#a12614329f4dc8c4db3309c74bfada320" title="TODO.">m_ioContent</a>.value(field);
+<a name="l00068"></a>00068 }
+<a name="l00069"></a>00069 
+<a name="l00076"></a><a class="code" href="../../d0/dc0/a00033.html#aed684c97d757ad0bc579127609ff19f2">00076</a> QString <a class="code" href="../../d0/dc0/a00033.html#aed684c97d757ad0bc579127609ff19f2">IOStateMachine::tableName</a>()<span class="keyword"> const</span>
+<a name="l00077"></a>00077 <span class="keyword"></span>{
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#acd966aea0a942f94155a29e76ae5069c" title="TODO.">m_tableName</a>;
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00087"></a><a class="code" href="../../d0/dc0/a00033.html#a915050157bad8af3d46aafabc75db3a4">00087</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a915050157bad8af3d46aafabc75db3a4">IOStateMachine::setTableName</a>(<span class="keyword">const</span> QString &amp;tableName)
+<a name="l00088"></a>00088 {
+<a name="l00089"></a>00089     <a class="code" href="../../d0/dc0/a00033.html#acd966aea0a942f94155a29e76ae5069c" title="TODO.">m_tableName</a> = <a class="code" href="../../d0/dc0/a00033.html#aed684c97d757ad0bc579127609ff19f2">tableName</a>;
+<a name="l00090"></a>00090 }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 
+<a name="l00100"></a><a class="code" href="../../d0/dc0/a00033.html#a3da2698598b70dfd56faee2b3eaf9e80">00100</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a3da2698598b70dfd56faee2b3eaf9e80">IOStateMachine::setContentValue</a>(QVariant content, QString field)
+<a name="l00101"></a>00101 {
+<a name="l00102"></a>00102     <a class="code" href="../../d0/dc0/a00033.html#a12614329f4dc8c4db3309c74bfada320" title="TODO.">m_ioContent</a>.insert(field, content);
+<a name="l00103"></a>00103 }
+<a name="l00104"></a>00104 
+<a name="l00112"></a><a class="code" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a">00112</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a">IOStateMachine::addIOState</a>(<a class="code" href="../../dc/d87/a00032.html">IOState</a> *state, QString field)
+<a name="l00113"></a>00113 {
+<a name="l00114"></a>00114     <span class="comment">//à faire au moment de l&#39;entrée dans l&#39;état state</span>
+<a name="l00115"></a>00115     connect(state, &amp;QState::entered, [=]() {
+<a name="l00116"></a>00116         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#ac15105b52cdf25052c8a7b4d7252a38c">IOStateMachine::receiveInput</a>, state, &amp;<a class="code" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54">IOState::setInput</a>); <span class="comment">// la réception d&#39;une valeur entraîne son enregistrement comme entrée de l&#39;utilisateur auprès de l&#39;état</span>
+<a name="l00117"></a>00117         connect(state, &amp;<a class="code" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">IOState::sendOutput</a>, [=](QVariant out) {this-&gt;<a class="code" href="../../d0/dc0/a00033.html#ae5bfe43a4026f95784ac92eba45c0798">sendText</a>(out, <span class="keyword">false</span>);});
+<a name="l00118"></a>00118         connect(state, &amp;<a class="code" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">IOState::resendInput</a>, [=](QVariant in) {this-&gt;<a class="code" href="../../d0/dc0/a00033.html#ae5bfe43a4026f95784ac92eba45c0798">sendText</a>(in, <span class="keyword">true</span>);});
+<a name="l00119"></a>00119     });
+<a name="l00120"></a>00120     <a class="code" href="../../d6/d2c/a00072.html">ValidationState</a> *validationState = qobject_cast&lt;<a class="code" href="../../d6/d2c/a00072.html">ValidationState</a>*&gt;(state);
+<a name="l00121"></a>00121     <span class="keywordflow">if</span>(validationState) {
+<a name="l00122"></a>00122         <span class="comment">//à faire au moment de l&#39;entrée dans l&#39;état state</span>
+<a name="l00123"></a>00123         connect(validationState, &amp;QState::entered, [=]() {
+<a name="l00124"></a>00124             connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#aced64a0f4fd1647229efda490d90b8a0">IOStateMachine::validateInput</a>, validationState, &amp;<a class="code" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321">ValidationState::confirmInput</a>);
+<a name="l00125"></a>00125         });
+<a name="l00126"></a>00126     }
+<a name="l00127"></a>00127     <a class="code" href="../../d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">ConfirmationState</a> *confirmationState = qobject_cast&lt;<a class="code" href="../../d7/de0/a00022.html" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">ConfirmationState</a>*&gt;(state);
+<a name="l00128"></a>00128     <span class="keywordflow">if</span>(confirmationState) {
+<a name="l00129"></a>00129         <span class="comment">//à faire au moment de l&#39;entrée dans l&#39;état state</span>
+<a name="l00130"></a>00130         connect(confirmationState, &amp;QState::entered, [=]() {
+<a name="l00131"></a>00131             connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#aced64a0f4fd1647229efda490d90b8a0">IOStateMachine::validateInput</a>, confirmationState, &amp;<a class="code" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321">ConfirmationState::confirmInput</a>);
+<a name="l00132"></a>00132         });
+<a name="l00133"></a>00133     }
+<a name="l00134"></a>00134     <a class="code" href="../../d0/d33/a00027.html">DateQuestionState</a> *dateState = qobject_cast&lt;<a class="code" href="../../d0/d33/a00027.html">DateQuestionState</a>*&gt;(state);
+<a name="l00135"></a>00135     <span class="keywordflow">if</span>(dateState) {
+<a name="l00136"></a>00136         <span class="comment">//à faire au moment de l&#39;entrée dans l&#39;état state</span>
+<a name="l00137"></a>00137         connect(dateState, &amp;QState::entered, <span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#aa3966d79a68251358dd028f0fb078f9d">IOStateMachine::displayCalendar</a>);
+<a name="l00138"></a>00138     }
+<a name="l00139"></a>00139     <span class="comment">//à faire au moment de la sortie de l&#39;état state</span>
+<a name="l00140"></a>00140     connect(state, &amp;QState::exited, [=]() {
+<a name="l00141"></a>00141         <span class="keywordflow">if</span>(!field.isEmpty()) {
+<a name="l00142"></a>00142             <a class="code" href="../../d0/dc0/a00033.html#a3da2698598b70dfd56faee2b3eaf9e80">setContentValue</a>(state-&gt;<a class="code" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>(), field); <span class="comment">//on enregistre la dernière valeur entrée par l&#39;utilisateur conservée par l&#39;état</span>
+<a name="l00143"></a>00143             <span class="comment">//gestion de l&#39;historique des états pour pouvoir revenir à l&#39;état state après l&#39;avoir quitté</span>
+<a name="l00144"></a>00144             QHistoryState* hState = <span class="keyword">new</span> QHistoryState(state);
+<a name="l00145"></a>00145             <a class="code" href="../../d0/dc0/a00033.html#a62e5e523b4e855630d54b902a46ccbac">setIOStateHistory</a>(hState, field);
+<a name="l00146"></a>00146         }
+<a name="l00147"></a>00147         state-&gt;disconnect(<span class="keyword">this</span>); <span class="comment">//plus aucune action sur l&#39;état ne pourra être provoquée par la machine</span>
+<a name="l00148"></a>00148     });
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151     QAbstractState* astate = qobject_cast&lt;QAbstractState *&gt;(state);
+<a name="l00152"></a>00152     <span class="keywordflow">if</span>(astate) {
+<a name="l00153"></a>00153         addState(astate);
+<a name="l00154"></a>00154     }
+<a name="l00155"></a>00155 }
+<a name="l00156"></a>00156 
+<a name="l00163"></a><a class="code" href="../../d0/dc0/a00033.html#a7349861b879f5d3f9eec893bb096b487">00163</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a7349861b879f5d3f9eec893bb096b487">IOStateMachine::addIOStateMachine</a>(<a class="code" href="../../d0/dc0/a00033.html">IOStateMachine</a> *fsm)
+<a name="l00164"></a>00164 {
+<a name="l00165"></a>00165     <span class="comment">//à faire au moment de l&#39;entrée dans la machine d&#39;état fsm</span>
+<a name="l00166"></a>00166     connect(fsm, &amp;QState::entered, [=]() {
+<a name="l00167"></a>00167         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#ac15105b52cdf25052c8a7b4d7252a38c">IOStateMachine::receiveInput</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#ac15105b52cdf25052c8a7b4d7252a38c">IOStateMachine::receiveInput</a>);
+<a name="l00168"></a>00168         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#ae5bfe43a4026f95784ac92eba45c0798">IOStateMachine::sendText</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#ae5bfe43a4026f95784ac92eba45c0798">IOStateMachine::sendText</a>);
+<a name="l00169"></a>00169         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#a178170502955a41fa9492bb3e1bc4321">IOStateMachine::confirmInput</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#a178170502955a41fa9492bb3e1bc4321">IOStateMachine::confirmInput</a>);
+<a name="l00170"></a>00170         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#aced64a0f4fd1647229efda490d90b8a0">IOStateMachine::validateInput</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#aced64a0f4fd1647229efda490d90b8a0">IOStateMachine::validateInput</a>);
+<a name="l00171"></a>00171         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#ae526a15bd8098bf6189a4f47448d8517">IOStateMachine::replaceInput</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#ae526a15bd8098bf6189a4f47448d8517">IOStateMachine::replaceInput</a>);
+<a name="l00172"></a>00172         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#a35b129f60b5659b57db955a429e0634c">IOStateMachine::cancelReplacement</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#a35b129f60b5659b57db955a429e0634c">IOStateMachine::cancelReplacement</a>);
+<a name="l00173"></a>00173         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#aa3966d79a68251358dd028f0fb078f9d">IOStateMachine::displayCalendar</a>, fsm, &amp;<a class="code" href="../../d0/dc0/a00033.html#aa3966d79a68251358dd028f0fb078f9d">IOStateMachine::displayCalendar</a>);
+<a name="l00174"></a>00174     });
+<a name="l00175"></a>00175     <span class="comment">//à faire au moment de la sortie de la machine d&#39;état fsm</span>
+<a name="l00176"></a>00176     connect(fsm, &amp;QState::exited, [=]() {
+<a name="l00177"></a>00177         fsm-&gt;disconnect(<span class="keyword">this</span>); <span class="comment">//plus aucune action sur la machine d&#39;état fille ne pourra être provoquée par la machine mère</span>
+<a name="l00178"></a>00178     });
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180 }
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182 
+<a name="l00189"></a><a class="code" href="../../d0/dc0/a00033.html#a0688073e7bc047e6b755d0053e6861d7">00189</a> QMap&lt;QString, QHistoryState *&gt; <a class="code" href="../../d0/dc0/a00033.html#a0688073e7bc047e6b755d0053e6861d7">IOStateMachine::ioStatesHistory</a>()<span class="keyword"> const</span>
+<a name="l00190"></a>00190 <span class="keyword"></span>{
+<a name="l00191"></a>00191     <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#a0efbf3bdfa5eba78e0777e535a978c9c" title="TODO.">m_ioStatesHistory</a>;
+<a name="l00192"></a>00192 }
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194 
+<a name="l00202"></a><a class="code" href="../../d0/dc0/a00033.html#a20ec80c08eff79c560ee37339d7f89d6">00202</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a20ec80c08eff79c560ee37339d7f89d6">IOStateMachine::setIOStatesHistory</a>(<span class="keyword">const</span> QMap&lt;QString, QHistoryState *&gt; &amp;ioStatesHistory)
+<a name="l00203"></a>00203 {
+<a name="l00204"></a>00204     <a class="code" href="../../d0/dc0/a00033.html#a0efbf3bdfa5eba78e0777e535a978c9c" title="TODO.">m_ioStatesHistory</a> = <a class="code" href="../../d0/dc0/a00033.html#a0688073e7bc047e6b755d0053e6861d7">ioStatesHistory</a>;
+<a name="l00205"></a>00205 }
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207 
+<a name="l00215"></a><a class="code" href="../../d0/dc0/a00033.html#a62e5e523b4e855630d54b902a46ccbac">00215</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a62e5e523b4e855630d54b902a46ccbac">IOStateMachine::setIOStateHistory</a>(QHistoryState *state, QString field)
+<a name="l00216"></a>00216 {
+<a name="l00217"></a>00217     <a class="code" href="../../d0/dc0/a00033.html#a0efbf3bdfa5eba78e0777e535a978c9c" title="TODO.">m_ioStatesHistory</a>.insert(field, state); <span class="comment">//remplacement si plusieurs fois</span>
+<a name="l00218"></a>00218 }
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220 
+<a name="l00228"></a><a class="code" href="../../d0/dc0/a00033.html#a06d2bfb9230bc33ee8eb77a746e2b80f">00228</a> QHistoryState *<a class="code" href="../../d0/dc0/a00033.html#a06d2bfb9230bc33ee8eb77a746e2b80f">IOStateMachine::historyValue</a>(QString field)
+<a name="l00229"></a>00229 {
+<a name="l00230"></a>00230     <span class="keywordflow">return</span> <a class="code" href="../../d0/dc0/a00033.html#a0efbf3bdfa5eba78e0777e535a978c9c" title="TODO.">m_ioStatesHistory</a>.value(field);
+<a name="l00231"></a>00231 }
+<a name="l00232"></a>00232 
+<a name="l00233"></a>00233 
+<a name="l00241"></a><a class="code" href="../../d0/dc0/a00033.html#a59869c26fbe868ee0c2c4bf3c337b4b0">00241</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a59869c26fbe868ee0c2c4bf3c337b4b0">IOStateMachine::addChildrenNextTransition</a>(<a class="code" href="../../d5/d16/a00029.html">GenericState</a> *previousState, <a class="code" href="../../d5/d16/a00029.html">GenericState</a> *nextState)
+<a name="l00242"></a>00242 {
+<a name="l00243"></a>00243     previousState-&gt;addTransition(previousState, SIGNAL(<a class="code" href="../../d0/dc0/a00033.html#acea62048bfee7b3cd80ed446c86fb78a">next</a>()), nextState);
+<a name="l00244"></a>00244     <span class="comment">//à faire au moment de l&#39;entrée dans l&#39;état previousState</span>
+<a name="l00245"></a>00245     connect(previousState, &amp;QState::entered, [=]() {
+<a name="l00246"></a>00246         connect(<span class="keyword">this</span>, &amp;<a class="code" href="../../d0/dc0/a00033.html#ae526a15bd8098bf6189a4f47448d8517">IOStateMachine::replaceInput</a>, [=](QString field) {
+<a name="l00247"></a>00247             <span class="comment">//après avoir demandé à revenir sur un état précédent, on attend la fin de l&#39;état actuel puis on retourne à l&#39;historique de l&#39;état désiré; celui-ci fini, on passe à l&#39;état qui aurait du suivre celui pendant lequel on a demandé à revenir sur un état précédent</span>
+<a name="l00248"></a>00248             QHistoryState* hState = <a class="code" href="../../d0/dc0/a00033.html#a06d2bfb9230bc33ee8eb77a746e2b80f">historyValue</a>(field);
+<a name="l00249"></a>00249             <span class="keywordflow">if</span>(hState) { <span class="comment">//si l&#39;historique existe (on a déjà quitté l&#39;état voulu)</span>
+<a name="l00250"></a>00250                 hState-&gt;parentState()-&gt;addTransition(hState-&gt;parentState(), SIGNAL(<a class="code" href="../../d0/dc0/a00033.html#acea62048bfee7b3cd80ed446c86fb78a">next</a>()), nextState);
+<a name="l00251"></a>00251                 previousState-&gt;addTransition(previousState, SIGNAL(<a class="code" href="../../d0/dc0/a00033.html#acea62048bfee7b3cd80ed446c86fb78a">next</a>()), hState);
+<a name="l00252"></a>00252             }
+<a name="l00253"></a>00253         });
+<a name="l00254"></a>00254     });
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 07:41:52 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d1/dc1/a00092.html">iostatemachine.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

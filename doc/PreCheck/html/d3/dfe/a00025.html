@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence de la classe CommonPage</title>
+<title>PreCheck: Référence de la classe DatabaseContentQuestionState</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,210 +83,771 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d3/dfe/a00025.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Connecteurs publics</a> &#124;
 <a href="#signals">Signaux</a> &#124;
-<a href="#properties">Propriétés</a>  </div>
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
-<div class="title">Référence de la classe CommonPage</div>  </div>
+<div class="title">Référence de la classe DatabaseContentQuestionState</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="CommonPage" -->
-<p><a href="../../d5/d40/a00672.html">Liste de tous les membres</a></p>
+<!-- doxytag: class="DatabaseContentQuestionState" --><!-- doxytag: inherits="QuestionState" -->
+<p><code>#include &lt;<a class="el" href="../../d2/d1f/a00083_source.html">logic/databasecontentquestionstate.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de DatabaseContentQuestionState:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d7e/a00372.png" border="0" usemap="#DatabaseContentQuestionState_inherit__map" alt="Inheritance graph"/></div>
+<map name="DatabaseContentQuestionState_inherit__map" id="DatabaseContentQuestionState_inherit__map">
+<area shape="rect" id="node2" href="../../d2/d79/a00051.html" title="{QuestionState\n|&#45; m_givenAnswer\l|+ QuestionState()\l+ checkValidity()\l+ givenAnswer()\l+ isAnswerValid()\l+ setGivenAnswer()\l+ setInput()\l}" alt="" coords="49,635,188,807"/><area shape="rect" id="node4" href="../../dc/d87/a00032.html" title="{IOState\n|&#45; m_input\l&#45; m_output\l|+ IOState()\l+ input()\l+ onEntry()\l+ onExit()\l+ output()\l+ setInput()\l+ setOutput()\l}" alt="" coords="69,379,168,586"/><area shape="rect" id="node6" href="../../d5/d16/a00029.html" title="{GenericState\n||+ GenericState()\l+ toString()\l}" alt="" coords="60,227,177,330"/><area shape="rect" id="node8" href="../../d8/d41/a00038.html" title="{NamedObject\n|&#45; m_name\l&#45; m_ptraddress\l|+ NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}" alt="" coords="57,6,180,178"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Graphe de collaboration de DatabaseContentQuestionState:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/de3/a00373.png" border="0" usemap="#DatabaseContentQuestionState_coll__map" alt="Collaboration graph"/></div>
+<map name="DatabaseContentQuestionState_coll__map" id="DatabaseContentQuestionState_coll__map">
+<area shape="rect" id="node2" href="../../d2/d79/a00051.html" title="{QuestionState\n|&#45; m_givenAnswer\l|+ QuestionState()\l+ checkValidity()\l+ givenAnswer()\l+ isAnswerValid()\l+ setGivenAnswer()\l+ setInput()\l}" alt="" coords="49,635,188,807"/><area shape="rect" id="node4" href="../../dc/d87/a00032.html" title="{IOState\n|&#45; m_input\l&#45; m_output\l|+ IOState()\l+ input()\l+ onEntry()\l+ onExit()\l+ output()\l+ setInput()\l+ setOutput()\l}" alt="" coords="69,379,168,586"/><area shape="rect" id="node6" href="../../d5/d16/a00029.html" title="{GenericState\n||+ GenericState()\l+ toString()\l}" alt="" coords="60,227,177,330"/><area shape="rect" id="node8" href="../../d8/d41/a00038.html" title="{NamedObject\n|&#45; m_name\l&#45; m_ptraddress\l|+ NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}" alt="" coords="57,6,180,178"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
+
+<p><a href="../../d5/db5/a00374.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-slots"></a>
+Connecteurs publics</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b">setOutput</a> (const QString &amp;<a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="signals"></a>
 Signaux</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a011772fbba0d57f3c50e8e7a5a87dd1d">cancelProcess</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ae47b6ae42fdda7d7cd17bac3528d8c3f">cancelReplace</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a7fdcd128eb89e6615129427e9a045fb6">confirm</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a3a1b7c7ad5352798610903c2f2fe6c49">keySelected</a> (string selectedKey)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a2463a3acef2df4c951ce942a3229e44e">quit</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#af0de4b4127be745f3a835f316c6d2d03">reload</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a182ef099c4f3d4bada9767a7b46c5f04">replace</a> (string field)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#aad74a6a6879d2c0a9fb09726e5c08945">selected</a> (string selectedItem)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a41d45236c37b75848f4b1667a11fb50e">validate</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="properties"></a>
-Propriétés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QtObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a8bffd37abefff45e39dd6b3fee8ad546">streamBuffer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">next</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">resendInput</a> (QVariant <a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">sendOutput</a> (QVariant <a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a616d4e78a092e5b6943969bfc648e24e">DatabaseContentQuestionState</a> (QString question, QString <a class="el" href="../../d8/d41/a00038.html#a8ed2e2052fd239e296c60365ed5f3f61">name</a>, QString databaseTable, QString tableField, QString databaseCondition=&quot;&quot;, QState *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83">checkValidity</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a60c7dd00fefe94384cdcbd3db17f01b6">isAnswerValid</a> (const QVariant &amp;<a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b">onEntry</a> (QEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f">onExit</a> (QEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45">setGivenAnswer</a> (const QVariant &amp;<a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54">setInput</a> (const QVariant &amp;<a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a74b3853634f23e2c3f791105b8bba163">m_condition</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a74b3853634f23e2c3f791105b8bba163"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#af878192250873334aeac6b6a9e4591a5">m_field</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#af878192250873334aeac6b6a9e4591a5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ae1edeb9e93fde963bdd9ea31b6290328">m_table</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ae1edeb9e93fde963bdd9ea31b6290328"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock">
-<p>Définition à la ligne <a class="el" href="../../d9/d8d/a00262_source.html#l00001">1</a> du fichier <a class="el" href="../../d9/d8d/a00262_source.html">CommonPage.qml</a>.</p>
-</div><hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="a011772fbba0d57f3c50e8e7a5a87dd1d"></a><!-- doxytag: member="CommonPage::cancelProcess" ref="a011772fbba0d57f3c50e8e7a5a87dd1d" args="()" -->
+<p>Définition à la ligne <a class="el" href="../../d2/d1f/a00083_source.html#l00010">10</a> du fichier <a class="el" href="../../d2/d1f/a00083_source.html">databasecontentquestionstate.h</a>.</p>
+</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a616d4e78a092e5b6943969bfc648e24e"></a><!-- doxytag: member="DatabaseContentQuestionState::DatabaseContentQuestionState" ref="a616d4e78a092e5b6943969bfc648e24e" args="(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition=&quot;&quot;, QState *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#a011772fbba0d57f3c50e8e7a5a87dd1d">cancelProcess</a> </td>
+          <td class="memname"><a class="el" href="../../d3/dfe/a00025.html">DatabaseContentQuestionState</a> </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>question</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>databaseTable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>tableField</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>databaseCondition</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QState *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">question</td><td></td></tr>
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">databaseTable</td><td></td></tr>
+    <tr><td class="paramname">tableField</td><td></td></tr>
+    <tr><td class="paramname">databaseCondition</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d4/d63/a00082_source.html#l00015">15</a> du fichier <a class="el" href="../../d4/d63/a00082_source.html">databasecontentquestionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../de/d76/a00134_source.html#l00255">SqlDataModel::fetch()</a>, <a class="el" href="../../d2/d1f/a00083_source.html#l00040">m_condition</a>, <a class="el" href="../../d2/d1f/a00083_source.html#l00041">m_field</a>, et <a class="el" href="../../d2/d1f/a00083_source.html#l00039">m_table</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/dfe/a00025_a616d4e78a092e5b6943969bfc648e24e_cgraph.png" border="0" usemap="#d3/dfe/a00025_a616d4e78a092e5b6943969bfc648e24e_cgraph" alt=""/></div>
+<map name="d3/dfe/a00025_a616d4e78a092e5b6943969bfc648e24e_cgraph" id="d3/dfe/a00025_a616d4e78a092e5b6943969bfc648e24e_cgraph">
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#add9f84cc106324bddc85420bafb10557" title="SqlDataModel::fetch" alt="" coords="261,628,403,657"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a40db81b8e80022c511504feff27f6c4e" title="SqlDataModel::setFields" alt="" coords="476,219,641,248"/><area shape="rect" id="node34" href="../../d3/d8b/a00059.html#a3d9cf736a5abde06ac62fb5afd0f03ac" title="SqlDataModel::setTable" alt="" coords="477,628,640,657"/><area shape="rect" id="node38" href="../../d3/d8b/a00059.html#a0dfa1974a45d97bccf405b376dacc388" title="SqlDataModel::setFilterCondition" alt="" coords="452,681,665,711"/><area shape="rect" id="node44" href="../../d3/d8b/a00059.html#adb17cbb795f19bf7435f2157373c93d3" title="SqlDataModel::setOrderBy" alt="" coords="469,735,648,764"/><area shape="rect" id="node46" href="../../d3/d8b/a00059.html#ae9a20ff77d8d46aaf20689f90f2e2511" title="SqlDataModel::fieldsList" alt="" coords="477,788,640,817"/><area shape="rect" id="node48" href="../../d3/d8b/a00059.html#af3fed659e41f839b5e0c5c8578a6ec7b" title="SqlDataModel::setQuery" alt="" coords="476,392,641,421"/><area shape="rect" id="node68" href="../../d3/d8b/a00059.html#aedcc52b3673b8df9425e52f13accb2a1" title="SqlDataModel::isEmpty" alt="" coords="740,576,900,605"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba" title="SqlDataModel::field" alt="" coords="752,112,888,141"/><area shape="rect" id="node11" href="../../d7/df7/a00058.html#a0ecb3bed54206240ba05ffb172c73cb3" title="SqlDataFields::setName" alt="" coords="737,219,903,248"/><area shape="rect" id="node26" href="../../d3/d8b/a00059.html#ab9b4c601d9d3b675f95303198c615763" title="SqlDataModel::applyRoles" alt="" coords="732,285,908,315"/><area shape="rect" id="node32" href="../../d3/d8b/a00059.html#a2c90d0af13ec03ff12c4dc43e88b2198" title="SqlDataModel::fieldsChanged" alt="" coords="723,165,917,195"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83" title="SqlDataModel::fieldsCount" alt="" coords="983,5,1161,35"/><area shape="rect" id="node13" href="../../d7/df7/a00058.html#aaa8426da318c41270dd942543b6f3cc6" title="SqlDataFields::setSortOrder" alt="" coords="979,219,1165,248"/><area shape="rect" id="node17" href="../../d7/df7/a00058.html#a562cce1c5342538e3fa78cddc7de03d2" title="SqlDataFields::setText" alt="" coords="995,59,1149,88"/><area shape="rect" id="node22" href="../../d7/df7/a00058.html#a417a2c42aec8c267c846ac715ad22664" title="SqlDataFields::nameChanged" alt="" coords="975,112,1169,141"/><area shape="rect" id="node24" href="../../d7/df7/a00058.html#ab5a767f8c537f44230fa7a6f1a2e64db" title="SqlDataFields::roleChanged" alt="" coords="980,165,1164,195"/><area shape="rect" id="node15" href="../../d7/df7/a00058.html#a0a8a4c559ac66e8e9315d764ccc037d2" title="SqlDataFields::sortOrderChanged" alt="" coords="1219,219,1437,248"/><area shape="rect" id="node20" href="../../d7/df7/a00058.html#ad4cb54bce44787c508c0cee6a01d4748" title="SqlDataFields::textChanged" alt="" coords="1235,59,1421,88"/><area shape="rect" id="node28" href="../../d3/d8b/a00059.html#af2456411865113dc581cc94669f6180a" title="SqlDataModel::roleForField" alt="" coords="983,325,1161,355"/><area shape="rect" id="node30" href="../../d3/d8b/a00059.html#a6aefd3944be6e9f62c5defd518922753" title="SqlDataModel::rolesChanged" alt="" coords="976,272,1168,301"/><area shape="rect" id="node36" href="../../d3/d8b/a00059.html#abed06f2478a59689ba14d62073624714" title="SqlDataModel::tableChanged" alt="" coords="724,629,916,659"/><area shape="rect" id="node40" href="../../d3/d8b/a00059.html#a5ad93e3e39ebf61e2b111d27a7708898" title="SqlDataModel::filter" alt="" coords="752,683,888,712"/><area shape="rect" id="node42" href="../../d3/d8b/a00059.html#abc9ca77be83f03bb6d693e57427636f0" title="SqlDataModel::filterChanged" alt="" coords="725,736,915,765"/><area shape="rect" id="node50" href="../../d0/d0b/a00004.html#afba86dd08ac8528cc6cfe07a44c91fbe" title="AppDatabase::getInstance" alt="" coords="732,365,908,395"/><area shape="rect" id="node56" href="../../d1/dc6/a00037.html#a3654031142b899e0593adc4e4d9e8260" title="MessageManager::errorMessage" alt="" coords="1487,379,1697,408"/><area shape="rect" id="node59" href="../../d0/d0b/a00004.html#a1cad0fdd11c50e747a10b8b23556e596" title="AppDatabase::getDbConnection" alt="" coords="715,469,925,499"/><area shape="rect" id="node66" href="../../d3/d8b/a00059.html#a80378cc6261c1ba7a1501587e4df4e9b" title="SqlDataModel::lastError" alt="" coords="740,523,900,552"/><area shape="rect" id="node52" href="../../d0/d0b/a00004.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="979,379,1165,408"/><area shape="rect" id="node54" href="../../d0/d0b/a00004.html#a81a366428179a1f1020ce9438a27c51f" title="AppDatabase::dbConnect" alt="" coords="1243,379,1413,408"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a6440829886609f1922c88f71d2d9aa83"></a><!-- doxytag: member="DatabaseContentQuestionState::checkValidity" ref="a6440829886609f1922c88f71d2d9aa83" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83">checkValidity</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00022">22</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d9/dcc/a00102_source.html#l00049">QuestionState::givenAnswer()</a>, <a class="el" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868">QuestionState::isAnswerValid()</a>, <a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">GenericState::next()</a>, et <a class="el" href="../../d9/dcc/a00102_source.html#l00038">QuestionState::setInput()</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph.png" border="0" usemap="#d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph" alt=""/></div>
+<map name="d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph" id="d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250" title="givenAnswer" alt="" coords="172,5,268,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868" title="isAnswerValid" alt="" coords="168,59,272,88"/><area shape="rect" id="node7" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a" title="GenericState::next" alt="" coords="155,112,285,141"/><area shape="rect" id="node9" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="185,165,255,195"/><area shape="rect" id="node11" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45" title="setGivenAnswer" alt="" coords="335,165,452,195"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="ae47b6ae42fdda7d7cd17bac3528d8c3f"></a><!-- doxytag: member="CommonPage::cancelReplace" ref="ae47b6ae42fdda7d7cd17bac3528d8c3f" args="()" -->
+<a class="anchor" id="a25ff713014de6fc40b87e6604b278250"></a><!-- doxytag: member="DatabaseContentQuestionState::givenAnswer" ref="a25ff713014de6fc40b87e6604b278250" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#ae47b6ae42fdda7d7cd17bac3528d8c3f">cancelReplace</a> </td>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QVariant </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00049">49</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d1e/a00103_source.html#l00068">QuestionState::m_givenAnswer</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">QuestionState::checkValidity()</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph.png" border="0" usemap="#d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph" id="d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="153,5,252,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a7fdcd128eb89e6615129427e9a045fb6"></a><!-- doxytag: member="CommonPage::confirm" ref="a7fdcd128eb89e6615129427e9a045fb6" args="()" -->
+<a class="anchor" id="ad692ec3c90700ec6e27b18af72eee635"></a><!-- doxytag: member="DatabaseContentQuestionState::input" ref="ad692ec3c90700ec6e27b18af72eee635" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#a7fdcd128eb89e6615129427e9a045fb6">confirm</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QVariant </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00022">22</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00087">IOState::m_input</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00033">IOState::setInput()</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph.png" border="0" usemap="#dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph" id="dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="223,5,412,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="104,31,173,60"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a3a1b7c7ad5352798610903c2f2fe6c49"></a><!-- doxytag: member="CommonPage::keySelected" ref="a3a1b7c7ad5352798610903c2f2fe6c49" args="(string selectedKey)" -->
+<a class="anchor" id="a60c7dd00fefe94384cdcbd3db17f01b6"></a><!-- doxytag: member="DatabaseContentQuestionState::isAnswerValid" ref="a60c7dd00fefe94384cdcbd3db17f01b6" args="(const QVariant &amp;givenAnswer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#a3a1b7c7ad5352798610903c2f2fe6c49">keySelected</a> </td>
+          <td class="memname"><a class="el" href="../../d3/dfe/a00025.html#a60c7dd00fefe94384cdcbd3db17f01b6">isAnswerValid</a> </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>selectedKey</em></td><td>)</td>
-          <td><code> [signal]</code></td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>givenAnswer</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">givenAnswer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implémente <a class="el" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868">QuestionState</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../d4/d63/a00082_source.html#l00031">31</a> du fichier <a class="el" href="../../d4/d63/a00082_source.html">databasecontentquestionstate.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2463a3acef2df4c951ce942a3229e44e"></a><!-- doxytag: member="CommonPage::quit" ref="a2463a3acef2df4c951ce942a3229e44e" args="()" -->
+<a class="anchor" id="acea62048bfee7b3cd80ed446c86fb78a"></a><!-- doxytag: member="DatabaseContentQuestionState::next" ref="acea62048bfee7b3cd80ed446c86fb78a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#a2463a3acef2df4c951ce942a3229e44e">quit</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af0de4b4127be745f3a835f316c6d2d03"></a><!-- doxytag: member="CommonPage::reload" ref="af0de4b4127be745f3a835f316c6d2d03" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#af0de4b4127be745f3a835f316c6d2d03">reload</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a182ef099c4f3d4bada9767a7b46c5f04"></a><!-- doxytag: member="CommonPage::replace" ref="a182ef099c4f3d4bada9767a7b46c5f04" args="(string field)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#a182ef099c4f3d4bada9767a7b46c5f04">replace</a> </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>field</em></td><td>)</td>
-          <td><code> [signal]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aad74a6a6879d2c0a9fb09726e5c08945"></a><!-- doxytag: member="CommonPage::selected" ref="aad74a6a6879d2c0a9fb09726e5c08945" args="(string selectedItem)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#aad74a6a6879d2c0a9fb09726e5c08945">selected</a> </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>selectedItem</em></td><td>)</td>
-          <td><code> [signal]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a41d45236c37b75848f4b1667a11fb50e"></a><!-- doxytag: member="CommonPage::validate" ref="a41d45236c37b75848f4b1667a11fb50e" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d3/dfe/a00025.html#a41d45236c37b75848f4b1667a11fb50e">validate</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">next</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
+          <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">QuestionState::checkValidity()</a>, <a class="el" href="../../da/dec/a00080_source.html#l00023">ConfirmationState::confirmInput()</a>, et <a class="el" href="../../d0/dc2/a00104_source.html#l00035">StatementState::onEntry()</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph.png" border="0" usemap="#d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph" alt=""/></div>
+<map name="d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph" id="d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="QuestionState::checkValidity" alt="" coords="111,5,300,35"/><area shape="rect" id="node5" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321" title="ConfirmationState::confirmInput" alt="" coords="103,59,308,88"/><area shape="rect" id="node9" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b" title="StatementState::onEntry" alt="" coords="123,112,288,141"/><area shape="rect" id="node7" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="359,59,548,88"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<hr/><h2>Documentation des propriétés</h2>
-<a class="anchor" id="a8bffd37abefff45e39dd6b3fee8ad546"></a><!-- doxytag: member="CommonPage::streamBuffer" ref="a8bffd37abefff45e39dd6b3fee8ad546" args="" -->
+<a class="anchor" id="a31b61d841fca82187cb7d94cb990611b"></a><!-- doxytag: member="DatabaseContentQuestionState::onEntry" ref="a31b61d841fca82187cb7d94cb990611b" args="(QEvent *event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QtObject <a class="el" href="../../d3/dfe/a00025.html#a8bffd37abefff45e39dd6b3fee8ad546">streamBuffer</a></td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b">onEntry</a> </td>
+          <td>(</td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Réimplémentée dans <a class="el" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b">StatementState</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00056">56</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>, et <a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">IOState::sendOutput()</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph.png" border="0" usemap="#dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph" id="dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca" title="sendOutput" alt="" coords="121,5,209,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ace3bc8cea2ce9a73fab833e83d6bc14f"></a><!-- doxytag: member="DatabaseContentQuestionState::onExit" ref="ace3bc8cea2ce9a73fab833e83d6bc14f" args="(QEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f">onExit</a> </td>
+          <td>(</td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00082">82</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00087">IOState::m_input</a>, et <a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">IOState::resendInput()</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph.png" border="0" usemap="#dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph" id="dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952" title="resendInput" alt="" coords="112,5,203,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa50ed472c808b4af396048306b39e23f"></a><!-- doxytag: member="DatabaseContentQuestionState::output" ref="aa50ed472c808b4af396048306b39e23f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00045">45</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dec/a00090_source.html#l00070">IOState::setOutput()</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph.png" border="0" usemap="#dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph" id="dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b" title="setOutput" alt="" coords="113,5,191,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f5c8a9300aa4835a1b08d32e24ce952"></a><!-- doxytag: member="DatabaseContentQuestionState::resendInput" ref="a8f5c8a9300aa4835a1b08d32e24ce952" args="(QVariant input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">resendInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td><code> [signal, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00082">IOState::onExit()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00033">IOState::setInput()</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph.png" border="0" usemap="#dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph" id="dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="263,21,452,51"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f" title="onExit" alt="" coords="149,20,208,49"/><area shape="rect" id="node7" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="144,73,213,103"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a33f3bdead52e00999ff434c1306cb9ca"></a><!-- doxytag: member="DatabaseContentQuestionState::sendOutput" ref="a33f3bdead52e00999ff434c1306cb9ca" args="(QVariant output)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">sendOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td><code> [signal, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00056">IOState::onEntry()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00070">IOState::setOutput()</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph.png" border="0" usemap="#dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph" id="dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="145,5,335,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b" title="onEntry" alt="" coords="207,59,273,88"/><area shape="rect" id="node7" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b" title="setOutput" alt="" coords="201,112,279,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a28580553e9deca52ebe2d73b2df46a45"></a><!-- doxytag: member="DatabaseContentQuestionState::setGivenAnswer" ref="a28580553e9deca52ebe2d73b2df46a45" args="(const QVariant &amp;givenAnswer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45">setGivenAnswer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>givenAnswer</em></td><td>)</td>
+          <td><code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">givenAsnwer</td><td></td></tr>
+    <tr><td class="paramname">givenAnswer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00060">60</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d1e/a00103_source.html#l00068">QuestionState::m_givenAnswer</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00038">QuestionState::setInput()</a>.</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph.png" border="0" usemap="#d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph" id="d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="173,5,243,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="292,5,391,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ada5a250568597442e91778790424ac54"></a><!-- doxytag: member="DatabaseContentQuestionState::setInput" ref="ada5a250568597442e91778790424ac54" args="(const QVariant &amp;input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54">setInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td><code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Réimplémentée à partir de <a class="el" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54">IOState</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00038">38</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d9/dcc/a00102_source.html#l00060">QuestionState::setGivenAnswer()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">QuestionState::checkValidity()</a>.</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph.png" border="0" usemap="#d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph" alt=""/></div>
+<map name="d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph" id="d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45" title="setGivenAnswer" alt="" coords="124,5,241,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph.png" border="0" usemap="#d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph" id="d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="124,5,223,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab23253247c06e649614b95d165ba934b"></a><!-- doxytag: member="DatabaseContentQuestionState::setOutput" ref="ab23253247c06e649614b95d165ba934b" args="(const QString &amp;output)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b">setOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td><code> [virtual, slot, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00070">70</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00045">IOState::output()</a>, et <a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">IOState::sendOutput()</a>.</p>
+
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph.png" border="0" usemap="#dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph" id="dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f" title="output" alt="" coords="149,5,208,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca" title="sendOutput" alt="" coords="135,59,223,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5558c5d549f41597377fa1ea8a1cefa3"></a><!-- doxytag: member="DatabaseContentQuestionState::toString" ref="a5558c5d549f41597377fa1ea8a1cefa3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
+
+<p>Réimplémentée à partir de <a class="el" href="../../d8/d41/a00038.html#a5558c5d549f41597377fa1ea8a1cefa3">NamedObject</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../db/ddf/a00088_source.html#l00022">22</a> du fichier <a class="el" href="../../db/ddf/a00088_source.html">genericstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d1/dc1/a00092_source.html#l00025">IOStateMachine::toString()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00025">IOStateMachine::toString()</a>.</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph.png" border="0" usemap="#d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph" alt=""/></div>
+<map name="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph" id="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3" title="IOStateMachine::toString" alt="" coords="121,5,289,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph.png" border="0" usemap="#d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph" alt=""/></div>
+<map name="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph" id="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3" title="IOStateMachine::toString" alt="" coords="121,5,289,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des données membres</h2>
+<a class="anchor" id="a74b3853634f23e2c3f791105b8bba163"></a><!-- doxytag: member="DatabaseContentQuestionState::m_condition" ref="a74b3853634f23e2c3f791105b8bba163" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../d3/dfe/a00025.html#a74b3853634f23e2c3f791105b8bba163">m_condition</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="../../d9/d8d/a00262_source.html#l00004">4</a> du fichier <a class="el" href="../../d9/d8d/a00262_source.html">CommonPage.qml</a>.</p>
+<p>TODO. </p>
+
+<p>Définition à la ligne <a class="el" href="../../d2/d1f/a00083_source.html#l00040">40</a> du fichier <a class="el" href="../../d2/d1f/a00083_source.html">databasecontentquestionstate.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d4/d63/a00082_source.html#l00015">DatabaseContentQuestionState()</a>.</p>
 
 </div>
 </div>
-<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
-<li>views/qml/<a class="el" href="../../d9/d8d/a00262_source.html">CommonPage.qml</a></li>
+<a class="anchor" id="af878192250873334aeac6b6a9e4591a5"></a><!-- doxytag: member="DatabaseContentQuestionState::m_field" ref="af878192250873334aeac6b6a9e4591a5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../d3/dfe/a00025.html#af878192250873334aeac6b6a9e4591a5">m_field</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>TODO. </p>
+
+<p>Définition à la ligne <a class="el" href="../../d2/d1f/a00083_source.html#l00041">41</a> du fichier <a class="el" href="../../d2/d1f/a00083_source.html">databasecontentquestionstate.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d4/d63/a00082_source.html#l00015">DatabaseContentQuestionState()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1edeb9e93fde963bdd9ea31b6290328"></a><!-- doxytag: member="DatabaseContentQuestionState::m_table" ref="ae1edeb9e93fde963bdd9ea31b6290328" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="../../d3/dfe/a00025.html#ae1edeb9e93fde963bdd9ea31b6290328">m_table</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>TODO. </p>
+
+<p>Définition à la ligne <a class="el" href="../../d2/d1f/a00083_source.html#l00039">39</a> du fichier <a class="el" href="../../d2/d1f/a00083_source.html">databasecontentquestionstate.h</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d4/d63/a00082_source.html#l00015">DatabaseContentQuestionState()</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>logic/<a class="el" href="../../d2/d1f/a00083_source.html">databasecontentquestionstate.h</a></li>
+<li>logic/<a class="el" href="../../d4/d63/a00082_source.html">databasecontentquestionstate.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">DatabaseContentQuestionState</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

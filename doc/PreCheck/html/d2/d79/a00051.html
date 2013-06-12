@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence de la classe NewBillingFactory</title>
+<title>PreCheck: Référence de la classe QuestionState</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,621 +83,707 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d2/d79/a00051.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-slots">Connecteurs publics</a> &#124;
 <a href="#signals">Signaux</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
-<a href="#pro-methods">Fonctions membres protégées</a> &#124;
-<a href="#pro-attribs">Attributs protégés</a> &#124;
 <a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
-<div class="title">Référence de la classe NewBillingFactory</div>  </div>
+<div class="title">Référence de la classe QuestionState</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="NewBillingFactory" --><!-- doxytag: inherits="PreCheckThread" -->
-<p><code>#include &lt;<a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>&gt;</code></p>
+<!-- doxytag: class="QuestionState" --><!-- doxytag: inherits="IOState" -->
+<p><code>#include &lt;<a class="el" href="../../d5/d1e/a00103_source.html">logic/questionstate.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de NewBillingFactory:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de QuestionState:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/dda/a00712.png" border="0" usemap="#NewBillingFactory_inherit__map" alt="Inheritance graph"/></div>
-<map name="NewBillingFactory_inherit__map" id="NewBillingFactory_inherit__map">
-<area shape="rect" id="node2" href="../../d9/d73/a00060.html" title="{PreCheckThread\n|# content\l# currentStep\l# stepsCount\l# toBeReplaced\l|+ PreCheckThread()\l+ cancelProcess()\l+ className()\l+ insertUpdateDatabase()\l+ cancelReplacement()\l+ confirmInput()\l+ receiveInput()\l+ replaceInput()\l+ validateInput()\l}" alt="" coords="5,6,176,282"/></map>
-<center><span class="legend">[<a href="../../graph_legend.html">légende</a>]</span></center></div>
+<div class="center"><img src="../../d1/d7e/a00434.png" border="0" usemap="#QuestionState_inherit__map" alt="Inheritance graph"/></div>
+<map name="QuestionState_inherit__map" id="QuestionState_inherit__map">
+<area shape="rect" id="node9" href="../../d3/dfe/a00025.html" title="{DatabaseContentQuestionState\n|&#45; m_condition\l&#45; m_field\l&#45; m_table\l|+ DatabaseContentQuestionState()\l+ isAnswerValid()\l}" alt="" coords="5,882,232,1019"/><area shape="rect" id="node11" href="../../d0/d33/a00027.html" title="{DateQuestionState\n|&#45; future\l&#45; past\l|+ DateQuestionState()\l+ getFuture()\l+ getPast()\l+ isAnswerValid()\l+ setFuture()\l+ setPast()\l}" alt="" coords="256,856,408,1045"/><area shape="rect" id="node13" href="../../dc/d3c/a00028.html" title="{DecimalQuestionState\n|&#45; m_max\l&#45; m_min\l|+ DecimalQuestionState()\l+ isAnswerValid()\l+ max()\l+ min()\l+ setMax()\l+ setMin()\l}" alt="" coords="432,856,605,1045"/><area shape="rect" id="node15" href="../../d6/d42/a00043.html" title="{NumericQuestionState\n|&#45; m_max\l&#45; m_min\l|+ NumericQuestionState()\l+ isAnswerValid()\l+ max()\l+ min()\l+ setMax()\l+ setMin()\l}" alt="" coords="629,856,803,1045"/><area shape="rect" id="node17" href="../../d1/d6f/a00063.html" title="{StringQuestionState\n|&#45; m_maxLen\l&#45; m_minLen\l|+ StringQuestionState()\l+ isAnswerValid()\l+ maxLen()\l+ minLen()\l+ setMaxLen()\l+ setMinLen()\l}" alt="" coords="827,856,984,1045"/><area shape="rect" id="node2" href="../../dc/d87/a00032.html" title="{IOState\n|&#45; m_input\l&#45; m_output\l|+ IOState()\l+ input()\l+ onEntry()\l+ onExit()\l+ output()\l+ setInput()\l+ setOutput()\l}" alt="" coords="469,379,568,586"/><area shape="rect" id="node4" href="../../d5/d16/a00029.html" title="{GenericState\n||+ GenericState()\l+ toString()\l}" alt="" coords="460,227,577,330"/><area shape="rect" id="node6" href="../../d8/d41/a00038.html" title="{NamedObject\n|&#45; m_name\l&#45; m_ptraddress\l|+ NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}" alt="" coords="457,6,580,178"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Graphe de collaboration de NewBillingFactory:</div>
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Graphe de collaboration de QuestionState:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/d04/a00713.png" border="0" usemap="#NewBillingFactory_coll__map" alt="Collaboration graph"/></div>
-<map name="NewBillingFactory_coll__map" id="NewBillingFactory_coll__map">
-<area shape="rect" id="node2" href="../../d9/d73/a00060.html" title="{PreCheckThread\n|# content\l# currentStep\l# stepsCount\l# toBeReplaced\l|+ PreCheckThread()\l+ cancelProcess()\l+ className()\l+ insertUpdateDatabase()\l+ cancelReplacement()\l+ confirmInput()\l+ receiveInput()\l+ replaceInput()\l+ validateInput()\l}" alt="" coords="5,6,176,282"/></map>
-<center><span class="legend">[<a href="../../graph_legend.html">légende</a>]</span></center></div>
+<div class="center"><img src="../../d0/dc5/a00435.png" border="0" usemap="#QuestionState_coll__map" alt="Collaboration graph"/></div>
+<map name="QuestionState_coll__map" id="QuestionState_coll__map">
+<area shape="rect" id="node2" href="../../dc/d87/a00032.html" title="{IOState\n|&#45; m_input\l&#45; m_output\l|+ IOState()\l+ input()\l+ onEntry()\l+ onExit()\l+ output()\l+ setInput()\l+ setOutput()\l}" alt="" coords="25,379,124,586"/><area shape="rect" id="node4" href="../../d5/d16/a00029.html" title="{GenericState\n||+ GenericState()\l+ toString()\l}" alt="" coords="16,227,133,330"/><area shape="rect" id="node6" href="../../d8/d41/a00038.html" title="{NamedObject\n|&#45; m_name\l&#45; m_ptraddress\l|+ NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}" alt="" coords="13,6,136,178"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
 
-<p><a href="../../df/d96/a00714.html">Liste de tous les membres</a></p>
+<p><a href="../../d4/d82/a00436.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-slots"></a>
 Connecteurs publics</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#af84400ac0e8815e91b0c13978e2deee5">cancelReplacement</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a8f2f426f52671761b30bdc2fdb18bff7">confirmInput</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a7dc3e898aae484518acd8c1f46c1b29a">receiveInput</a> (QString text)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#aa6ad595cc4a1ddac5a0a8bb12f377d00">replaceInput</a> (QString field)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a00e165667cc30c6562882b37206bb97c">validateInput</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b">setOutput</a> (const QString &amp;<a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="signals"></a>
 Signaux</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a828260157c0d0e01d2d7dd28259dfb77">displayCalendar</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#ab84a740097037891b95b9bb6592c05ca">openTab</a> (QVariant tabPos)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">sendText</a> (QVariant text)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">next</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">resendInput</a> (QVariant <a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">sendOutput</a> (QVariant <a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a309370ce3714e8dcd06c16e0bf741f61">NewBillingFactory</a> (QObject *parent=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a011772fbba0d57f3c50e8e7a5a87dd1d">cancelProcess</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#ac0332ea74b6d8156eddd812146b4061d">className</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#ab44f29646553590124591c01516854b3">insertUpdateDatabase</a> (QString tableName)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a388f572c62279f839ee138a9afbdeeb5">print</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-methods"></a>
-Fonctions membres protégées</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a13a43e6d814de94978c515cb084873b1">run</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Attributs protégés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QVariantMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">content</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">currentStep</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">stepsCount</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">toBeReplaced</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#ab472e9a7a08c149b2753dedfb29bbe2f">QuestionState</a> (QString question, QString <a class="el" href="../../d8/d41/a00038.html#a8ed2e2052fd239e296c60365ed5f3f61">name</a>, QState *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83">checkValidity</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868">isAnswerValid</a> (const QVariant &amp;<a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a>)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b">onEntry</a> (QEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f">onExit</a> (QEvent *event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45">setGivenAnswer</a> (const QVariant &amp;<a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54">setInput</a> (const QVariant &amp;<a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a04de3b5db71b07ee09e478a905e224cf">currentPerson</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QList&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a8cd75c18da3260ab2c4a956f963c197a">currentPersonOk</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#af8fad73d90b6fac5482bf9170a1729a4">newClient</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d73/a00060.html">PreCheckThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#aad98a6dd93b64bec91237601158502fb">newClientProcess</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html#a18008ed1211f6c93193dfef965a1de1d">m_givenAnswer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a18008ed1211f6c93193dfef965a1de1d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock">
-<p>Définition à la ligne <a class="el" href="../../d5/df1/a00206_source.html#l00008">8</a> du fichier <a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d1e/a00103_source.html#l00010">10</a> du fichier <a class="el" href="../../d5/d1e/a00103_source.html">questionstate.h</a>.</p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a309370ce3714e8dcd06c16e0bf741f61"></a><!-- doxytag: member="NewBillingFactory::NewBillingFactory" ref="a309370ce3714e8dcd06c16e0bf741f61" args="(QObject *parent=0)" -->
+<a class="anchor" id="ab472e9a7a08c149b2753dedfb29bbe2f"></a><!-- doxytag: member="QuestionState::QuestionState" ref="ab472e9a7a08c149b2753dedfb29bbe2f" args="(QString question, QString name, QState *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d79/a00051.html">NewBillingFactory</a> </td>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html">QuestionState</a> </td>
           <td>(</td>
-          <td class="paramtype">QObject *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>question</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QState *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">question</td><td></td></tr>
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00011">11</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a6440829886609f1922c88f71d2d9aa83"></a><!-- doxytag: member="QuestionState::checkValidity" ref="a6440829886609f1922c88f71d2d9aa83" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83">checkValidity</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00014">14</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00022">22</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../d5/df1/a00206_source.html#l00029">currentPerson</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00031">newClient</a>, et <a class="el" href="../../dd/dc1/a00212_source.html#l00030">PreCheckThread::stepsCount</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="a011772fbba0d57f3c50e8e7a5a87dd1d"></a><!-- doxytag: member="NewBillingFactory::cancelProcess" ref="a011772fbba0d57f3c50e8e7a5a87dd1d" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a011772fbba0d57f3c50e8e7a5a87dd1d">cancelProcess</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implémente <a class="el" href="../../d9/d73/a00060.html#ab0b246c9d2a0bd10b9d4f8c45f9a6f96">PreCheckThread</a>.</p>
-
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00022">22</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00029">PreCheckThread::content</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00029">currentPerson</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00030">currentPersonOk</a>, <a class="el" href="../../dd/dc1/a00212_source.html#l00031">PreCheckThread::currentStep</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00031">newClient</a>, et <a class="el" href="../../d5/df1/a00206_source.html#l00032">newClientProcess</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af84400ac0e8815e91b0c13978e2deee5"></a><!-- doxytag: member="NewBillingFactory::cancelReplacement" ref="af84400ac0e8815e91b0c13978e2deee5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d9/d73/a00060.html#af84400ac0e8815e91b0c13978e2deee5">cancelReplacement</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [slot, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../dd/ded/a00211_source.html#l00053">53</a> du fichier <a class="el" href="../../dd/ded/a00211_source.html">PreCheckThread.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00032">PreCheckThread::toBeReplaced</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/de1/a00213_source.html#l00084">ThreadsManager::connectRunningThread()</a>.</p>
+<p>Références <a class="el" href="../../d9/dcc/a00102_source.html#l00049">givenAnswer()</a>, <a class="el" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868">isAnswerValid()</a>, <a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">GenericState::next()</a>, et <a class="el" href="../../d9/dcc/a00102_source.html#l00038">setInput()</a>.</p>
 
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/d73/a00060_af84400ac0e8815e91b0c13978e2deee5_icgraph.png" border="0" usemap="#d9/d73/a00060_af84400ac0e8815e91b0c13978e2deee5_icgraph" alt=""/></div>
-<map name="d9/d73/a00060_af84400ac0e8815e91b0c13978e2deee5_icgraph" id="d9/d73/a00060_af84400ac0e8815e91b0c13978e2deee5_icgraph">
-<area shape="rect" id="node3" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649" title="ThreadsManager::connectRunningThread" alt="" coords="192,59,453,88"/><area shape="rect" id="node5" href="../../d1/d44/a00098.html#a5e30188bc0ed74ed89069ae7bb139cf3" title="ThreadsManager::launchBillingsThread" alt="" coords="508,5,753,35"/><area shape="rect" id="node7" href="../../d1/d44/a00098.html#a258588c7ce744eb51bd4a07792bcbd32" title="ThreadsManager::launchBookingsThread" alt="" coords="501,59,760,88"/><area shape="rect" id="node9" href="../../d1/d44/a00098.html#a69ce066f0efca1978ccb4dd6c924956b" title="ThreadsManager::launchBillThread" alt="" coords="520,112,741,141"/></map>
+<div class="center"><img src="../../d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph.png" border="0" usemap="#d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph" alt=""/></div>
+<map name="d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph" id="d2/d79/a00051_a6440829886609f1922c88f71d2d9aa83_cgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250" title="givenAnswer" alt="" coords="172,5,268,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868" title="isAnswerValid" alt="" coords="168,59,272,88"/><area shape="rect" id="node7" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a" title="GenericState::next" alt="" coords="155,112,285,141"/><area shape="rect" id="node9" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="185,165,255,195"/><area shape="rect" id="node11" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45" title="setGivenAnswer" alt="" coords="335,165,452,195"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac0332ea74b6d8156eddd812146b4061d"></a><!-- doxytag: member="NewBillingFactory::className" ref="ac0332ea74b6d8156eddd812146b4061d" args="()" -->
+<a class="anchor" id="a25ff713014de6fc40b87e6604b278250"></a><!-- doxytag: member="QuestionState::givenAnswer" ref="a25ff713014de6fc40b87e6604b278250" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="../../d2/d79/a00051.html#ac0332ea74b6d8156eddd812146b4061d">className</a> </td>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a25ff713014de6fc40b87e6604b278250">givenAnswer</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const<code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QVariant </dd></dl>
 
-<p>Implémente <a class="el" href="../../d9/d73/a00060.html#aaa57430c9d32f47c99cee9b6da4ef634">PreCheckThread</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00049">49</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="../../d5/df1/a00206_source.html#l00014">14</a> du fichier <a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>.</p>
+<p>Références <a class="el" href="../../d5/d1e/a00103_source.html#l00068">m_givenAnswer</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a8f2f426f52671761b30bdc2fdb18bff7"></a><!-- doxytag: member="NewBillingFactory::confirmInput" ref="a8f2f426f52671761b30bdc2fdb18bff7" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a8f2f426f52671761b30bdc2fdb18bff7">confirmInput</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual, slot]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implémente <a class="el" href="../../d9/d73/a00060.html#a094562e46ab94d6c7fcaef95a37dade2">PreCheckThread</a>.</p>
-
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00159">159</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00031">PreCheckThread::currentStep</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a828260157c0d0e01d2d7dd28259dfb77"></a><!-- doxytag: member="NewBillingFactory::displayCalendar" ref="a828260157c0d0e01d2d7dd28259dfb77" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a828260157c0d0e01d2d7dd28259dfb77">displayCalendar</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [signal]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Référencé par <a class="el" href="../../d1/de1/a00213_source.html#l00023">ThreadsManager::launchBillingsThread()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">checkValidity()</a>.</p>
 
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d2/d79/a00051_a828260157c0d0e01d2d7dd28259dfb77_icgraph.png" border="0" usemap="#d2/d79/a00051_a828260157c0d0e01d2d7dd28259dfb77_icgraph" alt=""/></div>
-<map name="d2/d79/a00051_a828260157c0d0e01d2d7dd28259dfb77_icgraph" id="d2/d79/a00051_a828260157c0d0e01d2d7dd28259dfb77_icgraph">
-<area shape="rect" id="node3" href="../../d1/d44/a00098.html#a5e30188bc0ed74ed89069ae7bb139cf3" title="ThreadsManager::launchBillingsThread" alt="" coords="169,5,415,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a7dc3e898aae484518acd8c1f46c1b29a" title="receiveInput" alt="" coords="245,59,339,88"/></map>
+<div class="center"><img src="../../d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph.png" border="0" usemap="#d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph" id="d2/d79/a00051_a25ff713014de6fc40b87e6604b278250_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="153,5,252,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ab44f29646553590124591c01516854b3"></a><!-- doxytag: member="NewBillingFactory::insertUpdateDatabase" ref="ab44f29646553590124591c01516854b3" args="(QString tableName)" -->
+<a class="anchor" id="ad692ec3c90700ec6e27b18af72eee635"></a><!-- doxytag: member="QuestionState::input" ref="ad692ec3c90700ec6e27b18af72eee635" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d73/a00060.html#ab44f29646553590124591c01516854b3">insertUpdateDatabase</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ad692ec3c90700ec6e27b18af72eee635">input</a> </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>tableName</em></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QVariant </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../dd/ded/a00211_source.html#l00011">11</a> du fichier <a class="el" href="../../dd/ded/a00211_source.html">PreCheckThread.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00022">22</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00029">PreCheckThread::content</a>, et <a class="el" href="../../d9/db6/a00146_source.html#l00005">AppDatabase::getInstance()</a>.</p>
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00087">IOState::m_input</a>.</p>
 
-<p>Référencé par <a class="el" href="../../d1/dd6/a00108_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>, et <a class="el" href="../../de/d79/a00203_source.html#l00097">NewBillFactory::validateInput()</a>.</p>
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00033">IOState::setInput()</a>.</p>
 
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/d73/a00060_ab44f29646553590124591c01516854b3_cgraph.png" border="0" usemap="#d9/d73/a00060_ab44f29646553590124591c01516854b3_cgraph" alt=""/></div>
-<map name="d9/d73/a00060_ab44f29646553590124591c01516854b3_cgraph" id="d9/d73/a00060_ab44f29646553590124591c01516854b3_cgraph">
-<area shape="rect" id="node3" href="../../de/d21/a00006.html#af983af38322fdddc556587b9d5d1986f" title="AppDatabase::getInstance" alt="" coords="207,5,383,35"/><area shape="rect" id="node5" href="../../de/d21/a00006.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="433,5,620,35"/><area shape="rect" id="node7" href="../../de/d21/a00006.html#aa1659071518b929f463d544e5c86e39f" title="AppDatabase::dbConnect" alt="" coords="671,5,841,35"/></map>
+<div class="center"><img src="../../dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph.png" border="0" usemap="#dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph" id="dc/d87/a00032_ad692ec3c90700ec6e27b18af72eee635_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="223,5,412,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="104,31,173,60"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a3443576cf14941a0499006f3a8624868"></a><!-- doxytag: member="QuestionState::isAnswerValid" ref="a3443576cf14941a0499006f3a8624868" args="(const QVariant &amp;givenAnswer)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a3443576cf14941a0499006f3a8624868">isAnswerValid</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>givenAnswer</em></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">givenAnswer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>bool </dd></dl>
+
+<p>Implémenté dans <a class="el" href="../../d3/dfe/a00025.html#a60c7dd00fefe94384cdcbd3db17f01b6">DatabaseContentQuestionState</a>, <a class="el" href="../../d0/d33/a00027.html#a60c7dd00fefe94384cdcbd3db17f01b6">DateQuestionState</a>, <a class="el" href="../../dc/d3c/a00028.html#a60c7dd00fefe94384cdcbd3db17f01b6">DecimalQuestionState</a>, <a class="el" href="../../d6/d42/a00043.html#a60c7dd00fefe94384cdcbd3db17f01b6">NumericQuestionState</a>, et <a class="el" href="../../d1/d6f/a00063.html#a60c7dd00fefe94384cdcbd3db17f01b6">StringQuestionState</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">checkValidity()</a>.</p>
 
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/d73/a00060_ab44f29646553590124591c01516854b3_icgraph.png" border="0" usemap="#d9/d73/a00060_ab44f29646553590124591c01516854b3_icgraph" alt=""/></div>
-<map name="d9/d73/a00060_ab44f29646553590124591c01516854b3_icgraph" id="d9/d73/a00060_ab44f29646553590124591c01516854b3_icgraph">
-<area shape="rect" id="node3" href="../../da/da0/a00009.html#a7dc3e898aae484518acd8c1f46c1b29a" title="BillingsFactory::receiveInput" alt="" coords="216,5,403,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a7dc3e898aae484518acd8c1f46c1b29a" title="NewBillingFactory::receiveInput" alt="" coords="207,59,412,88"/><area shape="rect" id="node7" href="../../d5/de0/a00050.html#a00e165667cc30c6562882b37206bb97c" title="NewBillFactory::validateInput" alt="" coords="213,112,405,141"/></map>
+<div class="center"><img src="../../d2/d79/a00051_a3443576cf14941a0499006f3a8624868_icgraph.png" border="0" usemap="#d2/d79/a00051_a3443576cf14941a0499006f3a8624868_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_a3443576cf14941a0499006f3a8624868_icgraph" id="d2/d79/a00051_a3443576cf14941a0499006f3a8624868_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="161,5,260,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ab84a740097037891b95b9bb6592c05ca"></a><!-- doxytag: member="NewBillingFactory::openTab" ref="ab84a740097037891b95b9bb6592c05ca" args="(QVariant tabPos)" -->
+<a class="anchor" id="acea62048bfee7b3cd80ed446c86fb78a"></a><!-- doxytag: member="QuestionState::next" ref="acea62048bfee7b3cd80ed446c86fb78a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/d73/a00060.html#ab84a740097037891b95b9bb6592c05ca">openTab</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d16/a00029.html#acea62048bfee7b3cd80ed446c86fb78a">next</a> </td>
           <td>(</td>
-          <td class="paramtype">QVariant&#160;</td>
-          <td class="paramname"><em>tabPos</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Référencé par <a class="el" href="../../d1/dd6/a00108_source.html#l00024">BillingsFactory::receiveInput()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">checkValidity()</a>, <a class="el" href="../../da/dec/a00080_source.html#l00023">ConfirmationState::confirmInput()</a>, et <a class="el" href="../../d0/dc2/a00104_source.html#l00035">StatementState::onEntry()</a>.</p>
 
 <p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/d73/a00060_ab84a740097037891b95b9bb6592c05ca_icgraph.png" border="0" usemap="#d9/d73/a00060_ab84a740097037891b95b9bb6592c05ca_icgraph" alt=""/></div>
-<map name="d9/d73/a00060_ab84a740097037891b95b9bb6592c05ca_icgraph" id="d9/d73/a00060_ab84a740097037891b95b9bb6592c05ca_icgraph">
-<area shape="rect" id="node3" href="../../da/da0/a00009.html#a7dc3e898aae484518acd8c1f46c1b29a" title="BillingsFactory::receiveInput" alt="" coords="136,5,323,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a7dc3e898aae484518acd8c1f46c1b29a" title="NewBillingFactory::receiveInput" alt="" coords="127,59,332,88"/></map>
+<div class="center"><img src="../../d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph.png" border="0" usemap="#d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph" alt=""/></div>
+<map name="d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph" id="d5/d16/a00029_acea62048bfee7b3cd80ed446c86fb78a_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="QuestionState::checkValidity" alt="" coords="111,5,300,35"/><area shape="rect" id="node5" href="../../d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321" title="ConfirmationState::confirmInput" alt="" coords="103,59,308,88"/><area shape="rect" id="node9" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b" title="StatementState::onEntry" alt="" coords="123,112,288,141"/><area shape="rect" id="node7" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="359,59,548,88"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a388f572c62279f839ee138a9afbdeeb5"></a><!-- doxytag: member="NewBillingFactory::print" ref="a388f572c62279f839ee138a9afbdeeb5" args="()" -->
+<a class="anchor" id="a31b61d841fca82187cb7d94cb990611b"></a><!-- doxytag: member="QuestionState::onEntry" ref="a31b61d841fca82187cb7d94cb990611b" args="(QEvent *event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a388f572c62279f839ee138a9afbdeeb5">print</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b">onEntry</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00174">174</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
+<p>Réimplémentée dans <a class="el" href="../../df/d03/a00062.html#a31b61d841fca82187cb7d94cb990611b">StatementState</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a7dc3e898aae484518acd8c1f46c1b29a"></a><!-- doxytag: member="NewBillingFactory::receiveInput" ref="a7dc3e898aae484518acd8c1f46c1b29a" args="(QString text)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a7dc3e898aae484518acd8c1f46c1b29a">receiveInput</a> </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td><code> [virtual, slot]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00056">56</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
 
-<p>Implémente <a class="el" href="../../d9/d73/a00060.html#a0e50386b44a261b9630bdb9790a1a6ea">PreCheckThread</a>.</p>
-
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00040">40</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00029">PreCheckThread::content</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00029">currentPerson</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00030">currentPersonOk</a>, <a class="el" href="../../dd/dc1/a00212_source.html#l00031">PreCheckThread::currentStep</a>, <a class="el" href="../../db/d48/a00148_source.html#l00122">AppDatabase::dataExists()</a>, <a class="el" href="../../d2/d79/a00051.html#a828260157c0d0e01d2d7dd28259dfb77">displayCalendar()</a>, <a class="el" href="../../db/d48/a00148_source.html#l00145">AppDatabase::execQuery()</a>, <a class="el" href="../../d9/db6/a00146_source.html#l00005">AppDatabase::getInstance()</a>, <a class="el" href="../../dd/ded/a00211_source.html#l00011">PreCheckThread::insertUpdateDatabase()</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00031">newClient</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00032">newClientProcess</a>, <a class="el" href="../../d9/d73/a00060.html#ab84a740097037891b95b9bb6592c05ca">PreCheckThread::openTab()</a>, <a class="el" href="../../d9/d73/a00060.html#a0e50386b44a261b9630bdb9790a1a6ea">PreCheckThread::receiveInput()</a>, <a class="el" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText()</a>, et <a class="el" href="../../dd/dc1/a00212_source.html#l00030">PreCheckThread::stepsCount</a>.</p>
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>, et <a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">IOState::sendOutput()</a>.</p>
 
 <p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d2/d79/a00051_a7dc3e898aae484518acd8c1f46c1b29a_cgraph.png" border="0" usemap="#d2/d79/a00051_a7dc3e898aae484518acd8c1f46c1b29a_cgraph" alt=""/></div>
-<map name="d2/d79/a00051_a7dc3e898aae484518acd8c1f46c1b29a_cgraph" id="d2/d79/a00051_a7dc3e898aae484518acd8c1f46c1b29a_cgraph">
-<area shape="rect" id="node3" href="../../de/d21/a00006.html#aa44f76cad9354d1bfba6151cede04dc9" title="AppDatabase::dataExists" alt="" coords="191,5,361,35"/><area shape="rect" id="node5" href="../../de/d21/a00006.html#a54a60f9702627f4326b17872f8432702" title="AppDatabase::execQuery" alt="" coords="457,32,628,61"/><area shape="rect" id="node7" href="../../d2/d79/a00051.html#a828260157c0d0e01d2d7dd28259dfb77" title="displayCalendar" alt="" coords="219,109,333,139"/><area shape="rect" id="node10" href="../../de/d21/a00006.html#af983af38322fdddc556587b9d5d1986f" title="AppDatabase::getInstance" alt="" coords="455,187,631,216"/><area shape="rect" id="node16" href="../../d9/d73/a00060.html#ab44f29646553590124591c01516854b3" title="PreCheckThread::insertUpdateDatabase" alt="" coords="147,213,405,243"/><area shape="rect" id="node19" href="../../d9/d73/a00060.html#ab84a740097037891b95b9bb6592c05ca" title="PreCheckThread::openTab" alt="" coords="187,267,365,296"/><area shape="rect" id="node21" href="../../d9/d73/a00060.html#a0e50386b44a261b9630bdb9790a1a6ea" title="PreCheckThread::receiveInput" alt="" coords="177,320,375,349"/><area shape="rect" id="node23" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e" title="PreCheckThread::sendText" alt="" coords="185,373,367,403"/><area shape="rect" id="node12" href="../../de/d21/a00006.html#a252bcfc180329b2cafb333e2b2aba803" title="AppDatabase::AppDatabase" alt="" coords="681,187,868,216"/><area shape="rect" id="node14" href="../../de/d21/a00006.html#aa1659071518b929f463d544e5c86e39f" title="AppDatabase::dbConnect" alt="" coords="919,187,1089,216"/></map>
+<div class="center"><img src="../../dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph.png" border="0" usemap="#dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph" id="dc/d87/a00032_a31b61d841fca82187cb7d94cb990611b_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca" title="sendOutput" alt="" coords="121,5,209,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aa6ad595cc4a1ddac5a0a8bb12f377d00"></a><!-- doxytag: member="NewBillingFactory::replaceInput" ref="aa6ad595cc4a1ddac5a0a8bb12f377d00" args="(QString field)" -->
+<a class="anchor" id="ace3bc8cea2ce9a73fab833e83d6bc14f"></a><!-- doxytag: member="QuestionState::onExit" ref="ace3bc8cea2ce9a73fab833e83d6bc14f" args="(QEvent *event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/d73/a00060.html#aa6ad595cc4a1ddac5a0a8bb12f377d00">replaceInput</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f">onExit</a> </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>field</em></td><td>)</td>
-          <td><code> [slot, inherited]</code></td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Définition à la ligne <a class="el" href="../../dd/ded/a00211_source.html#l00048">48</a> du fichier <a class="el" href="../../dd/ded/a00211_source.html">PreCheckThread.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00082">82</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00032">PreCheckThread::toBeReplaced</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/de1/a00213_source.html#l00084">ThreadsManager::connectRunningThread()</a>.</p>
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00087">IOState::m_input</a>, et <a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">IOState::resendInput()</a>.</p>
 
 <p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/d73/a00060_aa6ad595cc4a1ddac5a0a8bb12f377d00_icgraph.png" border="0" usemap="#d9/d73/a00060_aa6ad595cc4a1ddac5a0a8bb12f377d00_icgraph" alt=""/></div>
-<map name="d9/d73/a00060_aa6ad595cc4a1ddac5a0a8bb12f377d00_icgraph" id="d9/d73/a00060_aa6ad595cc4a1ddac5a0a8bb12f377d00_icgraph">
-<area shape="rect" id="node3" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649" title="ThreadsManager::connectRunningThread" alt="" coords="147,59,408,88"/><area shape="rect" id="node5" href="../../d1/d44/a00098.html#a5e30188bc0ed74ed89069ae7bb139cf3" title="ThreadsManager::launchBillingsThread" alt="" coords="463,5,708,35"/><area shape="rect" id="node7" href="../../d1/d44/a00098.html#a258588c7ce744eb51bd4a07792bcbd32" title="ThreadsManager::launchBookingsThread" alt="" coords="456,59,715,88"/><area shape="rect" id="node9" href="../../d1/d44/a00098.html#a69ce066f0efca1978ccb4dd6c924956b" title="ThreadsManager::launchBillThread" alt="" coords="475,112,696,141"/></map>
+<div class="center"><img src="../../dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph.png" border="0" usemap="#dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph" id="dc/d87/a00032_ace3bc8cea2ce9a73fab833e83d6bc14f_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952" title="resendInput" alt="" coords="112,5,203,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a13a43e6d814de94978c515cb084873b1"></a><!-- doxytag: member="NewBillingFactory::run" ref="a13a43e6d814de94978c515cb084873b1" args="()" -->
+<a class="anchor" id="aa50ed472c808b4af396048306b39e23f"></a><!-- doxytag: member="QuestionState::output" ref="aa50ed472c808b4af396048306b39e23f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a13a43e6d814de94978c515cb084873b1">run</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f">output</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [protected]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00034">34</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00045">45</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
 
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00031">PreCheckThread::currentStep</a>, et <a class="el" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">PreCheckThread::sendText()</a>.</p>
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dec/a00090_source.html#l00070">IOState::setOutput()</a>.</p>
 
 <p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d2/d79/a00051_a13a43e6d814de94978c515cb084873b1_cgraph.png" border="0" usemap="#d2/d79/a00051_a13a43e6d814de94978c515cb084873b1_cgraph" alt=""/></div>
-<map name="d2/d79/a00051_a13a43e6d814de94978c515cb084873b1_cgraph" id="d2/d79/a00051_a13a43e6d814de94978c515cb084873b1_cgraph">
-<area shape="rect" id="node3" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e" title="PreCheckThread::sendText" alt="" coords="95,5,276,35"/></map>
+<div class="center"><img src="../../dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph.png" border="0" usemap="#dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph" id="dc/d87/a00032_aa50ed472c808b4af396048306b39e23f_icgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b" title="setOutput" alt="" coords="113,5,191,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a09b09963d36990d0d1096a63fac3243e"></a><!-- doxytag: member="NewBillingFactory::sendText" ref="a09b09963d36990d0d1096a63fac3243e" args="(QVariant text)" -->
+<a class="anchor" id="a8f5c8a9300aa4835a1b08d32e24ce952"></a><!-- doxytag: member="QuestionState::resendInput" ref="a8f5c8a9300aa4835a1b08d32e24ce952" args="(QVariant input)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/d73/a00060.html#a09b09963d36990d0d1096a63fac3243e">sendText</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a8f5c8a9300aa4835a1b08d32e24ce952">resendInput</a> </td>
           <td>(</td>
           <td class="paramtype">QVariant&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
           <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Référencé par <a class="el" href="../../d1/de1/a00213_source.html#l00084">ThreadsManager::connectRunningThread()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00025">NewBillFactory::receiveInput()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00019">BillingsFactory::run()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00018">NewClientFactory::run()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00034">run()</a>.</p>
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00082">IOState::onExit()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00033">IOState::setInput()</a>.</p>
 
 <p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/d73/a00060_a09b09963d36990d0d1096a63fac3243e_icgraph.png" border="0" usemap="#d9/d73/a00060_a09b09963d36990d0d1096a63fac3243e_icgraph" alt=""/></div>
-<map name="d9/d73/a00060_a09b09963d36990d0d1096a63fac3243e_icgraph" id="d9/d73/a00060_a09b09963d36990d0d1096a63fac3243e_icgraph">
-<area shape="rect" id="node3" href="../../d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649" title="ThreadsManager::connectRunningThread" alt="" coords="131,59,392,88"/><area shape="rect" id="node11" href="../../da/da0/a00009.html#a7dc3e898aae484518acd8c1f46c1b29a" title="BillingsFactory::receiveInput" alt="" coords="168,112,355,141"/><area shape="rect" id="node13" href="../../d5/de0/a00050.html#a7dc3e898aae484518acd8c1f46c1b29a" title="NewBillFactory::receiveInput" alt="" coords="167,165,356,195"/><area shape="rect" id="node15" href="../../d2/d79/a00051.html#a7dc3e898aae484518acd8c1f46c1b29a" title="NewBillingFactory::receiveInput" alt="" coords="159,219,364,248"/><area shape="rect" id="node17" href="../../da/da0/a00009.html#a13a43e6d814de94978c515cb084873b1" title="BillingsFactory::run" alt="" coords="195,272,328,301"/><area shape="rect" id="node19" href="../../dc/dee/a00053.html#a13a43e6d814de94978c515cb084873b1" title="NewClientFactory::run" alt="" coords="185,325,337,355"/><area shape="rect" id="node21" href="../../d2/d79/a00051.html#a13a43e6d814de94978c515cb084873b1" title="NewBillingFactory::run" alt="" coords="184,379,339,408"/><area shape="rect" id="node5" href="../../d1/d44/a00098.html#a5e30188bc0ed74ed89069ae7bb139cf3" title="ThreadsManager::launchBillingsThread" alt="" coords="447,5,692,35"/><area shape="rect" id="node7" href="../../d1/d44/a00098.html#a258588c7ce744eb51bd4a07792bcbd32" title="ThreadsManager::launchBookingsThread" alt="" coords="440,59,699,88"/><area shape="rect" id="node9" href="../../d1/d44/a00098.html#a69ce066f0efca1978ccb4dd6c924956b" title="ThreadsManager::launchBillThread" alt="" coords="459,112,680,141"/></map>
+<div class="center"><img src="../../dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph.png" border="0" usemap="#dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph" id="dc/d87/a00032_a8f5c8a9300aa4835a1b08d32e24ce952_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="263,21,452,51"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#ace3bc8cea2ce9a73fab833e83d6bc14f" title="onExit" alt="" coords="149,20,208,49"/><area shape="rect" id="node7" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="144,73,213,103"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a00e165667cc30c6562882b37206bb97c"></a><!-- doxytag: member="NewBillingFactory::validateInput" ref="a00e165667cc30c6562882b37206bb97c" args="()" -->
+<a class="anchor" id="a33f3bdead52e00999ff434c1306cb9ca"></a><!-- doxytag: member="QuestionState::sendOutput" ref="a33f3bdead52e00999ff434c1306cb9ca" args="(QVariant output)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d2/d79/a00051.html#a00e165667cc30c6562882b37206bb97c">validateInput</a> </td>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">sendOutput</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual, slot]</code></td>
+          <td class="paramtype">QVariant&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td><code> [signal, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implémente <a class="el" href="../../d9/d73/a00060.html#a1d60c048d8b0bf5f5e45b68b3a4bf51c">PreCheckThread</a>.</p>
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00112">IOStateMachine::addIOState()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00056">IOState::onEntry()</a>, et <a class="el" href="../../d9/dec/a00090_source.html#l00070">IOState::setOutput()</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="../../d5/d13/a00205_source.html#l00166">166</a> du fichier <a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a>.</p>
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph.png" border="0" usemap="#dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph" id="dc/d87/a00032_a33f3bdead52e00999ff434c1306cb9ca_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a941626054ce6288fd77af0a54720df2a" title="IOStateMachine::addIOState" alt="" coords="145,5,335,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#a31b61d841fca82187cb7d94cb990611b" title="onEntry" alt="" coords="207,59,273,88"/><area shape="rect" id="node7" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b" title="setOutput" alt="" coords="201,112,279,141"/></map>
+</div>
+</p>
 
-<p>Références <a class="el" href="../../dd/dc1/a00212_source.html#l00031">PreCheckThread::currentStep</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a28580553e9deca52ebe2d73b2df46a45"></a><!-- doxytag: member="QuestionState::setGivenAnswer" ref="a28580553e9deca52ebe2d73b2df46a45" args="(const QVariant &amp;givenAnswer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45">setGivenAnswer</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>givenAnswer</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">givenAsnwer</td><td></td></tr>
+    <tr><td class="paramname">givenAnswer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00060">60</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d5/d1e/a00103_source.html#l00068">m_givenAnswer</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00038">setInput()</a>.</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph.png" border="0" usemap="#d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph" id="d2/d79/a00051_a28580553e9deca52ebe2d73b2df46a45_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54" title="setInput" alt="" coords="173,5,243,35"/><area shape="rect" id="node5" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="292,5,391,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ada5a250568597442e91778790424ac54"></a><!-- doxytag: member="QuestionState::setInput" ref="ada5a250568597442e91778790424ac54" args="(const QVariant &amp;input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d79/a00051.html#ada5a250568597442e91778790424ac54">setInput</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Réimplémentée à partir de <a class="el" href="../../dc/d87/a00032.html#ada5a250568597442e91778790424ac54">IOState</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dcc/a00102_source.html#l00038">38</a> du fichier <a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d9/dcc/a00102_source.html#l00060">setGivenAnswer()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00022">checkValidity()</a>.</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph.png" border="0" usemap="#d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph" alt=""/></div>
+<map name="d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph" id="d2/d79/a00051_ada5a250568597442e91778790424ac54_cgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a28580553e9deca52ebe2d73b2df46a45" title="setGivenAnswer" alt="" coords="124,5,241,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph.png" border="0" usemap="#d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph" alt=""/></div>
+<map name="d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph" id="d2/d79/a00051_ada5a250568597442e91778790424ac54_icgraph">
+<area shape="rect" id="node3" href="../../d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83" title="checkValidity" alt="" coords="124,5,223,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab23253247c06e649614b95d165ba934b"></a><!-- doxytag: member="QuestionState::setOutput" ref="ab23253247c06e649614b95d165ba934b" args="(const QString &amp;output)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html#ab23253247c06e649614b95d165ba934b">setOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td><code> [virtual, slot, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="../../d9/dec/a00090_source.html#l00070">70</a> du fichier <a class="el" href="../../d9/dec/a00090_source.html">iostate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../da/d82/a00091_source.html#l00088">IOState::m_output</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00045">IOState::output()</a>, et <a class="el" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca">IOState::sendOutput()</a>.</p>
+
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph.png" border="0" usemap="#dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph" id="dc/d87/a00032_ab23253247c06e649614b95d165ba934b_cgraph">
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#aa50ed472c808b4af396048306b39e23f" title="output" alt="" coords="149,5,208,35"/><area shape="rect" id="node5" href="../../dc/d87/a00032.html#a33f3bdead52e00999ff434c1306cb9ca" title="sendOutput" alt="" coords="135,59,223,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5558c5d549f41597377fa1ea8a1cefa3"></a><!-- doxytag: member="QuestionState::toString" ref="a5558c5d549f41597377fa1ea8a1cefa3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d16/a00029.html#a5558c5d549f41597377fa1ea8a1cefa3">toString</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>QString </dd></dl>
+
+<p>Réimplémentée à partir de <a class="el" href="../../d8/d41/a00038.html#a5558c5d549f41597377fa1ea8a1cefa3">NamedObject</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="../../db/ddf/a00088_source.html#l00022">22</a> du fichier <a class="el" href="../../db/ddf/a00088_source.html">genericstate.cpp</a>.</p>
+
+<p>Références <a class="el" href="../../d1/dc1/a00092_source.html#l00025">IOStateMachine::toString()</a>.</p>
+
+<p>Référencé par <a class="el" href="../../d1/dc1/a00092_source.html#l00025">IOStateMachine::toString()</a>.</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph.png" border="0" usemap="#d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph" alt=""/></div>
+<map name="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph" id="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_cgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3" title="IOStateMachine::toString" alt="" coords="121,5,289,35"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph.png" border="0" usemap="#d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph" alt=""/></div>
+<map name="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph" id="d5/d16/a00029_a5558c5d549f41597377fa1ea8a1cefa3_icgraph">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html#a5558c5d549f41597377fa1ea8a1cefa3" title="IOStateMachine::toString" alt="" coords="121,5,289,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
 <hr/><h2>Documentation des données membres</h2>
-<a class="anchor" id="a94270b6bedcff3632f0d170e37a88460"></a><!-- doxytag: member="NewBillingFactory::content" ref="a94270b6bedcff3632f0d170e37a88460" args="" -->
+<a class="anchor" id="a18008ed1211f6c93193dfef965a1de1d"></a><!-- doxytag: member="QuestionState::m_givenAnswer" ref="a18008ed1211f6c93193dfef965a1de1d" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QVariantMap <a class="el" href="../../d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">content</a><code> [protected, inherited]</code></td>
+          <td class="memname">QVariant <a class="el" href="../../d2/d79/a00051.html#a18008ed1211f6c93193dfef965a1de1d">m_givenAnswer</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="../../dd/dc1/a00212_source.html#l00029">29</a> du fichier <a class="el" href="../../dd/dc1/a00212_source.html">PreCheckThread.h</a>.</p>
+<p>TODO. </p>
 
-<p>Référencé par <a class="el" href="../../d7/d70/a00106_source.html#l00011">BillingFactory::cancelProcess()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00012">BillingsFactory::cancelProcess()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00022">cancelProcess()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00013">NewBillFactory::cancelProcess()</a>, <a class="el" href="../../d4/d81/a00110_source.html#l00012">BookingFactory::cancelProcess()</a>, <a class="el" href="../../de/dd2/a00207_source.html#l00012">NewBookingFactory::cancelProcess()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00012">NewClientFactory::cancelProcess()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00089">NewBillFactory::confirmInput()</a>, <a class="el" href="../../dd/ded/a00211_source.html#l00011">PreCheckThread::insertUpdateDatabase()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00005">NewBillFactory::NewBillFactory()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00005">NewClientFactory::NewClientFactory()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00025">NewBillFactory::receiveInput()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00018">NewClientFactory::run()</a>, et <a class="el" href="../../de/d79/a00203_source.html#l00097">NewBillFactory::validateInput()</a>.</p>
+<p>Définition à la ligne <a class="el" href="../../d5/d1e/a00103_source.html#l00068">68</a> du fichier <a class="el" href="../../d5/d1e/a00103_source.html">questionstate.h</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a04de3b5db71b07ee09e478a905e224cf"></a><!-- doxytag: member="NewBillingFactory::currentPerson" ref="a04de3b5db71b07ee09e478a905e224cf" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../d2/d79/a00051.html#a04de3b5db71b07ee09e478a905e224cf">currentPerson</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../d5/df1/a00206_source.html#l00029">29</a> du fichier <a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d5/d13/a00205_source.html#l00022">cancelProcess()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00014">NewBillingFactory()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8cd75c18da3260ab2c4a956f963c197a"></a><!-- doxytag: member="NewBillingFactory::currentPersonOk" ref="a8cd75c18da3260ab2c4a956f963c197a" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QList&lt;bool&gt; <a class="el" href="../../d2/d79/a00051.html#a8cd75c18da3260ab2c4a956f963c197a">currentPersonOk</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../d5/df1/a00206_source.html#l00030">30</a> du fichier <a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d5/d13/a00205_source.html#l00022">cancelProcess()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a61a56b55f026894815c3a945bd459a93"></a><!-- doxytag: member="NewBillingFactory::currentStep" ref="a61a56b55f026894815c3a945bd459a93" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">currentStep</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../dd/dc1/a00212_source.html#l00031">31</a> du fichier <a class="el" href="../../dd/dc1/a00212_source.html">PreCheckThread.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d7/d70/a00106_source.html#l00011">BillingFactory::cancelProcess()</a>, <a class="el" href="../../d4/d81/a00110_source.html#l00012">BookingFactory::cancelProcess()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00012">NewClientFactory::cancelProcess()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00012">BillingsFactory::cancelProcess()</a>, <a class="el" href="../../de/dd2/a00207_source.html#l00012">NewBookingFactory::cancelProcess()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00022">cancelProcess()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00013">NewBillFactory::cancelProcess()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00159">confirmInput()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00089">NewBillFactory::confirmInput()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00077">NewBillFactory::customService()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00083">NewBillFactory::customServiceWithoutName()</a>, <a class="el" href="../../dd/ded/a00211_source.html#l00005">PreCheckThread::PreCheckThread()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00025">NewBillFactory::receiveInput()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00018">NewClientFactory::run()</a>, <a class="el" href="../../d4/d81/a00110_source.html#l00018">BookingFactory::run()</a>, <a class="el" href="../../d7/d70/a00106_source.html#l00017">BillingFactory::run()</a>, <a class="el" href="../../de/dd2/a00207_source.html#l00018">NewBookingFactory::run()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00034">run()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00166">validateInput()</a>, et <a class="el" href="../../de/d79/a00203_source.html#l00097">NewBillFactory::validateInput()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af8fad73d90b6fac5482bf9170a1729a4"></a><!-- doxytag: member="NewBillingFactory::newClient" ref="af8fad73d90b6fac5482bf9170a1729a4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d2/d79/a00051.html#af8fad73d90b6fac5482bf9170a1729a4">newClient</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../d5/df1/a00206_source.html#l00031">31</a> du fichier <a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d5/d13/a00205_source.html#l00022">cancelProcess()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00014">NewBillingFactory()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aad98a6dd93b64bec91237601158502fb"></a><!-- doxytag: member="NewBillingFactory::newClientProcess" ref="aad98a6dd93b64bec91237601158502fb" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/d73/a00060.html">PreCheckThread</a>* <a class="el" href="../../d2/d79/a00051.html#aad98a6dd93b64bec91237601158502fb">newClientProcess</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../d5/df1/a00206_source.html#l00032">32</a> du fichier <a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d5/d13/a00205_source.html#l00022">cancelProcess()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af331d46db481d05422cf1b8b127233c5"></a><!-- doxytag: member="NewBillingFactory::stepsCount" ref="af331d46db481d05422cf1b8b127233c5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../d9/d73/a00060.html#af331d46db481d05422cf1b8b127233c5">stepsCount</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../dd/dc1/a00212_source.html#l00030">30</a> du fichier <a class="el" href="../../dd/dc1/a00212_source.html">PreCheckThread.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d7/d70/a00106_source.html#l00005">BillingFactory::BillingFactory()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00005">BillingsFactory::BillingsFactory()</a>, <a class="el" href="../../d4/d81/a00110_source.html#l00005">BookingFactory::BookingFactory()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00005">NewBillFactory::NewBillFactory()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00014">NewBillingFactory()</a>, <a class="el" href="../../de/dd2/a00207_source.html#l00005">NewBookingFactory::NewBookingFactory()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00005">NewClientFactory::NewClientFactory()</a>, <a class="el" href="../../d1/dd6/a00108_source.html#l00024">BillingsFactory::receiveInput()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00025">NewBillFactory::receiveInput()</a>, et <a class="el" href="../../d5/d13/a00205_source.html#l00040">receiveInput()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a00b06bd85368ad4b80ff6dcf5c5fb53c"></a><!-- doxytag: member="NewBillingFactory::toBeReplaced" ref="a00b06bd85368ad4b80ff6dcf5c5fb53c" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../d9/d73/a00060.html#a00b06bd85368ad4b80ff6dcf5c5fb53c">toBeReplaced</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../dd/dc1/a00212_source.html#l00032">32</a> du fichier <a class="el" href="../../dd/dc1/a00212_source.html">PreCheckThread.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../dd/ded/a00211_source.html#l00053">PreCheckThread::cancelReplacement()</a>, et <a class="el" href="../../dd/ded/a00211_source.html#l00048">PreCheckThread::replaceInput()</a>.</p>
+<p>Référencé par <a class="el" href="../../d9/dcc/a00102_source.html#l00049">givenAnswer()</a>, et <a class="el" href="../../d9/dcc/a00102_source.html#l00060">setGivenAnswer()</a>.</p>
 
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li><a class="el" href="../../d5/df1/a00206_source.html">NewBillingFactory.h</a></li>
-<li><a class="el" href="../../d5/d13/a00205_source.html">NewBillingFactory.cpp</a></li>
+<li>logic/<a class="el" href="../../d5/d1e/a00103_source.html">questionstate.h</a></li>
+<li>logic/<a class="el" href="../../d9/dcc/a00102_source.html">questionstate.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d2/d79/a00051.html">QuestionState</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/user.h</title>
+<title>PreCheck:  Fichier source de models/groupsTableModel.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,80 +80,61 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('db/d53/a00202.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">user.h</div>  </div>
+<div class="title">groupsTableModel.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/d53/a00202.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef USER_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define USER_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;QSqlRecord&gt;</span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QSqlDriver&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QtCore&gt;</span>
+<a href="../../db/d53/a00202.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../de/d79/a00203.html">groupsTableModel.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a><a class="code" href="../../d3/dea/a00046.html#a9838f0ab7e133c4f6a21a079674ab674">00003</a> <a class="code" href="../../d3/dea/a00046.html#aed46d522f2360f9b0a0c275c70fa608c">GroupsTableModel::GroupsTableModel</a>(QString filter, QObject *parent):
+<a name="l00004"></a>00004     <a class="code" href="../../de/d11/a00021.html">CheckableSortFilterProxyModel</a>(<span class="stringliteral">&quot;rooms&quot;</span>, filter, parent)
+<a name="l00005"></a>00005 {
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007 
+<a name="l00007"></a>00007 }
 <a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="../../d0/dc2/a00104.html">00009</a> <span class="keyword">class </span><a class="code" href="../../d0/dc2/a00104.html">User</a> : <span class="keyword">public</span> QObject
-<a name="l00010"></a>00010 {
-<a name="l00011"></a>00011     Q_OBJECT
-<a name="l00012"></a><a class="code" href="../../d0/dc2/a00104.html#a7441ef0865bcb3db9b8064dd7375c1ea">00012</a>     Q_PROPERTY(<span class="keywordtype">int</span> <span class="keywordtype">id</span> READ <span class="keywordtype">id</span>)
-<a name="l00013"></a><a class="code" href="../../d0/dc2/a00104.html#abc29e461e01cc0c712944f8f47f91331">00013</a>     Q_PROPERTY(QString <a class="code" href="../../d0/dc2/a00104.html#a2b0a198f837184bf6fff555cee3ce770">name</a> READ <a class="code" href="../../d0/dc2/a00104.html#a2b0a198f837184bf6fff555cee3ce770">name</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#a045381e53250bf99a099ad14d616a741">nameChanged</a>)
-<a name="l00014"></a><a class="code" href="../../d0/dc2/a00104.html#a22befc99d0e2f46297a55300229a76a2">00014</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a22befc99d0e2f46297a55300229a76a2">receptionist</a> READ <a class="code" href="../../d0/dc2/a00104.html#a9166be66497b1faa9e76c75298d42f85">isReceptionist</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>)
-<a name="l00015"></a><a class="code" href="../../d0/dc2/a00104.html#aa3ac088474f416bd6590412192a389f1">00015</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#aa3ac088474f416bd6590412192a389f1">managerX</a> READ <a class="code" href="../../d0/dc2/a00104.html#acd3b76b6dbe14ccb26acea908a643390">isManagerX</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>)
-<a name="l00016"></a><a class="code" href="../../d0/dc2/a00104.html#a28f960ef31600c81ef616a65a70049f2">00016</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a28f960ef31600c81ef616a65a70049f2">managerZ</a> READ <a class="code" href="../../d0/dc2/a00104.html#aa469c4f51528e95a5aaf256d50992c43">isManagerZ</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>)
-<a name="l00017"></a><a class="code" href="../../d0/dc2/a00104.html#af90d22c072fc223c8b5e75d72a8a3860">00017</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#af90d22c072fc223c8b5e75d72a8a3860">administrator</a> READ <a class="code" href="../../d0/dc2/a00104.html#aae9a2e211bcdb23929f56e38e6d78fb3">isAdministrator</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>)
-<a name="l00018"></a><a class="code" href="../../d0/dc2/a00104.html#a760fea6637a2133d9c7fd21c30ce0965">00018</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../d0/dc2/a00104.html#a0ad07e09b6097bb4aa0eff72b7b6b20d">roles</a> READ <a class="code" href="../../d0/dc2/a00104.html#a0ad07e09b6097bb4aa0eff72b7b6b20d">roles</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>)
-<a name="l00019"></a><a class="code" href="../../d0/dc2/a00104.html#a28e3c179a86f337095088b3ca02a2b2a">00019</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a28e3c179a86f337095088b3ca02a2b2a">valid</a> READ <a class="code" href="../../d0/dc2/a00104.html#aac1b70a2ed67ead038c4d3f5ac4d8a81">isValid</a> NOTIFY <a class="code" href="../../d0/dc2/a00104.html#a47f21fa49226d16c9824d7f59be7c876">validityChanged</a>)
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 public:
-<a name="l00022"></a>00022     <a class="code" href="../../d0/dc2/a00104.html">User</a>(QString <a class="code" href="../../d0/dc2/a00104.html#a2b0a198f837184bf6fff555cee3ce770">name</a> = &quot;&quot;, <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 0, <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a9166be66497b1faa9e76c75298d42f85">isReceptionist</a> = false, <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#acd3b76b6dbe14ccb26acea908a643390">isManagerX</a> = false, <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#aa469c4f51528e95a5aaf256d50992c43">isManagerZ</a> = false, <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#aae9a2e211bcdb23929f56e38e6d78fb3">isAdministrator</a> = false, QObject *parent = 0);
-<a name="l00023"></a>00023     QString name() const;
-<a name="l00024"></a><a class="code" href="../../d0/dc2/a00104.html#ae0c063cfb2479f614be43b9d2f92ba63">00024</a>     <span class="keywordtype">int</span> <span class="keywordtype">id</span>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d0/dc2/a00104.html#aad966617e7e050bedbead762727808a5">m_id</a>; }
-<a name="l00025"></a>00025     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a9166be66497b1faa9e76c75298d42f85">isReceptionist</a>() <span class="keyword">const</span>;
-<a name="l00026"></a><a class="code" href="../../d0/dc2/a00104.html#acd3b76b6dbe14ccb26acea908a643390">00026</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#acd3b76b6dbe14ccb26acea908a643390">isManagerX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d0/dc2/a00104.html#af527d4309e3e95a737c4f2ab54ea6c4d">m_managerX</a>; }
-<a name="l00027"></a><a class="code" href="../../d0/dc2/a00104.html#aa469c4f51528e95a5aaf256d50992c43">00027</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#aa469c4f51528e95a5aaf256d50992c43">isManagerZ</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d0/dc2/a00104.html#a18679d1a2cdd31ef63236fa0da9a9af4">m_managerZ</a>; }
-<a name="l00028"></a><a class="code" href="../../d0/dc2/a00104.html#aae9a2e211bcdb23929f56e38e6d78fb3">00028</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#aae9a2e211bcdb23929f56e38e6d78fb3">isAdministrator</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d0/dc2/a00104.html#acbd54e10bef6aa71f5355d7be2687832">m_administrator</a>; }
-<a name="l00029"></a>00029     <span class="keywordtype">int</span> <a class="code" href="../../d0/dc2/a00104.html#a0ad07e09b6097bb4aa0eff72b7b6b20d">roles</a>() <span class="keyword">const</span>;
-<a name="l00030"></a>00030     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#aac1b70a2ed67ead038c4d3f5ac4d8a81">isValid</a>() <span class="keyword">const</span>;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keyword">static</span> <a class="code" href="../../d0/dc2/a00104.html">User</a> *<a class="code" href="../../d0/dc2/a00104.html#a7a555b972b52910645d1a480b993bac3">logIn</a>(QString login, QString pass);
-<a name="l00033"></a>00033     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a858314b8da64bd720720fb79d7f624a6">traineeExists</a>(QString login);
-<a name="l00034"></a>00034     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a2b0ba649e0922683b4f8d99d295c0da9">userExists</a>(QString login);
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">public</span> slots:
-<a name="l00037"></a><a class="code" href="../../d0/dc2/a00104.html#a9cdd1a63296e723ccc78edb9876666f3">00037</a>     <span class="keyword">static</span> QVariant <a class="code" href="../../d0/dc2/a00104.html#a9cdd1a63296e723ccc78edb9876666f3">exists</a>(QVariant login) {<span class="keywordflow">return</span> QVariant(<a class="code" href="../../d0/dc2/a00104.html#a2b0ba649e0922683b4f8d99d295c0da9">User::userExists</a>(login.toString()) || <a class="code" href="../../d0/dc2/a00104.html#a858314b8da64bd720720fb79d7f624a6">User::traineeExists</a>(login.toString()));}
-<a name="l00038"></a>00038 signals:
-<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="../../d0/dc2/a00104.html#a045381e53250bf99a099ad14d616a741">nameChanged</a>();
-<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="../../d0/dc2/a00104.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>();
-<a name="l00041"></a>00041     <span class="keywordtype">void</span> <a class="code" href="../../d0/dc2/a00104.html#a47f21fa49226d16c9824d7f59be7c876">validityChanged</a>();
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="keyword">private</span>:
-<a name="l00044"></a>00044     <span class="keywordtype">void</span> <a class="code" href="../../d0/dc2/a00104.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(QString <a class="code" href="../../d0/dc2/a00104.html#a2b0a198f837184bf6fff555cee3ce770">name</a>);
-<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="../../d0/dc2/a00104.html#a1efe89e68f31adeca835d01989c70f97">setID</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
-<a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="../../d0/dc2/a00104.html#aab4578f53a46cee4b24f9a555eb552de">00047</a>     QString <a class="code" href="../../d0/dc2/a00104.html#aab4578f53a46cee4b24f9a555eb552de">m_name</a>;
-<a name="l00048"></a><a class="code" href="../../d0/dc2/a00104.html#a3dc42a9f73e09c7e0dad7bfe7e8dd5ca">00048</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a3dc42a9f73e09c7e0dad7bfe7e8dd5ca">m_receptionist</a>;
-<a name="l00049"></a><a class="code" href="../../d0/dc2/a00104.html#af527d4309e3e95a737c4f2ab54ea6c4d">00049</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#af527d4309e3e95a737c4f2ab54ea6c4d">m_managerX</a>;
-<a name="l00050"></a><a class="code" href="../../d0/dc2/a00104.html#a18679d1a2cdd31ef63236fa0da9a9af4">00050</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#a18679d1a2cdd31ef63236fa0da9a9af4">m_managerZ</a>;
-<a name="l00051"></a><a class="code" href="../../d0/dc2/a00104.html#acbd54e10bef6aa71f5355d7be2687832">00051</a>     <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc2/a00104.html#acbd54e10bef6aa71f5355d7be2687832">m_administrator</a>;
-<a name="l00052"></a><a class="code" href="../../d0/dc2/a00104.html#aad966617e7e050bedbead762727808a5">00052</a>     <span class="keywordtype">int</span> <a class="code" href="../../d0/dc2/a00104.html#aad966617e7e050bedbead762727808a5">m_id</a>;
-<a name="l00053"></a>00053 };
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="preprocessor">#endif // USER_H</span>
+<a name="l00009"></a>00009 <span class="keywordtype">void</span> <a class="code" href="../../d3/dea/a00046.html#a0f122710daefea8597daa94bb78ec142">GroupsTableModel::fillModel</a>() {
+<a name="l00010"></a>00010 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../db/d53/a00202.html">groupsTableModel.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

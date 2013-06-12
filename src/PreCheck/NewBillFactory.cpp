@@ -2,6 +2,14 @@
 #include "models/database_manager.h"
 #include <QtSql>
 
+/*!
+ \brief
+
+ \fn NewBillFactory::NewBillFactory
+ \param receptionistId
+ \param billId
+ \param parent
+*/
 NewBillFactory::NewBillFactory(int receptionistId, int billId, QObject *parent) :
     PreCheckThread(parent)
 {
@@ -10,6 +18,11 @@ NewBillFactory::NewBillFactory(int receptionistId, int billId, QObject *parent) 
     PreCheckThread::content.insert("RECEPTIONIST_ID", receptionistId);
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::cancelProcess
+*/
 void NewBillFactory::cancelProcess()
 {
     this->currentStep = 0;
@@ -18,10 +31,21 @@ void NewBillFactory::cancelProcess()
     PreCheckThread::content.empty();
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::run
+*/
 void NewBillFactory::run() {
 
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::receiveInput
+ \param text
+*/
 void NewBillFactory::receiveInput(QString text) {
     text = text.trimmed();
     if(PreCheckThread::currentStep < PreCheckThread::stepsCount) {
@@ -74,18 +98,33 @@ void NewBillFactory::receiveInput(QString text) {
     }
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::customService
+*/
 void NewBillFactory::customService()
 {
     //TODO
     PreCheckThread::currentStep = 1;
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::customServiceWithoutName
+*/
 void NewBillFactory::customServiceWithoutName()
 {
     //TODO
     PreCheckThread::currentStep = 1;
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::confirmInput
+*/
 void NewBillFactory::confirmInput()
 {
     if(PreCheckThread::currentStep==1) {
@@ -94,6 +133,11 @@ void NewBillFactory::confirmInput()
     }
 }
 
+/*!
+ \brief
+
+ \fn NewBillFactory::validateInput
+*/
 void NewBillFactory::validateInput()
 {
     if(!PreCheckThread::content.value("QUANTITY").isValid()) {

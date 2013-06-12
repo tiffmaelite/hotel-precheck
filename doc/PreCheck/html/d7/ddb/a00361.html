@@ -6,9 +6,19 @@
 <title>PreCheck: Liste des membres</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -23,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">PreCheck
-   
+   &#160;<span id="projectnumber">0.3</span>
    </div>
-   
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,70 +56,112 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
       <li><a href="../../classes.html"><span>Index&#160;des&#160;classes</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="../../inherits.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
       <li><a href="../../functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('dd/d1b/a00015.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">SqlDataModel Liste des membres</div>  </div>
+<div class="title">ClientsTableModel Liste des membres</div>  </div>
 </div><!--header-->
 <div class="contents">
-Liste complète des membres de <a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a>, y compris les membres hérités :<table>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a5bf16ce74ce0bbf96d6d30b6f9231113.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_adcd3df47ac02021a2c18b8a921b26b54.html#adcd3df47ac02021a2c18b8a921b26b54">data</a>(const QModelIndex &amp;index, int role) const </td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a898fb831fd9fe204e588a4bfebe68dc6.html#a898fb831fd9fe204e588a4bfebe68dc6">fetch</a>(QString tableName=&quot;&quot;, QString filter=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a2c4384a5dc57b09c60ef6048ebaae38e.html#a2c4384a5dc57b09c60ef6048ebaae38e">field</a>(int i)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_aadef206466521b2b3201e5e8570cba7f.html#aadef206466521b2b3201e5e8570cba7f">fieldFromRole</a>(int role) const </td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ad24ee2c041927e40afd2724abff38908.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_aa175711d31ea2e4b376f44a3b73d18f5.html#aa175711d31ea2e4b376f44a3b73d18f5">fieldsCount</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a07bb22c1c1ed1c894d52930eca70a339.html#a07bb22c1c1ed1c894d52930eca70a339">fieldsList</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a8ace926bd83c1e484f9264226f0e3cf6.html#a8ace926bd83c1e484f9264226f0e3cf6">filter</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a5ad93e3e39ebf61e2b111d27a7708898.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a14c60f32ceefa0f1cb8738cb641f0f55.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_af337ffd75e4f019ce15302c60715d84b.html#af337ffd75e4f019ce15302c60715d84b">isEmpty</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_afbd0ec0c231f80797f30bc852cf133d3.html#afbd0ec0c231f80797f30bc852cf133d3">lastError</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a80378cc6261c1ba7a1501587e4df4e9b.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a17e14c26f2f2449f48f89cea8c992cb3.html#a17e14c26f2f2449f48f89cea8c992cb3">lastErrorChanged</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_afdc359cef837c2dc8102f20b90815f47.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a54baed2fcbc794c6fd5b8564f9409bcf.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ad22951546a29792298e909e3540bfd4b.html#ad22951546a29792298e909e3540bfd4b">mRecords</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a5029a1f03131f6ac8d5377c2ff16c516.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ab6524708dbad962e61b904e6f5c30cb7.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a7ac715b89b82c754d5e8bd7ef2eca8e6.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ab1d03b34d42c6127e0267bf9afc3ea14.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a22117c8ba9bc2acdf1296212491898d4.html#a22117c8ba9bc2acdf1296212491898d4">query</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a472fea0ce5195e6b65943b26724b4b05.html#a472fea0ce5195e6b65943b26724b4b05">resetFieldsToAll</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a838891af34942e371bf7219990f6622f.html#a838891af34942e371bf7219990f6622f">resetFilterCondition</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a7783a53691a106a916189d86d836fd9b.html#a7783a53691a106a916189d86d836fd9b">roleForField</a>(int fieldIndex) const </td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a2038dc6a6621e570c65761203c64d507.html#a2038dc6a6621e570c65761203c64d507">roleNames</a>() const </td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [inline, virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ad9b122a44e657b6e2d1e0b4e8c84c04a.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ad1da2096edce65195e18fe76edaf4c78.html#ad1da2096edce65195e18fe76edaf4c78">rowCount</a>(const QModelIndex &amp;parent) const </td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ab4309392aa4b0c4e1f5d0ec918ae99ef.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">setFields</a>(QStringList fieldList)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a56a82e5d1ed1e6c6053ff8689ab5c4c8.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">setFilterCondition</a>(const QString &amp;filter)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ac52077d1c1c0e0813c25684ec1f894e5.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a>(int section, Qt::Orientation orientation, const QVariant &amp;value, int role=Qt::EditRole)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a83b0c57549ec585c8a7b72464f796dc0.html#a83b0c57549ec585c8a7b72464f796dc0">setOrderBy</a>(QString sort)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a583d58f575394f178b198558278860a1.html#a583d58f575394f178b198558278860a1">setQuery</a>(const QString &amp;query)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_ac07b1d4515135f20a58c1aac0e80ddc7.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a>(const QString &amp;tableName)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_aa0c978e535defccb2574edf8704a2508.html#aa0c978e535defccb2574edf8704a2508">SqlDataModel</a>(QObject *parent=0)</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a850368dedc06eb94185edfae3670cbc8.html#a850368dedc06eb94185edfae3670cbc8">table</a></td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_a1a5372272449a8602cd82529db688dd4.html#a1a5372272449a8602cd82529db688dd4">tableChanged</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../d3/d8b/a00059_aa193d500de9ae21a6a12313adf340df0.html#aa193d500de9ae21a6a12313adf340df0">tableName</a>()</td><td><a class="el" href="../../d3/d8b/a00059.html">SqlDataModel</a></td><td></td></tr>
+Liste complète des membres de <a class="el" href="../../dd/d1b/a00015.html">ClientsTableModel</a>, y compris les membres hérités :<table>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a63db77d8afcfac05b7570aff4b6827dd">addFilterKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a3e05388f960f8e0f55266d20a4833969">CheckableSortFilterProxyModel</a>(QObject *parent=0)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../dd/d1b/a00015.html#ae8b3f11f82bf9a24d277d0ae3d54973f">ClientsTableModel</a>(QObject *parent=0)</td><td><a class="el" href="../../dd/d1b/a00015.html">ClientsTableModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ad975f2e7e065769bc38a36a23248f478">containsFilterKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#acf9e4990bd47796d87a05d8a5396a792">currentSortKeyColumn</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a8b507f52d17d06d42aa80985017727bf">data</a>(int row, int column) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a0d62b2fa860a10b1e59f7b93aa39aa5e">data</a>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a9625b002313a3fef67010c74415e5911">empty</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557">fetch</a>(QString tableName=&quot;&quot;, QString filter=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a3483482509acef516f768394f896a4d9">field</a>(int i) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515">fields</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a1d23e0874aab14e739f3409369463691">fieldsCount</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ae6d0341f0e568cde65a4e037681be098">fieldsList</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../dd/d1b/a00015.html#a2b701ad24a1b786f6412175537ec09cd">fillModel</a>()</td><td><a class="el" href="../../dd/d1b/a00015.html">ClientsTableModel</a></td><td><code> [protected, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a6923e8be52efc9261b387765a00f5775">filterAcceptsRow</a>(int source_row, const QModelIndex &amp;source_parent) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aa714a3130b3992920cc3884cf6827532">flags</a>(const QModelIndex &amp;index) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a92a9a7c46287f2b93e29115a7d521b59">invalidateFilter</a>()</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aa4bec6d0a34d7a996f7eb7179a18f1a2">isEmpty</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a44acf23867202902022213a2b1204d69">lastError</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61">model</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a2e69c877d3238397ee070c2202a97ab5">removeFilterKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aa3c7fedefa9cf58507bc7089f9049d9c">roleNames</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a0c7a8a36dfb882b0070b0de89a218ff3">setBooleanColumns</a>(QList&lt; int &gt; boolCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a9e22272c821b1606127baeda26f7dfe4">setData</a>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a9d7fe88a0f429f697713f9eee071d806">setNotNullColumns</a>(QList&lt; int &gt; notNullCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a3ed2bd1c35d4ea0ac65b25c52f3e265c">setNullColumns</a>(QList&lt; int &gt; nullCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a278c8f2e341294ae9f2a17b4f0197ced">setPasswordColumns</a>(QList&lt; int &gt; passwordCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a10579860c534c40493d1ded09fafa23b">setReadOnlyColumns</a>(QList&lt; int &gt; readonlyCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22">setSortKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9">sort</a>(int column, Qt::SortOrder newOrder=Qt::AscendingOrder)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a46203cea1d6264ad5a5c9e45692c82fa">sortChanged</a>()</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [signal]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ae5e21db4d362912fad99a8ddf45b6ee0">sortKeyColumn</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a850368dedc06eb94185edfae3670cbc8">table</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">tableName</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
 </table></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 07:41:53 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

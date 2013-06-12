@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/app.h</title>
+<title>PreCheck:  Fichier source de models/checkable_sort_filter_proxy_model.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,76 +80,115 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d8/d87/a00118.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">app.h</div>  </div>
+<div class="title">checkable_sort_filter_proxy_model.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d8/d87/a00118.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PRECHECKAPP_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PRECHECKAPP_H</span>
+<a href="../../d8/d87/a00118.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef CHECKABLESORTFILTERPROXYMODEL_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CHECKABLESORTFILTERPROXYMODEL_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtGui&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QKeyEvent&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QtWidgets/QMainWindow&gt;</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="../../d7/df7/a00058.html">00010</a> <span class="keyword">class </span><a class="code" href="../../d7/df7/a00058.html">PreCheckApp</a> : <span class="keyword">public</span> QMainWindow
-<a name="l00011"></a>00011 {
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013         Q_OBJECT
-<a name="l00014"></a>00014         Q_ENUMS(<a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a>)
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016     <span class="keyword">public</span>:
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">00018</a>         <span class="keyword">enum</span> <a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830">AppMode</a> { <a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830aabdad7194ba9db6c4835545cca758db6">RECEPTION</a>, <a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">MANAGEMENT_X</a>, <a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">MANAGEMENT_Z</a>, <a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830af7b5372b31bff0aaf3c68ef8b7429a30">ADMINISTRATION</a> };
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QSortFilterProxyModel&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../d5/d5b/a00135.html">SqlDataModel.h</a>&quot;</span>
+<a name="l00006"></a>00006 
+<a name="l00012"></a><a class="code" href="../../d2/de7/a00014.html">00012</a> <span class="keyword">class </span><a class="code" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a> : <span class="keyword">public</span> QSortFilterProxyModel
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015     Q_OBJECT
+<a name="l00016"></a><a class="code" href="../../d2/de7/a00014.html#a850368dedc06eb94185edfae3670cbc8">00016</a>     Q_PROPERTY(QString <a class="code" href="../../d2/de7/a00014.html#a850368dedc06eb94185edfae3670cbc8">table</a> READ <a class="code" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">tableName</a>)
+<a name="l00017"></a><a class="code" href="../../d2/de7/a00014.html#ae6d0341f0e568cde65a4e037681be098">00017</a>     Q_PROPERTY(QString <a class="code" href="../../d2/de7/a00014.html#ae6d0341f0e568cde65a4e037681be098">fieldsList</a> READ <a class="code" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515">fields</a>)
+<a name="l00018"></a><a class="code" href="../../d2/de7/a00014.html#a44acf23867202902022213a2b1204d69">00018</a>     Q_PROPERTY(QString <a class="code" href="../../d2/de7/a00014.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a> READ <a class="code" href="../../d2/de7/a00014.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a>)
+<a name="l00019"></a><a class="code" href="../../d2/de7/a00014.html#ae5e21db4d362912fad99a8ddf45b6ee0">00019</a>     Q_PROPERTY(<span class="keywordtype">int</span> <a class="code" href="../../d2/de7/a00014.html#ae5e21db4d362912fad99a8ddf45b6ee0">sortKeyColumn</a> READ <a class="code" href="../../d2/de7/a00014.html#acf9e4990bd47796d87a05d8a5396a792">currentSortKeyColumn</a> WRITE <a class="code" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22">setSortKeyColumn</a> NOTIFY <a class="code" href="../../d2/de7/a00014.html#a46203cea1d6264ad5a5c9e45692c82fa">sortChanged</a>)
+<a name="l00020"></a><a class="code" href="../../d2/de7/a00014.html#a9625b002313a3fef67010c74415e5911">00020</a>     Q_PROPERTY(<span class="keywordtype">bool</span> <a class="code" href="../../d2/de7/a00014.html#a9625b002313a3fef67010c74415e5911">empty</a> READ <a class="code" href="../../d2/de7/a00014.html#aa4bec6d0a34d7a996f7eb7179a18f1a2">isEmpty</a>)
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022         <a class="code" href="../../d7/df7/a00058.html#a4b88ad7be8e04289e455425db184fa6b">PreCheckApp</a>(QWidget *parent = 0);
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025         <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#adf2e9d5e456a754a5459e8435b0b094b">keyPressEvent</a>(QKeyEvent *event);
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#aa161ebc0690ae176c3b523be8f8e65a4">centerAndResize</a>();
-<a name="l00028"></a>00028         <span class="comment">/*void fill();</span>
-<a name="l00029"></a>00029 <span class="comment">        CustomizableTabWidget *middlePanel;</span>
-<a name="l00030"></a>00030 <span class="comment">        QWidget *leftPanel;*/</span>
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keyword">protected</span>:
-<a name="l00033"></a>00033         <span class="comment">/*void fillLeft();</span>
-<a name="l00034"></a>00034 <span class="comment">        void fillRight();</span>
-<a name="l00035"></a>00035 <span class="comment">        void initKeyboard(int rowsCount, int columnsCount, QFrame* container);</span>
-<a name="l00036"></a>00036 <span class="comment">        void initTabs(int rowsCount, int columnsCount);</span>
-<a name="l00037"></a>00037 <span class="comment"></span>
-<a name="l00038"></a>00038 <span class="comment">        FixedGridLayout *affichage;</span>
-<a name="l00039"></a>00039 <span class="comment">        RoomsTabPage *roomsTab;</span>
-<a name="l00040"></a>00040 <span class="comment"></span>
-<a name="l00041"></a>00041 <span class="comment">        OutputZone *outputZone;</span>
-<a name="l00042"></a>00042 <span class="comment">        Keyboard *keyboard;</span>
-<a name="l00043"></a>00043 <span class="comment">        QWidget *zoneCentrale;*/</span>
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045     <span class="keyword">private</span>:
-<a name="l00046"></a>00046         <span class="comment">/*double spacing;*/</span>
-<a name="l00047"></a><a class="code" href="../../d7/df7/a00058.html#a8532210923fad6068fb47ed246a52d43">00047</a>         <a class="code" href="../../d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830">PreCheckApp::AppMode</a> <a class="code" href="../../d7/df7/a00058.html#a8532210923fad6068fb47ed246a52d43">mode</a>;
-<a name="l00048"></a>00048 };
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="preprocessor">#endif // PRECHECKAPP_H</span>
+<a name="l00022"></a>00022 public:
+<a name="l00029"></a>00029     <a class="code" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a>(QObject *parent = 0);
+<a name="l00030"></a>00030 
+<a name="l00037"></a><a class="code" href="../../d2/de7/a00014.html#acf9e4990bd47796d87a05d8a5396a792">00037</a>     const <span class="keywordtype">int</span> <a class="code" href="../../d2/de7/a00014.html#acf9e4990bd47796d87a05d8a5396a792">currentSortKeyColumn</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#a6f33b6221bed2f7f7a3b924f75697c59" title="TODO.">sortIndex</a>;}
+<a name="l00044"></a><a class="code" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">00044</a>     <span class="keyword">const</span> QString &amp;<a class="code" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">tableName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#a4994a8da8f74295c0caeb7239e4b90ac">tableName</a>(); }
+<a name="l00051"></a><a class="code" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515">00051</a>     <span class="keyword">const</span> QString &amp;<a class="code" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515">fields</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#ae9a20ff77d8d46aaf20689f90f2e2511">fieldsList</a>(); }
+<a name="l00058"></a><a class="code" href="../../d2/de7/a00014.html#a84a34fd559e0d5be19cddf02644d39a3">00058</a>     <span class="keyword">const</span> QString &amp;<a class="code" href="../../d2/de7/a00014.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#a44acf23867202902022213a2b1204d69">lastError</a>(); }
+<a name="l00065"></a><a class="code" href="../../d2/de7/a00014.html#aa4bec6d0a34d7a996f7eb7179a18f1a2">00065</a>     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d2/de7/a00014.html#aa4bec6d0a34d7a996f7eb7179a18f1a2">isEmpty</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#aedcc52b3673b8df9425e52f13accb2a1">isEmpty</a>(); }
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22">setSortKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00073"></a>00073 
+<a name="l00081"></a><a class="code" href="../../d2/de7/a00014.html#a3483482509acef516f768394f896a4d9">00081</a>     Q_INVOKABLE <a class="code" href="../../d7/df7/a00058.html">SqlDataFields</a> *<a class="code" href="../../d2/de7/a00014.html#a3483482509acef516f768394f896a4d9">field</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#a62219a30596b25f41fa6ec94f39bcaba">field</a>(i); }
+<a name="l00088"></a><a class="code" href="../../d2/de7/a00014.html#a1d23e0874aab14e739f3409369463691">00088</a>     Q_INVOKABLE <span class="keywordtype">int</span> <a class="code" href="../../d2/de7/a00014.html#a1d23e0874aab14e739f3409369463691">fieldsCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#acdce7ef536264a6d724ae25e91e66c83">fieldsCount</a>(); }
+<a name="l00099"></a>00099     Q_INVOKABLE <span class="keywordtype">bool</span> <a class="code" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557">fetch</a>(QString <a class="code" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">tableName</a> = <span class="stringliteral">&quot;&quot;</span>, QString filter = <span class="stringliteral">&quot;&quot;</span>, QString <a class="code" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9">sort</a> = <span class="stringliteral">&quot;&quot;</span>, QStringList <a class="code" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515">fields</a> = QStringList());
+<a name="l00107"></a>00107     Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9">sort</a>(<span class="keywordtype">int</span> column, Qt::SortOrder newOrder = Qt::AscendingOrder);
+<a name="l00114"></a>00114     Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a63db77d8afcfac05b7570aff4b6827dd">addFilterKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00121"></a>00121     Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a2e69c877d3238397ee070c2202a97ab5">removeFilterKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00129"></a>00129     Q_INVOKABLE <span class="keywordtype">bool</span> <a class="code" href="../../d2/de7/a00014.html#ad975f2e7e065769bc38a36a23248f478">containsFilterKeyColumn</a>(<span class="keywordtype">int</span> column);
+<a name="l00138"></a>00138     Q_INVOKABLE QVariant <a class="code" href="../../d2/de7/a00014.html#a8b507f52d17d06d42aa80985017727bf">data</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column) <span class="keyword">const</span>;
+<a name="l00147"></a>00147     Q_INVOKABLE QVariant <a class="code" href="../../d2/de7/a00014.html#a8b507f52d17d06d42aa80985017727bf">data</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keywordtype">int</span> role = Qt::DisplayRole) <span class="keyword">const</span>;
+<a name="l00157"></a>00157     Q_INVOKABLE <span class="keywordtype">bool</span> <a class="code" href="../../d2/de7/a00014.html#a9e22272c821b1606127baeda26f7dfe4">setData</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keyword">const</span> QVariant &amp;value, <span class="keywordtype">int</span> role = Qt::EditRole);
+<a name="l00164"></a><a class="code" href="../../d2/de7/a00014.html#aa3c7fedefa9cf58507bc7089f9049d9c">00164</a>     Q_INVOKABLE <span class="keyword">virtual</span> QHash&lt;int, QByteArray&gt; <a class="code" href="../../d2/de7/a00014.html#aa3c7fedefa9cf58507bc7089f9049d9c">roleNames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>-&gt;<a class="code" href="../../d3/d8b/a00059.html#aa3c7fedefa9cf58507bc7089f9049d9c" title="This function allows mapping of role identifiers to role property names in scripting languages...">roleNames</a>(); }
+<a name="l00172"></a>00172     Q_INVOKABLE Qt::ItemFlags <a class="code" href="../../d2/de7/a00014.html#aa714a3130b3992920cc3884cf6827532">flags</a>(<span class="keyword">const</span> QModelIndex &amp;index) <span class="keyword">const</span>;
+<a name="l00173"></a>00173 
+<a name="l00179"></a>00179     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a92a9a7c46287f2b93e29115a7d521b59">invalidateFilter</a>();
+<a name="l00186"></a>00186     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a0c7a8a36dfb882b0070b0de89a218ff3">setBooleanColumns</a>(QList&lt;int&gt; boolCols);
+<a name="l00193"></a>00193     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a10579860c534c40493d1ded09fafa23b">setReadOnlyColumns</a>(QList&lt;int&gt; readonlyCols);
+<a name="l00200"></a>00200     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a278c8f2e341294ae9f2a17b4f0197ced">setPasswordColumns</a>(QList&lt;int&gt; passwordCols);
+<a name="l00207"></a>00207     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a3ed2bd1c35d4ea0ac65b25c52f3e265c">setNullColumns</a>(QList&lt;int&gt; nullCols);
+<a name="l00214"></a>00214     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a9d7fe88a0f429f697713f9eee071d806">setNotNullColumns</a>(QList&lt;int&gt; notNullCols);
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216 signals:
+<a name="l00222"></a>00222     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a46203cea1d6264ad5a5c9e45692c82fa">sortChanged</a>();
+<a name="l00223"></a>00223 
+<a name="l00224"></a>00224 <span class="keyword">protected</span>:
+<a name="l00230"></a>00230     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#ad69ea9cd434b2c30b6f826e9433fb6c3">fillModel</a>() = 0;
+<a name="l00239"></a>00239     <span class="keywordtype">bool</span> <a class="code" href="../../d2/de7/a00014.html#a6923e8be52efc9261b387765a00f5775">filterAcceptsRow</a>(<span class="keywordtype">int</span> source_row, <span class="keyword">const</span> QModelIndex &amp;source_parent) <span class="keyword">const</span>;
+<a name="l00240"></a><a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61">00240</a>     <a class="code" href="../../d3/d8b/a00059.html">SqlDataModel</a> *<a class="code" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61" title="TODO.">model</a>; 
+<a name="l00242"></a>00242 <span class="keyword">private</span>:
+<a name="l00250"></a>00250     <span class="keywordtype">void</span> <a class="code" href="../../d2/de7/a00014.html#a6a65cd994d653cad59076e1e6f514838">replaceSet</a>(QList&lt;int&gt;&amp; originalSet, QList&lt;int&gt; newSet);
+<a name="l00251"></a><a class="code" href="../../d2/de7/a00014.html#a4cd1d1b59957100f334fa79be19cd0a1">00251</a>     QList&lt;int&gt; <a class="code" href="../../d2/de7/a00014.html#a4cd1d1b59957100f334fa79be19cd0a1" title="TODO.">booleanSet</a>; 
+<a name="l00252"></a><a class="code" href="../../d2/de7/a00014.html#a500b70487da391bba988884a1f0676d7">00252</a>     QList&lt;int&gt; <a class="code" href="../../d2/de7/a00014.html#a500b70487da391bba988884a1f0676d7" title="TODO.">passwordSet</a>; 
+<a name="l00253"></a><a class="code" href="../../d2/de7/a00014.html#ab0dfa66ba18940dbb74fc1a654a211bf">00253</a>     QList&lt;int&gt; <a class="code" href="../../d2/de7/a00014.html#ab0dfa66ba18940dbb74fc1a654a211bf" title="TODO.">readonlySet</a>; 
+<a name="l00254"></a><a class="code" href="../../d2/de7/a00014.html#a325e51e27623bf701d128b5426876d86">00254</a>     QList&lt;int&gt; <a class="code" href="../../d2/de7/a00014.html#a325e51e27623bf701d128b5426876d86" title="TODO.">notNullSet</a>; 
+<a name="l00255"></a><a class="code" href="../../d2/de7/a00014.html#af30ca1c49ce0617bc2cdd210c14e6d59">00255</a>     QList&lt;int&gt; <a class="code" href="../../d2/de7/a00014.html#af30ca1c49ce0617bc2cdd210c14e6d59" title="TODO.">nullSet</a>; 
+<a name="l00256"></a><a class="code" href="../../d2/de7/a00014.html#a55d09024f6f41314fdce23d9838a5380">00256</a>     QList&lt;int&gt; <a class="code" href="../../d2/de7/a00014.html#a55d09024f6f41314fdce23d9838a5380" title="TODO.">filters</a>; 
+<a name="l00257"></a><a class="code" href="../../d2/de7/a00014.html#a6f33b6221bed2f7f7a3b924f75697c59">00257</a>     <span class="keywordtype">int</span> <a class="code" href="../../d2/de7/a00014.html#a6f33b6221bed2f7f7a3b924f75697c59" title="TODO.">sortIndex</a>; 
+<a name="l00258"></a>00258 };
+<a name="l00259"></a>00259 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d8/d87/a00118.html">checkable_sort_filter_proxy_model.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -6,9 +6,19 @@
 <title>PreCheck: Membres de classe</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
 <script type="text/javascript" src="dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li><a href="dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -89,254 +118,239 @@
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
-      <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
-      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
-      <li><a href="functions_0x7a.html#index_z"><span>z</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions_0x6d.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Liste de tous les membres de classe avec des liens vers les classes auxquelles ils appartiennent :</div>
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>m_administrator
-: <a class="el" href="d0/dc2/a00104.html#acbd54e10bef6aa71f5355d7be2687832">User</a>
+: <a class="el" href="d0/d89/a00071.html#acbd54e10bef6aa71f5355d7be2687832">User</a>
 </li>
-<li>m_clients
-: <a class="el" href="db/d3a/a00040.html#a1e49de7dc7b3c8debefdfa64d1a1dfa2">Group</a>
-</li>
-<li>m_color
-: <a class="el" href="d1/d6f/a00063.html#ac9c61084e802cc85c3ada134cd9ed022">QQuickAbstractColorDialog</a>
-</li>
-<li>m_contact1
-: <a class="el" href="db/d3a/a00040.html#a82fe227c5df6c6db5f8b5194125acd30">Group</a>
-</li>
-<li>m_contact2
-: <a class="el" href="db/d3a/a00040.html#af0ee81cd12cf789a325e4f94cb21e696">Group</a>
-</li>
-<li>m_contact3
-: <a class="el" href="db/d3a/a00040.html#a1b2938006b28b5903d0013e5e75581e8">Group</a>
+<li>m_condition
+: <a class="el" href="d3/dfe/a00025.html#a74b3853634f23e2c3f791105b8bba163">DatabaseContentQuestionState</a>
 </li>
 <li>m_current
-: <a class="el" href="d7/de0/a00022.html#afee43417cb99fa21e5a1a665d1a096c7">Client</a>
-, <a class="el" href="d6/d2c/a00072.html#afee43417cb99fa21e5a1a665d1a096c7">Rent</a>
-, <a class="el" href="db/db6/a00074.html#afee43417cb99fa21e5a1a665d1a096c7">Room</a>
-, <a class="el" href="da/dec/a00080.html#afee43417cb99fa21e5a1a665d1a096c7">Service</a>
-, <a class="el" href="dd/d1b/a00015.html#afee43417cb99fa21e5a1a665d1a096c7">Booking</a>
+: <a class="el" href="de/d8c/a00036.html#a4e5e55c95031721aa2e2718d061de729">LoopingStateMachine</a>
 </li>
 <li>m_currentUser
-: <a class="el" href="d1/d6e/a00073.html#afc599f14316ddc80852c8486f04d9a28">RestrictiveApplication</a>
-</li>
-<li>m_dialogWindow
-: <a class="el" href="df/d5f/a00064.html#a7d88e4f3740539a8a6141f3dd3d7e67d">QQuickAbstractDialog</a>
-</li>
-<li>m_dlgHelper
-: <a class="el" href="d1/d6f/a00063.html#ad0d59a0346be242dac4fad1ff16adef8">QQuickAbstractColorDialog</a>
-, <a class="el" href="de/de1/a00065.html#aeb91b5dce3d959826ed9c8f2db4c2596">QQuickAbstractFileDialog</a>
-</li>
-<li>m_email
-: <a class="el" href="dd/d1b/a00015.html#abbecd8a5609bb8dde66e088553fdffab">Booking</a>
-, <a class="el" href="d7/de0/a00022.html#abbecd8a5609bb8dde66e088553fdffab">Client</a>
-, <a class="el" href="d6/d2c/a00072.html#abbecd8a5609bb8dde66e088553fdffab">Rent</a>
-, <a class="el" href="db/db6/a00074.html#abbecd8a5609bb8dde66e088553fdffab">Room</a>
-, <a class="el" href="da/dec/a00080.html#abbecd8a5609bb8dde66e088553fdffab">Service</a>
+: <a class="el" href="d1/d84/a00052.html#afc599f14316ddc80852c8486f04d9a28">RestrictiveApplication</a>
 </li>
 <li>m_enabled
-: <a class="el" href="df/d03/a00062.html#a34a97a069b6bae0160fc4d19394ee0b1">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a34a97a069b6bae0160fc4d19394ee0b1">QQQuickAction</a>
+</li>
+<li>m_field
+: <a class="el" href="d3/dfe/a00025.html#af878192250873334aeac6b6a9e4591a5">DatabaseContentQuestionState</a>
+</li>
+<li>m_givenAnswer
+: <a class="el" href="d2/d79/a00051.html#a18008ed1211f6c93193dfef965a1de1d">QuestionState</a>
 </li>
 <li>m_icon
-: <a class="el" href="df/d03/a00062.html#a5b392cfd333e5730e0eb9e4915005ceb">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a5b392cfd333e5730e0eb9e4915005ceb">QQQuickAction</a>
 </li>
 <li>m_iconName
-: <a class="el" href="df/d03/a00062.html#a8a26177adc354c9265d21e55a99cdaa0">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a8a26177adc354c9265d21e55a99cdaa0">QQQuickAction</a>
 </li>
 <li>m_iconSource
-: <a class="el" href="df/d03/a00062.html#a7bc9a9491fb35a76b308ef6383462c0b">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a7bc9a9491fb35a76b308ef6383462c0b">QQQuickAction</a>
 </li>
 <li>m_id
-: <a class="el" href="d7/de0/a00022.html#aad966617e7e050bedbead762727808a5">Client</a>
-, <a class="el" href="db/d3a/a00040.html#aad966617e7e050bedbead762727808a5">Group</a>
-, <a class="el" href="d0/dc2/a00104.html#aad966617e7e050bedbead762727808a5">User</a>
+: <a class="el" href="d0/d89/a00071.html#aad966617e7e050bedbead762727808a5">User</a>
+</li>
+<li>m_input
+: <a class="el" href="dc/d87/a00032.html#a1c7edd577c90572b79bdf1c206911e5e">IOState</a>
+</li>
+<li>m_ioContent
+: <a class="el" href="d0/dc0/a00033.html#a12614329f4dc8c4db3309c74bfada320">IOStateMachine</a>
+</li>
+<li>m_ioStatesHistory
+: <a class="el" href="d0/dc0/a00033.html#a0efbf3bdfa5eba78e0777e535a978c9c">IOStateMachine</a>
+</li>
+<li>m_limit
+: <a class="el" href="de/d8c/a00036.html#adb6354288415a219839ecb2361450efa">LoopingStateMachine</a>
 </li>
 <li>m_managerX
-: <a class="el" href="d0/dc2/a00104.html#af527d4309e3e95a737c4f2ab54ea6c4d">User</a>
+: <a class="el" href="d0/d89/a00071.html#af527d4309e3e95a737c4f2ab54ea6c4d">User</a>
 </li>
 <li>m_managerZ
-: <a class="el" href="d0/dc2/a00104.html#a18679d1a2cdd31ef63236fa0da9a9af4">User</a>
+: <a class="el" href="d0/d89/a00071.html#a18679d1a2cdd31ef63236fa0da9a9af4">User</a>
+</li>
+<li>m_max
+: <a class="el" href="dc/d3c/a00028.html#a32f43c06ecaa75461b146ab248ef01f5">DecimalQuestionState</a>
+, <a class="el" href="d6/d42/a00043.html#a1d73d437a560c830e7672a8176e67e78">NumericQuestionState</a>
+</li>
+<li>m_maxLen
+: <a class="el" href="d1/d6f/a00063.html#a677e983de504ba859cee311edb4a137d">StringQuestionState</a>
+</li>
+<li>m_min
+: <a class="el" href="dc/d3c/a00028.html#a1b476754a829c6795102ed234deb2911">DecimalQuestionState</a>
+, <a class="el" href="d6/d42/a00043.html#ad16ac4f634139e1ef2318a1ea75e9887">NumericQuestionState</a>
+</li>
+<li>m_minLen
+: <a class="el" href="d1/d6f/a00063.html#acca24e5ced4122e926e6aae36c3ea32d">StringQuestionState</a>
 </li>
 <li>m_mnemonic
-: <a class="el" href="df/d03/a00062.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">QQQuickAction</a>
-</li>
-<li>m_modality
-: <a class="el" href="df/d5f/a00064.html#aa871b0fc2547d200f44d5886bf36c793">QQuickAbstractDialog</a>
+: <a class="el" href="d4/dca/a00048.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">QQQuickAction</a>
 </li>
 <li>m_mode
-: <a class="el" href="d1/d6e/a00073.html#a36720aabe62415402bea05eab9274a40">RestrictiveApplication</a>
-</li>
-<li>m_model
-: <a class="el" href="de/d11/a00021.html#ab0ad980d8b9d87954e712fc096504226">CheckableSortFilterProxyModel</a>
+: <a class="el" href="d1/d84/a00052.html#a36720aabe62415402bea05eab9274a40">RestrictiveApplication</a>
 </li>
 <li>m_name
-: <a class="el" href="dd/d1b/a00015.html#aab4578f53a46cee4b24f9a555eb552de">Booking</a>
-, <a class="el" href="d7/de0/a00022.html#aab4578f53a46cee4b24f9a555eb552de">Client</a>
-, <a class="el" href="d6/d2c/a00072.html#aab4578f53a46cee4b24f9a555eb552de">Rent</a>
-, <a class="el" href="db/db6/a00074.html#aab4578f53a46cee4b24f9a555eb552de">Room</a>
-, <a class="el" href="da/dec/a00080.html#aab4578f53a46cee4b24f9a555eb552de">Service</a>
-, <a class="el" href="df/d5d/a00084.html#aab4578f53a46cee4b24f9a555eb552de">SqlDataFields</a>
-, <a class="el" href="d0/dc2/a00104.html#aab4578f53a46cee4b24f9a555eb552de">User</a>
+: <a class="el" href="d8/d41/a00038.html#aab4578f53a46cee4b24f9a555eb552de">NamedObject</a>
+, <a class="el" href="d7/df7/a00058.html#aab4578f53a46cee4b24f9a555eb552de">SqlDataFields</a>
+, <a class="el" href="d0/d89/a00071.html#aab4578f53a46cee4b24f9a555eb552de">User</a>
 </li>
-<li>m_options
-: <a class="el" href="d1/d6f/a00063.html#a918f6f8a2e14025d9eabc57ec35daf3c">QQuickAbstractColorDialog</a>
-, <a class="el" href="de/de1/a00065.html#a4407c5cf6bd4f89ed425446dd057efd3">QQuickAbstractFileDialog</a>
+<li>m_output
+: <a class="el" href="dc/d87/a00032.html#ae73810805964425fa16a51e009e9690d">IOState</a>
 </li>
-<li>m_parentWindow
-: <a class="el" href="df/d5f/a00064.html#a15e40792d9764fcd11d124891dc34599">QQuickAbstractDialog</a>
-</li>
-<li>m_phone
-: <a class="el" href="dd/d1b/a00015.html#aec1b16830cfc165031fefacc72226999">Booking</a>
-, <a class="el" href="d7/de0/a00022.html#aec1b16830cfc165031fefacc72226999">Client</a>
-, <a class="el" href="d6/d2c/a00072.html#aec1b16830cfc165031fefacc72226999">Rent</a>
-, <a class="el" href="db/db6/a00074.html#aec1b16830cfc165031fefacc72226999">Room</a>
-, <a class="el" href="da/dec/a00080.html#aec1b16830cfc165031fefacc72226999">Service</a>
-</li>
-<li>m_qmlImplementation
-: <a class="el" href="df/d5f/a00064.html#a0444dfff8f1a782fc0b54618400a4345">QQuickAbstractDialog</a>
+<li>m_ptraddress
+: <a class="el" href="d8/d41/a00038.html#ad7a24385a6224f7026ce3dbba35f7763">NamedObject</a>
 </li>
 <li>m_receptionist
-: <a class="el" href="d0/dc2/a00104.html#a3dc42a9f73e09c7e0dad7bfe7e8dd5ca">User</a>
+: <a class="el" href="d0/d89/a00071.html#a3dc42a9f73e09c7e0dad7bfe7e8dd5ca">User</a>
 </li>
 <li>m_runningThread
-: <a class="el" href="d1/d44/a00098.html#addfaadb04a2889497760f7d356e08073">ThreadsManager</a>
-</li>
-<li>m_selectExisting
-: <a class="el" href="de/de1/a00065.html#a9ab71d266963d75f03a313076b4c537c">QQuickAbstractFileDialog</a>
-</li>
-<li>m_selectFolder
-: <a class="el" href="de/de1/a00065.html#ac1a72fe2ebaad83d197ed251bf05332d">QQuickAbstractFileDialog</a>
-</li>
-<li>m_selections
-: <a class="el" href="dc/ddf/a00067.html#a5fd99daacdc9fa92975faffd7bd81035">QQuickFileDialog</a>
-</li>
-<li>m_selectMultiple
-: <a class="el" href="de/de1/a00065.html#a00e81de188d6447d8d459267b8ab0cc6">QQuickAbstractFileDialog</a>
+: <a class="el" href="de/de1/a00065.html#addfaadb04a2889497760f7d356e08073">ThreadsManager</a>
 </li>
 <li>m_shortcut
-: <a class="el" href="df/d03/a00062.html#a938da0ebcb7a991c7d211da950b16e91">QQQuickAction</a>
+: <a class="el" href="d4/dca/a00048.html#a938da0ebcb7a991c7d211da950b16e91">QQQuickAction</a>
 </li>
 <li>m_sortOrder
-: <a class="el" href="df/d5d/a00084.html#a866369db546af43daed99193d0b0446d">SqlDataFields</a>
+: <a class="el" href="d7/df7/a00058.html#a866369db546af43daed99193d0b0446d">SqlDataFields</a>
+</li>
+<li>m_table
+: <a class="el" href="d3/dfe/a00025.html#ae1edeb9e93fde963bdd9ea31b6290328">DatabaseContentQuestionState</a>
+</li>
+<li>m_tableName
+: <a class="el" href="d0/dc0/a00033.html#acd966aea0a942f94155a29e76ae5069c">IOStateMachine</a>
 </li>
 <li>m_text
-: <a class="el" href="df/d03/a00062.html#af4e24792a7e9adb211cf78e4ed2a97ca">QQQuickAction</a>
-, <a class="el" href="df/d5d/a00084.html#af4e24792a7e9adb211cf78e4ed2a97ca">SqlDataFields</a>
+: <a class="el" href="d7/df7/a00058.html#af4e24792a7e9adb211cf78e4ed2a97ca">SqlDataFields</a>
+, <a class="el" href="d4/dca/a00048.html#af4e24792a7e9adb211cf78e4ed2a97ca">QQQuickAction</a>
 </li>
 <li>m_tooltip
-: <a class="el" href="df/d03/a00062.html#a5488ee724c7351b6fbb62ebfa1683cf8">QQQuickAction</a>
-</li>
-<li>m_visible
-: <a class="el" href="df/d5f/a00064.html#adf7ad65deb2fca5eab8d0674602fe3c4">QQuickAbstractDialog</a>
+: <a class="el" href="d4/dca/a00048.html#a5488ee724c7351b6fbb62ebfa1683cf8">QQQuickAction</a>
 </li>
 <li>mainQmlFile
-: <a class="el" href="d2/db1/a00070.html#a5b3d0b970876769eafc62503c5210a12">QtQuick2ApplicationViewerPrivate</a>
+: <a class="el" href="d5/de0/a00050.html#a5b3d0b970876769eafc62503c5210a12">QtQuick2ApplicationViewerPrivate</a>
 </li>
 <li>MANAGEMENT_X
-: <a class="el" href="d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">RestrictiveApplication</a>
-, <a class="el" href="d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">PreCheckApp</a>
-, <a class="el" href="d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">PreCheckQtApp</a>
-, <a class="el" href="d0/d0b/a00004.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">App</a>
+: <a class="el" href="d1/d84/a00052.html#a91afa6adb4e559730e8da5ddfb277830a41383c43a67522db8c5d74b64af9aba6">RestrictiveApplication</a>
 </li>
 <li>MANAGEMENT_Z
-: <a class="el" href="d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">RestrictiveApplication</a>
-, <a class="el" href="d7/df7/a00058.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">PreCheckApp</a>
-, <a class="el" href="d3/d8b/a00059.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">PreCheckQtApp</a>
-, <a class="el" href="d0/d0b/a00004.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">App</a>
+: <a class="el" href="d1/d84/a00052.html#a91afa6adb4e559730e8da5ddfb277830a1eb7e542862c620df949c8ff84ea6791">RestrictiveApplication</a>
 </li>
 <li>managerX
-: <a class="el" href="d0/dc2/a00104.html#aa3ac088474f416bd6590412192a389f1">User</a>
+: <a class="el" href="d0/d89/a00071.html#aa3ac088474f416bd6590412192a389f1">User</a>
 </li>
 <li>managerZ
-: <a class="el" href="d0/dc2/a00104.html#a28f960ef31600c81ef616a65a70049f2">User</a>
+: <a class="el" href="d0/d89/a00071.html#a28f960ef31600c81ef616a65a70049f2">User</a>
 </li>
-<li>maxHeight
-: <a class="el" href="d6/d42/a00043.html#a7345ffd225c2c01dcbdf3311a082423b">Keyboard</a>
+<li>max()
+: <a class="el" href="dc/d3c/a00028.html#ad0c871f69045c2d62acc6b1bb6ba2c8a">DecimalQuestionState</a>
+, <a class="el" href="d6/d42/a00043.html#ad0c871f69045c2d62acc6b1bb6ba2c8a">NumericQuestionState</a>
+</li>
+<li>maxLen()
+: <a class="el" href="d1/d6f/a00063.html#a18d316dc62c9602a3a557d4eece8a323">StringQuestionState</a>
 </li>
 <li>maxNbColsFew
-: <a class="el" href="d5/d16/a00029.html#ae434b8f31a5ae0167675d93df2bbcb06">ComplexGridView</a>
+: <a class="el" href="db/db2/a00020.html#ae434b8f31a5ae0167675d93df2bbcb06">ComplexGridView</a>
 </li>
 <li>maxNbColsStd
-: <a class="el" href="d5/d16/a00029.html#a724dbd3a9862343137c9650da8201cd6">ComplexGridView</a>
+: <a class="el" href="db/db2/a00020.html#a724dbd3a9862343137c9650da8201cd6">ComplexGridView</a>
 </li>
 <li>maxNbFlowMany
-: <a class="el" href="d5/d16/a00029.html#a443002229f694589478ecb44197616f8">ComplexGridView</a>
+: <a class="el" href="db/db2/a00020.html#a443002229f694589478ecb44197616f8">ComplexGridView</a>
 </li>
 <li>maxNbRowsFew
-: <a class="el" href="d5/d16/a00029.html#ac72029b99508b63a73deeaa11ff23c30">ComplexGridView</a>
+: <a class="el" href="db/db2/a00020.html#ac72029b99508b63a73deeaa11ff23c30">ComplexGridView</a>
 </li>
 <li>maxNbRowsStd
-: <a class="el" href="d5/d16/a00029.html#a1fb4628003d69a75d10eb8ac70f17f3d">ComplexGridView</a>
-</li>
-<li>maxWidth
-: <a class="el" href="d6/d42/a00043.html#a0077a86c6dfe0b142088685c1358fcbb">Keyboard</a>
+: <a class="el" href="db/db2/a00020.html#a1fb4628003d69a75d10eb8ac70f17f3d">ComplexGridView</a>
 </li>
 <li>mDataFields
-: <a class="el" href="df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#afdc359cef837c2dc8102f20b90815f47">SqlDataModel</a>
 </li>
 <li>mFilter
-: <a class="el" href="df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#a54baed2fcbc794c6fd5b8564f9409bcf">SqlDataModel</a>
 </li>
-<li>middlePanel
-: <a class="el" href="d3/d8b/a00059.html#a1d78cc486b0c5e2bc6e190a24c7422a9">PreCheckQtApp</a>
+<li>min()
+: <a class="el" href="dc/d3c/a00028.html#a178fcc263e2cc10fb33d47eb1d3357c6">DecimalQuestionState</a>
+, <a class="el" href="d6/d42/a00043.html#a178fcc263e2cc10fb33d47eb1d3357c6">NumericQuestionState</a>
 </li>
-<li>modality()
-: <a class="el" href="df/d5f/a00064.html#aa0accba10d1d9dd8460b879e58b7968d">QQuickAbstractDialog</a>
+<li>minLen()
+: <a class="el" href="d1/d6f/a00063.html#a004e4e1d9cf157289eb73d20cd889a1b">StringQuestionState</a>
 </li>
-<li>modalityChanged()
-: <a class="el" href="df/d5f/a00064.html#ad17274d01c19488821ceaabdc6f64bca">QQuickAbstractDialog</a>
-</li>
-<li>mode
-: <a class="el" href="d3/d8b/a00059.html#aa31bdfd58914cf2a382449e7cdb85ff1">PreCheckQtApp</a>
-, <a class="el" href="d7/df7/a00058.html#a8532210923fad6068fb47ed246a52d43">PreCheckApp</a>
-, <a class="el" href="d1/d6e/a00073.html#a8f38ff4e8ae1123faa112e72b5ff6bd8">RestrictiveApplication</a>
+<li>mode()
+: <a class="el" href="d1/d84/a00052.html#a1e8093188364b4503d837316beda8264">RestrictiveApplication</a>
 </li>
 <li>modeChanged()
-: <a class="el" href="d1/d6e/a00073.html#a536f1cec593cb466e4731b89be006caa">RestrictiveApplication</a>
+: <a class="el" href="d1/d84/a00052.html#aaba1cada66a57331d358e9d94e58f420">RestrictiveApplication</a>
 </li>
-<li>model()
-: <a class="el" href="de/d11/a00021.html#a74963b17d0a476311543d09938289d5d">CheckableSortFilterProxyModel</a>
-, <a class="el" href="dc/d87/a00032.html#a25ce3e8e8823ff975ee344c836c1cd2a">ContentView</a>
-, <a class="el" href="d5/db6/a00042.html#a25ce3e8e8823ff975ee344c836c1cd2a">HeaderView</a>
+<li>model
+: <a class="el" href="dc/de2/a00024.html#a25ce3e8e8823ff975ee344c836c1cd2a">ContentView</a>
+, <a class="el" href="df/d61/a00031.html#a25ce3e8e8823ff975ee344c836c1cd2a">HeaderView</a>
+, <a class="el" href="d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61">CheckableSortFilterProxyModel</a>
 </li>
 <li>monthsList
-: <a class="el" href="db/db2/a00020.html#aca9184c8b5daf5e22116a8f7beb0cee7">CalendarDialog</a>
+: <a class="el" href="d7/dd4/a00013.html#aca9184c8b5daf5e22116a8f7beb0cee7">CalendarDialog</a>
 </li>
 <li>mRecords
-: <a class="el" href="df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#ad22951546a29792298e909e3540bfd4b">SqlDataModel</a>
 </li>
 <li>mRoles
-: <a class="el" href="df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#a5029a1f03131f6ac8d5377c2ff16c516">SqlDataModel</a>
 </li>
 <li>mSort
-: <a class="el" href="df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#ab6524708dbad962e61b904e6f5c30cb7">SqlDataModel</a>
 </li>
 <li>mSqlQuery
-: <a class="el" href="df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">SqlDataModel</a>
+: <a class="el" href="d3/d8b/a00059.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">SqlDataModel</a>
 </li>
 <li>mTable
-: <a class="el" href="df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">SqlDataModel</a>
-</li>
-<li>mySqlRelationalDelegate()
-: <a class="el" href="d2/dee/a00049.html#a7660c88f84400e78d498100a905908b9">mySqlRelationalDelegate</a>
+: <a class="el" href="d3/d8b/a00059.html#ab1d03b34d42c6127e0267bf9afc3ea14">SqlDataModel</a>
 </li>
 </ul>
 </div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/SqlDataModel.h</title>
+<title>PreCheck:  Fichier source de models/group.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,88 +80,141 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d7/da0/a00198.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">SqlDataModel.h</div>  </div>
+<div class="title">group.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/da0/a00198.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SQLDATAMODEL_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SQLDATAMODEL_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QAbstractListModel&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">sql_data_field.h</a>&quot;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QtSql&gt;</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a><a class="code" href="../../df/d13/a00085.html">00008</a> <span class="keyword">class </span><a class="code" href="../../df/d13/a00085.html">SqlDataModel</a> : <span class="keyword">public</span> QAbstractListModel
-<a name="l00009"></a>00009 {
-<a name="l00010"></a>00010     Q_OBJECT
-<a name="l00011"></a><a class="code" href="../../df/d13/a00085.html#a850368dedc06eb94185edfae3670cbc8">00011</a>     Q_PROPERTY(QString <a class="code" href="../../df/d13/a00085.html#a850368dedc06eb94185edfae3670cbc8">table</a> READ <a class="code" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a> WRITE <a class="code" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a> NOTIFY <a class="code" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">tableChanged</a>)
-<a name="l00012"></a><a class="code" href="../../df/d13/a00085.html#a8ace926bd83c1e484f9264226f0e3cf6">00012</a>     Q_PROPERTY(QString <a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a> READ <a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a> WRITE <a class="code" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">setFilterCondition</a> NOTIFY <a class="code" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a>)
-<a name="l00013"></a><a class="code" href="../../df/d13/a00085.html#afbd0ec0c231f80797f30bc852cf133d3">00013</a>     Q_PROPERTY(QString <a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a> READ <a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a> NOTIFY <a class="code" href="../../df/d13/a00085.html#a17e14c26f2f2449f48f89cea8c992cb3">lastErrorChanged</a>)
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015 public:
-<a name="l00016"></a>00016     explicit <a class="code" href="../../df/d13/a00085.html">SqlDataModel</a>(QObject *parent = 0);
-<a name="l00017"></a>00017     <span class="keywordtype">int</span> <a class="code" href="../../df/d13/a00085.html#ad1da2096edce65195e18fe76edaf4c78">rowCount</a>(const QModelIndex &amp;parent) const;
-<a name="l00018"></a>00018     QVariant <a class="code" href="../../df/d13/a00085.html#adcd3df47ac02021a2c18b8a921b26b54">data</a>(const QModelIndex &amp;index, <span class="keywordtype">int</span> role) const;
-<a name="l00019"></a>00019     <span class="keywordtype">bool</span> <a class="code" href="../../df/d13/a00085.html#ac52077d1c1c0e0813c25684ec1f894e5">setHeaderData</a>(<span class="keywordtype">int</span> section, Qt::Orientation orientation, const QVariant &amp;value, <span class="keywordtype">int</span> role = Qt::EditRole);
-<a name="l00020"></a><a class="code" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b">00020</a>     <span class="keywordtype">int</span> <a class="code" href="../../df/d13/a00085.html#a7783a53691a106a916189d86d836fd9b">roleForField</a>(<span class="keywordtype">int</span> fieldIndex)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Qt::UserRole + fieldIndex;}
-<a name="l00021"></a><a class="code" href="../../df/d13/a00085.html#aadef206466521b2b3201e5e8570cba7f">00021</a>     <span class="keywordtype">int</span> <a class="code" href="../../df/d13/a00085.html#aadef206466521b2b3201e5e8570cba7f">fieldFromRole</a>(<span class="keywordtype">int</span> role)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> role - Qt::UserRole; }
-<a name="l00022"></a>00022     <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a>();
-<a name="l00023"></a>00023     <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a80378cc6261c1ba7a1501587e4df4e9b">lastError</a>();
-<a name="l00024"></a>00024     <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a>();
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#ac07b1d4515135f20a58c1aac0e80ddc7">setTable</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a>);
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a56a82e5d1ed1e6c6053ff8689ab5c4c8">setFilterCondition</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a>);
-<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a838891af34942e371bf7219990f6622f">resetFilterCondition</a>();
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#ab4309392aa4b0c4e1f5d0ec918ae99ef">setFields</a>(QStringList fieldList);
-<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a472fea0ce5195e6b65943b26724b4b05">resetFieldsToAll</a>();
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keywordtype">bool</span> <a class="code" href="../../df/d13/a00085.html#a898fb831fd9fe204e588a4bfebe68dc6">fetch</a>(QString <a class="code" href="../../df/d13/a00085.html#aa193d500de9ae21a6a12313adf340df0">tableName</a> = <span class="stringliteral">&quot;&quot;</span>, QString <a class="code" href="../../df/d13/a00085.html#a5ad93e3e39ebf61e2b111d27a7708898">filter</a> = <span class="stringliteral">&quot;&quot;</span>, QString sort=<span class="stringliteral">&quot;&quot;</span>, QStringList fields = QStringList());
-<a name="l00033"></a>00033     <a class="code" href="../../df/d5d/a00084.html">SqlDataFields</a> *<a class="code" href="../../df/d13/a00085.html#a2c4384a5dc57b09c60ef6048ebaae38e">field</a>(<span class="keywordtype">int</span> i);
-<a name="l00034"></a>00034     <span class="keywordtype">int</span> <a class="code" href="../../df/d13/a00085.html#aa175711d31ea2e4b376f44a3b73d18f5">fieldsCount</a>();
-<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a83b0c57549ec585c8a7b72464f796dc0">setOrderBy</a>(QString sort);
-<a name="l00038"></a><a class="code" href="../../df/d13/a00085.html#a2038dc6a6621e570c65761203c64d507">00038</a>     <span class="keyword">virtual</span> QHash&lt;int, QByteArray&gt; <a class="code" href="../../df/d13/a00085.html#a2038dc6a6621e570c65761203c64d507" title="This function allows mapping of role identifiers to role property names in scripting languages...">roleNames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a>; }
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040     <span class="keywordtype">bool</span> <a class="code" href="../../df/d13/a00085.html#af337ffd75e4f019ce15302c60715d84b">isEmpty</a>();
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     <span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">query</a>();
-<a name="l00043"></a>00043     <span class="keyword">const</span> QString <a class="code" href="../../df/d13/a00085.html#a07bb22c1c1ed1c894d52930eca70a339">fieldsList</a>();
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045 signals:
-<a name="l00046"></a>00046     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#ad24ee2c041927e40afd2724abff38908">fieldsChanged</a>();
-<a name="l00047"></a>00047     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a1a5372272449a8602cd82529db688dd4">tableChanged</a>();
-<a name="l00048"></a>00048     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a17e14c26f2f2449f48f89cea8c992cb3">lastErrorChanged</a>();
-<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a14c60f32ceefa0f1cb8738cb641f0f55">filterChanged</a>();
-<a name="l00050"></a>00050     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#ad9b122a44e657b6e2d1e0b4e8c84c04a">rolesChanged</a>();
-<a name="l00051"></a>00051 <span class="keyword">protected</span>:
-<a name="l00052"></a>00052     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a5bf16ce74ce0bbf96d6d30b6f9231113">applyRoles</a>();
-<a name="l00053"></a>00053 <span class="keyword">private</span>:
-<a name="l00054"></a>00054     <span class="keywordtype">void</span> <a class="code" href="../../df/d13/a00085.html#a583d58f575394f178b198558278860a1">setQuery</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../df/d13/a00085.html#a22117c8ba9bc2acdf1296212491898d4">query</a>);
-<a name="l00055"></a><a class="code" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">00055</a>     QString <a class="code" href="../../df/d13/a00085.html#ab1d03b34d42c6127e0267bf9afc3ea14">mTable</a>;
-<a name="l00056"></a><a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">00056</a>     QString <a class="code" href="../../df/d13/a00085.html#a54baed2fcbc794c6fd5b8564f9409bcf">mFilter</a>;
-<a name="l00057"></a><a class="code" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">00057</a>     QString <a class="code" href="../../df/d13/a00085.html#ab6524708dbad962e61b904e6f5c30cb7">mSort</a>;
-<a name="l00058"></a><a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">00058</a>     QList&lt;SqlDataFields *&gt; <a class="code" href="../../df/d13/a00085.html#afdc359cef837c2dc8102f20b90815f47">mDataFields</a>;
-<a name="l00059"></a><a class="code" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">00059</a>     QHash&lt;int, QByteArray&gt; <a class="code" href="../../df/d13/a00085.html#a5029a1f03131f6ac8d5377c2ff16c516">mRoles</a>;
-<a name="l00060"></a><a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">00060</a>     QSqlQuery <a class="code" href="../../df/d13/a00085.html#a7ac715b89b82c754d5e8bd7ef2eca8e6">mSqlQuery</a>;
-<a name="l00061"></a><a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">00061</a>     QList&lt;QSqlRecord&gt; <a class="code" href="../../df/d13/a00085.html#ad22951546a29792298e909e3540bfd4b">mRecords</a>;
-<a name="l00062"></a>00062 };
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="preprocessor">#endif // SQLDATAMODEL_H</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span>
+<a href="../../d7/da0/a00198.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/d72/a00199.html">group.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a><a class="code" href="../../d6/d97/a00045.html#ae030d7d0c8b7034c4512157558504b94">00003</a>     <a class="code" href="../../d6/d97/a00045.html#ae030d7d0c8b7034c4512157558504b94">Group::Group</a>(<span class="keywordtype">int</span> ID, QString <a class="code" href="../../d6/dfb/a00172.html#a2b0a198f837184bf6fff555cee3ce770">name</a>, <a class="code" href="../../d7/de0/a00022.html">Client</a>* clients, <a class="code" href="../../d7/de0/a00022.html">Client</a> contact1, <a class="code" href="../../d7/de0/a00022.html">Client</a> contact2, <a class="code" href="../../d7/de0/a00022.html">Client</a> contact3, QObject *parent)  :
+<a name="l00004"></a>00004 <a class="code" href="../../db/d44/a00162.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>(parent) {
+<a name="l00005"></a>00005         this-&gt;<a class="code" href="../../d6/d97/a00045.html#aad966617e7e050bedbead762727808a5">m_id</a> = ID;
+<a name="l00006"></a>00006         this-&gt;<a class="code" href="../../d6/d97/a00045.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(name);
+<a name="l00007"></a>00007         this-&gt;<a class="code" href="../../d6/d97/a00045.html#a3ff34e798f6befcc9912d47f7bfe0c4e">unsetContact1</a>();
+<a name="l00008"></a>00008         this-&gt;<a class="code" href="../../d6/d97/a00045.html#a537211a506f557acaab805d483f9bfdd">unsetContact2</a>();
+<a name="l00009"></a>00009         this-&gt;<a class="code" href="../../d6/d97/a00045.html#a009438443822c53d18473c097f6c2504">unsetContact3</a>();
+<a name="l00010"></a>00010         this-&gt;<a class="code" href="../../d6/d97/a00045.html#ad3a0a5dda1b422a4312f7bd71a998f37">addContact</a>(contact1);
+<a name="l00011"></a>00011         this-&gt;<a class="code" href="../../d6/d97/a00045.html#ad3a0a5dda1b422a4312f7bd71a998f37">addContact</a>(contact2);
+<a name="l00012"></a>00012         this-&gt;<a class="code" href="../../d6/d97/a00045.html#ad3a0a5dda1b422a4312f7bd71a998f37">addContact</a>(contact3);
+<a name="l00013"></a>00013         this-&gt;<a class="code" href="../../d6/d97/a00045.html#ae91b917d627a3c4cd2c4e102e28a3476">setClients</a>(clients);
+<a name="l00014"></a>00014         }
+<a name="l00015"></a>00015         
+<a name="l00016"></a><a class="code" href="../../d6/d97/a00045.html#a3eacfe097be87ffd0536569b846f04d8">00016</a>         <a class="code" href="../../d7/de0/a00022.html">Client</a>* <a class="code" href="../../d6/d97/a00045.html#a3eacfe097be87ffd0536569b846f04d8">Group::clientsList</a>() {
+<a name="l00017"></a>00017                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d6/d97/a00045.html#a1e49de7dc7b3c8debefdfa64d1a1dfa2">m_clients</a>;
+<a name="l00018"></a>00018         }
+<a name="l00019"></a>00019         
+<a name="l00020"></a><a class="code" href="../../d6/d97/a00045.html#ac5d76f12137c9848fd84cf11b6d83a8e">00020</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#ac5d76f12137c9848fd84cf11b6d83a8e">Group::addClient</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> client) {
+<a name="l00021"></a>00021                 <span class="comment">//TODO Group::addClient</span>
+<a name="l00022"></a>00022         }
+<a name="l00023"></a>00023         
+<a name="l00024"></a><a class="code" href="../../d6/d97/a00045.html#ad3a0a5dda1b422a4312f7bd71a998f37">00024</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#ad3a0a5dda1b422a4312f7bd71a998f37">Group::addContact</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact) {
+<a name="l00025"></a>00025         <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">contact1</a>() == NULL) {
+<a name="l00026"></a>00026         this-&gt;<a class="code" href="../../d6/d97/a00045.html#aeb9c9c599a930d15a434138c4d7af2a9">setContact1</a>(contact);
+<a name="l00027"></a>00027         } <span class="keywordflow">else</span>  <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">contact2</a>() == NULL) {
+<a name="l00028"></a>00028                 this-&gt;<a class="code" href="../../d6/d97/a00045.html#a222ca57bbc286ff4547720969e98e263">setContact2</a>(contact);
+<a name="l00029"></a>00029                 } <span class="keywordflow">else</span> {
+<a name="l00030"></a>00030                         this-&gt;<a class="code" href="../../d6/d97/a00045.html#a40ded34d0965e79d71154db8fbd46446">setContact3</a>(contact);
+<a name="l00031"></a>00031                 }
+<a name="l00032"></a>00032         }
+<a name="l00033"></a>00033         
+<a name="l00034"></a><a class="code" href="../../d6/d97/a00045.html#aeb9c9c599a930d15a434138c4d7af2a9">00034</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#aeb9c9c599a930d15a434138c4d7af2a9">Group::setContact1</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact) {
+<a name="l00035"></a>00035         <span class="keywordflow">if</span>(contact != NULL) {
+<a name="l00036"></a>00036                 this-&gt;<a class="code" href="../../d6/d97/a00045.html#a82fe227c5df6c6db5f8b5194125acd30">m_contact1</a> = contact;
+<a name="l00037"></a>00037         }
+<a name="l00038"></a>00038         }
+<a name="l00039"></a>00039         
+<a name="l00040"></a>00040         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">Group::contact1</a>()<span class="keyword"> const </span>{
+<a name="l00041"></a>00041                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d6/d97/a00045.html#a82fe227c5df6c6db5f8b5194125acd30">m_contact1</a>;
+<a name="l00042"></a>00042         }
+<a name="l00043"></a>00043         
+<a name="l00044"></a><a class="code" href="../../d6/d97/a00045.html#a3ff34e798f6befcc9912d47f7bfe0c4e">00044</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a3ff34e798f6befcc9912d47f7bfe0c4e">Group::unsetContact1</a>() {
+<a name="l00045"></a>00045                 this-&gt;<a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">contact1</a> = NULL;
+<a name="l00046"></a>00046         }
+<a name="l00047"></a>00047         
+<a name="l00048"></a><a class="code" href="../../d6/d97/a00045.html#a222ca57bbc286ff4547720969e98e263">00048</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a222ca57bbc286ff4547720969e98e263">Group::setContact2</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact) {
+<a name="l00049"></a>00049                 <span class="keywordflow">if</span>(contact != NULL) {
+<a name="l00050"></a>00050                         this-&gt;<a class="code" href="../../d6/d97/a00045.html#af0ee81cd12cf789a325e4f94cb21e696">m_contact2</a> = contact;
+<a name="l00051"></a>00051                 }
+<a name="l00052"></a>00052         }
+<a name="l00053"></a>00053         
+<a name="l00054"></a>00054         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">Group::contact2</a>()<span class="keyword"> const </span>{
+<a name="l00055"></a>00055                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d6/d97/a00045.html#af0ee81cd12cf789a325e4f94cb21e696">m_contact2</a>;
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057         
+<a name="l00058"></a><a class="code" href="../../d6/d97/a00045.html#a537211a506f557acaab805d483f9bfdd">00058</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a537211a506f557acaab805d483f9bfdd">Group::unsetContact2</a>() {
+<a name="l00059"></a>00059                 this-&gt;<a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">contact2</a> = NULL;
+<a name="l00060"></a>00060         }
+<a name="l00061"></a>00061         
+<a name="l00062"></a><a class="code" href="../../d6/d97/a00045.html#a40ded34d0965e79d71154db8fbd46446">00062</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a40ded34d0965e79d71154db8fbd46446">Group::setContact3</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact) {
+<a name="l00063"></a>00063                 <span class="keywordflow">if</span>(contact != NULL) {
+<a name="l00064"></a>00064                         this-&gt;<a class="code" href="../../d6/d97/a00045.html#a1b2938006b28b5903d0013e5e75581e8">m_contact3</a> = contact;
+<a name="l00065"></a>00065                 }
+<a name="l00066"></a>00066         }
+<a name="l00067"></a>00067         
+<a name="l00068"></a>00068         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a5325072a56b0a12f305e42db6e2379e9">Group::contact3</a>()<span class="keyword"> const </span>{
+<a name="l00069"></a>00069                 <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d6/d97/a00045.html#a1b2938006b28b5903d0013e5e75581e8">m_contact3</a>;
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071         
+<a name="l00072"></a><a class="code" href="../../d6/d97/a00045.html#a009438443822c53d18473c097f6c2504">00072</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a009438443822c53d18473c097f6c2504">Group::unsetContact3</a>() {
+<a name="l00073"></a>00073                 this-&gt;<a class="code" href="../../d6/d97/a00045.html#a5325072a56b0a12f305e42db6e2379e9">contact3</a> = NULL;
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="../../d6/d97/a00045.html#ae91b917d627a3c4cd2c4e102e28a3476">00076</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#ae91b917d627a3c4cd2c4e102e28a3476">Group::setClients</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a>* list) {
+<a name="l00077"></a>00077                 <span class="comment">//TODO Group::setClients</span>
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079         
+<a name="l00080"></a><a class="code" href="../../d6/d97/a00045.html#a76e8e26a584e614e10d08c4d5f44cd9f">00080</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a76e8e26a584e614e10d08c4d5f44cd9f">Group::addClients</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a>* list) {
+<a name="l00081"></a>00081                 <span class="comment">//TODO Group::addClients</span>
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083 
+<a name="l00084"></a><a class="code" href="../../d6/d97/a00045.html#a6220fae15759fd0fa7d75e415df34e83">00084</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a6220fae15759fd0fa7d75e415df34e83">Group::setName</a>(QString <a class="code" href="../../d6/dfb/a00172.html#a2b0a198f837184bf6fff555cee3ce770">name</a>) {
+<a name="l00085"></a>00085         <span class="keywordflow">if</span>(name != <span class="stringliteral">&quot;&quot;</span>) {
+<a name="l00086"></a>00086                 this-&gt;m_name = <a class="code" href="../../d6/d97/a00045.html#abc29e461e01cc0c712944f8f47f91331">name</a>;
+<a name="l00087"></a>00087                 } <span class="keywordflow">else</span> {
+<a name="l00088"></a>00088                         qWarning() &lt;&lt; <span class="stringliteral">&quot;Le nom d&#39;un groupe ne peut pas �tre vide&quot;</span>;
+<a name="l00089"></a>00089                 }
+<a name="l00090"></a>00090         }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">group.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

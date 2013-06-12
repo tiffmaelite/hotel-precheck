@@ -14,26 +14,26 @@
 class BillingsTableModel : public CheckableSortFilterProxyModel
 {
     Q_OBJECT
-    public:
+public:
 
 
-/*!
+    /*!
  \brief
 
  \fn BillingsTableModel
  \param parent
 */
-        BillingsTableModel(QObject *parent = 0);
+    BillingsTableModel(QObject *parent = 0);
 
-    protected:
+protected:
 
 
-        /*!
+    /*!
          \brief
 
          \fn fillModel
         */
-        void fillModel();
+    void fillModel();
 
 };
 

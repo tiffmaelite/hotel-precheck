@@ -3,9 +3,15 @@
 #include <QDebug>
 #include <QtSql>
 
-AppDatabase *AppDatabase::_instance = 0;
+AppDatabase *AppDatabase::_instance = 0; /*!< TODO */
 
 
+/*!
+ \brief
+
+ \fn AppDatabase::getInstance
+ \return AppDatabase
+*/
 AppDatabase *AppDatabase::getInstance()
 {
     if (_instance == 0)
@@ -16,12 +22,22 @@ AppDatabase *AppDatabase::getInstance()
 }
 
 
+/*!
+ \brief
+
+ \fn AppDatabase::~AppDatabase
+*/
 AppDatabase::~AppDatabase()
 {
     dbDisconnect();
 }
 
 
+/*!
+ \brief
+
+ \fn AppDatabase::AppDatabase
+*/
 AppDatabase::AppDatabase()
 {
     /*
@@ -63,6 +79,12 @@ AppDatabase::AppDatabase()
  *connect to database
  */
 
+/*!
+ \brief
+
+ \fn AppDatabase::dbConnect
+ \return bool
+*/
 bool AppDatabase::dbConnect()
 {
     /*
@@ -93,6 +115,12 @@ bool AppDatabase::dbConnect()
  *disconnects from a database
  */
 
+/*!
+ \brief
+
+ \fn AppDatabase::dbDisconnect
+ \return bool
+*/
 bool AppDatabase::dbDisconnect()
 {
     /*
@@ -103,22 +131,49 @@ bool AppDatabase::dbDisconnect()
 }
 
 
+/*!
+ \brief
+
+ \fn AppDatabase::isConnected
+ \return bool
+*/
 bool AppDatabase::isConnected()
 {
     return dbConnection.isOpen();
 }
 
 
+/*!
+ \brief
+
+ \fn AppDatabase::getDbConnection
+ \return QSqlDatabase
+*/
 QSqlDatabase AppDatabase::getDbConnection()
 {
     return dbConnection;
 }
 
+/*!
+ \brief
+
+ \fn AppDatabase::tableExists
+ \param tableName
+ \return bool
+*/
 bool AppDatabase::tableExists(QString tableName)
 {
     return dbConnection.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) || dbConnection.tables(QSql::Tables).contains(tableName.toUpper(), Qt::CaseInsensitive);
 }
 
+/*!
+ \brief
+
+ \fn AppDatabase::dataExists
+ \param tableName
+ \param filter
+ \return int
+*/
 int AppDatabase::dataExists(QString tableName, QString filter) {
     if(!tableName.isEmpty() && !filter.isEmpty()) {
         QString query = QString("SELECT COUNT(*) AS MATCH FROM %1 WHERE %2").arg(tableName).arg(filter);
@@ -142,6 +197,13 @@ int AppDatabase::dataExists(QString tableName, QString filter) {
 }
 
 
+/*!
+ \brief
+
+ \fn AppDatabase::execQuery
+ \param query
+ \return QSqlQuery
+*/
 QSqlQuery AppDatabase::execQuery(QString query) {
     return dbConnection.exec(query);
 }

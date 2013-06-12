@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck: Référence de la classe CustomizableTabWidget</title>
+<title>PreCheck: Référence de la classe Keyboard</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,611 +83,90 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('db/df3/a00034.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Fonctions membres publiques</a> &#124;
-<a href="#pro-methods">Fonctions membres protégées</a> &#124;
-<a href="#pri-methods">Fonctions membres privées</a> &#124;
-<a href="#pri-attribs">Attributs privés</a>  </div>
+<a href="#properties">Propriétés</a>  </div>
   <div class="headertitle">
-<div class="title">Référence de la classe CustomizableTabWidget</div>  </div>
+<div class="title">Référence de la classe Keyboard</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="CustomizableTabWidget" -->
-<p><code>#include &lt;<a class="el" href="../../df/d17/a00231_source.html">customizable_tab_widget.h</a>&gt;</code></p>
-
-<p><a href="../../db/d77/a00683.html">Liste de tous les membres</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ae7f73f364cdaada1302c5c1b0bd1494c">CustomizableTabWidget</a> (int tabsHeight, QWidget *parent=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ae7f73f364cdaada1302c5c1b0bd1494c">CustomizableTabWidget</a> (int tabsHeight, QWidget *parent=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> (<a class="el" href="../../d1/dc1/a00092.html">TabPage</a> *tab)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a9b4b62e0a8082b3be37f69b5dab4f0a9">addTab</a> (QWidget *widget, const QString &amp;label)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ad55d27a73898d2859e481723a878d9ee">addTab</a> (QWidget *widget, const QIcon &amp;icon, const QString &amp;label)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> (<a class="el" href="../../d1/dc1/a00092.html">TabPage</a> *tab)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a9b4b62e0a8082b3be37f69b5dab4f0a9">addTab</a> (QWidget *widget, const QString &amp;label)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ad55d27a73898d2859e481723a878d9ee">addTab</a> (QWidget *widget, const QIcon &amp;icon, const QString &amp;label)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a3db02b4de6fd223be5f8b74ad4370611">removeTab</a> (int index)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a3db02b4de6fd223be5f8b74ad4370611">removeTab</a> (int index)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-methods"></a>
-Fonctions membres protégées</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae">setStyleWidth</a> (double width)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae">setStyleWidth</a> (double width)</td></tr>
-<tr><td colspan="2"><h2><a name="pri-methods"></a>
-Fonctions membres privées</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c">refreshStyleSheet</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c">refreshStyleSheet</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Attributs privés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ad2792ff75266d83c12e094b0229b460b">baseStyle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#ad2792ff75266d83c12e094b0229b460b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#aeb789a56daa65900890de149fce05163">heightStyle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#aeb789a56daa65900890de149fce05163"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a906a1022774f2b8f3c991d31b125cfa3">widthStyle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a906a1022774f2b8f3c991d31b125cfa3"></a><br/></td></tr>
-</table>
-<hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
-<div class="textblock">
-<p>Définition à la ligne <a class="el" href="../../df/d17/a00231_source.html#l00016">16</a> du fichier <a class="el" href="../../df/d17/a00231_source.html">customizable_tab_widget.h</a>.</p>
-</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="ae7f73f364cdaada1302c5c1b0bd1494c"></a><!-- doxytag: member="CustomizableTabWidget::CustomizableTabWidget" ref="ae7f73f364cdaada1302c5c1b0bd1494c" args="(int tabsHeight, QWidget *parent=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/df3/a00034.html">CustomizableTabWidget</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tabsHeight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tabsHeight</td><td></td></tr>
-    <tr><td class="paramname">parent</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00007">7</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../df/d17/a00231_source.html#l00080">baseStyle</a>, <a class="el" href="../../df/d17/a00231_source.html#l00081">heightStyle</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00027">refreshStyleSheet()</a>, et <a class="el" href="../../df/d17/a00231_source.html#l00082">widthStyle</a>.</p>
-
-<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
+<!-- doxytag: class="Keyboard" --><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe d'héritage de Keyboard:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_ae7f73f364cdaada1302c5c1b0bd1494c_cgraph.png" border="0" usemap="#db/df3/a00034_ae7f73f364cdaada1302c5c1b0bd1494c_cgraph" alt=""/></div>
-<map name="db/df3/a00034_ae7f73f364cdaada1302c5c1b0bd1494c_cgraph" id="db/df3/a00034_ae7f73f364cdaada1302c5c1b0bd1494c_cgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="refreshStyleSheet" alt="" coords="220,5,345,35"/></map>
-</div>
-</p>
+<div class="center"><img src="../../d9/da1/a00396.png" border="0" usemap="#Keyboard_inherit__map" alt="Inheritance graph"/></div>
+<map name="Keyboard_inherit__map" id="Keyboard_inherit__map">
+<area shape="rect" id="node3" href="../../d4/d8c/a00035.html" title="{KeyboardFromString\n|+ keyString\l|}" alt="" coords="5,139,147,224"/></map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">légende</a>]</span></center></div>
 
-</div>
-</div>
-<a class="anchor" id="ae7f73f364cdaada1302c5c1b0bd1494c"></a><!-- doxytag: member="CustomizableTabWidget::CustomizableTabWidget" ref="ae7f73f364cdaada1302c5c1b0bd1494c" args="(int tabsHeight, QWidget *parent=0)" -->
+<p><a href="../../d7/d93/a00397.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="properties"></a>
+Propriétés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a6b511965e3c0f07bbfde4a89e01c9813">actionsList</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock">
+<p>Définition à la ligne <a class="el" href="../../d5/dcb/a00170_source.html#l00001">1</a> du fichier <a class="el" href="../../d5/dcb/a00170_source.html">Keyboard.qml</a>.</p>
+</div><hr/><h2>Documentation des propriétés</h2>
+<a class="anchor" id="a6b511965e3c0f07bbfde4a89e01c9813"></a><!-- doxytag: member="Keyboard::actionsList" ref="a6b511965e3c0f07bbfde4a89e01c9813" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/df3/a00034.html">CustomizableTabWidget</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tabsHeight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">var <a class="el" href="../../db/df3/a00034.html#a6b511965e3c0f07bbfde4a89e01c9813">actionsList</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="ad30d7d00ac15a66180228d3ff045c0ed"></a><!-- doxytag: member="CustomizableTabWidget::addTab" ref="ad30d7d00ac15a66180228d3ff045c0ed" args="(TabPage *tab)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d1/dc1/a00092.html">TabPage</a> *&#160;</td>
-          <td class="paramname"><em>tab</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Définition à la ligne <a class="el" href="../../d5/dcb/a00170_source.html#l00004">4</a> du fichier <a class="el" href="../../d5/dcb/a00170_source.html">Keyboard.qml</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9b4b62e0a8082b3be37f69b5dab4f0a9"></a><!-- doxytag: member="CustomizableTabWidget::addTab" ref="a9b4b62e0a8082b3be37f69b5dab4f0a9" args="(QWidget *widget, const QString &amp;label)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> </td>
-          <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>widget</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad55d27a73898d2859e481723a878d9ee"></a><!-- doxytag: member="CustomizableTabWidget::addTab" ref="ad55d27a73898d2859e481723a878d9ee" args="(QWidget *widget, const QIcon &amp;icon, const QString &amp;label)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> </td>
-          <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>widget</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const QIcon &amp;&#160;</td>
-          <td class="paramname"><em>icon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad30d7d00ac15a66180228d3ff045c0ed"></a><!-- doxytag: member="CustomizableTabWidget::addTab" ref="ad30d7d00ac15a66180228d3ff045c0ed" args="(TabPage *tab)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d1/dc1/a00092.html">TabPage</a> *&#160;</td>
-          <td class="paramname"><em>tab</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tab</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00031">31</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../d3/db8/a00316_source.html#l00031">TabPage::getName()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00022">setStyleWidth()</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00037">addTab()</a>, et <a class="el" href="../../d6/d43/a00216_source.html#l00169">PreCheckQtApp::initTabs()</a>.</p>
-
-<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_cgraph.png" border="0" usemap="#db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_cgraph" alt=""/></div>
-<map name="db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_cgraph" id="db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_cgraph">
-<area shape="rect" id="node3" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b" title="TabPage::getName" alt="" coords="121,5,255,35"/><area shape="rect" id="node5" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="setStyleWidth" alt="" coords="136,59,240,88"/><area shape="rect" id="node7" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="refreshStyleSheet" alt="" coords="305,59,431,88"/></map>
-</div>
-</p>
-
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_icgraph.png" border="0" usemap="#db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_icgraph" alt=""/></div>
-<map name="db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_icgraph" id="db/df3/a00034_ad30d7d00ac15a66180228d3ff045c0ed_icgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#a9b4b62e0a8082b3be37f69b5dab4f0a9" title="addTab" alt="" coords="173,5,237,35"/><area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6" title="PreCheckQtApp::initTabs" alt="" coords="120,59,291,88"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36" title="PreCheckQtApp::fillRight" alt="" coords="340,59,508,88"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="PreCheckQtApp::fill" alt="" coords="557,59,696,88"/><area shape="rect" id="node11" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="744,59,835,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b4b62e0a8082b3be37f69b5dab4f0a9"></a><!-- doxytag: member="CustomizableTabWidget::addTab" ref="a9b4b62e0a8082b3be37f69b5dab4f0a9" args="(QWidget *widget, const QString &amp;label)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> </td>
-          <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>widget</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">widget</td><td></td></tr>
-    <tr><td class="paramname">label</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00037">37</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../d1/da8/a00230_source.html#l00031">addTab()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00022">setStyleWidth()</a>.</p>
-
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_a9b4b62e0a8082b3be37f69b5dab4f0a9_cgraph.png" border="0" usemap="#db/df3/a00034_a9b4b62e0a8082b3be37f69b5dab4f0a9_cgraph" alt=""/></div>
-<map name="db/df3/a00034_a9b4b62e0a8082b3be37f69b5dab4f0a9_cgraph" id="db/df3/a00034_a9b4b62e0a8082b3be37f69b5dab4f0a9_cgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="addTab" alt="" coords="121,7,185,36"/><area shape="rect" id="node7" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="setStyleWidth" alt="" coords="251,59,355,88"/><area shape="rect" id="node5" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b" title="TabPage::getName" alt="" coords="236,5,369,35"/><area shape="rect" id="node9" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="refreshStyleSheet" alt="" coords="420,59,545,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad55d27a73898d2859e481723a878d9ee"></a><!-- doxytag: member="CustomizableTabWidget::addTab" ref="ad55d27a73898d2859e481723a878d9ee" args="(QWidget *widget, const QIcon &amp;icon, const QString &amp;label)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed">addTab</a> </td>
-          <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>widget</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const QIcon &amp;&#160;</td>
-          <td class="paramname"><em>icon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">widget</td><td></td></tr>
-    <tr><td class="paramname">icon</td><td></td></tr>
-    <tr><td class="paramname">label</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Renvoie:</b></dt><dd>int </dd></dl>
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00043">43</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../d1/da8/a00230_source.html#l00031">addTab()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00022">setStyleWidth()</a>.</p>
-
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_ad55d27a73898d2859e481723a878d9ee_cgraph.png" border="0" usemap="#db/df3/a00034_ad55d27a73898d2859e481723a878d9ee_cgraph" alt=""/></div>
-<map name="db/df3/a00034_ad55d27a73898d2859e481723a878d9ee_cgraph" id="db/df3/a00034_ad55d27a73898d2859e481723a878d9ee_cgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="addTab" alt="" coords="121,7,185,36"/><area shape="rect" id="node7" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="setStyleWidth" alt="" coords="251,59,355,88"/><area shape="rect" id="node5" href="../../d1/dc1/a00092.html#ab6b223a95a460d422d940396d9a5657b" title="TabPage::getName" alt="" coords="236,5,369,35"/><area shape="rect" id="node9" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="refreshStyleSheet" alt="" coords="420,59,545,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="af35d4293be9e7c69ec7f03892a67f60c"></a><!-- doxytag: member="CustomizableTabWidget::refreshStyleSheet" ref="af35d4293be9e7c69ec7f03892a67f60c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c">refreshStyleSheet</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af35d4293be9e7c69ec7f03892a67f60c"></a><!-- doxytag: member="CustomizableTabWidget::refreshStyleSheet" ref="af35d4293be9e7c69ec7f03892a67f60c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c">refreshStyleSheet</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00027">27</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../df/d17/a00231_source.html#l00080">baseStyle</a>, <a class="el" href="../../df/d17/a00231_source.html#l00081">heightStyle</a>, et <a class="el" href="../../df/d17/a00231_source.html#l00082">widthStyle</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00007">CustomizableTabWidget()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00022">setStyleWidth()</a>.</p>
-
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_af35d4293be9e7c69ec7f03892a67f60c_icgraph.png" border="0" usemap="#db/df3/a00034_af35d4293be9e7c69ec7f03892a67f60c_icgraph" alt=""/></div>
-<map name="db/df3/a00034_af35d4293be9e7c69ec7f03892a67f60c_icgraph" id="db/df3/a00034_af35d4293be9e7c69ec7f03892a67f60c_icgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#ae7f73f364cdaada1302c5c1b0bd1494c" title="CustomizableTabWidget" alt="" coords="181,5,347,35"/><area shape="rect" id="node5" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="setStyleWidth" alt="" coords="212,59,316,88"/><area shape="rect" id="node7" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="addTab" alt="" coords="407,32,471,61"/><area shape="rect" id="node19" href="../../db/df3/a00034.html#a3db02b4de6fd223be5f8b74ad4370611" title="removeTab" alt="" coords="396,85,481,115"/><area shape="rect" id="node9" href="../../db/df3/a00034.html#a9b4b62e0a8082b3be37f69b5dab4f0a9" title="addTab" alt="" coords="584,5,648,35"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6" title="PreCheckQtApp::initTabs" alt="" coords="531,59,701,88"/><area shape="rect" id="node13" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36" title="PreCheckQtApp::fillRight" alt="" coords="751,59,919,88"/><area shape="rect" id="node15" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="PreCheckQtApp::fill" alt="" coords="968,59,1107,88"/><area shape="rect" id="node17" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="1155,59,1245,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a3db02b4de6fd223be5f8b74ad4370611"></a><!-- doxytag: member="CustomizableTabWidget::removeTab" ref="a3db02b4de6fd223be5f8b74ad4370611" args="(int index)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/df3/a00034.html#a3db02b4de6fd223be5f8b74ad4370611">removeTab</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3db02b4de6fd223be5f8b74ad4370611"></a><!-- doxytag: member="CustomizableTabWidget::removeTab" ref="a3db02b4de6fd223be5f8b74ad4370611" args="(int index)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/df3/a00034.html#a3db02b4de6fd223be5f8b74ad4370611">removeTab</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00049">49</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../d1/da8/a00230_source.html#l00022">setStyleWidth()</a>.</p>
-
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_a3db02b4de6fd223be5f8b74ad4370611_cgraph.png" border="0" usemap="#db/df3/a00034_a3db02b4de6fd223be5f8b74ad4370611_cgraph" alt=""/></div>
-<map name="db/df3/a00034_a3db02b4de6fd223be5f8b74ad4370611_cgraph" id="db/df3/a00034_a3db02b4de6fd223be5f8b74ad4370611_cgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae" title="setStyleWidth" alt="" coords="141,5,245,35"/><area shape="rect" id="node5" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="refreshStyleSheet" alt="" coords="295,5,420,35"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aef4fc0a65ccdaa357d0c45d6478270ae"></a><!-- doxytag: member="CustomizableTabWidget::setStyleWidth" ref="aef4fc0a65ccdaa357d0c45d6478270ae" args="(double width)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae">setStyleWidth</a> </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>width</em></td><td>)</td>
-          <td><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aef4fc0a65ccdaa357d0c45d6478270ae"></a><!-- doxytag: member="CustomizableTabWidget::setStyleWidth" ref="aef4fc0a65ccdaa357d0c45d6478270ae" args="(double width)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/df3/a00034.html#aef4fc0a65ccdaa357d0c45d6478270ae">setStyleWidth</a> </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>width</em></td><td>)</td>
-          <td><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">width</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Définition à la ligne <a class="el" href="../../d1/da8/a00230_source.html#l00022">22</a> du fichier <a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a>.</p>
-
-<p>Références <a class="el" href="../../d1/da8/a00230_source.html#l00027">refreshStyleSheet()</a>, et <a class="el" href="../../df/d17/a00231_source.html#l00082">widthStyle</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00031">addTab()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00049">removeTab()</a>.</p>
-
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Voici le graphe d'appel pour cette fonction :</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_cgraph.png" border="0" usemap="#db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_cgraph" alt=""/></div>
-<map name="db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_cgraph" id="db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_cgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#af35d4293be9e7c69ec7f03892a67f60c" title="refreshStyleSheet" alt="" coords="159,5,284,35"/></map>
-</div>
-</p>
-
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Voici le graphe des appelants de cette fonction :</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_icgraph.png" border="0" usemap="#db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_icgraph" alt=""/></div>
-<map name="db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_icgraph" id="db/df3/a00034_aef4fc0a65ccdaa357d0c45d6478270ae_icgraph">
-<area shape="rect" id="node3" href="../../db/df3/a00034.html#ad30d7d00ac15a66180228d3ff045c0ed" title="addTab" alt="" coords="169,32,233,61"/><area shape="rect" id="node15" href="../../db/df3/a00034.html#a3db02b4de6fd223be5f8b74ad4370611" title="removeTab" alt="" coords="159,85,244,115"/><area shape="rect" id="node5" href="../../db/df3/a00034.html#a9b4b62e0a8082b3be37f69b5dab4f0a9" title="addTab" alt="" coords="347,5,411,35"/><area shape="rect" id="node7" href="../../d3/d8b/a00059.html#a6574a8c5b18c69fcdf39d9f185f845a6" title="PreCheckQtApp::initTabs" alt="" coords="293,59,464,88"/><area shape="rect" id="node9" href="../../d3/d8b/a00059.html#a3b581d10a5ddd9def82f1915a936ce36" title="PreCheckQtApp::fillRight" alt="" coords="513,59,681,88"/><area shape="rect" id="node11" href="../../d3/d8b/a00059.html#aed2e8e8986e7d641f74b6dc70f26cb0e" title="PreCheckQtApp::fill" alt="" coords="731,59,869,88"/><area shape="rect" id="node13" href="../../d8/d17/a00114.html#afa5b4af4e954b72f741291e310203aa3" title="mainQtOnly" alt="" coords="917,59,1008,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/><h2>Documentation des données membres</h2>
-<a class="anchor" id="ad2792ff75266d83c12e094b0229b460b"></a><!-- doxytag: member="CustomizableTabWidget::baseStyle" ref="ad2792ff75266d83c12e094b0229b460b" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../db/df3/a00034.html#ad2792ff75266d83c12e094b0229b460b">baseStyle</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>TODO. </p>
-
-<p>Définition à la ligne <a class="el" href="../../df/d17/a00231_source.html#l00080">80</a> du fichier <a class="el" href="../../df/d17/a00231_source.html">customizable_tab_widget.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00007">CustomizableTabWidget()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00027">refreshStyleSheet()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aeb789a56daa65900890de149fce05163"></a><!-- doxytag: member="CustomizableTabWidget::heightStyle" ref="aeb789a56daa65900890de149fce05163" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../db/df3/a00034.html#aeb789a56daa65900890de149fce05163">heightStyle</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>TODO. </p>
-
-<p>Définition à la ligne <a class="el" href="../../df/d17/a00231_source.html#l00081">81</a> du fichier <a class="el" href="../../df/d17/a00231_source.html">customizable_tab_widget.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00007">CustomizableTabWidget()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00027">refreshStyleSheet()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a906a1022774f2b8f3c991d31b125cfa3"></a><!-- doxytag: member="CustomizableTabWidget::widthStyle" ref="a906a1022774f2b8f3c991d31b125cfa3" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="../../db/df3/a00034.html#a906a1022774f2b8f3c991d31b125cfa3">widthStyle</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>TODO. </p>
-
-<p>Définition à la ligne <a class="el" href="../../df/d17/a00231_source.html#l00082">82</a> du fichier <a class="el" href="../../df/d17/a00231_source.html">customizable_tab_widget.h</a>.</p>
-
-<p>Référencé par <a class="el" href="../../d1/da8/a00230_source.html#l00007">CustomizableTabWidget()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00027">refreshStyleSheet()</a>, et <a class="el" href="../../d1/da8/a00230_source.html#l00022">setStyleWidth()</a>.</p>
-
-</div>
-</div>
-<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li>views/<a class="el" href="../../df/d17/a00231_source.html">customizable_tab_widget.h</a></li>
-<li>views/<a class="el" href="../../d6/de1/a00233_source.html">customizableTabWidget.h</a></li>
-<li>views/<a class="el" href="../../d1/da8/a00230_source.html">customizable_tab_widget.cpp</a></li>
-<li>views/<a class="el" href="../../d0/d53/a00232_source.html">customizableTabWidget.cpp</a></li>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>views/qml/<a class="el" href="../../d5/dcb/a00170_source.html">Keyboard.qml</a></li>
 </ul>
 </div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../db/df3/a00034.html">Keyboard</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

@@ -2,12 +2,25 @@
 #include <QtSql>
 #include "models/database_manager.h"
 
+/*!
+ \brief
+
+ \fn PreCheckThread::PreCheckThread
+ \param parent
+*/
 PreCheckThread::PreCheckThread(QObject *parent) :
     QThread(parent)
 {
     this->currentStep = 0;
 }
 
+/*!
+ \brief
+
+ \fn PreCheckThread::insertUpdateDatabase
+ \param tableName
+ \return bool
+*/
 bool PreCheckThread::insertUpdateDatabase(QString tableName)
 {
     if(!content.isEmpty()) {
@@ -45,11 +58,22 @@ bool PreCheckThread::insertUpdateDatabase(QString tableName)
 }
 
 
+/*!
+ \brief
+
+ \fn PreCheckThread::replaceInput
+ \param field
+*/
 void PreCheckThread::replaceInput(QString field)
 {
     this->toBeReplaced = field;
 }
 
+/*!
+ \brief
+
+ \fn PreCheckThread::cancelReplacement
+*/
 void PreCheckThread::cancelReplacement()
 {
     this->toBeReplaced = "";

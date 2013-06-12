@@ -3,11 +3,25 @@
 #include "confirmationstate.h"
 #include "datequestionstate.h"
 
+/*!
+ \brief
+
+ \fn IOStateMachine::IOStateMachine
+ \param tableName
+ \param name
+ \param parent
+*/
 IOStateMachine::IOStateMachine(QString tableName, QString name, QObject *parent) :
     QStateMachine(parent), NamedObject(name), m_tableName(tableName)
 {
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::toString
+ \return QString
+*/
 QString IOStateMachine::toString()
 {
     QObject* parent = this->parent();
@@ -19,37 +33,82 @@ QString IOStateMachine::toString()
     }
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::ioContent
+ \return QVariantMap
+*/
 QVariantMap IOStateMachine::ioContent() const
 {
     return m_ioContent;
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::setIOcontent
+ \param ioContent
+*/
 void IOStateMachine::setIOcontent(const QVariantMap &ioContent)
 {
     m_ioContent = ioContent;
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::getContentValue
+ \param field
+ \return QVariant
+*/
 QVariant IOStateMachine::getContentValue(QString field)
 {
     return m_ioContent.value(field);
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::tableName
+ \return QString
+*/
 QString IOStateMachine::tableName() const
 {
     return m_tableName;
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::setTableName
+ \param tableName
+*/
 void IOStateMachine::setTableName(const QString &tableName)
 {
     m_tableName = tableName;
 }
 
 
+/*!
+ \brief
+
+ \fn IOStateMachine::setContentValue
+ \param content
+ \param field
+*/
 void IOStateMachine::setContentValue(QVariant content, QString field)
 {
     m_ioContent.insert(field, content);
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::addIOState
+ \param state
+ \param field
+*/
 void IOStateMachine::addIOState(IOState *state, QString field)
 {
     //à faire au moment de l'entrée dans l'état state
@@ -95,6 +154,12 @@ void IOStateMachine::addIOState(IOState *state, QString field)
     }
 }
 
+/*!
+ \brief
+
+ \fn IOStateMachine::addIOStateMachine
+ \param fsm
+*/
 void IOStateMachine::addIOStateMachine(IOStateMachine *fsm)
 {
     //à faire au moment de l'entrée dans la machine d'état fsm
@@ -115,30 +180,64 @@ void IOStateMachine::addIOStateMachine(IOStateMachine *fsm)
 }
 
 
+/*!
+ \brief
+
+ \fn IOStateMachine::ioStatesHistory
+ \return QMap<QString, QHistoryState *>
+*/
 QMap<QString, QHistoryState *> IOStateMachine::ioStatesHistory() const
 {
     return m_ioStatesHistory;
 }
 
 
+/*!
+ \brief
+
+ \fn IOStateMachine::setIOStatesHistory
+ \param QMap<QString
+ \param ioStatesHistory
+*/
 void IOStateMachine::setIOStatesHistory(const QMap<QString, QHistoryState *> &ioStatesHistory)
 {
     m_ioStatesHistory = ioStatesHistory;
 }
 
 
+/*!
+ \brief
+
+ \fn IOStateMachine::setIOStateHistory
+ \param state
+ \param field
+*/
 void IOStateMachine::setIOStateHistory(QHistoryState *state, QString field)
 {
     m_ioStatesHistory.insert(field, state); //remplacement si plusieurs fois
 }
 
 
+/*!
+ \brief
+
+ \fn IOStateMachine::historyValue
+ \param field
+ \return QHistoryState
+*/
 QHistoryState *IOStateMachine::historyValue(QString field)
 {
     return m_ioStatesHistory.value(field);
 }
 
 
+/*!
+ \brief
+
+ \fn IOStateMachine::addChildrenNextTransition
+ \param previousState
+ \param nextState
+*/
 void IOStateMachine::addChildrenNextTransition(GenericState *previousState, GenericState *nextState)
 {
     previousState->addTransition(previousState, SIGNAL(next()), nextState);

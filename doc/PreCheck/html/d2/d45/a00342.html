@@ -6,9 +6,19 @@
 <title>PreCheck: Liste des membres</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -23,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">PreCheck
-   
+   &#160;<span id="projectnumber">0.3</span>
    </div>
-   
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,80 +56,112 @@
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
       <li><a href="../../classes.html"><span>Index&#160;des&#160;classes</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="../../inherits.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
       <li><a href="../../functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('d4/dee/a00008.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">QQQuickAction Liste des membres</div>  </div>
+<div class="title">BillingsTableModel Liste des membres</div>  </div>
 </div><!--header-->
 <div class="contents">
-Liste complète des membres de <a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a>, y compris les membres hérités :<table>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a46f2cc03d78a741c9ed3718316265e1d.html#a46f2cc03d78a741c9ed3718316265e1d">__icon</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a8740ba80e30dd75e71d09fa1dcf04f3d.html#a8740ba80e30dd75e71d09fa1dcf04f3d">enabled</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a31f61d4786745b82d1ff19d4893dde2d.html#a31f61d4786745b82d1ff19d4893dde2d">enabledChanged</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a9e3917c02592fd8067ab396fc8de92a2.html#a9e3917c02592fd8067ab396fc8de92a2">event</a>(QEvent *e)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a92c14191a43004ece925be9ceec34904.html#a92c14191a43004ece925be9ceec34904">icon</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ad0292209ca5e2f7a499d1af4b2da5bd9.html#ad0292209ca5e2f7a499d1af4b2da5bd9">iconChanged</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a2d79160ed4383c062120cd0c522489d6.html#a2d79160ed4383c062120cd0c522489d6">iconName</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a038b22680aca535f9972908fe2f1f6a1.html#a038b22680aca535f9972908fe2f1f6a1">iconName</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a654233605ff8dfbebbcd3aa55f143c20.html#a654233605ff8dfbebbcd3aa55f143c20">iconNameChanged</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ad96e48c0d77120c2b0807b1a09d64f51.html#ad96e48c0d77120c2b0807b1a09d64f51">iconSource</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_aabbac74c1f3b77b46934f5b0dcccb0e5.html#aabbac74c1f3b77b46934f5b0dcccb0e5">iconSource</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a441d14cf34eec44c956fe49189707ee3.html#a441d14cf34eec44c956fe49189707ee3">iconSourceChanged</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_aed2981af2820533f00427c5b02f1093f.html#aed2981af2820533f00427c5b02f1093f">iconVariant</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ae2931e09e0fd8eac15c83f0254b4e4ac.html#ae2931e09e0fd8eac15c83f0254b4e4ac">isEnabled</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ae60f94f9d3a088821e8b3b05549bc014.html#ae60f94f9d3a088821e8b3b05549bc014">keyShortcut</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a7c862647abdd378894584de74706259b.html#a7c862647abdd378894584de74706259b">keyShortcut</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a72de6f0367e5c64513346b12637853f5.html#a72de6f0367e5c64513346b12637853f5">keyShortcutChanged</a>(Qt::Key keyShortcut)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a34a97a069b6bae0160fc4d19394ee0b1.html#a34a97a069b6bae0160fc4d19394ee0b1">m_enabled</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a5b392cfd333e5730e0eb9e4915005ceb.html#a5b392cfd333e5730e0eb9e4915005ceb">m_icon</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a8a26177adc354c9265d21e55a99cdaa0.html#a8a26177adc354c9265d21e55a99cdaa0">m_iconName</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a7bc9a9491fb35a76b308ef6383462c0b.html#a7bc9a9491fb35a76b308ef6383462c0b">m_iconSource</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ab4e2ea6cd8c99c842650bac9b7c05cfb.html#ab4e2ea6cd8c99c842650bac9b7c05cfb">m_mnemonic</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a938da0ebcb7a991c7d211da950b16e91.html#a938da0ebcb7a991c7d211da950b16e91">m_shortcut</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_af4e24792a7e9adb211cf78e4ed2a97ca.html#af4e24792a7e9adb211cf78e4ed2a97ca">m_text</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a5488ee724c7351b6fbb62ebfa1683cf8.html#a5488ee724c7351b6fbb62ebfa1683cf8">m_tooltip</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a3c7194764bd590abee2af24fa4cf21ff.html#a3c7194764bd590abee2af24fa4cf21ff">QQQuickAction</a>(QObject *parent=0)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ab80130c2c5da91e30e98ce96d4faa55b.html#ab80130c2c5da91e30e98ce96d4faa55b">setEnabled</a>(bool e)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a103b5be49c9ed54befdedb0e61b536e1.html#a103b5be49c9ed54befdedb0e61b536e1">setIcon</a>(QIcon icon)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a2cbbcacd79e815c3d10f14150910bedd.html#a2cbbcacd79e815c3d10f14150910bedd">setIconName</a>(const QString &amp;iconName)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a877fc019cb50572bf634aa75929a3935.html#a877fc019cb50572bf634aa75929a3935">setIconSource</a>(const QUrl &amp;iconSource)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a4b0278f768551a27028870aed477413f.html#a4b0278f768551a27028870aed477413f">setKeySequence</a>(const QKeySequence &amp;sequence)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a58731bd314dcc97119cb265d120c05e3.html#a58731bd314dcc97119cb265d120c05e3">setKeyShortcut</a>(const Qt::Key &amp;shortcut)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a3c1e5e39712537e1c9b3c5133e6d3987.html#a3c1e5e39712537e1c9b3c5133e6d3987">setMnemonicFromText</a>(const QString &amp;mnemonic)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a85aa1de663149274e70fe50725446eb3.html#a85aa1de663149274e70fe50725446eb3">setShortcut</a>(const QString &amp;shortcut)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a02afb4d423475b9587fbe642e77bce5d.html#a02afb4d423475b9587fbe642e77bce5d">setText</a>(const QString &amp;text)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ae1d830804aaa884e508dce8b1912b03c.html#ae1d830804aaa884e508dce8b1912b03c">setTooltip</a>(const QString &amp;tooltip)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a5197ce6d356661bfb535538046d6f167.html#a5197ce6d356661bfb535538046d6f167">shortcut</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_adf29f20fd4a71ad68729303b9c8b6055.html#adf29f20fd4a71ad68729303b9c8b6055">shortcut</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_af806ac26b8e7c04f14bab7f25d1ae813.html#af806ac26b8e7c04f14bab7f25d1ae813">shortcutChanged</a>(QString shortcut)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a3d39cc5a71db46029fdbdb1183d46e98.html#a3d39cc5a71db46029fdbdb1183d46e98">text</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a90401273d9677d4b4239aa27bfe69987.html#a90401273d9677d4b4239aa27bfe69987">text</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a92832e204f5bab2138a91c2a248b0730.html#a92832e204f5bab2138a91c2a248b0730">textChanged</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a528e3c561e4e73d9053d67301a25072c.html#a528e3c561e4e73d9053d67301a25072c">toggled</a>(bool checked)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a7bec7d0ff0c35f5e2c98d6c1de9e3c4b.html#a7bec7d0ff0c35f5e2c98d6c1de9e3c4b">tooltip</a></td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a15b32d705d3e3e14ed834d55baf9585c.html#a15b32d705d3e3e14ed834d55baf9585c">tooltip</a>() const </td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_a280c251e258eb277204eb5be5638f6a8.html#a280c251e258eb277204eb5be5638f6a8">tooltipChanged</a>(QString arg)</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ab0554cb7241c0b72d34402f0bb419462.html#ab0554cb7241c0b72d34402f0bb419462">trigger</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [slot]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_ae23cf3eb9ac9f63b770681061b6825de.html#ae23cf3eb9ac9f63b770681061b6825de">triggered</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td><code> [signal]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="../../db/d3a/a00040_aa289a9f471533c2b3c186af420342168.html#aa289a9f471533c2b3c186af420342168">~QQQuickAction</a>()</td><td><a class="el" href="../../db/d3a/a00040.html">QQQuickAction</a></td><td></td></tr>
+Liste complète des membres de <a class="el" href="../../d4/dee/a00008.html">BillingsTableModel</a>, y compris les membres hérités :<table>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a63db77d8afcfac05b7570aff4b6827dd">addFilterKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d4/dee/a00008.html#a7703bb1f286fe0935a36ce4d8b61cfc6">BillingsTableModel</a>(QObject *parent=0)</td><td><a class="el" href="../../d4/dee/a00008.html">BillingsTableModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a3e05388f960f8e0f55266d20a4833969">CheckableSortFilterProxyModel</a>(QObject *parent=0)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ad975f2e7e065769bc38a36a23248f478">containsFilterKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#acf9e4990bd47796d87a05d8a5396a792">currentSortKeyColumn</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a8b507f52d17d06d42aa80985017727bf">data</a>(int row, int column) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a0d62b2fa860a10b1e59f7b93aa39aa5e">data</a>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a9625b002313a3fef67010c74415e5911">empty</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#add9f84cc106324bddc85420bafb10557">fetch</a>(QString tableName=&quot;&quot;, QString filter=&quot;&quot;, QString sort=&quot;&quot;, QStringList fields=QStringList())</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a3483482509acef516f768394f896a4d9">field</a>(int i) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#adb8c0700e1f17bf8353d92e79c1eb515">fields</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a1d23e0874aab14e739f3409369463691">fieldsCount</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ae6d0341f0e568cde65a4e037681be098">fieldsList</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d4/dee/a00008.html#a2b701ad24a1b786f6412175537ec09cd">fillModel</a>()</td><td><a class="el" href="../../d4/dee/a00008.html">BillingsTableModel</a></td><td><code> [protected, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a6923e8be52efc9261b387765a00f5775">filterAcceptsRow</a>(int source_row, const QModelIndex &amp;source_parent) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aa714a3130b3992920cc3884cf6827532">flags</a>(const QModelIndex &amp;index) const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a92a9a7c46287f2b93e29115a7d521b59">invalidateFilter</a>()</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aa4bec6d0a34d7a996f7eb7179a18f1a2">isEmpty</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a44acf23867202902022213a2b1204d69">lastError</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a84a34fd559e0d5be19cddf02644d39a3">lastError</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#afc30d7e64e210d4fb8b4ee71cd32af61">model</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a2e69c877d3238397ee070c2202a97ab5">removeFilterKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aa3c7fedefa9cf58507bc7089f9049d9c">roleNames</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a0c7a8a36dfb882b0070b0de89a218ff3">setBooleanColumns</a>(QList&lt; int &gt; boolCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a9e22272c821b1606127baeda26f7dfe4">setData</a>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a9d7fe88a0f429f697713f9eee071d806">setNotNullColumns</a>(QList&lt; int &gt; notNullCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a3ed2bd1c35d4ea0ac65b25c52f3e265c">setNullColumns</a>(QList&lt; int &gt; nullCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a278c8f2e341294ae9f2a17b4f0197ced">setPasswordColumns</a>(QList&lt; int &gt; passwordCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a10579860c534c40493d1ded09fafa23b">setReadOnlyColumns</a>(QList&lt; int &gt; readonlyCols)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a678509f090875dd3142b5122d32dfb22">setSortKeyColumn</a>(int column)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ad324ce0f96dc38cbb59a3de4d46f1dc9">sort</a>(int column, Qt::SortOrder newOrder=Qt::AscendingOrder)</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a46203cea1d6264ad5a5c9e45692c82fa">sortChanged</a>()</td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [signal]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#ae5e21db4d362912fad99a8ddf45b6ee0">sortKeyColumn</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#a850368dedc06eb94185edfae3670cbc8">table</a></td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d2/de7/a00014.html#aed684c97d757ad0bc579127609ff19f2">tableName</a>() const </td><td><a class="el" href="../../d2/de7/a00014.html">CheckableSortFilterProxyModel</a></td><td><code> [inline]</code></td></tr>
 </table></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 07:41:53 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:04 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

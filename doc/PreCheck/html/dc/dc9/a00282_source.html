@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de views/qml/TabBar.qml</title>
+<title>PreCheck:  Fichier source de views/fixedGridLayout.cpp</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,71 +80,197 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_dc5ba2d91ee6c198cd4ec94d8ff14260.html">views</a>      </li>
-      <li class="navelem"><a class="el" href="../../dir_3e74c2a361a1f8a799129178a7409e0e.html">qml</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('dc/dc9/a00282.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">TabBar.qml</div>  </div>
+<div class="title">fixedGridLayout.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dc/dc9/a00282.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="../../db/dab/a00089.html">00001</a> <span class="keyword">import</span> QtQuick 2.0
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 Rectangle {
-<a name="l00004"></a><a class="code" href="../../db/dab/a00089.html#a16611451551e3d15916bae723c3f59f7">00004</a>     <span class="keywordtype">id</span>: tabBar
+<a href="../../dc/dc9/a00282.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/dfe/a00283.html">fixedGridLayout.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QDebug&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QtGlobal&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtWidgets/QWidget&gt;</span>
 <a name="l00005"></a>00005 
-<a name="l00006"></a><a class="code" href="../../db/dab/a00089.html#a66d432b8b695b4a68cb1469cd0e1d47d">00006</a>     <span class="keyword">property</span> <span class="keywordtype">int</span> h
-<a name="l00007"></a>00007     <span class="keyword">property</span> <span class="keywordtype">int</span> nbTabs
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009     height: h
-<a name="l00010"></a>00010     width: parent.width
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012     anchors {
-<a name="l00013"></a>00013         <span class="comment">// take the whole parent width</span>
-<a name="l00014"></a>00014         left: parent.left
-<a name="l00015"></a>00015         right: parent.right
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017         <span class="comment">// attach it to the view top</span>
-<a name="l00018"></a>00018         top: parent.top
-<a name="l00019"></a>00019     }
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021     gradient: Gradient {
-<a name="l00022"></a>00022         GradientStop {position: 0.0; color: <span class="stringliteral">&quot;#666666&quot;</span>}
-<a name="l00023"></a>00023         GradientStop {position: 1.0; color: <span class="stringliteral">&quot;#000000&quot;</span>}
-<a name="l00024"></a>00024     }
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026     <span class="keyword">function</span> unselectTab(index) {
-<a name="l00027"></a>00027         tabsItems.children[index].color = <span class="stringliteral">&quot;transparent&quot;</span>;
-<a name="l00028"></a>00028     }
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030     <span class="keyword">function</span> selectTab(index) {
-<a name="l00031"></a>00031         tabsItems.children[index].color = <span class="stringliteral">&quot;#30ffffff&quot;</span>;
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033     }
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035     <span class="comment">// place all the tabs in a row</span>
-<a name="l00036"></a>00036     Row {
-<a name="l00037"></a>00037         <span class="keywordtype">id</span>: tabsItems
-<a name="l00038"></a>00038         anchors.fill: parent
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040         Repeater {
-<a name="l00041"></a>00041             model: nbTabs
-<a name="l00042"></a>00042             delegate: tabItem
-<a name="l00043"></a>00043         }
-<a name="l00044"></a>00044     }
-<a name="l00045"></a>00045 }
+<a name="l00006"></a>00006 <a class="code" href="../../d6/d42/a00043.html#a8bfead9fcb3f9b89092f66dfe1abf7bc">FixedGridLayout::FixedGridLayout</a>(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns, QWidget *parent) :
+<a name="l00007"></a>00007     QGridLayout(parent)
+<a name="l00008"></a>00008 {
+<a name="l00009"></a>00009     <span class="keywordflow">try</span>{
+<a name="l00010"></a>00010         this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a> = 0;
+<a name="l00011"></a>00011         this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a> = 0;
+<a name="l00012"></a>00012         this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a> = rows;
+<a name="l00013"></a>00013         this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a> = columns;
+<a name="l00014"></a>00014         this-&gt;setContentsMargins(0,0,0,0);
+<a name="l00015"></a>00015         this-&gt;setSpacing(0);
+<a name="l00016"></a>00016     }
+<a name="l00017"></a>00017     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00018"></a>00018     {
+<a name="l00019"></a>00019         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00020"></a>00020     }
+<a name="l00021"></a>00021 }
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keywordtype">int</span> <a class="code" href="../../d6/d42/a00043.html#a223cd2438bf5d255137bab033cbc2a0c">FixedGridLayout::getRowsCount</a>() {
+<a name="l00024"></a>00024     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>;
+<a name="l00025"></a>00025 }
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keywordtype">int</span> <a class="code" href="../../d6/d42/a00043.html#a86eb57a359678346a9009bb8683a14d6">FixedGridLayout::getColumnsCount</a>() {
+<a name="l00028"></a>00028     <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>;
+<a name="l00029"></a>00029 }
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 QPoint* <a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">FixedGridLayout::computePosition</a>(<span class="keywordtype">int</span> column, <span class="keywordtype">int</span> row) {
+<a name="l00032"></a>00032     QPoint* position;
+<a name="l00033"></a>00033     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a> &lt;= column) {
+<a name="l00034"></a>00034         column = 0;
+<a name="l00035"></a>00035         row++;
+<a name="l00036"></a>00036     }
+<a name="l00037"></a>00037     <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a> &gt;= row) {
+<a name="l00038"></a>00038         position = <span class="keyword">new</span> QPoint(column, row);
+<a name="l00039"></a>00039         column++;
+<a name="l00040"></a>00040         this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a> = qMax(column, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a>);
+<a name="l00041"></a>00041         this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a> = qMax(row, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>);
+<a name="l00042"></a>00042     }
+<a name="l00043"></a>00043     <span class="comment">/*qDebug() &lt;&lt; position-&gt;x();</span>
+<a name="l00044"></a>00044 <span class="comment">    qDebug() &lt;&lt; position-&gt;y();*/</span>
+<a name="l00045"></a>00045     <span class="keywordflow">return</span> position;
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a24cb17784993de98812e9ce0e280fdb7">FixedGridLayout::addWidget</a>(QWidget *widget) {
+<a name="l00050"></a>00050     <span class="keywordflow">try</span> {
+<a name="l00051"></a>00051         QPoint *position = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a>, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>);
+<a name="l00052"></a>00052         <span class="keywordflow">if</span>(position==NULL) {
+<a name="l00053"></a>00053             qWarning(<span class="stringliteral">&quot;Pas assez de lignes pour l&#39;ajout du widget ! %d / %d&quot;</span>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>);
+<a name="l00054"></a>00054         } <span class="keywordflow">else</span> {
+<a name="l00055"></a>00055             <a class="code" href="../../d6/d42/a00043.html#a24cb17784993de98812e9ce0e280fdb7">QGridLayout::addWidget</a>(widget,position-&gt;y(), position-&gt;x());
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00059"></a>00059     {
+<a name="l00060"></a>00060         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00061"></a>00061     }
+<a name="l00062"></a>00062 }
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a24cb17784993de98812e9ce0e280fdb7">FixedGridLayout::addWidget</a>(QWidget *widget, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> rowSpan, <span class="keywordtype">int</span> columnSpan, Qt::Alignment align = 0) {
+<a name="l00065"></a>00065     <span class="keywordflow">try</span> {
+<a name="l00066"></a>00066         QPoint *startPosition = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(row, column);
+<a name="l00067"></a>00067         QPoint *endPosition = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(column+columnSpan, row+rowSpan);
+<a name="l00068"></a>00068         <span class="keywordflow">if</span>(!(startPosition==NULL || endPosition==NULL)) {
+<a name="l00069"></a>00069             <a class="code" href="../../d6/d42/a00043.html#a24cb17784993de98812e9ce0e280fdb7">QGridLayout::addWidget</a>(widget,startPosition-&gt;y(), startPosition-&gt;x(), rowSpan, columnSpan, align);
+<a name="l00070"></a>00070         } <span class="keywordflow">else</span>{
+<a name="l00071"></a>00071             qWarning(<span class="stringliteral">&quot;Pas assez de place pour l&#39;ajout du widget de largeur %d et de hauteur %d ! %d / %d lignes et %d / %d colonnes&quot;</span>,columnSpan, rowSpan,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>);
+<a name="l00072"></a>00072         }
+<a name="l00073"></a>00073     }
+<a name="l00074"></a>00074     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00075"></a>00075     {
+<a name="l00076"></a>00076         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00077"></a>00077     }
+<a name="l00078"></a>00078 }
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#ab0475c201ff53b57aa6eab74c9f2371a">FixedGridLayout::insertWidget</a>(<span class="keywordtype">int</span> index, QWidget *widget) {
+<a name="l00081"></a>00081     <span class="keywordflow">try</span> {
+<a name="l00082"></a>00082         <span class="keywordtype">int</span> column = index%this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>;
+<a name="l00083"></a>00083         <span class="keywordtype">int</span> row = index/this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>;
+<a name="l00084"></a>00084         QPoint *position = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(column, row);
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086         <span class="keywordflow">if</span>(position==NULL) {
+<a name="l00087"></a>00087             qWarning(<span class="stringliteral">&quot;Pas assez de lignes pour l&#39;ajout du widget a la position %d ! %d / %d&quot;</span>,index, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>);
+<a name="l00088"></a>00088         } <span class="keywordflow">else</span>{
+<a name="l00089"></a>00089             <a class="code" href="../../d6/d42/a00043.html#a24cb17784993de98812e9ce0e280fdb7">QGridLayout::addWidget</a>(widget,position-&gt;y(), position-&gt;x());
+<a name="l00090"></a>00090         }
+<a name="l00091"></a>00091     }
+<a name="l00092"></a>00092     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00093"></a>00093     {
+<a name="l00094"></a>00094         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00095"></a>00095     }
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a0458f615577eedc366ba25298737b826">FixedGridLayout::addLayout</a>(QLayout *layout) {
+<a name="l00099"></a>00099     <span class="keywordflow">try</span> {
+<a name="l00100"></a>00100         QPoint *position = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a>, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102         <span class="keywordflow">if</span>(position!=NULL) {
+<a name="l00103"></a>00103             <a class="code" href="../../d6/d42/a00043.html#a0458f615577eedc366ba25298737b826">QGridLayout::addLayout</a>(layout,position-&gt;y(), position-&gt;x());
+<a name="l00104"></a>00104         } <span class="keywordflow">else</span>{
+<a name="l00105"></a>00105             qWarning(<span class="stringliteral">&quot;Pas assez de lignes pour l&#39;ajout du layout ! %d / %d&quot;</span>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>);
+<a name="l00106"></a>00106         }
+<a name="l00107"></a>00107     }
+<a name="l00108"></a>00108     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00109"></a>00109     {
+<a name="l00110"></a>00110         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00111"></a>00111     }
+<a name="l00112"></a>00112 }
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a0458f615577eedc366ba25298737b826">FixedGridLayout::addLayout</a>(QLayout *layout, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> rowSpan, <span class="keywordtype">int</span> columnSpan, Qt::Alignment align = 0) {
+<a name="l00115"></a>00115     <span class="keywordflow">try</span> {
+<a name="l00116"></a>00116         QPoint *startPosition = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(column, row);
+<a name="l00117"></a>00117         QPoint *endPosition = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(column+columnSpan, row+rowSpan);
+<a name="l00118"></a>00118         <span class="keywordflow">if</span>(!(startPosition==NULL || endPosition==NULL)) {
+<a name="l00119"></a>00119             <a class="code" href="../../d6/d42/a00043.html#a0458f615577eedc366ba25298737b826">QGridLayout::addLayout</a>(layout,startPosition-&gt;y(), startPosition-&gt;x(), rowSpan, columnSpan, align);
+<a name="l00120"></a>00120         } <span class="keywordflow">else</span>{
+<a name="l00121"></a>00121             qWarning(<span class="stringliteral">&quot;Pas assez de place pour l&#39;affichage du layout de largeur %d et de hauteur %d ! %d / %d lignes et %d / %d colonnes&quot;</span>,columnSpan, rowSpan,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a39f51540474a958458f646d347094c8b" title="TODO.">currentColumn</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>);
+<a name="l00122"></a>00122         }
+<a name="l00123"></a>00123     }
+<a name="l00124"></a>00124     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00125"></a>00125     {
+<a name="l00126"></a>00126         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00127"></a>00127     }
+<a name="l00128"></a>00128 }
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a2afddc3b5be2435a3f1f81a40956597a">FixedGridLayout::insertLayout</a>(<span class="keywordtype">int</span> index, QLayout *layout) {
+<a name="l00131"></a>00131     <span class="keywordflow">try</span> {
+<a name="l00132"></a>00132         <span class="keywordtype">int</span> column = index%this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>;
+<a name="l00133"></a>00133         <span class="keywordtype">int</span> row = index/this-&gt;<a class="code" href="../../d6/d42/a00043.html#a195df85d35bf6c6d89014cd7ae739b67" title="TODO.">columnsCount</a>;
+<a name="l00134"></a>00134         QPoint *position = this-&gt;<a class="code" href="../../d6/d42/a00043.html#a087bf381eb2f31c05bf32672ad0037b6">computePosition</a>(column, row);
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136         <span class="keywordflow">if</span>(position != NULL) {
+<a name="l00137"></a>00137             <a class="code" href="../../d6/d42/a00043.html#a0458f615577eedc366ba25298737b826">QGridLayout::addLayout</a>(layout,position-&gt;y(), position-&gt;x());
+<a name="l00138"></a>00138         } <span class="keywordflow">else</span>{
+<a name="l00139"></a>00139             qWarning(<span class="stringliteral">&quot;Pas assez de lignes pour l&#39;insertion du layout a la position %d ! %d / %d&quot;</span>,index, this-&gt;<a class="code" href="../../d6/d42/a00043.html#a789bfe83cfe007cc723e4fd58bb6b112" title="TODO.">currentRow</a>,this-&gt;<a class="code" href="../../d6/d42/a00043.html#a8f276c3de4e13200d6b66642f6c50ec4" title="TODO.">rowsCount</a>);
+<a name="l00140"></a>00140         }
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142     <span class="keywordflow">catch</span>(std::exception &amp;exception)
+<a name="l00143"></a>00143     {
+<a name="l00144"></a>00144         qDebug() &lt;&lt; <span class="stringliteral">&quot;ERREUR !&quot;</span>;
+<a name="l00145"></a>00145     }
+<a name="l00146"></a>00146 }
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../dc/dc9/a00282.html">fixedGridLayout.cpp</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

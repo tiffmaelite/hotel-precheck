@@ -3,12 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PreCheck:  Fichier source de models/trainee.cpp</title>
+<title>PreCheck:  Fichier source de models/group.h</title>
 
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
-<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
 <script type="text/javascript" src="../../dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
       <li><a href="../../dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -51,33 +80,93 @@
       <li><a href="../../globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="../../dir_7991d6b197d2b054e9956b7805d4230d.html">models</a>      </li>
-    </ul>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
   </div>
 </div>
+<script type="text/javascript">
+  initNavTree('d8/d72/a00199.html','../../');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">trainee.cpp</div>  </div>
+<div class="title">group.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d8/d72/a00199.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/db1/a00200.html">trainee.h</a>&quot;</span>
+<a href="../../d8/d72/a00199.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/d52/a00183.html">client.h</a>&quot;</span>
 <a name="l00002"></a>00002 
-<a name="l00003"></a><a class="code" href="../../d4/d3a/a00101.html#ab6968f36882d4f44c22c257045698224">00003</a> <a class="code" href="../../d4/d3a/a00101.html#ab6968f36882d4f44c22c257045698224">Trainee::Trainee</a>(QString <a class="code" href="../../d9/d47/a00129.html#a2b0a198f837184bf6fff555cee3ce770">name</a>, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, QObject *parent) : <a class="code" href="../../d0/dc2/a00104.html">User</a>(name, id, true, false, false, false, parent)
-<a name="l00004"></a>00004 {
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006 }
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 
+<a name="l00003"></a>00003 <span class="preprocessor">#ifndef GROUP_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor"></span><span class="preprocessor">#define GROUP_H</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span>
+<a name="l00006"></a><a class="code" href="../../d6/d97/a00045.html">00006</a> <span class="keyword">class </span><a class="code" href="../../d6/d97/a00045.html">Group</a> : <span class="keyword">public</span> <a class="code" href="../../db/d44/a00162.html#ac3d789543f54653c199e7d5bb37678ce">QSqlRelationalTableModel</a>
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     Q_OBJECT
+<a name="l00009"></a><a class="code" href="../../d6/d97/a00045.html#abc29e461e01cc0c712944f8f47f91331">00009</a>         Q_PROPERTY(QString <a class="code" href="../../d6/d97/a00045.html#abc29e461e01cc0c712944f8f47f91331">name</a> READ <a class="code" href="../../d6/d97/a00045.html#abc29e461e01cc0c712944f8f47f91331">name</a>);
+<a name="l00010"></a><a class="code" href="../../d6/d97/a00045.html#abc74e4eb1d27d45c59719cace17636cd">00010</a>         Q_PROPERTY(<a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">contact1</a> READ <a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">contact1</a> WRITE <a class="code" href="../../d6/d97/a00045.html#aeb9c9c599a930d15a434138c4d7af2a9">setContact1</a> RESET <a class="code" href="../../d6/d97/a00045.html#a3ff34e798f6befcc9912d47f7bfe0c4e">unsetContact1</a>);
+<a name="l00011"></a><a class="code" href="../../d6/d97/a00045.html#a7e204756250efb8fe0f765835a5bab43">00011</a>         Q_PROPERTY(<a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">contact2</a> READ <a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">contact2</a> WRITE <a class="code" href="../../d6/d97/a00045.html#a222ca57bbc286ff4547720969e98e263">setContact2</a> RESET <a class="code" href="../../d6/d97/a00045.html#a537211a506f557acaab805d483f9bfdd">unsetContact2</a>);
+<a name="l00012"></a>00012         Q_PROPERTY(<a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a5325072a56b0a12f305e42db6e2379e9">contact3</a> READ <a class="code" href="../../d6/d97/a00045.html#a5325072a56b0a12f305e42db6e2379e9">contact3</a> WRITE <a class="code" href="../../d6/d97/a00045.html#a40ded34d0965e79d71154db8fbd46446">setContact3</a> RESET <a class="code" href="../../d6/d97/a00045.html#a009438443822c53d18473c097f6c2504">unsetContact3</a>);
+<a name="l00013"></a>00013                 
+<a name="l00014"></a>00014 <span class="keyword">public</span>:
+<a name="l00015"></a>00015     <a class="code" href="../../d6/d97/a00045.html#ae030d7d0c8b7034c4512157558504b94">Group</a>(<span class="keywordtype">int</span> ID, QString <a class="code" href="../../d6/d97/a00045.html#abc29e461e01cc0c712944f8f47f91331">name</a>, <a class="code" href="../../d7/de0/a00022.html">Client</a>* clients, <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">contact1</a> = NULL, <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">contact2</a> = NULL, <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a5325072a56b0a12f305e42db6e2379e9">contact3</a> = NULL, QObject *parent = 0);
+<a name="l00016"></a>00016         
+<a name="l00017"></a>00017         <a class="code" href="../../d7/de0/a00022.html">Client</a>* <a class="code" href="../../d6/d97/a00045.html#a3eacfe097be87ffd0536569b846f04d8">clientsList</a>();
+<a name="l00018"></a>00018         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#ac5d76f12137c9848fd84cf11b6d83a8e">addClient</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> client);
+<a name="l00019"></a>00019         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#ad3a0a5dda1b422a4312f7bd71a998f37">addContact</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact);
+<a name="l00020"></a>00020         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#aeb9c9c599a930d15a434138c4d7af2a9">setContact1</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact);
+<a name="l00021"></a>00021         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a8489e098ece818837900f8b8ae3e6f4d">contact1</a>() <span class="keyword">const</span>;
+<a name="l00022"></a>00022         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a3ff34e798f6befcc9912d47f7bfe0c4e">unsetContact1</a>();
+<a name="l00023"></a>00023         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a222ca57bbc286ff4547720969e98e263">setContact2</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact);
+<a name="l00024"></a>00024         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a88f67fdb2dcbfe01e0e748d4a781f22b">contact2</a>() <span class="keyword">const</span>;
+<a name="l00025"></a>00025         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a537211a506f557acaab805d483f9bfdd">unsetContact2</a>();
+<a name="l00026"></a>00026         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a40ded34d0965e79d71154db8fbd46446">setContact3</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a> contact);
+<a name="l00027"></a>00027         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a5325072a56b0a12f305e42db6e2379e9">contact3</a>() <span class="keyword">const</span>;
+<a name="l00028"></a>00028         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a009438443822c53d18473c097f6c2504">unsetContact3</a>();
+<a name="l00029"></a>00029                 
+<a name="l00030"></a>00030         <span class="keyword">protected</span>:
+<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#ae91b917d627a3c4cd2c4e102e28a3476">setClients</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a>* list);
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a76e8e26a584e614e10d08c4d5f44cd9f">addClients</a>(<a class="code" href="../../d7/de0/a00022.html">Client</a>* list);
+<a name="l00033"></a>00033 <span class="keyword">private</span>:
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a6220fae15759fd0fa7d75e415df34e83">setName</a>(QString <a class="code" href="../../d6/d97/a00045.html#abc29e461e01cc0c712944f8f47f91331">name</a>);
+<a name="l00035"></a><a class="code" href="../../d6/d97/a00045.html#a82fe227c5df6c6db5f8b5194125acd30">00035</a>         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a82fe227c5df6c6db5f8b5194125acd30">m_contact1</a>;
+<a name="l00036"></a><a class="code" href="../../d6/d97/a00045.html#af0ee81cd12cf789a325e4f94cb21e696">00036</a>         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#af0ee81cd12cf789a325e4f94cb21e696">m_contact2</a>;
+<a name="l00037"></a><a class="code" href="../../d6/d97/a00045.html#a1b2938006b28b5903d0013e5e75581e8">00037</a>         <a class="code" href="../../d7/de0/a00022.html">Client</a> <a class="code" href="../../d6/d97/a00045.html#a1b2938006b28b5903d0013e5e75581e8">m_contact3</a>;
+<a name="l00038"></a><a class="code" href="../../d6/d97/a00045.html#a1e49de7dc7b3c8debefdfa64d1a1dfa2">00038</a>         <a class="code" href="../../d7/de0/a00022.html">Client</a>* <a class="code" href="../../d6/d97/a00045.html#a1e49de7dc7b3c8debefdfa64d1a1dfa2">m_clients</a>;
+<a name="l00039"></a><a class="code" href="../../d6/d97/a00045.html#aad966617e7e050bedbead762727808a5">00039</a>         <span class="keywordtype">int</span> <a class="code" href="../../d6/d97/a00045.html#aad966617e7e050bedbead762727808a5">m_id</a>;
+<a name="l00040"></a>00040 };
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="preprocessor">#endif // GROUP_H</span>
 </pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:08:59 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="../../d8/d72/a00199.html">group.h</a>      </li>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 22:48:02 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

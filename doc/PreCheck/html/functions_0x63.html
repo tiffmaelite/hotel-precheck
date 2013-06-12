@@ -6,9 +6,19 @@
 <title>PreCheck: Membres de classe</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
 <script type="text/javascript" src="dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li><a href="dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -89,260 +118,214 @@
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
-      <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
-      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
-      <li><a href="functions_0x7a.html#index_z"><span>z</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions_0x63.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Liste de tous les membres de classe avec des liens vers les classes auxquelles ils appartiennent :</div>
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>canceled()
-: <a class="el" href="da/d74/a00099.html#ab2d51b480e0615f4962fbf6a33f9ddb5">TouchArea</a>
+: <a class="el" href="d9/db3/a00066.html#ab2d51b480e0615f4962fbf6a33f9ddb5">TouchArea</a>
 </li>
 <li>cancelProcess()
-: <a class="el" href="de/d5e/a00007.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BillingFactory</a>
-, <a class="el" href="d7/d7a/a00016.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BookingFactory</a>
-, <a class="el" href="dc/dee/a00053.html#a011772fbba0d57f3c50e8e7a5a87dd1d">NewClientFactory</a>
-, <a class="el" href="d9/d73/a00060.html#ab0b246c9d2a0bd10b9d4f8c45f9a6f96">PreCheckThread</a>
-, <a class="el" href="d5/de0/a00050.html#a011772fbba0d57f3c50e8e7a5a87dd1d">NewBillFactory</a>
-, <a class="el" href="d3/dfe/a00025.html#a011772fbba0d57f3c50e8e7a5a87dd1d">CommonPage</a>
-, <a class="el" href="da/da0/a00009.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BillingsFactory</a>
-, <a class="el" href="d2/d79/a00051.html#a011772fbba0d57f3c50e8e7a5a87dd1d">NewBillingFactory</a>
-, <a class="el" href="d1/d84/a00052.html#a011772fbba0d57f3c50e8e7a5a87dd1d">NewBookingFactory</a>
+: <a class="el" href="dd/dad/a00005.html#a2929f779f323bb3b6be6cd2ac9a1cedb">BillingFactory</a>
+, <a class="el" href="d7/dec/a00010.html#a2929f779f323bb3b6be6cd2ac9a1cedb">BookingFactory</a>
+, <a class="el" href="d5/db6/a00042.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewClientFactory</a>
+, <a class="el" href="d6/d97/a00045.html#a0d7bc2c96da7b3fab646b8dc1201c3bf">PreCheckThread</a>
+, <a class="el" href="d3/de7/a00039.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewBillFactory</a>
+, <a class="el" href="d7/d7a/a00016.html#a011772fbba0d57f3c50e8e7a5a87dd1d">CommonPage</a>
+, <a class="el" href="de/d5e/a00007.html#a011772fbba0d57f3c50e8e7a5a87dd1d">BillingsFactory</a>
+, <a class="el" href="db/d3a/a00040.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewBillingFactory</a>
+, <a class="el" href="dd/d32/a00041.html#a2929f779f323bb3b6be6cd2ac9a1cedb">NewBookingFactory</a>
 </li>
 <li>cancelReplace()
-: <a class="el" href="d3/dfe/a00025.html#ae47b6ae42fdda7d7cd17bac3528d8c3f">CommonPage</a>
+: <a class="el" href="d7/d7a/a00016.html#ae47b6ae42fdda7d7cd17bac3528d8c3f">CommonPage</a>
 </li>
 <li>cancelReplacement()
-: <a class="el" href="d9/d73/a00060.html#af84400ac0e8815e91b0c13978e2deee5">PreCheckThread</a>
-, <a class="el" href="d1/d44/a00098.html#af84400ac0e8815e91b0c13978e2deee5">ThreadsManager</a>
+: <a class="el" href="d0/dc0/a00033.html#a35b129f60b5659b57db955a429e0634c">IOStateMachine</a>
+, <a class="el" href="d6/d97/a00045.html#a35b129f60b5659b57db955a429e0634c">PreCheckThread</a>
+, <a class="el" href="de/de1/a00065.html#a35b129f60b5659b57db955a429e0634c">ThreadsManager</a>
 </li>
 <li>cancelRunningThread()
-: <a class="el" href="d1/d44/a00098.html#a05cce05147bed730cc762d25b1008350">ThreadsManager</a>
+: <a class="el" href="de/de1/a00065.html#a00a948d25e8b933cd805f498d8eb0ed8">ThreadsManager</a>
 </li>
 <li>cellSpacing
-: <a class="el" href="d5/d16/a00029.html#a95a7f5cd00d21f3a4b1e1ff62fb41453">ComplexGridView</a>
-</li>
-<li>centerAndResize()
-: <a class="el" href="d7/df7/a00058.html#aa161ebc0690ae176c3b523be8f8e65a4">PreCheckApp</a>
-, <a class="el" href="d3/d8b/a00059.html#aa161ebc0690ae176c3b523be8f8e65a4">PreCheckQtApp</a>
+: <a class="el" href="db/db2/a00020.html#a95a7f5cd00d21f3a4b1e1ff62fb41453">ComplexGridView</a>
 </li>
 <li>CheckableSortFilterProxyModel()
-: <a class="el" href="de/d11/a00021.html#a3e05388f960f8e0f55266d20a4833969">CheckableSortFilterProxyModel</a>
+: <a class="el" href="d2/de7/a00014.html#a3e05388f960f8e0f55266d20a4833969">CheckableSortFilterProxyModel</a>
 </li>
 <li>checked
-: <a class="el" href="d9/dcc/a00102.html#af7207ba9a7bbec1e8bdcaa466ae83e64">UpDownCheckImage</a>
-, <a class="el" href="d5/db6/a00042.html#a3ac75e8e4b8ed88a8327df7d7b087872">HeaderView</a>
+: <a class="el" href="d4/d31/a00069.html#af7207ba9a7bbec1e8bdcaa466ae83e64">UpDownCheckImage</a>
+, <a class="el" href="df/d61/a00031.html#a3ac75e8e4b8ed88a8327df7d7b087872">HeaderView</a>
 </li>
 <li>checkUsername()
-: <a class="el" href="df/d61/a00031.html#a2f6c343526864e6f5adf06801e151167">ConnexionPage</a>
+: <a class="el" href="d3/d52/a00023.html#a2f6c343526864e6f5adf06801e151167">ConnexionPage</a>
+</li>
+<li>checkValidity()
+: <a class="el" href="d2/d79/a00051.html#a6440829886609f1922c88f71d2d9aa83">QuestionState</a>
 </li>
 <li>className()
-: <a class="el" href="de/d5e/a00007.html#ac0332ea74b6d8156eddd812146b4061d">BillingFactory</a>
-, <a class="el" href="d7/d7a/a00016.html#ac0332ea74b6d8156eddd812146b4061d">BookingFactory</a>
-, <a class="el" href="d5/de0/a00050.html#ac0332ea74b6d8156eddd812146b4061d">NewBillFactory</a>
-, <a class="el" href="d2/d79/a00051.html#ac0332ea74b6d8156eddd812146b4061d">NewBillingFactory</a>
-, <a class="el" href="d1/d84/a00052.html#ac0332ea74b6d8156eddd812146b4061d">NewBookingFactory</a>
-, <a class="el" href="dc/dee/a00053.html#ac0332ea74b6d8156eddd812146b4061d">NewClientFactory</a>
-, <a class="el" href="d9/d73/a00060.html#aaa57430c9d32f47c99cee9b6da4ef634">PreCheckThread</a>
-</li>
-<li>cleanDisplay()
-: <a class="el" href="d1/d22/a00057.html#a3d68b6c1fe869b6da9019f88ad6d68c2">OutputZone_old</a>
+: <a class="el" href="dd/dad/a00005.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">BillingFactory</a>
+, <a class="el" href="d7/dec/a00010.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">BookingFactory</a>
+, <a class="el" href="d3/de7/a00039.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewBillFactory</a>
+, <a class="el" href="db/d3a/a00040.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewBillingFactory</a>
+, <a class="el" href="dd/d32/a00041.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewBookingFactory</a>
+, <a class="el" href="d5/db6/a00042.html#a1f6ae6ba5dc5d4bad83cf483fd5aa9d2">NewClientFactory</a>
+, <a class="el" href="d6/d97/a00045.html#a0f8f2093d7fb61b09b5b0f556cbdbf97">PreCheckThread</a>
 </li>
 <li>clear()
-: <a class="el" href="d9/d2e/a00056.html#acff12c14d969efef49de0e34c803593c">OutputZone</a>
+: <a class="el" href="d5/df9/a00044.html#acff12c14d969efef49de0e34c803593c">OutputZone</a>
 </li>
 <li>clearAll()
-: <a class="el" href="d9/d2e/a00056.html#a798729dca95209ecdc609807a653a2bf">OutputZone</a>
-</li>
-<li>clearSelection()
-: <a class="el" href="dc/ddf/a00067.html#abd07e172ccec6823a88289c21124a367">QQuickFileDialog</a>
+: <a class="el" href="d5/df9/a00044.html#a798729dca95209ecdc609807a653a2bf">OutputZone</a>
 </li>
 <li>clicked()
-: <a class="el" href="db/db2/a00020.html#ae56ef7473b4d57c8e70da07ba083a2ec">CalendarDialog</a>
-, <a class="el" href="da/d74/a00099.html#a263c24e31a1115d0b7b016189a710cb8">TouchArea</a>
-, <a class="el" href="d3/d32/a00105.html#a263c24e31a1115d0b7b016189a710cb8">WelcomePage</a>
-</li>
-<li>Client()
-: <a class="el" href="d7/de0/a00022.html#a8d74ec9d0e17004abfc3cf900346ae6a">Client</a>
-</li>
-<li>clientsList()
-: <a class="el" href="db/d3a/a00040.html#a3eacfe097be87ffd0536569b846f04d8">Group</a>
+: <a class="el" href="d9/db3/a00066.html#a263c24e31a1115d0b7b016189a710cb8">TouchArea</a>
+, <a class="el" href="d1/d6e/a00073.html#a263c24e31a1115d0b7b016189a710cb8">WelcomePage</a>
+, <a class="el" href="d7/dd4/a00013.html#ae56ef7473b4d57c8e70da07ba083a2ec">CalendarDialog</a>
 </li>
 <li>ClientsTableModel()
-: <a class="el" href="d3/d52/a00023.html#ae8b3f11f82bf9a24d277d0ae3d54973f">ClientsTableModel</a>
-</li>
-<li>close()
-: <a class="el" href="df/d5f/a00064.html#a5ae591df94fc66ccb85cbb6565368bca">QQuickAbstractDialog</a>
+: <a class="el" href="dd/d1b/a00015.html#ae8b3f11f82bf9a24d277d0ae3d54973f">ClientsTableModel</a>
 </li>
 <li>closed()
-: <a class="el" href="db/db2/a00020.html#a6abb0e45eb340a477edd8b892b37373e">CalendarDialog</a>
-</li>
-<li>color
-: <a class="el" href="d1/d6f/a00063.html#a824cb7f78107b86b9ddc2dcbd285f66b">QQuickAbstractColorDialog</a>
-</li>
-<li>colorChanged()
-: <a class="el" href="d1/d6f/a00063.html#ab3c70de93156ecbf00474ccdada40486">QQuickAbstractColorDialog</a>
-</li>
-<li>columnsCount
-: <a class="el" href="d3/de7/a00039.html#a195df85d35bf6c6d89014cd7ae739b67">FixedGridLayout</a>
-, <a class="el" href="d1/dc1/a00092.html#a195df85d35bf6c6d89014cd7ae739b67">TabPage</a>
+: <a class="el" href="d7/dd4/a00013.html#a6abb0e45eb340a477edd8b892b37373e">CalendarDialog</a>
 </li>
 <li>ComplexAction()
-: <a class="el" href="d0/d33/a00027.html#ac9b30742d819a8845fbc80961c9c7437">ComplexAction</a>
-</li>
-<li>computePosition()
-: <a class="el" href="d3/de7/a00039.html#a087bf381eb2f31c05bf32672ad0037b6">FixedGridLayout</a>
+: <a class="el" href="d1/d2b/a00018.html#ac9b30742d819a8845fbc80961c9c7437">ComplexAction</a>
 </li>
 <li>confirm()
-: <a class="el" href="d3/dfe/a00025.html#a7fdcd128eb89e6615129427e9a045fb6">CommonPage</a>
+: <a class="el" href="d7/d7a/a00016.html#a7fdcd128eb89e6615129427e9a045fb6">CommonPage</a>
+</li>
+<li>ConfirmationState()
+: <a class="el" href="d7/de0/a00022.html#a28ea2e240243e4edcabd5b584bb8abc4">ConfirmationState</a>
 </li>
 <li>confirmInput()
-: <a class="el" href="de/d5e/a00007.html#a8f2f426f52671761b30bdc2fdb18bff7">BillingFactory</a>
-, <a class="el" href="d7/d7a/a00016.html#a8f2f426f52671761b30bdc2fdb18bff7">BookingFactory</a>
-, <a class="el" href="d1/d44/a00098.html#a8f2f426f52671761b30bdc2fdb18bff7">ThreadsManager</a>
-, <a class="el" href="d5/de0/a00050.html#a8f2f426f52671761b30bdc2fdb18bff7">NewBillFactory</a>
-, <a class="el" href="d2/d79/a00051.html#a8f2f426f52671761b30bdc2fdb18bff7">NewBillingFactory</a>
-, <a class="el" href="d1/d84/a00052.html#a8f2f426f52671761b30bdc2fdb18bff7">NewBookingFactory</a>
-, <a class="el" href="dc/dee/a00053.html#a8f2f426f52671761b30bdc2fdb18bff7">NewClientFactory</a>
-, <a class="el" href="d9/d73/a00060.html#a094562e46ab94d6c7fcaef95a37dade2">PreCheckThread</a>
+: <a class="el" href="d3/de7/a00039.html#a178170502955a41fa9492bb3e1bc4321">NewBillFactory</a>
+, <a class="el" href="dd/dad/a00005.html#a178170502955a41fa9492bb3e1bc4321">BillingFactory</a>
+, <a class="el" href="d7/dec/a00010.html#a178170502955a41fa9492bb3e1bc4321">BookingFactory</a>
+, <a class="el" href="d7/de0/a00022.html#a178170502955a41fa9492bb3e1bc4321">ConfirmationState</a>
+, <a class="el" href="d0/dc0/a00033.html#a178170502955a41fa9492bb3e1bc4321">IOStateMachine</a>
+, <a class="el" href="db/d3a/a00040.html#a178170502955a41fa9492bb3e1bc4321">NewBillingFactory</a>
+, <a class="el" href="dd/d32/a00041.html#a178170502955a41fa9492bb3e1bc4321">NewBookingFactory</a>
+, <a class="el" href="d5/db6/a00042.html#a178170502955a41fa9492bb3e1bc4321">NewClientFactory</a>
+, <a class="el" href="de/de1/a00065.html#a178170502955a41fa9492bb3e1bc4321">ThreadsManager</a>
+, <a class="el" href="d6/d97/a00045.html#adb87c42b74037505cb9dbc057ad57a01">PreCheckThread</a>
 </li>
 <li>connectRunningThread()
-: <a class="el" href="d1/d44/a00098.html#a8f965e349fc5fdc007242022b41cd649">ThreadsManager</a>
+: <a class="el" href="de/de1/a00065.html#a81c307ac5d98eeaf6dcc90be362dd7e8">ThreadsManager</a>
 </li>
 <li>CONNEXION
-: <a class="el" href="d0/d0b/a00004.html#a91afa6adb4e559730e8da5ddfb277830a7a40644eb43180cb6bf7236975c64d4c">App</a>
-, <a class="el" href="d1/d6e/a00073.html#a91afa6adb4e559730e8da5ddfb277830a7a40644eb43180cb6bf7236975c64d4c">RestrictiveApplication</a>
-</li>
-<li>const
-: <a class="el" href="d7/de0/a00022.html#a9692f6367ba08755c9ee9fc926ea0a86">Client</a>
-, <a class="el" href="d6/d2c/a00072.html#a9692f6367ba08755c9ee9fc926ea0a86">Rent</a>
-, <a class="el" href="db/db6/a00074.html#a9692f6367ba08755c9ee9fc926ea0a86">Room</a>
-, <a class="el" href="da/dec/a00080.html#a9692f6367ba08755c9ee9fc926ea0a86">Service</a>
-, <a class="el" href="dd/d1b/a00015.html#a9692f6367ba08755c9ee9fc926ea0a86">Booking</a>
-</li>
-<li>contact1
-: <a class="el" href="db/d3a/a00040.html#ac9a0b9c059fbc4edf1f17eb3aa37885c">Group</a>
-</li>
-<li>contact2
-: <a class="el" href="db/d3a/a00040.html#abc74e4eb1d27d45c59719cace17636cd">Group</a>
-</li>
-<li>contact3
-: <a class="el" href="db/d3a/a00040.html#a7e204756250efb8fe0f765835a5bab43">Group</a>
+: <a class="el" href="d1/d84/a00052.html#a91afa6adb4e559730e8da5ddfb277830a7a40644eb43180cb6bf7236975c64d4c">RestrictiveApplication</a>
 </li>
 <li>containsFilterKeyColumn()
-: <a class="el" href="de/d11/a00021.html#a2eab45ba604c5e0544aa4fe1aaa28d2b">CheckableSortFilterProxyModel</a>
+: <a class="el" href="d2/de7/a00014.html#ad975f2e7e065769bc38a36a23248f478">CheckableSortFilterProxyModel</a>
 </li>
 <li>content
-: <a class="el" href="d9/d73/a00060.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread</a>
+: <a class="el" href="d6/d97/a00045.html#a94270b6bedcff3632f0d170e37a88460">PreCheckThread</a>
 </li>
 <li>control
-: <a class="el" href="d1/d7c/a00003.html#af4645c3d0742f2b27bc05332a04db122">AliasToolButtonStyle</a>
-, <a class="el" href="d7/d46/a00002.html#a965eb15b573ad30f39da62d8840768b8">AliasButtonStyle</a>
+: <a class="el" href="d7/d46/a00002.html#af4645c3d0742f2b27bc05332a04db122">AliasToolButtonStyle</a>
+, <a class="el" href="d8/d84/a00001.html#a965eb15b573ad30f39da62d8840768b8">AliasButtonStyle</a>
 </li>
 <li>createColumns()
-: <a class="el" href="d1/d1e/a00087.html#a5fc3d42e35d051a58b24c79c7785d72b">SqlTableView</a>
+: <a class="el" href="d4/de8/a00061.html#a5fc3d42e35d051a58b24c79c7785d72b">SqlTableView</a>
 </li>
-<li>createEditor()
-: <a class="el" href="d2/dee/a00049.html#a16b6e853dfd476460377d1a641017a4d">mySqlRelationalDelegate</a>
-</li>
-<li>currentBooking
-: <a class="el" href="dd/d1b/a00015.html#a6ea208d0ddd905ddac70d39e00228250">Booking</a>
-</li>
-<li>currentClient
-: <a class="el" href="d7/de0/a00022.html#acee4f8e36659987bb81aab81d4aeee24">Client</a>
-</li>
-<li>currentColumn
-: <a class="el" href="d3/de7/a00039.html#a39f51540474a958458f646d347094c8b">FixedGridLayout</a>
+<li>current()
+: <a class="el" href="de/d8c/a00036.html#a1009b8554a558f12adf46fc6c77ae26f">LoopingStateMachine</a>
 </li>
 <li>currentDate
-: <a class="el" href="db/db2/a00020.html#a4030218aec4a8bf66cb5ceb7702ea3d1">CalendarDialog</a>
+: <a class="el" href="d7/dd4/a00013.html#a4030218aec4a8bf66cb5ceb7702ea3d1">CalendarDialog</a>
 </li>
 <li>currentDay
-: <a class="el" href="db/db2/a00020.html#ac039e52958ad8ed97aee550c123487cb">CalendarDialog</a>
-</li>
-<li>currentIndex
-: <a class="el" href="d9/df8/a00096.html#a8b41910066b877c9effd739880b6b15e">TabWidget</a>
+: <a class="el" href="d7/dd4/a00013.html#ac039e52958ad8ed97aee550c123487cb">CalendarDialog</a>
 </li>
 <li>currentMode
-: <a class="el" href="d1/d6e/a00073.html#a9fc17d5e89135290228a12fcda5e6e7e">RestrictiveApplication</a>
+: <a class="el" href="d1/d84/a00052.html#a9fc17d5e89135290228a12fcda5e6e7e">RestrictiveApplication</a>
 </li>
 <li>currentMonth
-: <a class="el" href="db/db2/a00020.html#a0767fc64e3f0b08156f2fd9f2b67650a">CalendarDialog</a>
+: <a class="el" href="d7/dd4/a00013.html#a0767fc64e3f0b08156f2fd9f2b67650a">CalendarDialog</a>
 </li>
 <li>currentMonthLength
-: <a class="el" href="db/db2/a00020.html#a2005fdbce857d82b4c0290e85f1f08b7">CalendarDialog</a>
+: <a class="el" href="d7/dd4/a00013.html#a2005fdbce857d82b4c0290e85f1f08b7">CalendarDialog</a>
 </li>
 <li>currentPerson
-: <a class="el" href="da/da0/a00009.html#a04de3b5db71b07ee09e478a905e224cf">BillingsFactory</a>
-, <a class="el" href="d2/d79/a00051.html#a04de3b5db71b07ee09e478a905e224cf">NewBillingFactory</a>
+: <a class="el" href="de/d5e/a00007.html#a04de3b5db71b07ee09e478a905e224cf">BillingsFactory</a>
+, <a class="el" href="db/d3a/a00040.html#a04de3b5db71b07ee09e478a905e224cf">NewBillingFactory</a>
 </li>
 <li>currentPersonOk
-: <a class="el" href="d2/d79/a00051.html#a8cd75c18da3260ab2c4a956f963c197a">NewBillingFactory</a>
-</li>
-<li>currentRent
-: <a class="el" href="d6/d2c/a00072.html#a4dd49d9668b2da093ef3ba1de6adcf2c">Rent</a>
-</li>
-<li>currentRoom
-: <a class="el" href="db/db6/a00074.html#a39e185944079a5ec554fa184b4ab7fea">Room</a>
-</li>
-<li>currentRow
-: <a class="el" href="d3/de7/a00039.html#a789bfe83cfe007cc723e4fd58bb6b112">FixedGridLayout</a>
-</li>
-<li>currentService
-: <a class="el" href="da/dec/a00080.html#a71be89a2d2502c0bd7c9a463f2ed7d11">Service</a>
+: <a class="el" href="db/d3a/a00040.html#a8cd75c18da3260ab2c4a956f963c197a">NewBillingFactory</a>
 </li>
 <li>currentServiceMaxPrice
-: <a class="el" href="d5/de0/a00050.html#a588390c43cce8b74298c0501088c8bf1">NewBillFactory</a>
+: <a class="el" href="d3/de7/a00039.html#a588390c43cce8b74298c0501088c8bf1">NewBillFactory</a>
 </li>
 <li>currentServiceMinPrice
-: <a class="el" href="d5/de0/a00050.html#ae37e11a2cd6e8105811ba3acef7577c1">NewBillFactory</a>
+: <a class="el" href="d3/de7/a00039.html#ae37e11a2cd6e8105811ba3acef7577c1">NewBillFactory</a>
 </li>
 <li>currentSortKeyColumn()
-: <a class="el" href="de/d11/a00021.html#acb76805fc0a661d28fd8f4b0f1c185c8">CheckableSortFilterProxyModel</a>
+: <a class="el" href="d2/de7/a00014.html#acf9e4990bd47796d87a05d8a5396a792">CheckableSortFilterProxyModel</a>
 </li>
 <li>currentStep
-: <a class="el" href="d9/d73/a00060.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread</a>
+: <a class="el" href="d6/d97/a00045.html#a61a56b55f026894815c3a945bd459a93">PreCheckThread</a>
 </li>
 <li>currentUser
-: <a class="el" href="d1/d6e/a00073.html#aa4619738725295c53116ed1a27282fbc">RestrictiveApplication</a>
+: <a class="el" href="d1/d84/a00052.html#aa4619738725295c53116ed1a27282fbc">RestrictiveApplication</a>
 </li>
 <li>currentWeekday
-: <a class="el" href="db/db2/a00020.html#afb418d3c36fb5c6d4a84b1c1075491bc">CalendarDialog</a>
+: <a class="el" href="d7/dd4/a00013.html#afb418d3c36fb5c6d4a84b1c1075491bc">CalendarDialog</a>
 </li>
 <li>currentYear
-: <a class="el" href="db/db2/a00020.html#a16e1ecd2adec0d2347cddef4051773b7">CalendarDialog</a>
-</li>
-<li>customDelegate
-: <a class="el" href="dc/de2/a00024.html#ac895f66a37725bd1708082bedf1fe420">CollapsiblePanel</a>
-</li>
-<li>CustomizableTabWidget()
-: <a class="el" href="db/df3/a00034.html#ae7f73f364cdaada1302c5c1b0bd1494c">CustomizableTabWidget</a>
-</li>
-<li>customModel
-: <a class="el" href="dc/de2/a00024.html#af90683b18e76dd1adbf48ff3c621140b">CollapsiblePanel</a>
+: <a class="el" href="d7/dd4/a00013.html#a16e1ecd2adec0d2347cddef4051773b7">CalendarDialog</a>
 </li>
 <li>customService()
-: <a class="el" href="d5/de0/a00050.html#ae46eaef48ce37ba7f017d2b8ac0a046b">NewBillFactory</a>
-, <a class="el" href="d1/d44/a00098.html#ae46eaef48ce37ba7f017d2b8ac0a046b">ThreadsManager</a>
+: <a class="el" href="de/de1/a00065.html#a1cf9d59be21f496a2ec1d35f6c8e29e0">ThreadsManager</a>
+, <a class="el" href="d3/de7/a00039.html#a1cf9d59be21f496a2ec1d35f6c8e29e0">NewBillFactory</a>
 </li>
 <li>customServiceWithoutName()
-: <a class="el" href="d1/d44/a00098.html#acc8259ca0b0545e5f3972ddf28341558">ThreadsManager</a>
-, <a class="el" href="d5/de0/a00050.html#acc8259ca0b0545e5f3972ddf28341558">NewBillFactory</a>
+: <a class="el" href="de/de1/a00065.html#a0a56e02935a7a690f030dfd5030cb0f6">ThreadsManager</a>
+, <a class="el" href="d3/de7/a00039.html#a0a56e02935a7a690f030dfd5030cb0f6">NewBillFactory</a>
 </li>
 </ul>
 </div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>

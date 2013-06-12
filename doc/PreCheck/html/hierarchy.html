@@ -6,9 +6,19 @@
 <title>PreCheck: Hiérarchie des classes</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 
 </head>
 <body>
@@ -25,7 +35,7 @@
    <div id="projectname">PreCheck
    &#160;<span id="projectnumber">0.3</span>
    </div>
-   <div id="projectbrief">client</div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception d&#39;hôtel à écran tactile, permettant l&#39;impression de factures pré-check et la gestion d&#39;une archive client</div>
   </td>
   
   
@@ -36,6 +46,9 @@
 </div>
 
 <!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
 <script type="text/javascript" src="dynsections.js"></script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
@@ -43,6 +56,22 @@
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li><a href="dirs.html"><span>Répertoires</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -54,6 +83,19 @@
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('hierarchy.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">Hiérarchie des classes</div>  </div>
@@ -116,156 +158,132 @@ Cette liste d'héritage est classée approximativement par ordre alphabétique :
     <div class="directory-alt">
       <br/>
       <div style="display: block;">
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/d46/a00002.html" target="_self">AliasButtonStyle</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d7c/a00003.html" target="_self">AliasToolButtonStyle</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/d0b/a00004.html" target="_self">App</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/dad/a00005.html" target="_self">app</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d21/a00006.html" target="_self">AppDatabase</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d86/a00012.html" target="_self">Bills</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/d1b/a00015.html" target="_self">Booking</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/db2/a00020.html" target="_self">CalendarDialog</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder1', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder1', this)"/><a class="el" href="de/d11/a00021.html" target="_self">CheckableSortFilterProxyModel</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d8/d84/a00001.html" target="_self">AliasButtonStyle</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/d46/a00002.html" target="_self">AliasToolButtonStyle</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d7c/a00003.html" target="_self">app</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/d0b/a00004.html" target="_self">AppDatabase</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/dd4/a00013.html" target="_self">CalendarDialog</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder1', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder1', this)"/><a class="el" href="d2/de7/a00014.html" target="_self">CheckableSortFilterProxyModel</a></p>
         <div id="folder1">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/dec/a00010.html" target="_self">BillingsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/dec/a00010.html" target="_self">BillingsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/dd4/a00013.html" target="_self">BillsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/dd4/a00013.html" target="_self">BillsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d2b/a00018.html" target="_self">BookingsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d2b/a00018.html" target="_self">BookingsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/d52/a00023.html" target="_self">ClientsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/d52/a00023.html" target="_self">ClientsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/d32/a00041.html" target="_self">GroupsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/d32/a00041.html" target="_self">GroupsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d6d/a00055.html" target="_self">OffersTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d6d/a00055.html" target="_self">OffersTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/da4/a00078.html" target="_self">RoomsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/da4/a00078.html" target="_self">RoomsTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d63/a00082.html" target="_self">ServicesTableModel</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d63/a00082.html" target="_self">ServicesTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/dee/a00008.html" target="_self">BillingsTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/da0/a00009.html" target="_self">BillsTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d86/a00012.html" target="_self">BookingsTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/d1b/a00015.html" target="_self">ClientsTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/d79/a00030.html" target="_self">GroupsTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d6d/a00055.html" target="_self">RoomsTableModel</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d22/a00057.html" target="_self">ServicesTableModel</a></p>
         </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/de0/a00022.html" target="_self">Client</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/de2/a00024.html" target="_self">CollapsiblePanel</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/dfe/a00025.html" target="_self">CommonPage</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d6/d5b/a00026.html#dd/d1d/a00336" target="_self">Company</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/d33/a00027.html" target="_self">ComplexAction</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/d3c/a00028.html" target="_self">ComplexColumn</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder2', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder2', this)"/><a class="el" href="d5/d16/a00029.html" target="_self">ComplexGridView</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/d7a/a00016.html" target="_self">CommonPage</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d51/a00017.html#d9/dd0/a00191" target="_self">Company</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d2b/a00018.html" target="_self">ComplexAction</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/da2/a00019.html" target="_self">ComplexColumn</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/db2/a00020.html" target="_self">ComplexGridView</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d11/a00021.html" target="_self">ComplexRow</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/d52/a00023.html" target="_self">ConnexionPage</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/de2/a00024.html" target="_self">ContentView</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder2', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder2', this)"/><a class="el" href="d6/d5b/a00026.html" target="_self">DataDelegate</a></p>
         <div id="folder2">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/dc0/a00033.html" target="_self">ContentView_old</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d21/a00006.html" target="_self">BillingsDelegate</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d45/a00011.html" target="_self">BookingsDelegate</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/dee/a00053.html" target="_self">RoomsDelegate</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/d2e/a00056.html" target="_self">ServicesDelegate</a></p>
         </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/d79/a00030.html" target="_self">ComplexRow</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d61/a00031.html" target="_self">ConnexionPage</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/d87/a00032.html" target="_self">ContentView</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/df3/a00034.html" target="_self">CustomizableTabWidget</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder3', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder3', this)"/><a class="el" href="d4/d8c/a00035.html" target="_self">DataDelegate</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d61/a00031.html" target="_self">HeaderView</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder3', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder3', this)"/><a class="el" href="db/df3/a00034.html" target="_self">Keyboard</a></p>
         <div id="folder3">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/dee/a00008.html" target="_self">BillingsDelegate</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d51/a00017.html" target="_self">BookingsDelegate</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/da5/a00075.html" target="_self">RoomsDelegate</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d8/d53/a00081.html" target="_self">ServicesDelegate</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d8c/a00035.html" target="_self">KeyboardFromString</a></p>
         </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d8c/a00036.html#d2/da3/a00520" target="_self">DefaultColorDialog</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/dc6/a00037.html" target="_self">DefaultFileDialog</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d8/d41/a00038.html" target="_self">FileHandler</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/de7/a00039.html" target="_self">FixedGridLayout</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/d3a/a00040.html" target="_self">Group</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/db6/a00042.html" target="_self">HeaderView</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder4', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder4', this)"/><a class="el" href="d6/d42/a00043.html" target="_self">Keyboard</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/dc6/a00037.html" target="_self">MessageManager</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder4', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder4', this)"/><a class="el" href="d8/d41/a00038.html" target="_self">NamedObject</a></p>
         <div id="folder4">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/df9/a00044.html" target="_self">KeyboardFromString</a></p>
-        </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/dea/a00046.html#d9/d87/a00551" target="_self">LetfPanel</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/dca/a00048.html" target="_self">MessageManager</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/dee/a00049.html" target="_self">mySqlRelationalDelegate</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/dea/a00054.html" target="_self">Offer</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/d2e/a00056.html" target="_self">OutputZone</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d22/a00057.html" target="_self">OutputZone_old</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/df7/a00058.html" target="_self">PreCheckApp</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/d8b/a00059.html" target="_self">PreCheckQtApp</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder5', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder5', this)"/><a class="el" href="d9/d73/a00060.html" target="_self">PreCheckThread</a></p>
-        <div id="folder5">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d5e/a00007.html" target="_self">BillingFactory</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/da0/a00009.html" target="_self">BillingsFactory</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/d7a/a00016.html" target="_self">BookingFactory</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/de0/a00050.html" target="_self">NewBillFactory</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/d79/a00051.html" target="_self">NewBillingFactory</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d84/a00052.html" target="_self">NewBookingFactory</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/dee/a00053.html" target="_self">NewClientFactory</a></p>
-        </div>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder6', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder6', this)"/><a class="el" href="d4/de8/a00061.html" target="_self">Pushable</a></p>
-        <div id="folder6">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/d61/a00100.html" target="_self">TouchButton</a></p>
-        </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d03/a00062.html" target="_self">QQQuickAction</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder7', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder7', this)"/><a class="el" href="df/d5f/a00064.html" target="_self">QQuickAbstractDialog</a></p>
-        <div id="folder7">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder8', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder8', this)"/><a class="el" href="d1/d6f/a00063.html" target="_self">QQuickAbstractColorDialog</a></p>
-          <div id="folder8">
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/db3/a00066.html" target="_self">QQuickColorDialog</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder5', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder5', this)"/><a class="el" href="d5/d16/a00029.html" target="_self">GenericState</a></p>
+          <div id="folder5">
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder6', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder6', this)"/><a class="el" href="dc/d87/a00032.html" target="_self">IOState</a></p>
+            <div id="folder6">
+              <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder7', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder7', this)"/><a class="el" href="d2/d79/a00051.html" target="_self">QuestionState</a></p>
+              <div id="folder7">
+                <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/dfe/a00025.html" target="_self">DatabaseContentQuestionState</a></p>
+                <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/d33/a00027.html" target="_self">DateQuestionState</a></p>
+                <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/d3c/a00028.html" target="_self">DecimalQuestionState</a></p>
+                <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d6/d42/a00043.html" target="_self">NumericQuestionState</a></p>
+                <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d6f/a00063.html" target="_self">StringQuestionState</a></p>
+              </div>
+              <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder8', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder8', this)"/><a class="el" href="df/d03/a00062.html" target="_self">StatementState</a></p>
+              <div id="folder8">
+                <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder9', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder9', this)"/><a class="el" href="d7/de0/a00022.html" target="_self">ConfirmationState</a></p>
+                <div id="folder9">
+                  <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d6/d2c/a00072.html" target="_self">ValidationState</a></p>
+                </div>
+              </div>
+            </div>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/dea/a00046.html" target="_self">PrintingState</a></p>
           </div>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder9', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder9', this)"/><a class="el" href="de/de1/a00065.html" target="_self">QQuickAbstractFileDialog</a></p>
-          <div id="folder9">
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/ddf/a00067.html" target="_self">QQuickFileDialog</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder10', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder10', this)"/><a class="el" href="d0/dc0/a00033.html" target="_self">IOStateMachine</a></p>
+          <div id="folder10">
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d8c/a00036.html" target="_self">LoopingStateMachine</a></p>
           </div>
         </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d24/a00068.html" target="_self">QQuickRelationalTableModel</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d31/a00069.html" target="_self">QtQuick2ApplicationViewer</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/db1/a00070.html" target="_self">QtQuick2ApplicationViewerPrivate</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d6/d2c/a00072.html" target="_self">Rent</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d6e/a00073.html" target="_self">RestrictiveApplication</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/db6/a00074.html" target="_self">Room</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/df8/a00076.html" target="_self">RoomsSectionsDelegate</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d09/a00077.html#dd/de9/a00552" target="_self">roomsTableDelegate</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/dec/a00080.html" target="_self">Service</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d5d/a00084.html" target="_self">SqlDataFields</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d13/a00085.html" target="_self">SqlDataModel</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d2a/a00086.html" target="_self">SqlDataView</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d1e/a00087.html" target="_self">SqlTableView</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/ddf/a00088.html" target="_self">sucessMessage</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/dab/a00089.html" target="_self">TabBar</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/dec/a00090.html#d0/d79/a00553" target="_self">Table</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d82/a00091.html" target="_self">TableTabPage</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder10', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder10', this)"/><a class="el" href="d1/dc1/a00092.html" target="_self">TabPage</a></p>
-        <div id="folder10">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder11', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder11', this)"/><a class="el" href="d4/d7d/a00093.html" target="_self">TabPageWithKeys</a></p>
-          <div id="folder11">
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d6/d97/a00045.html" target="_self">KeyboardTabPage</a></p>
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/d1f/a00083.html" target="_self">ServicesTabPage</a></p>
-          </div>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder12', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder12', this)"/><a class="el" href="dc/d54/a00094.html" target="_self">TabPageWithTable</a></p>
-          <div id="folder12">
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d45/a00011.html" target="_self">BillingsTabPage</a></p>
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/de7/a00014.html" target="_self">BillsTabPage</a></p>
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/da2/a00019.html" target="_self">BookingsTabPage</a></p>
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/da2/a00019.html" target="_self">BookingsTabPage</a></p>
-            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d51/a00079.html" target="_self">RoomsTabPage</a></p>
-          </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/df9/a00044.html" target="_self">OutputZone</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder11', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder11', this)"/><a class="el" href="d6/d97/a00045.html" target="_self">PreCheckThread</a></p>
+        <div id="folder11">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/dad/a00005.html" target="_self">BillingFactory</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/d5e/a00007.html" target="_self">BillingsFactory</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/dec/a00010.html" target="_self">BookingFactory</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/de7/a00039.html" target="_self">NewBillFactory</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="db/d3a/a00040.html" target="_self">NewBillingFactory</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dd/d32/a00041.html" target="_self">NewBookingFactory</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/db6/a00042.html" target="_self">NewClientFactory</a></p>
         </div>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/d77/a00095.html" target="_self">TabsMenuWidget</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/df8/a00096.html" target="_self">TabWidget</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d84/a00097.html" target="_self">TabZone</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d44/a00098.html" target="_self">ThreadsManager</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d74/a00099.html" target="_self">TouchArea</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/dcc/a00102.html" target="_self">UpDownCheckImage</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/d1e/a00103.html" target="_self">UpDownCheckStyle</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder13', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder13', this)"/><a class="el" href="d0/dc2/a00104.html" target="_self">User</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder12', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder12', this)"/><a class="el" href="d6/d2d/a00047.html" target="_self">Pushable</a></p>
+        <div id="folder12">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dc/ddf/a00067.html" target="_self">TouchButton</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/dca/a00048.html" target="_self">QQQuickAction</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/dee/a00049.html" target="_self">QtQuick2ApplicationViewer</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d5/de0/a00050.html" target="_self">QtQuick2ApplicationViewerPrivate</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d84/a00052.html" target="_self">RestrictiveApplication</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/dea/a00054.html" target="_self">RoomsSectionsDelegate</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d7/df7/a00058.html" target="_self">SqlDataFields</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/d8b/a00059.html" target="_self">SqlDataModel</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/d73/a00060.html" target="_self">SqlDataView</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/de8/a00061.html" target="_self">SqlTableView</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="df/d5f/a00064.html" target="_self">TabZone</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="de/de1/a00065.html" target="_self">ThreadsManager</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d9/db3/a00066.html" target="_self">TouchArea</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d31/a00069.html" target="_self">UpDownCheckImage</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d2/db1/a00070.html" target="_self">UpDownCheckStyle</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder13', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder13', this)"/><a class="el" href="d0/d89/a00071.html" target="_self">User</a></p>
         <div id="folder13">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d8/d84/a00001.html" target="_self">Admin</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d6/d2d/a00047.html" target="_self">Manager</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d0/d89/a00071.html" target="_self">Receptionist</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d4/d3a/a00101.html" target="_self">Trainee</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="da/d24/a00068.html" target="_self">Trainee</a></p>
         </div>
-        <p><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d3/d32/a00105.html" target="_self">WelcomePage</a></p>
+        <p><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="d1/d6e/a00073.html" target="_self">WelcomePage</a></p>
       </div>
     </div>
 </div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amis</a></div>
 
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
 
-<hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juin 10 2013 08:09:00 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+
+    <li class="footer">Généré le Mercredi Juin 12 2013 23:04:05 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
 
 </body>
 </html>
