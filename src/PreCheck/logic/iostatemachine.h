@@ -3,6 +3,7 @@
 
 #include <QStateMachine>
 #include <QHistoryState>
+#include <QtCore>
 #include "namedobject.h"
 #include "iostate.h"
 
@@ -21,7 +22,7 @@ public:
     QString tableName() const;
     void setTableName(const QString &tableName);
 
-    void setIOStateHistory(IOState *state, QString field);
+    void setIOStateHistory(QHistoryState *state, QString field);
     QHistoryState* historyValue(QString field);
 
 signals: //messagers à envoyer ou transmettre
@@ -30,14 +31,15 @@ signals: //messagers à envoyer ou transmettre
     void receiveInput(QString input);
     void confirmInput();
     void validateInput();
+    void replaceInput(QString field);
     void cancelReplacement();
+    void displayCalendar();
 
 public slots: //réception de messagers
-    void setContentValue(QString content, QString field);
+    void setContentValue(QVariant content, QString field);
     void addIOState(IOState *state, QString field);
-    void addIOStateMachine(IOStateMachine* state);
+    void addIOStateMachine(IOStateMachine* fsm);
     void addChildrenNextTransition(GenericState* previousState, GenericState* nextState);
-    void replaceInput(QString field);
 
 protected:
     QMap<QString, QHistoryState *> ioStatesHistory() const;
