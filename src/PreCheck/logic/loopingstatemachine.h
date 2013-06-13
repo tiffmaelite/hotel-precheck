@@ -22,7 +22,7 @@ public:
  \param name
  \param parent
 */
-    LoopingIOStateMachine(QString tableName, int limit, QString name, QObject *parent = 0);
+    LoopingIOStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
 
     /*!
      \brief
@@ -63,8 +63,23 @@ public:
     */
     void setLimit(int limit);
 
+    /*!
+     \brief
+     \fn addChildrenNextTransition TODO comment this
+     \param previousState TODO comment this
+     \param nextState TODO comment this
+    */
     void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
+    /*!
+     \brief
+     \fn stopLooping TODO comment this
+    */
+    void stopLooping();
 signals:
+    /*!
+     \brief
+     \fn limitChanged TODO comment this
+    */
     void limitChanged();
 
 public slots:

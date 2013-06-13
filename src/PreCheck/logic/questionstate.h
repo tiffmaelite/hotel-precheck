@@ -60,6 +60,8 @@ public:
     virtual bool isAnswerValid(const QVariant &givenAnswer) = 0;
 
 signals:
+    void answerValid();
+    void answerInvalid();
 
 public slots:
 

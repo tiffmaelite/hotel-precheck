@@ -1,5 +1,5 @@
 #include "loopingstatemachine.h"
-#include "adaptdatabase.h"
+#include "adaptdatabasestate.h"
 
 /*!
  \brief
@@ -10,7 +10,7 @@
  \param name
  \param parent
 */
-LoopingIOStateMachine::LoopingIOStateMachine(QString tableName, int limit, QString name, QObject *parent) :
+LoopingIOStateMachine::LoopingIOStateMachine(QString tableName, QString name, int limit, QObject *parent) :
     IOStateMachine(tableName, name, parent), m_limit(limit), m_current(-1)
 {
 
@@ -70,6 +70,18 @@ void LoopingIOStateMachine::setLimit(int limit)
 
 /*!
  \brief
+ \fn LoopingIOStateMachine::stopLooping TODO comment this
+*/
+void LoopingIOStateMachine::stopLooping() {
+    if(m_limit = 0) {
+        m_limit = m_current + 1;
+    } else {
+        m_current = m_limit - 1;
+    }
+}
+
+/*!
+ \brief
 
  \fn IOStateMachine::addChildrenNextTransition
  \param previousState
@@ -87,7 +99,7 @@ void LoopingIOStateMachine::addChildrenNextTransition(QAbstractState *previousSt
             m_contents.append(m_ioContent);
             m_ioContent.clear();
             m_ioContent = m_persistentContent;
-            if(m_current < m_limit) {
+            if(m_limit == 0 || m_current < m_limit) {
                 if(genPreviousState) {
                     connect(genPreviousState, &QAbstractState::entered, [=]() {
                         genPreviousState->addTransition(genPreviousState, SIGNAL(next()), initialState());

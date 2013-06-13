@@ -24,7 +24,10 @@ bool QuestionState::checkValidity()
     bool ok = this->isAnswerValid(this->givenAnswer());
     if(ok) {
         IOState::setInput(this->givenAnswer());
-        emit this->next();
+        emit answerValid();
+        emit next();
+    } else {
+        emit answerInvalid();
     }
     return ok;
 }

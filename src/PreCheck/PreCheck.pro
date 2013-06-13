@@ -85,8 +85,11 @@ HEADERS += \
     logic/namedobject.h \
     logic/iostatemachine.h \
     logic/datequestionstate.h \
-    logic/adaptdatabase.h \
-    logic/billingcreationstatemachine.h
+    logic/clientcreation.h \
+    logic/billingcreation.h \
+    logic/adaptdatabasestate.h \
+    logic/addresscreation.h \
+    logic/servicecharging.h
 
 SOURCES += \
     models/user.cpp \
@@ -130,8 +133,11 @@ SOURCES += \
     logic/namedobject.cpp \
     logic/iostatemachine.cpp \
     logic/datequestionstate.cpp \
-    logic/adaptdatabase.cpp \
-    logic/billingcreationstatemachine.cpp
+    logic/clientcreation.cpp \
+    logic/billingcreation.cpp \
+    logic/adaptdatabasestate.cpp \
+    logic/addresscreation.cpp \
+    logic/servicecharging.cpp
 
 
 # QML-files as a ressource
