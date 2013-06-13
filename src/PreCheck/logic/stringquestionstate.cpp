@@ -23,7 +23,7 @@ StringQuestionState::StringQuestionState(QString question, QString name, int min
  \fn StringQuestionState::isAnswerValid
  \param givenAnswer
 */
-void StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
+bool StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
     QString answer = givenAnswer.toString();
     if(!answer.isEmpty()) {

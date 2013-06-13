@@ -160,6 +160,7 @@ public slots: //réception de messagers
      \param field
     */
     void addIOState(IOState *state, QString field);
+
     /*!
      \brief
 
@@ -174,7 +175,7 @@ public slots: //réception de messagers
      \param previousState
      \param nextState
     */
-    void addChildrenNextTransition(GenericState* previousState, GenericState* nextState);
+    void addChildrenNextTransition(GenericState* previousState, QAbstractState *nextState);
 
 protected:
     /*!

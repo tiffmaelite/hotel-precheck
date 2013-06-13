@@ -117,7 +117,7 @@ void User::setID(int id)
  \return bool
 */
 bool User::userExists(QString login) {
-    return (AppDatabase::getInstance()->dataExists("USERS", "LOGIN='"+login+"'") == 1);
+    return (AppDatabase::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
 }
 
 /*!

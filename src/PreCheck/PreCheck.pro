@@ -54,7 +54,6 @@ HEADERS += \
     models/bookings_table_model.h \
     models/clients_table_model.h \
     models/groups_table_model.h \
-    models/offers_table_model.h \
     models/rooms_table_model.h \
     models/services_table_model.h \
     views/message_manager.h \
@@ -85,7 +84,8 @@ HEADERS += \
     logic/loopingstatemachine.h \
     logic/namedobject.h \
     logic/iostatemachine.h \
-    logic/datequestionstate.h
+    logic/datequestionstate.h \
+    logic/adaptdatabase.h
 
 SOURCES += \
     models/user.cpp \
@@ -98,7 +98,6 @@ SOURCES += \
     models/clients_table_model.cpp \
     models/database_manager.cpp \
     models/groups_table_model.cpp \
-    models/offers_table_model.cpp \
     models/rooms_table_model.cpp \
     models/services_table_model.cpp \
     views/message_manager.cpp \
@@ -129,7 +128,8 @@ SOURCES += \
     logic/loopingstatemachine.cpp \
     logic/namedobject.cpp \
     logic/iostatemachine.cpp \
-    logic/datequestionstate.cpp
+    logic/datequestionstate.cpp \
+    logic/adaptdatabase.cpp
 
 
 # QML-files as a ressource

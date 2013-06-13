@@ -19,7 +19,12 @@ DatabaseContentQuestionState::DatabaseContentQuestionState(QString question, QSt
     QStringList fields;
     fields << "ID" << m_field;
     sqlDatas->fetch(m_table, m_condition, "", fields);
-    sqlDatas->datas();
+    QVariantMap results = sqlDatas->datas();
+    QVariantList idValues = results.values("ID");
+    QVariantList fieldsValues = results.values(m_field);
+    for(int i = 0; i < idValues.length(); i++) {
+        m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
+    }
 }
 
 /*!
@@ -28,7 +33,43 @@ DatabaseContentQuestionState::DatabaseContentQuestionState(QString question, QSt
  \fn DatabaseContentQuestionState::isAnswerValid
  \param givenAnswer
 */
-void DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
+bool DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
+    return m_choices.values().contains(givenAnswer);
+}
 
+/*!
+ \brief
+ \fn DatabaseContentQuestionState::setOutput TODO comment this
+ \param output TODO comment this
+*/
+void DatabaseContentQuestionState::setOutput(const QString &output)
+{
+    QuestionState::setOutput(output);
+    if(m_choices.size() < 8) {
+        m_choicesDisplayed = true;
+        emit displayChoiceList();
+    }
+}
+
+/*!
+ \brief
+ \fn DatabaseContentQuestionState::rawInput TODO comment this
+ \return QVariant TODO comment this
+*/
+QVariant DatabaseContentQuestionState::rawInput() const
+{
+    return m_choices.key(this->givenAnswer());
+}
+
+/*!
+ \brief
+ \fn DatabaseContentQuestionState::choiceList TODO comment this
+ \return QMap<int, QVariant> TODO comment this
+*/
+QMap<int, QVariant> DatabaseContentQuestionState::choiceList() {
+    if(m_choicesDisplayed) {
+        return m_choices;
+    }
+    return QMap<int,QVariant>();
 }

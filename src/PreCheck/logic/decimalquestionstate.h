@@ -28,7 +28,7 @@ public:
      \fn isAnswerValid
      \param givenAnswer
     */
-    void isAnswerValid(const QVariant &givenAnswer);
+    virtual bool isAnswerValid(const QVariant &givenAnswer);
 
     /*!
      \brief

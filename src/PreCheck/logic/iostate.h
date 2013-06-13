@@ -29,6 +29,15 @@ public:
      \return QVariant
     */
     virtual QVariant input() const;
+
+    /*!
+     \brief
+
+     \fn rawInput
+     \return QVariant
+    */
+    virtual QVariant rawInput() const;
+
     /*!
      \brief
 

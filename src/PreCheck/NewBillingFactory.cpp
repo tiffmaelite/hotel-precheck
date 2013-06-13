@@ -94,9 +94,9 @@ void NewBillingFactory::receiveInput(QString text) {
             break;
         }
         case 4: {
-            int matches = AppDatabase::getInstance()->dataExists("NATIONALITIES","LABEL='"+text.toUpper()+"'");
+            int matches = AppDatabase::getInstance()->dataCount("NATIONALITIES","LABEL='"+text.toUpper()+"'");
             if (matches == 1) {
-                QSqlQuery result = AppDatabase::getInstance()->execQuery("SELECT ID FROM NATIONALITIES WHERE LABEL='"+text.toUpper()+"'");
+                QSqlQuery result = AppDatabase::getInstance()->execSelectQuery("SELECT ID FROM NATIONALITIES WHERE LABEL='"+text.toUpper()+"'");
                 result.next();
                 bool ok;
                 int nat = (result.record().value(result.record().indexOf("ID"))).toInt(&ok);
@@ -110,9 +110,9 @@ void NewBillingFactory::receiveInput(QString text) {
             break;
         }
         case 5: {
-            int matches = AppDatabase::getInstance()->dataExists("ROOMS","NUMBER='"+text.toUpper()+"'");
+            int matches = AppDatabase::getInstance()->dataCount("ROOMS","NUMBER='"+text.toUpper()+"'");
             if (matches == 1) {
-                QSqlQuery result = AppDatabase::getInstance()->execQuery("SELECT ID FROM ROOMS WHERE NUMBER='"+text.toUpper()+"'");
+                QSqlQuery result = AppDatabase::getInstance()->execSelectQuery("SELECT ID FROM ROOMS WHERE NUMBER='"+text.toUpper()+"'");
                 result.next();
                 bool ok;
                 int room = (result.record().value(result.record().indexOf("ID"))).toInt(&ok);
@@ -137,9 +137,9 @@ void NewBillingFactory::receiveInput(QString text) {
                     for(int i =0; i < text.length(); i++) {
                         clientName += "OR NAME LIKE '"+text.left(i+1)+"%' OR NAME LIKE '%"+text.right(text.length()-(i+1))+"'";
                     }
-                    int matches = AppDatabase::getInstance()->dataExists("CLIENTS",clientName);
+                    int matches = AppDatabase::getInstance()->dataCount("CLIENTS",clientName);
                     if (matches == 1) {
-                        QSqlQuery result = AppDatabase::getInstance()->execQuery("SELECT ID FROM CLIENTS WHERE "+clientName);
+                        QSqlQuery result = AppDatabase::getInstance()->execSelectQuery("SELECT ID FROM CLIENTS WHERE "+clientName);
                         result.next();
                         bool ok;
                         int id = (result.record().value(result.record().indexOf("ID"))).toInt(&ok);

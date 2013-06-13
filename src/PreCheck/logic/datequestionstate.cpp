@@ -21,11 +21,11 @@ DateQuestionState::DateQuestionState(QString question, QString name, bool past, 
  \fn DateQuestionState::isAnswerValid
  \param givenAnswer
 */
-void DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
+bool DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
     QDate answer = givenAnswer.toDateTime().date();
     if(answer.isValid()) {
-        return ((future && answer >= QDate::currentDate()) || (past && answer <= QDate::currentDate()));
+        return ((m_future && answer >= QDate::currentDate()) || (m_past && answer <= QDate::currentDate()));
     } else {
         return false;
     }
@@ -39,7 +39,7 @@ void DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 */
 bool DateQuestionState::getPast() const
 {
-    return past;
+    return m_past;
 }
 
 /*!
@@ -50,7 +50,7 @@ bool DateQuestionState::getPast() const
 */
 void DateQuestionState::setPast(bool value)
 {
-    past = value;
+    m_past = value;
 }
 
 /*!
@@ -61,7 +61,7 @@ void DateQuestionState::setPast(bool value)
 */
 bool DateQuestionState::getFuture() const
 {
-    return future;
+    return m_future;
 }
 
 /*!
@@ -72,5 +72,15 @@ bool DateQuestionState::getFuture() const
 */
 void DateQuestionState::setFuture(bool value)
 {
-    future = value;
+    m_future = value;
+}
+
+/*!
+ \brief
+ \fn DateQuestionState::rawInput TODO comment this
+ \return QVariant TODO comment this
+*/
+QVariant DateQuestionState::rawInput() const
+{
+    return QVariant(input().toDate().toString()); //TODO set format
 }

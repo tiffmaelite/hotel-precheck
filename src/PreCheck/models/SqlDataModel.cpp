@@ -4,6 +4,7 @@
 #include "database_manager.h"
 #include "views/message_manager.h"
 #include <QtSql/QSqlDriver>
+#include <QtCore>
 
 /*!
  \brief
@@ -57,6 +58,25 @@ QVariant SqlDataModel::data(const QModelIndex &index, int role) const
 
 /*!
  \brief
+ \fn SqlDataModel::datas TODO comment this
+ \return QVariantMap TODO comment this
+*/
+QVariantMap SqlDataModel::datas() const
+{
+    QVariantMap result;
+    if (this->mRecords.count() > 0)
+    {
+        for(int column = 0; column < this->mRoles.count(); column++) {
+            for(int row = 0; row < this->mRecords.count();row++) {
+                result.insertMulti(this->mRoles.value(column),this->mRecords.at(row).value(column));
+            }
+        }
+    }
+    return result;
+}
+
+/*!
+ \brief
 
  \fn SqlDataModel::setHeaderData
  \param section
@@ -75,82 +95,13 @@ bool SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, const
     }
     return false;
 }
-
-/*!
- \brief
-
- \fn SqlDataModel::setQuery
- \param query
-*/
-void SqlDataModel::setQuery(const QString &query)
-{
-    try
-    {
-        QString cleanQuery = query.simplified();//.toUpper();
-        //MessageManager::infoMessage("REQUÊTE : " + cleanQuery);
-        beginResetModel();
-        mRecords.clear();
-        endResetModel();
-        mSqlQuery = QSqlQuery(AppDatabase::getInstance()->getDbConnection());
-        if (mSqlQuery.exec(cleanQuery) && (!AppDatabase::getInstance()->getDbConnection().driver()->hasFeature(QSqlDriver::QuerySize) || mSqlQuery.size() > 0))
-        {
-            bool next = mSqlQuery.next();
-            while (next && mSqlQuery.isActive())
-            {
-                QSqlRecord record = mSqlQuery.record();
-                /*qDebug() << "\n\n";
-                MessageManager::infoMessage("Nouvelle ligne récupérée");
-                MessageManager::infoMessage(QString("%1 champs").arg(record.count()));*/
-                if ((!record.isEmpty()) && (record.count() > 0))
-                {
-                    beginInsertRows(QModelIndex(), 0, 0);
-                    mRecords.append(record);
-                    /*int nbFields = record.count();
-                    for (int i = 0; i < nbFields; i++)
-                    {
-                        MessageManager::infoMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
-                    }*/
-                    if (mDataFields.empty())
-                    {
-                        int nbFields = record.count();
-                        for (int i = 0; i < nbFields; i++)
-                        {
-                            SqlDataFields *field = new SqlDataFields();
-                            field->setName(record.fieldName(i));
-                            //MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
-                            mDataFields.append(field);
-                        }
-                        this->applyRoles();
-                        emit fieldsChanged();
-                    }
-                    endInsertRows();
-                }
-                next = mSqlQuery.next();
-            }
-        }
-    }
-    catch (const std::exception &e)
-    {
-        MessageManager::errorMessage(e.what(), "exception");
-        if (this->lastError().isEmpty())
-        {
-            MessageManager::errorMessage(this->lastError(), "erreur SQL");
-        }
-    }
-    if (this->lastError().isEmpty())
-    {
-        MessageManager::errorMessage(this->lastError(), "erreur SQL");
-    }
-}
-
-
 /*!
  \brief
 
  \fn SqlDataModel::query
  \return const QString
 */
-const QString &SqlDataModel::query()
+const QString &SqlDataModel::query() const
 {
     return mSqlQuery.lastQuery();
 }
@@ -161,7 +112,7 @@ const QString &SqlDataModel::query()
  \fn SqlDataModel::tableName
  \return const QString
 */
-const QString &SqlDataModel::tableName()
+const QString &SqlDataModel::tableName() const
 {
     return mTable;
 }
@@ -172,7 +123,7 @@ const QString &SqlDataModel::tableName()
  \fn SqlDataModel::filter
  \return const QString
 */
-const QString &SqlDataModel::filter()
+const QString &SqlDataModel::filter() const
 {
     return mFilter;
 }
@@ -183,22 +134,17 @@ const QString &SqlDataModel::filter()
  \fn SqlDataModel::fieldsList
  \return const QString
 */
-const QString SqlDataModel::fieldsList()
+const QStringList SqlDataModel::fieldsList() const
 {
-    if (mDataFields.empty())
-    {
-        return "*";
-    }
-    else
-    {
-        QString fields = this->mDataFields.at(0)->name();
+    QStringList fields;
+    if(!this->mDataFields.isEmpty()) {
         int c = mDataFields.count();
-        for (int i = 1; i < c; i++)
+        for (int i = 0; i < c; i++)
         {
-            fields += ", " + this->mDataFields.at(i)->name();
+            fields .append(this->mDataFields.at(i)->name());
         }
-        return QString(" %1 ").arg(fields);
     }
+    return fields;
 }
 
 /*!
@@ -259,18 +205,58 @@ bool SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStrin
     this->setFilterCondition(filter);
     this->setOrderBy(sort);
 
-    QString condition = "";
-    if (this->mFilter != "")
+    try
     {
-        condition = " WHERE " + this->mFilter;
+        beginResetModel();
+        mRecords.clear();
+        endResetModel();
+        mSqlQuery = AppDatabase::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
+        bool next = mSqlQuery.next();
+        while (next && mSqlQuery.isActive())
+        {
+            QSqlRecord record = mSqlQuery.record();
+            /*qDebug() << "\n\n";
+                MessageManager::infoMessage("Nouvelle ligne récupérée");
+                MessageManager::infoMessage(QString("%1 champs").arg(record.count()));*/
+            if (mSqlQuery.isValid() && (!record.isEmpty()) && (record.count() > 0))
+            {
+                beginInsertRows(QModelIndex(), 0, 0);
+                mRecords.append(record);
+                /*int nbFields = record.count();
+                    for (int i = 0; i < nbFields; i++)
+                    {
+                        MessageManager::infoMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
+                    }*/
+                if (mDataFields.empty())
+                {
+                    int nbFields = record.count();
+                    for (int i = 0; i < nbFields; i++)
+                    {
+                        SqlDataFields *field = new SqlDataFields();
+                        field->setName(record.fieldName(i));
+                        //MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
+                        mDataFields.append(field);
+                    }
+                    this->applyRoles();
+                    emit fieldsChanged();
+                }
+                endInsertRows();
+            }
+            next = mSqlQuery.next();
+        }
     }
-    QString order = "";
-    if (this->mSort != "")
+    catch (const std::exception &e)
     {
-        order = " ORDER BY " + this->mSort;
+        MessageManager::errorMessage(e.what(), "exception");
+        if (this->lastError().isEmpty())
+        {
+            MessageManager::errorMessage(this->lastError(), "erreur SQL");
+        }
     }
-    QString f = this->fieldsList();
-    this->setQuery(QString("SELECT %1 FROM %2 %3 %4").arg(f).arg(mTable).arg(condition).arg(order));
+    if (this->lastError().isEmpty())
+    {
+        MessageManager::errorMessage(this->lastError(), "erreur SQL");
+    }
     return (!this->isEmpty());
 }
 
@@ -281,7 +267,7 @@ bool SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStrin
  \param i
  \return SqlDataFields
 */
-SqlDataFields *SqlDataModel::field(int i)
+SqlDataFields *SqlDataModel::field(int i) const
 {
     i = qMin(i, this->fieldsCount()-1);
     i = qMax(i, 0);
@@ -368,7 +354,7 @@ void SqlDataModel::applyRoles()
  \fn SqlDataModel::fieldsCount
  \return int
 */
-int SqlDataModel::fieldsCount()
+int SqlDataModel::fieldsCount() const
 {
     return mDataFields.count();
 }
@@ -390,7 +376,7 @@ void SqlDataModel::setOrderBy(QString sort)
  \fn SqlDataModel::isEmpty
  \return bool
 */
-bool SqlDataModel::isEmpty()
+bool SqlDataModel::isEmpty() const
 {
     return mRecords.empty();
 }

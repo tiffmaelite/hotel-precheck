@@ -23,7 +23,7 @@ NumericQuestionState::NumericQuestionState(QString question, QString name, int m
  \fn NumericQuestionState::isAnswerValid
  \param givenAnswer
 */
-void NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
+bool NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
     bool ok;
     int answer = givenAnswer.toInt(&ok);

@@ -54,9 +54,9 @@ void NewBillFactory::receiveInput(QString text) {
             bool ok;
             int sId = text.toInt(&ok, 10);
             if(ok) {
-                int matches = AppDatabase::getInstance()->dataExists("SERVICES",QString("ID='%1'").arg(QString::number(sId)));
+                int matches = AppDatabase::getInstance()->dataCount("SERVICES",QString("ID='%1'").arg(QString::number(sId)));
                 if (matches == 1) {
-                    QSqlQuery result = AppDatabase::getInstance()->execQuery("SELECT ISAVAILABLE, ROOMNEEDED, PRICE1, PRICE2 FROM SERVICES JOIN SERVICESTYPES ON SERVICES.TYPE_ID = SERVICESTYPES.ID WHERE SERVICES.ID="+sId);
+                    QSqlQuery result = AppDatabase::getInstance()->execSelectQuery("SELECT ISAVAILABLE, ROOMNEEDED, PRICE1, PRICE2 FROM SERVICES JOIN SERVICESTYPES ON SERVICES.TYPE_ID = SERVICESTYPES.ID WHERE SERVICES.ID="+sId);
                     result.next();
                     QSqlRecord rec = result.record();
                     bool available = (rec.value(rec.indexOf("AVAILABLE"))).toBool();

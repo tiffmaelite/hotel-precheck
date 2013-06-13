@@ -12,7 +12,6 @@
 #include "models/clients_table_model.h"
 #include "models/services_table_model.h"
 #include "models/groups_table_model.h"
-#include "models/offers_table_model.h"
 #include "models/user.h"
 #include "models/RestrictiveApplication.h"
 #include "views/qquickaction.h"
@@ -59,7 +58,6 @@ int main(int argc, char *argv[])
         qmlRegisterType<BillingsTableModel>("PreCheck", 1, 0, "BillingsModel");
         qmlRegisterType<BillsTableModel>("PreCheck", 1, 0, "BillsModel");
         qmlRegisterType<BookingsTableModel>("PreCheck", 1, 0, "BookingsModel");
-        qmlRegisterType<OffersTableModel>("PreCheck", 1, 0, "OffersModel");
         qmlRegisterType<ServicesTableModel>("PreCheck", 1, 0, "ServicesModel");
         qmlRegisterType<ClientsTableModel>("PreCheck", 1, 0, "ClientsModel");
         qmlRegisterType<GroupsTableModel>("PreCheck", 1, 0, "GroupsModel");

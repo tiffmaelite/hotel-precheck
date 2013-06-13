@@ -28,7 +28,7 @@ public:
  \fn isAnswerValid
  \param givenAnswer
 */
-void isAnswerValid(const QVariant &givenAnswer);
+virtual bool isAnswerValid(const QVariant &givenAnswer);
 
 /*!
  \brief
@@ -60,14 +60,20 @@ bool getFuture() const;
 */
 void setFuture(bool value);
 
+/*!
+ \brief
+ \fn rawInput TODO comment this
+ \return QVariant TODO comment this
+*/
+QVariant rawInput() const;
 signals:
 
 public slots:
 
 
 private:
-bool past; /*!< TODO */
-bool future; /*!< TODO */
+bool m_past; /*!< TODO */
+bool m_future; /*!< TODO */
 };
 
 #endif // DATEQUESTIONSTATE_H

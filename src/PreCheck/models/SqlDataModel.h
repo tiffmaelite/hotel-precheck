@@ -45,6 +45,15 @@ public:
     /*!
      \brief
 
+     \fn datas
+     \param index
+     \param role
+     \return QVariant
+    */
+    QVariantMap datas() const;
+    /*!
+     \brief
+
      \fn setHeaderData
      \param section
      \param orientation
@@ -75,7 +84,7 @@ public:
      \fn tableName
      \return const QString
     */
-    const QString &tableName();
+    const QString &tableName() const;
     /*!
      \brief
 
@@ -89,7 +98,7 @@ public:
      \fn filter
      \return const QString
     */
-    const QString &filter();
+    const QString &filter() const;
 
     /*!
      \brief
@@ -143,14 +152,14 @@ public:
      \param i
      \return SqlDataFields
     */
-    SqlDataFields *field(int i);
+    SqlDataFields *field(int i) const;
     /*!
      \brief
 
      \fn fieldsCount
      \return int
     */
-    int fieldsCount();
+    int fieldsCount() const;
     /*!
      \brief
 
@@ -174,7 +183,7 @@ public:
      \fn isEmpty
      \return bool
     */
-    bool isEmpty();
+    bool isEmpty() const;
 
     /*!
      \brief
@@ -182,14 +191,14 @@ public:
      \fn query
      \return const QString
     */
-    const QString &query();
+    const QString &query() const;
     /*!
      \brief
 
      \fn fieldsList
      \return const QString
     */
-    const QString fieldsList();
+    const QStringList fieldsList() const;
 
 signals:
     /*!
@@ -230,13 +239,6 @@ protected:
     */
     void applyRoles();
 private:
-    /*!
-     \brief
-
-     \fn setQuery
-     \param[in] query
-    */
-    void setQuery(const QString &query);
     QString mTable; /*!< TODO */
     QString mFilter; /*!< TODO */
     QString mSort; /*!< TODO */

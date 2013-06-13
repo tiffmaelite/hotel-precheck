@@ -174,22 +174,18 @@ bool AppDatabase::tableExists(QString tableName)
  \param filter
  \return int
 */
-int AppDatabase::dataExists(QString tableName, QString filter) {
+int AppDatabase::dataCount(QString tableName, QString filter) {
     if(!tableName.isEmpty() && !filter.isEmpty()) {
         QString query = QString("SELECT COUNT(*) AS MATCH FROM %1 WHERE %2").arg(tableName).arg(filter);
-        QSqlQuery result = execQuery(query);
+        QSqlQuery result = execSelectQuery(query);
         if(dbConnection.driver()->hasFeature(QSqlDriver::QuerySize)) {
             return result.size();
         } else {
             if(result.next()) {
                 QSqlRecord rec = result.record();
-                if(rec.isEmpty() || !result.isValid()) {
-                    return 0;
-                } else {
+                if(!rec.isEmpty()  && result.isValid()) {
                     return rec.value(rec.indexOf("MATCH")).toInt();
                 }
-            } else {
-                return 0;
             }
         }
     }
@@ -204,6 +200,107 @@ int AppDatabase::dataExists(QString tableName, QString filter) {
  \param query
  \return QSqlQuery
 */
-QSqlQuery AppDatabase::execQuery(QString query) {
+QSqlQuery AppDatabase::execSelectQuery(QString tableName, QStringList fields, QString condition, QString ordering) {
+    if(fields.isEmpty()) {
+        fields.append("*");
+    }
+    QString query;
+    switch(dbConnection.driverName() == "QIBASE") {
+    default:
+        query = QString("SELECT %1 FROM %2").arg(tableName).arg(fields.join(", "));
+        if(!condition.isEmpty()) {
+            query = QString("%1 WHERE %2").arg(query).arg(condition);
+        }
+        if(!ordering.isEmpty()) {
+            query = QString("%1 ORDER BY %2").arg(query).arg(ordering);
+        }
+    }
     return dbConnection.exec(query);
 }
+
+
+/*!
+ \brief
+ \fn AppDatabase::execReplaceQuery TODO comment this
+ \param query TODO comment this
+ \return bool TODO comment this
+*/
+bool AppDatabase::execReplaceQuery(QString tableName, QVariantMap values) {
+    QString fields;
+    QString vals;
+    divideQVariantMap(values, fields, vals);
+    QString query;
+    switch(dbConnection.driverName() == "QIBASE") {
+    default:
+        query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
+    }
+    QSqlQuery result = dbConnection.exec(query);
+    return (result.numRowsAffected() > 0);
+}
+
+/*!
+ \brief
+ \fn AppDatabase::execInsertReturningQuery TODO comment this
+ \param query TODO comment this
+ \param returningField TODO comment this
+ \return QVariant TODO comment this
+*/
+QVariant AppDatabase::execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField) {
+    QString fields;
+    QString vals;
+    divideQVariantMap(values, fields, vals);
+    QString query;
+    switch(dbConnection.driverName() == "QIBASE") {
+    default:
+        query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
+    }
+    QSqlQuery result = dbConnection.exec(query);
+    if(result.next()) {
+        QSqlRecord rec = result.record();
+        if(!rec.isEmpty()  && result.isValid()) {
+            return rec.value(rec.indexOf(returningField));
+        }
+    }
+    return QVariant();
+}
+
+/*!
+ \brief
+ \fn divideQVariantMap TODO comment this
+ \param values TODO comment this
+ \param fields TODO comment this
+ \param vals TODO comment this
+*/
+void AppDatabase::divideQVariantMap(QVariantMap values, QString& fields, QString& vals) {
+    for(auto field : values.keys())
+    {
+        fields += field+",";
+        QVariant val = values.value(field);
+        bool ok;
+        int intVal = val.toInt(&ok);
+        if(ok) {
+            vals += QString::number(intVal)+",";
+        }
+        double dbVal = val.toDouble(&ok);
+        if(ok) {
+            vals += QString::number(dbVal)+",";
+        }
+        /*bool boolVal = val.toBool();
+        if(boolVal) {
+            &vals += "'"+1+"'',";
+        }*/
+        QDate dateVal = val.toDate();
+        if(dateVal.isValid()) {
+            vals += "'"+dateVal.toString()+"'',"; //FIXME adapt date format
+        }
+        QDateTime dateTimeVal = val.toDateTime();
+        if(dateTimeVal.isValid()) {
+            vals += "'"+dateTimeVal.toString()+"'',"; //FIXME adapt datetime format
+        }
+        QString stringVal = val.toString();
+        vals += "'"+stringVal+"'',";
+    }
+    fields = fields.left(fields.lastIndexOf(',')-1);
+    vals = vals.left(vals.lastIndexOf(',')-1);
+}
+

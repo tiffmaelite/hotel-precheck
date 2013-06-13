@@ -23,7 +23,7 @@ DecimalQuestionState::DecimalQuestionState(QString question, QString name, qreal
  \fn DecimalQuestionState::isAnswerValid
  \param givenAnswer
 */
-void DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
+bool DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
     bool ok;
     qreal answer = givenAnswer.toReal(&ok);

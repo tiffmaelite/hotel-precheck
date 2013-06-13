@@ -2,6 +2,7 @@
 #include "validationstate.h"
 #include "confirmationstate.h"
 #include "datequestionstate.h"
+#include "adaptdatabase.h"
 
 /*!
  \brief
@@ -139,7 +140,7 @@ void IOStateMachine::addIOState(IOState *state, QString field)
     //à faire au moment de la sortie de l'état state
     connect(state, &QState::exited, [=]() {
         if(!field.isEmpty()) {
-            setContentValue(state->input(), field); //on enregistre la dernière valeur entrée par l'utilisateur conservée par l'état
+            setContentValue(state->rawInput(), field);
             //gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir quitté
             QHistoryState* hState = new QHistoryState(state);
             setIOStateHistory(hState, field);
@@ -238,9 +239,17 @@ QHistoryState *IOStateMachine::historyValue(QString field)
  \param previousState
  \param nextState
 */
-void IOStateMachine::addChildrenNextTransition(GenericState *previousState, GenericState *nextState)
+void IOStateMachine::addChildrenNextTransition(GenericState *previousState, QAbstractState *nextState)
 {
-    previousState->addTransition(previousState, SIGNAL(next()), nextState);
+    QFinalState* final = qobject_cast<QFinalState*>(nextState);
+    if(final) {
+        adaptDatabase* saveState = new adaptDatabase("enregistrement de la machine "+toString());
+        saveState->insertUpdate(m_tableName, m_ioContent);
+        previousState->addTransition(previousState, SIGNAL(next()), saveState);
+        saveState->addTransition(saveState, SIGNAL(next()),final);
+    } else {
+        previousState->addTransition(previousState, SIGNAL(next()), nextState);
+    }
     //à faire au moment de l'entrée dans l'état previousState
     connect(previousState, &QState::entered, [=]() {
         connect(this, &IOStateMachine::replaceInput, [=](QString field) {
@@ -252,5 +261,4 @@ void IOStateMachine::addChildrenNextTransition(GenericState *previousState, Gene
             }
         });
     });
-
 }

@@ -41,21 +41,21 @@ public:
      \fn tableName
      \return const QString
     */
-    const QString &tableName() const { return this->model->tableName(); }
+    const QString tableName() const { return this->model->tableName(); }
     /*!
      \brief
 
      \fn fields
      \return const QString
     */
-    const QString &fields() const { return this->model->fieldsList(); }
+    const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
     /*!
      \brief
 
      \fn lastError
      \return const QString
     */
-    const QString &lastError() const { return this->model->lastError(); }
+    const QString lastError() const { return this->model->lastError(); }
     /*!
      \brief
 

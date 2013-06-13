@@ -4,7 +4,7 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QObject>
-
+#include <QtCore>
 
 /*
  * declare DB driver and filename.
@@ -36,7 +36,15 @@ class AppDatabase: public QObject
     private:
         static AppDatabase *_instance; /*!< TODO */
 
-    protected:
+        /*!
+         \brief
+         \fn divideQVariantMap TODO comment this
+         \param[in] values TODO comment this
+         \param[ou] fields TODO comment this
+         \param[ou] vals TODO comment this
+        */
+        void divideQVariantMap(QVariantMap values, QString &fields, QString &vals);
+protected:
 
 /*!
  \brief
@@ -117,7 +125,7 @@ class AppDatabase: public QObject
          \param filter
          \return int
         */
-        int dataExists(QString tableName, QString filter);
+        int dataCount(QString tableName, QString filter);
         /*!
          \brief
 
@@ -125,7 +133,22 @@ class AppDatabase: public QObject
          \param query
          \return QSqlQuery
         */
-        QSqlQuery execQuery(QString query);
+        QSqlQuery execSelectQuery(QString tableName, QStringList fields=QStringList("*"), QString condition="", QString ordering="");
+        /*!
+         \brief
+         \fn execReplaceQuery TODO comment this
+         \param query TODO comment this
+         \return bool TODO comment this
+        */
+        bool execReplaceQuery(QString tableName, QVariantMap values);
+        /*!
+         \brief
+         \fn execInsertReturningQuery TODO comment this
+         \param query TODO comment this
+         \param returningField TODO comment this
+         \return QVariant TODO comment this
+        */
+        QVariant execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField);
 };
 
 #endif // APPDATABASESINGLETON_H

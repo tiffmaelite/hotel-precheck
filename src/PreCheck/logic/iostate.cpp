@@ -26,6 +26,16 @@ QVariant IOState::input() const
 
 /*!
  \brief
+ \fn IOState::rawInput TODO comment this
+ \return QVariant TODO comment this
+*/
+QVariant IOState::rawInput() const
+{
+    return input();
+}
+
+/*!
+ \brief
 
  \fn IOState::setInput
  \param input
