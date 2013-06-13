@@ -7,9 +7,11 @@
 
  \class LoopingStateMachine loopingstatemachine.h "logic/loopingstatemachine.h"
 */
-class LoopingStateMachine : public IOStateMachine
+class LoopingIOStateMachine : public IOStateMachine
 {
     Q_OBJECT
+    Q_PROPERTY(int limit READ limit WRITE setLimit NOTIFY limitChanged)
+
 public:
 /*!
  \brief
@@ -20,7 +22,7 @@ public:
  \param name
  \param parent
 */
-    LoopingStateMachine(QString tableName, int limit, QString name, QObject *parent = 0);
+    LoopingIOStateMachine(QString tableName, int limit, QString name, QObject *parent = 0);
 
     /*!
      \brief
@@ -40,6 +42,15 @@ public:
     /*!
      \brief
 
+     \fn setPersistentContentValue
+     \param content
+     \param field
+    */
+    void setPersistentContentValue(QVariant value, QString field);
+
+    /*!
+     \brief
+
      \fn limit
      \return int
     */
@@ -52,14 +63,17 @@ public:
     */
     void setLimit(int limit);
 
+    void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
 signals:
+    void limitChanged();
 
 public slots:
 
 private:
     int m_limit; /*!< TODO */
     int m_current; /*!< TODO */
-
+    QList<QVariantMap> m_contents; /*!< TODO */
+    QVariantMap m_persistentContent; /*!< TODO */
 };
 
 #endif // LOOPINGSTATEMACHINE_H

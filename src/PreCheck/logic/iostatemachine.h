@@ -175,7 +175,7 @@ public slots: //réception de messagers
      \param previousState
      \param nextState
     */
-    void addChildrenNextTransition(GenericState* previousState, QAbstractState *nextState);
+    void addChildrenNextTransition(QAbstractState* previousState, QAbstractState *nextState);
 
 protected:
     /*!

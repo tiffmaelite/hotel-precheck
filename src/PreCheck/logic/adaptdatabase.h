@@ -25,7 +25,7 @@ public:
      \param content TODO comment this
      \return bool TODO comment this
     */
-    bool insertUpdate(QString table, QVariantMap content);
+    QVariant insertUpdate(QString table, QVariantMap content);
 
 signals:
 

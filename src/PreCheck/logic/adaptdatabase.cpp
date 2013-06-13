@@ -20,9 +20,11 @@ adaptDatabase::adaptDatabase(QString name, QState *parent) :
  \param content TODO comment this
  \return bool TODO comment this
 */
-bool adaptDatabase::insertUpdate(QString table, QVariantMap content)
+QVariant adaptDatabase::insertUpdate(QString table, QVariantMap content)
 {
-    if(AppDatabase::getInstance()->execReplaceQuery(table, content)) {
+    QVariant id = AppDatabase::getInstance()->execInsertReturningQuery(table, content, "id");
+    if(id.isValid()) {
         emit next();
     }
+    return id;
 }

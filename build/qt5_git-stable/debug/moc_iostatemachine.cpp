@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_IOStateMachine_t {
-    QByteArrayData data[27];
-    char stringdata[312];
+    QByteArrayData data[26];
+    char stringdata[298];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,10 +52,9 @@ QT_MOC_LITERAL(19, 193, 17),
 QT_MOC_LITERAL(20, 211, 15),
 QT_MOC_LITERAL(21, 227, 3),
 QT_MOC_LITERAL(22, 231, 25),
-QT_MOC_LITERAL(23, 257, 13),
-QT_MOC_LITERAL(24, 271, 13),
-QT_MOC_LITERAL(25, 285, 15),
-QT_MOC_LITERAL(26, 301, 9)
+QT_MOC_LITERAL(23, 257, 15),
+QT_MOC_LITERAL(24, 273, 13),
+QT_MOC_LITERAL(25, 287, 9)
     },
     "IOStateMachine\0next\0\0sendText\0text\0"
     "editable\0receiveInput\0input\0confirmInput\0"
@@ -64,8 +63,7 @@ QT_MOC_LITERAL(26, 301, 9)
     "setContentValue\0content\0addIOState\0"
     "IOState*\0state\0addIOStateMachine\0"
     "IOStateMachine*\0fsm\0addChildrenNextTransition\0"
-    "GenericState*\0previousState\0QAbstractState*\0"
-    "nextState\0"
+    "QAbstractState*\0previousState\0nextState\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -114,7 +112,7 @@ static const uint qt_meta_data_IOStateMachine[] = {
     QMetaType::Void, QMetaType::QVariant, QMetaType::QString,   15,   11,
     QMetaType::Void, 0x80000000 | 17, QMetaType::QString,   18,   11,
     QMetaType::Void, 0x80000000 | 20,   21,
-    QMetaType::Void, 0x80000000 | 23, 0x80000000 | 25,   24,   26,
+    QMetaType::Void, 0x80000000 | 23, 0x80000000 | 23,   24,   25,
 
        0        // eod
 };
@@ -136,7 +134,7 @@ void IOStateMachine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 9: _t->setContentValue((*reinterpret_cast< QVariant(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 10: _t->addIOState((*reinterpret_cast< IOState*(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 11: _t->addIOStateMachine((*reinterpret_cast< IOStateMachine*(*)>(_a[1]))); break;
-        case 12: _t->addChildrenNextTransition((*reinterpret_cast< GenericState*(*)>(_a[1])),(*reinterpret_cast< QAbstractState*(*)>(_a[2]))); break;
+        case 12: _t->addChildrenNextTransition((*reinterpret_cast< QAbstractState*(*)>(_a[1])),(*reinterpret_cast< QAbstractState*(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -159,9 +157,8 @@ void IOStateMachine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 12:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< GenericState* >(); break;
             case 1:
+            case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractState* >(); break;
             }
             break;
