@@ -60,6 +60,12 @@ public:
     */
     void onExit(QEvent *event);
 
+    /*!
+     \brief
+     \fn visibility TODO comment this
+     \return bool TODO comment this
+    */
+    bool visibility();
 signals:
     /*!
      \brief
@@ -92,9 +98,18 @@ public slots:
     */
     virtual void setOutput(const QString &output);
 
+
+    /*!
+     \brief
+     \fn setVisibility TODO comment this
+     \param isVisible TODO comment this
+    */
+    virtual void setVisibility(bool isVisible);
+
 private:
     QVariant m_input; /*!< TODO */
     QString m_output; /*!< TODO */
+    bool m_isVisible; /*!< TODO */
 };
 
 #endif // IOSTATE_H

@@ -9,7 +9,7 @@
  \param parent
 */
 IOState::IOState(QString output, QString name, QState *parent) :
-    GenericState(name, parent), m_output(output)
+    GenericState(name, parent), m_output(output), m_isVisible(true)
 {
 }
 
@@ -43,7 +43,9 @@ QVariant IOState::rawInput() const
 void IOState::setInput(const QVariant &input)
 {
     m_input = input;
-    emit resendInput(m_input);
+    if(m_isVisible) {
+        emit resendInput(m_input);
+    }
 }
 
 /*!
@@ -66,7 +68,7 @@ QString IOState::output() const
 void IOState::onEntry(QEvent *event)
 {
     GenericState::onEntry(event);
-    if(!m_output.isEmpty()) {
+    if(!m_output.isEmpty() && m_isVisible) {
         emit sendOutput(QVariant(m_output));
     }
 }
@@ -80,7 +82,28 @@ void IOState::onEntry(QEvent *event)
 void IOState::setOutput(const QString &output)
 {
     m_output = output;
-    emit sendOutput(QVariant(m_output));
+    if(m_isVisible) {
+        emit sendOutput(QVariant(m_output));
+    }
+}
+
+/*!
+ \brief
+ \fn IOState::setVisibility TODO comment this
+ \param isVisible TODO comment this
+*/
+void IOState::setVisibility(bool isVisible)
+{
+    m_isVisible = isVisible;
+}
+
+/*!
+ \brief
+ \fn IOState::visibility TODO comment this
+ \return bool TODO comment this
+*/
+bool IOState::visibility() {
+    return m_isVisible;
 }
 
 /*!
@@ -92,5 +115,7 @@ void IOState::setOutput(const QString &output)
 void IOState::onExit(QEvent *event)
 {
     GenericState::onExit(event);
-    emit resendInput(m_input);
+    if(m_isVisible) {
+        emit resendInput(m_input);
+    }
 }

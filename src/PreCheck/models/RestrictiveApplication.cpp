@@ -1,5 +1,6 @@
 #include "RestrictiveApplication.h"
 #include <QDebug>
+#include "models/database_manager.h"
 
 /*!
  \brief
@@ -7,6 +8,7 @@
  \fn RestrictiveApplication::RestrictiveApplication
  \param parent
 */
+
 RestrictiveApplication::RestrictiveApplication(QObject* parent) :
     QObject(parent)
 {
@@ -115,4 +117,18 @@ bool RestrictiveApplication::userExists(QString login)
         emit userNotFound();
     }
     return ok;
+}
+
+
+/*!
+ \brief
+ \fn RestrictiveApplication::balanceLogRoutine TODO comment this
+ \return bool TODO comment this
+*/
+bool RestrictiveApplication::balanceLogRoutine() {
+    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
+    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");
+    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");
+    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");
+    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");
 }

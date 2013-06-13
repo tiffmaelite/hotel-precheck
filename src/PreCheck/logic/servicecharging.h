@@ -12,6 +12,10 @@ signals:
 
 public slots:
 
+private:
+    qreal m_priceMin;
+    qreal m_vat;
+
 };
 
 #endif // SERVICECHARGING_H

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_IOStateMachine_t {
-    QByteArrayData data[26];
-    char stringdata[298];
+    QByteArrayData data[27];
+    char stringdata[316];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,27 +43,29 @@ QT_MOC_LITERAL(10, 90, 12),
 QT_MOC_LITERAL(11, 103, 5),
 QT_MOC_LITERAL(12, 109, 17),
 QT_MOC_LITERAL(13, 127, 15),
-QT_MOC_LITERAL(14, 143, 15),
-QT_MOC_LITERAL(15, 159, 7),
-QT_MOC_LITERAL(16, 167, 10),
-QT_MOC_LITERAL(17, 178, 8),
-QT_MOC_LITERAL(18, 187, 5),
-QT_MOC_LITERAL(19, 193, 17),
-QT_MOC_LITERAL(20, 211, 15),
-QT_MOC_LITERAL(21, 227, 3),
-QT_MOC_LITERAL(22, 231, 25),
-QT_MOC_LITERAL(23, 257, 15),
-QT_MOC_LITERAL(24, 273, 13),
-QT_MOC_LITERAL(25, 287, 9)
+QT_MOC_LITERAL(14, 143, 17),
+QT_MOC_LITERAL(15, 161, 15),
+QT_MOC_LITERAL(16, 177, 7),
+QT_MOC_LITERAL(17, 185, 10),
+QT_MOC_LITERAL(18, 196, 8),
+QT_MOC_LITERAL(19, 205, 5),
+QT_MOC_LITERAL(20, 211, 17),
+QT_MOC_LITERAL(21, 229, 15),
+QT_MOC_LITERAL(22, 245, 3),
+QT_MOC_LITERAL(23, 249, 25),
+QT_MOC_LITERAL(24, 275, 15),
+QT_MOC_LITERAL(25, 291, 13),
+QT_MOC_LITERAL(26, 305, 9)
     },
     "IOStateMachine\0next\0\0sendText\0text\0"
     "editable\0receiveInput\0input\0confirmInput\0"
     "validateInput\0replaceInput\0field\0"
     "cancelReplacement\0displayCalendar\0"
-    "setContentValue\0content\0addIOState\0"
-    "IOState*\0state\0addIOStateMachine\0"
-    "IOStateMachine*\0fsm\0addChildrenNextTransition\0"
-    "QAbstractState*\0previousState\0nextState\0"
+    "displayFileDialog\0setContentValue\0"
+    "content\0addIOState\0IOState*\0state\0"
+    "addIOStateMachine\0IOStateMachine*\0fsm\0"
+    "addChildrenNextTransition\0QAbstractState*\0"
+    "previousState\0nextState\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,29 +75,30 @@ static const uint qt_meta_data_IOStateMachine[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       9,       // signalCount
+      10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x05,
-       3,    2,   80,    2, 0x05,
-       3,    1,   85,    2, 0x25,
-       6,    1,   88,    2, 0x05,
-       8,    0,   91,    2, 0x05,
-       9,    0,   92,    2, 0x05,
-      10,    1,   93,    2, 0x05,
-      12,    0,   96,    2, 0x05,
-      13,    0,   97,    2, 0x05,
+       1,    0,   84,    2, 0x05,
+       3,    2,   85,    2, 0x05,
+       3,    1,   90,    2, 0x25,
+       6,    1,   93,    2, 0x05,
+       8,    0,   96,    2, 0x05,
+       9,    0,   97,    2, 0x05,
+      10,    1,   98,    2, 0x05,
+      12,    0,  101,    2, 0x05,
+      13,    0,  102,    2, 0x05,
+      14,    0,  103,    2, 0x05,
 
  // slots: name, argc, parameters, tag, flags
-      14,    2,   98,    2, 0x0a,
-      16,    2,  103,    2, 0x0a,
-      19,    1,  108,    2, 0x0a,
-      22,    2,  111,    2, 0x0a,
+      15,    2,  104,    2, 0x0a,
+      17,    2,  109,    2, 0x0a,
+      20,    1,  114,    2, 0x0a,
+      23,    2,  117,    2, 0x0a,
 
  // signals: parameters
     QMetaType::Void,
@@ -107,12 +110,13 @@ static const uint qt_meta_data_IOStateMachine[] = {
     QMetaType::Void, QMetaType::QString,   11,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QVariant, QMetaType::QString,   15,   11,
-    QMetaType::Void, 0x80000000 | 17, QMetaType::QString,   18,   11,
-    QMetaType::Void, 0x80000000 | 20,   21,
-    QMetaType::Void, 0x80000000 | 23, 0x80000000 | 23,   24,   25,
+    QMetaType::Void, QMetaType::QVariant, QMetaType::QString,   16,   11,
+    QMetaType::Void, 0x80000000 | 18, QMetaType::QString,   19,   11,
+    QMetaType::Void, 0x80000000 | 21,   22,
+    QMetaType::Void, 0x80000000 | 24, 0x80000000 | 24,   25,   26,
 
        0        // eod
 };
@@ -131,30 +135,31 @@ void IOStateMachine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 6: _t->replaceInput((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 7: _t->cancelReplacement(); break;
         case 8: _t->displayCalendar(); break;
-        case 9: _t->setContentValue((*reinterpret_cast< QVariant(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 10: _t->addIOState((*reinterpret_cast< IOState*(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 11: _t->addIOStateMachine((*reinterpret_cast< IOStateMachine*(*)>(_a[1]))); break;
-        case 12: _t->addChildrenNextTransition((*reinterpret_cast< QAbstractState*(*)>(_a[1])),(*reinterpret_cast< QAbstractState*(*)>(_a[2]))); break;
+        case 9: _t->displayFileDialog(); break;
+        case 10: _t->setContentValue((*reinterpret_cast< QVariant(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 11: _t->addIOState((*reinterpret_cast< IOState*(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 12: _t->addIOStateMachine((*reinterpret_cast< IOStateMachine*(*)>(_a[1]))); break;
+        case 13: _t->addChildrenNextTransition((*reinterpret_cast< QAbstractState*(*)>(_a[1])),(*reinterpret_cast< QAbstractState*(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 10:
+        case 11:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< IOState* >(); break;
             }
             break;
-        case 11:
+        case 12:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< IOStateMachine* >(); break;
             }
             break;
-        case 12:
+        case 13:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 1:
@@ -214,6 +219,12 @@ void IOStateMachine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
                 *result = 8;
             }
         }
+        {
+            typedef void (IOStateMachine::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&IOStateMachine::displayFileDialog)) {
+                *result = 9;
+            }
+        }
     }
 }
 
@@ -244,13 +255,13 @@ int IOStateMachine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }
@@ -304,5 +315,11 @@ void IOStateMachine::cancelReplacement()
 void IOStateMachine::displayCalendar()
 {
     QMetaObject::activate(this, &staticMetaObject, 8, 0);
+}
+
+// SIGNAL 9
+void IOStateMachine::displayFileDialog()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, 0);
 }
 QT_END_MOC_NAMESPACE

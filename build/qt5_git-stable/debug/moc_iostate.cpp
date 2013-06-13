@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_IOState_t {
-    QByteArrayData data[8];
-    char stringdata[65];
+    QByteArrayData data[10];
+    char stringdata[89];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,10 +36,13 @@ QT_MOC_LITERAL(3, 20, 6),
 QT_MOC_LITERAL(4, 27, 11),
 QT_MOC_LITERAL(5, 39, 5),
 QT_MOC_LITERAL(6, 45, 8),
-QT_MOC_LITERAL(7, 54, 9)
+QT_MOC_LITERAL(7, 54, 9),
+QT_MOC_LITERAL(8, 64, 13),
+QT_MOC_LITERAL(9, 78, 9)
     },
     "IOState\0sendOutput\0\0output\0resendInput\0"
-    "input\0setInput\0setOutput\0"
+    "input\0setInput\0setOutput\0setVisibility\0"
+    "isVisible\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +52,7 @@ static const uint qt_meta_data_IOState[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,12 +60,13 @@ static const uint qt_meta_data_IOState[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   34,    2, 0x05,
-       4,    1,   37,    2, 0x05,
+       1,    1,   39,    2, 0x05,
+       4,    1,   42,    2, 0x05,
 
  // slots: name, argc, parameters, tag, flags
-       6,    1,   40,    2, 0x0a,
-       7,    1,   43,    2, 0x0a,
+       6,    1,   45,    2, 0x0a,
+       7,    1,   48,    2, 0x0a,
+       8,    1,   51,    2, 0x0a,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QVariant,    3,
@@ -71,6 +75,7 @@ static const uint qt_meta_data_IOState[] = {
  // slots: parameters
     QMetaType::Void, QMetaType::QVariant,    5,
     QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::Bool,    9,
 
        0        // eod
 };
@@ -84,6 +89,7 @@ void IOState::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->resendInput((*reinterpret_cast< QVariant(*)>(_a[1]))); break;
         case 2: _t->setInput((*reinterpret_cast< const QVariant(*)>(_a[1]))); break;
         case 3: _t->setOutput((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 4: _t->setVisibility((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -129,13 +135,13 @@ int IOState::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

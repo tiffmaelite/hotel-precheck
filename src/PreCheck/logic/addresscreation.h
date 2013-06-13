@@ -6,6 +6,12 @@ class AddressCreation : public IOStateMachine
 {
     Q_OBJECT
 public:
+/*!
+ \brief
+ \fn AddressCreation TODO comment this
+ \param name TODO comment this
+ \param parent TODO comment this
+*/
     AddressCreation(QString name, QObject *parent = 0);
 
 signals:

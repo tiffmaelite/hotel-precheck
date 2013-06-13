@@ -89,7 +89,9 @@ HEADERS += \
     logic/billingcreation.h \
     logic/adaptdatabasestate.h \
     logic/addresscreation.h \
-    logic/servicecharging.h
+    logic/servicecharging.h \
+    logic/fileselectionstate.h \
+    logic/regexquestionstate.h
 
 SOURCES += \
     models/user.cpp \
@@ -137,7 +139,9 @@ SOURCES += \
     logic/billingcreation.cpp \
     logic/adaptdatabasestate.cpp \
     logic/addresscreation.cpp \
-    logic/servicecharging.cpp
+    logic/servicecharging.cpp \
+    logic/fileselectionstate.cpp \
+    logic/regexquestionstate.cpp
 
 
 # QML-files as a ressource
@@ -167,4 +171,7 @@ OTHER_FILES += \
     views/qml/ContentView.qml \
     dbInitScript.sql \
     dbCreaScript.sql \
-    views/qml/SqlTableView.qml
+    views/qml/SqlTableView.qml \
+    ../Database/PreCheckDB.fbd \
+    ../Database/dbInitScript.sql \
+    ../Database/dbCreaScript.sql

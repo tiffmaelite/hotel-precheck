@@ -143,6 +143,12 @@ signals: //messagers à envoyer ou transmettre
     */
     void displayCalendar();
 
+    /*!
+     \brief
+     \fn displayFileDialog TODO comment this
+    */
+    void displayFileDialog();
+
 public slots: //réception de messagers
     /*!
      \brief

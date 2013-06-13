@@ -6,6 +6,12 @@ class ClientCreationStateMachine : public IOStateMachine
 {
     Q_OBJECT
 public:
+/*!
+ \brief
+ \fn ClientCreationStateMachine TODO comment this
+ \param name TODO comment this
+ \param parent TODO comment this
+*/
     ClientCreationStateMachine(QString name, QObject *parent = 0);
 
 signals:

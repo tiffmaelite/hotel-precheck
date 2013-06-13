@@ -3,6 +3,7 @@
 #include "confirmationstate.h"
 #include "datequestionstate.h"
 #include "adaptdatabasestate.h"
+#include "fileselectionstate.h"
 
 /*!
  \brief
@@ -136,6 +137,11 @@ void IOStateMachine::addIOState(IOState *state, QString field)
     if(dateState) {
         //à faire au moment de l'entrée dans l'état state
         connect(dateState, &QState::entered, this, &IOStateMachine::displayCalendar);
+    }
+    FileSelectionState *fileState = qobject_cast<FileSelectionState*>(state);
+    if(fileState) {
+        //à faire au moment de l'entrée dans l'état state
+        connect(fileState, &QState::entered, this, &IOStateMachine::displayFileDialog);
     }
     //à faire au moment de la sortie de l'état state
     connect(state, &QState::exited, [=]() {

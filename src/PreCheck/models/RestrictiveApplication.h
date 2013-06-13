@@ -57,6 +57,7 @@ public:
     */
     void setMode(AppMode mode);
 
+
 signals:
     /*!
      \brief
@@ -104,6 +105,12 @@ signals:
     void badPassword();
 
 public slots:
+        /*!
+         \brief
+         \fn balanceLogRoutine TODO comment this
+         \return bool TODO comment this
+        */
+        bool balanceLogRoutine();
     /*!
      \brief
 
@@ -131,7 +138,7 @@ public slots:
 private:
     User* m_currentUser; /*!< TODO */
     AppMode m_mode; /*!< TODO */
-    
+
 };
 
 #endif // RESTRICTIVEAPPLICATION_H
