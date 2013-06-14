@@ -1,8 +1,4 @@
 #include "ThreadsManager.h"
-#include "NewBillingFactory.h"
-#include "NewBookingFactory.h"
-#include "NewBillFactory.h"
-
 ThreadsManager *ThreadsManager::_instance = 0; /*!< TODO */
 
 
@@ -28,7 +24,7 @@ ThreadsManager *ThreadsManager::getInstance()
 */
 ThreadsManager::ThreadsManager()
 {
-    this->m_runningThread = NULL;
+    //this->m_runningThread = NULL;
 }
 
 /*!
@@ -39,12 +35,12 @@ ThreadsManager::ThreadsManager()
 */
 bool ThreadsManager::launchBillingsThread()
 {
-    if(this->m_runningThread != NULL) {
+    /*if(this->m_runningThread != NULL) {
         return false;
     }
     this->m_runningThread= (PreCheckThread *)new NewBillingFactory();
     this->m_runningThread->start();
-    QObject::connect(((NewBillingFactory *)this->m_runningThread), &NewBillingFactory::displayCalendar, this, &ThreadsManager::displayCalendar, Qt::DirectConnection);
+    QObject::connect(((NewBillingFactory *)this->m_runningThread), &NewBillingFactory::displayCalendar, this, &ThreadsManager::displayCalendar, Qt::DirectConnection);*/
     return this->connectRunningThread();
 
 }
@@ -57,13 +53,13 @@ bool ThreadsManager::launchBillingsThread()
 */
 bool ThreadsManager::launchBookingsThread()
 {
-    if(this->m_runningThread != NULL) {
+    /*if(this->m_runningThread != NULL) {
         return false;
     }
     this->m_runningThread= (PreCheckThread *)new NewBookingFactory();
     this->m_runningThread->start();
     this->m_runningThread->start();
-    QObject::connect(((NewBookingFactory *)this->m_runningThread), &NewBookingFactory::displayCalendar, this, &ThreadsManager::displayCalendar, Qt::DirectConnection);
+    QObject::connect(((NewBookingFactory *)this->m_runningThread), &NewBookingFactory::displayCalendar, this, &ThreadsManager::displayCalendar, Qt::DirectConnection);*/
     return this->connectRunningThread();
 }
 
@@ -76,11 +72,11 @@ bool ThreadsManager::launchBookingsThread()
 */
 bool ThreadsManager::launchBillThread(int userId)
 {
-    if(this->m_runningThread != NULL) {
+    /*if(this->m_runningThread != NULL) {
         return false;
     }
     this->m_runningThread= (PreCheckThread *)new NewBillFactory(userId);
-    this->m_runningThread->start();
+    this->m_runningThread->start();*/
     return this->connectRunningThread();
 }
 
@@ -92,14 +88,15 @@ bool ThreadsManager::launchBillThread(int userId)
 */
 bool ThreadsManager::cancelRunningThread()
 {
-    if(this->m_runningThread == NULL) {
+    /*if(this->m_runningThread == NULL) {
         return true;
     }
     this->m_runningThread->cancelProcess();
     this->m_runningThread->exit();
     bool ok = this->m_runningThread->isFinished();
     this->m_runningThread = NULL;
-    return ok;
+    return ok;*/
+    return true;
 }
 
 /*!
@@ -109,9 +106,9 @@ bool ThreadsManager::cancelRunningThread()
 */
 void ThreadsManager::customService()
 {
-    if(this->m_runningThread != NULL && this->m_runningThread->className() == "NewBillFactory") {
+    /*if(this->m_runningThread != NULL && this->m_runningThread->className() == "NewBillFactory") {
         ((NewBillFactory *)this->m_runningThread)->customService();
-    }
+    }*/
 }
 
 /*!
@@ -121,9 +118,9 @@ void ThreadsManager::customService()
 */
 void ThreadsManager::customServiceWithoutName()
 {
-    if(this->m_runningThread != NULL && this->m_runningThread->className() == "NewBillFactory") {
+    /*if(this->m_runningThread != NULL && this->m_runningThread->className() == "NewBillFactory") {
         ((NewBillFactory *)this->m_runningThread)->customServiceWithoutName();
-    }
+    }*/
 }
 
 
@@ -135,7 +132,7 @@ void ThreadsManager::customServiceWithoutName()
 */
 bool ThreadsManager::connectRunningThread()
 {
-    if(this->m_runningThread == NULL) {
+    /*if(this->m_runningThread == NULL) {
         return false;
     }
     QObject::connect(this->m_runningThread, &PreCheckThread::sendText, this, &ThreadsManager::sendText, Qt::DirectConnection);
@@ -144,5 +141,6 @@ bool ThreadsManager::connectRunningThread()
     QObject::connect(this, &ThreadsManager::validateInput, this->m_runningThread, &PreCheckThread::validateInput, Qt::DirectConnection);
     QObject::connect(this, &ThreadsManager::replaceInput, this->m_runningThread, &PreCheckThread::replaceInput, Qt::DirectConnection);
     QObject::connect(this, &ThreadsManager::cancelReplacement, this->m_runningThread, &PreCheckThread::cancelReplacement, Qt::DirectConnection);
-    return this->m_runningThread->isRunning();
+    return this->m_runningThread->isRunning();*/
+    return false;
 }

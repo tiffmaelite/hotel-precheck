@@ -7,7 +7,7 @@ import PreCheck 1.0
 
 TableView {
     id: table
-    columns: createColumns()
+    __columns: createColumns()
     signal selected(string selectedItem)
 
     function createColumns() {

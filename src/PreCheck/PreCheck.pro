@@ -61,15 +61,8 @@ HEADERS += \
     models/sql_data_field.h \
     models/SqlDataModel.h \
     ThreadsManager.h \
-    PreCheckThread.h \
     views/qquickaction.h \
     models/RestrictiveApplication.h \
-    NewBillingFactory.h \
-    NewBookingFactory.h \
-    BillingFactory.h \
-    BookingFactory.h \
-    NewClientFactory.h \
-    NewBillFactory.h \
     logic/genericstate.h \
     logic/iostate.h \
     logic/printingstate.h \
@@ -108,18 +101,10 @@ SOURCES += \
     models/services_table_model.cpp \
     views/message_manager.cpp \
     models/sql_data_field.cpp \
-    main.cpp \
     models/SqlDataModel.cpp \
     ThreadsManager.cpp \
-    PreCheckThread.cpp \
     views/qquickaction.cpp \
     models/RestrictiveApplication.cpp \
-    NewBillingFactory.cpp \
-    NewBookingFactory.cpp \
-    BillingFactory.cpp \
-    BookingFactory.cpp \
-    NewClientFactory.cpp \
-    NewBillFactory.cpp \
     logic/genericstate.cpp \
     logic/iostate.cpp \
     logic/printingstate.cpp \
@@ -141,8 +126,8 @@ SOURCES += \
     logic/addresscreation.cpp \
     logic/servicecharging.cpp \
     logic/fileselectionstate.cpp \
-    logic/regexquestionstate.cpp
-
+    logic/regexquestionstate.cpp \
+    main.cpp
 
 # QML-files as a ressource
 RESOURCES += \

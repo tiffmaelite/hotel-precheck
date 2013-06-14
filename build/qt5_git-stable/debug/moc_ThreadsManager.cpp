@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ThreadsManager_t {
-    QByteArrayData data[24];
-    char stringdata[326];
+    QByteArrayData data[22];
+    char stringdata[296];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -50,9 +50,7 @@ QT_MOC_LITERAL(17, 209, 20),
 QT_MOC_LITERAL(18, 230, 16),
 QT_MOC_LITERAL(19, 247, 6),
 QT_MOC_LITERAL(20, 254, 20),
-QT_MOC_LITERAL(21, 275, 19),
-QT_MOC_LITERAL(22, 295, 13),
-QT_MOC_LITERAL(23, 309, 15)
+QT_MOC_LITERAL(21, 275, 19)
     },
     "ThreadsManager\0runningThreadChanged\0"
     "\0sendText\0text\0displayCalendar\0openTab\0"
@@ -61,8 +59,7 @@ QT_MOC_LITERAL(23, 309, 15)
     "cancelReplacement\0customService\0"
     "customServiceWithoutName\0launchBookingsThread\0"
     "launchBillThread\0userId\0launchBillingsThread\0"
-    "cancelRunningThread\0runningThread\0"
-    "PreCheckThread*\0"
+    "cancelRunningThread\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,7 +70,7 @@ static const uint qt_meta_data_ThreadsManager[] = {
        0,       // classname
        0,    0, // classinfo
       15,   14, // methods
-       1,  114, // properties
+       0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -116,12 +113,6 @@ static const uint qt_meta_data_ThreadsManager[] = {
     QMetaType::Bool, QMetaType::Int,   19,
     QMetaType::Bool,
     QMetaType::Bool,
-
- // properties: name, type, flags
-      22, 0x80000000 | 23, 0x00495009,
-
- // properties: notify_signal_id
-       0,
 
        0        // eod
 };
@@ -209,14 +200,7 @@ void ThreadsManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
                 *result = 8;
             }
         }
-    } else if (_c == QMetaObject::RegisterPropertyMetaType) {
-        switch (_id) {
-        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 0:
-            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< PreCheckThread* >(); break;
-        }
     }
-
 }
 
 const QMetaObject ThreadsManager::staticMetaObject = {
@@ -252,33 +236,6 @@ int ThreadsManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 15;
     }
-#ifndef QT_NO_PROPERTIES
-      else if (_c == QMetaObject::ReadProperty) {
-        void *_v = _a[0];
-        switch (_id) {
-        case 0: *reinterpret_cast< PreCheckThread**>(_v) = runningThread(); break;
-        }
-        _id -= 1;
-    } else if (_c == QMetaObject::WriteProperty) {
-        _id -= 1;
-    } else if (_c == QMetaObject::ResetProperty) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 1;
-    } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 1;
-    } else if (_c == QMetaObject::RegisterPropertyMetaType) {
-        if (_id < 1)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
-    }
-#endif // QT_NO_PROPERTIES
     return _id;
 }
 

@@ -2,7 +2,7 @@
 #define THREADSMANAGER_H
 #include <QThread>
 #include <QObject>
-#include "PreCheckThread.h"
+#include <QtCore>
 
 /*!
  \brief
@@ -12,7 +12,7 @@
 class ThreadsManager: public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(PreCheckThread* runningThread READ runningThread NOTIFY runningThreadChanged)
+    //Q_PROPERTY(PreCheckThread* runningThread READ runningThread NOTIFY runningThreadChanged)
 public:
     /*!
      \brief
@@ -33,7 +33,7 @@ public:
      \fn runningThread
      \return PreCheckThread
     */
-    PreCheckThread* runningThread() const { return m_runningThread; }
+    //PreCheckThread* runningThread() const { return m_runningThread; }
 
 public slots:
     /*!
@@ -146,7 +146,7 @@ private:
      \return bool
     */
     bool connectRunningThread();
-    PreCheckThread* m_runningThread; /*!< TODO */
+//    PreCheckThread* m_runningThread; /*!< TODO */
     static ThreadsManager *_instance; /*!< TODO */
 };
 
