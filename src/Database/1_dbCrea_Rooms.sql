@@ -1,0 +1,30 @@
+CONNECT 'localhost:/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/Database/PreCheckDB.fdb' USER 'SYSDBA' PASSWORD 'masterkey';
+
+COMMIT;
+
+CREATE TABLE ROOMS
+(
+ID INTEGER NOT NULL,
+ROOMTYPE_ID INTEGER NOT NULL,
+NUMBER SMALLINT NOT NULL,
+FLOOR SMALLINT NOT NULL,
+ISCLEANED BOOLEAN DEFAULT '1' NOT NULL,
+CONSTRAINT PK_ROOMS_ID PRIMARY KEY (ID),
+CONSTRAINT UQ_ROOMS_NUMBER UNIQUE (NUMBER)
+);
+
+CREATE SEQUENCE SEQ_ROOMS_ID;
+
+ SET TERM !! ;
+ CREATE TRIGGER TR_ROOMS_AUTOID for ROOMS
+ active before insert position 0
+ as
+ begin
+ if ((new.ID is null) or (new.ID = 0)) then
+ begin
+ new.id = gen_id(SEQ_ROOMS_ID,1);
+ end
+ end!!
+ SET TERM ; !!
+
+ COMMIT;
