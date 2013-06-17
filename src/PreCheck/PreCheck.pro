@@ -60,7 +60,6 @@ HEADERS += \
     models/database_manager.h \
     models/sql_data_field.h \
     models/SqlDataModel.h \
-    ThreadsManager.h \
     views/qquickaction.h \
     models/RestrictiveApplication.h \
     logic/genericstate.h \
@@ -102,7 +101,6 @@ SOURCES += \
     views/message_manager.cpp \
     models/sql_data_field.cpp \
     models/SqlDataModel.cpp \
-    ThreadsManager.cpp \
     views/qquickaction.cpp \
     models/RestrictiveApplication.cpp \
     logic/genericstate.cpp \

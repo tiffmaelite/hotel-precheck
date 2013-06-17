@@ -10,23 +10,26 @@ Item {
     signal reload()
     signal checkUsername(string name)
     signal logIn(string login, string password)
-    signal logged
+    signal loggedIn
 
-    function userLoggedIn() {
-        errorLabel.visible=false;
-        errorLabel.text="";
-        App.currentMode = AppMode.ACCUEIL;
-        connexionPage.logged();
-    }
-    function badPassword() {
-        errorLabel.text=qsTr("Le mot de passe entré est incorrect");
-        errorLabel.visible = true;
+    onCheckUsername: {
+        if(!App.userExists(name)) {
+            errorLabel.text=qsTr("Cet utilisateur n'existe pas");
+            errorLabel.visible = true;
+            login.textColor="darkred";
+        }
     }
 
-    function userNotFound() {
-        errorLabel.text=qsTr("Cet utilisateur n'existe pas");
-        errorLabel.visible = true;
-        login.textColor="darkred";
+    onLogIn: {
+        if(App.setUser(login, password)) {
+            errorLabel.visible=false;
+            errorLabel.text="";
+            App.currentMode = AppMode.ACCUEIL;
+            connexionPage.loggedIn();
+        } else {
+            errorLabel.text=qsTr("Le mot de passe entré est incorrect");
+            errorLabel.visible = true;
+        }
     }
 
     GridLayout {

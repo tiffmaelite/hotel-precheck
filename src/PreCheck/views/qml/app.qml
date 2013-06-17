@@ -9,8 +9,8 @@ import PreCheck 1.0
 ApplicationWindow {
     id: window
     visibility: Window.Windowed
-    maximumHeight: 600
-    maximumWidth: 800
+    //maximumHeight: 600
+    //maximumWidth: 800
     height: maximumHeight
     width: maximumWidth
     title: "Réception"
@@ -78,14 +78,14 @@ ApplicationWindow {
         onClicked : {
             stack.cycle(commonPage);
         }
-        onUnlogged: {
+        onLoggedOut: {
             stack.cycle(connexionPage);
         }
     }
     ConnexionPage {
         id: connexionPage
         objectName: "Connexion"
-        onLogged: {
+        onLoggedIn: {
             stack.cycle(welcomePage);
         }
     }

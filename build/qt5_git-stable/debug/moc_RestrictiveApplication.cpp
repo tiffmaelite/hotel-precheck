@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_RestrictiveApplication_t {
-    QByteArrayData data[27];
-    char stringdata[287];
+    QByteArrayData data[39];
+    char stringdata[462];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,33 +35,50 @@ QT_MOC_LITERAL(2, 35, 0),
 QT_MOC_LITERAL(3, 36, 4),
 QT_MOC_LITERAL(4, 41, 11),
 QT_MOC_LITERAL(5, 53, 4),
-QT_MOC_LITERAL(6, 58, 9),
-QT_MOC_LITERAL(7, 68, 12),
-QT_MOC_LITERAL(8, 81, 12),
-QT_MOC_LITERAL(9, 94, 13),
-QT_MOC_LITERAL(10, 108, 11),
-QT_MOC_LITERAL(11, 120, 17),
-QT_MOC_LITERAL(12, 138, 10),
-QT_MOC_LITERAL(13, 149, 5),
-QT_MOC_LITERAL(14, 155, 7),
-QT_MOC_LITERAL(15, 163, 4),
-QT_MOC_LITERAL(16, 168, 10),
-QT_MOC_LITERAL(17, 179, 11),
-QT_MOC_LITERAL(18, 191, 5),
-QT_MOC_LITERAL(19, 197, 11),
-QT_MOC_LITERAL(20, 209, 7),
-QT_MOC_LITERAL(21, 217, 9),
-QT_MOC_LITERAL(22, 227, 7),
-QT_MOC_LITERAL(23, 235, 9),
-QT_MOC_LITERAL(24, 245, 12),
-QT_MOC_LITERAL(25, 258, 12),
-QT_MOC_LITERAL(26, 271, 14)
+QT_MOC_LITERAL(6, 58, 17),
+QT_MOC_LITERAL(7, 76, 8),
+QT_MOC_LITERAL(8, 85, 4),
+QT_MOC_LITERAL(9, 90, 15),
+QT_MOC_LITERAL(10, 106, 7),
+QT_MOC_LITERAL(11, 114, 6),
+QT_MOC_LITERAL(12, 121, 17),
+QT_MOC_LITERAL(13, 139, 10),
+QT_MOC_LITERAL(14, 150, 5),
+QT_MOC_LITERAL(15, 156, 7),
+QT_MOC_LITERAL(16, 164, 4),
+QT_MOC_LITERAL(17, 169, 10),
+QT_MOC_LITERAL(18, 180, 20),
+QT_MOC_LITERAL(19, 201, 16),
+QT_MOC_LITERAL(20, 218, 20),
+QT_MOC_LITERAL(21, 239, 19),
+QT_MOC_LITERAL(22, 259, 12),
+QT_MOC_LITERAL(23, 272, 2),
+QT_MOC_LITERAL(24, 275, 17),
+QT_MOC_LITERAL(25, 293, 19),
+QT_MOC_LITERAL(26, 313, 12),
+QT_MOC_LITERAL(27, 326, 9),
+QT_MOC_LITERAL(28, 336, 17),
+QT_MOC_LITERAL(29, 354, 11),
+QT_MOC_LITERAL(30, 366, 5),
+QT_MOC_LITERAL(31, 372, 11),
+QT_MOC_LITERAL(32, 384, 7),
+QT_MOC_LITERAL(33, 392, 9),
+QT_MOC_LITERAL(34, 402, 7),
+QT_MOC_LITERAL(35, 410, 9),
+QT_MOC_LITERAL(36, 420, 12),
+QT_MOC_LITERAL(37, 433, 12),
+QT_MOC_LITERAL(38, 446, 14)
     },
     "RestrictiveApplication\0userChanged\0\0"
-    "name\0modeChanged\0mode\0userFound\0"
-    "userNotFound\0userLoggedIn\0userLoggedOut\0"
-    "badPassword\0balanceLogRoutine\0userExists\0"
-    "login\0setUser\0pass\0userLogOut\0currentUser\0"
+    "name\0modeChanged\0mode\0currentFSMchanged\0"
+    "sendText\0text\0displayCalendar\0openTab\0"
+    "tabPos\0balanceLogRoutine\0userExists\0"
+    "login\0setUser\0pass\0userLogOut\0"
+    "launchBookingsThread\0launchBillThread\0"
+    "launchBillingsThread\0cancelRunningThread\0"
+    "receiveInput\0in\0receiveValidation\0"
+    "receiveConfirmation\0replaceInput\0"
+    "inputName\0cancelReplacement\0currentUser\0"
     "User*\0currentMode\0AppMode\0CONNEXION\0"
     "ACCUEIL\0RECEPTION\0MANAGEMENT_X\0"
     "MANAGEMENT_Z\0ADMINISTRATION\0"
@@ -74,61 +91,77 @@ static const uint qt_meta_data_RestrictiveApplication[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
-       2,   90, // properties
-       1,   98, // enums/sets
+      19,   14, // methods
+       2,  146, // properties
+       1,  154, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+       6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   69,    2, 0x05,
-       4,    1,   72,    2, 0x05,
-       6,    0,   75,    2, 0x05,
-       7,    0,   76,    2, 0x05,
-       8,    0,   77,    2, 0x05,
-       9,    0,   78,    2, 0x05,
-      10,    0,   79,    2, 0x05,
+       1,    1,  109,    2, 0x05,
+       4,    1,  112,    2, 0x05,
+       6,    0,  115,    2, 0x05,
+       7,    1,  116,    2, 0x05,
+       9,    0,  119,    2, 0x05,
+      10,    1,  120,    2, 0x05,
 
  // slots: name, argc, parameters, tag, flags
-      11,    0,   80,    2, 0x0a,
-      12,    1,   81,    2, 0x0a,
-      14,    2,   84,    2, 0x0a,
-      16,    0,   89,    2, 0x0a,
+      12,    0,  123,    2, 0x0a,
+      13,    1,  124,    2, 0x0a,
+      15,    2,  127,    2, 0x0a,
+      17,    0,  132,    2, 0x0a,
+      18,    0,  133,    2, 0x0a,
+      19,    0,  134,    2, 0x0a,
+      20,    0,  135,    2, 0x0a,
+      21,    0,  136,    2, 0x0a,
+      22,    1,  137,    2, 0x0a,
+      24,    0,  140,    2, 0x0a,
+      25,    0,  141,    2, 0x0a,
+      26,    1,  142,    2, 0x0a,
+      28,    0,  145,    2, 0x0a,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QVariant,    3,
     QMetaType::Void, QMetaType::QVariant,    5,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QVariant,    8,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QVariant,   11,
 
  // slots: parameters
     QMetaType::Bool,
-    QMetaType::Bool, QMetaType::QString,   13,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   13,   15,
+    QMetaType::Bool, QMetaType::QString,   14,
+    QMetaType::Bool, QMetaType::QString, QMetaType::QString,   14,   16,
     QMetaType::Bool,
+    QMetaType::Bool,
+    QMetaType::Bool,
+    QMetaType::Bool,
+    QMetaType::Bool,
+    QMetaType::Void, QMetaType::QString,   23,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   27,
+    QMetaType::Void,
 
  // properties: name, type, flags
-      17, 0x80000000 | 18, 0x00495009,
-      19, 0x80000000 | 20, 0x0049500b,
+      29, 0x80000000 | 30, 0x00495009,
+      31, 0x80000000 | 32, 0x0049500b,
 
  // properties: notify_signal_id
        0,
        1,
 
  // enums: name, flags, count, data
-      20, 0x0,    6,  102,
+      32, 0x0,    6,  158,
 
  // enum data: key, value
-      21, uint(RestrictiveApplication::CONNEXION),
-      22, uint(RestrictiveApplication::ACCUEIL),
-      23, uint(RestrictiveApplication::RECEPTION),
-      24, uint(RestrictiveApplication::MANAGEMENT_X),
-      25, uint(RestrictiveApplication::MANAGEMENT_Z),
-      26, uint(RestrictiveApplication::ADMINISTRATION),
+      33, uint(RestrictiveApplication::CONNEXION),
+      34, uint(RestrictiveApplication::ACCUEIL),
+      35, uint(RestrictiveApplication::RECEPTION),
+      36, uint(RestrictiveApplication::MANAGEMENT_X),
+      37, uint(RestrictiveApplication::MANAGEMENT_Z),
+      38, uint(RestrictiveApplication::ADMINISTRATION),
 
        0        // eod
 };
@@ -140,18 +173,31 @@ void RestrictiveApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _
         switch (_id) {
         case 0: _t->userChanged((*reinterpret_cast< QVariant(*)>(_a[1]))); break;
         case 1: _t->modeChanged((*reinterpret_cast< QVariant(*)>(_a[1]))); break;
-        case 2: _t->userFound(); break;
-        case 3: _t->userNotFound(); break;
-        case 4: _t->userLoggedIn(); break;
-        case 5: _t->userLoggedOut(); break;
-        case 6: _t->badPassword(); break;
-        case 7: { bool _r = _t->balanceLogRoutine();
+        case 2: _t->currentFSMchanged(); break;
+        case 3: _t->sendText((*reinterpret_cast< QVariant(*)>(_a[1]))); break;
+        case 4: _t->displayCalendar(); break;
+        case 5: _t->openTab((*reinterpret_cast< QVariant(*)>(_a[1]))); break;
+        case 6: { bool _r = _t->balanceLogRoutine();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 8: { bool _r = _t->userExists((*reinterpret_cast< QString(*)>(_a[1])));
+        case 7: { bool _r = _t->userExists((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 9: _t->setUser((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 10: { bool _r = _t->userLogOut();
+        case 8: { bool _r = _t->setUser((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 9: { bool _r = _t->userLogOut();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 10: { bool _r = _t->launchBookingsThread();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 11: { bool _r = _t->launchBillThread();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 12: { bool _r = _t->launchBillingsThread();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 13: { bool _r = _t->cancelRunningThread();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 14: _t->receiveInput((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 15: _t->receiveValidation(); break;
+        case 16: _t->receiveConfirmation(); break;
+        case 17: _t->replaceInput((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 18: _t->cancelReplacement(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -171,32 +217,26 @@ void RestrictiveApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _
         }
         {
             typedef void (RestrictiveApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::userFound)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::currentFSMchanged)) {
                 *result = 2;
             }
         }
         {
-            typedef void (RestrictiveApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::userNotFound)) {
+            typedef void (RestrictiveApplication::*_t)(QVariant );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::sendText)) {
                 *result = 3;
             }
         }
         {
             typedef void (RestrictiveApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::userLoggedIn)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::displayCalendar)) {
                 *result = 4;
             }
         }
         {
-            typedef void (RestrictiveApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::userLoggedOut)) {
+            typedef void (RestrictiveApplication::*_t)(QVariant );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::openTab)) {
                 *result = 5;
-            }
-        }
-        {
-            typedef void (RestrictiveApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RestrictiveApplication::badPassword)) {
-                *result = 6;
             }
         }
     } else if (_c == QMetaObject::RegisterPropertyMetaType) {
@@ -234,13 +274,13 @@ int RestrictiveApplication::qt_metacall(QMetaObject::Call _c, int _id, void **_a
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 19)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 19;
     }
 #ifndef QT_NO_PROPERTIES
       else if (_c == QMetaObject::ReadProperty) {
@@ -292,32 +332,28 @@ void RestrictiveApplication::modeChanged(QVariant _t1)
 }
 
 // SIGNAL 2
-void RestrictiveApplication::userFound()
+void RestrictiveApplication::currentFSMchanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, 0);
 }
 
 // SIGNAL 3
-void RestrictiveApplication::userNotFound()
+void RestrictiveApplication::sendText(QVariant _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 3, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 
 // SIGNAL 4
-void RestrictiveApplication::userLoggedIn()
+void RestrictiveApplication::displayCalendar()
 {
     QMetaObject::activate(this, &staticMetaObject, 4, 0);
 }
 
 // SIGNAL 5
-void RestrictiveApplication::userLoggedOut()
+void RestrictiveApplication::openTab(QVariant _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 5, 0);
-}
-
-// SIGNAL 6
-void RestrictiveApplication::badPassword()
-{
-    QMetaObject::activate(this, &staticMetaObject, 6, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 5, _a);
 }
 QT_END_MOC_NAMESPACE

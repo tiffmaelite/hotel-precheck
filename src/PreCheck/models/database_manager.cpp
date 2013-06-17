@@ -64,12 +64,11 @@ AppDatabase::AppDatabase()
     dbConnection = QSqlDatabase::addDatabase(dbDriverStr);
     if (dbDriverStr == "QIBASE")
     {
-        dbConnection.setDatabaseName(dbFilePathStr + dbFileNameStr);
-    }
-    else
-    {
+        dbConnection.setDatabaseName(dbFilePathStr);
+    } else {
         dbConnection.setDatabaseName(dbFileNameStr);
     }
+
     dbConnection.setUserName(dbUsernameStr);
     dbConnection.setPassword(dbPasswordStr);
     dbConnect();
@@ -77,67 +76,67 @@ AppDatabase::AppDatabase()
 }
 
 /*
- *connect to database
- */
+         *connect to database
+         */
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::dbConnect
- \return bool
-*/
+         \fn AppDatabase::dbConnect
+         \return bool
+        */
 bool AppDatabase::dbConnect()
 {
     /*
-    *Open database, if the database cannot open for
-    *any reason print a warning.
-    */
+            *Open database, if the database cannot open for
+            *any reason print a warning.
+            */
     if (!dbConnection.open())
     {
         /*
-         *Gui message that informs that the database cannot open
-         */
+                 *Gui message that informs that the database cannot open
+                 */
         MessageManager::errorMessage(dbCannotOpenStr);
         qDebug() << dbConnection.lastError();
 
         /*
-         *@return false if database connection failed.
-         */
+                 *@return false if database connection failed.
+                 */
         return false;
     }
 
     /*
-     *@return true if database connection successed
-     */
+             *@return true if database connection successed
+             */
     return dbConnection.isOpen();
 }
 
 /*
- *disconnects from a database
- */
+         *disconnects from a database
+         */
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::dbDisconnect
- \return bool
-*/
+         \fn AppDatabase::dbDisconnect
+         \return bool
+        */
 bool AppDatabase::dbDisconnect()
 {
     /*
-     *close database
-     */
+             *close database
+             */
     dbConnection.close();
     return (!dbConnection.isOpen());
 }
 
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::isConnected
- \return bool
-*/
+         \fn AppDatabase::isConnected
+         \return bool
+        */
 bool AppDatabase::isConnected()
 {
     return dbConnection.isOpen();
@@ -145,40 +144,39 @@ bool AppDatabase::isConnected()
 
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::getDbConnection
- \return QSqlDatabase
-*/
+         \fn AppDatabase::getDbConnection
+         \return QSqlDatabase
+        */
 QSqlDatabase AppDatabase::getDbConnection()
 {
     return dbConnection;
 }
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::tableExists
- \param tableName
- \return bool
-*/
+         \fn AppDatabase::tableExists
+         \param tableName
+         \return bool
+        */
 bool AppDatabase::tableExists(QString tableName)
 {
     return dbConnection.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) || dbConnection.tables(QSql::Tables).contains(tableName.toUpper(), Qt::CaseInsensitive);
 }
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::dataExists
- \param tableName
- \param filter
- \return int
-*/
+         \fn AppDatabase::dataExists
+         \param tableName
+         \param filter
+         \return int
+        */
 int AppDatabase::dataCount(QString tableName, QString filter) {
     if(!tableName.isEmpty() && !filter.isEmpty()) {
-        QString query = QString("SELECT COUNT(*) AS MATCH FROM %1 WHERE %2").arg(tableName).arg(filter);
-        QSqlQuery result = execSelectQuery(query);
+        QSqlQuery result = execSelectQuery(tableName, QStringList("COUNT(*) AS MATCH"), filter);
         if(dbConnection.driver()->hasFeature(QSqlDriver::QuerySize)) {
             return result.size();
         } else {
@@ -195,20 +193,19 @@ int AppDatabase::dataCount(QString tableName, QString filter) {
 
 
 /*!
- \brief
+         \brief
 
- \fn AppDatabase::execQuery
- \param query
- \return QSqlQuery
-*/
+         \fn AppDatabase::execQuery
+         \param query
+         \return QSqlQuery
+        */
 QSqlQuery AppDatabase::execSelectQuery(QString tableName, QStringList fields, QString condition, QString ordering) {
     if(fields.isEmpty()) {
         fields.append("*");
     }
     QString query;
-    switch(dbConnection.driverName() == "QIBASE") {
-    default:
-        query = QString("SELECT %1 FROM %2").arg(tableName).arg(fields.join(", "));
+    if(dbConnection.driverName() == "QIBASE") {
+        query = QString("SELECT %1 FROM %2").arg(fields.join(", ")).arg(tableName);
         if(!condition.isEmpty()) {
             query = QString("%1 WHERE %2").arg(query).arg(condition);
         }
@@ -216,23 +213,23 @@ QSqlQuery AppDatabase::execSelectQuery(QString tableName, QStringList fields, QS
             query = QString("%1 ORDER BY %2").arg(query).arg(ordering);
         }
     }
+    qDebug() << query;
     return dbConnection.exec(query);
 }
 
 
 /*!
- \brief
- \fn AppDatabase::execReplaceQuery TODO comment this
- \param query TODO comment this
- \return bool TODO comment this
-*/
+         \brief
+         \fn AppDatabase::execReplaceQuery TODO comment this
+         \param query TODO comment this
+         \return bool TODO comment this
+        */
 bool AppDatabase::execReplaceQuery(QString tableName, QVariantMap values) {
     QString fields;
     QString vals;
     divideQVariantMap(values, fields, vals);
     QString query;
-    switch(dbConnection.driverName() == "QIBASE") {
-    default:
+    if(dbConnection.driverName() == "QIBASE") {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     }
     QSqlQuery result = dbConnection.exec(query);
@@ -240,19 +237,18 @@ bool AppDatabase::execReplaceQuery(QString tableName, QVariantMap values) {
 }
 
 /*!
- \brief
- \fn AppDatabase::execInsertReturningQuery TODO comment this
- \param query TODO comment this
- \param returningField TODO comment this
- \return QVariant TODO comment this
-*/
+         \brief
+         \fn AppDatabase::execInsertReturningQuery TODO comment this
+         \param query TODO comment this
+         \param returningField TODO comment this
+         \return QVariant TODO comment this
+        */
 QVariant AppDatabase::execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField) {
     QString fields;
     QString vals;
     divideQVariantMap(values, fields, vals);
     QString query;
-    switch(dbConnection.driverName() == "QIBASE") {
-    default:
+    if(dbConnection.driverName() == "QIBASE") {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
     }
     QSqlQuery result = dbConnection.exec(query);
@@ -266,12 +262,12 @@ QVariant AppDatabase::execInsertReturningQuery(QString tableName, QVariantMap va
 }
 
 /*!
- \brief
- \fn divideQVariantMap TODO comment this
- \param values TODO comment this
- \param fields TODO comment this
- \param vals TODO comment this
-*/
+         \brief
+         \fn divideQVariantMap TODO comment this
+         \param values TODO comment this
+         \param fields TODO comment this
+         \param vals TODO comment this
+        */
 void AppDatabase::divideQVariantMap(QVariantMap values, QString& fields, QString& vals) {
     for(auto field : values.keys())
     {
@@ -287,9 +283,9 @@ void AppDatabase::divideQVariantMap(QVariantMap values, QString& fields, QString
             vals += QString::number(dbVal)+",";
         }
         /*bool boolVal = val.toBool();
-        if(boolVal) {
-            &vals += "'"+1+"'',";
-        }*/
+                if(boolVal) {
+                    &vals += "'"+1+"'',";
+                }*/
         QDate dateVal = val.toDate();
         if(dateVal.isValid()) {
             vals += "'"+dateVal.toString()+"'',"; //FIXME adapt date format

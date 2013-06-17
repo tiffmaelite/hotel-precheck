@@ -10,16 +10,21 @@
  * declare DB driver and filename.
  */
 static const QString dbDriverStr = "QIBASE"; /*!< TODO */
-static const QString dbFilePathStr = QDir::cleanPath(QDir::currentPath()+"/../../Database/"); /*!< TODO */
 static const QString dbFileNameStr = "PreCheckDB.fdb"; /*!< TODO */
+static const QString dbAliasNameStr = "precheck-hotel"; /*!< TODO */
 static const QString dbUsernameStr = "SYSDBA"; /*!< TODO */
 static const QString dbPasswordStr = "masterkey"; /*!< TODO */
+
+
+static const QString dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+"/../../../src/Database/"); /*!< TODO */
+static const QString dbFilePathStr = QString("%1/%2").arg(dbFolderPathStr).arg(dbFileNameStr); /*!< TODO */
+
 
 /*
  * GUI string messages.
  */
 static QString dbDriverNotExistStr = QObject::tr("%1 database driver is not available.").arg(dbDriverStr); /*!< TODO */
-static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr + dbFileNameStr); /*!< TODO */
+static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr); /*!< TODO */
 
 
 

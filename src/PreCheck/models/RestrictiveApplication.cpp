@@ -1,6 +1,9 @@
 #include "RestrictiveApplication.h"
 #include <QDebug>
 #include "models/database_manager.h"
+#include "logic/servicecharging.h"
+#include "logic/billingcreation.h"
+
 
 /*!
  \brief
@@ -77,9 +80,7 @@ User *RestrictiveApplication::user() const
 bool RestrictiveApplication::userLogOut()
 {
     this->m_currentUser = new User();
-    if(!this->m_currentUser->isValid()) {
-        emit userLoggedOut();
-    }
+    return !this->m_currentUser->isValid();
 }
 
 /*!
@@ -88,16 +89,16 @@ bool RestrictiveApplication::userLogOut()
  \fn RestrictiveApplication::setUser
  \param login
  \param pass
+ \return bool
 */
-void RestrictiveApplication::setUser(QString login, QString pass)
+bool RestrictiveApplication::setUser(QString login, QString pass)
 {
     this->m_currentUser = User::logIn(login,pass);
-    if(!this->m_currentUser->isValid()) {
-        emit badPassword();
-    } else {
-        emit userLoggedIn();
+    if(this->m_currentUser->isValid()) {
         emit userChanged(QVariant(this->m_currentUser->name()));
+        return true;
     }
+    return false;
 }
 
 
@@ -110,13 +111,7 @@ void RestrictiveApplication::setUser(QString login, QString pass)
 */
 bool RestrictiveApplication::userExists(QString login)
 {
-    bool ok = User::exists(login).toBool();
-    if(ok) {
-        emit userFound();
-    } else {
-        emit userNotFound();
-    }
-    return ok;
+    return User::exists(login).toBool();
 }
 
 
@@ -126,9 +121,155 @@ bool RestrictiveApplication::userExists(QString login)
  \return bool TODO comment this
 */
 bool RestrictiveApplication::balanceLogRoutine() {
-    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
+    /*AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
     AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");
     AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");
     AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");
-    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");
+    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/
+}
+
+
+/*!
+ \brief
+ \fn RestrictiveApplication::receiveInput TODO comment this
+ \param in TODO comment this
+*/
+void RestrictiveApplication::receiveInput(QString in)
+{
+    if(this->m_currentFSM != NULL) {
+        emit this->m_currentFSM->receiveInput(in);
+    }
+}
+
+/*!
+ \brief
+ \fn RestrictiveApplication::receiveValidation TODO comment this
+*/
+void RestrictiveApplication::receiveValidation()
+{
+    if(this->m_currentFSM != NULL) {
+        emit this->m_currentFSM->validateInput();
+    }
+}
+
+/*!
+ \brief
+ \fn RestrictiveApplication::receiveConfirmation TODO comment this
+*/
+void RestrictiveApplication::receiveConfirmation()
+{
+    if(this->m_currentFSM != NULL) {
+        emit this->m_currentFSM->confirmInput();
+    }
+}
+
+/*!
+ \brief
+ \fn RestrictiveApplication::replaceInput TODO comment this
+ \param inputName TODO comment this
+*/
+void RestrictiveApplication::replaceInput(QString inputName)
+{
+    if(this->m_currentFSM != NULL) {
+        emit this->m_currentFSM->replaceInput(inputName);
+    }
+}
+
+/*!
+ \brief
+ \fn RestrictiveApplication::cancelReplacement TODO comment this
+*/
+void RestrictiveApplication::cancelReplacement()
+{
+    if(this->m_currentFSM != NULL) {
+        emit this->m_currentFSM->cancelReplacement();
+    }
+}
+
+
+/*!
+ \brief
+
+ \fn RestrictiveApplication::launchBillingsThread
+ \return bool
+*/
+bool RestrictiveApplication::launchBillingsThread()
+{
+    if(this->m_currentFSM != NULL) {
+        return false;
+    }
+    qDebug() << "Hallo !";
+    this->m_currentFSM= new BillingCreationStateMachine("création facturation");
+    this->m_currentFSM->start();
+    qDebug() << this->m_currentFSM->toString() << " " << this->m_currentFSM->initialState();
+    return this->connectRunningThread();
+
+}
+
+/*!
+ \brief
+
+ \fn RestrictiveApplication::launchBookingsThread
+ \return bool
+*/
+bool RestrictiveApplication::launchBookingsThread()
+{
+    if(this->m_currentFSM != NULL) {
+        return false;
+    }
+    //this->m_currentFSM= new BookingCreationStateMachine("création facturation");
+    //this->m_currentFSM->start();
+    return this->connectRunningThread();
+}
+
+/*!
+ \brief
+
+ \fn RestrictiveApplication::launchBillThread
+ \return bool
+*/
+bool RestrictiveApplication::launchBillThread()
+{
+    if(this->m_currentFSM != NULL) {
+        return false;
+    }
+    this->m_currentFSM= new ServiceCharging("facturation prestation");
+    this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->id()), "BILL_ID");
+    this->m_currentFSM->start();
+    return this->connectRunningThread();
+}
+
+/*!
+ \brief
+
+ \fn RestrictiveApplication::cancelRunningThread
+ \return bool
+*/
+bool RestrictiveApplication::cancelRunningThread()
+{
+    if(this->m_currentFSM == NULL) {
+        return true;
+    }
+    this->m_currentFSM->stop();
+    bool ok = !this->m_currentFSM->isRunning();
+    this->m_currentFSM = NULL;
+    return ok;
+}
+
+
+/*!
+ \brief
+
+ \fn RestrictiveApplication::connectRunningThread
+ \return bool
+*/
+bool RestrictiveApplication::connectRunningThread()
+{
+    if(this->m_currentFSM == NULL) {
+        return false;
+    }
+    qDebug() << "coucou";
+    QObject::connect(this->m_currentFSM, &IOStateMachine::sendText, this, &RestrictiveApplication::sendText, Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, &IOStateMachine::displayCalendar, this, &RestrictiveApplication::displayCalendar, Qt::DirectConnection);
+    return this->m_currentFSM->isRunning();
 }

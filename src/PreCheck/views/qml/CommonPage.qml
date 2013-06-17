@@ -46,10 +46,26 @@ Item {
     onReload: {
         tabs.reload();
     }
-
+    onSelected: {
+        App.receiveInput(selectedItem);
+    }
     onCancelProcess: {
+        App.cancelRunningThread();
         console.log("processus interrompu");
     }
+    onValidate: {
+        App.receiveValidation();
+    }
+    onConfirm: {
+        App.receiveConfirmation();
+    }
+    onReplace: {
+        App.replaceInput(field);
+    }
+    onCancelReplace: {
+        App.cancelReplacement();
+    }
+
     onKeySelected: {
         commonPage.streamBuffer.buffer(selectedKey);
     }
@@ -146,7 +162,7 @@ Item {
         id: replaceAction
         text: qsTr("VENDRE")
         keyShortcut: Qt.Key_unknown
-        onTriggered: tabs.newSelling(App.currentUser.id)
+        onTriggered: tabs.newSelling()
     }
     ComplexAction {
         id: backAction

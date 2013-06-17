@@ -13,13 +13,22 @@ TabView {
     property var stdKeyboard: []
     signal reload()
     signal newBilling()
-    signal newSelling(int userId)
+    signal newSelling()
     signal newBooking()
-    signal otherService()
-    signal otherServiceNoName()
     function openTab(tabIndex) {
         tabView.currentIndex = tabIndex;
     }
+    onNewBilling: {
+        App.launchBillingsThread();
+    }
+    onNewBooking: {
+        App.launchBookingsThread();
+    }
+    onNewSelling: {
+        App.launchBillThread();
+    }
+
+
     style: TabViewStyle {
         id:style
         frame: Rectangle {
@@ -98,16 +107,16 @@ TabView {
                             text: qsTr("Autre");
                             value: "0"
                             onClicked: {
-                                tabView.otherServiceNoName();
+                                tabView.selected(value);
                             }
                         }
                         DataDelegate {
                             Layout.minimumHeight: childrenRect.height
                             Layout.minimumWidth: childrenRect.width
                             text: qsTr("Autre...");
-                            value: "0"
+                            value: "-1"
                             onClicked: {
-                                tabView.otherService();
+                                tabView.selected(value);
                             }
                         }
                     }

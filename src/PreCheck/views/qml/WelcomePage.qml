@@ -8,12 +8,14 @@ import PreCheck 1.0
 Item {
     id: welcomePage
     signal logOut()
-    signal unlogged()
+    signal loggedOut()
     signal quit()
     signal clicked()
     signal reload()
-    function userLoggedOut() {
-        welcomePage.unlogged();
+    onLogOut: {
+        if(App.userLogOut()) {
+            welcomePage.loggedOut();
+        }
     }
     onReload: {
         buttons.anchors.centerIn = welcomePage;

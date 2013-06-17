@@ -22,6 +22,11 @@ GridLayout {
             Layout.minimumWidth: (layout.columns > 0) ? Math.floor(layout.width / layout.columns) - layout.columnSpacing : Math.floor((layout.width * layout.rows) / repeater.count) - layout.columnSpacing
             Layout.fillHeight: true
             Layout.fillWidth: true
+            text: actionsList[index].text
+            tooltip: actionsList[index].tooltip
+            iconName: actionsList[index].iconName
+            iconSource: actionsList[index].iconSource
+            checkable: false
             action: Action {
                 id: act
                 text: actionsList[index].text

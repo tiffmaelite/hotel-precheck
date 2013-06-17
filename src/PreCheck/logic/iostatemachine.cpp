@@ -16,6 +16,7 @@
 IOStateMachine::IOStateMachine(QString tableName, QString name, QObject *parent) :
     QStateMachine(parent), NamedObject(name), m_tableName(tableName)
 {
+    qDebug() << "nouvelle IOStateMachine";
 }
 
 /*!

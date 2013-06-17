@@ -15,7 +15,6 @@
 #include "models/user.h"
 #include "models/RestrictiveApplication.h"
 #include "views/qquickaction.h"
-#include "ThreadsManager.h"
 
 /*!
  \brief
@@ -80,34 +79,14 @@ int main(int argc, char *argv[])
         }
         QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
 
-        QObject * connexionPage = window->findChild<QObject *>("Connexion");
-        QObject * welcomePage = window->findChild<QObject *>("Welcome");
+
         QObject * commonPage = window->findChild<QObject *>("Common");
         QObject * tabsZone = commonPage->findChild<QObject *>("TabView");
         QObject * displayZone = commonPage->findChild<QObject *>("RightOutput");
 
-        ThreadsManager* threadManager = ThreadsManager::getInstance();
-        QObject::connect(appManager, SIGNAL(userLoggedIn()), connexionPage, SLOT(userLoggedIn()), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(badPassword()), connexionPage, SLOT(badPassword()), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(userNotFound()), connexionPage, SLOT(userNotFound()), Qt::DirectConnection);
-        QObject::connect(connexionPage, SIGNAL(checkUsername(QString)), appManager, SLOT(userExists(QString)), Qt::DirectConnection);
-        QObject::connect(connexionPage, SIGNAL(logIn(QString,QString)), appManager, SLOT(setUser(QString,QString)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(userLoggedOut()), welcomePage, SLOT(userLoggedOut()), Qt::DirectConnection);
-        QObject::connect(welcomePage, SIGNAL(logOut()), appManager, SLOT(userLogOut()), Qt::DirectConnection);
-        QObject::connect(commonPage, SIGNAL(selected(QString)), threadManager, SIGNAL(sendInput(QString)), Qt::QueuedConnection);
-        QObject::connect(commonPage, SIGNAL(cancelProcess()), threadManager, SLOT(cancelRunningThread()), Qt::QueuedConnection);
-        QObject::connect(commonPage, SIGNAL(validate()), threadManager, SIGNAL(validateInput()), Qt::DirectConnection);
-        QObject::connect(commonPage, SIGNAL(confirm()), threadManager, SIGNAL(confirmInput()), Qt::DirectConnection);
-        QObject::connect(commonPage, SIGNAL(replace(QString)), threadManager, SIGNAL(replaceInput(QString)), Qt::DirectConnection);
-        QObject::connect(commonPage, SIGNAL(cancelReplace()), threadManager, SIGNAL(cancelReplacement()), Qt::DirectConnection);
-        QObject::connect(threadManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
-        QObject::connect(tabsZone, SIGNAL(newBilling()), threadManager, SLOT(launchBillingsThread()), Qt::DirectConnection);
-        QObject::connect(tabsZone, SIGNAL(newBooking()), threadManager, SLOT(launchBookingsThread()), Qt::DirectConnection);
-        QObject::connect(tabsZone, SIGNAL(newSelling(int)), threadManager, SLOT(launchBillThread(int)), Qt::DirectConnection);
-        QObject::connect(tabsZone, SIGNAL(otherService()), threadManager, SLOT(customService()), Qt::DirectConnection);
-        QObject::connect(tabsZone, SIGNAL(otherServiceNoName()), threadManager, SLOT(customServiceWithoutName()), Qt::DirectConnection);
-        QObject::connect(threadManager, SIGNAL(sendText(QVariant)), displayZone, SLOT(displayText(QVariant)), Qt::QueuedConnection);
-        QObject::connect(threadManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
+        QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QVariant)), displayZone, SLOT(displayText(QVariant)), Qt::QueuedConnection);
+        QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
 
         window->show();
 

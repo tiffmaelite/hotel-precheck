@@ -11,6 +11,8 @@
 BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *parent) :
     IOStateMachine("BILLINGS",name, parent)
 {
+    qDebug() << "facturation";
+
     StatementState* intro = new StatementState("Création d'une facturation", "intro billing creation");
     NumericQuestionState* nbAdults = new NumericQuestionState("Veuillez entrer le nombre d'adultes","adults billing creation", 0);
     NumericQuestionState* nbChildren = new NumericQuestionState("Veuillez entrer le nombre d'enfants", "children billing creation", 0);
