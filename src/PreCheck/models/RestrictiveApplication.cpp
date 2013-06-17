@@ -136,7 +136,7 @@ bool RestrictiveApplication::balanceLogRoutine() {
 */
 void RestrictiveApplication::receiveInput(QString in)
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         emit this->m_currentFSM->receiveInput(in);
     }
 }
@@ -147,7 +147,7 @@ void RestrictiveApplication::receiveInput(QString in)
 */
 void RestrictiveApplication::receiveValidation()
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         emit this->m_currentFSM->validateInput();
     }
 }
@@ -158,7 +158,7 @@ void RestrictiveApplication::receiveValidation()
 */
 void RestrictiveApplication::receiveConfirmation()
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         emit this->m_currentFSM->confirmInput();
     }
 }
@@ -170,7 +170,7 @@ void RestrictiveApplication::receiveConfirmation()
 */
 void RestrictiveApplication::replaceInput(QString inputName)
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         emit this->m_currentFSM->replaceInput(inputName);
     }
 }
@@ -181,7 +181,7 @@ void RestrictiveApplication::replaceInput(QString inputName)
 */
 void RestrictiveApplication::cancelReplacement()
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         emit this->m_currentFSM->cancelReplacement();
     }
 }
@@ -195,9 +195,10 @@ void RestrictiveApplication::cancelReplacement()
 */
 bool RestrictiveApplication::launchBillingsThread()
 {
-    if(this->m_currentFSM != NULL) {
+    qDebug() << "Hallo !";
+    /*if(this->m_currentFSM) {
         return false;
-    }
+    }*/
     qDebug() << "Hallo !";
     this->m_currentFSM= new BillingCreationStateMachine("création facturation");
     this->m_currentFSM->start();
@@ -214,7 +215,7 @@ bool RestrictiveApplication::launchBillingsThread()
 */
 bool RestrictiveApplication::launchBookingsThread()
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         return false;
     }
     //this->m_currentFSM= new BookingCreationStateMachine("création facturation");
@@ -230,7 +231,7 @@ bool RestrictiveApplication::launchBookingsThread()
 */
 bool RestrictiveApplication::launchBillThread()
 {
-    if(this->m_currentFSM != NULL) {
+    if(this->m_currentFSM) {
         return false;
     }
     this->m_currentFSM= new ServiceCharging("facturation prestation");
@@ -247,7 +248,7 @@ bool RestrictiveApplication::launchBillThread()
 */
 bool RestrictiveApplication::cancelRunningThread()
 {
-    if(this->m_currentFSM == NULL) {
+    if(!this->m_currentFSM) {
         return true;
     }
     this->m_currentFSM->stop();
@@ -265,7 +266,7 @@ bool RestrictiveApplication::cancelRunningThread()
 */
 bool RestrictiveApplication::connectRunningThread()
 {
-    if(this->m_currentFSM == NULL) {
+    if(!this->m_currentFSM) {
         return false;
     }
     qDebug() << "coucou";

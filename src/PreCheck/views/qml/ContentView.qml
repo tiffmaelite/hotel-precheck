@@ -55,7 +55,7 @@ GridLayout {
     Repeater {
         id: repeater
         property bool sectioning: (sectionIndex != 0)
-        property int sectionIndex : repeater.model.sortKeyColumn
+        property int sectionIndex : repeater.model===0 ? 0: repeater.model.sortKeyColumn
         /*property int currentIndex: 0
         property int currentSectionSize: 0
         property int previousSectionSize: 0

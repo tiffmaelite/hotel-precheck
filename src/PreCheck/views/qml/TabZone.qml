@@ -9,7 +9,7 @@ TabView {
     id: tabView
     currentIndex: 0
     signal selected(string selectedItem)
-    signal selectedForDetail(string selectedTable, int selectedRow)
+    signal selectedForDetail(var data)
     property var stdKeyboard: []
     signal reload()
     signal newBilling()
@@ -19,6 +19,7 @@ TabView {
         tabView.currentIndex = tabIndex;
     }
     onNewBilling: {
+        console.log("launch new billings thread ?");
         App.launchBillingsThread();
     }
     onNewBooking: {

@@ -60,23 +60,6 @@ public:
     void setMode(AppMode mode);
 
 
-signals:
-    /*!
-     \brief
-
-     \fn userChanged
-     \param name
-    */
-    void userChanged(QVariant name);
-    /*!
-     \brief
-
-     \fn modeChanged
-     \param mode
-    */
-    void modeChanged(QVariant mode);
-
-
 public slots:
     /*!
          \brief
@@ -129,7 +112,7 @@ public slots:
      \fn launchBillingsThread
      \return bool
     */
-    bool launchBillingsThread();
+    Q_INVOKABLE bool launchBillingsThread();
     /*!
      \brief
 
@@ -175,6 +158,21 @@ signals:
     /*!
      \brief
 
+     \fn userChanged
+     \param name
+    */
+    void userChanged(QVariant name);
+    /*!
+     \brief
+
+     \fn modeChanged
+     \param mode
+    */
+    void modeChanged(QVariant mode);
+
+    /*!
+     \brief
+
      \fn currentFSMchanged
     */
     void currentFSMchanged();
@@ -184,7 +182,7 @@ signals:
      \fn sendText
      \param text
     */
-    void sendText(QVariant text);
+    void sendText(QString text);
     /*!
      \brief
 

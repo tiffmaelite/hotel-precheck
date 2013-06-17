@@ -103,7 +103,7 @@ signals: //messagers à envoyer ou transmettre
      \param text
      \param editable
     */
-    void sendText(QVariant text, bool editable=false);
+    void sendText(QString text, bool editable=false);
     /*!
      \brief
 

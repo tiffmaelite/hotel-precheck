@@ -46,12 +46,7 @@ public:
     */
     virtual QString output() const;
     /*!
-     \brief
 
-     \fn onEntry
-     \param event
-    */
-    void onEntry(QEvent *event);
     /*!
      \brief
 
@@ -66,6 +61,14 @@ public:
      \return bool TODO comment this
     */
     bool visibility();
+
+    /*!
+     \brief
+     \fn display TODO comment this
+     \param canDisplay TODO comment this
+    */
+    void display(bool canDisplay);
+
 signals:
     /*!
      \brief
@@ -110,6 +113,7 @@ private:
     QVariant m_input; /*!< TODO */
     QString m_output; /*!< TODO */
     bool m_isVisible; /*!< TODO */
+    bool m_display;
 };
 
 #endif // IOSTATE_H

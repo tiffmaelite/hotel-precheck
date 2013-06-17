@@ -59,19 +59,6 @@ QString IOState::output() const
     return m_output;
 }
 
-/*!
- \brief
-
- \fn IOState::onEntry
- \param event
-*/
-void IOState::onEntry(QEvent *event)
-{
-    GenericState::onEntry(event);
-    if(!m_output.isEmpty() && m_isVisible) {
-        emit sendOutput(QVariant(m_output));
-    }
-}
 
 /*!
  \brief
@@ -104,6 +91,15 @@ void IOState::setVisibility(bool isVisible)
 */
 bool IOState::visibility() {
     return m_isVisible;
+}
+
+void IOState::display(bool canDisplay)
+{
+    m_display=canDisplay;
+    if(m_display && !m_output.isEmpty() && m_isVisible) {
+        qDebug() << "resalut !" << QVariant(m_output);
+        emit sendOutput(QVariant(m_output));
+    }
 }
 
 /*!

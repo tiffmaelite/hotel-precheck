@@ -46,13 +46,13 @@ QVariant SqlDataModel::data(const QModelIndex &index, int role) const
         int column = this->fieldFromRole(role);
         int nbCols = this->mRoles.count();
         if(column >= 0 && column < nbCols) {
-            //MessageManager::infoMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n").arg(index.row()).arg(index.column()).arg(column).arg(QString(this->mDataFields.at(column)->role())).arg(this->mRecords.at(row).value(column).toString()));
+            MessageManager::infoMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n").arg(index.row()).arg(index.column()).arg(column).arg(QString(this->mDataFields.at(column)->role())).arg(this->mRecords.at(row).value(column).toString()));
             return this->mRecords.at(row).value(column);
         } else{
-            //MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)").arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));
+            MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)").arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));
         }
     }
-    //MessageManager::errorMessage("modèle vide");
+    MessageManager::errorMessage("modèle vide");
     return QVariant();
 }
 

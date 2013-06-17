@@ -11,7 +11,7 @@
 StatementState::StatementState(QString output, QString name, QState *parent) :
     IOState(output, name, parent)
 {
-
+    qDebug() << "salut ! "<< output;
 }
 
 /*!
@@ -34,6 +34,7 @@ void StatementState::setInput(const QVariant &input)
 */
 void StatementState::onEntry(QEvent *event)
 {
-    IOState::onEntry(event);
+    GenericState::onEntry(event);
+    display(true);
     emit next();
 }

@@ -10,5 +10,7 @@ AddressCreation::AddressCreation(QString name, QObject *parent) :
     IOStateMachine("ADDRESSES",name, parent)
 {
 //TODO: rue, numéro, code postal, ville, pays, destinataire
-
+emit next();
 }
+
+

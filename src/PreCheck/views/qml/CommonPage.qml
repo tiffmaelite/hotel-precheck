@@ -102,7 +102,7 @@ Item {
                 commonPage.keySelected(selectedItem);
             }
             onSelectedForDetail: {
-                rightOutput.displaySqlDetail(selectedTable, selectedRow);
+                rightOutput.displaySqlDetail(data);
             }
         }
         //la partie inférieure du panel de gauche contient le clavier

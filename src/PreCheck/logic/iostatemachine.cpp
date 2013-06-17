@@ -116,9 +116,17 @@ void IOStateMachine::addIOState(IOState *state, QString field)
 {
     //à faire au moment de l'entrée dans l'état state
     connect(state, &QState::entered, [=]() {
+        qDebug() << "entered !";
+        state->display(true);
         connect(this, &IOStateMachine::receiveInput, state, &IOState::setInput); // la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état
-        connect(state, &IOState::sendOutput, [=](QVariant out) {this->sendText(out, false);});
-        connect(state, &IOState::resendInput, [=](QVariant in) {this->sendText(in, true);});
+        connect(state, &IOState::sendOutput, [=](QVariant out) {qDebug() << "connected !"; emit this->sendText(out.toString(), false);});
+        connect(state, &IOState::resendInput, [=](QVariant in) {emit this->sendText(in.toString(), true);});
+        if(state->visibility()) {
+            state->sendOutput(QVariant(state->output()));
+            this->sendText(state->output(), false);
+        } else {
+            qDebug() << "invisible";
+        }
     });
     ValidationState *validationState = qobject_cast<ValidationState*>(state);
     if(validationState) {
@@ -146,6 +154,7 @@ void IOStateMachine::addIOState(IOState *state, QString field)
     }
     //à faire au moment de la sortie de l'état state
     connect(state, &QState::exited, [=]() {
+        qDebug() << "exited !";
         if(!field.isEmpty()) {
             setContentValue(state->rawInput(), field);
             //gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir quitté

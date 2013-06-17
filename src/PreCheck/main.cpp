@@ -85,8 +85,8 @@ int main(int argc, char *argv[])
         QObject * displayZone = commonPage->findChild<QObject *>("RightOutput");
 
         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(sendText(QVariant)), displayZone, SLOT(displayText(QVariant)), Qt::QueuedConnection);
-        QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayNewFixed(QString)), Qt::QueuedConnection);
+        //QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
 
         window->show();
 

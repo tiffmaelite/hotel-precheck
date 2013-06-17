@@ -8,16 +8,19 @@ import PreCheck 1.0
 TableView {
     id: table
     __columns: createColumns()
+    model: 0
     signal selected(string selectedItem)
 
     function createColumns() {
-        table.model.fetch();
-        var count = table.model.fieldsCount();
         var tmp = [];
-        for(var index = 0; index < count; index++) {
-            if(!table.model.containsFilterKeyColumn(index)) {
-                var col = Qt.createQmlObject('import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field('+index+').text; role: table.model.field('+index+').role}',table,'column'+index);
-                tmp.push(col);
+        if(table.model !== 0) {
+            table.model.fetch();
+            var count = table.model.fieldsCount();
+            for(var index = 0; index < count; index++) {
+                if(!table.model.containsFilterKeyColumn(index)) {
+                    var col = Qt.createQmlObject('import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field('+index+').text; role: table.model.field('+index+').role}',table,'column'+index);
+                    tmp.push(col);
+                }
             }
         }
         return tmp;
