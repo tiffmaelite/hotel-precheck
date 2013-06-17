@@ -1,4 +1,4 @@
-CONNECT 'localhost:/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/Database/PreCheckDB.fbd' USER 'SYSDBA' PASSWORD 'masterkey';
+CONNECT "PreCheckDB.fbd" USER 'SYSDBA' PASSWORD 'masterkey';
 
 COMMIT;
 
@@ -6,11 +6,11 @@ DROP DATABASE;
 
 COMMIT;
 
-CREATE DATABASE 'localhost:/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/Database/PreCheckDB.fdb' USER 'SYSDBA' PASSWORD 'masterkey';
+CREATE DATABASE "PreCheckDB.fdb" USER 'SYSDBA' PASSWORD 'masterkey';
 
 COMMIT;
 
-CONNECT 'localhost:/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/Database/PreCheckDB.fdb' USER 'SYSDBA' PASSWORD 'masterkey';
+CONNECT "PreCheckDB.fdb" USER 'SYSDBA' PASSWORD 'masterkey';
 
 COMMIT;
 

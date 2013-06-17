@@ -159,4 +159,34 @@ OTHER_FILES += \
     views/qml/SqlTableView.qml \
     ../Database/PreCheckDB.fbd \
     ../Database/dbInitScript.sql \
-    ../Database/dbCreaScript.sql
+    ../Database/dbCreaScript.sql \
+    ../Database/4_dbCrea_procedures.sql \
+    ../Database/3_dbCrea_View_ServicesInfos.sql \
+    ../Database/3_dbCrea_View_RoomsInfos.sql \
+    ../Database/3_dbCrea_View_BillingsInfos.sql \
+    ../Database/2_dbCrea_constraints.sql \
+    ../Database/1_dbCrea_Users.sql \
+    ../Database/1_dbCrea_Trainees.sql \
+    ../Database/1_dbCrea_Taxes.sql \
+    ../Database/1_dbCrea_ServicesTypes.sql \
+    ../Database/1_dbCrea_ServicesFields.sql \
+    ../Database/1_dbCrea_ServicesFamilies.sql \
+    ../Database/1_dbCrea_ServicesDetails.sql \
+    ../Database/1_dbCrea_Services.sql \
+    ../Database/1_dbCrea_RoomsTypes.sql \
+    ../Database/1_dbCrea_Rooms.sql \
+    ../Database/1_dbCrea_Reports.sql \
+    ../Database/1_dbCrea_Nationalities.sql \
+    ../Database/1_dbCrea_Groups.sql \
+    ../Database/1_dbCrea_Clients.sql \
+    ../Database/1_dbCrea_ChargedServices.sql \
+    ../Database/1_dbCrea_Bookings.sql \
+    ../Database/1_dbCrea_BillsTypes.sql \
+    ../Database/1_dbCrea_Bills.sql \
+    ../Database/1_dbCrea_BillingsTypes.sql \
+    ../Database/1_dbCrea_BillingsGroups.sql \
+    ../Database/1_dbCrea_BillingsClients.sql \
+    ../Database/1_dbCrea_Billings.sql \
+    ../Database/1_dbCrea_BalanceLog.sql \
+    ../Database/1_dbCrea_Addresses.sql \
+    ../Database/0_dbCrea_general.sql

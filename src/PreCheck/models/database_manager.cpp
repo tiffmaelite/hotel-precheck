@@ -18,6 +18,7 @@ AppDatabase *AppDatabase::getInstance()
     {
         _instance = new AppDatabase;
     }
+    qDebug() << dbFilePathStr;
     return _instance;
 }
 
