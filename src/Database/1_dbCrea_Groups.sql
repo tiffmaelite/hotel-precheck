@@ -1,4 +1,4 @@
-CONNECT 'localhost:/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/Database/PreCheckDB.fdb' USER 'SYSDBA' PASSWORD 'masterkey';
+CONNECT precheck-hotel USER 'precheck' PASSWORD 'hotel';
 
 COMMIT;
 

@@ -189,4 +189,5 @@ OTHER_FILES += \
     ../Database/1_dbCrea_Billings.sql \
     ../Database/1_dbCrea_BalanceLog.sql \
     ../Database/1_dbCrea_Addresses.sql \
-    ../Database/0_dbCrea_general.sql
+    ../Database/0_dbCrea_general.sql \
+    ../Database/install_script.sh
