@@ -123,7 +123,6 @@ void IOStateMachine::addIOState(IOState *state, QString field)
         connect(state, &IOState::resendInput, [=](QVariant in) {emit this->sendText(in.toString(), true);});
         if(state->visibility()) {
             state->sendOutput(QVariant(state->output()));
-            this->sendText(state->output(), false);
         } else {
             qDebug() << "invisible";
         }
@@ -278,9 +277,11 @@ void IOStateMachine::addChildrenNextTransition(QAbstractState *previousState, QA
         }
     } else {
         if(genPreviousState) {
+            qDebug() << "next transition between " << genPreviousState->toString() << " and " << nextState;
             genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
         }
         if(fsmPreviousState) {
+            qDebug() << "next transition between " << fsmPreviousState->toString() << " and " << nextState;
             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
         }
     }

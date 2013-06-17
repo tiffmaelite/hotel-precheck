@@ -29,7 +29,9 @@ Rectangle {
         visible: display.isEmpty
         color: "#dd1f1f"
     }
-
+Component.onCompleted: {
+    isEmpty = !display.sqlModel.fetch();
+}
     ColumnLayout {
         id:colView
         spacing: 3

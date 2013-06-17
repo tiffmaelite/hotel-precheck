@@ -47,6 +47,7 @@ Item {
         tabs.reload();
     }
     onSelected: {
+        console.log("selection: "+selectedItem);
         App.receiveInput(selectedItem);
     }
     onCancelProcess: {

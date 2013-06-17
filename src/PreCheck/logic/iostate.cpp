@@ -42,10 +42,12 @@ QVariant IOState::rawInput() const
 */
 void IOState::setInput(const QVariant &input)
 {
+    qDebug() << "new input " << input.toString();
     m_input = input;
     if(m_isVisible) {
         emit resendInput(m_input);
     }
+    emit next();
 }
 
 /*!
