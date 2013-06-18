@@ -213,8 +213,10 @@ QSqlQuery AppDatabase::execSelectQuery(QString tableName, QStringList fields, QS
             query = QString("%1 ORDER BY %2").arg(query).arg(ordering);
         }
     }
-    qDebug() << query;
-    return dbConnection.exec(query);
+    QSqlQuery result;
+    result.exec(query);
+    qDebug() << result.executedQuery() << " > " << result.isValid() <<" "<< result.isActive();
+    return result;
 }
 
 

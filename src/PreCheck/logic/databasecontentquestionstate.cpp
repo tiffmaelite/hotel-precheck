@@ -15,6 +15,7 @@
 DatabaseContentQuestionState::DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition, QState *parent) :
     QuestionState(question, name, parent), m_table(databaseTable), m_condition(databaseCondition), m_field(tableField)
 {
+    qDebug() << "multiple choice list with datas from " << databaseTable << "!";
     SqlDataModel *sqlDatas = new SqlDataModel();
     QStringList fields;
     fields << "ID" << m_field;
@@ -23,6 +24,7 @@ DatabaseContentQuestionState::DatabaseContentQuestionState(QString question, QSt
     QVariantList idValues = results.values("ID");
     QVariantList fieldsValues = results.values(m_field);
     for(int i = 0; i < idValues.length(); i++) {
+        qDebug() << "new choice " << idValues.at(i).toString() <<  ": " << fieldsValues.at(i).toString();
         m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
     }
 }
@@ -35,7 +37,8 @@ DatabaseContentQuestionState::DatabaseContentQuestionState(QString question, QSt
 */
 bool DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
-    return m_choices.values().contains(givenAnswer);
+    qDebug() << m_choices.values();
+    return m_choices.isEmpty() || m_choices.values().contains(givenAnswer);
 }
 
 /*!

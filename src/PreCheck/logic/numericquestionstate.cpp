@@ -25,6 +25,7 @@ NumericQuestionState::NumericQuestionState(QString question, QString name, int m
 */
 bool NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
+    qDebug() << "is answer valid";
     bool ok;
     int answer = givenAnswer.toInt(&ok);
     if(ok) {

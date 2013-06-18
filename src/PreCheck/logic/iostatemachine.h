@@ -16,7 +16,7 @@ class IOStateMachine : public QStateMachine, NamedObject
 {
     Q_OBJECT
 public:
-/*!
+    /*!
  \brief
 
  \fn IOStateMachine
@@ -99,11 +99,23 @@ signals: //messagers à envoyer ou transmettre
     /*!
      \brief
 
+     \fn clearAll
+    */
+    void clearAll();
+    /*!
+     \brief
+
      \fn sendText
      \param text
      \param editable
     */
     void sendText(QString text, bool editable=false);
+    /*!
+    \fn sendText
+    \param text
+    \param editable
+   */
+    void resendText(QString text, bool editable=false);
     /*!
      \brief
 

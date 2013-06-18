@@ -158,6 +158,12 @@ signals:
     /*!
      \brief
 
+     \fn clearAll
+    */
+    void clearAll();
+    /*!
+     \brief
+
      \fn userChanged
      \param name
     */
@@ -183,6 +189,13 @@ signals:
      \param text
     */
     void sendText(QString text);
+    /*!
+     \brief
+
+     \fn resendText
+     \param text
+    */
+    void resendText(QString text);
     /*!
      \brief
 

@@ -63,11 +63,14 @@ QVariant SqlDataModel::data(const QModelIndex &index, int role) const
 */
 QVariantMap SqlDataModel::datas() const
 {
+    qDebug() << "datas";
     QVariantMap result;
     if (this->mRecords.count() > 0)
     {
+        qDebug() << "datas ok";
         for(int column = 0; column < this->mRoles.count(); column++) {
             for(int row = 0; row < this->mRecords.count();row++) {
+                qDebug() << "data inserted";
                 result.insertMulti(this->mRoles.value(column),this->mRecords.at(row).value(column));
             }
         }
@@ -200,62 +203,71 @@ void SqlDataModel::resetFilterCondition()
 */
 bool SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStringList fieldsList)
 {
-    this->setFields(fieldsList);
-    this->setTable(tableName);
-    this->setFilterCondition(filter);
-    this->setOrderBy(sort);
-
-    try
-    {
-        beginResetModel();
-        mRecords.clear();
-        endResetModel();
-        mSqlQuery = AppDatabase::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
-        bool next = mSqlQuery.next();
-        while (next && mSqlQuery.isActive())
+    if(!mTable.isEmpty() || !tableName.isEmpty()) {
+        MessageManager::infoMessage("Bienvenue dans fetch");
+        qDebug() << mTable << " " << this->fieldsList().join(", ") << " " << mFilter << " " << mSort;
+        this->setFields(fieldsList);
+        this->setTable(tableName);
+        this->setFilterCondition(filter);
+        this->setOrderBy(sort);
+        qDebug() << tableName << " " << filter << " " << sort << " " << fieldsList.join(", ");
+        try
         {
-            QSqlRecord record = mSqlQuery.record();
-            /*qDebug() << "\n\n";
-                MessageManager::infoMessage("Nouvelle ligne récupérée");
-                MessageManager::infoMessage(QString("%1 champs").arg(record.count()));*/
-            if (mSqlQuery.isValid() && (!record.isEmpty()) && (record.count() > 0))
+            beginResetModel();
+            mRecords.clear();
+            endResetModel();
+            qDebug() << mTable << " " << this->fieldsList() << " " << mFilter << " " << mSort;
+            mSqlQuery = AppDatabase::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
+            qDebug() << mSqlQuery.executedQuery();
+            bool next = mSqlQuery.next();
+            if(next) {
+                qDebug() << "next ok";
+            }
+            while (next) // && mSqlQuery.isActive())
             {
-                beginInsertRows(QModelIndex(), 0, 0);
-                mRecords.append(record);
-                /*int nbFields = record.count();
-                    for (int i = 0; i < nbFields; i++)
-                    {
-                        MessageManager::infoMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
-                    }*/
-                if (mDataFields.empty())
+                QSqlRecord record = mSqlQuery.record();
+                qDebug() << "\n\n";
+                MessageManager::infoMessage("Nouvelle ligne récupérée");
+                MessageManager::infoMessage(QString("%1 champs").arg(record.count()));
+                if (mSqlQuery.isValid() && (!record.isEmpty()) && (record.count() > 0))
                 {
+                    beginInsertRows(QModelIndex(), 0, 0);
+                    mRecords.append(record);
                     int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {
-                        SqlDataFields *field = new SqlDataFields();
-                        field->setName(record.fieldName(i));
-                        //MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
-                        mDataFields.append(field);
+                        MessageManager::infoMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
                     }
-                    this->applyRoles();
-                    emit fieldsChanged();
+                    if (mDataFields.empty())
+                    {
+                        int nbFields = record.count();
+                        for (int i = 0; i < nbFields; i++)
+                        {
+                            SqlDataFields *field = new SqlDataFields();
+                            field->setName(record.fieldName(i));
+                            MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
+                            mDataFields.append(field);
+                        }
+                        this->applyRoles();
+                        emit fieldsChanged();
+                    }
+                    endInsertRows();
                 }
-                endInsertRows();
+                next = mSqlQuery.next();
             }
-            next = mSqlQuery.next();
         }
-    }
-    catch (const std::exception &e)
-    {
-        MessageManager::errorMessage(e.what(), "exception");
+        catch (const std::exception &e)
+        {
+            MessageManager::errorMessage(e.what(), "exception");
+            if (this->lastError().isEmpty())
+            {
+                MessageManager::errorMessage(this->lastError(), "erreur SQL");
+            }
+        }
         if (this->lastError().isEmpty())
         {
             MessageManager::errorMessage(this->lastError(), "erreur SQL");
         }
-    }
-    if (this->lastError().isEmpty())
-    {
-        MessageManager::errorMessage(this->lastError(), "erreur SQL");
     }
     return (!this->isEmpty());
 }

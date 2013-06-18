@@ -10,7 +10,7 @@
 ServicesTableModel::ServicesTableModel(QObject *parent):
     CheckableSortFilterProxyModel(parent)
 {
-    CheckableSortFilterProxyModel::model->setTable("SERVICES");
+    CheckableSortFilterProxyModel::model->setTable("SERVICESINFOS");
 }
 
 

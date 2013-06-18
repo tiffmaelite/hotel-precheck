@@ -47,7 +47,6 @@ void IOState::setInput(const QVariant &input)
     if(m_isVisible) {
         emit resendInput(m_input);
     }
-    emit next();
 }
 
 /*!

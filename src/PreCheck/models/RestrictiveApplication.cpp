@@ -137,7 +137,7 @@ bool RestrictiveApplication::balanceLogRoutine() {
 void RestrictiveApplication::receiveInput(QString in)
 {
     qDebug() << "input received "<<in;
-        emit this->m_currentFSM->receiveInput(in);
+    emit this->m_currentFSM->receiveInput(in);
 
 }
 
@@ -148,7 +148,7 @@ void RestrictiveApplication::receiveInput(QString in)
 void RestrictiveApplication::receiveValidation()
 {
 
-        emit this->m_currentFSM->validateInput();
+    emit this->m_currentFSM->validateInput();
 
 }
 
@@ -159,7 +159,7 @@ void RestrictiveApplication::receiveValidation()
 void RestrictiveApplication::receiveConfirmation()
 {
 
-        emit this->m_currentFSM->confirmInput();
+    emit this->m_currentFSM->confirmInput();
 
 }
 
@@ -171,7 +171,7 @@ void RestrictiveApplication::receiveConfirmation()
 void RestrictiveApplication::replaceInput(QString inputName)
 {
 
-        emit this->m_currentFSM->replaceInput(inputName);
+    emit this->m_currentFSM->replaceInput(inputName);
 
 }
 
@@ -271,6 +271,8 @@ bool RestrictiveApplication::connectRunningThread()
     }*/
     qDebug() << "coucou";
     QObject::connect(this->m_currentFSM, &IOStateMachine::sendText, this, &RestrictiveApplication::sendText, Qt::DirectConnection);
+        QObject::connect(this->m_currentFSM, &IOStateMachine::clearAll, this, &RestrictiveApplication::clearAll, Qt::DirectConnection);
+        QObject::connect(this->m_currentFSM, &IOStateMachine::resendText, this, &RestrictiveApplication::resendText, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &IOStateMachine::displayCalendar, this, &RestrictiveApplication::displayCalendar, Qt::DirectConnection);
     return this->m_currentFSM->isRunning();
 }

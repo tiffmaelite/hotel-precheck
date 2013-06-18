@@ -21,7 +21,8 @@ BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *
     DatabaseContentQuestionState* client = new DatabaseContentQuestionState("Veuillez entrer le nom du client à facturer","main client billing creation", "CLIENTS", "NAME");
     ClientCreationStateMachine* clientCreation = new ClientCreationStateMachine("main client creation in billing creation");
     NumericQuestionState* nbRooms = new NumericQuestionState("Veuillez entrer le nombre de chambres", "nb rooms billing creation", 1);
-    DatabaseContentQuestionState* type = new DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSYTPES", "CODE");
+    //DatabaseContentQuestionState* type = new DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "CODE");
+        DatabaseContentQuestionState* type = new DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "ID");
     LoopingIOStateMachine* roomsAffectation = new LoopingIOStateMachine("ROOMSOCCUPATION", "rooms affectation billing creation");
     LoopingIOStateMachine* billsCreation = new LoopingIOStateMachine("BILLS", "bills creation billing creation");
     LoopingIOStateMachine* clientList = new LoopingIOStateMachine("CLIENTS", "bills creation billing creation");
@@ -119,17 +120,19 @@ BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *
     });
     this->addChildrenNextTransition(clientCreation, nbRooms);
     this->addChildrenNextTransition(nbRooms, type);
-    this->addChildrenNextTransition(type, confirmPart1);
+    this->addChildrenNextTransition(type, final);
+    //this->addChildrenNextTransition(type, confirmPart1);
     confirmPart1->addTransition(confirmPart1, SIGNAL(next()), confirmPart1);
     connect(confirmPart1, &GenericState::exited, [=]() {
         connect(saveState, &GenericState::entered, [=]() {
             setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
         });
     });
-    saveState->addTransition(saveState, SIGNAL(next()),roomsAffectation);
-    this->addChildrenNextTransition(roomsAffectation, billsCreation);
-    this->addChildrenNextTransition(billsCreation, clientList);
-    this->addChildrenNextTransition(clientList, confirmAll);
+    saveState->addTransition(saveState, SIGNAL(next()),confirmAll);
+    //saveState->addTransition(saveState, SIGNAL(next()),roomsAffectation);
+    //this->addChildrenNextTransition(roomsAffectation, billsCreation);
+    //this->addChildrenNextTransition(billsCreation, clientList);
+    //this->addChildrenNextTransition(clientList, confirmAll);
     this->addChildrenNextTransition(confirmAll, final);
 
     this->addIOState(intro,"");
@@ -142,9 +145,9 @@ BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *
     this->addIOState(type,"BILLINGTYPE_ID");
     this->addIOState(confirmPart1,"");
     this->addIOState(confirmAll,"");
-    this->addIOStateMachine(billsCreation);
-    this->addIOStateMachine(roomsAffectation);
-    this->addIOStateMachine(clientList);
+    //this->addIOStateMachine(billsCreation);
+    //this->addIOStateMachine(roomsAffectation);
+    //this->addIOStateMachine(clientList);
     this->addState(final);
 
     this->setInitialState(intro);

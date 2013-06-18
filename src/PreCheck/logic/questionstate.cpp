@@ -23,10 +23,14 @@ bool QuestionState::checkValidity()
 {
     bool ok = this->isAnswerValid(this->givenAnswer());
     if(ok) {
+        qDebug() << "answer valid !";
+        qDebug() << this->givenAnswer();
         IOState::setInput(this->givenAnswer());
         emit answerValid();
         emit next();
     } else {
+        qDebug() << "answer invalid :-(";
+        qDebug() << this->givenAnswer();
         emit answerInvalid();
     }
     return ok;
@@ -40,6 +44,7 @@ bool QuestionState::checkValidity()
 */
 void QuestionState::setInput(const QVariant &input)
 {
+    qDebug() << "new answer " << input.toString();
     this->setGivenAnswer(input);
 }
 
@@ -63,4 +68,5 @@ QVariant QuestionState::givenAnswer() const
 void QuestionState::setGivenAnswer(const QVariant &givenAsnwer)
 {
     this->m_givenAnswer = givenAsnwer;
+    this->checkValidity();
 }

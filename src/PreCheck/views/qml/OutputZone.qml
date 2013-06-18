@@ -19,6 +19,10 @@ Rectangle {
 
     onReplace: {
         if(output.lastVisibleRow >= 0) {
+            if(rep.itemAt(output.lastVisibleRow).model === "") {
+                output.lastVisibleRow = Math.max(0, output.lastVisibleRow-1);
+            }
+
             layout.changeTextDisplay(output.lastVisibleRow,text, rep.itemAt(output.lastVisibleRow).editable);
         } else {
             display(text);
@@ -94,7 +98,7 @@ Rectangle {
 
         Repeater {
             id: rep
-            model: 20
+            model: 25
             delegate:
                 RowLayout {
                 id: row

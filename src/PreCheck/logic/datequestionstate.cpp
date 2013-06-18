@@ -11,7 +11,7 @@
  \param parent
 */
 DateQuestionState::DateQuestionState(QString question, QString name, bool past, bool future, QState *parent) :
-    QuestionState(question, name, parent), m_past(past), m_future(future)
+    QuestionState(question+" (au format jj-mm-aaaa)", name, parent), m_past(past), m_future(future)
 {
 }
 
@@ -23,8 +23,9 @@ DateQuestionState::DateQuestionState(QString question, QString name, bool past, 
 */
 bool DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
-    QDate answer = givenAnswer.toDateTime().date();
+    QDate answer = QDate::fromString(givenAnswer.toString(),QString("dd-MM-yyyy"));
     if(answer.isValid()) {
+        qDebug() << "date conforme";
         return ((m_future && answer >= QDate::currentDate()) || (m_past && answer <= QDate::currentDate()));
     } else {
         return false;

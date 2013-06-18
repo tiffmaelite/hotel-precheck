@@ -8,7 +8,7 @@ import PreCheck 1.0
 Rectangle {
     id:display
     /// le modèle
-    property var sqlModel
+    property var sqlModel: []
     property string itemDelegate
     property string emptyDelegate : "DataDelegate.qml"
     property string sectionDelegate : "DataDelegate.qml"
@@ -19,7 +19,7 @@ Rectangle {
     property string filtersTitle
     signal selected(string selectedItem)
     signal newItem
-    property bool isEmpty: !display.sqlModel.fetch()
+    property bool isEmpty: true
     enabled: true
     height: childrenRect.height
     width: childrenRect.width
@@ -29,9 +29,9 @@ Rectangle {
         visible: display.isEmpty
         color: "#dd1f1f"
     }
-Component.onCompleted: {
-    isEmpty = !display.sqlModel.fetch();
-}
+    Component.onCompleted: {
+        isEmpty = (display.sqlModel == []) || (!display.sqlModel.fetch());
+    }
     ColumnLayout {
         id:colView
         spacing: 3

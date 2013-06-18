@@ -119,8 +119,9 @@ void IOStateMachine::addIOState(IOState *state, QString field)
         qDebug() << "entered !";
         state->display(true);
         connect(this, &IOStateMachine::receiveInput, state, &IOState::setInput); // la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état
+        connect(this, &IOStateMachine::receiveInput, [=](QString in){ qDebug() << "hello world !"; state->setInput(in);}); // la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état
         connect(state, &IOState::sendOutput, [=](QVariant out) {qDebug() << "connected !"; emit this->sendText(out.toString(), false);});
-        connect(state, &IOState::resendInput, [=](QVariant in) {emit this->sendText(in.toString(), true);});
+        connect(state, &IOState::resendInput, [=](QVariant in) {emit this->resendText(in.toString(), true);});
         if(state->visibility()) {
             state->sendOutput(QVariant(state->output()));
         } else {
@@ -182,6 +183,7 @@ void IOStateMachine::addIOStateMachine(IOStateMachine *fsm)
     connect(fsm, &QState::entered, [=]() {
         connect(this, &IOStateMachine::receiveInput, fsm, &IOStateMachine::receiveInput);
         connect(this, &IOStateMachine::sendText, fsm, &IOStateMachine::sendText);
+        connect(this, &IOStateMachine::resendText, fsm, &IOStateMachine::resendText);
         connect(this, &IOStateMachine::confirmInput, fsm, &IOStateMachine::confirmInput);
         connect(this, &IOStateMachine::validateInput, fsm, &IOStateMachine::validateInput);
         connect(this, &IOStateMachine::replaceInput, fsm, &IOStateMachine::replaceInput);
@@ -270,7 +272,9 @@ void IOStateMachine::addChildrenNextTransition(QAbstractState *previousState, QA
         if(genPreviousState || fsmPreviousState) {
             connect(previousState, &QAbstractState::exited, [=]() {
                 connect(saveState, &QAbstractState::entered, [=]() {
+                    emit this->sendText("Merci !");
                     setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
+                    emit this->clearAll();
                 });
             });
             saveState->addTransition(saveState, SIGNAL(next()),final);

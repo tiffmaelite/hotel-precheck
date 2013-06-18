@@ -7,7 +7,7 @@ import PreCheck 1.0
 
 DataDelegate {
     value: ID
-    text: DISPLAYEDNAME
-    visible: (ISAVAILABLE == 1)
+    text: SERVICENAME
+    //visible: (ISAVAILABLE == 1)
     //enabled: (ROOMNEEDED == 1)
 }

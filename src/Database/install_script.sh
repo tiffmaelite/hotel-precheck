@@ -23,14 +23,17 @@ do
         isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
 done;
 
-#for filename in $PWD/3_*.sql
-#do
-        #isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
-#done;
-
-for filename in $PWD/4_*.sql
+for filename in $PWD/3_*.sql
 do
         isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
 done;
 
+#for filename in $PWD/4_*.sql
+#do
+#        isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
+#done;
+
 isql -i "dbInitScript.sql" -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
+
+
+chmod 777 $PWD/PreCheckDB.fdb;
