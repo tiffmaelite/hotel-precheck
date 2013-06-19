@@ -128,8 +128,7 @@ bool User::userExists(QString login) {
  \return bool
 */
 bool User::traineeExists(QString login) {
-    return false;
-    //return (AppDatabase::getInstance()->dataExists("TRAINEE", "LOGIN='"+login+"'") == 1);
+    return (AppDatabase::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
 }
 
 /*!
@@ -146,14 +145,14 @@ User *User::logIn(QString login, QString pass)
     QCryptographicHash encPass(QCryptographicHash::Sha512);
     encPass.addData(pass.toUtf8());
     bool trainee=false;
-    QString query;
+    QStringList fields;
     if(userExists(login)) {
-        query = "SELECT ID, LOGIN, ISRECEPTIONIST, ISMANAGERX, ISMANAGERZ, ISADMINISTRATOR FROM USERS WHERE LOGIN='"+login+"' AND ENCRYPTEDPASS='"+QString::fromLatin1(encPass.result().toHex()).toUpper()+"'";
+        fields << "ID" << "LOGIN" << "ISRECEPTIONIST" << "ISMANAGERX"   "ISMANAGERZ" << "ISADMINISTRATOR";
     } else if(traineeExists(login)) {
-        query="SELECT ID, LOGIN FROM USERS WHERE LOGIN='"+login+"' AND ENCRYPTEDPASS='"+QString::fromLatin1(encPass.result().toHex()).toUpper()+"'";
+        fields << "ID" << "LOGIN";
         trainee=true;
     }
-    QSqlQuery result = AppDatabase::getInstance()->getDbConnection().exec(query);
+    QSqlQuery result = AppDatabase::getInstance()->execSelectQuery("USERS",fields,"WHERE LOGIN='"+login+"' AND ENCRYPTEDPASS='"+QString::fromLatin1(encPass.result().toHex()).toUpper()+"'");
     if(result.next()) {
         QSqlRecord rec = result.record();
         if(rec.isEmpty() || !result.isValid()) {

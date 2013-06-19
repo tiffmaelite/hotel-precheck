@@ -13,7 +13,7 @@ class GenericState : public QState,NamedObject
 {
     Q_OBJECT
 public:
-/*!
+    /*!
  \brief
 
  \fn GenericState
@@ -29,6 +29,7 @@ public:
     */
     QString toString();
 
+
 signals:
     /*!
      \brief
@@ -37,9 +38,34 @@ signals:
     */
     void next();
 
-public slots:
+protected:
+    /*!
+     \brief
+     \fn onEntry TODO comment this
+     \param event TODO comment this
+    */
+    void onEntry(QEvent *event);
+    /*!
+     \brief
+     \fn onExit TODO comment this
+     \param event TODO comment this
+    */
+    void onExit(QEvent *event);
+
 
 private:
+
+private slots:
+    /*!
+     \brief
+     \fn onMachineStarted TODO comment this
+    */
+    void onMachineStarted();
+    /*!
+     \brief
+     \fn onTransitionTriggered TODO comment this
+    */
+    void onTransitionTriggered();
 
 };
 

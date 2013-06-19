@@ -22,7 +22,7 @@ TEMPLATE = app
 CONFIG *= qt console thread exceptions c++11
 
 # Qt-specific configuration options : required modules
-QT *= core gui quick qml sql widgets printsupport
+QT *= core gui quick qml sql widgets printsupport concurrent
 
 # QStringBuilder uses expression templates and reimplements the '%' operator so that when you use '%' for string concatenation instead of '+', multiple substring concatenations will be postponed until the final result is about to be assigned to a QString. Let '+' automatically be performed as the QStringBuilder '%' everywhere.
 DEFINES *= QT_USE_QSTRINGBUILDER
@@ -48,3 +48,6 @@ Debug:DEFINES*=DEBUG
 #DEFINES += QS_LOG_SEPARATE_THREAD # messages are queued and written from a separate thread
 
 include(PreCheck.pri)
+
+OTHER_FILES += \
+    debugLog.txt

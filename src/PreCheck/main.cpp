@@ -1,6 +1,7 @@
 #include <QtWidgets/QApplication>
 #include <QtQml>
 #include <QtQuick>
+#include <QProgressDialog>
 #include "views/message_manager.h"
 #include "models/checkable_sort_filter_proxy_model.h"
 #include "models/rooms_table_model.h"
@@ -17,6 +18,10 @@
 #include "views/qquickaction.h"
 #include "logging/QsLog.h"
 #include "logging/QsLogDest.h"
+
+
+const int iterations = 20;
+
 
 /*!
  \brief
@@ -72,22 +77,21 @@ void enableLogging(const QString sLogPath)
     logger.addDestination(debugDestination);
     logger.addDestination(fileDestination);
 
-    QLOG_INFO() << "Program started";
-    QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
-
-    QLOG_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";
-    QLOG_DEBUG() << "Here's a" << static_cast<int>(QsLogging::DebugLevel) << "message";
-    QLOG_WARN()  << "Uh-oh!";
-    qDebug() << "This message won't be picked up by the logger";
-    QLOG_ERROR() << "An error has occurred";
-    qWarning() << "Neither will this one";
-    QLOG_FATAL() << "Fatal error!";
-
-    logger.setLoggingLevel(QsLogging::OffLevel);
+    /*logger.setLoggingLevel(QsLogging::OffLevel);
     for (int i = 0;i < 10000000;++i) {
         QLOG_ERROR() << QString::fromUtf8("logging is turned off");
-    }
+    }*/
+
     qInstallMessageHandler(exportlog);
+    /* QLOG_INFO() << "Here is some information";
+
+        QLOG_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";
+        QLOG_DEBUG() << "Here's a" << static_cast<int>(QsLogging::DebugLevel) << "message";
+        QLOG_WARN()  << "Uh-oh!";
+        qDebug() << "This message won't be picked up by the logger";
+        QLOG_ERROR() << "An example error has occurred";
+        qWarning() << "Neither will this one";
+        QLOG_FATAL() << "Fatal error example!";*/
 }
 
 
@@ -95,13 +99,27 @@ void enableLogging(const QString sLogPath)
 
 /*!
  \brief
-
- \fn main
- \param argc
- \param argv[]
- \return int
+ \fn spin TODO comment this
+ \param iteration TODO comment this
 */
-int main(int argc, char *argv[])
+void spin(int &iteration)
+{
+    const int work = 1000 * 1000 * 40;
+    volatile int v = 0;
+    for (int j = 0; j < work; ++j)
+        ++v;
+
+    qDebug() << "iteration" << iteration << "in thread" << QThread::currentThreadId();
+}
+
+/*!
+ \brief
+ \fn main TODO comment this
+ \param argc TODO comment this
+ \param argv TODO comment this
+ \return int TODO comment this
+*/
+int main(int argc, char **argv)
 {
     try
     {
@@ -109,7 +127,9 @@ int main(int argc, char *argv[])
 
         QApplication app(argc, argv);
 
-        const QString sLogPath(QDir(app.applicationDirPath()).filePath("log.txt"));
+        const QString sLogPath(QDir::cleanPath(app.applicationDirPath()+"/../../../src/PreCheck/debugLog.txt"));
+        qDebug() << app.applicationDirPath();
+        qDebug() << QDir::cleanPath(app.applicationDirPath()+"/../../../src/PreCheck/debugLog.txt");
         enableLogging(sLogPath);
 
         QString appName = QString(QObject::tr("precheck"));
@@ -171,8 +191,9 @@ int main(int argc, char *argv[])
         //QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
 
         window->show();
-
+        QLOG_INFO() << "Program built with Qt" << QT_VERSION_STR << "running on" << qVersion();
         return app.exec();
+
     }
     catch (const std::exception &e)
     {
