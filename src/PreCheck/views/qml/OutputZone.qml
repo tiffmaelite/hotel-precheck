@@ -41,6 +41,7 @@ Rectangle {
         for(var currentRow = 0; currentRow<rep.count; currentRow++) {
             output.clear(currentRow);
         }
+        output.lastVisibleRow = -1;
     }
     function displayText(text) {
         layout.changeTextDisplay(output.lastVisibleRow+1,text, false);

@@ -12,7 +12,7 @@ class IOState : public GenericState
 {
     Q_OBJECT
 public:
-/*!
+    /*!
  \brief
 
  \fn IOState
@@ -45,7 +45,7 @@ public:
      \return QString
     */
     virtual QString output() const;
-    /*!
+
 
     /*!
      \brief

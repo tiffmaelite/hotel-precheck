@@ -1,0 +1,1 @@
+/home/tiff/Bureau/QsLogDestConsole.cpp

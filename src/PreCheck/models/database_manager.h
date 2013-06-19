@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QObject>
 #include <QtCore>
+#include <QApplication>
 
 /*
  * declare DB driver and filename.
@@ -16,7 +17,7 @@ static const QString dbUsernameStr = "SYSDBA"; /*!< TODO */
 static const QString dbPasswordStr = "masterkey"; /*!< TODO */
 
 
-static const QString dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+"/../../../src/Database/"); /*!< TODO */
+static const QString dbFolderPathStr = QDir::cleanPath(QApplication::applicationDirPath()+"/src/Database/"); /*!< TODO */
 static const QString dbFilePathStr = QString("%1/%2").arg(dbFolderPathStr).arg(dbFileNameStr); /*!< TODO */
 
 

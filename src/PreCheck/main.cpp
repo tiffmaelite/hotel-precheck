@@ -15,6 +15,83 @@
 #include "models/user.h"
 #include "models/RestrictiveApplication.h"
 #include "views/qquickaction.h"
+#include "logging/QsLog.h"
+#include "logging/QsLogDest.h"
+
+/*!
+ \brief
+ \fn statusChanged TODO comment this
+ \param status TODO comment this
+*/
+void statusChanged(QQmlComponent* component, QQmlComponent::Status status) {
+    if (status == QQmlComponent::Error) {
+        foreach (const QQmlError &error, component->errors()) {
+            const QByteArray file = error.url().toEncoded();
+            QMessageLogger(file.constData(), error.line(), 0).debug() << error.description();
+        }
+    }
+}
+
+/*!
+ \brief
+ \fn exportlog TODO comment this
+ \param type TODO comment this
+ \param msg TODO comment this
+*/
+void exportlog(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+    QFile file(QApplication::applicationDirPath()+"/"+qAppName()+".log");
+    file.open(QIODevice::WriteOnly | QIODevice::Append);
+    file.write(QString("[").toUtf8()+QDateTime::currentDateTime().toString().toUtf8()+QString("] ").toUtf8());
+    QString typeName;
+    switch (type) {
+    case QtDebugMsg:
+        typeName = QObject::tr("Debug");
+        break;
+    case QtWarningMsg:
+        typeName = QObject::tr("Warning");
+        break;
+    }
+    file.write(QObject::tr("%1: %2\r\n").arg(typeName).arg(msg).toUtf8());
+}
+
+
+/*!
+ \brief
+ \fn enableLogging TODO comment this
+*/
+void enableLogging(const QString sLogPath)
+{
+    // init the logging mechanism
+    QsLogging::Logger& logger = QsLogging::Logger::instance();
+    logger.setLoggingLevel(QsLogging::TraceLevel);
+
+    QsLogging::DestinationPtr fileDestination(
+                QsLogging::DestinationFactory::MakeFileDestination(sLogPath, true, 512, 2) );
+    QsLogging::DestinationPtr debugDestination(
+                QsLogging::DestinationFactory::MakeDebugOutputDestination() );
+    logger.addDestination(debugDestination);
+    logger.addDestination(fileDestination);
+
+    QLOG_INFO() << "Program started";
+    QLOG_INFO() << "Built with Qt" << QT_VERSION_STR << "running on" << qVersion();
+
+    QLOG_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";
+    QLOG_DEBUG() << "Here's a" << static_cast<int>(QsLogging::DebugLevel) << "message";
+    QLOG_WARN()  << "Uh-oh!";
+    qDebug() << "This message won't be picked up by the logger";
+    QLOG_ERROR() << "An error has occurred";
+    qWarning() << "Neither will this one";
+    QLOG_FATAL() << "Fatal error!";
+
+    logger.setLoggingLevel(QsLogging::OffLevel);
+    for (int i = 0;i < 10000000;++i) {
+        QLOG_ERROR() << QString::fromUtf8("logging is turned off");
+    }
+    qInstallMessageHandler(exportlog);
+}
+
+
+
 
 /*!
  \brief
@@ -28,9 +105,12 @@ int main(int argc, char *argv[])
 {
     try
     {
-        qDebug() << "\n";
+        qDebug();  // Un simple retour à la ligne pour un affichage propre dans la console
 
         QApplication app(argc, argv);
+
+        const QString sLogPath(QDir(app.applicationDirPath()).filePath("log.txt"));
+        enableLogging(sLogPath);
 
         QString appName = QString(QObject::tr("precheck"));
         QString locale = QLocale::system().name();
@@ -99,4 +179,3 @@ int main(int argc, char *argv[])
         MessageManager::errorMessage(e.what());
     }
 }
-

@@ -121,7 +121,7 @@ BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *
     this->addChildrenNextTransition(clientCreation, nbRooms);
     this->addChildrenNextTransition(nbRooms, type);
     this->addChildrenNextTransition(type, final);
-    //this->addChildrenNextTransition(type, confirmPart1);
+    this->addChildrenNextTransition(type, confirmPart1);
     confirmPart1->addTransition(confirmPart1, SIGNAL(next()), confirmPart1);
     connect(confirmPart1, &GenericState::exited, [=]() {
         connect(saveState, &GenericState::entered, [=]() {
@@ -129,10 +129,10 @@ BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *
         });
     });
     saveState->addTransition(saveState, SIGNAL(next()),confirmAll);
-    //saveState->addTransition(saveState, SIGNAL(next()),roomsAffectation);
-    //this->addChildrenNextTransition(roomsAffectation, billsCreation);
-    //this->addChildrenNextTransition(billsCreation, clientList);
-    //this->addChildrenNextTransition(clientList, confirmAll);
+    saveState->addTransition(saveState, SIGNAL(next()),roomsAffectation);
+    this->addChildrenNextTransition(roomsAffectation, billsCreation);
+    this->addChildrenNextTransition(billsCreation, clientList);
+    this->addChildrenNextTransition(clientList, confirmAll);
     this->addChildrenNextTransition(confirmAll, final);
 
     this->addIOState(intro,"");
@@ -145,9 +145,9 @@ BillingCreationStateMachine::BillingCreationStateMachine(QString name, QObject *
     this->addIOState(type,"BILLINGTYPE_ID");
     this->addIOState(confirmPart1,"");
     this->addIOState(confirmAll,"");
-    //this->addIOStateMachine(billsCreation);
-    //this->addIOStateMachine(roomsAffectation);
-    //this->addIOStateMachine(clientList);
+    this->addIOStateMachine(billsCreation);
+    this->addIOStateMachine(roomsAffectation);
+    this->addIOStateMachine(clientList);
     this->addState(final);
 
     this->setInitialState(intro);

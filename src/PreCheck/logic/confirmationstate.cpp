@@ -12,7 +12,7 @@
 ConfirmationState::ConfirmationState(QString output, QString name, QState *parent) :
     StatementState(output, name, parent)
 {
-
+    qDebug() << "confirmatiooooon !";
 }
 
 /*!

@@ -1,0 +1,1 @@
+/home/tiff/Bureau/log_example.pro

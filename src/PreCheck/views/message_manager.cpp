@@ -7,7 +7,7 @@
 #include <string>
 #include <stdio.h>
 #include <cstdio>
-
+#include <QMessageBox>
 
 /*!
  \brief
@@ -19,16 +19,11 @@
 void MessageManager::errorMessage(QString message, QString title)
 {
     if(!message.isEmpty()) {
-        /*switch(errorMode) {
-    case DEBUG:*/
+#ifdef DEBUG
         qWarning() << QObject::tr("%L1 : %L2").arg(title).arg(message);
-        /*break;
-    case TEST:
-    case RELEASE:
-        QMessageBox::critical(0,QObject::tr("%L1).arg(title),QObject::tr("%L2).arg(message));
-    default:
-        console.log(title+" : " + message);
-    }*/
+#else
+        QMessageBox::critical(0,QObject::tr("%L1").arg(title),QObject::tr("%L2").arg(message));
+#endif
     }
 }
 
