@@ -77,12 +77,11 @@ void enableLogging(const QString sLogPath)
     logger.addDestination(debugDestination);
     logger.addDestination(fileDestination);
 
-    /*logger.setLoggingLevel(QsLogging::OffLevel);
-    for (int i = 0;i < 10000000;++i) {
-        QLOG_ERROR() << QString::fromUtf8("logging is turned off");
-    }*/
+    logger.setLoggingLevel(QsLogging::OffLevel); //truning logging off
 
-    qInstallMessageHandler(exportlog);
+
+    //qInstallMessageHandler(exportlog);
+
     /* QLOG_INFO() << "Here is some information";
 
         QLOG_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";

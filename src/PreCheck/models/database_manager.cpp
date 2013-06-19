@@ -203,6 +203,7 @@ QSqlQuery AppDatabase::execSelectQuery(QString tableName, QStringList fields, QS
     if(fields.isEmpty()) {
         fields.append("*");
     }
+
     QString query;
     if(dbConnection.driverName() == "QIBASE") {
         query = QString("SELECT %1 FROM %2").arg(fields.join(", ")).arg(tableName);
@@ -213,6 +214,7 @@ QSqlQuery AppDatabase::execSelectQuery(QString tableName, QStringList fields, QS
             query = QString("%1 ORDER BY %2").arg(query).arg(ordering);
         }
     }
+    qDebug() << query;
     QSqlQuery result;
     result.exec(query);
     qDebug() << result.executedQuery() << " > " << result.isValid() <<" "<< result.isActive();
@@ -235,6 +237,7 @@ bool AppDatabase::execReplaceQuery(QString tableName, QVariantMap values) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     }
     QSqlQuery result = dbConnection.exec(query);
+    qDebug() << result.executedQuery() << " > " << result.isValid() <<" "<< result.isActive();
     return (result.numRowsAffected() > 0);
 }
 
@@ -254,6 +257,7 @@ QVariant AppDatabase::execInsertReturningQuery(QString tableName, QVariantMap va
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
     }
     QSqlQuery result = dbConnection.exec(query);
+    qDebug() << result.executedQuery() << " > " << result.isValid() <<" "<< result.isActive();
     if(result.next()) {
         QSqlRecord rec = result.record();
         if(!rec.isEmpty()  && result.isValid()) {
