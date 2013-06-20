@@ -1,0 +1,39 @@
+\hypertarget{SH__RoomsTableModel_8cpp}{\section{S\-H\-\_\-\-Rooms\-Table\-Model.\-cpp}
+\label{SH__RoomsTableModel_8cpp}\index{models/\-S\-H\-\_\-\-Rooms\-Table\-Model.\-cpp@{models/\-S\-H\-\_\-\-Rooms\-Table\-Model.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__RoomsTableModel_8h}{SH\_RoomsTableModel.h}"}
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseManager_8h}{SH\_DatabaseManager.h}"}
+00003 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00004 
+\hypertarget{SH__RoomsTableModel_8cpp_source_l00010}{}\hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{00010} \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{SH\_RoomsTableModel::SH\_RoomsTableModel}(
+      \hyperlink{classQObject}{QObject} *parent):
+00011     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
+00012 \{
+00013     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{setTable}(\textcolor{stringliteral}{"ROOMSINFOS"});
+00014     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a34cae2fefa659a4bfefbfb3a6328e832}{setOrderBy}(\textcolor{stringliteral}{"FLOOR ASC, NUMBER ASC"})
+      ;
+00015 \}
+00016 
+\hypertarget{SH__RoomsTableModel_8cpp_source_l00022}{}\hyperlink{classSH__RoomsTableModel_ac11a4147485348d4504a8508e6bb5398}{00022} \textcolor{keywordtype}{void} \hyperlink{classSH__RoomsTableModel_ac11a4147485348d4504a8508e6bb5398}{SH\_RoomsTableModel::fillModel}()
+00023 \{
+00024     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(0, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"ID"}));
+00025     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(1, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Numéro de chambre"}));
+00026     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(2, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Étage"}));
+00027     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(3, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Type de chambre"}));
+00028     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(4, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Détail"}));
+00029     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(5, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Prix minimum"}));
+00030     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(6, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Prix maximum"}));
+00031     \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{SH\_ExtendedProxyModel::sort}(2,Qt::AscendingOrder);
+00032     \hyperlink{classSH__ExtendedProxyModel_a4e98e24b6b94adf31a2c5e935a48f831}{SH\_ExtendedProxyModel::addFilterKeyColumn}(0);
+00033     \hyperlink{classSH__ExtendedProxyModel_a4e98e24b6b94adf31a2c5e935a48f831}{SH\_ExtendedProxyModel::addFilterKeyColumn}(7);
+00034 \}
+\end{DoxyCode}

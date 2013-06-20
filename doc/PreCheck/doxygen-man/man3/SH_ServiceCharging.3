@@ -1,0 +1,766 @@
+.TH "SH_ServiceCharging" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SH_ServiceCharging \- 
+.PP
+The \fBSH_ServiceCharging\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_ServiceCharging\&.h>\fP
+.PP
+Est dérivée de \fBSh_LoopingInOutStateMachine\fP\&.
+.SS "Connecteurs publics"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddIOState\fP (\fBSH_InOutState\fP *state, QString field)"
+.br
+.ti -1c
+.RI "void \fBaddIOStateMachine\fP (\fBSH_InOutStateMachine\fP *fsm)"
+.br
+.ti -1c
+.RI "void \fBsetContentValue\fP (QVariant content, QString field)"
+.br
+.in -1c
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBcancelReplacement\fP ()"
+.br
+.ti -1c
+.RI "void \fBclearAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBconfirmInput\fP ()"
+.br
+.ti -1c
+.RI "void \fBdisplayCalendar\fP ()"
+.br
+.ti -1c
+.RI "void \fBdisplayFileDialog\fP ()"
+.br
+.ti -1c
+.RI "void \fBlimitChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBnext\fP ()"
+.br
+.ti -1c
+.RI "void \fBreceiveInput\fP (QString input)"
+.br
+.ti -1c
+.RI "void \fBreplaceInput\fP (QString field)"
+.br
+.ti -1c
+.RI "void \fBresendText\fP (QString text, bool editable=false)"
+.br
+.ti -1c
+.RI "void \fBsendText\fP (QString text, bool editable=false)"
+.br
+.ti -1c
+.RI "void \fBvalidateInput\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_ServiceCharging\fP (QString \fBname\fP, \fBQObject\fP *parent=0)"
+.br
+.RI "\fI\fBSH_ServiceCharging\fP\&. \fP"
+.ti -1c
+.RI "void \fBaddChildrenNextTransition\fP (QAbstractState *previousState, QAbstractState *nextState)"
+.br
+.ti -1c
+.RI "int \fBcurrent\fP () const "
+.br
+.ti -1c
+.RI "QVariant \fBgetContentValue\fP (QString field)"
+.br
+.ti -1c
+.RI "QHistoryState * \fBhistoryValue\fP (QString field)"
+.br
+.ti -1c
+.RI "QVariantMap \fBioContent\fP () const "
+.br
+.ti -1c
+.RI "int \fBlimit\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetCurrent\fP (int \fBcurrent\fP)"
+.br
+.ti -1c
+.RI "void \fBsetIOcontent\fP (const QVariantMap &\fBioContent\fP)"
+.br
+.ti -1c
+.RI "void \fBsetIOStateHistory\fP (QHistoryState *state, QString field)"
+.br
+.ti -1c
+.RI "void \fBsetLimit\fP (int \fBlimit\fP)"
+.br
+.ti -1c
+.RI "void \fBsetPersistentContentValue\fP (QVariant value, QString field)"
+.br
+.ti -1c
+.RI "void \fBsetTableName\fP (const QString &\fBtableName\fP)"
+.br
+.ti -1c
+.RI "void \fBstopLooping\fP ()"
+.br
+.ti -1c
+.RI "QString \fBtableName\fP () const "
+.br
+.ti -1c
+.RI "QString \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "QMap< QString, QHistoryState * > \fBioStatesHistory\fP () const "
+.br
+.in -1c
+.SS "Attributs protégés"
+
+.in +1c
+.ti -1c
+.RI "QVariantMap \fBm_ioContent\fP"
+.br
+.RI "\fIm_ioContent \fP"
+.ti -1c
+.RI "QMap< QString, QHistoryState * > \fBm_ioStatesHistory\fP"
+.br
+.RI "\fIm_ioStatesHistory \fP"
+.ti -1c
+.RI "QString \fBm_tableName\fP"
+.br
+.RI "\fIm_tableName \fP"
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "int \fBlimit\fP"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "qreal \fBm_priceMin\fP"
+.br
+.RI "\fIm_priceMin \fP"
+.ti -1c
+.RI "qreal \fBm_vat\fP"
+.br
+.RI "\fIm_vat \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+The \fBSH_ServiceCharging\fP class\&. 
+.PP
+Définition à la ligne 8 du fichier SH_ServiceCharging\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SH_ServiceCharging::SH_ServiceCharging (QStringname, \fBQObject\fP *parent = \fC0\fP)"
+
+.PP
+\fBSH_ServiceCharging\fP\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.br
+\fIparent\fP \fBSH_ServiceCharging::SH_ServiceCharging\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 12 du fichier SH_ServiceCharging\&.cpp\&.
+.PP
+Références Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOState(), SH_QuestionState::answerInvalid(), SH_QuestionState::answerValid(), SH_InOutStateMachine::confirmInput(), SH_DatabaseManager::execSelectQuery(), SH_DatabaseManager::getInstance(), m_priceMin, m_vat, SH_NamedObject::name(), SH_GenericState::next(), SH_DatabaseContentQuestionState::rawInput(), SH_InOutStateMachine::receiveInput(), SH_QuestionState::setInput(), SH_InOutState::setInput(), SH_DatabaseContentQuestionState::setOutput(), SH_InOutState::setOutput(), SH_InOutState::setVisibility(), Sh_LoopingInOutStateMachine::stopLooping(), et SH_InOutStateMachine::validateInput()\&.
+.PP
+.nf
+12                                                                     :
+13     Sh_LoopingInOutStateMachine("CHARGEDSERVICES",name, 0, parent), m_priceMin(0\&.0)
+14 {
+15     SH_DatabaseContentQuestionState* service = new SH_DatabaseContentQuestionState("Veuillez sélectionner une prestation ou appuyer sur la touche \"VALIDER\" pour cesser d'ajouter des prestations", "choose service in service charging","SERVICES","CODE");
+16     SH_InOutState*serviceId = new SH_InOutState("","service id in service charging");
+17     serviceId->setVisibility(false);
+18     SH_StringQuestionState* serviceName = new SH_StringQuestionState("Veuillez entrer ce qui sera affiché sur la facture", "service name in service charging",1);
+19     SH_DecimalQuestionState* price = new SH_DecimalQuestionState("", "price in service charging",-Q_INFINITY,Q_INFINITY);
+20     SH_DecimalQuestionState* quantity = new SH_DecimalQuestionState("", "quantity in service charging",1);
+21     SH_DatabaseContentQuestionState* vat = new SH_DatabaseContentQuestionState("", "vat in service charging","TAXES","PERCENTAGE","ENABLED='1'");
+22     QFinalState* final = new QFinalState();
+23 
+24 
+25     connect(service, &SH_QuestionState::answerInvalid, [=]() {
+26         int in = service->rawInput()\&.toInt();
+27         if(in == -1 || in == 0) {
+28             emit service->next();
+29         }
+30     });
+31     connect(service, &SH_QuestionState::answerValid, [=]() {
+32         if(service->rawInput()\&.toInt() > -1) {
+33             QString name;
+34             QStringList list;
+35             list\&.append("PRINTEDNAME");
+36             list\&.append("PRICEMIN");
+37             list\&.append("PRICEMAX");
+38             list\&.append("VAT_PERCENTAGE");
+39             list\&.append("ID");
+40             QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery("SERVICESINFOS", list, QString("CODE=%1")\&.arg(service->rawInput()\&.toString()));
+41             result\&.next();
+42             QSqlRecord record = result\&.record();
+43             name= record\&.value(0)\&.toString();
+44             m_priceMin =record\&.value(1)\&.toDouble();
+45             m_vat =record\&.value(3)\&.toDouble();
+46             serviceId->setInput(record\&.value(4)\&.toInt());
+47             serviceName->setInput(name);
+48             price->setOutput(QString("Le prix proposé pour cette prestation est : %1\&. Son prix minimum est %1 et son prix maximum %2\&.\nVeuillez entrer un nouveau prix ou appuyer sur la touche \"CONFIRMER\"")\&.arg(record\&.value(1)\&.toString())\&.arg(record\&.value(2)\&.toString()));
+49             vat->setOutput(QString("Cette prestation est associée à une TVA de %1\%\&.\nVeuillez entrer une autre TVA à appliquer ou appuyer sur la touche \"CONFIRMER\"")\&.arg(record\&.value(3)\&.toString()));
+50             serviceName->setVisibility(false);
+51         }
+52     });
+53     connect(quantity, &QState::entered, [=]() {
+54         connect(this, &SH_InOutStateMachine::receiveInput, [=](QString in) {
+55             QString newInput;
+56             if(in\&.right(in\&.length() - 1)\&.toInt() != 0) {
+57                 newInput = in\&.right(in\&.length() - 1);
+58             }
+59             emit receiveInput(newInput);
+60         });
+61     });
+62     connect(price, &QState::entered, [=]() {
+63         connect(this, &SH_InOutStateMachine::confirmInput, [=]() {
+64             price->setInput(m_priceMin);
+65         });
+66     });
+67     connect(vat, &QState::entered, [=]() {
+68         connect(this, &SH_InOutStateMachine::confirmInput, [=]() {
+69             vat->setInput(m_vat);
+70         });
+71     });
+72 
+73 
+74     this->addState(final);
+75     this->addIOState(service, "");
+76     this->addIOState(serviceId, "SERVICE_ID");
+77     this->addIOState(serviceName, "PRINTEDNAME");
+78     this->addIOState(price, "CHARGEDUNITPRICE");
+79     this->addIOState(quantity, "QUANTITY");
+80     this->addIOState(vat, "CHARGEDVAT");
+81     this->addChildrenNextTransition(service, serviceId);
+82     this->addChildrenNextTransition(serviceId, serviceName);
+83     this->addChildrenNextTransition(serviceName, quantity);
+84     this->addChildrenNextTransition(quantity, price);
+85     this->addChildrenNextTransition(price, vat);
+86     this->addChildrenNextTransition(vat, final);
+87     this->setInitialState(service);
+88     connect(this, &SH_InOutStateMachine::validateInput, this, &Sh_LoopingInOutStateMachine::stopLooping);
+89 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "void Sh_LoopingInOutStateMachine::addChildrenNextTransition (QAbstractState *previousState, QAbstractState *nextState)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 86 du fichier SH_LoopingIOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::historyValue(), SH_AdaptDatabaseState::insertUpdate(), Sh_LoopingInOutStateMachine::m_contents, Sh_LoopingInOutStateMachine::m_current, SH_InOutStateMachine::m_ioContent, Sh_LoopingInOutStateMachine::m_limit, Sh_LoopingInOutStateMachine::m_persistentContent, SH_InOutStateMachine::m_tableName, SH_InOutStateMachine::next(), SH_InOutStateMachine::replaceInput(), SH_InOutStateMachine::setContentValue(), et SH_InOutStateMachine::toString()\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ServiceCharging()\&.
+.PP
+.nf
+87 {
+88     SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
+89     SH_InOutStateMachine* fsmPreviousState = qobject_cast<SH_InOutStateMachine*>(previousState);
+90     QFinalState* final = qobject_cast<QFinalState*>(nextState);
+91     if(final) {
+92         /*à faire au moment de l'entrée dans l'état previousState*/
+93         connect(previousState, &QAbstractState::entered, [=]() {
+94             m_current++;
+95             m_contents\&.append(m_ioContent);
+96             m_ioContent\&.clear();
+97             m_ioContent = m_persistentContent;
+98             if(m_limit == 0 || m_current < m_limit) {
+99                 if(genPreviousState) {
+100                     connect(genPreviousState, &QAbstractState::entered, [=]() {
+101                         genPreviousState->addTransition(genPreviousState, SIGNAL(next()), initialState());
+102                     });
+103                 }
+104                 if(fsmPreviousState) {
+105                     connect(fsmPreviousState, &QAbstractState::entered, [=]() {
+106                         fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), initialState());
+107                     });
+108                 }
+109             } else {
+110                 SH_AdaptDatabaseState* nextSaveState = new SH_AdaptDatabaseState("enregistrement 0 de la machine "+toString());
+111                 if(genPreviousState) {
+112                     genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextSaveState);
+113                 }
+114                 if(fsmPreviousState) {
+115                     fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextSaveState);
+116                 }
+117                 if(genPreviousState || fsmPreviousState) {
+118                     for(int i = 1; i < m_limit; i++) {
+119                         SH_AdaptDatabaseState* saveState = nextSaveState;
+120                         nextSaveState = new SH_AdaptDatabaseState(QString("enregistrement %1 de la machine %2")\&.arg(QString::number(i))\&.arg(toString()));
+121                         saveState->addTransition(saveState, SIGNAL(next()),nextSaveState);
+122                         connect(saveState, &QAbstractState::exited, [=]() {
+123                             connect(nextSaveState, &QAbstractState::entered, [=]() {
+124                                 setContentValue(nextSaveState->insertUpdate(m_tableName, m_contents[i]), "ID");
+125                             });
+126                         });
+127                     }
+128                     nextSaveState->addTransition(nextSaveState, SIGNAL(next()),final);
+129                 }
+130             }
+131         });
+132     } else {
+133         if(genPreviousState) {
+134             genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
+135         }
+136         if(fsmPreviousState) {
+137             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
+138         }
+139     }
+140     if(genPreviousState) {
+141         /*à faire au moment de l'entrée dans l'état previousState*/
+142         connect(genPreviousState, &QAbstractState::entered, [=]() {
+143             connect(this, &SH_InOutStateMachine::replaceInput, [=](QString field) {
+144                 /*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel puis on retourne à l'historique de l'état désiré; celui-ci fini, on passe à l'état qui aurait du suivre celui pendant lequel on a demandé à revenir sur un état précédent*/
+145                 QHistoryState* hState = historyValue(field);
+146                 if(hState) { /*si l'historique existe (on a déjà quitté l'état voulu)*/
+147                     hState->parentState()->addTransition(hState->parentState(), SIGNAL(next()), nextState);
+148                     genPreviousState->addTransition(genPreviousState, SIGNAL(next()), hState);
+149                 }
+150             });
+151         });
+152     }
+153 }
+.fi
+.SS "void SH_InOutStateMachine::addIOState (\fBSH_InOutState\fP *state, QStringfield)\fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 110 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_ConfirmationState::confirmInput(), SH_InOutState::display(), SH_InOutStateMachine::displayCalendar(), SH_InOutStateMachine::displayFileDialog(), SH_InOutState::output(), SH_InOutState::rawInput(), SH_InOutStateMachine::receiveInput(), SH_InOutState::resendInput(), SH_InOutStateMachine::resendText(), SH_InOutState::sendOutput(), SH_InOutStateMachine::sendText(), SH_InOutStateMachine::setContentValue(), SH_InOutState::setInput(), SH_InOutStateMachine::setIOStateHistory(), SH_InOutStateMachine::validateInput(), et SH_InOutState::visibility()\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(), et SH_ServiceCharging()\&.
+.PP
+.nf
+111 {
+112     /*à faire au moment de l'entrée dans l'état state*/
+113     connect(state, &QState::entered, [=]() {
+114         qDebug() << "entered !";
+115         state->display(true);
+116         connect(this, &SH_InOutStateMachine::receiveInput, state, &SH_InOutState::setInput); /* la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état*/
+117         connect(this, &SH_InOutStateMachine::receiveInput, [=](QString in){ qDebug() << "hello world !"; state->setInput(in);}); /* la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état*/
+118         connect(state, &SH_InOutState::sendOutput, [=](QVariant out) {qDebug() << "connected !"; emit this->sendText(out\&.toString(), false);});
+119         connect(state, &SH_InOutState::resendInput, [=](QVariant in) {emit this->resendText(in\&.toString(), true);});
+120         if(state->visibility()) {
+121             state->sendOutput(QVariant(state->output()));
+122         } else {
+123             qDebug() << "invisible";
+124         }
+125     });
+126     SH_ValidationState *validationState = qobject_cast<SH_ValidationState*>(state);
+127     if(validationState) {
+128         /*à faire au moment de l'entrée dans l'état state*/
+129         connect(validationState, &QState::entered, [=]() {
+130             connect(this, &SH_InOutStateMachine::validateInput, validationState, &SH_ValidationState::confirmInput);
+131         });
+132     }
+133     SH_ConfirmationState *confirmationState = qobject_cast<SH_ConfirmationState*>(state);
+134     if(confirmationState) {
+135         /*à faire au moment de l'entrée dans l'état state*/
+136         connect(confirmationState, &QState::entered, [=]() {
+137             connect(this, &SH_InOutStateMachine::validateInput, confirmationState, &SH_ConfirmationState::confirmInput);
+138         });
+139     }
+140     SH_DateQuestionState *dateState = qobject_cast<SH_DateQuestionState*>(state);
+141     if(dateState) {
+142         /*à faire au moment de l'entrée dans l'état state*/
+143         connect(dateState, &QState::entered, this, &SH_InOutStateMachine::displayCalendar);
+144     }
+145     SH_FileSelectionState *fileState = qobject_cast<SH_FileSelectionState*>(state);
+146     if(fileState) {
+147         /*à faire au moment de l'entrée dans l'état state*/
+148         connect(fileState, &QState::entered, this, &SH_InOutStateMachine::displayFileDialog);
+149     }
+150     /*à faire au moment de la sortie de l'état state*/
+151     connect(state, &QState::exited, [=]() {
+152         qDebug() << "exited !";
+153         if(!field\&.isEmpty()) {
+154             setContentValue(state->rawInput(), field);
+155             /*gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir quitté*/
+156             QHistoryState* hState = new QHistoryState(state);
+157             setIOStateHistory(hState, field);
+158         }
+159         state->disconnect(this); /*plus aucune action sur l'état ne pourra être provoquée par la machine*/
+160     });
+161 
+162 
+163     QAbstractState* astate = qobject_cast<QAbstractState *>(state);
+164     if(astate) {
+165         addState(astate);
+166     }
+167 }
+.fi
+.SS "void SH_InOutStateMachine::addIOStateMachine (\fBSH_InOutStateMachine\fP *fsm)\fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 175 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::cancelReplacement(), SH_InOutStateMachine::confirmInput(), SH_InOutStateMachine::displayCalendar(), SH_InOutStateMachine::receiveInput(), SH_InOutStateMachine::replaceInput(), SH_InOutStateMachine::resendText(), SH_InOutStateMachine::sendText(), et SH_InOutStateMachine::validateInput()\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.PP
+.nf
+176 {
+177     /*à faire au moment de l'entrée dans la machine d'état fsm*/
+178     connect(fsm, &QState::entered, [=]() {
+179         connect(this, &SH_InOutStateMachine::receiveInput, fsm, &SH_InOutStateMachine::receiveInput);
+180         connect(this, &SH_InOutStateMachine::sendText, fsm, &SH_InOutStateMachine::sendText);
+181         connect(this, &SH_InOutStateMachine::resendText, fsm, &SH_InOutStateMachine::resendText);
+182         connect(this, &SH_InOutStateMachine::confirmInput, fsm, &SH_InOutStateMachine::confirmInput);
+183         connect(this, &SH_InOutStateMachine::validateInput, fsm, &SH_InOutStateMachine::validateInput);
+184         connect(this, &SH_InOutStateMachine::replaceInput, fsm, &SH_InOutStateMachine::replaceInput);
+185         connect(this, &SH_InOutStateMachine::cancelReplacement, fsm, &SH_InOutStateMachine::cancelReplacement);
+186         connect(this, &SH_InOutStateMachine::displayCalendar, fsm, &SH_InOutStateMachine::displayCalendar);
+187     });
+188     /*à faire au moment de la sortie de la machine d'état fsm*/
+189     connect(fsm, &QState::exited, [=]() {
+190         fsm->disconnect(this); /*plus aucune action sur la machine d'état fille ne pourra être provoquée par la machine mère*/
+191     });
+192 
+193 }
+.fi
+.SS "void SH_InOutStateMachine::cancelReplacement ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOStateMachine(), et SH_ApplicationCore::cancelReplacement()\&.
+.SS "void SH_InOutStateMachine::clearAll ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addChildrenNextTransition(), et SH_ApplicationCore::connectRunningThread()\&.
+.SS "void SH_InOutStateMachine::confirmInput ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOStateMachine(), SH_ApplicationCore::receiveConfirmation(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ServiceCharging()\&.
+.SS "int Sh_LoopingInOutStateMachine::current () const\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 23 du fichier SH_LoopingIOStateMachine\&.cpp\&.
+.PP
+Références Sh_LoopingInOutStateMachine::m_current\&.
+.PP
+Référencé par Sh_LoopingInOutStateMachine::setCurrent(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.PP
+.nf
+24 {
+25     return m_current;
+26 }
+.fi
+.SS "void SH_InOutStateMachine::displayCalendar ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOState(), SH_InOutStateMachine::addIOStateMachine(), et SH_ApplicationCore::connectRunningThread()\&.
+.SS "void SH_InOutStateMachine::displayFileDialog ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOState()\&.
+.SS "QVariant SH_InOutStateMachine::getContentValue (QStringfield)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 65 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_ioContent\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ClientCreationStateMachine::SH_ClientCreationStateMachine()\&.
+.PP
+.nf
+66 {
+67     return m_ioContent\&.value(field);
+68 }
+.fi
+.SS "QHistoryState * SH_InOutStateMachine::historyValue (QStringfield)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 238 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_ioStatesHistory\&.
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), et SH_InOutStateMachine::addChildrenNextTransition()\&.
+.PP
+.nf
+239 {
+240     return m_ioStatesHistory\&.value(field);
+241 }
+.fi
+.SS "QVariantMap SH_InOutStateMachine::ioContent () const\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 43 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_ioContent\&.
+.PP
+Référencé par SH_InOutStateMachine::setIOcontent()\&.
+.PP
+.nf
+44 {
+45     return m_ioContent;
+46 }
+.fi
+.SS "QMap< QString, QHistoryState * > SH_InOutStateMachine::ioStatesHistory () const\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 202 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_ioStatesHistory\&.
+.PP
+Référencé par SH_InOutStateMachine::setIOStatesHistory()\&.
+.PP
+.nf
+203 {
+204     return m_ioStatesHistory;
+205 }
+.fi
+.SS "int Sh_LoopingInOutStateMachine::limit () const\fC [inherited]\fP"
+
+.PP
+Référencé par Sh_LoopingInOutStateMachine::setLimit()\&.
+.SS "void Sh_LoopingInOutStateMachine::limitChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par Sh_LoopingInOutStateMachine::setLimit()\&.
+.SS "void SH_InOutStateMachine::next ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_AddressCreationStateMachine::SH_AddressCreationStateMachine(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.SS "void SH_InOutStateMachine::receiveInput (QStringinput)\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOState(), SH_InOutStateMachine::addIOStateMachine(), SH_ApplicationCore::receiveInput(), et SH_ServiceCharging()\&.
+.SS "void SH_InOutStateMachine::replaceInput (QStringfield)\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOStateMachine(), et SH_ApplicationCore::replaceInput()\&.
+.SS "void SH_InOutStateMachine::resendText (QStringtext, booleditable = \fCfalse\fP)\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOState(), SH_InOutStateMachine::addIOStateMachine(), et SH_ApplicationCore::connectRunningThread()\&.
+.SS "void SH_InOutStateMachine::sendText (QStringtext, booleditable = \fCfalse\fP)\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOState(), SH_InOutStateMachine::addIOStateMachine(), et SH_ApplicationCore::connectRunningThread()\&.
+.SS "void SH_InOutStateMachine::setContentValue (QVariantcontent, QStringfield)\fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 99 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_ioContent\&.
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOState(), SH_ApplicationCore::launchBillThread(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ClientCreationStateMachine::SH_ClientCreationStateMachine()\&.
+.PP
+.nf
+100 {
+101     m_ioContent\&.insert(field, content);
+102 }
+.fi
+.SS "void Sh_LoopingInOutStateMachine::setCurrent (intcurrent)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 34 du fichier SH_LoopingIOStateMachine\&.cpp\&.
+.PP
+Références Sh_LoopingInOutStateMachine::current(), et Sh_LoopingInOutStateMachine::m_current\&.
+.PP
+.nf
+35 {
+36     m_current = current;
+37 }
+.fi
+.SS "void SH_InOutStateMachine::setIOcontent (const QVariantMap &ioContent)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 54 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::ioContent(), et SH_InOutStateMachine::m_ioContent\&.
+.PP
+.nf
+55 {
+56     m_ioContent = ioContent;
+57 }
+.fi
+.SS "void SH_InOutStateMachine::setIOStateHistory (QHistoryState *state, QStringfield)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 226 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_ioStatesHistory\&.
+.PP
+Référencé par SH_InOutStateMachine::addIOState()\&.
+.PP
+.nf
+227 {
+228     m_ioStatesHistory\&.insert(field, state); /*remplacement si plusieurs fois*/
+229 }
+.fi
+.SS "void Sh_LoopingInOutStateMachine::setLimit (intlimit)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 61 du fichier SH_LoopingIOStateMachine\&.cpp\&.
+.PP
+Références Sh_LoopingInOutStateMachine::limit(), Sh_LoopingInOutStateMachine::limitChanged(), et Sh_LoopingInOutStateMachine::m_limit\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.PP
+.nf
+62 {
+63     m_limit = limit;
+64     emit limitChanged();
+65 }
+.fi
+.SS "void Sh_LoopingInOutStateMachine::setPersistentContentValue (QVariantvalue, QStringfield)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 39 du fichier SH_LoopingIOStateMachine\&.cpp\&.
+.PP
+Références Sh_LoopingInOutStateMachine::m_persistentContent\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.PP
+.nf
+40 {
+41     m_persistentContent\&.insert(field, value);
+42 }
+.fi
+.SS "void SH_InOutStateMachine::setTableName (const QString &tableName)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 87 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_tableName, et SH_InOutStateMachine::tableName()\&.
+.PP
+.nf
+88 {
+89     m_tableName = tableName;
+90 }
+.fi
+.SS "void Sh_LoopingInOutStateMachine::stopLooping ()\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 72 du fichier SH_LoopingIOStateMachine\&.cpp\&.
+.PP
+Références Sh_LoopingInOutStateMachine::m_current, et Sh_LoopingInOutStateMachine::m_limit\&.
+.PP
+Référencé par SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ServiceCharging()\&.
+.PP
+.nf
+72                                               {
+73     if(m_limit = 0) {
+74         m_limit = m_current + 1;
+75     } else {
+76         m_current = m_limit - 1;
+77     }
+78 }
+.fi
+.SS "QString SH_InOutStateMachine::tableName () const\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 76 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::m_tableName\&.
+.PP
+Référencé par SH_InOutStateMachine::setTableName()\&.
+.PP
+.nf
+77 {
+78     return m_tableName;
+79 }
+.fi
+.SS "QString SH_InOutStateMachine::toString ()\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+Réimplémentée à partir de \fBSH_NamedObject\fP\&.
+.PP
+Définition à la ligne 26 du fichier SH_IOStateMachine\&.cpp\&.
+.PP
+Références SH_NamedObject::toString(), et SH_GenericState::toString()\&.
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_ApplicationCore::launchBillingsThread(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_GenericState::toString()\&.
+.PP
+.nf
+27 {
+28     QObject* parent = this->parent();
+29     SH_GenericState* par = qobject_cast<SH_GenericState *>(parent);
+30     if(par) {
+31         return SH_NamedObject::toString()+ " [descending from "+par->toString()+"] ";
+32     } else {
+33         return SH_NamedObject::toString();
+34     }
+35 }
+.fi
+.SS "void SH_InOutStateMachine::validateInput ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOState(), SH_InOutStateMachine::addIOStateMachine(), SH_ApplicationCore::receiveValidation(), et SH_ServiceCharging()\&.
+.SH "Documentation des données membres"
+.PP 
+.SS "QVariantMap SH_InOutStateMachine::m_ioContent\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+m_ioContent 
+.PP
+Définition à la ligne 209 du fichier SH_IOStateMachine\&.h\&.
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::getContentValue(), SH_InOutStateMachine::ioContent(), SH_InOutStateMachine::setContentValue(), SH_InOutStateMachine::setIOcontent(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.SS "QMap<QString, QHistoryState*> SH_InOutStateMachine::m_ioStatesHistory\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+m_ioStatesHistory 
+.PP
+Définition à la ligne 217 du fichier SH_IOStateMachine\&.h\&.
+.PP
+Référencé par SH_InOutStateMachine::historyValue(), SH_InOutStateMachine::ioStatesHistory(), SH_InOutStateMachine::setIOStateHistory(), et SH_InOutStateMachine::setIOStatesHistory()\&.
+.SS "qreal SH_ServiceCharging::m_priceMin\fC [private]\fP"
+
+.PP
+m_priceMin 
+.PP
+Définition à la ligne 27 du fichier SH_ServiceCharging\&.h\&.
+.PP
+Référencé par SH_ServiceCharging()\&.
+.SS "QString SH_InOutStateMachine::m_tableName\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+m_tableName 
+.PP
+Définition à la ligne 213 du fichier SH_IOStateMachine\&.h\&.
+.PP
+Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::setTableName(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_InOutStateMachine::tableName()\&.
+.SS "qreal SH_ServiceCharging::m_vat\fC [private]\fP"
+
+.PP
+m_vat 
+.PP
+Définition à la ligne 31 du fichier SH_ServiceCharging\&.h\&.
+.PP
+Référencé par SH_ServiceCharging()\&.
+.SH "Documentation des propriétés"
+.PP 
+.SS "int Sh_LoopingInOutStateMachine::limit\fC [read]\fP, \fC [write]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 13 du fichier SH_LoopingIOStateMachine\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

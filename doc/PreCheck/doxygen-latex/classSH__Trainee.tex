@@ -1,0 +1,709 @@
+\hypertarget{classSH__Trainee}{\section{Référence de la classe S\-H\-\_\-\-Trainee}
+\label{classSH__Trainee}\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}}
+}
+
+
+{\ttfamily \#include $<$S\-H\-\_\-\-Trainee.\-h$>$}
+
+
+
+Graphe d'héritage de S\-H\-\_\-\-Trainee\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSH__Trainee__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de S\-H\-\_\-\-Trainee\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSH__Trainee__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+static Q\-Variant \hyperlink{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}{exists} (Q\-Variant login)
+\end{DoxyCompactItemize}
+\subsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSH__User_ad5192b94de944abf4375669e66cd95a9}{name\-Changed} ()
+\item 
+void \hyperlink{classSH__User_ab5a4645e6ac1ad33461bb5860cff0c9b}{roles\-Changed} ()
+\item 
+void \hyperlink{classSH__User_a6576237e42c48c4b055877dd1e3059b5}{validity\-Changed} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSH__Trainee_a2715e0da8758c1f9674bfe86951a35c5}{S\-H\-\_\-\-Trainee} (Q\-String \hyperlink{classSH__User_a18a7ad8ceded0edd3cb93e36cfcd2099}{name}, int \hyperlink{classSH__User_ad6fb57220df359c4cd28fbd8fcc71b12}{id}, \hyperlink{classQObject}{Q\-Object} $\ast$parent=0)
+\item 
+int \hyperlink{classSH__User_addf3cb1d491eea2df592dee5c9081d32}{id} () const 
+\item 
+bool \hyperlink{classSH__User_ad2acd7b3caca088be8cab00aee11c0e1}{is\-Administrator} () const 
+\item 
+bool \hyperlink{classSH__User_ac69553a66b8c7177c9a5e28a64f02d48}{is\-Manager\-X} () const 
+\item 
+bool \hyperlink{classSH__User_aa59c59a6f538628c883216e4a73e4c75}{is\-Manager\-Z} () const 
+\item 
+bool \hyperlink{classSH__User_aa0da8b3326fe98d0ce5ec32e284d8e67}{is\-Receptionist} () const 
+\item 
+bool \hyperlink{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}{is\-Valid} () const 
+\item 
+Q\-String \hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{name} () const 
+\item 
+int \hyperlink{classSH__User_a4b58db36176601136130aa91e87548ee}{roles} () const 
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSH__User}{S\-H\-\_\-\-User} $\ast$ \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{log\-In} (Q\-String login, Q\-String pass)
+\item 
+static bool \hyperlink{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{trainee\-Exists} (Q\-String login)
+\item 
+static bool \hyperlink{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{user\-Exists} (Q\-String login)
+\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSH__User_ab57f23cf224a8c5bdd191ca501549220}{administrator}
+\item 
+int \hyperlink{classSH__User_ad6fb57220df359c4cd28fbd8fcc71b12}{id}
+\item 
+bool \hyperlink{classSH__User_a1794a1229076bcaf2de708146db574b3}{manager\-X}
+\item 
+bool \hyperlink{classSH__User_ad5e987610bea0bd50bbc0a1d1ac0aed5}{manager\-Z}
+\item 
+Q\-String \hyperlink{classSH__User_a18a7ad8ceded0edd3cb93e36cfcd2099}{name}
+\item 
+bool \hyperlink{classSH__User_ad9970fff1a6be03101fd87f9c60081ee}{receptionist}
+\item 
+int \hyperlink{classSH__User_a4ccfdedef6ae4f0cf0345a7bfa306e9c}{roles}
+\item 
+bool \hyperlink{classSH__User_a91cae1175894bf2eef629405638db01c}{valid}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{SH__Trainee_8h_source_l00014}{14} du fichier \hyperlink{SH__Trainee_8h_source}{S\-H\-\_\-\-Trainee.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSH__Trainee_a2715e0da8758c1f9674bfe86951a35c5}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}}
+\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{S\-H\-\_\-\-Trainee}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Trainee\-::\-S\-H\-\_\-\-Trainee (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{name, }
+\item[{int}]{id, }
+\item[{{\bf Q\-Object} $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classSH__Trainee_a2715e0da8758c1f9674bfe86951a35c5}
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & \\
+\hline
+{\em id} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__Trainee_8cpp_source_l00009}{9} du fichier \hyperlink{SH__Trainee_8cpp_source}{S\-H\-\_\-\-Trainee.\-cpp}.
+
+
+\begin{DoxyCode}
+00009                                                             : \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}(
+      \hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{name}, \textcolor{keywordtype}{id}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, parent)
+00010 \{
+00011 
+00012 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!exists@{exists}}
+\index{exists@{exists}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}static Q\-Variant S\-H\-\_\-\-User\-::exists (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{login}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00132}{132} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Références \hyperlink{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{S\-H\-\_\-\-User\-::trainee\-Exists()}, et \hyperlink{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{S\-H\-\_\-\-User\-::user\-Exists()}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{S\-H\-\_\-\-Application\-Core\-::set\-Mode()}, et \hyperlink{classSH__ApplicationCore_acce6b4e70ccc2035072df11acba7065a}{S\-H\-\_\-\-Application\-Core\-::user\-Exists()}.
+
+
+\begin{DoxyCode}
+00132 \{\textcolor{keywordflow}{return} QVariant(\hyperlink{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{SH\_User::userExists}(login.toString()) || 
+      \hyperlink{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{SH\_User::traineeExists}(login.toString()));\}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_aa83a99478cf6c738f995c5c36345bcd3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classSH__User_aa83a99478cf6c738f995c5c36345bcd3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_addf3cb1d491eea2df592dee5c9081d32}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!id@{id}}
+\index{id@{id}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-User\-::id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__User_addf3cb1d491eea2df592dee5c9081d32}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00054}{54} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Références \hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{S\-H\-\_\-\-User\-::m\-\_\-id}.
+
+
+
+Référencé par \hyperlink{classSH__User_a6523c9c84b0edcbc066a8833e4ddad6d}{S\-H\-\_\-\-User\-::set\-I\-D()}.
+
+
+\begin{DoxyCode}
+00054 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{m\_id}; \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_addf3cb1d491eea2df592dee5c9081d32_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_ad2acd7b3caca088be8cab00aee11c0e1}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!is\-Administrator@{is\-Administrator}}
+\index{is\-Administrator@{is\-Administrator}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{is\-Administrator}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::is\-Administrator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__User_ad2acd7b3caca088be8cab00aee11c0e1}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00082}{82} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Références \hyperlink{classSH__User_af1e8d755b1bdfd9ab41a9cfc14b4c95e}{S\-H\-\_\-\-User\-::m\-\_\-administrator}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{S\-H\-\_\-\-Application\-Core\-::set\-Mode()}, et \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{S\-H\-\_\-\-User\-::\-S\-H\-\_\-\-User()}.
+
+
+\begin{DoxyCode}
+00082 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_af1e8d755b1bdfd9ab41a9cfc14b4c95e}{m\_administrator}; \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_ad2acd7b3caca088be8cab00aee11c0e1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_ac69553a66b8c7177c9a5e28a64f02d48}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!is\-Manager\-X@{is\-Manager\-X}}
+\index{is\-Manager\-X@{is\-Manager\-X}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{is\-Manager\-X}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::is\-Manager\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__User_ac69553a66b8c7177c9a5e28a64f02d48}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00068}{68} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Références \hyperlink{classSH__User_ab9c9475b85e1449da1476eb7b4157a4d}{S\-H\-\_\-\-User\-::m\-\_\-manager\-X}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{S\-H\-\_\-\-Application\-Core\-::set\-Mode()}, et \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{S\-H\-\_\-\-User\-::\-S\-H\-\_\-\-User()}.
+
+
+\begin{DoxyCode}
+00068 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_ab9c9475b85e1449da1476eb7b4157a4d}{m\_managerX}; \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_ac69553a66b8c7177c9a5e28a64f02d48_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_aa59c59a6f538628c883216e4a73e4c75}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!is\-Manager\-Z@{is\-Manager\-Z}}
+\index{is\-Manager\-Z@{is\-Manager\-Z}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{is\-Manager\-Z}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::is\-Manager\-Z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__User_aa59c59a6f538628c883216e4a73e4c75}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00075}{75} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Références \hyperlink{classSH__User_aff16f3d1a135c4b6673b69c42cffe86d}{S\-H\-\_\-\-User\-::m\-\_\-manager\-Z}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{S\-H\-\_\-\-Application\-Core\-::set\-Mode()}, et \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{S\-H\-\_\-\-User\-::\-S\-H\-\_\-\-User()}.
+
+
+\begin{DoxyCode}
+00075 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_aff16f3d1a135c4b6673b69c42cffe86d}{m\_managerZ}; \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_aa59c59a6f538628c883216e4a73e4c75_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_aa0da8b3326fe98d0ce5ec32e284d8e67}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!is\-Receptionist@{is\-Receptionist}}
+\index{is\-Receptionist@{is\-Receptionist}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{is\-Receptionist}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::is\-Receptionist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__User_aa0da8b3326fe98d0ce5ec32e284d8e67}
+
+
+Définition à la ligne \hyperlink{SH__User_8cpp_source_l00064}{64} du fichier \hyperlink{SH__User_8cpp_source}{S\-H\-\_\-\-User.\-cpp}.
+
+
+
+Références \hyperlink{classSH__User_a86a5f8feb41c4238c5f022e9fbbe2e44}{S\-H\-\_\-\-User\-::m\-\_\-receptionist}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{S\-H\-\_\-\-Application\-Core\-::set\-Mode()}, et \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{S\-H\-\_\-\-User\-::\-S\-H\-\_\-\-User()}.
+
+
+\begin{DoxyCode}
+00065 \{
+00066     \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_a86a5f8feb41c4238c5f022e9fbbe2e44}{m\_receptionist};
+00067 \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_aa0da8b3326fe98d0ce5ec32e284d8e67_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!is\-Valid@{is\-Valid}}
+\index{is\-Valid@{is\-Valid}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{is\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::is\-Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}
+
+
+Définition à la ligne \hyperlink{SH__User_8cpp_source_l00032}{32} du fichier \hyperlink{SH__User_8cpp_source}{S\-H\-\_\-\-User.\-cpp}.
+
+
+
+Références \hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{S\-H\-\_\-\-User\-::m\-\_\-id}, et \hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{S\-H\-\_\-\-User\-::m\-\_\-name}.
+
+
+
+Référencé par \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{S\-H\-\_\-\-User\-::log\-In()}, \hyperlink{classSH__ApplicationCore_a83d2df40550a95586e70a08833dc5e5f}{S\-H\-\_\-\-Application\-Core\-::set\-User()}, et \hyperlink{classSH__ApplicationCore_abe6683bdada7ecf979b74656748be106}{S\-H\-\_\-\-Application\-Core\-::user\-Log\-Out()}.
+
+
+\begin{DoxyCode}
+00032                             \{
+00033     \textcolor{keywordflow}{return} ((!this->\hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name}.isEmpty()) && (this->\hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{m\_id} != 0));
+00034 \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_aa1b7fd66632c13905f3b6fd941505c02_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!log\-In@{log\-In}}
+\index{log\-In@{log\-In}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{log\-In}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-\-User} $\ast$ S\-H\-\_\-\-User\-::log\-In (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{login, }
+\item[{Q\-String}]{pass}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}}\label{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}
+
+
+Définition à la ligne \hyperlink{SH__User_8cpp_source_l00132}{132} du fichier \hyperlink{SH__User_8cpp_source}{S\-H\-\_\-\-User.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query()}, \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}, \hyperlink{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}{S\-H\-\_\-\-User\-::is\-Valid()}, \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{S\-H\-\_\-\-User\-::\-S\-H\-\_\-\-User()}, \hyperlink{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{S\-H\-\_\-\-User\-::trainee\-Exists()}, et \hyperlink{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{S\-H\-\_\-\-User\-::user\-Exists()}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_a83d2df40550a95586e70a08833dc5e5f}{S\-H\-\_\-\-Application\-Core\-::set\-User()}.
+
+
+\begin{DoxyCode}
+00133 \{
+00134     qDebug() << \textcolor{stringliteral}{"log in"};
+00135     \textcolor{keywordtype}{bool} \hyperlink{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}{isValid} = \textcolor{keyword}{false};
+00136     QCryptographicHash encPass(QCryptographicHash::Sha512);
+00137     encPass.addData(pass.toUtf8());
+00138     \textcolor{keywordtype}{bool} trainee=\textcolor{keyword}{false};
+00139     QStringList fields;
+00140     QString table;
+00141     \textcolor{keywordflow}{if}(\hyperlink{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{userExists}(login)) \{
+00142         fields << \textcolor{stringliteral}{"ID"} << \textcolor{stringliteral}{"LOGIN"} << \textcolor{stringliteral}{"ISRECEPTIONIST"} << \textcolor{stringliteral}{"ISMANAGERX"} << \textcolor{stringliteral}{"ISMANAGERZ"} << \textcolor{stringliteral}{"ISADMINISTRATOR"};
+00143         table =\textcolor{stringliteral}{"USERS"};
+00144     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{traineeExists}(login)) \{
+00145         fields << \textcolor{stringliteral}{"ID"} << \textcolor{stringliteral}{"LOGIN"};
+00146         table =\textcolor{stringliteral}{"TRAINEES"};
+00147         trainee=\textcolor{keyword}{true};
+00148     \}
+00149     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{SH\_DatabaseManager::getInstance}()->
+      \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(table,fields,\textcolor{stringliteral}{"LOGIN='"}+login+\textcolor{stringliteral}{"' AND ENCRYPTEDPASS='"}+QString::fromLatin1(
+      encPass.result().toHex()).toUpper()+\textcolor{stringliteral}{"'"});
+00150     \textcolor{keywordflow}{if}(result.next()) \{
+00151         QSqlRecord rec = result.record();
+00152         \textcolor{keywordflow}{if}(rec.isEmpty() || !result.isValid()) \{
+00153             isValid = \textcolor{keyword}{false};
+00154         \} \textcolor{keywordflow}{else} \{
+00155             isValid = (rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString() == login);
+00156         \}
+00157 
+00158         \textcolor{keywordflow}{if}(isValid) \{
+00159             \textcolor{keywordflow}{if}(trainee) \{
+00160                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__Trainee}{SH\_Trainee}(rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString(),rec.value(rec.
+      indexOf(\textcolor{stringliteral}{"ID"})).toInt());
+00161             \} \textcolor{keywordflow}{else} \{
+00162                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}(rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString(),rec.value(rec.indexOf(\textcolor{stringliteral}{
+      "ID"})).toInt(),(rec.value(rec.indexOf(\textcolor{stringliteral}{"ISRECEPTIONIST"})).toString()==\textcolor{stringliteral}{"1"}),(rec.value(rec.indexOf(\textcolor{stringliteral}{"ISMANAGERX
+      "})).toString()==\textcolor{stringliteral}{"1"}),(rec.value(rec.indexOf(\textcolor{stringliteral}{"ISMANAGERZ"})).toString()==\textcolor{stringliteral}{"1"}),(rec.value(rec.indexOf(\textcolor{stringliteral}{"
+      ISADMINISTRATOR"})).toString()==\textcolor{stringliteral}{"1"}));
+00163             \}
+00164         \}
+00165     \}
+00166     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}();
+00167 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_ae91e70207f4057846667af6e1c300d96}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!name@{name}}
+\index{name@{name}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String S\-H\-\_\-\-User\-::name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__User_ae91e70207f4057846667af6e1c300d96}
+
+
+Référencé par \hyperlink{classSH__User_ae35f21797b53378ad2a6e5e6389bb8c8}{S\-H\-\_\-\-User\-::set\-Name()}.
+
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_ae91e70207f4057846667af6e1c300d96_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_ad5192b94de944abf4375669e66cd95a9}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!name\-Changed@{name\-Changed}}
+\index{name\-Changed@{name\-Changed}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{name\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-User\-::name\-Changed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__User_ad5192b94de944abf4375669e66cd95a9}
+\hypertarget{classSH__User_a4b58db36176601136130aa91e87548ee}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!roles@{roles}}
+\index{roles@{roles}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{roles}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-User\-::roles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__User_a4b58db36176601136130aa91e87548ee}
+\hypertarget{classSH__User_ab5a4645e6ac1ad33461bb5860cff0c9b}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!roles\-Changed@{roles\-Changed}}
+\index{roles\-Changed@{roles\-Changed}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{roles\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-User\-::roles\-Changed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__User_ab5a4645e6ac1ad33461bb5860cff0c9b}
+\hypertarget{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!trainee\-Exists@{trainee\-Exists}}
+\index{trainee\-Exists@{trainee\-Exists}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{trainee\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::trainee\-Exists (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{login}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}}\label{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}
+
+
+Définition à la ligne \hyperlink{SH__User_8cpp_source_l00121}{121} du fichier \hyperlink{SH__User_8cpp_source}{S\-H\-\_\-\-User.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}.
+
+
+
+Référencé par \hyperlink{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}{S\-H\-\_\-\-User\-::exists()}, et \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{S\-H\-\_\-\-User\-::log\-In()}.
+
+
+\begin{DoxyCode}
+00121                                          \{
+00122     qDebug() << \textcolor{stringliteral}{"trainee exists"};
+00123     \textcolor{keywordflow}{return} (\hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{SH\_DatabaseManager::getInstance}()->dataCount(\textcolor{stringliteral}{"TRAINEES"}, \textcolor{stringliteral}{"
+      LOGIN='"}+login+\textcolor{stringliteral}{"'"}) == 1);
+00124 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!user\-Exists@{user\-Exists}}
+\index{user\-Exists@{user\-Exists}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{user\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::user\-Exists (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{login}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}}\label{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}
+
+
+Définition à la ligne \hyperlink{SH__User_8cpp_source_l00110}{110} du fichier \hyperlink{SH__User_8cpp_source}{S\-H\-\_\-\-User.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}.
+
+
+
+Référencé par \hyperlink{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}{S\-H\-\_\-\-User\-::exists()}, et \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{S\-H\-\_\-\-User\-::log\-In()}.
+
+
+\begin{DoxyCode}
+00110                                       \{
+00111     qDebug() << \textcolor{stringliteral}{"user exists"};
+00112     \textcolor{keywordflow}{return} (\hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{SH\_DatabaseManager::getInstance}()->dataCount(\textcolor{stringliteral}{"USERS"}, \textcolor{stringliteral}{"LOGIN='"}+
+      login+\textcolor{stringliteral}{"'"}) == 1);
+00113 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_a5ca23c3c396d8867d5d605d087efb82f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__User_a5ca23c3c396d8867d5d605d087efb82f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__User_a6576237e42c48c4b055877dd1e3059b5}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!validity\-Changed@{validity\-Changed}}
+\index{validity\-Changed@{validity\-Changed}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{validity\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-User\-::validity\-Changed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__User_a6576237e42c48c4b055877dd1e3059b5}
+
+
+\subsection{Documentation des propriétés}
+\hypertarget{classSH__User_ab57f23cf224a8c5bdd191ca501549220}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!administrator@{administrator}}
+\index{administrator@{administrator}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{administrator}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::administrator\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_ab57f23cf224a8c5bdd191ca501549220}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00023}{23} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+\hypertarget{classSH__User_ad6fb57220df359c4cd28fbd8fcc71b12}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!id@{id}}
+\index{id@{id}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-User\-::id\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_ad6fb57220df359c4cd28fbd8fcc71b12}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00018}{18} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_a17a048025bc51a96663029e58c722741}{S\-H\-\_\-\-Application\-Core\-::launch\-Bill\-Thread()}.
+
+\hypertarget{classSH__User_a1794a1229076bcaf2de708146db574b3}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!manager\-X@{manager\-X}}
+\index{manager\-X@{manager\-X}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{manager\-X}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::manager\-X\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_a1794a1229076bcaf2de708146db574b3}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00021}{21} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+\hypertarget{classSH__User_ad5e987610bea0bd50bbc0a1d1ac0aed5}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!manager\-Z@{manager\-Z}}
+\index{manager\-Z@{manager\-Z}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{manager\-Z}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::manager\-Z\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_ad5e987610bea0bd50bbc0a1d1ac0aed5}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00022}{22} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+\hypertarget{classSH__User_a18a7ad8ceded0edd3cb93e36cfcd2099}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!name@{name}}
+\index{name@{name}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String S\-H\-\_\-\-User\-::name\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_a18a7ad8ceded0edd3cb93e36cfcd2099}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00019}{19} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{S\-H\-\_\-\-Application\-Core\-::set\-Mode()}, et \hyperlink{classSH__ApplicationCore_a83d2df40550a95586e70a08833dc5e5f}{S\-H\-\_\-\-Application\-Core\-::set\-User()}.
+
+\hypertarget{classSH__User_ad9970fff1a6be03101fd87f9c60081ee}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!receptionist@{receptionist}}
+\index{receptionist@{receptionist}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{receptionist}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::receptionist\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_ad9970fff1a6be03101fd87f9c60081ee}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00020}{20} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+\hypertarget{classSH__User_a4ccfdedef6ae4f0cf0345a7bfa306e9c}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!roles@{roles}}
+\index{roles@{roles}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{roles}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-User\-::roles\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_a4ccfdedef6ae4f0cf0345a7bfa306e9c}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00024}{24} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+\hypertarget{classSH__User_a91cae1175894bf2eef629405638db01c}{\index{S\-H\-\_\-\-Trainee@{S\-H\-\_\-\-Trainee}!valid@{valid}}
+\index{valid@{valid}!SH_Trainee@{S\-H\-\_\-\-Trainee}}
+\subsubsection[{valid}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-User\-::valid\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__User_a91cae1175894bf2eef629405638db01c}
+
+
+Définition à la ligne \hyperlink{SH__User_8h_source_l00025}{25} du fichier \hyperlink{SH__User_8h_source}{S\-H\-\_\-\-User.\-h}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+models/\hyperlink{SH__Trainee_8h}{S\-H\-\_\-\-Trainee.\-h}\item 
+models/\hyperlink{SH__Trainee_8cpp}{S\-H\-\_\-\-Trainee.\-cpp}\end{DoxyCompactItemize}
