@@ -11,7 +11,7 @@
 /*!
  \brief
 
- \class QQQuickAction qquickaction.h "views/qquickaction.h"
+ \class SH_QQQuickAction qquickaction.h "views/qquickaction.h"
 */
 class SH_ExtendedQQmlAction : public QObject
 {
@@ -33,28 +33,28 @@ public:
     /*!
      \brief
 
-     \fn QQQuickAction
+     \fn SH_QQQuickAction
      \param parent
     */
     explicit SH_ExtendedQQmlAction(QObject *parent = 0);
     /*!
      \brief
 
-     \fn ~QQQuickAction
+     \fn SH_~QQQuickAction
     */
     ~SH_ExtendedQQmlAction();
 
     /*!
      \brief
 
-     \fn text
+     \fn SH_text
      \return QString
     */
     QString text() const { return m_text; }
     /*!
      \brief
 
-     \fn setText
+     \fn SH_setText
      \param text
     */
     void setText(const QString &text);
@@ -62,14 +62,14 @@ public:
     /*!
      \brief
 
-     \fn shortcut
+     \fn SH_shortcut
      \return QString
     */
     QString shortcut() const;
     /*!
      \brief
 
-     \fn setShortcut
+     \fn SH_setShortcut
      \param shortcut
     */
     void setShortcut(const QString &shortcut);
@@ -77,14 +77,14 @@ public:
     /*!
      \brief
 
-     \fn keyShortcut
+     \fn SH_keyShortcut
      \return QKeySequence
     */
     QKeySequence keyShortcut() const { return m_shortcut; }
     /*!
      \brief
 
-     \fn setKeyShortcut
+     \fn SH_setKeyShortcut
      \param shortcut
     */
     void setKeyShortcut(const Qt::Key &shortcut);
@@ -92,7 +92,7 @@ public:
     /*!
      \brief
 
-     \fn setMnemonicFromText
+     \fn SH_setMnemonicFromText
      \param mnemonic
     */
     void setMnemonicFromText(const QString &mnemonic);
@@ -100,14 +100,14 @@ public:
     /*!
      \brief
 
-     \fn iconName
+     \fn SH_iconName
      \return QString
     */
     QString iconName() const;
     /*!
      \brief
 
-     \fn setIconName
+     \fn SH_setIconName
      \param iconName
     */
     void setIconName(const QString &iconName);
@@ -115,14 +115,14 @@ public:
     /*!
      \brief
 
-     \fn iconSource
+     \fn SH_iconSource
      \return QUrl
     */
     QUrl iconSource() const { return m_iconSource; }
     /*!
      \brief
 
-     \fn setIconSource
+     \fn SH_setIconSource
      \param iconSource
     */
     void setIconSource(const QUrl &iconSource);
@@ -130,14 +130,14 @@ public:
     /*!
      \brief
 
-     \fn tooltip
+     \fn SH_tooltip
      \return QString
     */
     QString tooltip() const { return m_tooltip; }
     /*!
      \brief
 
-     \fn setTooltip
+     \fn SH_setTooltip
      \param tooltip
     */
     void setTooltip(const QString &tooltip);
@@ -145,14 +145,14 @@ public:
     /*!
      \brief
 
-     \fn isEnabled
+     \fn SH_isEnabled
      \return bool
     */
     bool isEnabled() const { return m_enabled; }
     /*!
      \brief
 
-     \fn setEnabled
+     \fn SH_setEnabled
      \param e
     */
     void setEnabled(bool e);
@@ -160,21 +160,21 @@ public:
     /*!
      \brief
 
-     \fn icon
+     \fn SH_icon
      \return QIcon
     */
     QIcon icon() const { return m_icon; }
     /*!
      \brief
 
-     \fn iconVariant
+     \fn SH_iconVariant
      \return QVariant
     */
     QVariant iconVariant() const { return QVariant(m_icon); }
     /*!
      \brief
 
-     \fn setIcon
+     \fn SH_setIcon
      \param icon
     */
     void setIcon(QIcon icon) { m_icon = icon; emit iconChanged(); }
@@ -182,7 +182,7 @@ public:
     /*!
      \brief
 
-     \fn event
+     \fn SH_event
      \param e
      \return bool
     */
@@ -193,7 +193,7 @@ public Q_SLOTS:
     /*!
      \brief
 
-     \fn trigger
+     \fn SH_trigger
     */
     void trigger();
 
@@ -201,13 +201,13 @@ Q_SIGNALS:
     /*!
      \brief
 
-     \fn triggered
+     \fn SH_triggered
     */
     void triggered();
     /*!
      \brief
 
-     \fn toggled
+     \fn SH_toggled
      \param checked
     */
     void toggled(bool checked);
@@ -215,20 +215,20 @@ Q_SIGNALS:
     /*!
      \brief
 
-     \fn textChanged
+     \fn SH_textChanged
     */
     void textChanged();
     /*!
      \brief
 
-     \fn shortcutChanged
+     \fn SH_shortcutChanged
      \param shortcut
     */
     void shortcutChanged(QString shortcut);
     /*!
      \brief
 
-     \fn keyShortcutChanged
+     \fn SH_keyShortcutChanged
      \param keyShortcut
     */
     void keyShortcutChanged(Qt::Key keyShortcut);
@@ -236,32 +236,32 @@ Q_SIGNALS:
     /*!
      \brief
 
-     \fn iconChanged
+     \fn SH_iconChanged
     */
     void iconChanged();
     /*!
      \brief
 
-     \fn iconNameChanged
+     \fn SH_iconNameChanged
     */
     void iconNameChanged();
     /*!
      \brief
 
-     \fn iconSourceChanged
+     \fn SH_iconSourceChanged
     */
     void iconSourceChanged();
     /*!
      \brief
 
-     \fn tooltipChanged
+     \fn SH_tooltipChanged
      \param arg
     */
     void tooltipChanged(QString arg);
     /*!
      \brief
 
-     \fn enabledChanged
+     \fn SH_enabledChanged
     */
     void enabledChanged();
 
@@ -269,20 +269,44 @@ protected:
     /*!
      \brief
 
-     \fn setKeySequence
+     \fn SH_setKeySequence
      \param sequence
     */
     void setKeySequence(const QKeySequence &sequence);
 
 private:
-    QString m_text; /*!< TODO */
-    QUrl m_iconSource; /*!< TODO */
-    QString m_iconName; /*!< TODO */
-    QIcon m_icon; /*!< TODO */
-    bool m_enabled; /*!< TODO */
-    QKeySequence m_shortcut; /*!< TODO */
-    QKeySequence m_mnemonic; /*!< TODO */
-    QString m_tooltip; /*!< TODO */
+    /*!
+     * \brief m_text
+     */
+    QString m_text;
+    /*!
+     * \brief m_iconSource
+     */
+    QUrl m_iconSource;
+    /*!
+     * \brief m_iconName
+     */
+    QString m_iconName;
+    /*!
+     * \brief m_icon
+     */
+    QIcon m_icon;
+    /*!
+     * \brief m_enabled
+     */
+    bool m_enabled;
+    /*!
+     * \brief m_shortcut
+     */
+    QKeySequence m_shortcut;
+    /*!
+     * \brief m_mnemonic
+     */
+    QKeySequence m_mnemonic;
+    /*!
+     * \brief m_tooltip
+     */
+    QString m_tooltip;
 };
 
-#endif // QQQuickAction_H
+#endif /* QQQuickAction_H*/

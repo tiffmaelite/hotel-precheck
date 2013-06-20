@@ -2,12 +2,10 @@
 
 
 /*!
- \brief
+ \details
 
- \fn ConfirmationState::ConfirmationState
- \param output
- \param name
- \param parent
+ \fn SH_ConfirmationState::ConfirmationState
+
 */
 SH_ConfirmationState::SH_ConfirmationState(QString output, QString name, QState *parent) :
     SH_StatementState(output, name, parent)
@@ -16,9 +14,9 @@ SH_ConfirmationState::SH_ConfirmationState(QString output, QString name, QState 
 }
 
 /*!
- \brief
+ \details
 
- \fn ConfirmationState::confirmInput
+ \fn SH_ConfirmationState::confirmInput
 */
 void SH_ConfirmationState::confirmInput()
 {

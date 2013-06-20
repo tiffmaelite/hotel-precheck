@@ -24,8 +24,8 @@ const int iterations = 20;
 
 
 /*!
- \brief
- \fn statusChanged TODO comment this
+ \details
+ \fn SH_statusChanged TODO comment this
  \param status TODO comment this
 */
 void statusChanged(QQmlComponent* component, QQmlComponent::Status status) {
@@ -38,8 +38,8 @@ void statusChanged(QQmlComponent* component, QQmlComponent::Status status) {
 }
 
 /*!
- \brief
- \fn exportlog TODO comment this
+ \details
+ \fn SH_exportlog TODO comment this
  \param type TODO comment this
  \param msg TODO comment this
 */
@@ -61,12 +61,16 @@ void exportlog(QtMsgType type, const QMessageLogContext &context, const QString 
 
 
 /*!
- \brief
- \fn enableLogging TODO comment this
+ \details
+ \fn SH_enableLogging TODO comment this
 */
+/*!
+ * \details enableLogging
+ * \param sLogPath
+ */
 void enableLogging(const QString sLogPath)
 {
-    // init the logging mechanism
+    /* init the logging mechanism*/
     QsLogging::Logger& logger = QsLogging::Logger::instance();
     logger.setLoggingLevel(QsLogging::TraceLevel);
 
@@ -77,10 +81,10 @@ void enableLogging(const QString sLogPath)
     logger.addDestination(debugDestination);
     logger.addDestination(fileDestination);
 
-    logger.setLoggingLevel(QsLogging::OffLevel); //truning logging off
+    logger.setLoggingLevel(QsLogging::OffLevel); /*truning logging off*/
 
 
-    //qInstallMessageHandler(exportlog);
+    /*qInstallMessageHandler(exportlog);*/
 
     /* QLOG_INFO() << "Here is some information";
 
@@ -97,8 +101,8 @@ void enableLogging(const QString sLogPath)
 
 
 /*!
- \brief
- \fn spin TODO comment this
+ \details
+ \fn SH_spin TODO comment this
  \param iteration TODO comment this
 */
 void spin(int &iteration)
@@ -112,8 +116,8 @@ void spin(int &iteration)
 }
 
 /*!
- \brief
- \fn main TODO comment this
+ \details
+ \fn SH_main TODO comment this
  \param argc TODO comment this
  \param argv TODO comment this
  \return int TODO comment this
@@ -122,7 +126,7 @@ int main(int argc, char **argv)
 {
     try
     {
-        qDebug();  // Un simple retour à la ligne pour un affichage propre dans la console
+        qDebug();  /* Un simple retour à la ligne pour un affichage propre dans la console*/
 
         QApplication app(argc, argv);
 
@@ -186,7 +190,7 @@ int main(int argc, char **argv)
         QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayNewFixed(QString)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
-        //QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);
+        /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
 
         window->show();
         QLOG_INFO() << "Program built with Qt" << QT_VERSION_STR << "running on" << qVersion();

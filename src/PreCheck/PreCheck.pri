@@ -128,4 +128,6 @@ OTHER_FILES *= \
     views/qml/SH_CommonPage.qml \
     views/qml/SH_CalendarDialog.qml \
     views/qml/SH_BookingsDelegate.qml \
-    views/qml/SH_app.qml
+    views/qml/SH_app.qml \
+    DoxygenConfigFile \
+    DoxyAssistConfigFile.xml

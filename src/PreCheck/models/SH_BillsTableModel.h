@@ -8,7 +8,7 @@
 /*!
  \brief
 
- \class BillsTableModel bills_table_model.h "models/bills_table_model.h"
+ \class SH_BillsTableModel bills_table_model.h "models/bills_table_model.h"
 */
 class SH_BillsTableModel : public SH_ExtendedProxyModel
 {
@@ -19,7 +19,7 @@ class SH_BillsTableModel : public SH_ExtendedProxyModel
 /*!
  \brief
 
- \fn BillsTableModel
+ \fn SH_BillsTableModel
  \param parent
 */
         SH_BillsTableModel(QObject *parent = 0);
@@ -30,9 +30,9 @@ class SH_BillsTableModel : public SH_ExtendedProxyModel
         /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
         void fillModel();
 };
 
-#endif // BILLS_H
+#endif /* BILLS_H*/

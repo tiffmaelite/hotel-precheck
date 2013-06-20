@@ -7,16 +7,10 @@
 #include "SH_DatabaseManager.h"
 
 /*!
- \brief
+ \details
 
- \fn User::User
- \param name
- \param id
- \param isReceptionist
- \param isManagerX
- \param isManagerZ
- \param isAdministrator
- \param parent
+ \fn SH_User::User
+
 */
 SH_User::SH_User(QString name, int id, bool isReceptionist, bool isManagerX, bool isManagerZ, bool isAdministrator, QObject *parent)
     : QObject(parent)
@@ -30,20 +24,20 @@ SH_User::SH_User(QString name, int id, bool isReceptionist, bool isManagerX, boo
 }
 
 /*!
- \brief
+ \details
 
- \fn User::isValid
- \return bool
+ \fn SH_User::isValid
+
 */
 bool SH_User::isValid() const {
     return ((!this->m_name.isEmpty()) && (this->m_id != 0));
 }
 
 /*!
- \brief
+ \details
 
- \fn User::setName
- \param name
+ \fn SH_User::setName
+
 */
 void SH_User::setName(QString name)
 {
@@ -52,21 +46,20 @@ void SH_User::setName(QString name)
 
 
 /*!
- \brief
+ \details
 
- \fn User::name
- \return QString
-*/
+ \fn SH_User::name
+ */
 QString SH_User::name() const
 {
     return m_name;
 }
 
 /*!
- \brief
+ \details
 
- \fn User::isReceptionist
- \return bool
+ \fn SH_User::isReceptionist
+
 */
 bool SH_User::isReceptionist() const
 {
@@ -74,10 +67,10 @@ bool SH_User::isReceptionist() const
 }
 
 /*!
- \brief
+ \details
 
- \fn User::roles
- \return int
+ \fn SH_User::roles
+
 */
 int SH_User::roles() const
 {
@@ -98,10 +91,10 @@ int SH_User::roles() const
 }
 
 /*!
- \brief
+ \details
 
- \fn User::setID
- \param id
+ \fn SH_User::setID
+
 */
 void SH_User::setID(int id)
 {
@@ -109,11 +102,10 @@ void SH_User::setID(int id)
 }
 
 /*!
- \brief
+ \details
 
- \fn User::userExists
- \param login
- \return bool
+ \fn SH_User::userExists
+
 */
 bool SH_User::userExists(QString login) {
     qDebug() << "user exists";
@@ -121,11 +113,10 @@ bool SH_User::userExists(QString login) {
 }
 
 /*!
- \brief
+ \details
 
- \fn User::traineeExists
- \param login
- \return bool
+ \fn SH_User::traineeExists
+
 */
 bool SH_User::traineeExists(QString login) {
     qDebug() << "trainee exists";
@@ -133,12 +124,10 @@ bool SH_User::traineeExists(QString login) {
 }
 
 /*!
- \brief
+ \details
 
- \fn User::logIn
- \param login
- \param pass
- \return User
+ \fn SH_User::logIn
+
 */
 SH_User *SH_User::logIn(QString login, QString pass)
 {

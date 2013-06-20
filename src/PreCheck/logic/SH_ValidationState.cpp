@@ -3,12 +3,10 @@
 
 
 /*!
- \brief
+ \details
 
- \fn ValidationState::ValidationState
- \param output
- \param name
- \param parent
+ \fn SH_ValidationState::ValidationState
+
 */
 SH_ValidationState::SH_ValidationState(QString output, QString name, QState *parent) :
     SH_ConfirmationState(output, name, parent)

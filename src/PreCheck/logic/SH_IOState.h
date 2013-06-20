@@ -6,7 +6,7 @@
 /*!
  \brief
 
- \class IOState iostate.h "logic/iostate.h"
+ \class SH_IOState iostate.h "logic/iostate.h"
 */
 class SH_InOutState : public SH_GenericState
 {
@@ -15,7 +15,7 @@ public:
     /*!
  \brief
 
- \fn IOState
+ \fn SH_IOState
  \param output
  \param name
  \param parent
@@ -25,7 +25,7 @@ public:
     /*!
      \brief
 
-     \fn input
+     \fn SH_input
      \return QVariant
     */
     virtual QVariant input() const;
@@ -33,7 +33,7 @@ public:
     /*!
      \brief
 
-     \fn rawInput
+     \fn SH_rawInput
      \return QVariant
     */
     virtual QVariant rawInput() const;
@@ -41,7 +41,7 @@ public:
     /*!
      \brief
 
-     \fn output
+     \fn SH_output
      \return QString
     */
     virtual QString output() const;
@@ -50,21 +50,21 @@ public:
     /*!
      \brief
 
-     \fn onExit
+     \fn SH_onExit
      \param event
     */
     void onExit(QEvent *event);
 
     /*!
      \brief
-     \fn visibility TODO comment this
+     \fn SH_visibility TODO comment this
      \return bool TODO comment this
     */
     bool visibility();
 
     /*!
      \brief
-     \fn display TODO comment this
+     \fn SH_display TODO comment this
      \param canDisplay TODO comment this
     */
     void display(bool canDisplay);
@@ -73,14 +73,14 @@ signals:
     /*!
      \brief
 
-     \fn sendOutput
+     \fn SH_sendOutput
      \param output
     */
     void sendOutput(QVariant output);
     /*!
      \brief
 
-     \fn resendInput
+     \fn SH_resendInput
      \param input
     */
     void resendInput(QVariant input);
@@ -89,14 +89,14 @@ public slots:
     /*!
      \brief
 
-     \fn setInput
+     \fn SH_setInput
      \param input
     */
     virtual void setInput(const QVariant &input);
     /*!
      \brief
 
-     \fn setOutput
+     \fn SH_setOutput
      \param output
     */
     virtual void setOutput(const QString &output);
@@ -104,16 +104,28 @@ public slots:
 
     /*!
      \brief
-     \fn setVisibility TODO comment this
+     \fn SH_setVisibility TODO comment this
      \param isVisible TODO comment this
     */
     virtual void setVisibility(bool isVisible);
 
 private:
-    QVariant m_input; /*!< TODO */
-    QString m_output; /*!< TODO */
-    bool m_isVisible; /*!< TODO */
+    /*!
+     * \brief m_input
+     */
+    QVariant m_input;
+    /*!
+     * \brief m_output
+     */
+    QString m_output;
+    /*!
+     * \brief m_isVisible
+     */
+    bool m_isVisible;
+    /*!
+     * \brief m_display
+     */
     bool m_display;
 };
 
-#endif // IOSTATE_H
+#endif /* IOSTATE_H*/

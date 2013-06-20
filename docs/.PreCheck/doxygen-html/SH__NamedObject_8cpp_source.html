@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de logic/SH_NamedObject.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0f9694b8de2575528c6c0ae9f79dda65.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_NamedObject.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__NamedObject_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__NamedObject_8h.html">SH_NamedObject.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classSH__NamedObject.html#a6ceff219e80ad3f5c36db5f4258e74fd">    9</a></span>&#160;<a class="code" href="classSH__NamedObject.html#a6ceff219e80ad3f5c36db5f4258e74fd">SH_NamedObject::SH_NamedObject</a>(QString name) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    m_name(name)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">/*m_ptraddress = QString(&amp;this);*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classSH__NamedObject.html#af73e97f6476ca1ef3a22b159d179f5e7">   21</a></span>&#160;QString <a class="code" href="classSH__NamedObject.html#af73e97f6476ca1ef3a22b159d179f5e7">SH_NamedObject::toString</a>()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classSH__NamedObject.html#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">   32</a></span>&#160;QString <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">SH_NamedObject::name</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.html#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classSH__NamedObject.html#a18e1860b747e029eefa140f8324bb503">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__NamedObject.html#a18e1860b747e029eefa140f8324bb503">SH_NamedObject::setName</a>(<span class="keyword">const</span> QString &amp;name)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classSH__NamedObject.html#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a> = <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classSH__NamedObject.html#a98806c492b55a54d01330bbecce5118b">   54</a></span>&#160;QString <a class="code" href="classSH__NamedObject.html#a98806c492b55a54d01330bbecce5118b">SH_NamedObject::ptraddress</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.html#acfc489299f90750082785bf9ac42f4ff" title="m_ptraddress ">m_ptraddress</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Juin 20 2013 23:37:26 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>

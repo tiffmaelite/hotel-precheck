@@ -2,11 +2,10 @@
 #include "SH_IOStateMachine.h"
 
 /*!
- \brief
+ \details
 
- \fn GenericState::GenericState
- \param name
- \param parent
+ \fn SH_GenericState::GenericState
+
 */
 SH_GenericState::SH_GenericState(QString name, QState *parent) :
     QState(parent), SH_NamedObject(name)
@@ -14,10 +13,10 @@ SH_GenericState::SH_GenericState(QString name, QState *parent) :
 }
 
 /*!
- \brief
+ \details
 
- \fn GenericState::toString
- \return QString
+ \fn SH_GenericState::toString
+
 */
 QString SH_GenericState::toString()
 {
@@ -31,8 +30,8 @@ QString SH_GenericState::toString()
 }
 
 /*!
- \brief
- \fn GenericState::onTransitionTriggered TODO comment this
+ \details
+ \fn SH_GenericState::onTransitionTriggered TODO comment this
 */
 void SH_GenericState::onTransitionTriggered()
 {
@@ -56,9 +55,9 @@ void SH_GenericState::onTransitionTriggered()
 
 
 /*!
- \brief
- \fn GenericState::onEntry TODO comment this
- \param event TODO comment this
+ \details
+ \fn SH_GenericState::onEntry TODO comment this
+
 */
 void SH_GenericState::onEntry(QEvent *event)
 {
@@ -67,9 +66,9 @@ void SH_GenericState::onEntry(QEvent *event)
 }
 
 /*!
- \brief
- \fn GenericState::onExit TODO comment this
- \param event TODO comment this
+ \details
+ \fn SH_GenericState::onExit TODO comment this
+
 */
 void SH_GenericState::onExit(QEvent *event)
 {
@@ -78,8 +77,8 @@ void SH_GenericState::onExit(QEvent *event)
 }
 
 /*!
- \brief
- \fn GenericState::onMachineStarted TODO comment this
+ \details
+ \fn SH_GenericState::onMachineStarted TODO comment this
 */
 void SH_GenericState::onMachineStarted()
 {

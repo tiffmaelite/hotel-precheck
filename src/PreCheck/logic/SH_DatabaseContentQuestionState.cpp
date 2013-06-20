@@ -2,15 +2,10 @@
 #include "models/SH_SqlDataModel.h"
 
 /*!
- \brief
+ \details
 
- \fn DatabaseContentQuestionState::DatabaseContentQuestionState
- \param question
- \param name
- \param databaseTable
- \param tableField
- \param databaseCondition
- \param parent
+ \fn SH_DatabaseContentQuestionState::DatabaseContentQuestionState
+
 */
 SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition, QState *parent) :
     SH_QuestionState(question, name, parent), m_table(databaseTable), m_condition(databaseCondition), m_field(tableField)
@@ -30,10 +25,10 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
 }
 
 /*!
- \brief
+ \details
 
- \fn DatabaseContentQuestionState::isAnswerValid
- \param givenAnswer
+ \fn SH_DatabaseContentQuestionState::isAnswerValid
+
 */
 bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
@@ -42,10 +37,9 @@ bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \brief
- \fn DatabaseContentQuestionState::setOutput TODO comment this
- \param output TODO comment this
-*/
+ \details
+ \fn SH_DatabaseContentQuestionState::setOutput TODO comment this
+ */
 void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 {
     SH_QuestionState::setOutput(output);
@@ -56,9 +50,9 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 }
 
 /*!
- \brief
- \fn DatabaseContentQuestionState::rawInput TODO comment this
- \return QVariant TODO comment this
+ \details
+ \fn SH_DatabaseContentQuestionState::rawInput TODO comment this
+
 */
 QVariant SH_DatabaseContentQuestionState::rawInput() const
 {
@@ -66,9 +60,9 @@ QVariant SH_DatabaseContentQuestionState::rawInput() const
 }
 
 /*!
- \brief
- \fn DatabaseContentQuestionState::choiceList TODO comment this
- \return QMap<int, QVariant> TODO comment this
+ \details
+ \fn SH_DatabaseContentQuestionState::choiceList TODO comment this
+
 */
 QMap<int, QVariant> SH_DatabaseContentQuestionState::choiceList() {
     if(m_choicesDisplayed) {

@@ -3,10 +3,9 @@
 #include "SH_MessageManager.h"
 
 /*!
- \brief
+ \details
 
- \fn RoomsTableModel::RoomsTableModel
- \param parent
+ \fn SH_RoomsTableModel::RoomsTableModel
 */
 SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
@@ -16,9 +15,9 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
 }
 
 /*!
- \brief
+ \details
 
- \fn RoomsTableModel::fillModel
+ \fn SH_RoomsTableModel::fillModel
 */
 void SH_RoomsTableModel::fillModel()
 {

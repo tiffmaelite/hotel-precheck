@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class StatementState statementstate.h "logic/statementstate.h"
+ \class SH_StatementState statementstate.h "logic/statementstate.h"
 */
 class SH_StatementState : public SH_InOutState
 {
@@ -14,7 +14,7 @@ public:
 /*!
  \brief
 
- \fn StatementState
+ \fn SH_StatementState
  \param output
  \param name
  \param parent
@@ -24,14 +24,14 @@ public:
     /*!
      \brief
 
-     \fn setInput
+     \fn SH_setInput
      \param input
     */
     void setInput(const QVariant &input);
     /*!
      \brief
 
-     \fn onEntry
+     \fn SH_onEntry
      \param event
     */
     void onEntry(QEvent *event);
@@ -42,4 +42,4 @@ public slots:
 
 };
 
-#endif // STATEMENTSTATE_H
+#endif /* STATEMENTSTATE_H*/

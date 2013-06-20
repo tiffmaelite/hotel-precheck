@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 Rectangle {
     color: "green"
     id: calendar
@@ -36,7 +39,7 @@ Rectangle {
         calendar.refresh(new Date());
     }
     onClicked: {
-        //console.log("selected date "+selectedDate);
+        /*console.log("selected date "+selectedDate);*/
         var year = selectedDate.getFullYear();
         var month = selectedDate.getMonth();
         var day = selectedDate.getDate();
@@ -48,12 +51,12 @@ Rectangle {
 
     onRefresh: {
         calendarBase.ready = false;
-        //console.log("refreshed with date "+newDate);
+        /*console.log("refreshed with date "+newDate);*/
         calendarBase.currentDate = newDate;
         var year = newDate.getFullYear();
         var month = newDate.getMonth();
         var day = newDate.getDate();
-        var monthLength = new Date(year, month+1, 0).getDate(); //javascript Date trick since day count "starts" at 1 whereas month count starts at 0
+        var monthLength = new Date(year, month+1, 0).getDate(); /*javascript Date trick since day count "starts" at 1 whereas month count starts at 0*/
         var firstWeekday = new Date(year, month, 1).getDay();
         calendarBase.currentWeekday = newDate.getDay();
         calendarBase.currentDay = day;
@@ -61,7 +64,7 @@ Rectangle {
         calendarBase.currentYear = year;
         calendarBase.currentMonthLength = monthLength;
         calendarBase.currentMonthFirstWeekday = (calendar.firstWeekdayIndex >= 0 && calendar.firstWeekdayIndex < 7) ? ((firstWeekday - calendar.firstWeekdayIndex) % 7) : firstWeekday;
-        //calendarBase.currentMonthLastWeekday = new Date(year, month, new Date(year, month, 0).getDate()).getDay();
+        /*calendarBase.currentMonthLastWeekday = new Date(year, month, new Date(year, month, 0).getDate()).getDay();*/
         month.text = qsTr("%1 %2").arg(monthsList[month]).arg(year);
         gridRepeater.model = 7 * (Math.ceil(monthLength / 7) + 1);
         calendarBase.ready = true;
@@ -181,18 +184,18 @@ Rectangle {
                 anchors.fill:grid
                 columns: 7
                 flow: Qt.LeftToRight
-                //rows: 1 + Math.ceil(calendarBase.currentMonthLength / 7) //unnecessary because of the horizontal flow
+                /*rows: 1 + Math.ceil(calendarBase.currentMonthLength / 7) */ /*unnecessary because of the horizontal flow*/
                 columnSpacing: 1
                 rowSpacing: 1
                 Repeater {
                     id: gridRepeater
-                    //Layout.fillWidth: true //no effect
-                    //Layout.fillHeight: true //no effect
+                    /*Layout.fillWidth: true *//*no effect*/
+                    /*Layout.fillHeight: true *//*no effect*/
                     model : 7 * (Math.ceil(calendarBase.currentMonthLength / 7) + 1)
                     delegate:
                         Rectangle {
                         id: cell
-                        //anchors.fill:parent //hides the other cells
+                        /*anchors.fill:parent */ /*hides the other cells*/
                         readonly property real preferredW: (grid.width /7) - calendarGrid.columnSpacing
                         readonly property real preferredH: (grid.height / (Math.ceil(calendarBase.currentMonthLength / 7) + 1)) - calendarGrid.RowSpacing
                         readonly property real minW: cellText.paintedWidth+3
@@ -202,20 +205,20 @@ Rectangle {
                         Layout.preferredWidth: Math.max(cell.preferredW, cell.minW)
                         Layout.preferredHeight: Math.max(cell.preferredH, cell.minH)
                         readonly property int previousMonthLength: new Date(currentYear, currentMonth, 0).getDate()
-                        readonly property int dayIndexInMonth : (index < 7) ? // // 1ère ligne (liste des jours de la semaine) ?
-                                                                              0 : //pas de compteur
-                                                                              (index - 7 - calendarBase.currentMonthFirstWeekday + 1) // sinon, on soustrait du compteur les 7 cases sans compteurs, puis de nouveau le nombre de colonnes de décalage avec le début du mois
-                        property int dayIndex: (index < 7) ? // 1ère ligne (liste des jours de la semaine) ?
-                                                             0 : ( //pas de compteur
-                                                                  (dayIndexInMonth <= 0 ) ? // avant le début du mois ?
-                                                                                            (dayIndexInMonth + previousMonthLength) : ( // date dans le mois précédent
-                                                                                                                                       (dayIndexInMonth > currentMonthLength) ? // après la fin du mois ?
-                                                                                                                                                                                (dayIndexInMonth - currentMonthLength) : //date dans le mois suivant (nombre de jours du mois suivant)
-                                                                                                                                                                                dayIndexInMonth // sinon : date dans le mois
+                        readonly property int dayIndexInMonth : (index < 7) ?  /*1ère ligne (liste des jours de la semaine) ?*/
+                                                                              0 : /*pas de compteur*/
+                                                                              (index - 7 - calendarBase.currentMonthFirstWeekday + 1) /* sinon, on soustrait du compteur les 7 cases sans compteurs, puis de nouveau le nombre de colonnes de décalage avec le début du mois*/
+                        property int dayIndex: (index < 7) ? /* 1ère ligne (liste des jours de la semaine) ?*/
+                                                             0 : ( /*pas de compteur*/
+                                                                  (dayIndexInMonth <= 0 ) ? /* avant le début du mois ?*/
+                                                                                            (dayIndexInMonth + previousMonthLength) : ( /* date dans le mois précédent*/
+                                                                                                                                       (dayIndexInMonth > currentMonthLength) ? /* après la fin du mois ?*/
+                                                                                                                                                                                (dayIndexInMonth - currentMonthLength) : /*date dans le mois suivant (nombre de jours du mois suivant)*/
+                                                                                                                                                                                dayIndexInMonth /* sinon : date dans le mois*/
                                                                                                                                        )
                                                                   )
                         color: (index < 7) ? "white" :
-                                             (dayIndexInMonth <= 0 || dayIndexInMonth > currentMonthLength) ? // en dehors du mois ?
+                                             (dayIndexInMonth <= 0 || dayIndexInMonth > currentMonthLength) ? /* en dehors du mois ?*/
                                                                                                               "lightgrey" :
                                                                                                               ((cell.dayIndexInMonth === calendarBase.currentDay) ? "blue" : "lightsteelblue")
                         border.width: 1
@@ -223,9 +226,9 @@ Rectangle {
 
                         Text {
                             id: cellText
-                            text: (index < 7) ? // 1ère ligne (liste des jours de la semaine) ?
+                            text: (index < 7) ? /* 1ère ligne (liste des jours de la semaine) ?*/
                                                 calendar.weekdaysList[(index+calendar.firstWeekdayIndex) % 7] :
-                                                cell.dayIndex.toString() //sinon le numéro de jour
+                                                cell.dayIndex.toString() /*sinon le numéro de jour*/
                             horizontalAlignment: Text.AlignHCenter
                             anchors.centerIn: cell
                         }

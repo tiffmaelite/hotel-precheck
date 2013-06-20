@@ -6,6 +6,9 @@
 #include "SH_DatabaseManager.h"
 #include <QtSql>
 
+/*!
+ * \details SH_ServiceCharging::SH_ServiceCharging
+ */
 SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     Sh_LoopingInOutStateMachine("CHARGEDSERVICES",name, 0, parent), m_priceMin(0.0)
 {

@@ -1,0 +1,103 @@
+\hypertarget{QsLogDestConsole_8cpp}{\section{Qs\-Log\-Dest\-Console.\-cpp}
+\label{QsLogDestConsole_8cpp}\index{logging/\-Qs\-Log\-Dest\-Console.\-cpp@{logging/\-Qs\-Log\-Dest\-Console.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/* Copyright (c) 2013, Razvan Petru}
+00002 \textcolor{comment}{*/}
+00003 \textcolor{comment}{/* All rights reserved.}
+00004 \textcolor{comment}{*/}
+00005 
+00006 \textcolor{comment}{/* Redistribution and use in source and binary forms, with or without modification,}
+00007 \textcolor{comment}{*/}
+00008 \textcolor{comment}{/* are permitted provided that the following conditions are met:}
+00009 \textcolor{comment}{*/}
+00010 
+00011 \textcolor{comment}{/* * Redistributions of source code must retain the above copyright notice, this}
+00012 \textcolor{comment}{*/}
+00013 \textcolor{comment}{/*   list of conditions and the following disclaimer.}
+00014 \textcolor{comment}{*/}
+00015 \textcolor{comment}{/* * Redistributions in binary form must reproduce the above copyright notice, this}
+00016 \textcolor{comment}{*/}
+00017 \textcolor{comment}{/*   list of conditions and the following disclaimer in the documentation and/or other}
+00018 \textcolor{comment}{*/}
+00019 \textcolor{comment}{/*   materials provided with the distribution.}
+00020 \textcolor{comment}{*/}
+00021 \textcolor{comment}{/* * The name of the contributors may not be used to endorse or promote products}
+00022 \textcolor{comment}{*/}
+00023 \textcolor{comment}{/*   derived from this software without specific prior written permission.}
+00024 \textcolor{comment}{*/}
+00025 
+00026 \textcolor{comment}{/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND}
+00027 \textcolor{comment}{*/}
+00028 \textcolor{comment}{/* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED}
+00029 \textcolor{comment}{*/}
+00030 \textcolor{comment}{/* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.}
+00031 \textcolor{comment}{*/}
+00032 \textcolor{comment}{/* IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,}
+00033 \textcolor{comment}{*/}
+00034 \textcolor{comment}{/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,}
+00035 \textcolor{comment}{*/}
+00036 \textcolor{comment}{/* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}
+00037 \textcolor{comment}{*/}
+00038 \textcolor{comment}{/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF}
+00039 \textcolor{comment}{*/}
+00040 \textcolor{comment}{/* LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE}
+00041 \textcolor{comment}{*/}
+00042 \textcolor{comment}{/* OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED}
+00043 \textcolor{comment}{*/}
+00044 \textcolor{comment}{/* OF THE POSSIBILITY OF SUCH DAMAGE.}
+00045 \textcolor{comment}{*/}
+00046 
+00047 \textcolor{preprocessor}{#include "\hyperlink{QsLogDestConsole_8h}{QsLogDestConsole.h}"}
+00048 \textcolor{preprocessor}{#include <QString>}
+00049 \textcolor{preprocessor}{#include <QtGlobal>}
+00050 
+00051 \textcolor{preprocessor}{#if defined(Q\_OS\_WIN)}
+00052 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define WIN32\_LEAN\_AND\_MEAN}
+00053 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <Windows.h>}
+00057 \textcolor{keywordtype}{void} \hyperlink{classQsDebugOutput_a1adecc326b36497c0e6953fae87d1cb1}{QsDebugOutput::output}( \textcolor{keyword}{const} QString& message )
+00058 \{
+00059    OutputDebugStringW(reinterpret\_cast<const WCHAR*>(message.utf16()));
+00060    OutputDebugStringW(L\textcolor{stringliteral}{"\(\backslash\)n"});
+00061 \}
+00062 \textcolor{preprocessor}{#elif defined(Q\_OS\_SYMBIAN)}
+00063 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <e32debug.h>}
+00067 \textcolor{keywordtype}{void} \hyperlink{classQsDebugOutput_a1adecc326b36497c0e6953fae87d1cb1}{QsDebugOutput::output}( \textcolor{keyword}{const} QString& message )
+00068 \{
+00069     \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxPrintSize = 256;
+00070     \textcolor{keywordflow}{if} (message.size() <= maxPrintSize) \{
+00071         TPtrC16 symbianMessage(reinterpret\_cast<const TUint16*>(message.utf16()));
+00072         RDebug::RawPrint(symbianMessage);
+00073     \} \textcolor{keywordflow}{else} \{
+00074         QString slicedMessage = message;
+00075         \textcolor{keywordflow}{while} (!slicedMessage.isEmpty()) \{
+00076             \textcolor{keyword}{const} \textcolor{keywordtype}{int} sliceSize = qMin(maxPrintSize, slicedMessage.size());
+00077             \textcolor{keyword}{const} QString slice = slicedMessage.left(sliceSize);
+00078             slicedMessage.remove(0, sliceSize);
+00079 
+00080             TPtrC16 symbianSlice(reinterpret\_cast<const TUint16*>(slice.utf16()));
+00081             RDebug::RawPrint(symbianSlice);
+00082         \}
+00083     \}
+00084 \}
+00085 \textcolor{preprocessor}{#elif defined(Q\_OS\_UNIX)}
+00086 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <cstdio>}
+00090 \textcolor{keywordtype}{void} \hyperlink{classQsDebugOutput_a1adecc326b36497c0e6953fae87d1cb1}{QsDebugOutput::output}( \textcolor{keyword}{const} QString& message )
+00091 \{
+00092    fprintf(stderr, \textcolor{stringliteral}{"%s\(\backslash\)n"}, qPrintable(message));
+00093    fflush(stderr);
+00094 \}
+00095 \textcolor{preprocessor}{#endif}
+00096 \textcolor{preprocessor}{}
+\hypertarget{QsLogDestConsole_8cpp_source_l00099}{}\hyperlink{classQsLogging_1_1DebugOutputDestination_a72c60cc3a3f6cb9d63dd88528b7e1125}{00099} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1DebugOutputDestination_a72c60cc3a3f6cb9d63dd88528b7e1125}{QsLogging::DebugOutputDestination::write}(\textcolor{keyword}{const} QString& 
+      message, \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level})
+00100 \{
+00101     \hyperlink{classQsDebugOutput_a1adecc326b36497c0e6953fae87d1cb1}{QsDebugOutput::output}(message);
+00102 \}
+00103 
+\hypertarget{QsLogDestConsole_8cpp_source_l00104}{}\hyperlink{classQsLogging_1_1DebugOutputDestination_a7e260f310b5f757ecab216058d0808a9}{00104} \textcolor{keywordtype}{bool} \hyperlink{classQsLogging_1_1DebugOutputDestination_a7e260f310b5f757ecab216058d0808a9}{QsLogging::DebugOutputDestination::isValid}()
+00105 \{
+00106     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00107 \}
+\end{DoxyCode}

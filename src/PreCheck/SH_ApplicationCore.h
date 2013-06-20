@@ -6,7 +6,7 @@
 /*!
  \brief
 
- \class RestrictiveApplication RestrictiveApplication.h "models/RestrictiveApplication.h"
+ \class SH_RestrictiveApplication RestrictiveApplication.h "models/RestrictiveApplication.h"
 */
 class SH_ApplicationCore : public QObject
 {
@@ -26,35 +26,35 @@ public:
     /*!
  \brief
 
- \fn RestrictiveApplication
+ \fn SH_RestrictiveApplication
  \param parent
 */
     SH_ApplicationCore(QObject* parent=0);
     /*!
      \brief
 
-     \fn mode
+     \fn SH_mode
      \return AppMode
     */
     AppMode mode() const;
     /*!
      \brief
 
-     \fn user
+     \fn SH_user
      \return User
     */
     SH_User* user() const;
-    //Q_INVOKABLE User* currentUser() const;
+    /*Q_INVOKABLE User* currentUser() const;*/
     /*!
      \brief
 
-     \fn init
+     \fn SH_init
     */
     void init();
     /*!
      \brief
 
-     \fn setMode
+     \fn SH_setMode
      \param mode
     */
     void setMode(AppMode mode);
@@ -63,14 +63,14 @@ public:
 public slots:
     /*!
          \brief
-         \fn balanceLogRoutine TODO comment this
+         \fn SH_balanceLogRoutine TODO comment this
          \return bool TODO comment this
         */
     bool balanceLogRoutine();
     /*!
      \brief
 
-     \fn userExists
+     \fn SH_userExists
      \param login
      \return bool
     */
@@ -78,7 +78,7 @@ public slots:
     /*!
      \brief
 
-     \fn setUser
+     \fn SH_setUser
      \param login
      \param pass
      \return bool
@@ -87,7 +87,7 @@ public slots:
     /*!
      \brief
 
-     \fn userLogOut
+     \fn SH_userLogOut
      \return bool
     */
     bool userLogOut();
@@ -95,62 +95,62 @@ public slots:
     /*!
      \brief
 
-     \fn launchBookingsThread
+     \fn SH_launchBookingsThread
      \return bool
     */
     bool launchBookingsThread();
     /*!
      \brief
 
-     \fn launchBillThread
+     \fn SH_launchBillThread
      \return bool
     */
     bool launchBillThread();
     /*!
      \brief
 
-     \fn launchBillingsThread
+     \fn SH_launchBillingsThread
      \return bool
     */
     Q_INVOKABLE bool launchBillingsThread();
     /*!
      \brief
 
-     \fn cancelRunningThread
+     \fn SH_cancelRunningThread
      \return bool
     */
     bool cancelRunningThread();
 
     /*!
      \brief
-     \fn receiveInput TODO comment this
+     \fn SH_receiveInput TODO comment this
      \param in TODO comment this
     */
     void receiveInput(QString in);
 
     /*!
      \brief
-     \fn receiveValidation TODO comment this
+     \fn SH_receiveValidation TODO comment this
     */
     void receiveValidation();
 
     /*!
      \brief
-     \fn receiveConfirmation TODO comment this
+     \fn SH_receiveConfirmation TODO comment this
     */
     void receiveConfirmation();
 
     /*!
      \brief
 
-     \fn replaceInput
+     \fn SH_replaceInput
      \param inputName
     */
     void replaceInput(QString inputName);
     /*!
      \brief
 
-     \fn cancelReplacement
+     \fn SH_cancelReplacement
     */
     void cancelReplacement();
 
@@ -158,20 +158,20 @@ signals:
     /*!
      \brief
 
-     \fn clearAll
+     \fn SH_clearAll
     */
     void clearAll();
     /*!
      \brief
 
-     \fn userChanged
+     \fn SH_userChanged
      \param name
     */
     void userChanged(QVariant name);
     /*!
      \brief
 
-     \fn modeChanged
+     \fn SH_modeChanged
      \param mode
     */
     void modeChanged(QVariant mode);
@@ -179,33 +179,33 @@ signals:
     /*!
      \brief
 
-     \fn currentFSMchanged
+     \fn SH_currentFSMchanged
     */
     void currentFSMchanged();
     /*!
      \brief
 
-     \fn sendText
+     \fn SH_sendText
      \param text
     */
     void sendText(QString text);
     /*!
      \brief
 
-     \fn resendText
+     \fn SH_resendText
      \param text
     */
     void resendText(QString text);
     /*!
      \brief
 
-     \fn displayCalendar
+     \fn SH_displayCalendar
     */
     void displayCalendar();
     /*!
      \brief
 
-     \fn openTab
+     \fn SH_openTab
      \param tabPos
     */
     void openTab(QVariant tabPos);
@@ -213,15 +213,24 @@ signals:
 protected:
     /*!
      \brief
-     \fn connectRunningThread TODO comment this
+     \fn SH_connectRunningThread TODO comment this
      \return bool TODO comment this
     */
     bool connectRunningThread();
 
 private:
-    SH_User* m_currentUser; /*!< TODO */
-    AppMode m_mode; /*!< TODO */
-    SH_InOutStateMachine* m_currentFSM; /*!< TODO */
+    /*!
+     * \brief m_currentUser
+     */
+    SH_User* m_currentUser;
+    /*!
+     * \brief m_mode
+     */
+    AppMode m_mode;
+    /*!
+     * \brief m_currentFSM
+     */
+    SH_InOutStateMachine* m_currentFSM;
 };
 
-#endif // RESTRICTIVEAPPLICATION_H
+#endif /* RESTRICTIVEAPPLICATION_H*/

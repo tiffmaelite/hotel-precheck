@@ -1,14 +1,16 @@
 #ifndef FILESELECTIONSTATE_H
 #define FILESELECTIONSTATE_H
 #include "SH_IOState.h"
-
+/*!
+ * \brief The SH_FileSelectionState class
+ */
 class SH_FileSelectionState : public SH_InOutState
 {
     Q_OBJECT
 public:
 /*!
  \brief
- \fn FileSelectionState TODO comment this
+ \fn SH_FileSelectionState TODO comment this
  \param output TODO comment this
  \param name TODO comment this
  \param parent TODO comment this
@@ -21,4 +23,4 @@ public slots:
 
 };
 
-#endif // FILESELECTIONSTATE_H
+#endif /* FILESELECTIONSTATE_H*/

@@ -7,7 +7,8 @@
 /*!
  \brief
 
- \class ServicesTableModel services_table_model.h "models/services_table_model.h"
+ \class SH_ServicesTableModel
+\headerfile services_table_model.h "models/services_table_model.h"
 */
 class SH_ServicesTableModel : public SH_ExtendedProxyModel
 {
@@ -15,23 +16,23 @@ class SH_ServicesTableModel : public SH_ExtendedProxyModel
 public:
 
 
-/*!
+    /*!
  \brief
 
- \fn ServicesTableModel
+ \fn SH_ServicesTableModel
  \param parent
 */
-        SH_ServicesTableModel(QObject *parent = 0);
+    SH_ServicesTableModel(QObject *parent = 0);
 
 
-    protected:
+protected:
 
-        /*!
+    /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
-        void fillModel();
+    void fillModel();
 };
 
-#endif // SERVICE_H
+#endif /* SERVICE_H*/

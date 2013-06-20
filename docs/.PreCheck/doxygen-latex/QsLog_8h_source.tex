@@ -1,0 +1,162 @@
+\hypertarget{QsLog_8h}{\section{Qs\-Log.\-h}
+\label{QsLog_8h}\index{logging/\-Qs\-Log.\-h@{logging/\-Qs\-Log.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/* Copyright (c) 2013, Razvan Petru}
+00002 \textcolor{comment}{*/}
+00003 \textcolor{comment}{/* All rights reserved.}
+00004 \textcolor{comment}{*/}
+00005 
+00006 \textcolor{comment}{/* Redistribution and use in source and binary forms, with or without modification,}
+00007 \textcolor{comment}{*/}
+00008 \textcolor{comment}{/* are permitted provided that the following conditions are met:}
+00009 \textcolor{comment}{*/}
+00010 
+00011 \textcolor{comment}{/* * Redistributions of source code must retain the above copyright notice, this}
+00012 \textcolor{comment}{*/}
+00013 \textcolor{comment}{/*   list of conditions and the following disclaimer.}
+00014 \textcolor{comment}{*/}
+00015 \textcolor{comment}{/* * Redistributions in binary form must reproduce the above copyright notice, this}
+00016 \textcolor{comment}{*/}
+00017 \textcolor{comment}{/*   list of conditions and the following disclaimer in the documentation and/or other}
+00018 \textcolor{comment}{*/}
+00019 \textcolor{comment}{/*   materials provided with the distribution.}
+00020 \textcolor{comment}{*/}
+00021 \textcolor{comment}{/* * The name of the contributors may not be used to endorse or promote products}
+00022 \textcolor{comment}{*/}
+00023 \textcolor{comment}{/*   derived from this software without specific prior written permission.}
+00024 \textcolor{comment}{*/}
+00025 
+00026 \textcolor{comment}{/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND}
+00027 \textcolor{comment}{*/}
+00028 \textcolor{comment}{/* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED}
+00029 \textcolor{comment}{*/}
+00030 \textcolor{comment}{/* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.}
+00031 \textcolor{comment}{*/}
+00032 \textcolor{comment}{/* IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,}
+00033 \textcolor{comment}{*/}
+00034 \textcolor{comment}{/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,}
+00035 \textcolor{comment}{*/}
+00036 \textcolor{comment}{/* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}
+00037 \textcolor{comment}{*/}
+00038 \textcolor{comment}{/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF}
+00039 \textcolor{comment}{*/}
+00040 \textcolor{comment}{/* LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE}
+00041 \textcolor{comment}{*/}
+00042 \textcolor{comment}{/* OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED}
+00043 \textcolor{comment}{*/}
+00044 \textcolor{comment}{/* OF THE POSSIBILITY OF SUCH DAMAGE.}
+00045 \textcolor{comment}{*/}
+00046 
+00047 \textcolor{preprocessor}{#ifndef QSLOG\_H}
+00048 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QSLOG\_H}
+00049 \textcolor{preprocessor}{}
+00050 \textcolor{preprocessor}{#include "\hyperlink{QsLogLevel_8h}{QsLogLevel.h}"}
+00051 \textcolor{preprocessor}{#include "\hyperlink{QsLogDest_8h}{QsLogDest.h}"}
+00052 \textcolor{preprocessor}{#include <QDebug>}
+00053 \textcolor{preprocessor}{#include <QString>}
+00054 
+\hypertarget{QsLog_8h_source_l00055}{}\hyperlink{QsLog_8h_a5fc2cc4fdb91bb7676873c2e3d27edd3}{00055} \textcolor{preprocessor}{#define QS\_LOG\_VERSION "2.0b1"}
+00056 \textcolor{preprocessor}{}
+00057 \textcolor{keyword}{namespace }QsLogging
+00058 \{
+00059 \textcolor{keyword}{class }Destination;
+\hypertarget{QsLog_8h_source_l00060}{}\hyperlink{namespace_3globalScope_4}{00060} \textcolor{keyword}{class }LoggerImpl; \textcolor{comment}{/* d pointer}
+00061 \textcolor{comment}{*/}
+00062 
+\hypertarget{QsLog_8h_source_l00069}{}\hyperlink{classQsLogging_1_1Logger}{00069} \textcolor{keyword}{class }\hyperlink{classQsLogging_1_1Logger}{Logger}
+00070 \{
+00071 \textcolor{keyword}{public}:
+\hypertarget{QsLog_8h_source_l00078}{}\hyperlink{classQsLogging_1_1Logger_a26fd3242d362eeeb3b38940a714ea6fa}{00078}     \textcolor{keyword}{static} \hyperlink{classQsLogging_1_1Logger}{Logger}& \hyperlink{classQsLogging_1_1Logger_a26fd3242d362eeeb3b38940a714ea6fa}{instance}()
+00079     \{
+00080         \textcolor{keyword}{static} \hyperlink{classQsLogging_1_1Logger}{Logger} staticLog;
+00081         \textcolor{keywordflow}{return} staticLog;
+00082     \}
+00083 
+00090     \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1Logger_a76a32c839e837547b14bc5e523b4aa45}{addDestination}(\hyperlink{namespaceQsLogging_a8fe41cf859d617f1c23515f804d1e8ec}{DestinationPtr} destination);
+00091 
+00098     \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1Logger_aa34d1a0d83e180f15e23a03f9de872c6}{setLoggingLevel}(\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} newLevel);
+00099 
+00106     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} \hyperlink{classQsLogging_1_1Logger_a5e2b29cf6cd066f1e64eaa4db7373458}{loggingLevel}() \textcolor{keyword}{const};
+00107 
+\hypertarget{QsLog_8h_source_l00114}{}\hyperlink{classQsLogging_1_1Logger_1_1Helper}{00114}     \textcolor{keyword}{class }\hyperlink{classQsLogging_1_1Logger_1_1Helper}{Helper}
+00115     \{
+00116     \textcolor{keyword}{public}:
+\hypertarget{QsLog_8h_source_l00123}{}\hyperlink{classQsLogging_1_1Logger_1_1Helper_ad0634422d3a7d8acc4bfd696dc326d18}{00123}         \textcolor{keyword}{explicit} \hyperlink{classQsLogging_1_1Logger_1_1Helper_ad0634422d3a7d8acc4bfd696dc326d18}{Helper}(\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} logLevel) :
+00124             \hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level}(logLevel),
+00125             \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qtDebug}(&\hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{buffer}) \{\}
+00131         \hyperlink{classQsLogging_1_1Logger_1_1Helper_a6e92fb30ec3d3fb057d2b7b85d6a6ec6}{~Helper}();
+\hypertarget{QsLog_8h_source_l00138}{}\hyperlink{classQsLogging_1_1Logger_1_1Helper_a9ed23a587a07da47066130fe2a92891e}{00138}         QDebug& \hyperlink{classQsLogging_1_1Logger_1_1Helper_a9ed23a587a07da47066130fe2a92891e}{stream}()\{ \textcolor{keywordflow}{return} \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qtDebug}; \}
+00139 
+00140     \textcolor{keyword}{private}:
+00146         \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}{writeToLog}();
+\hypertarget{QsLog_8h_source_l00150}{}\hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{00150}         \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} \hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level};
+\hypertarget{QsLog_8h_source_l00154}{}\hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{00154}         QString \hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{buffer};
+\hypertarget{QsLog_8h_source_l00158}{}\hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{00158}         QDebug \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qtDebug};
+00159     \};
+00160 
+00161 \textcolor{keyword}{private}:
+00166     \hyperlink{classQsLogging_1_1Logger_ac9f74e9b0b16e9110386edb0c6eca541}{Logger}();
+00167 
+00174     \hyperlink{classQsLogging_1_1Logger_ac9f74e9b0b16e9110386edb0c6eca541}{Logger}(\textcolor{keyword}{const} \hyperlink{classQsLogging_1_1Logger}{Logger}&);
+00182     \hyperlink{classQsLogging_1_1Logger}{Logger}& \hyperlink{classQsLogging_1_1Logger_a1a82528a35b99a5a00b42149ee75be2e}{operator=}(\textcolor{keyword}{const} \hyperlink{classQsLogging_1_1Logger}{Logger}&);
+00188     \hyperlink{classQsLogging_1_1Logger_a0947daaf6db4f83ba6e5fe155fa84e1f}{~Logger}();
+00189 
+00197     \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1Logger_acd6d5d16d6e111eaa960807d75549bf9}{enqueueWrite}(\textcolor{keyword}{const} QString& message, \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} level);
+00205     \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1Logger_ab9789bba5f1644a3b3b51606533aa20f}{write}(\textcolor{keyword}{const} QString& message, \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} level);
+\hypertarget{QsLog_8h_source_l00209}{}\hyperlink{classQsLogging_1_1Logger_aab634416e14e5cb4ca3193dc5a9924fa}{00209}     \hyperlink{classQsLogging_1_1LoggerImpl}{LoggerImpl}* \hyperlink{classQsLogging_1_1Logger_aab634416e14e5cb4ca3193dc5a9924fa}{d};
+\hypertarget{QsLog_8h_source_l00210}{}\hyperlink{classQsLogging_1_1Logger_a27d33fe348fa48f5be163ad876cdb699}{00210}     \textcolor{keyword}{friend} \textcolor{keyword}{class }\hyperlink{classQsLogging_1_1Logger_a27d33fe348fa48f5be163ad876cdb699}{LogWriterRunnable};
+00211 \};
+00212 
+00213 \} \textcolor{comment}{/* end namespace */}
+00214 
+00215 \textcolor{comment}{/* Logging macros: define QS\_LOG\_LINE\_NUMBERS to get the file and line number}
+00216 \textcolor{comment}{    in the log output. */}
+00217 \textcolor{preprocessor}{#ifndef QS\_LOG\_LINE\_NUMBERS}
+\hypertarget{QsLog_8h_source_l00218}{}\hyperlink{QsLog_8h_ae92d90bd8b64e6cfe285f7dfe4c6a138}{00218} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_TRACE() \(\backslash\)}
+00219 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::TraceLevel) \{\} \(\backslash\)}
+00220 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::TraceLevel).stream()}
+\hypertarget{QsLog_8h_source_l00221}{}\hyperlink{QsLog_8h_abd6d078a03c308c28a48cc1e9bf44e54}{00221} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_DEBUG() \(\backslash\)}
+00222 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::DebugLevel) \{\} \(\backslash\)}
+00223 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::DebugLevel).stream()}
+\hypertarget{QsLog_8h_source_l00224}{}\hyperlink{QsLog_8h_ad8aec737ba0e3607fb5be7590c6ab0ff}{00224} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_INFO()  \(\backslash\)}
+00225 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::InfoLevel) \{\} \(\backslash\)}
+00226 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::InfoLevel).stream()}
+\hypertarget{QsLog_8h_source_l00227}{}\hyperlink{QsLog_8h_ac9af894fe2ccff345615aa0de4b48a64}{00227} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_WARN()  \(\backslash\)}
+00228 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::WarnLevel) \{\} \(\backslash\)}
+00229 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::WarnLevel).stream()}
+\hypertarget{QsLog_8h_source_l00230}{}\hyperlink{QsLog_8h_a9a46ec93e4716bae7d3c5e8894793970}{00230} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_ERROR() \(\backslash\)}
+00231 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::ErrorLevel) \{\} \(\backslash\)}
+00232 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::ErrorLevel).stream()}
+\hypertarget{QsLog_8h_source_l00233}{}\hyperlink{QsLog_8h_ac4c2ea9af6f62e92c7e26b4028ae20df}{00233} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_FATAL() \(\backslash\)}
+00234 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::FatalLevel) \{\} \(\backslash\)}
+00235 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::FatalLevel).stream()}
+00236 \textcolor{preprocessor}{}\textcolor{preprocessor}{#else}
+00237 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_TRACE() \(\backslash\)}
+00238 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::TraceLevel) \{\} \(\backslash\)}
+00239 \textcolor{preprocessor}{    else  QsLogging::Logger::Helper(QsLogging::TraceLevel).stream() << \_\_FILE\_\_ << '@' << \_\_LINE\_\_}
+00240 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_DEBUG() \(\backslash\)}
+00241 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::DebugLevel) \{\} \(\backslash\)}
+00242 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::DebugLevel).stream() << \_\_FILE\_\_ << '@' << \_\_LINE\_\_}
+00243 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_INFO()  \(\backslash\)}
+00244 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::InfoLevel) \{\} \(\backslash\)}
+00245 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::InfoLevel).stream() << \_\_FILE\_\_ << '@' << \_\_LINE\_\_}
+00246 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_WARN()  \(\backslash\)}
+00247 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::WarnLevel) \{\} \(\backslash\)}
+00248 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::WarnLevel).stream() << \_\_FILE\_\_ << '@' << \_\_LINE\_\_}
+00249 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_ERROR() \(\backslash\)}
+00250 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::ErrorLevel) \{\} \(\backslash\)}
+00251 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::ErrorLevel).stream() << \_\_FILE\_\_ << '@' << \_\_LINE\_\_}
+00252 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QLOG\_FATAL() \(\backslash\)}
+00253 \textcolor{preprocessor}{    if (QsLogging::Logger::instance().loggingLevel() > QsLogging::FatalLevel) \{\} \(\backslash\)}
+00254 \textcolor{preprocessor}{    else QsLogging::Logger::Helper(QsLogging::FatalLevel).stream() << \_\_FILE\_\_ << '@' << \_\_LINE\_\_}
+00255 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00256 \textcolor{preprocessor}{}
+00257 \textcolor{preprocessor}{#ifdef QS\_LOG\_DISABLE}
+00258 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{QsLogDisableForThisFile_8h}{QsLogDisableForThisFile.h}"}
+00259 \textcolor{preprocessor}{#endif}
+00260 \textcolor{preprocessor}{}
+00261 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* QSLOG\_H}
+00262 \textcolor{comment}{    */}\textcolor{preprocessor}{}
+\end{DoxyCode}

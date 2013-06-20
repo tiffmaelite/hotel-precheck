@@ -7,7 +7,7 @@
 /*!
  \brief
 
- \class SqlDataFields sql_data_field.h "models/sql_data_field.h"
+ \class SH_SqlDataFields sql_data_field.h "models/sql_data_field.h"
 */
 class SH_SqlDataFields : public QQuickItem
 {
@@ -21,7 +21,7 @@ class SH_SqlDataFields : public QQuickItem
         /*!
          \brief
 
-         \fn SqlDataFields
+         \fn SH_SqlDataFields
          \param parent
         */
         explicit SH_SqlDataFields(QQuickItem *parent = 0);
@@ -29,28 +29,28 @@ class SH_SqlDataFields : public QQuickItem
         /*!
          \brief
 
-         \fn text
+         \fn SH_text
          \return QString
         */
         QString text() const { return m_text; }
         /*!
          \brief
 
-         \fn name
+         \fn SH_name
          \return QString
         */
         QString name() const { return m_name; }
         /*!
          \brief
 
-         \fn role
+         \fn SH_role
          \return QByteArray
         */
         QByteArray role() const { return QByteArray(m_name.toUpper().toStdString().c_str()); }
         /*!
          \brief
 
-         \fn sortOrder
+         \fn SH_sortOrder
          \return Qt::SortOrder
         */
         Qt::SortOrder sortOrder() const { return m_sortOrder; }
@@ -58,53 +58,62 @@ class SH_SqlDataFields : public QQuickItem
         /*!
          \brief
 
-         \fn setText
+         \fn SH_setText
          \param newText
         */
         void setText(QString newText);
         /*!
          \brief
 
-         \fn setName
+         \fn SH_setName
          \param newName
         */
         void setName(QString newName);
         /*!
          \brief
 
-         \fn setSortOrder
+         \fn SH_setSortOrder
          \param newSortOrder
         */
         void setSortOrder(Qt::SortOrder newSortOrder);
 
     private:
-        QString m_text; /*!< TODO */
-        QString m_name; /*!< TODO */
-        Qt::SortOrder m_sortOrder; /*!< TODO */
+        /*!
+         * \brief m_text
+         */
+        QString m_text;
+        /*!
+         * \brief m_name
+         */
+        QString m_name;
+        /*!
+         * \brief m_sortOrder
+         */
+        Qt::SortOrder m_sortOrder;
 
     signals:
         /*!
          \brief
 
-         \fn textChanged
+         \fn SH_textChanged
         */
         void textChanged();
         /*!
          \brief
 
-         \fn nameChanged
+         \fn SH_nameChanged
         */
         void nameChanged();
         /*!
          \brief
 
-         \fn roleChanged
+         \fn SH_roleChanged
         */
         void roleChanged();
         /*!
          \brief
 
-         \fn sortOrderChanged
+         \fn SH_sortOrderChanged
         */
         void sortOrderChanged();
 
@@ -112,4 +121,4 @@ class SH_SqlDataFields : public QQuickItem
 
 };
 
-#endif // SQLDATAFIELDS_H
+#endif /* SQLDATAFIELDS_H*/

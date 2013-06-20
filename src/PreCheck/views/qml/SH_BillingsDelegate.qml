@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 SH_DataDelegate {
     value: ID
     text: CLIENT_ID

@@ -1,0 +1,72 @@
+\hypertarget{QsLogLevel_8h}{\section{Qs\-Log\-Level.\-h}
+\label{QsLogLevel_8h}\index{logging/\-Qs\-Log\-Level.\-h@{logging/\-Qs\-Log\-Level.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/* Copyright (c) 2013, Razvan Petru}
+00002 \textcolor{comment}{*/}
+00003 \textcolor{comment}{/* All rights reserved.}
+00004 \textcolor{comment}{*/}
+00005 
+00006 \textcolor{comment}{/* Redistribution and use in source and binary forms, with or without modification,}
+00007 \textcolor{comment}{*/}
+00008 \textcolor{comment}{/* are permitted provided that the following conditions are met:}
+00009 \textcolor{comment}{*/}
+00010 
+00011 \textcolor{comment}{/* * Redistributions of source code must retain the above copyright notice, this}
+00012 \textcolor{comment}{*/}
+00013 \textcolor{comment}{/*   list of conditions and the following disclaimer.}
+00014 \textcolor{comment}{*/}
+00015 \textcolor{comment}{/* * Redistributions in binary form must reproduce the above copyright notice, this}
+00016 \textcolor{comment}{*/}
+00017 \textcolor{comment}{/*   list of conditions and the following disclaimer in the documentation and/or other}
+00018 \textcolor{comment}{*/}
+00019 \textcolor{comment}{/*   materials provided with the distribution.}
+00020 \textcolor{comment}{*/}
+00021 \textcolor{comment}{/* * The name of the contributors may not be used to endorse or promote products}
+00022 \textcolor{comment}{*/}
+00023 \textcolor{comment}{/*   derived from this software without specific prior written permission.}
+00024 \textcolor{comment}{*/}
+00025 
+00026 \textcolor{comment}{/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND}
+00027 \textcolor{comment}{*/}
+00028 \textcolor{comment}{/* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED}
+00029 \textcolor{comment}{*/}
+00030 \textcolor{comment}{/* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.}
+00031 \textcolor{comment}{*/}
+00032 \textcolor{comment}{/* IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,}
+00033 \textcolor{comment}{*/}
+00034 \textcolor{comment}{/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,}
+00035 \textcolor{comment}{*/}
+00036 \textcolor{comment}{/* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}
+00037 \textcolor{comment}{*/}
+00038 \textcolor{comment}{/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF}
+00039 \textcolor{comment}{*/}
+00040 \textcolor{comment}{/* LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE}
+00041 \textcolor{comment}{*/}
+00042 \textcolor{comment}{/* OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED}
+00043 \textcolor{comment}{*/}
+00044 \textcolor{comment}{/* OF THE POSSIBILITY OF SUCH DAMAGE.}
+00045 \textcolor{comment}{*/}
+00046 
+00047 \textcolor{preprocessor}{#ifndef QSLOGLEVEL\_H}
+00048 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QSLOGLEVEL\_H}
+00049 \textcolor{preprocessor}{}
+00050 \textcolor{keyword}{namespace }QsLogging
+00051 \{
+\hypertarget{QsLogLevel_8h_source_l00056}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{00056} \textcolor{keyword}{enum} \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level}
+00057 \{
+\hypertarget{QsLogLevel_8h_source_l00058}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a187ba10e2b3b400c6ee33afe6fc10915}{00058}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a187ba10e2b3b400c6ee33afe6fc10915}{TraceLevel} = 0,
+\hypertarget{QsLogLevel_8h_source_l00059}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a2a6c1ca8703fa87e56dae43e9adbecda}{00059}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a2a6c1ca8703fa87e56dae43e9adbecda}{DebugLevel},
+\hypertarget{QsLogLevel_8h_source_l00060}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a6447c84a2844e8e1d0cdb95b55ecac72}{00060}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a6447c84a2844e8e1d0cdb95b55ecac72}{InfoLevel},
+\hypertarget{QsLogLevel_8h_source_l00061}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033ac744dbb976c301fa466a390b808e2eef}{00061}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033ac744dbb976c301fa466a390b808e2eef}{WarnLevel},
+\hypertarget{QsLogLevel_8h_source_l00062}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a3d6b56d79245ec74186a538f2e6b3cf2}{00062}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a3d6b56d79245ec74186a538f2e6b3cf2}{ErrorLevel},
+\hypertarget{QsLogLevel_8h_source_l00063}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033ab961256fd76d6571a41516e1794f39de}{00063}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033ab961256fd76d6571a41516e1794f39de}{FatalLevel},
+\hypertarget{QsLogLevel_8h_source_l00064}{}\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a64b8289ed8a99f811404140cbcb2549c}{00064}     \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a64b8289ed8a99f811404140cbcb2549c}{OffLevel}
+00065 \};
+00066 
+00067 \}
+00068 
+00069 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* QSLOGLEVEL\_H}
+00070 \textcolor{comment}{*/}\textcolor{preprocessor}{}
+\end{DoxyCode}

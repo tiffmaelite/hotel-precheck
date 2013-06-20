@@ -2,10 +2,9 @@
 
 
 /*!
- \brief
+ \details
 
- \fn GroupsTableModel::GroupsTableModel
- \param parent
+ \fn SH_GroupsTableModel::GroupsTableModel
 */
 SH_GroupsTableModel::SH_GroupsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
@@ -14,9 +13,9 @@ SH_GroupsTableModel::SH_GroupsTableModel(QObject *parent):
 }
 
 /*!
- \brief
+ \details
 
- \fn GroupsTableModel::fillModel
+ \fn SH_GroupsTableModel::fillModel
 */
 void SH_GroupsTableModel::fillModel()
 {

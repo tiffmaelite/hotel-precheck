@@ -1,12 +1,10 @@
 #include "SH_QuestionState.h"
 
 /*!
- \brief
+ \details
 
- \fn QuestionState::QuestionState
- \param question
- \param name
- \param parent
+ \fn SH_QuestionState::QuestionState
+
 */
 SH_QuestionState::SH_QuestionState(QString question, QString name, QState *parent) :
     SH_InOutState(question, name, parent)
@@ -14,10 +12,10 @@ SH_QuestionState::SH_QuestionState(QString question, QString name, QState *paren
 }
 
 /*!
- \brief
+ \details
 
- \fn QuestionState::checkValidity
- \return bool
+ \fn SH_QuestionState::checkValidity
+
 */
 bool SH_QuestionState::checkValidity()
 {
@@ -37,10 +35,10 @@ bool SH_QuestionState::checkValidity()
 }
 
 /*!
- \brief
+ \details
 
- \fn QuestionState::setInput
- \param input
+ \fn SH_QuestionState::setInput
+
 */
 void SH_QuestionState::setInput(const QVariant &input)
 {
@@ -49,10 +47,10 @@ void SH_QuestionState::setInput(const QVariant &input)
 }
 
 /*!
- \brief
+ \details
 
- \fn QuestionState::givenAnswer
- \return QVariant
+ \fn SH_QuestionState::givenAnswer
+
 */
 QVariant SH_QuestionState::givenAnswer() const
 {
@@ -60,10 +58,10 @@ QVariant SH_QuestionState::givenAnswer() const
 }
 
 /*!
- \brief
+ \details
 
- \fn QuestionState::setGivenAnswer
- \param givenAsnwer
+ \fn SH_QuestionState::setGivenAnswer
+
 */
 void SH_QuestionState::setGivenAnswer(const QVariant &givenAsnwer)
 {

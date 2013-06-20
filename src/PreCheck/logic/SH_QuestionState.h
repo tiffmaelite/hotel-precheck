@@ -5,7 +5,8 @@
 /*!
  \brief
 
- \class QuestionState questionstate.h "logic/questionstate.h"
+ \class SH_QuestionState
+\headerfile questionstate.h "logic/questionstate.h"
 */
 class SH_QuestionState : public SH_InOutState
 {
@@ -14,7 +15,7 @@ public:
 /*!
  \brief
 
- \fn QuestionState
+ \fn SH_QuestionState
  \param question
  \param name
  \param parent
@@ -23,7 +24,7 @@ public:
     /*!
      \brief
 
-     \fn checkValidity
+     \fn SH_checkValidity
      \return bool
     */
     bool checkValidity();
@@ -31,21 +32,21 @@ public:
     /*!
      \brief
 
-     \fn givenAnswer
+     \fn SH_givenAnswer
      \return QVariant
     */
     virtual QVariant givenAnswer() const;
     /*!
      \brief
 
-     \fn setGivenAnswer
+     \fn SH_setGivenAnswer
      \param givenAnswer
     */
     virtual void setGivenAnswer(const QVariant &givenAnswer);
     /*!
      \brief
 
-     \fn setInput
+     \fn SH_setInput
      \param input
     */
     virtual void setInput(const QVariant &input);
@@ -53,21 +54,30 @@ public:
     /*!
      \brief
 
-     \fn isAnswerValid
+     \fn SH_isAnswerValid
      \param givenAnswer
      \return bool
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer) = 0;
 
 signals:
+    /*!
+     * \brief answerValid
+     */
     void answerValid();
+    /*!
+     * \brief answerInvalid
+     */
     void answerInvalid();
 
 public slots:
 
 
 private:
-    QVariant m_givenAnswer; /*!< TODO */
+    /*!
+     * \brief m_givenAnswer
+     */
+    QVariant m_givenAnswer;
 };
 
-#endif // QUESTIONSTATE_H
+#endif /* QUESTIONSTATE_H*/

@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class DatabaseContentQuestionState databasecontentquestionstate.h "logic/databasecontentquestionstate.h"
+ \class SH_DatabaseContentQuestionState databasecontentquestionstate.h "logic/databasecontentquestionstate.h"
 */
 class SH_DatabaseContentQuestionState : public SH_QuestionState
 {
@@ -14,7 +14,7 @@ public:
     /*!
  \brief
 
- \fn DatabaseContentQuestionState
+ \fn SH_DatabaseContentQuestionState
  \param question
  \param name
  \param databaseTable
@@ -26,7 +26,7 @@ public:
     /*!
      \brief
 
-     \fn isAnswerValid
+     \fn SH_isAnswerValid
      \param givenAnswer
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -34,21 +34,21 @@ public:
 
     /*!
      \brief
-     \fn setOutput TODO comment this
+     \fn SH_setOutput TODO comment this
      \param output TODO comment this
     */
     void setOutput(const QString &output);
 
     /*!
          \brief
-         \fn rawInput TODO comment this
+         \fn SH_rawInput TODO comment this
          \return QVariant TODO comment this
         */
     virtual QVariant rawInput() const;
 
     /*!
      \brief
-     \fn choiceList TODO comment this
+     \fn SH_choiceList TODO comment this
      \return QMap<int, QVariant> TODO comment this
     */
     QMap<int, QVariant> choiceList();
@@ -56,17 +56,32 @@ public:
 signals:
     /*!
      \brief
-     \fn displayChoiceList TODO comment this
+     \fn SH_displayChoiceList TODO comment this
     */
     void displayChoiceList();
 public slots:
 
 private:
-    QString m_table; /*!< TODO */
-    QString m_condition; /*!< TODO */
-    QString m_field; /*!< TODO */
-    QMap<int, QVariant> m_choices; /*!< TODO */
-    bool m_choicesDisplayed;/*!< TODO */
+    /*!
+     * \brief m_table
+     */
+    QString m_table;
+    /*!
+     * \brief m_condition
+     */
+    QString m_condition;
+    /*!
+     * \brief m_field
+     */
+    QString m_field;
+    /*!
+     * \brief m_choices
+     */
+    QMap<int, QVariant> m_choices;
+    /*!
+     * \brief m_choicesDisplayed
+     */
+    bool m_choicesDisplayed;
 };
 
-#endif // DATABASECONTENTQUESTIONSTATE_H
+#endif /* DATABASECONTENTQUESTIONSTATE_H*/

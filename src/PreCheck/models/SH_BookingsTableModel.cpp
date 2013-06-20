@@ -2,10 +2,9 @@
 
 
 /*!
- \brief
+ \details
 
- \fn BookingsTableModel::BookingsTableModel
- \param parent
+ \fn SH_BookingsTableModel::BookingsTableModel
 */
 SH_BookingsTableModel::SH_BookingsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
@@ -16,9 +15,9 @@ SH_BookingsTableModel::SH_BookingsTableModel(QObject *parent):
 
 
 /*!
- \brief
+ \details
 
- \fn BookingsTableModel::fillModel
+ \fn SH_BookingsTableModel::fillModel
 */
 void SH_BookingsTableModel::fillModel()
 {

@@ -5,7 +5,7 @@
 /*!
  \brief La class ConfirmationState représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation
 
- \class ConfirmationState confirmationstate.h "logic/confirmationstate.h"
+ \class SH_ConfirmationState confirmationstate.h "logic/confirmationstate.h"
 
  L'état ConfirmationState correspond à un état de quasi-déclaration où la seule entrée acceptée de l'utilisateur est une confirmation.
 
@@ -17,7 +17,7 @@ public:
 /*!
  \brief
 
- \fn ConfirmationState
+ \fn SH_ConfirmationState
  \param output
  \param name
  \param parent
@@ -32,10 +32,10 @@ public slots:
     /*!
      \brief
 
-     \fn confirmInput
+     \fn SH_confirmInput
     */
     void confirmInput();
 
 };
 
-#endif // CONFIRMATIONSTATE_H
+#endif /* CONFIRMATIONSTATE_H*/

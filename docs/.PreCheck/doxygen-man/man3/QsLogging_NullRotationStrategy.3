@@ -1,0 +1,125 @@
+.TH "QsLogging::NullRotationStrategy" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QsLogging::NullRotationStrategy \- 
+.PP
+The \fBNullRotationStrategy\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <QsLogDestFile\&.h>\fP
+.PP
+Est dérivée de \fBQsLogging::RotationStrategy\fP\&.
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBincludeMessageInCalculation\fP (const QString &)"
+.br
+.RI "\fIincludeMessageInCalculation \fP"
+.ti -1c
+.RI "virtual QIODevice::OpenMode \fBrecommendedOpenModeFlag\fP ()"
+.br
+.RI "\fIrecommendedOpenModeFlag \fP"
+.ti -1c
+.RI "virtual void \fBrotate\fP ()"
+.br
+.RI "\fIrotate \fP"
+.ti -1c
+.RI "virtual void \fBsetInitialInfo\fP (const QFile &)"
+.br
+.RI "\fIsetInitialInfo \fP"
+.ti -1c
+.RI "virtual bool \fBshouldRotate\fP ()"
+.br
+.RI "\fIshouldRotate \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+The \fBNullRotationStrategy\fP class\&. 
+.PP
+Définition à la ligne 77 du fichier QsLogDestFile\&.h\&.
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "virtual void QsLogging::NullRotationStrategy::includeMessageInCalculation (const QString &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+includeMessageInCalculation 
+.PP
+Implémente \fBQsLogging::RotationStrategy\fP\&.
+.PP
+Définition à la ligne 87 du fichier QsLogDestFile\&.h\&.
+.PP
+.nf
+87 {}
+.fi
+.SS "virtual QIODevice::OpenMode QsLogging::NullRotationStrategy::recommendedOpenModeFlag ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+recommendedOpenModeFlag 
+.PP
+\fBRenvoie:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implémente \fBQsLogging::RotationStrategy\fP\&.
+.PP
+Définition à la ligne 101 du fichier QsLogDestFile\&.h\&.
+.PP
+.nf
+101 { return QIODevice::Truncate; }
+.fi
+.SS "virtual void QsLogging::NullRotationStrategy::rotate ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+rotate 
+.PP
+Implémente \fBQsLogging::RotationStrategy\fP\&.
+.PP
+Définition à la ligne 96 du fichier QsLogDestFile\&.h\&.
+.PP
+.nf
+96 {}
+.fi
+.SS "virtual void QsLogging::NullRotationStrategy::setInitialInfo (const QFile &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+setInitialInfo 
+.PP
+Implémente \fBQsLogging::RotationStrategy\fP\&.
+.PP
+Définition à la ligne 83 du fichier QsLogDestFile\&.h\&.
+.PP
+.nf
+83 {}
+.fi
+.SS "virtual bool QsLogging::NullRotationStrategy::shouldRotate ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+shouldRotate 
+.PP
+\fBRenvoie:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implémente \fBQsLogging::RotationStrategy\fP\&.
+.PP
+Définition à la ligne 92 du fichier QsLogDestFile\&.h\&.
+.PP
+.nf
+92 { return false; }
+.fi
+
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

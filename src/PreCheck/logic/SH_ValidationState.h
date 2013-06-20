@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class ValidationState validationstate.h "logic/validationstate.h"
+ \class SH_ValidationState validationstate.h "logic/validationstate.h"
 */
 class SH_ValidationState : public SH_ConfirmationState
 {
@@ -14,7 +14,7 @@ public:
 /*!
  \brief
 
- \fn ValidationState
+ \fn SH_ValidationState
  \param output
  \param name
  \param parent
@@ -27,4 +27,4 @@ public slots:
 
 };
 
-#endif // VALIDATIONSTATE_H
+#endif /* VALIDATIONSTATE_H*/

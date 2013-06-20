@@ -10,3 +10,5 @@ Column {
     readonly property real innerHeight: col.height-col.anchors.topMargin-col.anchors.bottomMargin-2*col.spacing
     readonly property real innerWidth: col.width-col.anchors.rightMargin-col.anchors.leftMargin-2*col.spacing
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

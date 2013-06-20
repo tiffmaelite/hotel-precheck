@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class NumericQuestionState numericquestionstate.h "logic/numericquestionstate.h"
+ \class SH_NumericQuestionState numericquestionstate.h "logic/numericquestionstate.h"
 */
 class SH_NumericQuestionState : public SH_QuestionState
 {
@@ -14,7 +14,7 @@ public:
 /*!
  \brief
 
- \fn NumericQuestionState
+ \fn SH_NumericQuestionState
  \param question
  \param name
  \param min
@@ -25,7 +25,7 @@ public:
 /*!
  \brief
 
- \fn isAnswerValid
+ \fn SH_isAnswerValid
  \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -33,14 +33,14 @@ virtual bool isAnswerValid(const QVariant &givenAnswer);
 /*!
  \brief
 
- \fn min
+ \fn SH_min
  \return int
 */
 int min() const;
 /*!
  \brief
 
- \fn setMin
+ \fn SH_setMin
  \param min
 */
 void setMin(int min);
@@ -48,14 +48,14 @@ void setMin(int min);
 /*!
  \brief
 
- \fn max
+ \fn SH_max
  \return int
 */
 int max() const;
 /*!
  \brief
 
- \fn setMax
+ \fn SH_setMax
  \param max
 */
 void setMax(int max);
@@ -66,8 +66,14 @@ public slots:
 
 
 private:
-int m_min; /*!< TODO */
-int m_max; /*!< TODO */
+/*!
+ * \brief m_min
+ */
+int m_min;
+/*!
+ * \brief m_max
+ */
+int m_max;
 };
 
-#endif // NUMERICQUESTIONSTATE_H
+#endif /* NUMERICQUESTIONSTATE_H*/

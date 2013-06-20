@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 GridLayout {
     id: dataView
     columns: 5
@@ -17,7 +20,14 @@ GridLayout {
     property alias sectionIndex : repeater.sectionIndex
     property alias model: repeater.model
     signal selected(string selectedItem)
+    /**
+      @fn
+      @param
+      @return
 
+      @brief
+      @details
+      */
     function removeFilterIndex(index) {
         if(!dataView.activeFilterIndicatorIndexes) {
             dataView.activeFilterIndicatorIndexes = [];
@@ -27,6 +37,14 @@ GridLayout {
         tmp.splice(pos, 1);
         return tmp;
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function addFilterIndex(index) {
         if(!dataView.activeFilterIndicatorIndexes) {
             dataView.activeFilterIndicatorIndexes = [];
@@ -35,9 +53,25 @@ GridLayout {
         tmp.push(index);
         return tmp;
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function sort(index) {
         repeater.model.setSortKeyKolumn(index);
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function filter(index, remove) {
         if(remove) {
             dataView.activeFilterIndicatorIndexes = dataView.addFilterIndex(index);
@@ -188,6 +222,14 @@ GridLayout {
             Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
             Layout.row: computeRow()
             Layout.column: computeColumn()
+            /**
+              @fn
+              @param
+              @return
+
+              @brief
+              @details
+              */
             function computeRow() {
                 var next = 0;
                 if(index > 0){
@@ -207,7 +249,7 @@ GridLayout {
                         console.log("même section");
                         if(dataView.columns > 0) {
                             console.log("layout horizontal de "+dataView.columns+" colonnes");
-                            if((previousColumn % dataView.columns) == 0) { //dernière colonne
+                            if((previousColumn % dataView.columns) == 0) { /*dernière colonne*/
                                 console.log("on passe à la ligne suivante");
                                 next = previousRow + 1;
                             } else {
@@ -232,6 +274,14 @@ GridLayout {
                 console.log("ligne "+next)
                 return next;
             }
+            /**
+              @fn
+              @param
+              @return
+
+              @brief
+              @details
+              */
             function computeColumn() {
                 var next = 0;
                 if(index > 0){
@@ -251,7 +301,7 @@ GridLayout {
                         console.log("même section");
                         if(dataView.rows > 0) {
                             console.log("layout vertical de "+dataView.rows+" lignes");
-                            if((previousRow % dataView.rows) == 0) { //dernière ligne
+                            if((previousRow % dataView.rows) == 0) { /*dernière ligne*/
                                 console.log("on passe à la colonne suivante");
                                 next = previousColumn + 1;
                             } else {

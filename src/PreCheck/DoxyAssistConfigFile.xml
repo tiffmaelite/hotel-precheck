@@ -23,26 +23,7 @@
        See the information near the projects for more information. Changing these
        settings here will have no effect when using the Doxygen Assistant to
        run Doxygen. -->
-  <doxygen doxyfile="/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/DoxygenConfigFile">
-    <!-- A boolean setting is defined like this. This will write "YES" or "NO" for
-         the specific setting in the Doxyfile passed to Doxygen. -->
-    <bool name="CREATE_SUBDIRS">true</bool>
-    <!-- A numeric setting is written like this. It will be written to the Doxyfile
-         without quotes. -->
-    <int name="TAB_SIZE">8</int>
-    <!-- This is a single string setting. When writing this out to the doxyfile,
-         it will be quoted and treated as a whole. -->
-    <string name="OUTPUT_LANGUAGE">French</string>
-    <!-- A list setting contains multiple elements, seperated by whitespace. Each
-         individual item will be quoted and treated as a whole for Doxygen. By
-         default a list replaces the existing setting. If the append attribute is
-         set to true, then the items will be added to the existing set. -->
-    <list name="FILE_PATTERNS" append="false">
-      <item>*.h</item>
-      <item>*.cpp</item>
-      <item>*.qml</item>
-    </list>
-  </doxygen>
+  <doxygen doxyfile="/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck/DoxygenConfigFile" />
 
   <!-- Settings for the Qt Help Collection to create. If not present, no
        help collection will be created. See
@@ -62,8 +43,8 @@
   <qtHelp collectionFile="/path/to/helpcollection.qhc"
           projectFile="/path/to/helpcollection.qhcp"
           storage="qch" copyAction="copy">
-    <title>My Application Help</title>
-    <startPage>qthelp://com.mycompany.1_0_0/doc/index.html</startPage>
+    <title>PreCheck Help</title>
+    <startPage>qthelp://org.SimplHotel.PreCheck.0_3_0/doc/index.html</startPage>
     <!-- See http://doc.trolltech.com/assistant-custom-help-viewer.html for more
          settings in the <assistant> section. -->
   </qtHelp>
@@ -113,7 +94,7 @@
            If you want documentation of subprojects to be explicitly included as well,
            you must list the EXACT same input directories in the parent; this
            will prevent the directories from being excluded. -->
-      <input>src</input>
+      <input>/home/tiff/Stage-IUT/app/hotel-precheck/src/PreCheck</input>
       <!-- A list of files/paths to exclude. Add one <exclude> tag per path to
            exclude. This will automatically be expanded to exclude input directories
            of subprojects, and prevent mangled documentation. -->
@@ -123,11 +104,11 @@
            Additionally, if the <versionspecific> setting has a value of true,
            another subdirectory based on the version number will be created (e.g.
            "/path/to/my-application/out/my-application/1.0". -->
-      <output>../../doc</output>
+      <output>/home/tiff/Stage-IUT/app/hotel-precheck/docs</output>
       <!-- The directory where error and log files will be stored. Log and error
            files will be named "my-application.1-0.log" and
            "my-application.1-0-error.log" respectively. -->
-      <logDirectory>../../doc/doclog</logDirectory>
+      <logDirectory>/home/tiff/Stage-IUT/app/hotel-precheck/docs/doclog</logDirectory>
       <!-- Optional base namespace for this application. This is prefixed to the
            normalized project name and version number (if version specific is set).
            The full namespace would now become "com.mycompany.my-application.1-0"

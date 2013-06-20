@@ -1,11 +1,10 @@
 #include "SH_PrintingState.h"
 
 /*!
- \brief
+ \details
 
- \fn PrintingState::PrintingState
- \param name
- \param parent
+ \fn SH_PrintingState::PrintingState
+
 */
 SH_PrintingState::SH_PrintingState(QString name, QState *parent) :
     SH_GenericState(name, parent)

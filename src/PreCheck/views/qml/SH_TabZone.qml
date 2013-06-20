@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 TabView {
     id: tabView
     currentIndex: 0
@@ -15,6 +18,14 @@ TabView {
     signal newBilling()
     signal newSelling()
     signal newBooking()
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function openTab(tabIndex) {
         tabView.currentIndex = tabIndex;
     }
@@ -63,21 +74,21 @@ TabView {
             tabView.addTab(qsTr("Chambres"), roomsTab);
             tabView.addTab(qsTr("Facturations"), billingsTab);
             tabView.addTab(qsTr("Réservations"), bookingsTab);
-            //tabView.addTab(qsTr("Offres"), offersTab);
+            /*tabView.addTab(qsTr("Offres"), offersTab);*/
             break;
         case SH_AppMode.MANAGEMENT_Z:
-            //tabView.addTab(qsTr("Clôtures"), accountsTab);
+            /*tabView.addTab(qsTr("Clôtures"), accountsTab);*/
         case SH_AppMode.MANAGEMENT_X:
-            //tabView.addTab(qsTr("Prestations"), servicesEditTab);
+            /*tabView.addTab(qsTr("Prestations"), servicesEditTab);*/
             tabView.addTab(qsTr("Chambres"), roomsEditTab);
-            //tabView.addTab(qsTr("Clients privés"), clientsEditTab);
-            //tabView.addTab(qsTr("Groupes"), groupsEditTab);
-            //tabView.addTab(qsTr("Rapports"), reportsTab);
+            /*tabView.addTab(qsTr("Clients privés"), clientsEditTab);*/
+            /*tabView.addTab(qsTr("Groupes"), groupsEditTab);*/
+            /*tabView.addTab(qsTr("Rapports"), reportsTab);*/
             break;
         case SH_AppMode.ADMINISTRATION :
-            //tabView.addTab(qsTr("Paramètres"), settingsTab);
-            //tabView.addTab(qsTr("Utilisateurs"), usersTab);
-            //tabView.addTab(qsTr("Design"), skinTab);
+            /*tabView.addTab(qsTr("Paramètres"), settingsTab);*/
+            /*tabView.addTab(qsTr("Utilisateurs"), usersTab);*/
+            /*tabView.addTab(qsTr("Design"), skinTab);*/
             break;
         }
     }

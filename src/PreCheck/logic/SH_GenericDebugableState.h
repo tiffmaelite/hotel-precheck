@@ -7,7 +7,7 @@
 /*!
  \brief
 
- \class GenericState genericstate.h "logic/genericstate.h"
+ \class SH_GenericState genericstate.h "logic/genericstate.h"
 */
 class SH_GenericState : public QState,SH_NamedObject
 {
@@ -16,7 +16,7 @@ public:
     /*!
  \brief
 
- \fn GenericState
+ \fn SH_GenericState
  \param name
  \param parent
 */
@@ -24,7 +24,7 @@ public:
     /*!
      \brief
 
-     \fn toString
+     \fn SH_toString
      \return QString
     */
     QString toString();
@@ -34,20 +34,20 @@ signals:
     /*!
      \brief
 
-     \fn next
+     \fn SH_next
     */
     void next();
 
 protected:
     /*!
      \brief
-     \fn onEntry TODO comment this
+     \fn SH_onEntry TODO comment this
      \param event TODO comment this
     */
     void onEntry(QEvent *event);
     /*!
      \brief
-     \fn onExit TODO comment this
+     \fn SH_onExit TODO comment this
      \param event TODO comment this
     */
     void onExit(QEvent *event);
@@ -58,15 +58,15 @@ private:
 private slots:
     /*!
      \brief
-     \fn onMachineStarted TODO comment this
+     \fn SH_onMachineStarted TODO comment this
     */
     void onMachineStarted();
     /*!
      \brief
-     \fn onTransitionTriggered TODO comment this
+     \fn SH_onTransitionTriggered TODO comment this
     */
     void onTransitionTriggered();
 
 };
 
-#endif // GENERICSTATE_H
+#endif /* GENERICSTATE_H*/

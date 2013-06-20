@@ -6,7 +6,7 @@
 /*!
  \brief
 
- \class MessageManager message_manager.h "views/message_manager.h"
+ \class SH_MessageManager message_manager.h "views/message_manager.h"
 */
 class SH_MessageManager: QObject
 {
@@ -25,7 +25,7 @@ public:
     /*!
      \brief
 
-     \fn errorMessage
+     \fn SH_errorMessage
      \param message
      \param title
     */
@@ -33,7 +33,7 @@ public:
     /*!
      \brief
 
-     \fn successMessage
+     \fn SH_successMessage
      \param message
      \param title
     */
@@ -41,15 +41,12 @@ public:
     /*!
      \brief
 
-     \fn infoMessage
+     \fn SH_infoMessage
      \param message
      \param title
     */
     static void infoMessage(QString message,QString title ="Info");
 
-protected:
-    static ErrorMode errorMode; /*!< TODO */
-
 };
 
-#endif // ERRORMESSAGE_H
+#endif /* ERRORMESSAGE_H*/

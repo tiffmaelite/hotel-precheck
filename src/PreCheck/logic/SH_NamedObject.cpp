@@ -1,22 +1,22 @@
 #include "SH_NamedObject.h"
 
 /*!
- \brief
+ \details
 
- \fn NamedObject::NamedObject
- \param name
+ \fn SH_NamedObject::NamedObject
+
 */
 SH_NamedObject::SH_NamedObject(QString name) :
     m_name(name)
 {
-    //m_ptraddress = QString(&this);
+    /*m_ptraddress = QString(&this);*/
 }
 
 /*!
- \brief
+ \details
 
- \fn NamedObject::toString
- \return QString
+ \fn SH_NamedObject::toString
+
 */
 QString SH_NamedObject::toString()
 {
@@ -24,10 +24,10 @@ QString SH_NamedObject::toString()
 }
 
 /*!
- \brief
+ \details
 
- \fn NamedObject::name
- \return QString
+ \fn SH_NamedObject::name
+
 */
 QString SH_NamedObject::name() const
 {
@@ -35,10 +35,10 @@ QString SH_NamedObject::name() const
 }
 
 /*!
- \brief
+ \details
 
- \fn NamedObject::setName
- \param name
+ \fn SH_NamedObject::setName
+
 */
 void SH_NamedObject::setName(const QString &name)
 {
@@ -46,10 +46,10 @@ void SH_NamedObject::setName(const QString &name)
 }
 
 /*!
- \brief
+ \details
 
- \fn NamedObject::ptraddress
- \return QString
+ \fn SH_NamedObject::ptraddress
+
 */
 QString SH_NamedObject::ptraddress() const
 {

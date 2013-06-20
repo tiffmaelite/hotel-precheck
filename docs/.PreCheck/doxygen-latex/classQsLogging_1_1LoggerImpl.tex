@@ -1,0 +1,106 @@
+\hypertarget{classQsLogging_1_1LoggerImpl}{\section{Référence de la classe Qs\-Logging\-:\-:Logger\-Impl}
+\label{classQsLogging_1_1LoggerImpl}\index{Qs\-Logging\-::\-Logger\-Impl@{Qs\-Logging\-::\-Logger\-Impl}}
+}
+
+
+Graphe de collaboration de Qs\-Logging\-:\-:Logger\-Impl\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classQsLogging_1_1LoggerImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classQsLogging_1_1LoggerImpl_a97418676fcfcb2fb13c0ebbbae3ef184}{Logger\-Impl} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceQsLogging_a566a41f076f9a05c94cb6980ec554e2c}{Destination\-List} \hyperlink{classQsLogging_1_1LoggerImpl_acdbde93fec67bd0bcce8da1fc1080ece}{dest\-List}
+\item 
+\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} \hyperlink{classQsLogging_1_1LoggerImpl_a4d3c9f4b81baa52df759b6d07bda0a69}{level}
+\item 
+Q\-Mutex \hyperlink{classQsLogging_1_1LoggerImpl_a8feaba4a7a7160106987943313804c35}{log\-Mutex}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00164}{164} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classQsLogging_1_1LoggerImpl_a97418676fcfcb2fb13c0ebbbae3ef184}{\index{Qs\-Logging\-::\-Logger\-Impl@{Qs\-Logging\-::\-Logger\-Impl}!Logger\-Impl@{Logger\-Impl}}
+\index{Logger\-Impl@{Logger\-Impl}!QsLogging::LoggerImpl@{Qs\-Logging\-::\-Logger\-Impl}}
+\subsubsection[{Logger\-Impl}]{\setlength{\rightskip}{0pt plus 5cm}Qs\-Logging\-::\-Logger\-Impl\-::\-Logger\-Impl (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classQsLogging_1_1LoggerImpl_a97418676fcfcb2fb13c0ebbbae3ef184}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00170}{170} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+
+Références \hyperlink{classQsLogging_1_1LoggerImpl_acdbde93fec67bd0bcce8da1fc1080ece}{dest\-List}.
+
+
+\begin{DoxyCode}
+00170                  :
+00171         \hyperlink{classQsLogging_1_1LoggerImpl_a4d3c9f4b81baa52df759b6d07bda0a69}{level}(\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033a6447c84a2844e8e1d0cdb95b55ecac72}{InfoLevel})
+00172     \{
+00173         \textcolor{comment}{/* assume at least file + console */}
+00174         \hyperlink{classQsLogging_1_1LoggerImpl_acdbde93fec67bd0bcce8da1fc1080ece}{destList}.reserve(2);
+00175 \textcolor{preprocessor}{#ifdef QS\_LOG\_SEPARATE\_THREAD}
+00176 \textcolor{preprocessor}{}        threadPool.setMaxThreadCount(1);
+00177         threadPool.setExpiryTimeout(-1);
+00178 \textcolor{preprocessor}{#endif}
+00179 \textcolor{preprocessor}{}    \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classQsLogging_1_1LoggerImpl_acdbde93fec67bd0bcce8da1fc1080ece}{\index{Qs\-Logging\-::\-Logger\-Impl@{Qs\-Logging\-::\-Logger\-Impl}!dest\-List@{dest\-List}}
+\index{dest\-List@{dest\-List}!QsLogging::LoggerImpl@{Qs\-Logging\-::\-Logger\-Impl}}
+\subsubsection[{dest\-List}]{\setlength{\rightskip}{0pt plus 5cm}Qs\-Logging\-::\-Logger\-Impl\-::dest\-List}}\label{classQsLogging_1_1LoggerImpl_acdbde93fec67bd0bcce8da1fc1080ece}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00195}{195} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+
+Référencé par \hyperlink{classQsLogging_1_1Logger_a76a32c839e837547b14bc5e523b4aa45}{Qs\-Logging\-::\-Logger\-::add\-Destination()}, \hyperlink{classQsLogging_1_1LoggerImpl_a97418676fcfcb2fb13c0ebbbae3ef184}{Logger\-Impl()}, et \hyperlink{classQsLogging_1_1Logger_ab9789bba5f1644a3b3b51606533aa20f}{Qs\-Logging\-::\-Logger\-::write()}.
+
+\hypertarget{classQsLogging_1_1LoggerImpl_a4d3c9f4b81baa52df759b6d07bda0a69}{\index{Qs\-Logging\-::\-Logger\-Impl@{Qs\-Logging\-::\-Logger\-Impl}!level@{level}}
+\index{level@{level}!QsLogging::LoggerImpl@{Qs\-Logging\-::\-Logger\-Impl}}
+\subsubsection[{level}]{\setlength{\rightskip}{0pt plus 5cm}Qs\-Logging\-::\-Logger\-Impl\-::level}}\label{classQsLogging_1_1LoggerImpl_a4d3c9f4b81baa52df759b6d07bda0a69}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00191}{191} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+
+Référencé par \hyperlink{classQsLogging_1_1Logger_a5e2b29cf6cd066f1e64eaa4db7373458}{Qs\-Logging\-::\-Logger\-::logging\-Level()}, et \hyperlink{classQsLogging_1_1Logger_aa34d1a0d83e180f15e23a03f9de872c6}{Qs\-Logging\-::\-Logger\-::set\-Logging\-Level()}.
+
+\hypertarget{classQsLogging_1_1LoggerImpl_a8feaba4a7a7160106987943313804c35}{\index{Qs\-Logging\-::\-Logger\-Impl@{Qs\-Logging\-::\-Logger\-Impl}!log\-Mutex@{log\-Mutex}}
+\index{log\-Mutex@{log\-Mutex}!QsLogging::LoggerImpl@{Qs\-Logging\-::\-Logger\-Impl}}
+\subsubsection[{log\-Mutex}]{\setlength{\rightskip}{0pt plus 5cm}Qs\-Logging\-::\-Logger\-Impl\-::log\-Mutex}}\label{classQsLogging_1_1LoggerImpl_a8feaba4a7a7160106987943313804c35}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00186}{186} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+
+Référencé par \hyperlink{classQsLogging_1_1Logger_acd6d5d16d6e111eaa960807d75549bf9}{Qs\-Logging\-::\-Logger\-::enqueue\-Write()}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+logging/\hyperlink{QsLog_8cpp}{Qs\-Log.\-cpp}\end{DoxyCompactItemize}

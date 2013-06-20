@@ -5,7 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-
+/**
+  @class
+  */
 GridLayout {
     id: layout
     rowSpacing:0
@@ -24,7 +26,6 @@ GridLayout {
             Layout.fillWidth: true
             text: actionsList[index].text
             tooltip: actionsList[index].tooltip
-            iconName: actionsList[index].iconName
             iconSource: actionsList[index].iconSource
             checkable: false
             action: Action {

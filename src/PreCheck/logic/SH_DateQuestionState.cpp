@@ -1,14 +1,10 @@
 #include "SH_DateQuestionState.h"
 
 /*!
- \brief
+ \details
 
- \fn DateQuestionState::DateQuestionState
- \param question
- \param name
- \param past
- \param future
- \param parent
+ \fn SH_DateQuestionState::DateQuestionState
+
 */
 SH_DateQuestionState::SH_DateQuestionState(QString question, QString name, bool past, bool future, QState *parent) :
     SH_QuestionState(question+" (au format jj-mm-aaaa)", name, parent), m_past(past), m_future(future)
@@ -16,10 +12,10 @@ SH_DateQuestionState::SH_DateQuestionState(QString question, QString name, bool 
 }
 
 /*!
- \brief
+ \details
 
- \fn DateQuestionState::isAnswerValid
- \param givenAnswer
+ \fn SH_DateQuestionState::isAnswerValid
+
 */
 bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
@@ -33,10 +29,10 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \brief
+ \details
 
- \fn DateQuestionState::getPast
- \return bool
+ \fn SH_DateQuestionState::getPast
+
 */
 bool SH_DateQuestionState::getPast() const
 {
@@ -44,10 +40,10 @@ bool SH_DateQuestionState::getPast() const
 }
 
 /*!
- \brief
+ \details
 
- \fn DateQuestionState::setPast
- \param value
+ \fn SH_DateQuestionState::setPast
+
 */
 void SH_DateQuestionState::setPast(bool value)
 {
@@ -55,10 +51,10 @@ void SH_DateQuestionState::setPast(bool value)
 }
 
 /*!
- \brief
+ \details
 
- \fn DateQuestionState::getFuture
- \return bool
+ \fn SH_DateQuestionState::getFuture
+
 */
 bool SH_DateQuestionState::getFuture() const
 {
@@ -66,10 +62,10 @@ bool SH_DateQuestionState::getFuture() const
 }
 
 /*!
- \brief
+ \details
 
- \fn DateQuestionState::setFuture
- \param value
+ \fn SH_DateQuestionState::setFuture
+
 */
 void SH_DateQuestionState::setFuture(bool value)
 {
@@ -77,11 +73,11 @@ void SH_DateQuestionState::setFuture(bool value)
 }
 
 /*!
- \brief
- \fn DateQuestionState::rawInput TODO comment this
- \return QVariant TODO comment this
+ \details
+ \fn SH_DateQuestionState::rawInput TODO comment this
+
 */
 QVariant SH_DateQuestionState::rawInput() const
 {
-    return QVariant(input().toDate().toString()); //TODO set format
+    return QVariant(input().toDate().toString()); /*TODO set format*/
 }

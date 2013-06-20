@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 Rectangle {
     id: output
     visible: true
@@ -32,31 +35,79 @@ Rectangle {
     onDisplayNew: layout.changeTextDisplay(output.lastVisibleRow+1,text, editable);
     onDisplayNewFixed: layout.changeTextDisplay(output.lastVisibleRow+1,text, false);
 
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function clear(row) {
         if(row <= output.lastVisibleRow) {
             rep.itemAt(row).model = "";
         }
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function clearAll() {
         for(var currentRow = 0; currentRow<rep.count; currentRow++) {
             output.clear(currentRow);
         }
         output.lastVisibleRow = -1;
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function displayText(text) {
         layout.changeTextDisplay(output.lastVisibleRow+1,text, false);
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function displayCalendar() {
-        //TODO
+        /*TODO*/
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function displaySqlDatas(sqlData, sqlDelegate) {
         rep.itemAt(output.lastVisibleRow).model = sqlData;
         rep.itemAt(output.lastVisibleRow).state="choices";
     }
+    /**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
     function displaySqlDetail(sqlData) {
         rep.itemAt(output.lastVisibleRow).model = sqlData;
         rep.itemAt(output.lastVisibleRow).state="detail";
-        //console.log(table+" "+row);
+        /*console.log(table+" "+row);*/
     }
 
     ColumnLayout {
@@ -65,6 +116,14 @@ Rectangle {
         anchors.fill: output
         height: output.height
         width: output.width
+        /**
+          @fn
+          @param
+          @return
+
+          @brief
+          @details
+          */
         function changeTextDisplay(row, text, editable) {
             if(row < rep.count) {
                 if(row > output.lastVisibleRow) {
@@ -74,6 +133,14 @@ Rectangle {
                 rep.itemAt(row).model = text;
             }
         }
+        /**
+          @fn
+          @param
+          @return
+
+          @brief
+          @details
+          */
         function continueTextDisplay(row, text) {
             console.log("continue display");
             console.log(row)

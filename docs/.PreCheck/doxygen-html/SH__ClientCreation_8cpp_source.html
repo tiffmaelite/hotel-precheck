@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de logic/SH_ClientCreation.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0f9694b8de2575528c6c0ae9f79dda65.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_ClientCreation.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__ClientCreation_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;QRegularExpression&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__ClientCreation_8h.html">SH_ClientCreation.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__DatabaseContentQuestionState_8h.html">SH_DatabaseContentQuestionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__StringQuestionState_8h.html">SH_StringQuestionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__FileSelectionState_8h.html">SH_FileSelectionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__RegExpQuestionState_8h.html">SH_RegExpQuestionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__AddressCreation_8h.html">SH_AddressCreation.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classSH__ClientCreationStateMachine.html#a0b406b0f404c0fd33bf35be8ce0cc811">   13</a></span>&#160;<a class="code" href="classSH__ClientCreationStateMachine.html#a0b406b0f404c0fd33bf35be8ce0cc811">SH_ClientCreationStateMachine::SH_ClientCreationStateMachine</a>(QString name, <a class="code" href="classQObject.html">QObject</a> *parent) :</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classSH__InOutStateMachine.html">SH_InOutStateMachine</a>(<span class="stringliteral">&quot;CLIENTS&quot;</span>,name, parent)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classSH__AddressCreationStateMachine.html" title="The SH_AddressCreationStateMachine class. ">SH_AddressCreationStateMachine</a>* address = <span class="keyword">new</span> <a class="code" href="classSH__AddressCreationStateMachine.html" title="The SH_AddressCreationStateMachine class. ">SH_AddressCreationStateMachine</a>(<span class="stringliteral">&quot;address in client creation&quot;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classSH__DatabaseContentQuestionState.html">SH_DatabaseContentQuestionState</a>* nationality = <span class="keyword">new</span> <a class="code" href="classSH__DatabaseContentQuestionState.html">SH_DatabaseContentQuestionState</a>(<span class="stringliteral">&quot;Veuillez entrer le code de nationalité du client&quot;</span>, <span class="stringliteral">&quot;nationality in client creation&quot;</span>, <span class="stringliteral">&quot;NATIONALITIES&quot;</span>,<span class="stringliteral">&quot;CODE&quot;</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classSH__FileSelectionState.html" title="The SH_FileSelectionState class. ">SH_FileSelectionState</a>* IDscan = <span class="keyword">new</span> <a class="code" href="classSH__FileSelectionState.html" title="The SH_FileSelectionState class. ">SH_FileSelectionState</a>(<span class="stringliteral">&quot;Veuillez sélectionner l&#39;image scannée des papiers d&#39;identité du client&quot;</span>,<span class="stringliteral">&quot;ID image in client creation&quot;</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classSH__RegExpQuestionState.html" title="The SH_RegExpQuestionState class. ">SH_RegExpQuestionState</a>* phone = <span class="keyword">new</span> <a class="code" href="classSH__RegExpQuestionState.html" title="The SH_RegExpQuestionState class. ">SH_RegExpQuestionState</a>(<span class="stringliteral">&quot;Veuillez entrer le numéro de téléphone du client avec le préfixe international&quot;</span>,<span class="stringliteral">&quot;phone client creation&quot;</span>,QRegularExpression(<span class="stringliteral">&quot;[[\+|00][[1-9]]{3}\\d{8}]?&quot;</span>));</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classSH__RegExpQuestionState.html" title="The SH_RegExpQuestionState class. ">SH_RegExpQuestionState</a>* email = <span class="keyword">new</span> <a class="code" href="classSH__RegExpQuestionState.html" title="The SH_RegExpQuestionState class. ">SH_RegExpQuestionState</a>(<span class="stringliteral">&quot;Veuillez entrer l&#39;adresse email du client&quot;</span>,<span class="stringliteral">&quot;email client creation&quot;</span>,QRegularExpression(<span class="stringliteral">&quot;[[\\d\\w\._%\+\-]+@[\\d\\w\.-]+\.[\\w]+]?&quot;</span>));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QFinalState* <span class="keyword">final</span> = <span class="keyword">new</span> QFinalState();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    this-&gt;addState(<span class="keyword">final</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#ad6b778d052f741daee720c047059ce0e">addIOState</a>(IDscan, <span class="stringliteral">&quot;IDSCAN&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#ad6b778d052f741daee720c047059ce0e">addIOState</a>(nationality, <span class="stringliteral">&quot;NATIONALITY_CODE&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#ad6b778d052f741daee720c047059ce0e">addIOState</a>(phone, <span class="stringliteral">&quot;PHONE&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#ad6b778d052f741daee720c047059ce0e">addIOState</a>(email, <span class="stringliteral">&quot;EMAIL&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    connect(address, &amp;SH_InOutStateMachine::exited, [=]() {<a class="code" href="classSH__InOutStateMachine.html#aa2766b7a7ba39c35a10df7fc0c151b4f">setContentValue</a>(address-&gt;<a class="code" href="classSH__InOutStateMachine.html#a2cdd914f1e597ac52d021106eec75c89">getContentValue</a>(<span class="stringliteral">&quot;ID&quot;</span>),<span class="stringliteral">&quot;HOMEADDRESS_ID&quot;</span>);});</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#a689e5513ef6ef3fc1598efacd413372e">addChildrenNextTransition</a>(IDscan, address);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#a689e5513ef6ef3fc1598efacd413372e">addChildrenNextTransition</a>(address, phone);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#a689e5513ef6ef3fc1598efacd413372e">addChildrenNextTransition</a>(phone, email);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    this-&gt;<a class="code" href="classSH__InOutStateMachine.html#a689e5513ef6ef3fc1598efacd413372e">addChildrenNextTransition</a>(email, nationality);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    this-&gt;setInitialState(IDscan);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">/*connect(IDscan,&amp;QState::entered, [=]() {</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        connect(this, &amp;IOStateMachine::confirmInput, IDscan, &amp;GenericState::next);</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">    });*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Juin 20 2013 23:37:26 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>

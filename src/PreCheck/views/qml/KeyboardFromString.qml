@@ -1,3 +1,5 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
@@ -20,3 +22,5 @@ SH_Keyboard {
         }
     }
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

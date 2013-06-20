@@ -1,0 +1,139 @@
+.TH "QsLogging::Logger::Helper" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QsLogging::Logger::Helper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <QsLog\&.h>\fP
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBHelper\fP (\fBLevel\fP logLevel)"
+.br
+.ti -1c
+.RI "\fB~Helper\fP ()"
+.br
+.ti -1c
+.RI "QDebug & \fBstream\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres privées"
+
+.in +1c
+.ti -1c
+.RI "void \fBwriteToLog\fP ()"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "QString \fBbuffer\fP"
+.br
+.RI "\fIbuffer \fP"
+.ti -1c
+.RI "\fBLevel\fP \fBlevel\fP"
+.br
+.RI "\fIlevel \fP"
+.ti -1c
+.RI "QDebug \fBqtDebug\fP"
+.br
+.RI "\fIqtDebug \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 114 du fichier QsLog\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "QsLogging::Logger::Helper::Helper (\fBLevel\fPlogLevel)\fC [inline]\fP, \fC [explicit]\fP"
+
+.PP
+Définition à la ligne 123 du fichier QsLog\&.h\&.
+.PP
+.nf
+123                                         :
+124             level(logLevel),
+125             qtDebug(&buffer) {}
+.fi
+.SS "\fBSH_\fP QsLogging::Logger::Helper::~Helper ()"
+
+.PP
+Définition à la ligne 252 du fichier QsLog\&.cpp\&.
+.PP
+.nf
+253 {
+254     try {
+255         writeToLog();
+256     }
+257     catch(std::exception&) {
+258         /* you shouldn't throw exceptions from a sink */
+259         assert(!"exception in logger helper destructor");
+260         throw;
+261     }
+262 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "QDebug& QsLogging::Logger::Helper::stream ()\fC [inline]\fP"
+
+.PP
+Définition à la ligne 138 du fichier QsLog\&.h\&.
+.PP
+Références qtDebug\&.
+.PP
+.nf
+138 { return qtDebug; }
+.fi
+.SS "void QsLogging::Logger::Helper::writeToLog ()\fC [private]\fP"
+
+.PP
+Définition à la ligne 238 du fichier QsLog\&.cpp\&.
+.PP
+Références buffer, QsLogging::Logger::enqueueWrite(), QsLogging::fmtDateTime(), QsLogging::Logger::instance(), level, et QsLogging::LevelToText()\&.
+.PP
+.nf
+239 {
+240     const char* const levelName = LevelToText(level);
+241     const QString completeMessage(QString("%1 %2 %3")
+242                                   \&.arg(levelName, 5)
+243                                   \&.arg(QDateTime::currentDateTime()\&.toString(fmtDateTime))
+244                                   \&.arg(buffer)
+245                                   );
+246 
+247     Logger::instance()\&.enqueueWrite(completeMessage, level);
+248 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "QString QsLogging::Logger::Helper::buffer\fC [private]\fP"
+
+.PP
+buffer 
+.PP
+Définition à la ligne 154 du fichier QsLog\&.h\&.
+.PP
+Référencé par writeToLog()\&.
+.SS "\fBLevel\fP QsLogging::Logger::Helper::level\fC [private]\fP"
+
+.PP
+level 
+.PP
+Définition à la ligne 150 du fichier QsLog\&.h\&.
+.PP
+Référencé par writeToLog()\&.
+.SS "QDebug QsLogging::Logger::Helper::qtDebug\fC [private]\fP"
+
+.PP
+qtDebug 
+.PP
+Définition à la ligne 158 du fichier QsLog\&.h\&.
+.PP
+Référencé par stream()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

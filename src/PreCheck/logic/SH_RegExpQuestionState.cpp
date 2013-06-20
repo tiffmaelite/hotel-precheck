@@ -1,12 +1,9 @@
 #include "SH_RegExpQuestionState.h"
 
 /*!
- \brief
- \fn RegExQuestionState::RegExQuestionState TODO comment this
- \param question TODO comment this
- \param name TODO comment this
- \param regex TODO comment this
- \param parent TODO comment this
+ \details
+ \fn SH_RegExQuestionState::RegExQuestionState TODO comment this
+
 */
 SH_RegExpQuestionState::SH_RegExpQuestionState(QString question, QString name, QRegularExpression regex, QState *parent) :
     SH_StringQuestionState(question, name, 0,-1,parent)
@@ -14,10 +11,9 @@ SH_RegExpQuestionState::SH_RegExpQuestionState(QString question, QString name, Q
 }
 
 /*!
- \brief
- \fn RegExQuestionState::isAnswerValid TODO comment this
- \param givenAnswer TODO comment this
- \return bool TODO comment this
+ \details
+ \fn SH_RegExQuestionState::isAnswerValid TODO comment this
+
 */
 bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
@@ -28,9 +24,9 @@ bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
 
 
 /*!
- \brief
- \fn RegExQuestionState::regexp TODO comment this
- \return QRegExp TODO comment this
+ \details
+ \fn SH_RegExQuestionState::regexp TODO comment this
+
 */
 QRegularExpression SH_RegExpQuestionState::regexp() const
 {
@@ -38,9 +34,9 @@ QRegularExpression SH_RegExpQuestionState::regexp() const
 }
 
 /*!
- \brief
- \fn RegExQuestionState::setRegexp TODO comment this
- \param regexp TODO comment this
+ \details
+ \fn SH_RegExQuestionState::setRegexp TODO comment this
+
 */
 void SH_RegExpQuestionState::setRegexp(const QRegularExpression &regexp)
 {

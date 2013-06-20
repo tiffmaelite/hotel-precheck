@@ -1,0 +1,218 @@
+.TH "QsLogging::Logger" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QsLogging::Logger \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <QsLog\&.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBHelper\fP"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddDestination\fP (\fBDestinationPtr\fP destination)"
+.br
+.ti -1c
+.RI "\fBLevel\fP \fBloggingLevel\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetLoggingLevel\fP (\fBLevel\fP newLevel)"
+.br
+.in -1c
+.SS "Fonctions membres publiques statiques"
+
+.in +1c
+.ti -1c
+.RI "static \fBLogger\fP & \fBinstance\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres privées"
+
+.in +1c
+.ti -1c
+.RI "\fBLogger\fP ()"
+.br
+.ti -1c
+.RI "\fBLogger\fP (const \fBLogger\fP &)"
+.br
+.ti -1c
+.RI "\fB~Logger\fP ()"
+.br
+.ti -1c
+.RI "void \fBenqueueWrite\fP (const QString &message, \fBLevel\fP level)"
+.br
+.ti -1c
+.RI "\fBLogger\fP & \fBoperator=\fP (const \fBLogger\fP &)"
+.br
+.ti -1c
+.RI "void \fBwrite\fP (const QString &message, \fBLevel\fP level)"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "\fBLoggerImpl\fP * \fBd\fP"
+.br
+.in -1c
+.SS "Amis"
+
+.in +1c
+.ti -1c
+.RI "class \fBLogWriterRunnable\fP"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 69 du fichier QsLog\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "QsLogging::Logger::Logger ()\fC [private]\fP"
+
+.PP
+Définition à la ligne 200 du fichier QsLog\&.cpp\&.
+.PP
+.nf
+200                :
+201     d(new LoggerImpl)
+202 {
+203 }
+.fi
+.SS "QsLogging::Logger::Logger (const \fBLogger\fP &)\fC [private]\fP"
+
+.SS "\fBSH_\fP QsLogging::Logger::~Logger ()\fC [private]\fP"
+
+.PP
+Définition à la ligne 207 du fichier QsLog\&.cpp\&.
+.PP
+Références d\&.
+.PP
+.nf
+208 {
+209     delete d;
+210 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "void QsLogging::Logger::addDestination (\fBDestinationPtr\fPdestination)"
+
+.PP
+Définition à la ligne 214 du fichier QsLog\&.cpp\&.
+.PP
+Références d, et QsLogging::LoggerImpl::destList\&.
+.PP
+Référencé par enableLogging()\&.
+.PP
+.nf
+215 {
+216     assert(destination\&.data());
+217     d->destList\&.push_back(destination);
+218 }
+.fi
+.SS "void QsLogging::Logger::enqueueWrite (const QString &message, \fBLevel\fPlevel)\fC [private]\fP"
+
+.PP
+Définition à la ligne 269 du fichier QsLog\&.cpp\&.
+.PP
+Références d, QsLogging::LoggerImpl::logMutex, LogWriterRunnable, et write()\&.
+.PP
+Référencé par QsLogging::Logger::Helper::writeToLog()\&.
+.PP
+.nf
+270 {
+271 #ifdef QS_LOG_SEPARATE_THREAD
+272     LogWriterRunnable *r = new LogWriterRunnable(message, level);
+273     d->threadPool\&.start(r);
+274 #else
+275     QMutexLocker lock(&d->logMutex);
+276     write(message, level);
+277 #endif
+278 }
+.fi
+.SS "static \fBLogger\fP& QsLogging::Logger::instance ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Définition à la ligne 78 du fichier QsLog\&.h\&.
+.PP
+Référencé par enableLogging(), et QsLogging::Logger::Helper::writeToLog()\&.
+.PP
+.nf
+79     {
+80         static Logger staticLog;
+81         return staticLog;
+82     }
+.fi
+.SS "\fBLevel\fP QsLogging::Logger::loggingLevel () const"
+
+.PP
+Définition à la ligne 229 du fichier QsLog\&.cpp\&.
+.PP
+Références d, et QsLogging::LoggerImpl::level\&.
+.PP
+.nf
+230 {
+231     return d->level;
+232 }
+.fi
+.SS "\fBLogger\fP& QsLogging::Logger::operator= (const \fBLogger\fP &)\fC [private]\fP"
+
+.SS "void QsLogging::Logger::setLoggingLevel (\fBLevel\fPnewLevel)"
+
+.PP
+Définition à la ligne 222 du fichier QsLog\&.cpp\&.
+.PP
+Références d, et QsLogging::LoggerImpl::level\&.
+.PP
+Référencé par enableLogging()\&.
+.PP
+.nf
+223 {
+224     d->level = newLevel;
+225 }
+.fi
+.SS "void QsLogging::Logger::write (const QString &message, \fBLevel\fPlevel)\fC [private]\fP"
+
+.PP
+Définition à la ligne 285 du fichier QsLog\&.cpp\&.
+.PP
+Références d, et QsLogging::LoggerImpl::destList\&.
+.PP
+Référencé par enqueueWrite()\&.
+.PP
+.nf
+286 {
+287     for (DestinationList::iterator it = d->destList\&.begin(),
+288          endIt = d->destList\&.end();it != endIt;++it) {
+289         (*it)->write(message, level);
+290     }
+291 }
+.fi
+.SH "Documentation des fonctions amies et associées"
+.PP 
+.SS "friend class LogWriterRunnable\fC [friend]\fP"
+
+.PP
+Définition à la ligne 210 du fichier QsLog\&.h\&.
+.PP
+Référencé par enqueueWrite()\&.
+.SH "Documentation des données membres"
+.PP 
+.SS "QsLogging::Logger::d\fC [private]\fP"
+
+.PP
+Définition à la ligne 209 du fichier QsLog\&.h\&.
+.PP
+Référencé par addDestination(), enqueueWrite(), loggingLevel(), setLoggingLevel(), write(), et ~Logger()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

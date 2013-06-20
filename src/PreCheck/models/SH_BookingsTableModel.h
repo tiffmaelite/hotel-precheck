@@ -9,7 +9,7 @@
 /*!
  \brief
 
- \class BookingsTableModel bookings_table_model.h "models/bookings_table_model.h"
+ \class SH_BookingsTableModel bookings_table_model.h "models/bookings_table_model.h"
 */
 class SH_BookingsTableModel : public SH_ExtendedProxyModel
 {
@@ -20,7 +20,7 @@ class SH_BookingsTableModel : public SH_ExtendedProxyModel
 /*!
  \brief
 
- \fn BookingsTableModel
+ \fn SH_BookingsTableModel
  \param parent
 */
         SH_BookingsTableModel(QObject *parent = 0);
@@ -32,9 +32,9 @@ class SH_BookingsTableModel : public SH_ExtendedProxyModel
         /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
         void fillModel();
 };
 
-#endif // BOOKING_H
+#endif /* BOOKING_H*/

@@ -1,10 +1,9 @@
 #include "SH_SqlDataField.h"
 
 /*!
- \brief
+ \details
 
- \fn SqlDataFields::SqlDataFields
- \param parent
+ \fn SH_SqlDataFields::SqlDataFields
 */
 SH_SqlDataFields::SH_SqlDataFields(QQuickItem *parent) :
     QQuickItem(parent)
@@ -13,11 +12,10 @@ SH_SqlDataFields::SH_SqlDataFields(QQuickItem *parent) :
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataFields::setText
- \param newText
-*/
+ \fn SH_SqlDataFields::setText
+ */
 void SH_SqlDataFields::setText(QString newText)
 {
     m_text = newText;
@@ -29,10 +27,10 @@ void SH_SqlDataFields::setText(QString newText)
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataFields::setName
- \param newName
+ \fn SH_SqlDataFields::setName
+
 */
 void SH_SqlDataFields::setName(QString newName)
 {
@@ -48,10 +46,10 @@ void SH_SqlDataFields::setName(QString newName)
 
 
 /*!
- \brief
+ \details
 
- \fn SqlDataFields::setSortOrder
- \param newSortOrder
+ \fn SH_SqlDataFields::setSortOrder
+
 */
 void SH_SqlDataFields::setSortOrder(Qt::SortOrder newSortOrder)
 {

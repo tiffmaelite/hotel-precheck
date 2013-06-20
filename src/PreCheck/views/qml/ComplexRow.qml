@@ -1,3 +1,5 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
@@ -10,3 +12,5 @@ Row {
     readonly property real innerHeight: row.height-row.anchors.topMargin-row.anchors.bottomMargin-2*row.spacing
     readonly property real innerWidth: row.width-row.anchors.rightMargin-row.anchors.leftMargin-2*row.spacing
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

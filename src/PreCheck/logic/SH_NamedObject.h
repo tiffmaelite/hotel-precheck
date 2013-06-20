@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class NamedObject namedobject.h "logic/namedobject.h"
+ \class SH_NamedObject namedobject.h "logic/namedobject.h"
 */
 class SH_NamedObject
 {
@@ -13,14 +13,14 @@ public:
 /*!
  \brief
 
- \fn NamedObject
+ \fn SH_NamedObject
  \param name
 */
     SH_NamedObject(QString name);
     /*!
      \brief
 
-     \fn toString
+     \fn SH_toString
      \return QString
     */
     virtual QString toString();
@@ -28,14 +28,14 @@ public:
     /*!
      \brief
 
-     \fn name
+     \fn SH_name
      \return QString
     */
     virtual QString name() const;
     /*!
      \brief
 
-     \fn setName
+     \fn SH_setName
      \param name
     */
     virtual void setName(const QString &name);
@@ -43,14 +43,20 @@ public:
     /*!
      \brief
 
-     \fn ptraddress
+     \fn SH_ptraddress
      \return QString
     */
     QString ptraddress() const;
 
 private:
-    QString m_name; /*!< TODO */
-    QString m_ptraddress; /*!< TODO */
+    /*!
+     * \brief m_name
+     */
+    QString m_name;
+    /*!
+     * \brief m_ptraddress
+     */
+    QString m_ptraddress;
 };
 
-#endif // NAMEDOBJECT_H
+#endif /* NAMEDOBJECT_H*/

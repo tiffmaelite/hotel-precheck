@@ -1,3 +1,5 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "QsLog.h"
 #include "QsLogDest.h"
 #include <QtCore/QCoreApplication>
@@ -8,7 +10,7 @@ int main(int argc, char *argv[])
 {
    QCoreApplication a(argc, argv);
 
-   // init the logging mechanism
+   /* init the logging mechanism*/
    QsLogging::Logger& logger = QsLogging::Logger::instance();
    logger.setLoggingLevel(QsLogging::TraceLevel);
    const QString sLogPath(QDir(a.applicationDirPath()).filePath("log.txt"));
@@ -38,3 +40,5 @@ int main(int argc, char *argv[])
 
    return 0;
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

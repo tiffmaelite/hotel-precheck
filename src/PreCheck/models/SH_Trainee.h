@@ -8,7 +8,8 @@
 /*!
  \brief
 
- \class Trainee trainee.h "models/trainee.h"
+ \class SH_Trainee
+\headerfile trainee.h "models/trainee.h"
 */
 class SH_Trainee : public SH_User
 {
@@ -17,7 +18,7 @@ public:
 /*!
  \brief
 
- \fn Trainee
+ \fn SH_Trainee
  \param name
  \param id
  \param parent
@@ -25,4 +26,4 @@ public:
     SH_Trainee(QString name, int id, QObject *parent = 0);
 };
 
-#endif // TRAINEE_H
+#endif /* TRAINEE_H*/

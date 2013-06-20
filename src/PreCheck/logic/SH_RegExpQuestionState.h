@@ -2,13 +2,16 @@
 #define REGEXQUESTIONSTATE_H
 #include "SH_StringQuestionState.h"
 
+/*!
+ * \brief The SH_RegExpQuestionState class
+ */
 class SH_RegExpQuestionState : public SH_StringQuestionState
 {
     Q_OBJECT
 public:
 /*!
  \brief
- \fn RegExQuestionState TODO comment this
+ \fn SH_RegExQuestionState TODO comment this
  \param question TODO comment this
  \param name TODO comment this
  \param regex TODO comment this
@@ -19,19 +22,19 @@ public:
     /*!
      \brief
 
-     \fn isAnswerValid
+     \fn SH_isAnswerValid
      \param givenAnswer
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
     /*!
      \brief
-     \fn regexp TODO comment this
+     \fn SH_regexp TODO comment this
      \return QRegularExpression TODO comment this
     */
     QRegularExpression regexp() const;
     /*!
      \brief
-     \fn setRegexp TODO comment this
+     \fn SH_setRegexp TODO comment this
      \param regexp TODO comment this
     */
     void setRegexp(const QRegularExpression &regexp);
@@ -42,7 +45,10 @@ public slots:
 
 
 private:
+    /*!
+     * \brief m_regexp
+     */
     QRegularExpression m_regexp;
 };
 
-#endif // REGEXQUESTIONSTATE_H
+#endif /* REGEXQUESTIONSTATE_H*/

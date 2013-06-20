@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 FocusScope {
     id:root
 
@@ -33,7 +36,7 @@ FocusScope {
         anchors.top: root.top
         anchors.bottom: root.bottom
 
-        //TouchArea {
+        /*TouchArea {*/
         MouseArea {
             onClicked: {
                 root.pressed();
@@ -56,7 +59,7 @@ FocusScope {
         anchors.bottom: root.bottom
         font.strikeout: !root.checked
         wrapMode: Text.Wrap
-        //TouchArea {
+        /*TouchArea {*/
         MouseArea {
             onClicked: {
                 root.pressed();

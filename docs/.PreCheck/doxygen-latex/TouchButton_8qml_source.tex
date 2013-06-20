@@ -1,0 +1,46 @@
+\hypertarget{TouchButton_8qml}{\section{Touch\-Button.\-qml}
+\label{TouchButton_8qml}\index{views/qml/\-Touch\-Button.\-qml@{views/qml/\-Touch\-Button.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef DOXYGEN\_SHOULD\_SKIP\_THIS}
+00002 \textcolor{preprocessor}{}
+00003 \textcolor{keyword}{import} QtQuick 2.0
+00004 
+00005 
+00006 Pushable \{
+00007     \textcolor{keywordtype}{id}: button
+00008 
+00009     \textcolor{keyword}{property} color buttonColor
+00010     \textcolor{keyword}{property} \textcolor{keywordtype}{string} buttonText
+00011 
+00012     radius: 4
+00013     smooth:\textcolor{keyword}{true}
+00014 
+00015     gradient: Gradient \{
+00016         GradientStop \{ position: 0.0; color: buttonColor \}
+00017         GradientStop \{ position: 1.0; color: \textcolor{stringliteral}{"#ffffff"} \}
+00018     \}
+00019     opacity: 0
+00020     Text \{
+00021         \textcolor{keywordtype}{id}: buttonLabel
+00022         text: parent.buttonText
+00023         anchors.centerIn: parent
+00024     \}
+00025     onPushed: \{
+00026         \textcolor{comment}{/*Qt.quit();}
+00027 \textcolor{comment}{*/}
+00028         console.log(\textcolor{stringliteral}{"choix de "} + buttonText);
+00029     \}
+00030     onRelased: \{
+00031         console.log(\textcolor{stringliteral}{"choix annulé de "} + buttonText);
+00032     \}
+00033     onMoved: \{
+00034         console.log(\textcolor{stringliteral}{"mouvement de "} + buttonText);
+00035     \}
+00036 
+00037 \}
+00038 
+00039 
+00040 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* DOXYGEN\_SHOULD\_SKIP\_THIS */}\textcolor{preprocessor}{}
+\end{DoxyCode}

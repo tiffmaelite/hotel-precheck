@@ -9,7 +9,7 @@
 /*!
  \brief
 
- \class ClientsTableModel clients_table_model.h "models/clients_table_model.h"
+ \class SH_ClientsTableModel clients_table_model.h "models/clients_table_model.h"
 */
 class SH_ClientsTableModel : public SH_ExtendedProxyModel
 {
@@ -20,7 +20,7 @@ class SH_ClientsTableModel : public SH_ExtendedProxyModel
 /*!
  \brief
 
- \fn ClientsTableModel
+ \fn SH_ClientsTableModel
  \param parent
 */
         SH_ClientsTableModel(QObject *parent = 0);
@@ -32,9 +32,9 @@ class SH_ClientsTableModel : public SH_ExtendedProxyModel
         /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
         void fillModel();
 };
 
-#endif // CLIENT_H
+#endif /* CLIENT_H*/

@@ -1,0 +1,119 @@
+\hypertarget{classQsLogging_1_1Destination}{\section{Référence de la classe Qs\-Logging\-:\-:Destination}
+\label{classQsLogging_1_1Destination}\index{Qs\-Logging\-::\-Destination@{Qs\-Logging\-::\-Destination}}
+}
+
+
+The \hyperlink{classQsLogging_1_1Destination}{Destination} class.  
+
+
+
+
+{\ttfamily \#include $<$Qs\-Log\-Dest.\-h$>$}
+
+
+
+Graphe d'héritage de Qs\-Logging\-:\-:Destination\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classQsLogging_1_1Destination__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Qs\-Logging\-:\-:Destination\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classQsLogging_1_1Destination__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classQsLogging_1_1Destination_ace97f507c02fe9a107306b089e07c3cb}{$\sim$\-Destination} ()
+\begin{DoxyCompactList}\small\item\em $\sim$\-Destination \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classQsLogging_1_1Destination_acb3dd81553c59aec5062ec8556b3b407}{is\-Valid} ()=0
+\begin{DoxyCompactList}\small\item\em is\-Valid \end{DoxyCompactList}\item 
+virtual void \hyperlink{classQsLogging_1_1Destination_a19306b28686d599f49bb23f88824fd65}{write} (const Q\-String \&message, \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} level)=0
+\begin{DoxyCompactList}\small\item\em write \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+The \hyperlink{classQsLogging_1_1Destination}{Destination} class. 
+
+Définition à la ligne \hyperlink{QsLogDest_8h_source_l00060}{60} du fichier \hyperlink{QsLogDest_8h_source}{Qs\-Log\-Dest.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classQsLogging_1_1Destination_ace97f507c02fe9a107306b089e07c3cb}{\index{Qs\-Logging\-::\-Destination@{Qs\-Logging\-::\-Destination}!$\sim$\-Destination@{$\sim$\-Destination}}
+\index{$\sim$\-Destination@{$\sim$\-Destination}!QsLogging::Destination@{Qs\-Logging\-::\-Destination}}
+\subsubsection[{$\sim$\-Destination}]{\setlength{\rightskip}{0pt plus 5cm}virtual Qs\-Logging\-::\-Destination\-::$\sim$\-Destination (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classQsLogging_1_1Destination_ace97f507c02fe9a107306b089e07c3cb}
+
+
+$\sim$\-Destination 
+
+
+
+Définition à la ligne \hyperlink{QsLogDest_8h_source_l00066}{66} du fichier \hyperlink{QsLogDest_8h_source}{Qs\-Log\-Dest.\-h}.
+
+
+\begin{DoxyCode}
+00066 \{\}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classQsLogging_1_1Destination_acb3dd81553c59aec5062ec8556b3b407}{\index{Qs\-Logging\-::\-Destination@{Qs\-Logging\-::\-Destination}!is\-Valid@{is\-Valid}}
+\index{is\-Valid@{is\-Valid}!QsLogging::Destination@{Qs\-Logging\-::\-Destination}}
+\subsubsection[{is\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Qs\-Logging\-::\-Destination\-::is\-Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classQsLogging_1_1Destination_acb3dd81553c59aec5062ec8556b3b407}
+
+
+is\-Valid 
+
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classQsLogging_1_1FileDestination_a2d18b70b408910332dcbee9d12c1d394}{Qs\-Logging\-::\-File\-Destination}, et \hyperlink{classQsLogging_1_1DebugOutputDestination_a7e260f310b5f757ecab216058d0808a9}{Qs\-Logging\-::\-Debug\-Output\-Destination}.
+
+\hypertarget{classQsLogging_1_1Destination_a19306b28686d599f49bb23f88824fd65}{\index{Qs\-Logging\-::\-Destination@{Qs\-Logging\-::\-Destination}!write@{write}}
+\index{write@{write}!QsLogging::Destination@{Qs\-Logging\-::\-Destination}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Qs\-Logging\-::\-Destination\-::write (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{message, }
+\item[{{\bf Level}}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classQsLogging_1_1Destination_a19306b28686d599f49bb23f88824fd65}
+
+
+write 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em message} & \\
+\hline
+{\em level} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{classQsLogging_1_1FileDestination_a84b076720ccfa4045e1aacc14c5af5dc}{Qs\-Logging\-::\-File\-Destination}, et \hyperlink{classQsLogging_1_1DebugOutputDestination_a72c60cc3a3f6cb9d63dd88528b7e1125}{Qs\-Logging\-::\-Debug\-Output\-Destination}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+logging/\hyperlink{QsLogDest_8h}{Qs\-Log\-Dest.\-h}\end{DoxyCompactItemize}

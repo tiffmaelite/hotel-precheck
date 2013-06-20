@@ -2,14 +2,10 @@
 
 
 /*!
- \brief
+ \details
 
- \fn StringQuestionState::StringQuestionState
- \param question
- \param name
- \param minLength
- \param maxLength
- \param parent
+ \fn SH_StringQuestionState::StringQuestionState
+
 */
 SH_StringQuestionState::SH_StringQuestionState(QString question, QString name, int minLength, int maxLength, QState *parent) :
     SH_QuestionState(question, name, parent), m_minLen(minLength), m_maxLen(maxLength)
@@ -18,10 +14,10 @@ SH_StringQuestionState::SH_StringQuestionState(QString question, QString name, i
 }
 
 /*!
- \brief
+ \details
 
- \fn StringQuestionState::isAnswerValid
- \param givenAnswer
+ \fn SH_StringQuestionState::isAnswerValid
+
 */
 bool SH_StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
@@ -35,10 +31,10 @@ bool SH_StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \brief
+ \details
 
- \fn StringQuestionState::maxLen
- \return int
+ \fn SH_StringQuestionState::maxLen
+
 */
 int SH_StringQuestionState::maxLen() const
 {
@@ -46,10 +42,10 @@ int SH_StringQuestionState::maxLen() const
 }
 
 /*!
- \brief
+ \details
 
- \fn StringQuestionState::setMaxLen
- \param maxLen
+ \fn SH_StringQuestionState::setMaxLen
+
 */
 void SH_StringQuestionState::setMaxLen(int maxLen)
 {
@@ -57,10 +53,10 @@ void SH_StringQuestionState::setMaxLen(int maxLen)
 }
 
 /*!
- \brief
+ \details
 
- \fn StringQuestionState::minLen
- \return int
+ \fn SH_StringQuestionState::minLen
+
 */
 int SH_StringQuestionState::minLen() const
 {
@@ -68,10 +64,10 @@ int SH_StringQuestionState::minLen() const
 }
 
 /*!
- \brief
+ \details
 
- \fn StringQuestionState::setMinLen
- \param minLen
+ \fn SH_StringQuestionState::setMinLen
+
 */
 void SH_StringQuestionState::setMinLen(int minLen)
 {

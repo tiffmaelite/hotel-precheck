@@ -2,14 +2,10 @@
 
 
 /*!
- \brief
+ \details
 
- \fn DecimalQuestionState::DecimalQuestionState
- \param question
- \param name
- \param min
- \param max
- \param parent
+ \fn SH_DecimalQuestionState::DecimalQuestionState
+
 */
 SH_DecimalQuestionState::SH_DecimalQuestionState(QString question, QString name, qreal min, qreal max, QState *parent) :
     SH_QuestionState(question, name, parent), m_min(min), m_max(max)
@@ -18,10 +14,10 @@ SH_DecimalQuestionState::SH_DecimalQuestionState(QString question, QString name,
 }
 
 /*!
- \brief
+ \details
 
- \fn DecimalQuestionState::isAnswerValid
- \param givenAnswer
+ \fn SH_DecimalQuestionState::isAnswerValid
+
 */
 bool SH_DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
@@ -35,10 +31,10 @@ bool SH_DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \brief
+ \details
 
- \fn DecimalQuestionState::min
- \return qreal
+ \fn SH_DecimalQuestionState::min
+
 */
 qreal SH_DecimalQuestionState::min() const
 {
@@ -46,10 +42,10 @@ qreal SH_DecimalQuestionState::min() const
 }
 
 /*!
- \brief
+ \details
 
- \fn DecimalQuestionState::setMin
- \param min
+ \fn SH_DecimalQuestionState::setMin
+
 */
 void SH_DecimalQuestionState::setMin(const qreal &min)
 {
@@ -57,10 +53,10 @@ void SH_DecimalQuestionState::setMin(const qreal &min)
 }
 
 /*!
- \brief
+ \details
 
- \fn DecimalQuestionState::max
- \return qreal
+ \fn SH_DecimalQuestionState::max
+
 */
 qreal SH_DecimalQuestionState::max() const
 {
@@ -68,10 +64,10 @@ qreal SH_DecimalQuestionState::max() const
 }
 
 /*!
- \brief
+ \details
 
- \fn DecimalQuestionState::setMax
- \param max
+ \fn SH_DecimalQuestionState::setMax
+
 */
 void SH_DecimalQuestionState::setMax(const qreal &max)
 {

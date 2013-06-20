@@ -8,10 +8,10 @@
 
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::SqlDataModel
- \param parent
+ \fn SH_SqlDataModel::SqlDataModel
+
 */
 SH_SqlDataModel::SH_SqlDataModel(QObject *parent) :
     QAbstractListModel(parent)
@@ -19,11 +19,10 @@ SH_SqlDataModel::SH_SqlDataModel(QObject *parent) :
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::rowCount
- \param parent
- \return int
+ \fn SH_SqlDataModel::rowCount
+
 */
 int SH_SqlDataModel::rowCount(const QModelIndex &parent) const
 {
@@ -32,12 +31,10 @@ int SH_SqlDataModel::rowCount(const QModelIndex &parent) const
 
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::data
- \param index
- \param role
- \return QVariant
+ \fn SH_SqlDataModel::data
+
 */
 QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
 {
@@ -58,9 +55,9 @@ QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
 }
 
 /*!
- \brief
- \fn SqlDataModel::datas TODO comment this
- \return QVariantMap TODO comment this
+ \details
+ \fn SH_SqlDataModel::datas TODO comment this
+
 */
 QVariantMap SH_SqlDataModel::datas() const
 {
@@ -80,14 +77,10 @@ QVariantMap SH_SqlDataModel::datas() const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::setHeaderData
- \param section
- \param orientation
- \param value
- \param role
- \return bool
+ \fn SH_SqlDataModel::setHeaderData
+
 */
 bool SH_SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
 {
@@ -100,10 +93,10 @@ bool SH_SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, co
     return false;
 }
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::query
- \return const QString
+ \fn SH_SqlDataModel::query
+
 */
 const QString &SH_SqlDataModel::query() const
 {
@@ -111,10 +104,10 @@ const QString &SH_SqlDataModel::query() const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::tableName
- \return const QString
+ \fn SH_SqlDataModel::tableName
+
 */
 const QString &SH_SqlDataModel::tableName() const
 {
@@ -122,10 +115,10 @@ const QString &SH_SqlDataModel::tableName() const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::filter
- \return const QString
+ \fn SH_SqlDataModel::filter
+
 */
 const QString &SH_SqlDataModel::filter() const
 {
@@ -133,10 +126,10 @@ const QString &SH_SqlDataModel::filter() const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::fieldsList
- \return const QString
+ \fn SH_SqlDataModel::fieldsList
+
 */
 const QStringList SH_SqlDataModel::fieldsList() const
 {
@@ -152,10 +145,10 @@ const QStringList SH_SqlDataModel::fieldsList() const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::setTable
- \param tableName
+ \fn SH_SqlDataModel::setTable
+
 */
 void SH_SqlDataModel::setTable(const QString &tableName)
 {
@@ -167,10 +160,10 @@ void SH_SqlDataModel::setTable(const QString &tableName)
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::setFilterCondition
- \param filter
+ \fn SH_SqlDataModel::setFilterCondition
+
 */
 void SH_SqlDataModel::setFilterCondition(const QString &filter)
 {
@@ -182,9 +175,9 @@ void SH_SqlDataModel::setFilterCondition(const QString &filter)
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::resetFilterCondition
+ \fn SH_SqlDataModel::resetFilterCondition
 */
 void SH_SqlDataModel::resetFilterCondition()
 {
@@ -193,14 +186,10 @@ void SH_SqlDataModel::resetFilterCondition()
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::fetch
- \param tableName
- \param filter
- \param sort
- \param fieldsList
- \return bool
+ \fn SH_SqlDataModel::fetch
+
 */
 bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStringList fieldsList)
 {
@@ -224,7 +213,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
             if(next) {
                 qDebug() << "next ok";
             }
-            while (next) // && mSqlQuery.isActive())
+            while (next) /* && mSqlQuery.isActive())*/
             {
                 QSqlRecord record = mSqlQuery.record();
                 qDebug() << "\n\n";
@@ -274,11 +263,10 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::field
- \param i
- \return SqlDataFields
+ \fn SH_SqlDataModel::field
+
 */
 SH_SqlDataFields *SH_SqlDataModel::field(int i) const
 {
@@ -288,10 +276,10 @@ SH_SqlDataFields *SH_SqlDataModel::field(int i) const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::setFields
- \param fields
+ \fn SH_SqlDataModel::setFields
+
 */
 void SH_SqlDataModel::setFields(QStringList fields)
 {
@@ -311,9 +299,9 @@ void SH_SqlDataModel::setFields(QStringList fields)
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::resetFieldsToAll
+ \fn SH_SqlDataModel::resetFieldsToAll
 */
 void SH_SqlDataModel::resetFieldsToAll()
 {
@@ -323,10 +311,10 @@ void SH_SqlDataModel::resetFieldsToAll()
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::lastError
- \return const QString
+ \fn SH_SqlDataModel::lastError
+
 */
 const QString &SH_SqlDataModel::lastError()
 {
@@ -344,9 +332,9 @@ const QString &SH_SqlDataModel::lastError()
 
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::applyRoles
+ \fn SH_SqlDataModel::applyRoles
 */
 void SH_SqlDataModel::applyRoles()
 {
@@ -354,7 +342,7 @@ void SH_SqlDataModel::applyRoles()
     int nbFields = this->mDataFields.count();
     for (int i = 0; i < nbFields; i++)
     {
-        //MessageManager::infoMessage(QString("nouveau rôle : %1").arg(QString(this->mDataFields.at(i)->role())));
+        /*MessageManager::infoMessage(QString("nouveau rôle : %1").arg(QString(this->mDataFields.at(i)->role())));*/
         this->mRoles.insert(this->roleForField(i), this->mDataFields.at(i)->role());
     }
     emit rolesChanged();
@@ -362,10 +350,10 @@ void SH_SqlDataModel::applyRoles()
 
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::fieldsCount
- \return int
+ \fn SH_SqlDataModel::fieldsCount
+
 */
 int SH_SqlDataModel::fieldsCount() const
 {
@@ -373,10 +361,10 @@ int SH_SqlDataModel::fieldsCount() const
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::setOrderBy
- \param sort
+ \fn SH_SqlDataModel::setOrderBy
+
 */
 void SH_SqlDataModel::setOrderBy(QString sort)
 {
@@ -384,10 +372,10 @@ void SH_SqlDataModel::setOrderBy(QString sort)
 }
 
 /*!
- \brief
+ \details
 
- \fn SqlDataModel::isEmpty
- \return bool
+ \fn SH_SqlDataModel::isEmpty
+
 */
 bool SH_SqlDataModel::isEmpty() const
 {

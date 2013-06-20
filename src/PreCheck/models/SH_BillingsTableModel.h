@@ -8,7 +8,7 @@
 /*!
  \brief
 
- \class BillingsTableModel billings_table_model.h "models/billings_table_model.h"
+ \class SH_BillingsTableModel billings_table_model.h "models/billings_table_model.h"
 */
 class SH_BillingsTableModel : public SH_ExtendedProxyModel
 {
@@ -19,7 +19,7 @@ public:
     /*!
  \brief
 
- \fn BillingsTableModel
+ \fn SH_BillingsTableModel
  \param parent
 */
     SH_BillingsTableModel(QObject *parent = 0);
@@ -30,10 +30,10 @@ protected:
     /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
     void fillModel();
 
 };
 
-#endif // RENT_H
+#endif /* RENT_H*/

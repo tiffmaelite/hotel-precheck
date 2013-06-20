@@ -7,10 +7,8 @@
 #include "SH_AddressCreation.h"
 
 /*!
- \brief
- \fn ClientCreationStateMachine::ClientCreationStateMachine TODO comment this
- \param name TODO comment this
- \param parent TODO comment this
+ \details
+ \fn SH_ClientCreationStateMachine::ClientCreationStateMachine TODO comment this
 */
 SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObject *parent) :
     SH_InOutStateMachine("CLIENTS",name, parent)

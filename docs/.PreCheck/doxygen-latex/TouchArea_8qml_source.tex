@@ -1,0 +1,48 @@
+\hypertarget{TouchArea_8qml}{\section{Touch\-Area.\-qml}
+\label{TouchArea_8qml}\index{views/qml/\-Touch\-Area.\-qml@{views/qml/\-Touch\-Area.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef DOXYGEN\_SHOULD\_SKIP\_THIS}
+00002 \textcolor{preprocessor}{}
+00003 \textcolor{keyword}{import} QtQuick 2.1
+00004 import QtQuick.Window 2.1
+00005 import QtQuick.Controls 1.0
+00006 import QtQuick.Controls.Styles 1.0
+00007 import QtQuick.Layouts 1.0
+00008 import PreCheck 1.0
+00009 PinchArea \{
+00010     \textcolor{keywordtype}{id}: area
+00011     signal clicked
+00012     signal doubleClicked
+00013     signal canceled
+00014     signal entered
+00015     signal exited
+00016     signal positionChanged
+00017     signal pressAndHold
+00018     signal pressed
+00019     signal released
+00020     \textcolor{keyword}{property} \textcolor{keywordtype}{bool} hoverEnabled
+00021     anchors.fill: parent
+00022     MouseArea \{
+00023         preventStealing:\textcolor{keyword}{true}
+00024         anchors.fill: parent
+00025         onClicked: area.clicked(mouse);
+00026         onDoubleClicked: area.doubleClicked(mouse);
+00027         onCanceled: area.canceled(mouse);
+00028         onEntered: area.entered(mouse);
+00029         onExited: area.exited(mouse);
+00030         onPositionChanged: area.positionChanged(mouse);
+00031         onPressAndHold: area.pressAndHold(mouse);
+00032         onPressed: area.pressed(mouse);
+00033         onReleased:area.released(mouse);
+00034         onWheel: area.wheel(wheel);
+00035         hoverEnabled: area.hoverEnabled
+00036     \}
+00037     onPinchFinished: area.released(pinch);
+00038     onPinchStarted: area.clicked(pinch);
+00039     onPinchUpdated: area.positionChanged(pinch);
+00040 \}
+00041 
+00042 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* DOXYGEN\_SHOULD\_SKIP\_THIS */}\textcolor{preprocessor}{}
+\end{DoxyCode}

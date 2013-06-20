@@ -1,0 +1,209 @@
+\hypertarget{classQsLogging_1_1Logger_1_1Helper}{\section{Référence de la classe Qs\-Logging\-:\-:Logger\-:\-:Helper}
+\label{classQsLogging_1_1Logger_1_1Helper}\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+}
+
+
+{\ttfamily \#include $<$Qs\-Log.\-h$>$}
+
+
+
+Graphe de collaboration de Qs\-Logging\-:\-:Logger\-:\-:Helper\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{classQsLogging_1_1Logger_1_1Helper__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classQsLogging_1_1Logger_1_1Helper_ad0634422d3a7d8acc4bfd696dc326d18}{Helper} (\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} log\-Level)
+\item 
+\hyperlink{classQsLogging_1_1Logger_1_1Helper_a6e92fb30ec3d3fb057d2b7b85d6a6ec6}{$\sim$\-Helper} ()
+\item 
+Q\-Debug \& \hyperlink{classQsLogging_1_1Logger_1_1Helper_a9ed23a587a07da47066130fe2a92891e}{stream} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}{write\-To\-Log} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\-String \hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{buffer}
+\begin{DoxyCompactList}\small\item\em buffer \end{DoxyCompactList}\item 
+\hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} \hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level}
+\begin{DoxyCompactList}\small\item\em level \end{DoxyCompactList}\item 
+Q\-Debug \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qt\-Debug}
+\begin{DoxyCompactList}\small\item\em qt\-Debug \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{QsLog_8h_source_l00114}{114} du fichier \hyperlink{QsLog_8h_source}{Qs\-Log.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_ad0634422d3a7d8acc4bfd696dc326d18}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!Helper@{Helper}}
+\index{Helper@{Helper}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{Helper}]{\setlength{\rightskip}{0pt plus 5cm}Qs\-Logging\-::\-Logger\-::\-Helper\-::\-Helper (
+\begin{DoxyParamCaption}
+\item[{{\bf Level}}]{log\-Level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{classQsLogging_1_1Logger_1_1Helper_ad0634422d3a7d8acc4bfd696dc326d18}
+
+
+Définition à la ligne \hyperlink{QsLog_8h_source_l00123}{123} du fichier \hyperlink{QsLog_8h_source}{Qs\-Log.\-h}.
+
+
+\begin{DoxyCode}
+00123                                         :
+00124             \hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level}(logLevel),
+00125             \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qtDebug}(&\hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{buffer}) \{\}
+\end{DoxyCode}
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_a6e92fb30ec3d3fb057d2b7b85d6a6ec6}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!$\sim$\-Helper@{$\sim$\-Helper}}
+\index{$\sim$\-Helper@{$\sim$\-Helper}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{$\sim$\-Helper}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-} Qs\-Logging\-::\-Logger\-::\-Helper\-::$\sim$\-Helper (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classQsLogging_1_1Logger_1_1Helper_a6e92fb30ec3d3fb057d2b7b85d6a6ec6}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00252}{252} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+\begin{DoxyCode}
+00253 \{
+00254     \textcolor{keywordflow}{try} \{
+00255         \hyperlink{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}{writeToLog}();
+00256     \}
+00257     \textcolor{keywordflow}{catch}(std::exception&) \{
+00258         \textcolor{comment}{/* you shouldn't throw exceptions from a sink */}
+00259         assert(!\textcolor{stringliteral}{"exception in logger helper destructor"});
+00260         \textcolor{keywordflow}{throw};
+00261     \}
+00262 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_a9ed23a587a07da47066130fe2a92891e}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!stream@{stream}}
+\index{stream@{stream}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{stream}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Debug\& Qs\-Logging\-::\-Logger\-::\-Helper\-::stream (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classQsLogging_1_1Logger_1_1Helper_a9ed23a587a07da47066130fe2a92891e}
+
+
+Définition à la ligne \hyperlink{QsLog_8h_source_l00138}{138} du fichier \hyperlink{QsLog_8h_source}{Qs\-Log.\-h}.
+
+
+
+Références \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qt\-Debug}.
+
+
+\begin{DoxyCode}
+00138 \{ \textcolor{keywordflow}{return} \hyperlink{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{qtDebug}; \}
+\end{DoxyCode}
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!write\-To\-Log@{write\-To\-Log}}
+\index{write\-To\-Log@{write\-To\-Log}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{write\-To\-Log}]{\setlength{\rightskip}{0pt plus 5cm}void Qs\-Logging\-::\-Logger\-::\-Helper\-::write\-To\-Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}
+
+
+Définition à la ligne \hyperlink{QsLog_8cpp_source_l00238}{238} du fichier \hyperlink{QsLog_8cpp_source}{Qs\-Log.\-cpp}.
+
+
+
+Références \hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{buffer}, \hyperlink{classQsLogging_1_1Logger_acd6d5d16d6e111eaa960807d75549bf9}{Qs\-Logging\-::\-Logger\-::enqueue\-Write()}, \hyperlink{namespaceQsLogging_a9123c4017c6160e28fa489e419b23a9c}{Qs\-Logging\-::fmt\-Date\-Time()}, \hyperlink{classQsLogging_1_1Logger_a26fd3242d362eeeb3b38940a714ea6fa}{Qs\-Logging\-::\-Logger\-::instance()}, \hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level}, et \hyperlink{namespaceQsLogging_a8e669585768b47ba483f7325c18d60b8}{Qs\-Logging\-::\-Level\-To\-Text()}.
+
+
+\begin{DoxyCode}
+00239 \{
+00240     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \textcolor{keyword}{const} levelName = \hyperlink{namespaceQsLogging_a8e669585768b47ba483f7325c18d60b8}{LevelToText}(\hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level});
+00241     \textcolor{keyword}{const} QString completeMessage(QString(\textcolor{stringliteral}{"%1 %2 %3"})
+00242                                   .arg(levelName, 5)
+00243                                   .arg(QDateTime::currentDateTime().toString(
+      \hyperlink{namespaceQsLogging_a9123c4017c6160e28fa489e419b23a9c}{fmtDateTime}))
+00244                                   .arg(\hyperlink{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{buffer})
+00245                                   );
+00246 
+00247     \hyperlink{classQsLogging_1_1Logger_a26fd3242d362eeeb3b38940a714ea6fa}{Logger::instance}().\hyperlink{classQsLogging_1_1Logger_acd6d5d16d6e111eaa960807d75549bf9}{enqueueWrite}(completeMessage, 
+      \hyperlink{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{level});
+00248 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!buffer@{buffer}}
+\index{buffer@{buffer}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Qs\-Logging\-::\-Logger\-::\-Helper\-::buffer\hspace{0.3cm}{\ttfamily [private]}}}\label{classQsLogging_1_1Logger_1_1Helper_ac7ad574c2643ca74519e49ff1f51aad4}
+
+
+buffer 
+
+
+
+Définition à la ligne \hyperlink{QsLog_8h_source_l00154}{154} du fichier \hyperlink{QsLog_8h_source}{Qs\-Log.\-h}.
+
+
+
+Référencé par \hyperlink{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}{write\-To\-Log()}.
+
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!level@{level}}
+\index{level@{level}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level} Qs\-Logging\-::\-Logger\-::\-Helper\-::level\hspace{0.3cm}{\ttfamily [private]}}}\label{classQsLogging_1_1Logger_1_1Helper_a8de516c069064c29643f7bd1face4f32}
+
+
+level 
+
+
+
+Définition à la ligne \hyperlink{QsLog_8h_source_l00150}{150} du fichier \hyperlink{QsLog_8h_source}{Qs\-Log.\-h}.
+
+
+
+Référencé par \hyperlink{classQsLogging_1_1Logger_1_1Helper_a30e01167d1f088bade18b71a3e85379b}{write\-To\-Log()}.
+
+\hypertarget{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}{\index{Qs\-Logging\-::\-Logger\-::\-Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}!qt\-Debug@{qt\-Debug}}
+\index{qt\-Debug@{qt\-Debug}!QsLogging::Logger::Helper@{Qs\-Logging\-::\-Logger\-::\-Helper}}
+\subsubsection[{qt\-Debug}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Debug Qs\-Logging\-::\-Logger\-::\-Helper\-::qt\-Debug\hspace{0.3cm}{\ttfamily [private]}}}\label{classQsLogging_1_1Logger_1_1Helper_a5a1c439896fc0737f578a04cbbe6fa65}
+
+
+qt\-Debug 
+
+
+
+Définition à la ligne \hyperlink{QsLog_8h_source_l00158}{158} du fichier \hyperlink{QsLog_8h_source}{Qs\-Log.\-h}.
+
+
+
+Référencé par \hyperlink{classQsLogging_1_1Logger_1_1Helper_a9ed23a587a07da47066130fe2a92891e}{stream()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+logging/\hyperlink{QsLog_8h}{Qs\-Log.\-h}\item 
+logging/\hyperlink{QsLog_8cpp}{Qs\-Log.\-cpp}\end{DoxyCompactItemize}

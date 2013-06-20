@@ -1,12 +1,10 @@
 #include "SH_IOState.h"
 
 /*!
- \brief
+ \details
 
- \fn IOState::IOState
- \param output
- \param name
- \param parent
+ \fn SH_IOState::IOState
+
 */
 SH_InOutState::SH_InOutState(QString output, QString name, QState *parent) :
     SH_GenericState(name, parent), m_output(output), m_isVisible(true)
@@ -14,10 +12,10 @@ SH_InOutState::SH_InOutState(QString output, QString name, QState *parent) :
 }
 
 /*!
- \brief
+ \details
 
- \fn IOState::input
- \return QVariant
+ \fn SH_IOState::input
+
 */
 QVariant SH_InOutState::input() const
 {
@@ -25,9 +23,9 @@ QVariant SH_InOutState::input() const
 }
 
 /*!
- \brief
- \fn IOState::rawInput TODO comment this
- \return QVariant TODO comment this
+ \details
+ \fn SH_IOState::rawInput TODO comment this
+
 */
 QVariant SH_InOutState::rawInput() const
 {
@@ -35,10 +33,10 @@ QVariant SH_InOutState::rawInput() const
 }
 
 /*!
- \brief
+ \details
 
- \fn IOState::setInput
- \param input
+ \fn SH_IOState::setInput
+
 */
 void SH_InOutState::setInput(const QVariant &input)
 {
@@ -50,10 +48,10 @@ void SH_InOutState::setInput(const QVariant &input)
 }
 
 /*!
- \brief
+ \details
 
- \fn IOState::output
- \return QString
+ \fn SH_IOState::output
+
 */
 QString SH_InOutState::output() const
 {
@@ -62,10 +60,10 @@ QString SH_InOutState::output() const
 
 
 /*!
- \brief
+ \details
 
- \fn IOState::setOutput
- \param output
+ \fn SH_IOState::setOutput
+
 */
 void SH_InOutState::setOutput(const QString &output)
 {
@@ -76,9 +74,9 @@ void SH_InOutState::setOutput(const QString &output)
 }
 
 /*!
- \brief
- \fn IOState::setVisibility TODO comment this
- \param isVisible TODO comment this
+ \details
+ \fn SH_IOState::setVisibility TODO comment this
+
 */
 void SH_InOutState::setVisibility(bool isVisible)
 {
@@ -86,9 +84,9 @@ void SH_InOutState::setVisibility(bool isVisible)
 }
 
 /*!
- \brief
- \fn IOState::visibility TODO comment this
- \return bool TODO comment this
+ \details
+ \fn SH_IOState::visibility TODO comment this
+
 */
 bool SH_InOutState::visibility() {
     return m_isVisible;
@@ -104,10 +102,10 @@ void SH_InOutState::display(bool canDisplay)
 }
 
 /*!
- \brief
+ \details
 
- \fn IOState::onExit
- \param event
+ \fn SH_IOState::onExit
+
 */
 void SH_InOutState::onExit(QEvent *event)
 {

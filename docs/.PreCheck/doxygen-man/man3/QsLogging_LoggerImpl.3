@@ -1,0 +1,76 @@
+.TH "QsLogging::LoggerImpl" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QsLogging::LoggerImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBLoggerImpl\fP ()"
+.br
+.in -1c
+.SS "Attributs publics"
+
+.in +1c
+.ti -1c
+.RI "\fBDestinationList\fP \fBdestList\fP"
+.br
+.ti -1c
+.RI "\fBLevel\fP \fBlevel\fP"
+.br
+.ti -1c
+.RI "QMutex \fBlogMutex\fP"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 164 du fichier QsLog\&.cpp\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "QsLogging::LoggerImpl::LoggerImpl ()\fC [inline]\fP"
+
+.PP
+Définition à la ligne 170 du fichier QsLog\&.cpp\&.
+.PP
+Références destList\&.
+.PP
+.nf
+170                  :
+171         level(InfoLevel)
+172     {
+173         /* assume at least file + console */
+174         destList\&.reserve(2);
+175 #ifdef QS_LOG_SEPARATE_THREAD
+176         threadPool\&.setMaxThreadCount(1);
+177         threadPool\&.setExpiryTimeout(-1);
+178 #endif
+179     }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "QsLogging::LoggerImpl::destList"
+
+.PP
+Définition à la ligne 195 du fichier QsLog\&.cpp\&.
+.PP
+Référencé par QsLogging::Logger::addDestination(), LoggerImpl(), et QsLogging::Logger::write()\&.
+.SS "QsLogging::LoggerImpl::level"
+
+.PP
+Définition à la ligne 191 du fichier QsLog\&.cpp\&.
+.PP
+Référencé par QsLogging::Logger::loggingLevel(), et QsLogging::Logger::setLoggingLevel()\&.
+.SS "QsLogging::LoggerImpl::logMutex"
+
+.PP
+Définition à la ligne 186 du fichier QsLog\&.cpp\&.
+.PP
+Référencé par QsLogging::Logger::enqueueWrite()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -3,14 +3,16 @@
 #include <QDebug>
 #include <QtSql>
 
-SH_DatabaseManager *SH_DatabaseManager::_instance = 0; /*!< TODO */
+/*!
+ * \details SH_DatabaseManager::_instance
+ */
+SH_DatabaseManager *SH_DatabaseManager::_instance = 0;
 
 
 /*!
- \brief
+ \details
 
- \fn AppDatabase::getInstance
- \return AppDatabase
+ \fn SH_AppDatabase::getInstance
 */
 SH_DatabaseManager *SH_DatabaseManager::getInstance()
 {
@@ -24,9 +26,9 @@ SH_DatabaseManager *SH_DatabaseManager::getInstance()
 
 
 /*!
- \brief
+ \details
 
- \fn AppDatabase::~AppDatabase
+ \fn SH_AppDatabase::~AppDatabase
 */
 SH_DatabaseManager::~SH_DatabaseManager()
 {
@@ -35,9 +37,9 @@ SH_DatabaseManager::~SH_DatabaseManager()
 
 
 /*!
- \brief
+ \details
 
- \fn AppDatabase::AppDatabase
+ \fn SH_AppDatabase::AppDatabase
 */
 SH_DatabaseManager::SH_DatabaseManager()
 {
@@ -80,10 +82,9 @@ SH_DatabaseManager::SH_DatabaseManager()
          */
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::dbConnect
-         \return bool
+         \fn SH_AppDatabase::dbConnect
         */
 bool SH_DatabaseManager::dbConnect()
 {
@@ -116,10 +117,9 @@ bool SH_DatabaseManager::dbConnect()
          */
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::dbDisconnect
-         \return bool
+         \fn SH_AppDatabase::dbDisconnect
         */
 bool SH_DatabaseManager::dbDisconnect()
 {
@@ -132,10 +132,9 @@ bool SH_DatabaseManager::dbDisconnect()
 
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::isConnected
-         \return bool
+         \fn SH_AppDatabase::isConnected
         */
 bool SH_DatabaseManager::isConnected()
 {
@@ -144,10 +143,9 @@ bool SH_DatabaseManager::isConnected()
 
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::getDbConnection
-         \return QSqlDatabase
+         \fn SH_AppDatabase::getDbConnection
         */
 QSqlDatabase SH_DatabaseManager::getDbConnection()
 {
@@ -155,11 +153,9 @@ QSqlDatabase SH_DatabaseManager::getDbConnection()
 }
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::tableExists
-         \param tableName
-         \return bool
+         \fn SH_AppDatabase::tableExistsl
         */
 bool SH_DatabaseManager::tableExists(QString tableName)
 {
@@ -167,12 +163,9 @@ bool SH_DatabaseManager::tableExists(QString tableName)
 }
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::dataExists
-         \param tableName
-         \param filter
-         \return int
+         \fn SH_AppDatabase::dataExists
         */
 int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
     if(!tableName.isEmpty() && !filter.isEmpty()) {
@@ -193,11 +186,9 @@ int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
 
 
 /*!
-         \brief
+         \details
 
-         \fn AppDatabase::execQuery
-         \param query
-         \return QSqlQuery
+         \fn SH_AppDatabase::execQuery
         */
 QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fields, QString condition, QString ordering) {
     if(fields.isEmpty()) {
@@ -223,10 +214,8 @@ QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fie
 
 
 /*!
-         \brief
-         \fn AppDatabase::execReplaceQuery TODO comment this
-         \param query TODO comment this
-         \return bool TODO comment this
+         \details
+         \fn SH_AppDatabase::execReplaceQuery TODO comment this
         */
 bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values) {
     QString fields;
@@ -242,11 +231,8 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
 }
 
 /*!
-         \brief
-         \fn AppDatabase::execInsertReturningQuery TODO comment this
-         \param query TODO comment this
-         \param returningField TODO comment this
-         \return QVariant TODO comment this
+         \details
+         \fn SH_AppDatabase::execInsertReturningQuery TODO comment this
         */
 QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField) {
     QString fields;
@@ -268,11 +254,8 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
 }
 
 /*!
-         \brief
-         \fn divideQVariantMap TODO comment this
-         \param values TODO comment this
-         \param fields TODO comment this
-         \param vals TODO comment this
+         \details
+         \fn SH_divideQVariantMap TODO comment this
         */
 void SH_DatabaseManager::divideQVariantMap(QVariantMap values, QString& fields, QString& vals) {
     for(auto field : values.keys())
@@ -294,11 +277,11 @@ void SH_DatabaseManager::divideQVariantMap(QVariantMap values, QString& fields, 
                 }*/
         QDate dateVal = val.toDate();
         if(dateVal.isValid()) {
-            vals += "'"+dateVal.toString()+"'',"; //FIXME adapt date format
+            vals += "'"+dateVal.toString()+"'',"; /*FIXME adapt date format*/
         }
         QDateTime dateTimeVal = val.toDateTime();
         if(dateTimeVal.isValid()) {
-            vals += "'"+dateTimeVal.toString()+"'',"; //FIXME adapt datetime format
+            vals += "'"+dateTimeVal.toString()+"'',"; /*FIXME adapt datetime format*/
         }
         QString stringVal = val.toString();
         vals += "'"+stringVal+"'',";

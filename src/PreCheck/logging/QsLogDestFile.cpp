@@ -1,65 +1,80 @@
-// Copyright (c) 2013, Razvan Petru
-// All rights reserved.
+/* Copyright (c) 2013, Razvan Petru*/
+/* All rights reserved.*/
 
-// Redistribution and use in source and binary forms, with or without modification,
-// are permitted provided that the following conditions are met:
+/* Redistribution and use in source and binary forms, with or without modification,*/
+/* are permitted provided that the following conditions are met:*/
 
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright notice, this
-//   list of conditions and the following disclaimer in the documentation and/or other
-//   materials provided with the distribution.
-// * The name of the contributors may not be used to endorse or promote products
-//   derived from this software without specific prior written permission.
+/* * Redistributions of source code must retain the above copyright notice, this*/
+/*   list of conditions and the following disclaimer.*/
+/* * Redistributions in binary form must reproduce the above copyright notice, this*/
+/*   list of conditions and the following disclaimer in the documentation and/or other*/
+/*   materials provided with the distribution.*/
+/* * The name of the contributors may not be used to endorse or promote products*/
+/*   derived from this software without specific prior written permission.*/
 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-// IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-// INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-// LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-// OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
-// OF THE POSSIBILITY OF SUCH DAMAGE.
+/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND*/
+/* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED*/
+/* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.*/
+/* IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,*/
+/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,*/
+/* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,*/
+/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF*/
+/* LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE*/
+/* OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED*/
+/* OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 #include "QsLogDestFile.h"
 #include <QTextCodec>
 #include <QDateTime>
 #include <QtGlobal>
 #include <iostream>
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::MaxBackupCount
+ */
 const int QsLogging::SizeRotationStrategy::MaxBackupCount = 10;
-
+/*!
+ * \details QsLogging::RotationStrategy::~RotationStrategy
+ */
 QsLogging::RotationStrategy::~RotationStrategy()
 {
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::SizeRotationStrategy
+ */
 QsLogging::SizeRotationStrategy::SizeRotationStrategy()
     : mCurrentSizeInBytes(0)
     , mMaxSizeInBytes(0)
     , mBackupsCount(0)
 {
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::setInitialInfo
+ */
 void QsLogging::SizeRotationStrategy::setInitialInfo(const QFile &file)
 {
     mFileName = file.fileName();
     mCurrentSizeInBytes = file.size();
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::includeMessageInCalculation
+ */
 void QsLogging::SizeRotationStrategy::includeMessageInCalculation(const QString &message)
 {
     mCurrentSizeInBytes += message.toUtf8().size();
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::shouldRotate
+ */
 bool QsLogging::SizeRotationStrategy::shouldRotate()
 {
     return mCurrentSizeInBytes > mMaxSizeInBytes;
 }
 
-// Algorithm assumes backups will be named filename.X, where 1 <= X <= mBackupsCount.
-// All X's will be shifted up.
+/* Algorithm assumes backups will be named filename.X, where 1 <= X <= mBackupsCount.*/
+/* All X's will be shifted up.*/
+/*!
+ * \details QsLogging::SizeRotationStrategy::rotate
+ */
 void QsLogging::SizeRotationStrategy::rotate()
 {
     if (!mBackupsCount) {
@@ -68,7 +83,7 @@ void QsLogging::SizeRotationStrategy::rotate()
         return;
     }
 
-     // 1. find the last existing backup than can be shifted up
+     /* 1. find the last existing backup than can be shifted up*/
      const QString logNamePattern = mFileName + QString::fromUtf8(".%1");
      int lastExistingBackupIndex = 0;
      for (int i = 1;i <= mBackupsCount;++i) {
@@ -79,7 +94,7 @@ void QsLogging::SizeRotationStrategy::rotate()
              break;
      }
 
-     // 2. shift up
+     /* 2. shift up*/
      for (int i = lastExistingBackupIndex;i >= 1;--i) {
          const QString oldName = logNamePattern.arg(i);
          const QString newName = logNamePattern.arg(i + 1);
@@ -91,7 +106,7 @@ void QsLogging::SizeRotationStrategy::rotate()
          }
      }
 
-     // 3. rename current log file
+     /* 3. rename current log file*/
      const QString newName = logNamePattern.arg(1);
      if (QFile::exists(newName))
          QFile::remove(newName);
@@ -100,25 +115,33 @@ void QsLogging::SizeRotationStrategy::rotate()
                    << " to " << qPrintable(newName);
      }
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::recommendedOpenModeFlag
+ */
 QIODevice::OpenMode QsLogging::SizeRotationStrategy::recommendedOpenModeFlag()
 {
     return QIODevice::Append;
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::setMaximumSizeInBytes
+ */
 void QsLogging::SizeRotationStrategy::setMaximumSizeInBytes(qint64 size)
 {
     Q_ASSERT(size >= 0);
     mMaxSizeInBytes = size;
 }
-
+/*!
+ * \details QsLogging::SizeRotationStrategy::setBackupCount
+ */
 void QsLogging::SizeRotationStrategy::setBackupCount(int backups)
 {
     Q_ASSERT(backups >= 0);
     mBackupsCount = qMin(backups, SizeRotationStrategy::MaxBackupCount);
 }
 
-
+/*!
+ * \details QsLogging::FileDestination::FileDestination
+ */
 QsLogging::FileDestination::FileDestination(const QString& filePath, RotationStrategyPtr rotationStrategy)
     : mRotationStrategy(rotationStrategy)
 {
@@ -130,7 +153,9 @@ QsLogging::FileDestination::FileDestination(const QString& filePath, RotationStr
 
     mRotationStrategy->setInitialInfo(mFile);
 }
-
+/*!
+ * \details QsLogging::FileDestination::write
+ */
 void QsLogging::FileDestination::write(const QString& message, Level)
 {
     mRotationStrategy->includeMessageInCalculation(message);
@@ -147,7 +172,9 @@ void QsLogging::FileDestination::write(const QString& message, Level)
     mOutputStream << message << endl;
     mOutputStream.flush();
 }
-
+/*!
+ * \details QsLogging::FileDestination::isValid
+ */
 bool QsLogging::FileDestination::isValid()
 {
     return mFile.isOpen();

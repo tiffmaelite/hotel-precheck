@@ -1,3 +1,5 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 import QtQuick 2.0
 
 Rectangle {
@@ -5,14 +7,14 @@ Rectangle {
 
     signal pushed
     signal released
-    //signal moved
+    /*signal moved*/
 
     PinchArea {
         anchors.fill: parent
         onPinchStarted: pushableItem.pushed()
         onPinchFinished: pushableItem.released()
-        //onPinchChanged:
-        //onPinchUpdated: pushableItem.moved()
+        /*onPinchChanged:*/
+        /*onPinchUpdated: pushableItem.moved()*/
     }
 
     MouseArea {
@@ -23,3 +25,5 @@ Rectangle {
         onReleased: pushableItem.released
     }
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

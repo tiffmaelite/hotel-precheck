@@ -9,11 +9,9 @@
 #include <QMessageBox>
 
 /*!
- \brief
+ \details
 
- \fn MessageManager::errorMessage
- \param message
- \param title
+ \fn SH_MessageManager::errorMessage
 */
 void SH_MessageManager::errorMessage(QString message, QString title)
 {
@@ -28,11 +26,9 @@ void SH_MessageManager::errorMessage(QString message, QString title)
 
 
 /*!
- \brief
+ \details
 
- \fn MessageManager::successMessage
- \param message
- \param title
+ \fn SH_MessageManager::successMessage
 */
 void SH_MessageManager::successMessage(QString message, QString title)
 {
@@ -51,11 +47,9 @@ void SH_MessageManager::successMessage(QString message, QString title)
 }
 
 /*!
- \brief
+ \details
 
- \fn MessageManager::infoMessage
- \param message
- \param title
+ \fn SH_MessageManager::infoMessage
 */
 void SH_MessageManager::infoMessage(QString message, QString title)
 {

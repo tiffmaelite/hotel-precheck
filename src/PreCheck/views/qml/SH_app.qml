@@ -5,12 +5,15 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-//fenêtre principale de l'application qui contient tous les éléments de design de l'application
+/**
+  @class
+fenêtre principale de l'application qui contient tous les éléments de design de l'application
+*/
 ApplicationWindow {
     id: window
     visibility: Window.Windowed
-    //maximumHeight: 600
-    //maximumWidth: 800
+    /*maximumHeight: 600*/
+    /*maximumWidth: 800*/
     height: maximumHeight
     width: maximumWidth
     title: "Réception"
@@ -35,9 +38,9 @@ ApplicationWindow {
         signal cycle(Item c)
         anchors.fill: parent
         Component.onCompleted: {
-            stack.push({item: SH_CommonPage, immediate:true});
+            stack.push({item: commonPage, immediate:true});
             stack.push({item: welcomePage, immediate: true});
-            stack.push({item: SH_ConnexionPage, immediate: true});
+            stack.push({item: connexionPage, immediate: true});
         }
         onCycle: {
             window.reload();
@@ -45,9 +48,17 @@ ApplicationWindow {
             stack.push({item: stack.get(c.Stack.index)});
         }
         delegate: StackViewDelegate {
+            /**
+              @fn
+              @param
+              @return
+
+              @brief
+              @details
+              */
             function getTransition(properties)
             {
-                //return (properties.enterItem.Stack.index % 2) ? fading : bouncing
+                /*return (properties.enterItem.Stack.index % 2) ? fading : bouncing*/
                 return fading;
             }
 
@@ -76,14 +87,14 @@ ApplicationWindow {
             Qt.quit();
         }
         onClicked : {
-            stack.cycle(SH_CommonPage);
+            stack.cycle(commonPage);
         }
         onLoggedOut: {
-            stack.cycle(SH_ConnexionPage);
+            stack.cycle(connexionPage);
         }
     }
     SH_ConnexionPage {
-        id: SH_ConnexionPage
+        id: connexionPage
         objectName: "Connexion"
         onLoggedIn: {
             stack.cycle(welcomePage);
@@ -91,7 +102,7 @@ ApplicationWindow {
     }
 
     SH_CommonPage {
-        id: SH_CommonPage
+        id: commonPage
         objectName: "Common"
         onQuit: {
             stack.cycle(welcomePage);

@@ -6,10 +6,9 @@
 
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::RestrictiveApplication
- \param parent
+ \fn SH_RestrictiveApplication::RestrictiveApplication
 */
 
 SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
@@ -19,10 +18,9 @@ SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::mode
- \return RestrictiveApplication::AppMode
+ \fn SH_RestrictiveApplication::mode
 */
 SH_ApplicationCore::AppMode SH_ApplicationCore::mode() const
 {
@@ -30,19 +28,18 @@ SH_ApplicationCore::AppMode SH_ApplicationCore::mode() const
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::init
+ \fn SH_RestrictiveApplication::init
 */
 void SH_ApplicationCore::init() {
     this->m_currentUser = new SH_User();
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::setMode
- \param mode
+ \fn SH_RestrictiveApplication::setMode
 */
 void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 {
@@ -61,10 +58,9 @@ void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::user
- \return User
+ \fn SH_RestrictiveApplication::user
 */
 SH_User *SH_ApplicationCore::user() const
 {
@@ -72,10 +68,9 @@ SH_User *SH_ApplicationCore::user() const
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::userLogOut
- \return bool
+ \fn SH_RestrictiveApplication::userLogOut
 */
 bool SH_ApplicationCore::userLogOut()
 {
@@ -84,12 +79,9 @@ bool SH_ApplicationCore::userLogOut()
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::setUser
- \param login
- \param pass
- \return bool
+ \fn SH_RestrictiveApplication::setUser
 */
 bool SH_ApplicationCore::setUser(QString login, QString pass)
 {
@@ -103,11 +95,9 @@ bool SH_ApplicationCore::setUser(QString login, QString pass)
 
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::userExists
- \param login
- \return bool
+ \fn SH_RestrictiveApplication::userExists
 */
 bool SH_ApplicationCore::userExists(QString login)
 {
@@ -116,9 +106,8 @@ bool SH_ApplicationCore::userExists(QString login)
 
 
 /*!
- \brief
- \fn RestrictiveApplication::balanceLogRoutine TODO comment this
- \return bool TODO comment this
+ \details
+ \fn SH_RestrictiveApplication::balanceLogRoutine TODO comment this
 */
 bool SH_ApplicationCore::balanceLogRoutine() {
     /*AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
@@ -130,9 +119,8 @@ bool SH_ApplicationCore::balanceLogRoutine() {
 
 
 /*!
- \brief
- \fn RestrictiveApplication::receiveInput TODO comment this
- \param in TODO comment this
+ \details
+ \fn SH_RestrictiveApplication::receiveInput TODO comment this
 */
 void SH_ApplicationCore::receiveInput(QString in)
 {
@@ -142,8 +130,8 @@ void SH_ApplicationCore::receiveInput(QString in)
 }
 
 /*!
- \brief
- \fn RestrictiveApplication::receiveValidation TODO comment this
+ \details
+ \fn SH_RestrictiveApplication::receiveValidation TODO comment this
 */
 void SH_ApplicationCore::receiveValidation()
 {
@@ -153,8 +141,8 @@ void SH_ApplicationCore::receiveValidation()
 }
 
 /*!
- \brief
- \fn RestrictiveApplication::receiveConfirmation TODO comment this
+ \details
+ \fn SH_RestrictiveApplication::receiveConfirmation TODO comment this
 */
 void SH_ApplicationCore::receiveConfirmation()
 {
@@ -164,9 +152,8 @@ void SH_ApplicationCore::receiveConfirmation()
 }
 
 /*!
- \brief
- \fn RestrictiveApplication::replaceInput TODO comment this
- \param inputName TODO comment this
+ \details
+ \fn SH_RestrictiveApplication::replaceInput TODO comment this
 */
 void SH_ApplicationCore::replaceInput(QString inputName)
 {
@@ -176,8 +163,8 @@ void SH_ApplicationCore::replaceInput(QString inputName)
 }
 
 /*!
- \brief
- \fn RestrictiveApplication::cancelReplacement TODO comment this
+ \details
+ \fn SH_RestrictiveApplication::cancelReplacement TODO comment this
 */
 void SH_ApplicationCore::cancelReplacement()
 {
@@ -188,10 +175,9 @@ void SH_ApplicationCore::cancelReplacement()
 
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::launchBillingsThread
- \return bool
+ \fn SH_RestrictiveApplication::launchBillingsThread
 */
 bool SH_ApplicationCore::launchBillingsThread()
 {
@@ -208,26 +194,24 @@ bool SH_ApplicationCore::launchBillingsThread()
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::launchBookingsThread
- \return bool
+ \fn SH_RestrictiveApplication::launchBookingsThread
 */
 bool SH_ApplicationCore::launchBookingsThread()
 {
     /*if(this->m_currentFSM) {
         return false;
     }*/
-    //this->m_currentFSM= new BookingCreationStateMachine("création facturation");
-    //this->m_currentFSM->start();
+    /*this->m_currentFSM= new BookingCreationStateMachine("création facturation");*/
+    /*this->m_currentFSM->start();*/
     return this->connectRunningThread();
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::launchBillThread
- \return bool
+ \fn SH_RestrictiveApplication::launchBillThread
 */
 bool SH_ApplicationCore::launchBillThread()
 {
@@ -241,10 +225,9 @@ bool SH_ApplicationCore::launchBillThread()
 }
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::cancelRunningThread
- \return bool
+ \fn SH_RestrictiveApplication::cancelRunningThread
 */
 bool SH_ApplicationCore::cancelRunningThread()
 {
@@ -259,10 +242,9 @@ bool SH_ApplicationCore::cancelRunningThread()
 
 
 /*!
- \brief
+ \details
 
- \fn RestrictiveApplication::connectRunningThread
- \return bool
+ \fn SH_RestrictiveApplication::connectRunningThread
 */
 bool SH_ApplicationCore::connectRunningThread()
 {

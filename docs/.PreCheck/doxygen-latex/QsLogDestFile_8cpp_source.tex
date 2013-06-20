@@ -1,0 +1,160 @@
+\hypertarget{QsLogDestFile_8cpp}{\section{Qs\-Log\-Dest\-File.\-cpp}
+\label{QsLogDestFile_8cpp}\index{logging/\-Qs\-Log\-Dest\-File.\-cpp@{logging/\-Qs\-Log\-Dest\-File.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/* Copyright (c) 2013, Razvan Petru*/}
+00002 \textcolor{comment}{/* All rights reserved.*/}
+00003 
+00004 \textcolor{comment}{/* Redistribution and use in source and binary forms, with or without modification,*/}
+00005 \textcolor{comment}{/* are permitted provided that the following conditions are met:*/}
+00006 
+00007 \textcolor{comment}{/* * Redistributions of source code must retain the above copyright notice, this*/}
+00008 \textcolor{comment}{/*   list of conditions and the following disclaimer.*/}
+00009 \textcolor{comment}{/* * Redistributions in binary form must reproduce the above copyright notice, this*/}
+00010 \textcolor{comment}{/*   list of conditions and the following disclaimer in the documentation and/or other*/}
+00011 \textcolor{comment}{/*   materials provided with the distribution.*/}
+00012 \textcolor{comment}{/* * The name of the contributors may not be used to endorse or promote products*/}
+00013 \textcolor{comment}{/*   derived from this software without specific prior written permission.*/}
+00014 
+00015 \textcolor{comment}{/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND*/}
+00016 \textcolor{comment}{/* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED*/}
+00017 \textcolor{comment}{/* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.*/}
+00018 \textcolor{comment}{/* IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,*/}
+00019 \textcolor{comment}{/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,*/}
+00020 \textcolor{comment}{/* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,*/}
+00021 \textcolor{comment}{/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF*/}
+00022 \textcolor{comment}{/* LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE*/}
+00023 \textcolor{comment}{/* OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED*/}
+00024 \textcolor{comment}{/* OF THE POSSIBILITY OF SUCH DAMAGE.*/}
+00025 
+00026 \textcolor{preprocessor}{#include "\hyperlink{QsLogDestFile_8h}{QsLogDestFile.h}"}
+00027 \textcolor{preprocessor}{#include <QTextCodec>}
+00028 \textcolor{preprocessor}{#include <QDateTime>}
+00029 \textcolor{preprocessor}{#include <QtGlobal>}
+00030 \textcolor{preprocessor}{#include <iostream>}
+00034 \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{classQsLogging_1_1SizeRotationStrategy_a9965384f7b98b191d00eef62b2b417bf}{QsLogging::SizeRotationStrategy::MaxBackupCount} = 
+      10;
+\hypertarget{QsLogDestFile_8cpp_source_l00038}{}\hyperlink{classQsLogging_1_1RotationStrategy_abd4b37978f48a3c75caa46ee9456b506}{00038} \hyperlink{classQsLogging_1_1RotationStrategy_abd4b37978f48a3c75caa46ee9456b506}{QsLogging::RotationStrategy::~RotationStrategy}()
+00039 \{
+00040 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00044}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_a669845e1cd8a1656b28fbce8a97620b2}{00044} \hyperlink{classQsLogging_1_1SizeRotationStrategy_a669845e1cd8a1656b28fbce8a97620b2}{QsLogging::SizeRotationStrategy::SizeRotationStrategy}(
+      )
+00045     : mCurrentSizeInBytes(0)
+00046     , mMaxSizeInBytes(0)
+00047     , mBackupsCount(0)
+00048 \{
+00049 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00053}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_a763f6a2054a6ec5f3600f4e43e07c802}{00053} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1SizeRotationStrategy_a763f6a2054a6ec5f3600f4e43e07c802}{QsLogging::SizeRotationStrategy::setInitialInfo}(\textcolor{keyword}{const} 
+      QFile &file)
+00054 \{
+00055     mFileName = file.fileName();
+00056     mCurrentSizeInBytes = file.size();
+00057 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00061}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_a3f87aec42ff67a771e31695923935486}{00061} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1SizeRotationStrategy_a3f87aec42ff67a771e31695923935486}{QsLogging::SizeRotationStrategy::includeMessageInCalculation}
+      (\textcolor{keyword}{const} QString &message)
+00062 \{
+00063     mCurrentSizeInBytes += message.toUtf8().size();
+00064 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00068}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_aced9d2191e48ae60f039d62fd9c7197f}{00068} \textcolor{keywordtype}{bool} \hyperlink{classQsLogging_1_1SizeRotationStrategy_aced9d2191e48ae60f039d62fd9c7197f}{QsLogging::SizeRotationStrategy::shouldRotate}()
+00069 \{
+00070     \textcolor{keywordflow}{return} mCurrentSizeInBytes > mMaxSizeInBytes;
+00071 \}
+00072 
+00073 \textcolor{comment}{/* Algorithm assumes backups will be named filename.X, where 1 <= X <= mBackupsCount.*/}
+00074 \textcolor{comment}{/* All X's will be shifted up.*/}
+\hypertarget{QsLogDestFile_8cpp_source_l00078}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_a044a258f08b3f104ccc7fdd80bf45b1a}{00078} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1SizeRotationStrategy_a044a258f08b3f104ccc7fdd80bf45b1a}{QsLogging::SizeRotationStrategy::rotate}()
+00079 \{
+00080     \textcolor{keywordflow}{if} (!mBackupsCount) \{
+00081         \textcolor{keywordflow}{if} (!QFile::remove(mFileName))
+00082             std::cerr << \textcolor{stringliteral}{"QsLog: backup delete failed "} << qPrintable(mFileName);
+00083         \textcolor{keywordflow}{return};
+00084     \}
+00085 
+00086      \textcolor{comment}{/* 1. find the last existing backup than can be shifted up*/}
+00087      \textcolor{keyword}{const} QString logNamePattern = mFileName + QString::fromUtf8(\textcolor{stringliteral}{".%1"});
+00088      \textcolor{keywordtype}{int} lastExistingBackupIndex = 0;
+00089      \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1;i <= mBackupsCount;++i) \{
+00090          \textcolor{keyword}{const} QString backupFileName = logNamePattern.arg(i);
+00091          \textcolor{keywordflow}{if} (QFile::exists(backupFileName))
+00092              lastExistingBackupIndex = qMin(i, mBackupsCount - 1);
+00093          \textcolor{keywordflow}{else}
+00094              \textcolor{keywordflow}{break};
+00095      \}
+00096 
+00097      \textcolor{comment}{/* 2. shift up*/}
+00098      \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = lastExistingBackupIndex;i >= 1;--i) \{
+00099          \textcolor{keyword}{const} QString oldName = logNamePattern.arg(i);
+00100          \textcolor{keyword}{const} QString newName = logNamePattern.arg(i + 1);
+00101          QFile::remove(newName);
+00102          \textcolor{keyword}{const} \textcolor{keywordtype}{bool} renamed = QFile::rename(oldName, newName);
+00103          \textcolor{keywordflow}{if} (!renamed) \{
+00104              std::cerr << \textcolor{stringliteral}{"QsLog: could not rename backup "} << qPrintable(oldName)
+00105                        << \textcolor{stringliteral}{" to "} << qPrintable(newName);
+00106          \}
+00107      \}
+00108 
+00109      \textcolor{comment}{/* 3. rename current log file*/}
+00110      \textcolor{keyword}{const} QString newName = logNamePattern.arg(1);
+00111      \textcolor{keywordflow}{if} (QFile::exists(newName))
+00112          QFile::remove(newName);
+00113      \textcolor{keywordflow}{if} (!QFile::rename(mFileName, newName)) \{
+00114          std::cerr << \textcolor{stringliteral}{"QsLog: could not rename log "} << qPrintable(mFileName)
+00115                    << \textcolor{stringliteral}{" to "} << qPrintable(newName);
+00116      \}
+00117 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00121}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_a456726dba9e9ddd0c823bbbc1a6a7279}{00121} QIODevice::OpenMode \hyperlink{classQsLogging_1_1SizeRotationStrategy_a456726dba9e9ddd0c823bbbc1a6a7279}{QsLogging::SizeRotationStrategy::recommendedOpenModeFlag}
+      ()
+00122 \{
+00123     \textcolor{keywordflow}{return} QIODevice::Append;
+00124 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00128}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_a3d37fd3bcc5aa4a84f8bf30af1d17526}{00128} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1SizeRotationStrategy_a3d37fd3bcc5aa4a84f8bf30af1d17526}{QsLogging::SizeRotationStrategy::setMaximumSizeInBytes}
+      (qint64 size)
+00129 \{
+00130     Q\_ASSERT(size >= 0);
+00131     mMaxSizeInBytes = size;
+00132 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00136}{}\hyperlink{classQsLogging_1_1SizeRotationStrategy_ab50da4fb0397509e5aeb826e791f09f9}{00136} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1SizeRotationStrategy_ab50da4fb0397509e5aeb826e791f09f9}{QsLogging::SizeRotationStrategy::setBackupCount}(\textcolor{keywordtype}{int} 
+      backups)
+00137 \{
+00138     Q\_ASSERT(backups >= 0);
+00139     mBackupsCount = qMin(backups, \hyperlink{classQsLogging_1_1SizeRotationStrategy_a9965384f7b98b191d00eef62b2b417bf}{SizeRotationStrategy::MaxBackupCount})
+      ;
+00140 \}
+00141 
+\hypertarget{QsLogDestFile_8cpp_source_l00145}{}\hyperlink{classQsLogging_1_1FileDestination_ad42d6551d58f82eeb61ffc6d7d06d5cd}{00145} \hyperlink{classQsLogging_1_1FileDestination_ad42d6551d58f82eeb61ffc6d7d06d5cd}{QsLogging::FileDestination::FileDestination}(\textcolor{keyword}{const} QString& 
+      filePath, \hyperlink{namespaceQsLogging_a41dc81d39cd3d36d9e15746bd9174be0}{RotationStrategyPtr} rotationStrategy)
+00146     : mRotationStrategy(rotationStrategy)
+00147 \{
+00148     \hyperlink{classQsLogging_1_1FileDestination_a1de182fa4efefa21e6545757f1a04eb2}{mFile}.setFileName(filePath);
+00149     \textcolor{keywordflow}{if} (!\hyperlink{classQsLogging_1_1FileDestination_a1de182fa4efefa21e6545757f1a04eb2}{mFile}.open(QFile::WriteOnly | QFile::Text | \hyperlink{classQsLogging_1_1FileDestination_ab20945842bd063b5cbe82485168be1f0}{mRotationStrategy}->
+      recommendedOpenModeFlag()))
+00150         std::cerr << \textcolor{stringliteral}{"QsLog: could not open log file "} << qPrintable(filePath);
+00151     \hyperlink{classQsLogging_1_1FileDestination_a10f0aa5513ec40d3e362179b084a43d6}{mOutputStream}.setDevice(&\hyperlink{classQsLogging_1_1FileDestination_a1de182fa4efefa21e6545757f1a04eb2}{mFile});
+00152     \hyperlink{classQsLogging_1_1FileDestination_a10f0aa5513ec40d3e362179b084a43d6}{mOutputStream}.setCodec(QTextCodec::codecForName(\textcolor{stringliteral}{"UTF-8"}));
+00153 
+00154     \hyperlink{classQsLogging_1_1FileDestination_ab20945842bd063b5cbe82485168be1f0}{mRotationStrategy}->setInitialInfo(\hyperlink{classQsLogging_1_1FileDestination_a1de182fa4efefa21e6545757f1a04eb2}{mFile});
+00155 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00159}{}\hyperlink{classQsLogging_1_1FileDestination_a84b076720ccfa4045e1aacc14c5af5dc}{00159} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1FileDestination_a84b076720ccfa4045e1aacc14c5af5dc}{QsLogging::FileDestination::write}(\textcolor{keyword}{const} QString& message, 
+      \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level})
+00160 \{
+00161     mRotationStrategy->includeMessageInCalculation(message);
+00162     \textcolor{keywordflow}{if} (mRotationStrategy->shouldRotate()) \{
+00163         mOutputStream.setDevice(NULL);
+00164         mFile.close();
+00165         mRotationStrategy->rotate();
+00166         \textcolor{keywordflow}{if} (!mFile.open(QFile::WriteOnly | QFile::Text | mRotationStrategy->recommendedOpenModeFlag()))
+00167             std::cerr << \textcolor{stringliteral}{"QsLog: could not reopen log file "} << qPrintable(mFile.fileName());
+00168         mRotationStrategy->setInitialInfo(mFile);
+00169         mOutputStream.setDevice(&mFile);
+00170     \}
+00171 
+00172     mOutputStream << message << endl;
+00173     mOutputStream.flush();
+00174 \}
+\hypertarget{QsLogDestFile_8cpp_source_l00178}{}\hyperlink{classQsLogging_1_1FileDestination_a2d18b70b408910332dcbee9d12c1d394}{00178} \textcolor{keywordtype}{bool} \hyperlink{classQsLogging_1_1FileDestination_a2d18b70b408910332dcbee9d12c1d394}{QsLogging::FileDestination::isValid}()
+00179 \{
+00180     \textcolor{keywordflow}{return} mFile.isOpen();
+00181 \}
+00182 
+\end{DoxyCode}

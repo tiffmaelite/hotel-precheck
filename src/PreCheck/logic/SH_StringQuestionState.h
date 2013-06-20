@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class StringQuestionState stringquestionstate.h "logic/stringquestionstate.h"
+ \class SH_StringQuestionState stringquestionstate.h "logic/stringquestionstate.h"
 */
 class SH_StringQuestionState : public SH_QuestionState
 {
@@ -14,7 +14,7 @@ public:
 /*!
  \brief
 
- \fn StringQuestionState
+ \fn SH_StringQuestionState
  \param question
  \param name
  \param minLength
@@ -25,7 +25,7 @@ public:
 /*!
  \brief
 
- \fn isAnswerValid
+ \fn SH_isAnswerValid
  \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -33,14 +33,14 @@ virtual bool isAnswerValid(const QVariant &givenAnswer);
 /*!
  \brief
 
- \fn maxLen
+ \fn SH_maxLen
  \return int
 */
 int maxLen() const;
 /*!
  \brief
 
- \fn setMaxLen
+ \fn SH_setMaxLen
  \param maxLen
 */
 void setMaxLen(int maxLen);
@@ -48,14 +48,14 @@ void setMaxLen(int maxLen);
 /*!
  \brief
 
- \fn minLen
+ \fn SH_minLen
  \return int
 */
 int minLen() const;
 /*!
  \brief
 
- \fn setMinLen
+ \fn SH_setMinLen
  \param minLen
 */
 void setMinLen(int minLen);
@@ -65,9 +65,15 @@ signals:
 public slots:
 
 private:
-int m_minLen; /*!< TODO */
-int m_maxLen; /*!< TODO */
+/*!
+ * \brief m_minLen
+ */
+int m_minLen;
+/*!
+ * \brief m_maxLen
+ */
+int m_maxLen;
 
 };
 
-#endif // STRINGQUESTIONSTATE_H
+#endif /* STRINGQUESTIONSTATE_H*/

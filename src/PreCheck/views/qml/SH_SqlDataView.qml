@@ -5,9 +5,12 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 Rectangle {
     id:display
-    /// le modèle
+    /*/ le modèle*/
     property var sqlModel: []
     property string itemDelegate
     property string emptyDelegate : "SH_DataDelegate.qml"
@@ -86,7 +89,7 @@ Rectangle {
             enabled: display.enabled
             Layout.minimumWidth: childrenRect.width
             Layout.minimumHeight: childrenRect.height
-            Layout.maximumHeight: parent.height//-upArea.height
+            Layout.maximumHeight: parent.height/*-upArea.height*/
             Layout.maximumWidth: parent.width
             onSelected: {
                 display.selected(selectedItem);

@@ -7,7 +7,8 @@
 /*!
  \brief
 
- \class CheckableSortFilterProxyModel checkable_sort_filter_proxy_model.h "models/checkable_sort_filter_proxy_model.h"
+ \class SH_CheckableSortFilterProxyMode
+ \headerfile checkable_sort_filter_proxy_model.h "models/checkable_sort_filter_proxy_model.h"
 */
 class SH_ExtendedProxyModel : public QSortFilterProxyModel
 {
@@ -23,7 +24,7 @@ public:
 /*!
  \brief
 
- \fn CheckableSortFilterProxyModel
+ \fn SH_CheckableSortFilterProxyModel
  \param parent
 */
     SH_ExtendedProxyModel(QObject *parent = 0);
@@ -31,42 +32,42 @@ public:
     /*!
      \brief
 
-     \fn currentSortKeyColumn
+     \fn SH_currentSortKeyColumn
      \return const int
     */
     const int currentSortKeyColumn() const {return this->sortIndex;}
     /*!
      \brief
 
-     \fn tableName
+     \fn SH_tableName
      \return const QString
     */
     const QString tableName() const { return this->model->tableName(); }
     /*!
      \brief
 
-     \fn fields
+     \fn SH_fields
      \return const QString
     */
     const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
     /*!
      \brief
 
-     \fn lastError
+     \fn SH_lastError
      \return const QString
     */
     const QString lastError() const { return this->model->lastError(); }
     /*!
      \brief
 
-     \fn isEmpty
+     \fn SH_isEmpty
      \return const bool
     */
     const bool isEmpty() const { return this->model->isEmpty(); }
     /*!
      \brief
 
-     \fn setSortKeyColumn
+     \fn SH_setSortKeyColumn
      \param column
     */
     void setSortKeyColumn(int column);
@@ -74,7 +75,7 @@ public:
     /*!
      \brief
 
-     \fn field
+     \fn SH_field
      \param i
      \return SqlDataFields
     */
@@ -82,14 +83,14 @@ public:
     /*!
      \brief
 
-     \fn fieldsCount
+     \fn SH_fieldsCount
      \return int
     */
     Q_INVOKABLE int fieldsCount() const { return this->model->fieldsCount(); }
     /*!
      \brief
 
-     \fn fetch
+     \fn SH_fetch
      \param tableName
      \param filter
      \param sort
@@ -100,7 +101,7 @@ public:
     /*!
      \brief
 
-     \fn sort
+     \fn SH_sort
      \param column
      \param newOrder
     */
@@ -108,21 +109,21 @@ public:
     /*!
      \brief
 
-     \fn addFilterKeyColumn
+     \fn SH_addFilterKeyColumn
      \param column
     */
     Q_INVOKABLE void addFilterKeyColumn(int column);
     /*!
      \brief
 
-     \fn removeFilterKeyColumn
+     \fn SH_removeFilterKeyColumn
      \param column
     */
     Q_INVOKABLE void removeFilterKeyColumn(int column);
     /*!
      \brief
 
-     \fn containsFilterKeyColumn
+     \fn SH_containsFilterKeyColumn
      \param column
      \return bool
     */
@@ -130,7 +131,7 @@ public:
     /*!
      \brief
 
-     \fn data
+     \fn SH_data
      \param row
      \param column
      \return QVariant
@@ -139,7 +140,7 @@ public:
     /*!
      \brief
 
-     \fn data
+     \fn SH_data
      \param index
      \param role
      \return QVariant
@@ -148,7 +149,7 @@ public:
     /*!
      \brief
 
-     \fn setData
+     \fn SH_setData
      \param index
      \param value
      \param role
@@ -158,14 +159,14 @@ public:
     /*!
      \brief
 
-     \fn roleNames
+     \fn SH_roleNames
      \return QHash<int, QByteArray>
     */
     Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->model->roleNames(); }
     /*!
      \brief
 
-     \fn flags
+     \fn SH_flags
      \param index
      \return Qt::ItemFlags
     */
@@ -174,41 +175,41 @@ public:
     /*!
      \brief
 
-     \fn invalidateFilter
+     \fn SH_invalidateFilter
     */
     void invalidateFilter();
     /*!
      \brief
 
-     \fn setBooleanColumns
+     \fn SH_setBooleanColumns
      \param boolCols
     */
     void setBooleanColumns(QList<int> boolCols);
     /*!
      \brief
 
-     \fn setReadOnlyColumns
+     \fn SH_setReadOnlyColumns
      \param readonlyCols
     */
     void setReadOnlyColumns(QList<int> readonlyCols);
     /*!
      \brief
 
-     \fn setPasswordColumns
+     \fn SH_setPasswordColumns
      \param passwordCols
     */
     void setPasswordColumns(QList<int> passwordCols);
     /*!
      \brief
 
-     \fn setNullColumns
+     \fn SH_setNullColumns
      \param nullCols
     */
     void setNullColumns(QList<int> nullCols);
     /*!
      \brief
 
-     \fn setNotNullColumns
+     \fn SH_setNotNullColumns
      \param notNullCols
     */
     void setNotNullColumns(QList<int> notNullCols);
@@ -217,7 +218,7 @@ signals:
     /*!
      \brief
 
-     \fn sortChanged
+     \fn SH_sortChanged
     */
     void sortChanged();
 
@@ -225,35 +226,56 @@ protected:
     /*!
      \brief
 
-     \fn fillModel
+     \fn SH_fillModel
     */
     virtual void fillModel() = 0;
     /*!
      \brief
 
-     \fn filterAcceptsRow
+     \fn SH_filterAcceptsRow
      \param source_row
      \param source_parent
      \return bool
     */
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
-    SH_SqlDataModel *model; /*!< TODO */
+    SH_SqlDataModel *model;
 
 private:
     /*!
      \brief
 
-     \fn replaceSet
+     \fn SH_replaceSet
      \param originalSet
      \param newSet
     */
     void replaceSet(QList<int>& originalSet, QList<int> newSet);
-    QList<int> booleanSet; /*!< TODO */
-    QList<int> passwordSet; /*!< TODO */
-    QList<int> readonlySet; /*!< TODO */
-    QList<int> notNullSet; /*!< TODO */
-    QList<int> nullSet; /*!< TODO */
-    QList<int> filters; /*!< TODO */
-    int sortIndex; /*!< TODO */
+    /*!
+     * \brief booleanSet
+     */
+    QList<int> booleanSet;
+    /*!
+     * \brief passwordSet
+     */
+    QList<int> passwordSet;
+    /*!
+     * \brief readonlySet
+     */
+    QList<int> readonlySet;
+    /*!
+     * \brief notNullSet
+     */
+    QList<int> notNullSet;
+    /*!
+     * \brief nullSet
+     */
+    QList<int> nullSet;
+    /*!
+     * \brief filters
+     */
+    QList<int> filters;
+    /*!
+     * \brief sortIndex
+     */
+    int sortIndex;
 };
 #endif

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de logic/SH_DateQuestionState.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0f9694b8de2575528c6c0ae9f79dda65.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_DateQuestionState.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__DateQuestionState_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__DateQuestionState_8h.html">SH_DateQuestionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#a9a60060ebcd5994d62f0ca5f0e6b5e98">    9</a></span>&#160;<a class="code" href="classSH__DateQuestionState.html#a9a60060ebcd5994d62f0ca5f0e6b5e98">SH_DateQuestionState::SH_DateQuestionState</a>(QString question, QString name, <span class="keywordtype">bool</span> past, <span class="keywordtype">bool</span> future, <a class="code" href="classQState.html">QState</a> *parent) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classSH__QuestionState.html">SH_QuestionState</a>(question+<span class="stringliteral">&quot; (au format jj-mm-aaaa)&quot;</span>, name, parent), m_past(past), m_future(future)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#aacd24891431755fb857c17a864d39ba9">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.html#aacd24891431755fb857c17a864d39ba9">SH_DateQuestionState::isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;givenAnswer)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    QDate answer = QDate::fromString(givenAnswer.toString(),QString(<span class="stringliteral">&quot;dd-MM-yyyy&quot;</span>));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(answer.isValid()) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        qDebug() &lt;&lt; <span class="stringliteral">&quot;date conforme&quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> ((<a class="code" href="classSH__DateQuestionState.html#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a> &amp;&amp; answer &gt;= QDate::currentDate()) || (<a class="code" href="classSH__DateQuestionState.html#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a> &amp;&amp; answer &lt;= QDate::currentDate()));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#a13b9815a4c8b0f5bd78426efdc754b8c">   37</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.html#a13b9815a4c8b0f5bd78426efdc754b8c">SH_DateQuestionState::getPast</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__DateQuestionState.html#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#a06f77c3d6449354c0d1135cc9755dd41">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.html#a06f77c3d6449354c0d1135cc9755dd41">SH_DateQuestionState::setPast</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classSH__DateQuestionState.html#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a> = value;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#aa0ac7bfdd8528fdbc7b517d7f2f1fcc7">   59</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.html#aa0ac7bfdd8528fdbc7b517d7f2f1fcc7">SH_DateQuestionState::getFuture</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__DateQuestionState.html#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#ae160da14278cb25ce255f108f481d5eb">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.html#ae160da14278cb25ce255f108f481d5eb">SH_DateQuestionState::setFuture</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="classSH__DateQuestionState.html#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a> = value;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.html#ac72e5b6b416614631032ff643d3c180e">   80</a></span>&#160;QVariant <a class="code" href="classSH__DateQuestionState.html#ac72e5b6b416614631032ff643d3c180e">SH_DateQuestionState::rawInput</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> QVariant(<a class="code" href="classSH__InOutState.html#a04364c76d2fd8a3781e7b325955e5bd9">input</a>().toDate().<a class="code" href="classSH__GenericState.html#a5480c5ee725fd801d8f6292cd4c803b8">toString</a>()); <span class="comment">/*TODO set format*/</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Juin 20 2013 23:37:26 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>

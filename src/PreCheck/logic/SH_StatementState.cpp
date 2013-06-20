@@ -1,12 +1,10 @@
 #include "SH_StatementState.h"
 
 /*!
- \brief
+ \details
 
- \fn StatementState::StatementState
- \param output
- \param name
- \param parent
+ \fn SH_StatementState::StatementState
+
 */
 SH_StatementState::SH_StatementState(QString output, QString name, QState *parent) :
     SH_InOutState(output, name, parent)
@@ -15,22 +13,22 @@ SH_StatementState::SH_StatementState(QString output, QString name, QState *paren
 }
 
 /*!
- \brief
+ \details
 
- \fn StatementState::setInput
- \param input
+ \fn SH_StatementState::setInput
+
 */
 void SH_StatementState::setInput(const QVariant &input)
 {
     Q_UNUSED(input);
-    //DO NOTHING
+    /*DO NOTHING*/
 }
 
 /*!
- \brief
+ \details
 
- \fn StatementState::onEntry
- \param event
+ \fn SH_StatementState::onEntry
+
 */
 void SH_StatementState::onEntry(QEvent *event)
 {

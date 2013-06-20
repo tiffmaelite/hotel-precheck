@@ -4,7 +4,7 @@
 
 /*!
  \brief
- \class  adaptDatabase TODO comment this adaptdatabase.h "logic/adaptdatabase.h"
+ \class SH_ adaptDatabase TODO comment this adaptdatabase.h "logic/adaptdatabase.h"
 */
 class SH_AdaptDatabaseState : public SH_GenericState
 {
@@ -12,7 +12,7 @@ class SH_AdaptDatabaseState : public SH_GenericState
 public:
 /*!
  \brief
- \fn adaptDatabase TODO comment this
+ \fn SH_adaptDatabase TODO comment this
  \param name TODO comment this
  \param parent TODO comment this
 */
@@ -20,7 +20,7 @@ public:
 
     /*!
      \brief
-     \fn insertUpdate TODO comment this
+     \fn SH_insertUpdate TODO comment this
      \param table TODO comment this
      \param content TODO comment this
      \return bool TODO comment this
@@ -33,4 +33,4 @@ public slots:
 
 };
 
-#endif // ADAPTDATABASE_H
+#endif /* ADAPTDATABASE_H*/

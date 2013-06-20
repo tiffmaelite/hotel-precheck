@@ -2,13 +2,16 @@
 #define CLIENTCREATION_H
 #include "SH_IOStateMachine.h"
 
+/*!
+ * \brief The SH_ClientCreationStateMachine class
+ */
 class SH_ClientCreationStateMachine : public SH_InOutStateMachine
 {
     Q_OBJECT
 public:
 /*!
  \brief
- \fn ClientCreationStateMachine TODO comment this
+ \fn SH_ClientCreationStateMachine TODO comment this
  \param name TODO comment this
  \param parent TODO comment this
 */
@@ -20,4 +23,4 @@ public slots:
 
 };
 
-#endif // CLIENTCREATION_H
+#endif /* CLIENTCREATION_H*/

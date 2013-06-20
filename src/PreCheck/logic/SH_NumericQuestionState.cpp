@@ -2,14 +2,10 @@
 
 
 /*!
- \brief
+ \details
 
- \fn NumericQuestionState::NumericQuestionState
- \param question
- \param name
- \param min
- \param max
- \param parent
+ \fn SH_NumericQuestionState::NumericQuestionState
+
 */
 SH_NumericQuestionState::SH_NumericQuestionState(QString question, QString name, int min, int max, QState *parent) :
     SH_QuestionState(question, name, parent), m_min(min), m_max(max)
@@ -18,10 +14,10 @@ SH_NumericQuestionState::SH_NumericQuestionState(QString question, QString name,
 }
 
 /*!
- \brief
+ \details
 
- \fn NumericQuestionState::isAnswerValid
- \param givenAnswer
+ \fn SH_NumericQuestionState::isAnswerValid
+
 */
 bool SH_NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
@@ -36,10 +32,10 @@ bool SH_NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \brief
+ \details
 
- \fn NumericQuestionState::min
- \return int
+ \fn SH_NumericQuestionState::min
+
 */
 int SH_NumericQuestionState::min() const
 {
@@ -47,21 +43,20 @@ int SH_NumericQuestionState::min() const
 }
 
 /*!
- \brief
+ \details
 
- \fn NumericQuestionState::setMin
- \param min
-*/
+ \fn SH_NumericQuestionState::setMin
+ \param min*/
 void SH_NumericQuestionState::setMin(int min)
 {
     m_min = min;
 }
 
 /*!
- \brief
+ \details
 
- \fn NumericQuestionState::max
- \return int
+ \fn SH_NumericQuestionState::max
+
 */
 int SH_NumericQuestionState::max() const
 {
@@ -69,10 +64,10 @@ int SH_NumericQuestionState::max() const
 }
 
 /*!
- \brief
+ \details
 
- \fn NumericQuestionState::setMax
- \param max
+ \fn SH_NumericQuestionState::setMax
+
 */
 void SH_NumericQuestionState::setMax(int max)
 {

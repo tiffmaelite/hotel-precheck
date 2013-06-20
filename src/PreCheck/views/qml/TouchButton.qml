@@ -1,3 +1,5 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 import QtQuick 2.0
 
 
@@ -21,7 +23,7 @@ Pushable {
         anchors.centerIn: parent
     }
     onPushed: {
-        //Qt.quit();
+        /*Qt.quit();*/
         console.log("choix de " + buttonText);
     }
     onRelased: {
@@ -32,3 +34,6 @@ Pushable {
     }
 
 }
+
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

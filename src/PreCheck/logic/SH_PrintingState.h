@@ -5,7 +5,7 @@
 /*!
  \brief
 
- \class PrintingState printingstate.h "logic/printingstate.h"
+ \class SH_PrintingState printingstate.h "logic/printingstate.h"
 */
 class SH_PrintingState : public SH_GenericState
 {
@@ -14,7 +14,7 @@ public:
 /*!
  \brief
 
- \fn PrintingState
+ \fn SH_PrintingState
  \param name
  \param parent
 */
@@ -24,13 +24,13 @@ signals:
     /*!
      \brief
 
-     \fn printStarted
+     \fn SH_printStarted
     */
     void printStarted();
     /*!
      \brief
 
-     \fn printFinished
+     \fn SH_printFinished
     */
     void printFinished();
 
@@ -38,4 +38,4 @@ public slots:
 
 };
 
-#endif // PRINTINGSTATE_H
+#endif /* PRINTINGSTATE_H*/

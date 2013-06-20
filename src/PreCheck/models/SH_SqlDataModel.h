@@ -9,7 +9,7 @@
 /*!
  \brief
 
- \class SqlDataModel SqlDataModel.h "models/SqlDataModel.h"
+ \class SH_SqlDataModel SqlDataModel.h "models/SqlDataModel.h"
 */
 class SH_SqlDataModel : public QAbstractListModel
 {
@@ -22,14 +22,14 @@ public:
     /*!
      \brief
 
-     \fn SqlDataModel
+     \fn SH_SqlDataModel
      \param parent
     */
     explicit SH_SqlDataModel(QObject *parent = 0);
     /*!
      \brief
 
-     \fn rowCount
+     \fn SH_rowCount
      \param parent
      \return int
     */
@@ -37,7 +37,7 @@ public:
     /*!
      \brief
 
-     \fn data
+     \fn SH_data
      \param index
      \param role
      \return QVariant
@@ -46,7 +46,7 @@ public:
     /*!
      \brief
 
-     \fn datas
+     \fn SH_datas
      \param index
      \param role
      \return QVariant
@@ -55,7 +55,7 @@ public:
     /*!
      \brief
 
-     \fn setHeaderData
+     \fn SH_setHeaderData
      \param section
      \param orientation
      \param value
@@ -66,7 +66,7 @@ public:
     /*!
      \brief
 
-     \fn roleForField
+     \fn SH_roleForField
      \param fieldIndex
      \return int
     */
@@ -74,7 +74,7 @@ public:
     /*!
      \brief
 
-     \fn fieldFromRole
+     \fn SH_fieldFromRole
      \param role
      \return int
     */
@@ -82,21 +82,21 @@ public:
     /*!
      \brief
 
-     \fn tableName
+     \fn SH_tableName
      \return const QString
     */
     const QString &tableName() const;
     /*!
      \brief
 
-     \fn lastError
+     \fn SH_lastError
      \return const QString
     */
     const QString &lastError();
     /*!
      \brief
 
-     \fn filter
+     \fn SH_filter
      \return const QString
     */
     const QString &filter() const;
@@ -104,41 +104,41 @@ public:
     /*!
      \brief
 
-     \fn setTable
+     \fn SH_setTable
      \param tableName
     */
     void setTable(const QString &tableName);
     /*!
      \brief
 
-     \fn setFilterCondition
+     \fn SH_setFilterCondition
      \param filter
     */
     void setFilterCondition(const QString &filter);
     /*!
      \brief
 
-     \fn resetFilterCondition
+     \fn SH_resetFilterCondition
     */
     void resetFilterCondition();
     /*!
      \brief
 
-     \fn setFields
+     \fn SH_setFields
      \param fieldList
     */
     void setFields(QStringList fieldList);
     /*!
      \brief
 
-     \fn resetFieldsToAll
+     \fn SH_resetFieldsToAll
     */
     void resetFieldsToAll();
 
     /*!
      \brief
 
-     \fn fetch
+     \fn SH_fetch
      \param tableName
      \param filter
      \param sort
@@ -149,7 +149,7 @@ public:
     /*!
      \brief
 
-     \fn field
+     \fn SH_field
      \param i
      \return SqlDataFields
     */
@@ -157,14 +157,14 @@ public:
     /*!
      \brief
 
-     \fn fieldsCount
+     \fn SH_fieldsCount
      \return int
     */
     int fieldsCount() const;
     /*!
      \brief
 
-     \fn setOrderBy
+     \fn SH_setOrderBy
      \param sort
     */
     void setOrderBy(QString sort);
@@ -173,7 +173,7 @@ public:
     /*!
      \brief
 
-     \fn roleNames
+     \fn SH_roleNames
      \return QHash<int, QByteArray>
     */
     virtual QHash<int, QByteArray> roleNames() const { return this->mRoles; }
@@ -181,7 +181,7 @@ public:
     /*!
      \brief
 
-     \fn isEmpty
+     \fn SH_isEmpty
      \return bool
     */
     bool isEmpty() const;
@@ -189,14 +189,14 @@ public:
     /*!
      \brief
 
-     \fn query
+     \fn SH_query
      \return const QString
     */
     const QString &query() const;
     /*!
      \brief
 
-     \fn fieldsList
+     \fn SH_fieldsList
      \return const QString
     */
     const QStringList fieldsList() const;
@@ -205,49 +205,70 @@ signals:
     /*!
      \brief
 
-     \fn fieldsChanged
+     \fn SH_fieldsChanged
     */
     void fieldsChanged();
     /*!
      \brief
 
-     \fn tableChanged
+     \fn SH_tableChanged
     */
     void tableChanged();
     /*!
      \brief
 
-     \fn lastErrorChanged
+     \fn SH_lastErrorChanged
     */
     void lastErrorChanged();
     /*!
      \brief
 
-     \fn filterChanged
+     \fn SH_filterChanged
     */
     void filterChanged();
     /*!
      \brief
 
-     \fn rolesChanged
+     \fn SH_rolesChanged
     */
     void rolesChanged();
 protected:
     /*!
      \brief
 
-     \fn applyRoles
+     \fn SH_applyRoles
     */
     void applyRoles();
 private:
-    QString mTable; /*!< TODO */
-    QString mFilter; /*!< TODO */
-    QString mSort; /*!< TODO */
-    QList<SH_SqlDataFields *> mDataFields; /*!< TODO */
-    QHash<int, QByteArray> mRoles; /*!< TODO */
-    QSqlQuery mSqlQuery; /*!< TODO */
-    QList<QSqlRecord> mRecords; /*!< TODO */
+    /*!
+     * \brief mTable
+     */
+    QString mTable;
+    /*!
+     * \brief mFilter
+     */
+    QString mFilter;
+    /*!
+     * \brief mSort
+     */
+    QString mSort;
+    /*!
+     * \brief mDataFields
+     */
+    QList<SH_SqlDataFields *> mDataFields;
+    /*!
+     * \brief mRoles
+     */
+    QHash<int, QByteArray> mRoles;
+    /*!
+     * \brief mSqlQuery
+     */
+    QSqlQuery mSqlQuery;
+    /*!
+     * \brief mRecords
+     */
+    QList<QSqlRecord> mRecords;
 };
 
-#endif // SQLDATAMODEL_H
+#endif /* SQLDATAMODEL_H*/
 

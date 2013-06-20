@@ -3,13 +3,13 @@
 #include <QtQuick/QQuickWindow>
 #include <QQmlFile>
 #include "SH_ExtendedQQmlAction.h"
-//#include "../../src/gui/kernel/qguiapplication_p.h"
+/*#include "../../src/gui/kernel/qguiapplication_p.h"*/
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::QQQuickAction
- \param parent
+ \fn SH_QQQuickAction::QQQuickAction
+
 */
 SH_ExtendedQQmlAction::SH_ExtendedQQmlAction(QObject *parent)
     : QObject(parent)
@@ -18,9 +18,9 @@ SH_ExtendedQQmlAction::SH_ExtendedQQmlAction(QObject *parent)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::~QQQuickAction
+ \fn SH_QQQuickAction::~QQQuickAction
 */
 SH_ExtendedQQmlAction::~SH_ExtendedQQmlAction()
 {
@@ -29,10 +29,9 @@ SH_ExtendedQQmlAction::~SH_ExtendedQQmlAction()
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setText
- \param text
+ \fn SH_QQQuickAction::setText
 */
 void SH_ExtendedQQmlAction::setText(const QString &text)
 {
@@ -44,12 +43,9 @@ void SH_ExtendedQQmlAction::setText(const QString &text)
 }
 
 /*!
- \brief
+ \details
 
- \fn qShortcutContextMatcher
- \param o
- \param context
- \return bool
+ \fn SH_qShortcutContextMatcher
 */
 bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
 {
@@ -75,10 +71,9 @@ bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setKeySequence
- \param sequence
+ \fn SH_QQQuickAction::setKeySequence
 */
 void SH_ExtendedQQmlAction::setKeySequence(const QKeySequence &sequence) {
     if (sequence == m_shortcut)
@@ -91,16 +86,15 @@ void SH_ExtendedQQmlAction::setKeySequence(const QKeySequence &sequence) {
 
     if (!m_shortcut.isEmpty()) {
         Qt::ShortcutContext context = Qt::WindowShortcut;
-        //QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);
+        /*QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);*/
     }
     emit shortcutChanged(shortcut());
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setKeyShortcut
- \param shortcut
+ \fn SH_QQQuickAction::setKeyShortcut
 */
 void SH_ExtendedQQmlAction::setKeyShortcut(const Qt::Key &shortcut)
 {
@@ -108,10 +102,9 @@ void SH_ExtendedQQmlAction::setKeyShortcut(const Qt::Key &shortcut)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::shortcut
- \return QString
+ \fn SH_QQQuickAction::shortcut
 */
 QString SH_ExtendedQQmlAction::shortcut() const
 {
@@ -119,10 +112,9 @@ QString SH_ExtendedQQmlAction::shortcut() const
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setShortcut
- \param arg
+ \fn SH_QQQuickAction::setShortcut
 */
 void SH_ExtendedQQmlAction::setShortcut(const QString &arg)
 {
@@ -133,10 +125,9 @@ void SH_ExtendedQQmlAction::setShortcut(const QString &arg)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setMnemonicFromText
- \param text
+ \fn SH_QQQuickAction::setMnemonicFromText
 */
 void SH_ExtendedQQmlAction::setMnemonicFromText(const QString &text)
 {
@@ -151,15 +142,14 @@ void SH_ExtendedQQmlAction::setMnemonicFromText(const QString &text)
 
     if (!m_mnemonic.isEmpty()) {
         Qt::ShortcutContext context = Qt::WindowShortcut;
-        //QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);
+        /*QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);*/
     }
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setIconSource
- \param iconSource
+ \fn SH_QQQuickAction::setIconSource
 */
 void SH_ExtendedQQmlAction::setIconSource(const QUrl &iconSource)
 {
@@ -177,10 +167,9 @@ void SH_ExtendedQQmlAction::setIconSource(const QUrl &iconSource)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::iconName
- \return QString
+ \fn SH_QQQuickAction::iconName
 */
 QString SH_ExtendedQQmlAction::iconName() const
 {
@@ -188,10 +177,9 @@ QString SH_ExtendedQQmlAction::iconName() const
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setIconName
- \param iconName
+ \fn SH_QQQuickAction::setIconName
 */
 void SH_ExtendedQQmlAction::setIconName(const QString &iconName)
 {
@@ -204,10 +192,9 @@ void SH_ExtendedQQmlAction::setIconName(const QString &iconName)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setTooltip
- \param arg
+ \fn SH_QQQuickAction::setTooltip
 */
 void SH_ExtendedQQmlAction::setTooltip(const QString &arg)
 {
@@ -218,10 +205,9 @@ void SH_ExtendedQQmlAction::setTooltip(const QString &arg)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::setEnabled
- \param e
+ \fn SH_QQQuickAction::setEnabled
 */
 void SH_ExtendedQQmlAction::setEnabled(bool e)
 {
@@ -234,11 +220,10 @@ void SH_ExtendedQQmlAction::setEnabled(bool e)
 
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::event
+ \fn SH_QQQuickAction::event
  \param e
- \return bool
 */
 bool SH_ExtendedQQmlAction::event(QEvent *e)
 {
@@ -264,9 +249,9 @@ bool SH_ExtendedQQmlAction::event(QEvent *e)
 }
 
 /*!
- \brief
+ \details
 
- \fn QQQuickAction::trigger
+ \fn SH_QQQuickAction::trigger
 */
 void SH_ExtendedQQmlAction::trigger()
 {

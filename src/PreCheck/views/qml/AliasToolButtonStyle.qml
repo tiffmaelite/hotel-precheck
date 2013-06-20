@@ -1,7 +1,9 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 /****************************************************************************
 **
 ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
-** Contact: http://www.qt-project.org/legal
+** Contact: http:/*ww.qt-project.org/legal*/
 **
 ** This file is part of the Qt Quick Controls module of the Qt Toolkit.
 **
@@ -93,3 +95,5 @@ Style {
         }
     }
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

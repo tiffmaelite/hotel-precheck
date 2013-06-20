@@ -5,7 +5,8 @@
 /*!
  \brief
 
- \class DecimalQuestionState decimalquestionstate.h "logic/decimalquestionstate.h"
+ \class SH_DecimalQuestionState
+\headerfile decimalquestionstate.h "logic/decimalquestionstate.h"
 */
 class SH_DecimalQuestionState : public SH_QuestionState
 {
@@ -14,7 +15,7 @@ public:
 /*!
  \brief
 
- \fn DecimalQuestionState
+ \fn SH_DecimalQuestionState
  \param question
  \param name
  \param min
@@ -25,7 +26,7 @@ public:
     /*!
      \brief
 
-     \fn isAnswerValid
+     \fn SH_isAnswerValid
      \param givenAnswer
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -33,14 +34,14 @@ public:
     /*!
      \brief
 
-     \fn min
+     \fn SH_min
      \return qreal
     */
     qreal min() const;
     /*!
      \brief
 
-     \fn setMin
+     \fn SH_setMin
      \param min
     */
     void setMin(const qreal &min);
@@ -48,14 +49,14 @@ public:
     /*!
      \brief
 
-     \fn max
+     \fn SH_max
      \return qreal
     */
     qreal max() const;
     /*!
      \brief
 
-     \fn setMax
+     \fn SH_setMax
      \param max
     */
     void setMax(const qreal &max);
@@ -65,8 +66,14 @@ signals:
 public slots:
 
 private:
-    qreal m_min; /*!< TODO */
-    qreal m_max; /*!< TODO */
+    /*!
+     * \brief m_min
+     */
+    qreal m_min;
+    /*!
+     * \brief m_max
+     */
+    qreal m_max;
 };
 
-#endif // DECIMALQUESTIONSTATE_H
+#endif /* DECIMALQUESTIONSTATE_H*/

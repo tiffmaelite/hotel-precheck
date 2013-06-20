@@ -1,3 +1,5 @@
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
@@ -36,3 +38,5 @@ PinchArea {
     onPinchStarted: area.clicked(pinch);
     onPinchUpdated: area.positionChanged(pinch);
 }
+
+#endif /* DOXYGEN_SHOULD_SKIP_THIS */

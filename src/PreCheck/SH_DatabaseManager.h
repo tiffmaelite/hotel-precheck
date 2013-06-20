@@ -9,41 +9,65 @@
 /*
  * declare DB driver and filename.
  */
-static const QString dbDriverStr = "QIBASE"; /*!< TODO */
-static const QString dbFileNameStr = "PreCheckDB.fdb"; /*!< TODO */
-static const QString dbAliasNameStr = "precheck-hotel"; /*!< TODO */
-static const QString dbUsernameStr = "SYSDBA"; /*!< TODO */
-static const QString dbPasswordStr = "masterkey"; /*!< TODO */
+/*!
+ * \brief dbDriverStr
+ */
+static const QString dbDriverStr = "QIBASE";
+/*!
+ * \brief dbFileNameStr
+ */
+static const QString dbFileNameStr = "PreCheckDB.fdb";
+/*!
+ * \brief dbAliasNameStr
+ */
+static const QString dbAliasNameStr = "precheck-hotel";
+/*!
+ * \brief dbUsernameStr
+ */
+static const QString dbUsernameStr = "SYSDBA";
+/*!
+ * \brief dbPasswordStr
+ */
+static const QString dbPasswordStr = "masterkey";
 
-
-static const QString dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+"/../../../src/Database/"); /*!< TODO */
-static const QString dbFilePathStr = QString("%1/%2").arg(dbFolderPathStr).arg(dbFileNameStr); /*!< TODO */
+/*!
+ * \brief dbFolderPathStr
+ */
+static const QString dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+"/../../../src/Database/");
+/*!
+ * \brief dbFilePathStr
+ */
+static const QString dbFilePathStr = QString("%1/%2").arg(dbFolderPathStr).arg(dbFileNameStr);
 
 
 /*
  * GUI string messages.
  */
-static QString dbDriverNotExistStr = QObject::tr("%1 database driver is not available.").arg(dbDriverStr); /*!< TODO */
-static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr); /*!< TODO */
-
-
+/*!
+ * \brief dbDriverNotExistStr
+ */
+static QString dbDriverNotExistStr = QObject::tr("%1 database driver is not available.").arg(dbDriverStr);
+/*!
+ * \brief dbCannotOpenStr
+ */
+static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr);
 
 
 
 /*!
  \brief
 
- \class AppDatabase database_manager.h "models/database_manager.h"
+ \class SH_AppDatabase database_manager.h "models/database_manager.h"
 */
 class SH_DatabaseManager: public QObject
 {
     Q_OBJECT
     private:
-        static SH_DatabaseManager *_instance; /*!< TODO */
+        static SH_DatabaseManager *_instance;
 
         /*!
          \brief
-         \fn divideQVariantMap TODO comment this
+         \fn SH_divideQVariantMap TODO comment this
          \param[in] values TODO comment this
          \param[ou] fields TODO comment this
          \param[ou] vals TODO comment this
@@ -54,11 +78,13 @@ protected:
 /*!
  \brief
 
- \fn AppDatabase
+ \fn SH_AppDatabase
 */
         SH_DatabaseManager();
-
-        QSqlDatabase dbConnection; /*!< TODO */
+        /*!
+         * \brief dbConnection
+         */
+        QSqlDatabase dbConnection;
 
     public:
 
@@ -66,7 +92,7 @@ protected:
         /*!
          \brief
 
-         \fn getInstance
+         \fn SH_getInstance
          \return AppDatabase
         */
         static SH_DatabaseManager *getInstance();
@@ -76,7 +102,7 @@ protected:
         /*!
          \brief
 
-         \fn dbConnect
+         \fn SH_dbConnect
          \return bool
         */
         bool dbConnect();
@@ -84,7 +110,7 @@ protected:
         /*!
          \brief
 
-         \fn isConnected
+         \fn SH_isConnected
          \return bool
         */
         bool isConnected();
@@ -93,7 +119,7 @@ protected:
         /*!
          \brief
 
-         \fn dbDisconnect
+         \fn SH_dbDisconnect
          \return bool
         */
         bool dbDisconnect();
@@ -102,7 +128,7 @@ protected:
         /*!
          \brief
 
-         \fn getDbConnection
+         \fn SH_getDbConnection
          \return QSqlDatabase
         */
         QSqlDatabase getDbConnection();
@@ -111,13 +137,13 @@ protected:
         /*!
          \brief
 
-         \fn ~AppDatabase
+         \fn SH_~AppDatabase
         */
         ~SH_DatabaseManager();
         /*!
          \brief
 
-         \fn tableExists
+         \fn SH_tableExists
          \param tableName
          \return bool
         */
@@ -125,7 +151,7 @@ protected:
         /*!
          \brief
 
-         \fn dataExists
+         \fn SH_dataExists
          \param tableName
          \param filter
          \return int
@@ -134,21 +160,21 @@ protected:
         /*!
          \brief
 
-         \fn execQuery
+         \fn SH_execQuery
          \param query
          \return QSqlQuery
         */
         QSqlQuery execSelectQuery(QString tableName, QStringList fields=QStringList("*"), QString condition="", QString ordering="");
         /*!
          \brief
-         \fn execReplaceQuery TODO comment this
+         \fn SH_execReplaceQuery TODO comment this
          \param query TODO comment this
          \return bool TODO comment this
         */
         bool execReplaceQuery(QString tableName, QVariantMap values);
         /*!
          \brief
-         \fn execInsertReturningQuery TODO comment this
+         \fn SH_execInsertReturningQuery TODO comment this
          \param query TODO comment this
          \param returningField TODO comment this
          \return QVariant TODO comment this
@@ -156,4 +182,4 @@ protected:
         QVariant execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField);
 };
 
-#endif // APPDATABASESINGLETON_H
+#endif /* APPDATABASESINGLETON_H*/

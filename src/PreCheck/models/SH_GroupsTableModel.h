@@ -8,7 +8,8 @@
 /*!
  \brief
 
- \class GroupsTableModel groups_table_model.h "models/groups_table_model.h"
+ \class SH_GroupsTableModel
+\headerfile groups_table_model.h "models/groups_table_model.h"
 */
 class SH_GroupsTableModel : public SH_ExtendedProxyModel
 {
@@ -19,7 +20,7 @@ class SH_GroupsTableModel : public SH_ExtendedProxyModel
 /*!
  \brief
 
- \fn GroupsTableModel
+ \fn SH_GroupsTableModel
  \param parent
 */
         SH_GroupsTableModel(QObject *parent = 0);
@@ -31,9 +32,9 @@ class SH_GroupsTableModel : public SH_ExtendedProxyModel
         /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
         void fillModel();
 };
 
-#endif // GROUP_H
+#endif /* GROUP_H*/

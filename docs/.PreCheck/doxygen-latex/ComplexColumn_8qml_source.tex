@@ -1,0 +1,22 @@
+\hypertarget{ComplexColumn_8qml}{\section{Complex\-Column.\-qml}
+\label{ComplexColumn_8qml}\index{views/qml/\-Complex\-Column.\-qml@{views/qml/\-Complex\-Column.\-qml}}
+}
+
+\begin{DoxyCode}
+\hypertarget{ComplexColumn_8qml_source_l00001}{}\hyperlink{classComplexColumn}{00001} \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{ComplexColumn_8qml_source_l00004}{}\hyperlink{classComplexColumn_a8ed7398e27678a9b93bb33f37d6b3836}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+\hypertarget{ComplexColumn_8qml_source_l00006}{}\hyperlink{classComplexColumn_a76206dc1264db4c7af6ed5b7a87a58aa}{00006} import PreCheck 1.0
+00007 
+00008 Column \{
+00009     \textcolor{keywordtype}{id}: col
+00010     readonly \textcolor{keyword}{property} real innerHeight: col.height-col.anchors.topMargin-col.anchors.bottomMargin-2*col.
+      spacing
+00011     readonly \textcolor{keyword}{property} real innerWidth: col.width-col.anchors.rightMargin-col.anchors.leftMargin-2*col.
+      spacing
+00012 \}
+00013 
+00014 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* DOXYGEN\_SHOULD\_SKIP\_THIS */}\textcolor{preprocessor}{}
+\end{DoxyCode}

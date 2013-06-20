@@ -1,0 +1,85 @@
+\hypertarget{QsLogDest_8h}{\section{Qs\-Log\-Dest.\-h}
+\label{QsLogDest_8h}\index{logging/\-Qs\-Log\-Dest.\-h@{logging/\-Qs\-Log\-Dest.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/* Copyright (c) 2013, Razvan Petru}
+00002 \textcolor{comment}{*/}
+00003 \textcolor{comment}{/* All rights reserved.}
+00004 \textcolor{comment}{*/}
+00005 
+00006 \textcolor{comment}{/* Redistribution and use in source and binary forms, with or without modification,}
+00007 \textcolor{comment}{*/}
+00008 \textcolor{comment}{/* are permitted provided that the following conditions are met:}
+00009 \textcolor{comment}{*/}
+00010 
+00011 \textcolor{comment}{/* * Redistributions of source code must retain the above copyright notice, this}
+00012 \textcolor{comment}{*/}
+00013 \textcolor{comment}{/*   list of conditions and the following disclaimer.}
+00014 \textcolor{comment}{*/}
+00015 \textcolor{comment}{/* * Redistributions in binary form must reproduce the above copyright notice, this}
+00016 \textcolor{comment}{*/}
+00017 \textcolor{comment}{/*   list of conditions and the following disclaimer in the documentation and/or other}
+00018 \textcolor{comment}{*/}
+00019 \textcolor{comment}{/*   materials provided with the distribution.}
+00020 \textcolor{comment}{*/}
+00021 \textcolor{comment}{/* * The name of the contributors may not be used to endorse or promote products}
+00022 \textcolor{comment}{*/}
+00023 \textcolor{comment}{/*   derived from this software without specific prior written permission.}
+00024 \textcolor{comment}{*/}
+00025 
+00026 \textcolor{comment}{/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND}
+00027 \textcolor{comment}{*/}
+00028 \textcolor{comment}{/* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED}
+00029 \textcolor{comment}{*/}
+00030 \textcolor{comment}{/* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.}
+00031 \textcolor{comment}{*/}
+00032 \textcolor{comment}{/* IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,}
+00033 \textcolor{comment}{*/}
+00034 \textcolor{comment}{/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,}
+00035 \textcolor{comment}{*/}
+00036 \textcolor{comment}{/* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}
+00037 \textcolor{comment}{*/}
+00038 \textcolor{comment}{/* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF}
+00039 \textcolor{comment}{*/}
+00040 \textcolor{comment}{/* LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE}
+00041 \textcolor{comment}{*/}
+00042 \textcolor{comment}{/* OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED}
+00043 \textcolor{comment}{*/}
+00044 \textcolor{comment}{/* OF THE POSSIBILITY OF SUCH DAMAGE.}
+00045 \textcolor{comment}{*/}
+00046 
+00047 \textcolor{preprocessor}{#ifndef QSLOGDEST\_H}
+00048 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QSLOGDEST\_H}
+00049 \textcolor{preprocessor}{}
+00050 \textcolor{preprocessor}{#include "\hyperlink{QsLogLevel_8h}{QsLogLevel.h}"}
+00051 \textcolor{preprocessor}{#include <QSharedPointer>}
+00052 \textcolor{preprocessor}{#include <QtGlobal>}
+00053 \textcolor{keyword}{class }QString;
+00054 
+00055 \textcolor{keyword}{namespace }QsLogging
+00056 \{
+\hypertarget{QsLogDest_8h_source_l00060}{}\hyperlink{classQsLogging_1_1Destination}{00060} \textcolor{keyword}{class }\hyperlink{classQsLogging_1_1Destination}{Destination}
+00061 \{
+00062 \textcolor{keyword}{public}:
+\hypertarget{QsLogDest_8h_source_l00066}{}\hyperlink{classQsLogging_1_1Destination_ace97f507c02fe9a107306b089e07c3cb}{00066}     \textcolor{keyword}{virtual} \hyperlink{classQsLogging_1_1Destination_ace97f507c02fe9a107306b089e07c3cb}{~Destination}()\{\}
+00072     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classQsLogging_1_1Destination_a19306b28686d599f49bb23f88824fd65}{write}(\textcolor{keyword}{const} QString& message, \hyperlink{namespaceQsLogging_a38c7dd87e4de6f8eb460763ad0baa033}{Level} level) = 0;
+00077     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classQsLogging_1_1Destination_acb3dd81553c59aec5062ec8556b3b407}{isValid}() = 0; \textcolor{comment}{/* returns whether the destination was created correctly}
+00078 \textcolor{comment}{*/}
+00079 \};
+\hypertarget{QsLogDest_8h_source_l00083}{}\hyperlink{namespaceQsLogging_a8fe41cf859d617f1c23515f804d1e8ec}{00083} \textcolor{keyword}{typedef} QSharedPointer<Destination> \hyperlink{namespaceQsLogging_a8fe41cf859d617f1c23515f804d1e8ec}{DestinationPtr};
+00084 
+\hypertarget{QsLogDest_8h_source_l00089}{}\hyperlink{classQsLogging_1_1DestinationFactory}{00089} \textcolor{keyword}{class }\hyperlink{classQsLogging_1_1DestinationFactory}{DestinationFactory}
+00090 \{
+00091 \textcolor{keyword}{public}:
+00100     \textcolor{keyword}{static} \hyperlink{namespaceQsLogging_a8fe41cf859d617f1c23515f804d1e8ec}{DestinationPtr} \hyperlink{classQsLogging_1_1DestinationFactory_abc128b6640d5716b91c681df960b878c}{MakeFileDestination}(\textcolor{keyword}{const} QString& filePath, \textcolor{keywordtype}{
+      bool} enableRotation = \textcolor{keyword}{false}, qint64 sizeInBytesToRotateAfter = 0, \textcolor{keywordtype}{int} oldLogsToKeep = 0);
+00105     \textcolor{keyword}{static} \hyperlink{namespaceQsLogging_a8fe41cf859d617f1c23515f804d1e8ec}{DestinationPtr} \hyperlink{classQsLogging_1_1DestinationFactory_a69eecb9933440870bb809c4e32ac1987}{MakeDebugOutputDestination}();
+00106 \};
+00107 
+00108 \} \textcolor{comment}{/* end namespace}
+00109 \textcolor{comment}{*/}
+00110 
+00111 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* QSLOGDEST\_H}
+00112 \textcolor{comment}{*/}\textcolor{preprocessor}{}
+\end{DoxyCode}

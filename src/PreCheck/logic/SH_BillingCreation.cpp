@@ -8,6 +8,9 @@
 #include "SH_AdaptDatabaseState.h"
 #include "SH_ClientCreation.h"
 
+/*!
+ * \details SH_BillingCreationStateMachine::SH_BillingCreationStateMachine
+ */
 SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QObject *parent) :
     SH_InOutStateMachine("BILLINGS",name, parent)
 {
@@ -21,7 +24,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     SH_DatabaseContentQuestionState* client = new SH_DatabaseContentQuestionState("Veuillez entrer le nom du client à facturer","main client billing creation", "CLIENTS", "NAME");
     SH_ClientCreationStateMachine* clientCreation = new SH_ClientCreationStateMachine("main client creation in billing creation");
     SH_NumericQuestionState* nbRooms = new SH_NumericQuestionState("Veuillez entrer le nombre de chambres", "nb rooms billing creation", 1);
-    //DatabaseContentQuestionState* type = new DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "CODE");
+    /*DatabaseContentQuestionState* type = new DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "CODE");*/
         SH_DatabaseContentQuestionState* type = new SH_DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "ID");
     Sh_LoopingInOutStateMachine* roomsAffectation = new Sh_LoopingInOutStateMachine("ROOMSOCCUPATION", "rooms affectation billing creation");
     Sh_LoopingInOutStateMachine* billsCreation = new Sh_LoopingInOutStateMachine("BILLS", "bills creation billing creation");
@@ -91,7 +94,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
         int billingType = getContentValue("BILLINGTYPE_ID").toInt();
         int billType;
         if(billingType <= 2) {
-            billType = 1+billingType; //nb facture par chambre
+            billType = 1+billingType; /*nb facture par chambre*/
         } else {
             billType = (billsCreation->current() % (1+(billingType % 3)));
         }
@@ -120,7 +123,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     });
     this->addChildrenNextTransition(clientCreation, nbRooms);
     this->addChildrenNextTransition(nbRooms, type);
-    //this->addChildrenNextTransition(type, final);
+    /*this->addChildrenNextTransition(type, final);*/
     this->addChildrenNextTransition(type, confirmPart1);
     confirmPart1->addTransition(confirmPart1, SIGNAL(next()), confirmPart1);
     connect(confirmPart1, &SH_GenericState::exited, [=]() {

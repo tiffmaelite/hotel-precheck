@@ -10,30 +10,31 @@
 /*!
  \brief
 
- \class RoomsTableModel rooms_table_model.h "models/rooms_table_model.h"
+ \class SH_RoomsTableModel
+\headerfile rooms_table_model.h "models/rooms_table_model.h"
 */
 class SH_RoomsTableModel : public SH_ExtendedProxyModel
 {
-        Q_OBJECT
-    public:
+    Q_OBJECT
+public:
 
-/*!
+    /*!
  \brief
 
- \fn RoomsTableModel
+ \fn SH_RoomsTableModel
  \param parent
 */
-        SH_RoomsTableModel(QObject *parent = 0);
+    SH_RoomsTableModel(QObject *parent = 0);
 
-    protected:
-        /*!
+protected:
+    /*!
          \brief
 
-         \fn fillModel
+         \fn SH_fillModel
         */
-        virtual void fillModel();
-    private:
+    virtual void fillModel();
+private:
 
 };
 
-#endif // ROOM_H
+#endif /* ROOM_H*/

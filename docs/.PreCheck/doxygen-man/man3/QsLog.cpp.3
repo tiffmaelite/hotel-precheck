@@ -1,0 +1,83 @@
+.TH "logging/QsLog.cpp" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+logging/QsLog.cpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'QsLog\&.h'\fP
+.br
+\fC#include 'QsLogDest\&.h'\fP
+.br
+\fC#include <QMutex>\fP
+.br
+\fC#include <QVector>\fP
+.br
+\fC#include <QDateTime>\fP
+.br
+\fC#include <QtGlobal>\fP
+.br
+\fC#include <cassert>\fP
+.br
+\fC#include <cstdlib>\fP
+.br
+\fC#include <stdexcept>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBQsLogging::LoggerImpl\fP"
+.br
+.in -1c
+.SS "Espaces de nommage"
+
+.in +1c
+.ti -1c
+.RI "\fBQsLogging\fP"
+.br
+.in -1c
+.SS "Définitions de type"
+
+.in +1c
+.ti -1c
+.RI "typedef QVector< DestinationPtr > \fBQsLogging::DestinationList\fP"
+.br
+.in -1c
+.SS "Fonctions"
+
+.in +1c
+.ti -1c
+.RI "static const QString \fBQsLogging::fmtDateTime\fP ('yyyy-MM-ddThh:mm:ss\&.zzz')"
+.br
+.ti -1c
+.RI "static const char * \fBQsLogging::LevelToText\fP (Level theLevel)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static const char \fBQsLogging::DebugString\fP [] = 'DEBUG'"
+.br
+.ti -1c
+.RI "static const char \fBQsLogging::ErrorString\fP [] = 'ERROR'"
+.br
+.ti -1c
+.RI "static const char \fBQsLogging::FatalString\fP [] = 'FATAL'"
+.br
+.ti -1c
+.RI "static const char \fBQsLogging::InfoString\fP [] = 'INFO'"
+.br
+.ti -1c
+.RI "static const char \fBQsLogging::TraceString\fP [] = 'TRACE'"
+.br
+.ti -1c
+.RI "static const char \fBQsLogging::WarnString\fP [] = 'WARN'"
+.br
+.in -1c
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

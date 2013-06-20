@@ -1,0 +1,87 @@
+\hypertarget{SH__SqlTableView_8qml}{\section{S\-H\-\_\-\-Sql\-Table\-View.\-qml}
+\label{SH__SqlTableView_8qml}\index{views/qml/\-S\-H\-\_\-\-Sql\-Table\-View.\-qml@{views/qml/\-S\-H\-\_\-\-Sql\-Table\-View.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{SH__SqlTableView_8qml_source_l00004}{}\hyperlink{classSH__SqlTableView}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+00007 
+00011 TableView \{
+00012     \textcolor{keywordtype}{id}: table
+00013     model: 0
+00014     signal selected(\textcolor{keywordtype}{string} selectedItem)
+00015     Component.onCompleted:\{
+00016         \textcolor{comment}{/*var tmp = [];*/}
+00017         \textcolor{keywordflow}{if}(table.model !== 0) \{
+00018             table.model.fetch();
+00019             var count = table.model.fieldsCount();
+00020             \textcolor{keywordflow}{for}(var index = 0; index < count; index++) \{
+00021                 \textcolor{keywordflow}{if}(!table.model.containsFilterKeyColumn(index)) \{
+00022                     var col = Qt.createQmlObject(\textcolor{stringliteral}{'import QtQuick 2.1; import QtQuick.Controls 1.0;
+       TableViewColumn \{title: table.model.field('}+index+\textcolor{stringliteral}{').text; role: table.model.field('}+index+\textcolor{stringliteral}{').role\}'},table,\textcolor{stringliteral}{'column'}+
+      index);
+00023                     \textcolor{comment}{/*tmp.push(col);*/}
+00024                     table.addColumn(col);
+00025                 \}
+00026             \}
+00027         \}
+00028         \textcolor{comment}{/*return tmp;*/}
+00029     \}
+00030 
+00031 
+00032     itemDelegate:
+00033         \hyperlink{classItem}{Item} \{
+00034 
+00035         Text \{
+00036             width: parent.width
+00037             anchors.margins: 4
+00038             anchors.left: parent.left
+00039             anchors.verticalCenter: parent.verticalCenter
+00040             elide: styleData.elideMode
+00041             text: styleData.value !== undefined ? styleData.value : \textcolor{stringliteral}{""}
+00042             color: styleData.textColor
+00043             visible: !styleData.selected
+00044         \}
+00045         Loader \{ \textcolor{comment}{/* Initialize text input lazily to improve performance*/}
+00046             \textcolor{keywordtype}{id}: loaderEditor
+00047             anchors.fill: parent
+00048             anchors.margins: 4
+00049             Connections \{
+00050                 target: loaderEditor.item
+00051                 onAccepted: \{
+00052                     \textcolor{comment}{/*if (typeof styleData.value === 'number')*/}
+00053                     table.selected(styleData.row);
+00054                     model.setData(styleData.row, styleData.role, styleData.value);
+00055                 \}
+00056             \}
+00057             sourceComponent: styleData.selected ? editor : null
+00058             Component \{
+00059                 \textcolor{keywordtype}{id}: editor
+00060                 TextInput \{
+00061                     \textcolor{keywordtype}{id}: textinput
+00062                     color: styleData.textColor
+00063                     text: styleData.value
+00064                     MouseArea \{
+00065                         \textcolor{keywordtype}{id}: mouseArea
+00066                         anchors.fill: parent
+00067                         hoverEnabled: \textcolor{keyword}{true}
+00068                         onClicked: \{
+00069                             textinput.forceActiveFocus()
+00070                         \}
+00071                     \}
+00072                     onFocusChanged: \{
+00073                         \textcolor{keywordflow}{if}(styleData.value !== textinput.text) \{
+00074                             textinput.accepted();
+00075                         \}
+00076                     \}
+00077 
+00078                 \}
+00079             \}
+00080         \}
+00081     \}
+00082 \}
+\end{DoxyCode}

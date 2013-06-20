@@ -5,8 +5,11 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 Item {
-    id: SH_CommonPage
+    id: commonPage
     signal quit();
     signal selected(string selectedItem)
     signal keySelected(string selectedKey)
@@ -39,7 +42,7 @@ Item {
             rightOutput.replace(buff.content);
         }
         onClearBuffer: {
-            SH_CommonPage.selected(buff.content);
+            commonPage.selected(buff.content);
             buff.content = "";
         }
     }
@@ -68,7 +71,7 @@ Item {
     }
 
     onKeySelected: {
-        SH_CommonPage.streamBuffer.buffer(selectedKey);
+        commonPage.streamBuffer.buffer(selectedKey);
     }
     GridLayout {
         id:main
@@ -80,7 +83,7 @@ Item {
         flow: GridLayout.TopToBottom
         rows: 2
         columns: 2
-        //la partie supérieure du panel de gauche est remplie par des onglets et leur contenu
+        /*la partie supérieure du panel de gauche est remplie par des onglets et leur contenu*/
         SH_TabZone {
             id: tabs
             objectName: "TabView"
@@ -100,13 +103,13 @@ Item {
             ]
 
             onSelected: {
-                SH_CommonPage.keySelected(selectedItem);
+               commonPage.keySelected(selectedItem);
             }
             onSelectedForDetail: {
                 rightOutput.displaySqlDetail(data);
             }
         }
-        //la partie inférieure du panel de gauche contient le clavier
+        /*la partie inférieure du panel de gauche contient le clavier*/
         SH_Keyboard{
             id: keys
             columns: 5
@@ -126,7 +129,7 @@ Item {
             Layout.fillHeight: true
         }
 
-        //la zone d'affichage remplit toute la moitié de droite
+        /*la zone d'affichage remplit toute la moitié de droite*/
         SH_OutputZone {
             id: rightOutput
             objectName: "RightOutput"
@@ -135,7 +138,7 @@ Item {
             Layout.maximumWidth: main.width/2
             Layout.fillHeight: true
             onSelected: {
-                SH_CommonPage.keySelected(selectedItem);
+                commonPage.keySelected(selectedItem);
             }
         }
     }
@@ -145,19 +148,19 @@ Item {
         id: abandonAction
         text: qsTr("VALIDER")
         keyShortcut: Qt.Key_unknown
-        onTriggered: SH_CommonPage.validate()
+        onTriggered: commonPage.validate()
     }
     SH_ComplexAction {
         id: cancelAction
         text: qsTr("ANNULER")
         keyShortcut: Qt.Key_Cancel
-        //onTriggered: //TODO
+        /*onTriggered: *//*TODO*/
     }
     SH_ComplexAction {
         id: eraseAction
         text: qsTr("EFFACER")
         keyShortcut: Qt.Key_Delete
-        //onTriggered: //TODO
+        /*onTriggered: *//*TODO*/
     }
     SH_ComplexAction {
         id: replaceAction
@@ -169,7 +172,7 @@ Item {
         id: backAction
         text: qsTr("RETOUR")
         keyShortcut: Qt.Key_Backspace
-        onTriggered: SH_CommonPage.streamBuffer.eraseLastChar();
+        onTriggered: commonPage.streamBuffer.eraseLastChar();
     }
 
     SH_ComplexAction {
@@ -177,35 +180,35 @@ Item {
         text: qsTr("LIBÉRER")
         keyShortcut: Qt.Key_unknown
 
-        //onTriggered: //TODO
+        /*onTriggered: *//*TODO*/
     }
     SH_ComplexAction {
         id: digit7Action
         text: qsTr("7")
         keyShortcut: Qt.Key_7
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit8Action
         text: qsTr("8")
         keyShortcut: Qt.Key_8
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit9Action
         text: qsTr("9")
         keyShortcut: Qt.Key_9
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: plusAction
         text: qsTr("+")
         keyShortcut: Qt.Key_Plus
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
 
     SH_ComplexAction {
@@ -219,98 +222,98 @@ Item {
         text: qsTr("4")
         keyShortcut: Qt.Key_4
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit5Action
         text: qsTr("5")
         keyShortcut: Qt.Key_5
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit6Action
         text: qsTr("6")
         keyShortcut: Qt.Key_6
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: timesAction
         text: qsTr("*")
         keyShortcut: Qt.Key_multiply
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
 
     SH_ComplexAction {
         id: departureAction
         text: qsTr("DÉPART")
         keyShortcut: Qt.Key_unknown
-        //onTriggered: //TODO
+        /*onTriggered: */ /*TODO*/
     }
     SH_ComplexAction {
         id: digit1Action
         text: qsTr("1")
         keyShortcut: Qt.Key_1
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit2Action
         text: qsTr("2")
         keyShortcut: Qt.Key_2
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit3Action
         text: qsTr("3")
         keyShortcut: Qt.Key_3
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: dividesAction
         text: qsTr("/")
         keyShortcut: Qt.Key_division
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: vatAction
         text: qsTr("TVA")
         keyShortcut: Qt.Key_unknown
 
-        //onTriggered: //TODO
+        /*onTriggered: */ /*TODO*/
     }
     SH_ComplexAction {
         id: doubleNullAction
         text: qsTr("00")
         keyShortcut: Qt.Key_unknown
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: nullAction
         text: qsTr("0")
         keyShortcut: Qt.Key_0
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: decimalAction
         text: qsTr(",")
         keyShortcut: Qt.Key_Period
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: minusAction
         text: qsTr("-")
         keyShortcut: Qt.Key_Minus
 
-        onTriggered: SH_CommonPage.keySelected(text);
+        onTriggered: commonPage.keySelected(text);
     }
 
     SH_ComplexAction {
@@ -346,7 +349,7 @@ Item {
         id: helpAction
         text: qsTr("AIDE")
         keyShortcut: Qt.Key_unknown
-        //onTriggered: //TODO
+        /*onTriggered: */ /*TODO*/
     }
 
 
@@ -355,70 +358,70 @@ Item {
         text: qsTr("Q")
         keyShortcut: Qt.Key_Q
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char11Action
         text: qsTr("W")
         keyShortcut: Qt.Key_W
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char12Action
         text: qsTr("E")
         keyShortcut: Qt.Key_E
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char13Action
         text: qsTr("R")
         keyShortcut: Qt.Key_R
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char14Action
         text: qsTr("T")
         keyShortcut: Qt.Key_T
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char15Action
         text: qsTr("Z")
         keyShortcut: Qt.Key_Z
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char16Action
         text: qsTr("U")
         keyShortcut: Qt.Key_U
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char17Action
         text: qsTr("I")
         keyShortcut: Qt.Key_I
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char18Action
         text: qsTr("O")
         keyShortcut: Qt.Key_O
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char19Action
         text: qsTr("P")
         keyShortcut: Qt.Key_P
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
 
     SH_ComplexAction {
@@ -426,70 +429,70 @@ Item {
         text: qsTr("É")
         keyShortcut: Qt.Key_Eacute
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char21Action
         text: qsTr("È")
         keyShortcut: Qt.Key_Egrave
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char22Action
         text: qsTr("Ê")
         keyShortcut: Qt.Key_Ecircumflex
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char23Action
         text: qsTr("Ë")
         keyShortcut: Qt.Key_Ediaeresis
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char24Action
         text: qsTr("À")
         keyShortcut: Qt.Key_Agrave
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char25Action
         text: qsTr("Â")
         keyShortcut: Qt.Key_Acircumflex
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char26Action
         text: qsTr("Ä")
         keyShortcut: Qt.Key_Adiaeresis
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char27Action
         text: qsTr("Ï")
         keyShortcut: Qt.Key_Idiaeresis
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char28Action
         text: qsTr("Ù")
         keyShortcut: Qt.Key_Ugrave
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char29Action
         text: qsTr("Û")
         keyShortcut: Qt.Key_Ucircumflex
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
 
     SH_ComplexAction {
@@ -497,70 +500,70 @@ Item {
         text: qsTr("A")
         keyShortcut: Qt.Key_A
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char31Action
         text: qsTr("S")
         keyShortcut: Qt.Key_S
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char32Action
         text: qsTr("D")
         keyShortcut: Qt.Key_D
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char33Action
         text: qsTr("F")
         keyShortcut: Qt.Key_F
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char34Action
         text: qsTr("G")
         keyShortcut: Qt.Key_G
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char35Action
         text: qsTr("H")
         keyShortcut: Qt.Key_H
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char36Action
         text: qsTr("J")
         keyShortcut: Qt.Key_J
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char37Action
         text: qsTr("K")
         keyShortcut: Qt.Key_K
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char38Action
         text: qsTr("L")
         keyShortcut: Qt.Key_L
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char39Action
         text: qsTr("Ö")
         keyShortcut: Qt.Key_Odiaeresis
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
 
     SH_ComplexAction {
@@ -568,70 +571,70 @@ Item {
         text: qsTr("Y")
         keyShortcut: Qt.Key_Y
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char41Action
         text: qsTr("X")
         keyShortcut: Qt.Key_X
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char42Action
         text: qsTr("C")
         keyShortcut: Qt.Key_C
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char43Action
         text: qsTr("V")
         keyShortcut: Qt.Key_V
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char44Action
         text: qsTr("B")
         keyShortcut: Qt.Key_B
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char45Action
         text: qsTr("N")
         keyShortcut: Qt.Key_N
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char46Action
         text: qsTr("M")
         keyShortcut: Qt.Key_M
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char47Action
         text: qsTr("Î")
         keyShortcut: Qt.Key_Icircumflex
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char48Action
         text: qsTr("Ç")
         keyShortcut: Qt.Key_Ccedilla
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char49Action
         text: qsTr("Ô")
         keyShortcut: Qt.Key_Ocircumflex
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
 
     SH_ComplexAction {
@@ -639,131 +642,131 @@ Item {
         text: qsTr("Ñ")
         keyShortcut: Qt.Key_Ntilde
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char51Action
         text: qsTr("&")
         keyShortcut: Qt.Key_Ampersand
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char52Action
         text: qsTr("@")
         keyShortcut: Qt.Key_At
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char53Action
         text: qsTr("+")
         keyShortcut: Qt.Key_Plus
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char54Action
         text: qsTr("_")
         keyShortcut: Qt.Key_Underscore
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char55Action
         text: qsTr("(")
         keyShortcut: Qt.Key_BracketLeft
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char56Action
         text: qsTr(")")
         keyShortcut: Qt.Key_BracketRight
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char57Action
         text: qsTr("-")
         keyShortcut: Qt.Key_hyphen
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char58Action
         text: qsTr("?")
         keyShortcut: Qt.Key_Question
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char59Action
         text: qsTr("!")
         keyShortcut: Qt.Key_Exclam
 
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
 
     SH_ComplexAction {
         id: char60Action
         text: qsTr("%")
         keyShortcut: Qt.Key_Percent
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char61Action
         text: qsTr(":")
         keyShortcut: Qt.Key_Semicolon
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char62Action
         text: qsTr("<")
         keyShortcut: Qt.Key_Less
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char63Action
         text: qsTr(">")
         keyShortcut: Qt.Key_Greater
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char64Action
         text: qsTr("\\")
         keyShortcut: Qt.Key_Backslash
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char65Action
         text: qsTr("/")
         keyShortcut: Qt.Key_Slash
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char66Action
         text: qsTr("=")
         keyShortcut: Qt.Key_Equal
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char67Action
         text: qsTr("*")
         keyShortcut: Qt.Key_Asterisk
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char68Action
         text: qsTr("°")
         keyShortcut: Qt.Key_degree
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: char69Action
         text: qsTr(";")
         keyShortcut: Qt.Key_Colon
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: capsAction
@@ -775,31 +778,31 @@ Item {
         id: dotAction
         text: qsTr(".")
         keyShortcut: Qt.Key_Period
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: commaAction
         text: qsTr(",")
         keyShortcut: Qt.Key_Comma
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: quoteAction
         text: qsTr("'")
         keyShortcut: Qt.Key_Apostrophe
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: quote2Action
         text: qsTr("\"")
         keyShortcut: Qt.Key_QuoteDbl
-        onTriggered: SH_CommonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
     }
     SH_ComplexAction {
         id: spaceAction
         text: qsTr("ESPACE")
         keyShortcut: Qt.Key_Space
-        onTriggered: SH_CommonPage.keySelected(" ");
+        onTriggered: commonPage.keySelected(" ");
     }
 }
 

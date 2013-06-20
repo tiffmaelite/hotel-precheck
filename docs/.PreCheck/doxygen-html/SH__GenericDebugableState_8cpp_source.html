@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de logic/SH_GenericDebugableState.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0f9694b8de2575528c6c0ae9f79dda65.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_GenericDebugableState.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__GenericDebugableState_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__GenericDebugableState_8h.html">SH_GenericDebugableState.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__IOStateMachine_8h.html">SH_IOStateMachine.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classSH__GenericState.html#a3cc3cb1491b812dfdd032fc6438dfd4e">   10</a></span>&#160;<a class="code" href="classSH__GenericState.html#a3cc3cb1491b812dfdd032fc6438dfd4e">SH_GenericState::SH_GenericState</a>(QString name, <a class="code" href="classQState.html">QState</a> *parent) :</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classQState.html">QState</a>(parent), <a class="code" href="classSH__NamedObject.html">SH_NamedObject</a>(name)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classSH__GenericState.html#a5480c5ee725fd801d8f6292cd4c803b8">   21</a></span>&#160;QString <a class="code" href="classSH__GenericState.html#a5480c5ee725fd801d8f6292cd4c803b8">SH_GenericState::toString</a>()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classQStateMachine.html">QStateMachine</a>* machine = this-&gt;machine();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classSH__InOutStateMachine.html">SH_InOutStateMachine</a>* mach = qobject_cast&lt;<a class="code" href="classSH__InOutStateMachine.html">SH_InOutStateMachine</a> *&gt;(machine);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(mach) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.html#af73e97f6476ca1ef3a22b159d179f5e7">SH_NamedObject::toString</a>()+ <span class="stringliteral">&quot; [in &quot;</span>+mach-&gt;<a class="code" href="classSH__InOutStateMachine.html#a60ecd7de03d948e2d1e9cbedb5c3e5fa">toString</a>()+<span class="stringliteral">&quot;] &quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.html#af73e97f6476ca1ef3a22b159d179f5e7">SH_NamedObject::toString</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classSH__GenericState.html#addfc0b47a1e83f51b9cd80c86e838be0">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__GenericState.html#addfc0b47a1e83f51b9cd80c86e838be0">SH_GenericState::onTransitionTriggered</a>()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QAbstractTransition* tr = qobject_cast&lt;QAbstractTransition*&gt;(sender());</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (tr == 00) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classSH__GenericState.html">SH_GenericState</a>* sourceState = qobject_cast&lt;<a class="code" href="classSH__GenericState.html">SH_GenericState</a>*&gt;(tr-&gt;sourceState());</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classSH__GenericState.html">SH_GenericState</a>* targetState = qobject_cast&lt;<a class="code" href="classSH__GenericState.html">SH_GenericState</a>*&gt;(tr-&gt;targetState());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QString log;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QTextStream logStream(&amp;log);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    logStream &lt;&lt; machine()-&gt;objectName() &lt;&lt; <span class="stringliteral">&quot; transition from &quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (sourceState) logStream &lt;&lt; sourceState-&gt;<a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">else</span> logStream &lt;&lt; tr-&gt;sourceState();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    logStream &lt;&lt; <span class="stringliteral">&quot; to &quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (targetState) logStream &lt;&lt; targetState-&gt;name();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">else</span> logStream &lt;&lt; tr-&gt;targetState();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    logStream.flush();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;Machine: &quot;</span> &lt;&lt; log;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classSH__GenericState.html#a7c30692635023ce7cf65e5ba5bb18a9c">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__GenericState.html#a7c30692635023ce7cf65e5ba5bb18a9c">SH_GenericState::onEntry</a>(QEvent *event)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;Machine: &quot;</span> &lt;&lt; machine()-&gt;objectName() &lt;&lt; <span class="stringliteral">&quot; entered &quot;</span> &lt;&lt; <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classSH__GenericState.html#accf3326011661417fb0ca0eede3ed9a1">   73</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__GenericState.html#accf3326011661417fb0ca0eede3ed9a1">SH_GenericState::onExit</a>(QEvent *event)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;Machine: &quot;</span> &lt;&lt; machine()-&gt;objectName() &lt;&lt; <span class="stringliteral">&quot; exited  &quot;</span> &lt;&lt; <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classSH__GenericState.html#acb2c9207a5f3c6d32a01b0b7789bb209">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__GenericState.html#acb2c9207a5f3c6d32a01b0b7789bb209">SH_GenericState::onMachineStarted</a>()</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">foreach</span> (QAbstractTransition* tr, transitions())</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;           connect(tr, SIGNAL(triggered()), <span class="keyword">this</span>, SLOT(<a class="code" href="classSH__GenericState.html#addfc0b47a1e83f51b9cd80c86e838be0">onTransitionTriggered</a>()));</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Juin 20 2013 23:37:26 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>

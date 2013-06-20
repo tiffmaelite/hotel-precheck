@@ -2,10 +2,9 @@
 
 
 /*!
- \brief
+ \details
 
- \fn ClientsTableModel::ClientsTableModel
- \param parent
+ \fn SH_ClientsTableModel::ClientsTableModel
 */
 SH_ClientsTableModel::SH_ClientsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
@@ -15,9 +14,9 @@ SH_ClientsTableModel::SH_ClientsTableModel(QObject *parent):
 
 
 /*!
- \brief
+ \details
 
- \fn ClientsTableModel::fillModel
+ \fn SH_ClientsTableModel::fillModel
 */
 void SH_ClientsTableModel::fillModel()
 {

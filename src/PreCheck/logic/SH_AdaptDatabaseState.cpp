@@ -3,10 +3,8 @@
 #include <QtCore>
 
 /*!
- \brief
- \fn adaptDatabase::adaptDatabase TODO comment this
- \param name TODO comment this
- \param parent TODO comment this
+ \details
+ \fn SH_adaptDatabase::adaptDatabase TODO comment this
 */
 SH_AdaptDatabaseState::SH_AdaptDatabaseState(QString name, QState *parent) :
     SH_GenericState(name, parent)
@@ -14,11 +12,8 @@ SH_AdaptDatabaseState::SH_AdaptDatabaseState(QString name, QState *parent) :
 }
 
 /*!
- \brief
- \fn adaptDatabase::insertUpdate TODO comment this
- \param table TODO comment this
- \param content TODO comment this
- \return bool TODO comment this
+ \details
+ \fn SH_adaptDatabase::insertUpdate TODO comment this
 */
 QVariant SH_AdaptDatabaseState::insertUpdate(QString table, QVariantMap content)
 {

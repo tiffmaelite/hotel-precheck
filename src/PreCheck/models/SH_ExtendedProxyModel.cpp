@@ -5,10 +5,9 @@
 
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::CheckableSortFilterProxyModel
- \param parent
+ \fn SH_CheckableSortFilterProxyModel::CheckableSortFilterProxyModel
 */
 SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -17,15 +16,13 @@ SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
     this->model = new SH_SqlDataModel(parent);
     this->setSourceModel(this->model);
     this->sortIndex = 0;
-    //connect(this->model, tableChanged(), tableName());
+    /*connect(this->model, tableChanged(), tableName());*/
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::replaceSet
- \param originalSet
- \param newSet
+ \fn SH_CheckableSortFilterProxyModel::replaceSet
 */
 void SH_ExtendedProxyModel::replaceSet(QList<int>& originalSet, QList<int> newSet) {
     originalSet.clear();
@@ -37,40 +34,36 @@ void SH_ExtendedProxyModel::replaceSet(QList<int>& originalSet, QList<int> newSe
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setBooleanColumns
- \param boolCols
+ \fn SH_CheckableSortFilterProxyModel::setBooleanColumns
 */
 void SH_ExtendedProxyModel::setBooleanColumns(QList<int> boolCols) {
     replaceSet(this->booleanSet, boolCols);
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setReadOnlyColumns
- \param readonlyCols
+ \fn SH_CheckableSortFilterProxyModel::setReadOnlyColumns
 */
 void SH_ExtendedProxyModel::setReadOnlyColumns(QList<int> readonlyCols) {
     replaceSet(this->readonlySet, readonlyCols);
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setPasswordColumns
- \param passwordCols
+ \fn SH_CheckableSortFilterProxyModel::setPasswordColumns
 */
 void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
     replaceSet(this->passwordSet, passwordCols);
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setNullColumns
- \param nullCols
+ \fn SH_CheckableSortFilterProxyModel::setNullColumns
 */
 void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
     if (sourceModel()->inherits("QSqlQueryModel")) {
@@ -79,9 +72,9 @@ void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setNotNullColumns
+ \fn SH_CheckableSortFilterProxyModel::setNotNullColumns
  \param notNullCols
 */
 void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
@@ -92,12 +85,9 @@ void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
 
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::filterAcceptsRow
- \param source_row
- \param source_parent
- \return bool
+ \fn SH_CheckableSortFilterProxyModel::filterAcceptsRow
 */
 bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
@@ -130,12 +120,9 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::data
- \param index
- \param role
- \return QVariant
+ \fn SH_CheckableSortFilterProxyModel::data
 */
 QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role) const
 {
@@ -162,13 +149,9 @@ QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role) const
 
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setData
- \param index
- \param value
- \param role
- \return bool
+ \fn SH_CheckableSortFilterProxyModel::setData
 */
 bool SH_ExtendedProxyModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
@@ -189,11 +172,9 @@ bool SH_ExtendedProxyModel::setData(const QModelIndex &index, const QVariant &va
 
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::flags
- \param index
- \return Qt::ItemFlags
+ \fn SH_CheckableSortFilterProxyModel::flags
 */
 Qt::ItemFlags SH_ExtendedProxyModel::flags(const QModelIndex &index) const
 {
@@ -217,9 +198,9 @@ Qt::ItemFlags SH_ExtendedProxyModel::flags(const QModelIndex &index) const
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::invalidateFilter
+ \fn SH_CheckableSortFilterProxyModel::invalidateFilter
 */
 void SH_ExtendedProxyModel::invalidateFilter()
 {
@@ -227,10 +208,9 @@ void SH_ExtendedProxyModel::invalidateFilter()
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::removeFilterKeyColumn
- \param column
+ \fn SH_CheckableSortFilterProxyModel::removeFilterKeyColumn
 */
 void SH_ExtendedProxyModel::removeFilterKeyColumn(int column)
 {
@@ -238,11 +218,9 @@ void SH_ExtendedProxyModel::removeFilterKeyColumn(int column)
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::containsFilterKeyColumn
- \param column
- \return bool
+ \fn SH_CheckableSortFilterProxyModel::containsFilterKeyColumn
 */
 bool SH_ExtendedProxyModel::containsFilterKeyColumn(int column)
 {
@@ -250,11 +228,9 @@ bool SH_ExtendedProxyModel::containsFilterKeyColumn(int column)
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::sort
- \param column
- \param newOrder
+ \fn SH_CheckableSortFilterProxyModel::sort
 */
 void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 {
@@ -263,10 +239,9 @@ void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::setSortKeyColumn
- \param column
+ \fn SH_CheckableSortFilterProxyModel::setSortKeyColumn
 */
 void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 {
@@ -277,10 +252,9 @@ void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::addFilterKeyColumn
- \param column
+ \fn SH_CheckableSortFilterProxyModel::addFilterKeyColumn
 */
 void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 {
@@ -288,12 +262,9 @@ void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::data
- \param row
- \param column
- \return QVariant
+ \fn SH_CheckableSortFilterProxyModel::data
 */
 QVariant SH_ExtendedProxyModel::data(int row, int column) const
 {
@@ -302,14 +273,9 @@ QVariant SH_ExtendedProxyModel::data(int row, int column) const
 }
 
 /*!
- \brief
+ \details
 
- \fn CheckableSortFilterProxyModel::fetch
- \param tableName
- \param filter
- \param sort
- \param fields
- \return bool
+ \fn SH_CheckableSortFilterProxyModel::fetch
 */
 bool SH_ExtendedProxyModel::fetch(QString tableName, QString filter, QString sort, QStringList fields)
 {

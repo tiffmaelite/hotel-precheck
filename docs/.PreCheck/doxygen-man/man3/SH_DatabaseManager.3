@@ -1,0 +1,422 @@
+.TH "SH_DatabaseManager" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SH_DatabaseManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_DatabaseManager\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fB~SH_DatabaseManager\fP ()"
+.br
+.ti -1c
+.RI "int \fBdataCount\fP (QString tableName, QString filter)"
+.br
+.ti -1c
+.RI "bool \fBdbConnect\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdbDisconnect\fP ()"
+.br
+.ti -1c
+.RI "QVariant \fBexecInsertReturningQuery\fP (QString tableName, QVariantMap values, QString returningField)"
+.br
+.ti -1c
+.RI "bool \fBexecReplaceQuery\fP (QString tableName, QVariantMap values)"
+.br
+.ti -1c
+.RI "QSqlQuery \fBexecSelectQuery\fP (QString tableName, QStringList fields=QStringList('*'), QString condition='', QString ordering='')"
+.br
+.ti -1c
+.RI "QSqlDatabase \fBgetDbConnection\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisConnected\fP ()"
+.br
+.ti -1c
+.RI "bool \fBtableExists\fP (QString tableName)"
+.br
+.in -1c
+.SS "Fonctions membres publiques statiques"
+
+.in +1c
+.ti -1c
+.RI "static \fBSH_DatabaseManager\fP * \fBgetInstance\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_DatabaseManager\fP ()"
+.br
+.in -1c
+.SS "Attributs protégés"
+
+.in +1c
+.ti -1c
+.RI "QSqlDatabase \fBdbConnection\fP"
+.br
+.RI "\fIdbConnection \fP"
+.in -1c
+.SS "Fonctions membres privées"
+
+.in +1c
+.ti -1c
+.RI "void \fBdivideQVariantMap\fP (QVariantMap values, QString &fields, QString &vals)"
+.br
+.in -1c
+.SS "Attributs privés statiques"
+
+.in +1c
+.ti -1c
+.RI "static \fBSH_DatabaseManager\fP * \fB_instance\fP = 0"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 62 du fichier SH_DatabaseManager\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SH_DatabaseManager::SH_DatabaseManager ()\fC [protected]\fP"
+
+.PP
+Définition à la ligne 44 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnect(), dbConnection, dbDriverNotExistStr, dbDriverStr, dbFileNameStr, dbFilePathStr, dbPasswordStr, dbUsernameStr, et SH_MessageManager::errorMessage()\&.
+.PP
+Référencé par getInstance()\&.
+.PP
+.nf
+45 {
+46     /*
+47      *Check the existence of the database driver\&.
+48      */
+49     if (!QSqlDatabase::isDriverAvailable(dbDriverStr))
+50     {
+51         /*
+52         *Gui message that informs that the driver does not exist
+53         */
+54         SH_MessageManager::errorMessage(dbDriverNotExistStr);
+55         qDebug() << dbConnection\&.lastError();
+56         for (int i = 0; i < dbConnection\&.drivers()\&.count(); i++)
+57         {
+58             qDebug() << "AVAILABLE DRIVERS : " << dbConnection\&.drivers()[i] << endl;
+59         }
+60         exit(1);
+61     }
+62 
+63     /*
+64     *Connect to the database with the following driver\&.
+65     */
+66     dbConnection = QSqlDatabase::addDatabase(dbDriverStr);
+67     if (dbDriverStr == "QIBASE")
+68     {
+69         dbConnection\&.setDatabaseName(dbFilePathStr);
+70     } else {
+71         dbConnection\&.setDatabaseName(dbFileNameStr);
+72     }
+73 
+74     dbConnection\&.setUserName(dbUsernameStr);
+75     dbConnection\&.setPassword(dbPasswordStr);
+76     dbConnect();
+77 
+78 }
+.fi
+.SS "SH_DatabaseManager::~SH_DatabaseManager ()"
+
+.PP
+Définition à la ligne 33 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbDisconnect()\&.
+.PP
+.nf
+34 {
+35     dbDisconnect();
+36 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "int SH_DatabaseManager::dataCount (QStringtableName, QStringfilter)"
+
+.PP
+Définition à la ligne 170 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection, et execSelectQuery()\&.
+.PP
+.nf
+170                                                                    {
+171     if(!tableName\&.isEmpty() && !filter\&.isEmpty()) {
+172         QSqlQuery result = execSelectQuery(tableName, QStringList("COUNT(*) AS MATCH"), filter);
+173         if(dbConnection\&.driver()->hasFeature(QSqlDriver::QuerySize)) {
+174             return result\&.size();
+175         } else {
+176             if(result\&.next()) {
+177                 QSqlRecord rec = result\&.record();
+178                 if(!rec\&.isEmpty()  && result\&.isValid()) {
+179                     return rec\&.value(rec\&.indexOf("MATCH"))\&.toInt();
+180                 }
+181             }
+182         }
+183     }
+184     return 0;
+185 }
+.fi
+.SS "bool SH_DatabaseManager::dbConnect ()"
+
+.PP
+Définition à la ligne 89 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbCannotOpenStr, dbConnection, et SH_MessageManager::errorMessage()\&.
+.PP
+Référencé par SH_DatabaseManager()\&.
+.PP
+.nf
+90 {
+91     /*
+92             *Open database, if the database cannot open for
+93             *any reason print a warning\&.
+94             */
+95     if (!dbConnection\&.open())
+96     {
+97         /*
+98                  *Gui message that informs that the database cannot open
+99                  */
+100         SH_MessageManager::errorMessage(dbCannotOpenStr);
+101         qDebug() << dbConnection\&.lastError();
+102 
+103         /*
+104                  *@return false if database connection failed\&.
+105                  */
+106         return false;
+107     }
+108 
+109     /*
+110              *@return true if database connection successed
+111              */
+112     return dbConnection\&.isOpen();
+113 }
+.fi
+.SS "bool SH_DatabaseManager::dbDisconnect ()"
+
+.PP
+Définition à la ligne 124 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+Référencé par ~SH_DatabaseManager()\&.
+.PP
+.nf
+125 {
+126     /*
+127              *close database
+128              */
+129     dbConnection\&.close();
+130     return (!dbConnection\&.isOpen());
+131 }
+.fi
+.SS "void SH_DatabaseManager::divideQVariantMap (QVariantMapvalues, QString &fields, QString &vals)\fC [private]\fP"
+
+.PP
+Définition à la ligne 260 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Référencé par execInsertReturningQuery(), et execReplaceQuery()\&.
+.PP
+.nf
+260                                                                                              {
+261     for(auto field : values\&.keys())
+262     {
+263         fields += field+",";
+264         QVariant val = values\&.value(field);
+265         bool ok;
+266         int intVal = val\&.toInt(&ok);
+267         if(ok) {
+268             vals += QString::number(intVal)+",";
+269         }
+270         double dbVal = val\&.toDouble(&ok);
+271         if(ok) {
+272             vals += QString::number(dbVal)+",";
+273         }
+274         /*bool boolVal = val\&.toBool();
+275                 if(boolVal) {
+276                     &vals += "'"+1+"'',";
+277                 }*/
+278         QDate dateVal = val\&.toDate();
+279         if(dateVal\&.isValid()) {
+280             vals += "'"+dateVal\&.toString()+"'',"; /*FIXME adapt date format*/
+281         }
+282         QDateTime dateTimeVal = val\&.toDateTime();
+283         if(dateTimeVal\&.isValid()) {
+284             vals += "'"+dateTimeVal\&.toString()+"'',"; /*FIXME adapt datetime format*/
+285         }
+286         QString stringVal = val\&.toString();
+287         vals += "'"+stringVal+"'',";
+288     }
+289     fields = fields\&.left(fields\&.lastIndexOf(',')-1);
+290     vals = vals\&.left(vals\&.lastIndexOf(',')-1);
+291 }
+.fi
+.SS "QVariant SH_DatabaseManager::execInsertReturningQuery (QStringtableName, QVariantMapvalues, QStringreturningField)"
+
+.PP
+Définition à la ligne 237 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection, et divideQVariantMap()\&.
+.PP
+Référencé par SH_AdaptDatabaseState::insertUpdate()\&.
+.PP
+.nf
+237                                                                                                                    {
+238     QString fields;
+239     QString vals;
+240     divideQVariantMap(values, fields, vals);
+241     QString query;
+242     if(dbConnection\&.driverName() == "QIBASE") {
+243         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4")\&.arg(tableName)\&.arg(fields)\&.arg(vals)\&.arg(returningField);
+244     }
+245     QSqlQuery result = dbConnection\&.exec(query);
+246     qDebug() << result\&.executedQuery() << " > " << result\&.isValid() <<" "<< result\&.isActive();
+247     if(result\&.next()) {
+248         QSqlRecord rec = result\&.record();
+249         if(!rec\&.isEmpty()  && result\&.isValid()) {
+250             return rec\&.value(rec\&.indexOf(returningField));
+251         }
+252     }
+253     return QVariant();
+254 }
+.fi
+.SS "bool SH_DatabaseManager::execReplaceQuery (QStringtableName, QVariantMapvalues)"
+
+.PP
+Définition à la ligne 220 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection, et divideQVariantMap()\&.
+.PP
+.nf
+220                                                                                {
+221     QString fields;
+222     QString vals;
+223     divideQVariantMap(values, fields, vals);
+224     QString query;
+225     if(dbConnection\&.driverName() == "QIBASE") {
+226         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)")\&.arg(tableName)\&.arg(fields)\&.arg(vals);
+227     }
+228     QSqlQuery result = dbConnection\&.exec(query);
+229     qDebug() << result\&.executedQuery() << " > " << result\&.isValid() <<" "<< result\&.isActive();
+230     return (result\&.numRowsAffected() > 0);
+231 }
+.fi
+.SS "QSqlQuery SH_DatabaseManager::execSelectQuery (QStringtableName, QStringListfields = \fCQStringList('*')\fP, QStringcondition = \fC''\fP, QStringordering = \fC''\fP)"
+
+.PP
+Définition à la ligne 193 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+Référencé par dataCount(), SH_SqlDataModel::fetch(), SH_User::logIn(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+193                                                                                                                         {
+194     if(fields\&.isEmpty()) {
+195         fields\&.append("*");
+196     }
+197 
+198     QString query;
+199     if(dbConnection\&.driverName() == "QIBASE") {
+200         query = QString("SELECT %1 FROM %2")\&.arg(fields\&.join(", "))\&.arg(tableName);
+201         if(!condition\&.isEmpty()) {
+202             query = QString("%1 WHERE %2")\&.arg(query)\&.arg(condition);
+203         }
+204         if(!ordering\&.isEmpty()) {
+205             query = QString("%1 ORDER BY %2")\&.arg(query)\&.arg(ordering);
+206         }
+207     }
+208     qDebug() << query;
+209     QSqlQuery result;
+210     result\&.exec(query);
+211     qDebug() << result\&.executedQuery() << " > " << result\&.isValid() <<" "<< result\&.isActive();
+212     return result;
+213 }
+.fi
+.SS "QSqlDatabase SH_DatabaseManager::getDbConnection ()"
+
+.PP
+Définition à la ligne 150 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+.nf
+151 {
+152     return dbConnection;
+153 }
+.fi
+.SS "\fBSH_DatabaseManager\fP * SH_DatabaseManager::getInstance ()\fC [static]\fP"
+
+.PP
+Définition à la ligne 17 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références _instance, dbFilePathStr, et SH_DatabaseManager()\&.
+.PP
+Référencé par SH_SqlDataModel::fetch(), SH_AdaptDatabaseState::insertUpdate(), SH_User::logIn(), SH_ServiceCharging::SH_ServiceCharging(), SH_User::traineeExists(), et SH_User::userExists()\&.
+.PP
+.nf
+18 {
+19     if (_instance == 0)
+20     {
+21         _instance = new SH_DatabaseManager;
+22     }
+23     qDebug() << dbFilePathStr;
+24     return _instance;
+25 }
+.fi
+.SS "bool SH_DatabaseManager::isConnected ()"
+
+.PP
+Définition à la ligne 139 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+.nf
+140 {
+141     return dbConnection\&.isOpen();
+142 }
+.fi
+.SS "bool SH_DatabaseManager::tableExists (QStringtableName)"
+
+.PP
+Définition à la ligne 160 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+.nf
+161 {
+162     return dbConnection\&.tables(QSql::Views)\&.contains(tableName\&.toUpper(), Qt::CaseInsensitive) || dbConnection\&.tables(QSql::Tables)\&.contains(tableName\&.toUpper(), Qt::CaseInsensitive);
+163 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "\fBSH_DatabaseManager\fP * SH_DatabaseManager::_instance = 0\fC [static]\fP, \fC [private]\fP"
+\fBSH_DatabaseManager::_instance\fP 
+.PP
+Définition à la ligne 66 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par getInstance()\&.
+.SS "QSqlDatabase SH_DatabaseManager::dbConnection\fC [protected]\fP"
+
+.PP
+dbConnection 
+.PP
+Définition à la ligne 87 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par dataCount(), dbConnect(), dbDisconnect(), execInsertReturningQuery(), execReplaceQuery(), execSelectQuery(), getDbConnection(), isConnected(), SH_DatabaseManager(), et tableExists()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

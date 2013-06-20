@@ -5,13 +5,16 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 GridLayout {
     id: filterGrid
     property var delegateModel
     property alias model: repeater.model
-    /*
-    // maxi 2 lignes s'il y a 4 colonnes; et maxi 3 lignes s'il y a 6 colonnes; sinon 10 toutes petites colonnes et autant de lignes que nécessaire
-    maxNbRowsFew: 2
+
+    /*maxi 2 lignes s'il y a 4 colonnes; et maxi 3 lignes s'il y a 6 colonnes; sinon 10 toutes petites colonnes et autant de lignes que nécessaire*/
+    /*maxNbRowsFew: 2
     maxNbColsFew: 4
     maxNbRowsStd: 3
     maxNbColsStd: 6

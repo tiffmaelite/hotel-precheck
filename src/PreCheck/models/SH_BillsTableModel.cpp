@@ -2,10 +2,9 @@
 
 
 /*!
- \brief
+ \details
 
- \fn BillsTableModel::BillsTableModel
- \param parent
+ \fn SH_BillsTableModel::BillsTableModel
 */
 SH_BillsTableModel::SH_BillsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
@@ -15,9 +14,9 @@ SH_BillsTableModel::SH_BillsTableModel(QObject *parent):
 
 
 /*!
- \brief
+ \details
 
- \fn BillsTableModel::fillModel
+ \fn SH_BillsTableModel::fillModel
 */
 void SH_BillsTableModel::fillModel()
 {

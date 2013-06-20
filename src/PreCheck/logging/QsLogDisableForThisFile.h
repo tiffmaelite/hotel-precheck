@@ -2,8 +2,8 @@
 #define QSLOGDISABLEFORTHISFILE_H
 
 #include <QtDebug>
-// When included AFTER QsLog.h, this file will disable logging in that C++ file. When included
-// before, it will lead to compiler warnings or errors about macro redefinitions.
+/* When included AFTER QsLog.h, this file will disable logging in that C++ file. When included*/
+/* before, it will lead to compiler warnings or errors about macro redefinitions.*/
 
 #undef QLOG_TRACE
 #undef QLOG_DEBUG
@@ -19,4 +19,4 @@
 #define QLOG_ERROR() if (1) {} else qDebug()
 #define QLOG_FATAL() if (1) {} else qDebug()
 
-#endif // QSLOGDISABLEFORTHISFILE_H
+#endif /* QSLOGDISABLEFORTHISFILE_H*/

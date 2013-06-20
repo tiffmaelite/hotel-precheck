@@ -5,8 +5,11 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
+/**
+  @class
+  */
 Item {
-    id: SH_ConnexionPage
+    id: connexionPage
     signal reload()
     signal checkUsername(string name)
     signal logIn(string login, string password)
@@ -25,7 +28,7 @@ Item {
             errorLabel.visible=false;
             errorLabel.text="";
             SH_App.currentMode = SH_AppMode.ACCUEIL;
-            SH_ConnexionPage.loggedIn();
+            connexionPage.loggedIn();
         } else {
             errorLabel.text=qsTr("Le mot de passe entré est incorrect");
             errorLabel.visible = true;
@@ -54,7 +57,7 @@ Item {
             id: login
             activeFocusOnPress: true
             onAccepted: {
-                SH_ConnexionPage.checkUsername(login.text);
+                connexionPage.checkUsername(login.text);
                 password.forceActiveFocus();
             }
             onFocusChanged: {
@@ -93,7 +96,7 @@ Item {
             Layout.minimumWidth: childrenRect.width
             Layout.columnSpan: 2
             onClicked: {
-                SH_ConnexionPage.logIn(login.text, password.text);
+                connexionPage.logIn(login.text, password.text);
                 login.text = "";
                 password.text = "";
             }

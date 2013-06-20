@@ -1,0 +1,82 @@
+.TH "QsLogging::Destination" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QsLogging::Destination \- 
+.PP
+The \fBDestination\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <QsLogDest\&.h>\fP
+.PP
+Dérivée par \fBQsLogging::DebugOutputDestination\fP, et \fBQsLogging::FileDestination\fP\&.
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~Destination\fP ()"
+.br
+.RI "\fI~Destination \fP"
+.ti -1c
+.RI "virtual bool \fBisValid\fP ()=0"
+.br
+.RI "\fIisValid \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (const QString &message, \fBLevel\fP level)=0"
+.br
+.RI "\fIwrite \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+The \fBDestination\fP class\&. 
+.PP
+Définition à la ligne 60 du fichier QsLogDest\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "virtual QsLogging::Destination::~Destination ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+~Destination 
+.PP
+Définition à la ligne 66 du fichier QsLogDest\&.h\&.
+.PP
+.nf
+66 {}
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "virtual bool QsLogging::Destination::isValid ()\fC [pure virtual]\fP"
+
+.PP
+isValid 
+.PP
+\fBRenvoie:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Implémenté dans \fBQsLogging::FileDestination\fP, et \fBQsLogging::DebugOutputDestination\fP\&.
+.SS "virtual void QsLogging::Destination::write (const QString &message, \fBLevel\fPlevel)\fC [pure virtual]\fP"
+
+.PP
+write 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fIlevel\fP 
+.RE
+.PP
+
+.PP
+Implémenté dans \fBQsLogging::FileDestination\fP, et \fBQsLogging::DebugOutputDestination\fP\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

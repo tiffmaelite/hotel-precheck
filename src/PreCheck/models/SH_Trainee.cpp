@@ -1,12 +1,10 @@
 #include "SH_Trainee.h"
 
 /*!
- \brief
+ \details
 
- \fn Trainee::Trainee
- \param name
- \param id
- \param parent
+ \fn SH_Trainee::Trainee
+
 */
 SH_Trainee::SH_Trainee(QString name, int id, QObject *parent) : SH_User(name, id, true, false, false, false, parent)
 {

@@ -9,7 +9,8 @@
 /*!
  \brief
 
- \class User user.h "models/user.h"
+ \class SH_User
+\headerfile user.h "models/user.h"
 */
 class SH_User : public QObject
 {
@@ -24,10 +25,10 @@ class SH_User : public QObject
     Q_PROPERTY(bool valid READ isValid NOTIFY validityChanged)
 
 public:
-/*!
+    /*!
  \brief
 
- \fn User
+ \fn SH_User
  \param name
  \param id
  \param isReceptionist
@@ -40,56 +41,56 @@ public:
     /*!
      \brief
 
-     \fn name
+     \fn SH_name
      \return QString
     */
     QString name() const;
     /*!
      \brief
 
-     \fn id
+     \fn SH_id
      \return int
     */
     int id() const { return this->m_id; }
     /*!
      \brief
 
-     \fn isReceptionist
+     \fn SH_isReceptionist
      \return bool
     */
     bool isReceptionist() const;
     /*!
      \brief
 
-     \fn isManagerX
+     \fn SH_isManagerX
      \return bool
     */
     bool isManagerX() const { return this->m_managerX; }
     /*!
      \brief
 
-     \fn isManagerZ
+     \fn SH_isManagerZ
      \return bool
     */
     bool isManagerZ() const { return this->m_managerZ; }
     /*!
      \brief
 
-     \fn isAdministrator
+     \fn SH_isAdministrator
      \return bool
     */
     bool isAdministrator() const { return this->m_administrator; }
     /*!
      \brief
 
-     \fn roles
+     \fn SH_roles
      \return int
     */
     int roles() const;
     /*!
      \brief
 
-     \fn isValid
+     \fn SH_isValid
      \return bool
     */
     bool isValid() const;
@@ -97,7 +98,7 @@ public:
     /*!
      \brief
 
-     \fn logIn
+     \fn SH_logIn
      \param login
      \param pass
      \return User
@@ -106,7 +107,7 @@ public:
     /*!
      \brief
 
-     \fn traineeExists
+     \fn SH_traineeExists
      \param login
      \return bool
     */
@@ -114,7 +115,7 @@ public:
     /*!
      \brief
 
-     \fn userExists
+     \fn SH_userExists
      \param login
      \return bool
     */
@@ -124,7 +125,7 @@ public slots:
     /*!
      \brief
 
-     \fn exists
+     \fn SH_exists
      \param login
      \return QVariant
     */
@@ -133,19 +134,19 @@ signals:
     /*!
      \brief
 
-     \fn nameChanged
+     \fn SH_nameChanged
     */
     void nameChanged();
     /*!
      \brief
 
-     \fn rolesChanged
+     \fn SH_rolesChanged
     */
     void rolesChanged();
     /*!
      \brief
 
-     \fn validityChanged
+     \fn SH_validityChanged
     */
     void validityChanged();
 
@@ -153,24 +154,42 @@ private:
     /*!
      \brief
 
-     \fn setName
+     \fn SH_setName
      \param name
     */
     void setName(QString name);
     /*!
      \brief
 
-     \fn setID
+     \fn SH_setID
      \param id
     */
     void setID(int id);
 
-    QString m_name; /*!< TODO */
-    bool m_receptionist; /*!< TODO */
-    bool m_managerX; /*!< TODO */
-    bool m_managerZ; /*!< TODO */
-    bool m_administrator; /*!< TODO */
-    int m_id; /*!< TODO */
+    /*!
+     * \brief m_name
+     */
+    QString m_name;
+    /*!
+     * \brief m_receptionist
+     */
+    bool m_receptionist;
+    /*!
+     * \brief m_managerX
+     */
+    bool m_managerX;
+    /*!
+     * \brief m_managerZ
+     */
+    bool m_managerZ;
+    /*!
+     * \brief m_administrator
+     */
+    bool m_administrator;
+    /*!
+     * \brief m_id
+     */
+    int m_id;
 };
 
-#endif // USER_H
+#endif /* USER_H*/
