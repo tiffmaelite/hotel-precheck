@@ -3,7 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import PreCheck 1.0
 
-Keyboard {
+SH_Keyboard {
     property string keyString:""
     id: keyboard
     signal loaded

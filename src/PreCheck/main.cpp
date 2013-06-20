@@ -2,20 +2,20 @@
 #include <QtQml>
 #include <QtQuick>
 #include <QProgressDialog>
-#include "views/message_manager.h"
-#include "models/checkable_sort_filter_proxy_model.h"
-#include "models/rooms_table_model.h"
-#include "models/sql_data_field.h"
-#include "models/billings_table_model.h"
-#include "models/bills_table_model.h"
-#include "models/bookings_table_model.h"
-#include "models/rooms_table_model.h"
-#include "models/clients_table_model.h"
-#include "models/services_table_model.h"
-#include "models/groups_table_model.h"
-#include "models/user.h"
-#include "models/RestrictiveApplication.h"
-#include "views/qquickaction.h"
+#include "SH_MessageManager.h"
+#include "SH_ApplicationCore.h"
+#include "models/SH_ExtendedSqlProxyModel.h"
+#include "models/SH_RoomsTableModel.h"
+#include "models/SH_SqlDataField.h"
+#include "models/SH_BillingsTableModel.h"
+#include "models/SH_BillsTableModel.h"
+#include "models/SH_BookingsTableModel.h"
+#include "models/SH_RoomsTableModel.h"
+#include "models/SH_ClientsTableModel.h"
+#include "models/SH_ServicesTableModel.h"
+#include "models/SH_GroupsTableModel.h"
+#include "models/SH_User.h"
+#include "views/SH_ExtendedQQmlAction.h"
 #include "logging/QsLog.h"
 #include "logging/QsLogDest.h"
 
@@ -146,24 +146,23 @@ int main(int argc, char **argv)
 
         QQmlEngine engine;
 
-        qmlRegisterUncreatableType<RestrictiveApplication>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
-        qmlRegisterType<User>("PreCheck", 1, 0, "User");
-        RestrictiveApplication* appManager = new RestrictiveApplication();
-        engine.rootContext()->setContextProperty("App", appManager);
+        qmlRegisterUncreatableType<SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
+        qmlRegisterType<SH_User>("PreCheck", 1, 0, "User");
+        SH_ApplicationCore* appManager = new SH_ApplicationCore();
+        engine.rootContext()->setContextProperty("SH_App", appManager);
 
-        //qmlRegisterInterface<CheckableSortFilterProxyModel>("PreCheck", 1, 0, "ProxyModel");
-        qmlRegisterType<RoomsTableModel>("PreCheck", 1, 0, "RoomsModel");
-        qmlRegisterType<BillingsTableModel>("PreCheck", 1, 0, "BillingsModel");
-        qmlRegisterType<BillsTableModel>("PreCheck", 1, 0, "BillsModel");
-        qmlRegisterType<BookingsTableModel>("PreCheck", 1, 0, "BookingsModel");
-        qmlRegisterType<ServicesTableModel>("PreCheck", 1, 0, "ServicesModel");
-        qmlRegisterType<ClientsTableModel>("PreCheck", 1, 0, "ClientsModel");
-        qmlRegisterType<GroupsTableModel>("PreCheck", 1, 0, "GroupsModel");
-        qmlRegisterType<SqlDataFields>("PreCheck", 1, 0, "SqlDataFields");
-        qmlRegisterType<QQQuickAction>("PreCheck", 1, 0, "ComplexAction");
+        qmlRegisterType<SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
+        qmlRegisterType<SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
+        qmlRegisterType<SH_BillsTableModel>("PreCheck", 1, 0, "SH_BillsModel");
+        qmlRegisterType<SH_BookingsTableModel>("PreCheck", 1, 0, "SH_BookingsModel");
+        qmlRegisterType<SH_ServicesTableModel>("PreCheck", 1, 0, "SH_ServicesModel");
+        qmlRegisterType<SH_ClientsTableModel>("PreCheck", 1, 0, "SH_ClientsModel");
+        qmlRegisterType<SH_GroupsTableModel>("PreCheck", 1, 0, "SH_GroupsModel");
+        qmlRegisterType<SH_SqlDataFields>("PreCheck", 1, 0, "SH_SqlDataField");
+        qmlRegisterType<SH_ExtendedQQmlAction>("PreCheck", 1, 0, "SH_ComplexAction");
 
         QQmlComponent component(&engine);
-        component.loadUrl(QUrl("qrc:/qml/app.qml"));
+        component.loadUrl(QUrl("qrc:/qml/SH_app.qml"));
         if (!component.isReady())
         {
             qWarning("%s", qPrintable(component.errorString()));
@@ -184,10 +183,10 @@ int main(int argc, char **argv)
         QObject * displayZone = commonPage->findChild<QObject *>("RightOutput");
 
         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayNewFixed(QString)), Qt::QueuedConnection);
-        QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::QueuedConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayNewFixed(QString)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
-        //QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::QueuedConnection);
+        //QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);
 
         window->show();
         QLOG_INFO() << "Program built with Qt" << QT_VERSION_STR << "running on" << qVersion();
@@ -196,6 +195,6 @@ int main(int argc, char **argv)
     }
     catch (const std::exception &e)
     {
-        MessageManager::errorMessage(e.what());
+        SH_MessageManager::errorMessage(e.what());
     }
 }
