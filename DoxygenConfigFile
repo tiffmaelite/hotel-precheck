@@ -534,8 +534,8 @@ GENERATE_DEPRECATEDLIST= YES
 # and \cond section-label ... \endcond blocks.
 
 ENABLED_SECTIONS       = english \
-                         french \
-                         german
+						 french \
+						 german
 
 # The MAX_INITIALIZER_LINES tag determines the maximum number of lines
 # the initial value of a variable or macro consists of for it to appear in
@@ -657,8 +657,8 @@ WARN_LOGFILE           = doclog
 # with spaces.
 
 INPUT                  = /home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/howtos/ \
-                         /home/tiff/Stage-IUT/app/simplhotel/gh-pages/Database/ \
-                         /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/
+						 /home/tiff/Stage-IUT/app/simplhotel/gh-pages/Database/ \
+						 /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -677,19 +677,19 @@ INPUT_ENCODING         = UTF-8
 # *.f90 *.f *.for *.vhd *.vhdl
 
 FILE_PATTERNS          = main.cpp \
-                         Qs_*.cpp \
-                         Qs_*.h \
-                         SH_*.cpp \
-                         SH_*.CPP \
-                         SH_*.c++ \
-                         SH_*.c \
-                         SH_*.C \
-                         SH_*.h \
-                         SH_*.H \
-                         SH_*.hpp \
-                         SH_*.HPP \
-                         SH_*.qml \
-                         SH_*.QML
+						 Qs_*.cpp \
+						 Qs_*.h \
+						 SH_*.cpp \
+						 SH_*.CPP \
+						 SH_*.c++ \
+						 SH_*.c \
+						 SH_*.C \
+						 SH_*.h \
+						 SH_*.H \
+						 SH_*.hpp \
+						 SH_*.HPP \
+						 SH_*.qml \
+						 SH_*.QML
 
 # The RECURSIVE tag can be used to turn specify whether or not subdirectories
 # should be searched for input files as well. Possible values are YES and NO.
@@ -732,7 +732,7 @@ EXCLUDE_SYMBOLS        =
 # the \include command).
 
 EXAMPLE_PATH           = /home/tiff/Stage-IUT/app/simplhotel/gh-pages/snippets \
-                         /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/examples
+						 /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/examples
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -752,7 +752,7 @@ EXAMPLE_RECURSIVE      = YES
 # directories that contain image that are included in the documentation (see
 # the \image command).
 
-IMAGE_PATH             = /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/views/img
+IMAGE_PATH             =
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -925,7 +925,7 @@ HTML_FOOTER            = /home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/d
 # HTML_EXTRA_STYLESHEET instead of this one, as it is more robust and this
 # tag will in the future become obsolete.
 
-HTML_STYLESHEET        =
+HTML_STYLESHEET        = /home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-html/doxygen.css
 
 # The HTML_EXTRA_STYLESHEET tag can be used to specify an additional
 # user-defined cascading style sheet that is included after the standard
@@ -935,11 +935,7 @@ HTML_STYLESHEET        =
 # robust against future updates. Doxygen will copy the style sheet file to
 # the output directory.
 
-HTML_EXTRA_STYLESHEET  = /home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-qmi.css \
-/home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-stylesheet.css\
-/home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-extended-tabs.css \
-/home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-search.css \
-/home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-navtree.css
+HTML_EXTRA_STYLESHEET  = /home/tiff/Stage-IUT/app/simplhotel/gh-pages/PreCheck/doxygen-extra-stylesheet.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
