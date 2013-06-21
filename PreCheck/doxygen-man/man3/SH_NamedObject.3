@@ -1,0 +1,145 @@
+.TH "SH_NamedObject" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SH_NamedObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_NamedObject\&.h>\fP
+.PP
+Dérivée par \fBSH_GenericState\fP\fC [private]\fP, et \fBSH_InOutStateMachine\fP\fC [private]\fP\&.
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_NamedObject\fP (QString \fBname\fP)"
+.br
+.ti -1c
+.RI "virtual QString \fBname\fP () const "
+.br
+.ti -1c
+.RI "QString \fBptraddress\fP () const "
+.br
+.ti -1c
+.RI "virtual void \fBsetName\fP (const QString &\fBname\fP)"
+.br
+.ti -1c
+.RI "virtual QString \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "QString \fBm_name\fP"
+.br
+.RI "\fIm_name \fP"
+.ti -1c
+.RI "QString \fBm_ptraddress\fP"
+.br
+.RI "\fIm_ptraddress \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 10 du fichier SH_NamedObject\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SH_NamedObject::SH_NamedObject (QStringname)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 9 du fichier SH_NamedObject\&.cpp\&.
+.PP
+.nf
+9                                            :
+10     m_name(name)
+11 {
+12     /*m_ptraddress = QString(&this);*/
+13 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "QString SH_NamedObject::name () const\fC [virtual]\fP"
+
+.PP
+Définition à la ligne 32 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_name\&.
+.PP
+Référencé par SH_GenericState::onEntry(), SH_GenericState::onExit(), SH_GenericState::onTransitionTriggered(), setName(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+33 {
+34     return m_name;
+35 }
+.fi
+.SS "QString SH_NamedObject::ptraddress () const"
+
+.PP
+Définition à la ligne 54 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_ptraddress\&.
+.PP
+.nf
+55 {
+56     return m_ptraddress;
+57 }
+.fi
+.SS "void SH_NamedObject::setName (const QString &name)\fC [virtual]\fP"
+
+.PP
+Définition à la ligne 43 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_name, et name()\&.
+.PP
+.nf
+44 {
+45     m_name = name;
+46 }
+.fi
+.SS "QString SH_NamedObject::toString ()\fC [virtual]\fP"
+
+.PP
+Réimplémentée dans \fBSH_InOutStateMachine\fP, et \fBSH_GenericState\fP\&.
+.PP
+Définition à la ligne 21 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_name\&.
+.PP
+Référencé par SH_GenericState::toString(), et SH_InOutStateMachine::toString()\&.
+.PP
+.nf
+22 {
+23     return this->m_name;
+24 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "QString SH_NamedObject::m_name\fC [private]\fP"
+
+.PP
+m_name 
+.PP
+Définition à la ligne 55 du fichier SH_NamedObject\&.h\&.
+.PP
+Référencé par name(), setName(), et toString()\&.
+.SS "QString SH_NamedObject::m_ptraddress\fC [private]\fP"
+
+.PP
+m_ptraddress 
+.PP
+Définition à la ligne 59 du fichier SH_NamedObject\&.h\&.
+.PP
+Référencé par ptraddress()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

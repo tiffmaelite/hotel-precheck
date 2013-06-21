@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de logic/SH_StringQuestionState.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0f9694b8de2575528c6c0ae9f79dda65.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_StringQuestionState.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__StringQuestionState_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__StringQuestionState_8h.html">SH_StringQuestionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classSH__StringQuestionState.html#a83431733b36f67df8691b46cc93a1ea6">   10</a></span>&#160;<a class="code" href="classSH__StringQuestionState.html#a83431733b36f67df8691b46cc93a1ea6">SH_StringQuestionState::SH_StringQuestionState</a>(QString question, QString name, <span class="keywordtype">int</span> minLength, <span class="keywordtype">int</span> maxLength, <a class="code" href="classQState.html">QState</a> *parent) :</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classSH__QuestionState.html">SH_QuestionState</a>(question, name, parent), m_minLen(minLength), m_maxLen(maxLength)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classSH__StringQuestionState.html#adb2a6506163e9def2cae2acb7197ebb9">   22</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__StringQuestionState.html#adb2a6506163e9def2cae2acb7197ebb9">SH_StringQuestionState::isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;givenAnswer)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QString answer = givenAnswer.toString();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(!answer.isEmpty()) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> answerLength= answer.length();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> ((<a class="code" href="classSH__StringQuestionState.html#ac001a12ae5939116282ec21920a8e7d1" title="m_maxLen ">m_maxLen</a> &lt;= <a class="code" href="classSH__StringQuestionState.html#a0efb97212b868551f4d46487fa3b0464" title="m_minLen ">m_minLen</a> || answerLength &lt;= <a class="code" href="classSH__StringQuestionState.html#ac001a12ae5939116282ec21920a8e7d1" title="m_maxLen ">m_maxLen</a>) &amp;&amp; answerLength &gt;= <a class="code" href="classSH__StringQuestionState.html#a0efb97212b868551f4d46487fa3b0464" title="m_minLen ">m_minLen</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classSH__StringQuestionState.html#a51f49c3563bacbcc92ca7bed0631269e">   39</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classSH__StringQuestionState.html#a51f49c3563bacbcc92ca7bed0631269e">SH_StringQuestionState::maxLen</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__StringQuestionState.html#ac001a12ae5939116282ec21920a8e7d1" title="m_maxLen ">m_maxLen</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classSH__StringQuestionState.html#a8dbbcbc28c409a997fcb481cb47847c4">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StringQuestionState.html#a8dbbcbc28c409a997fcb481cb47847c4">SH_StringQuestionState::setMaxLen</a>(<span class="keywordtype">int</span> maxLen)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classSH__StringQuestionState.html#ac001a12ae5939116282ec21920a8e7d1" title="m_maxLen ">m_maxLen</a> = <a class="code" href="classSH__StringQuestionState.html#a51f49c3563bacbcc92ca7bed0631269e">maxLen</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classSH__StringQuestionState.html#a4f988ca17ec5e74db4ef1f83997606d9">   61</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classSH__StringQuestionState.html#a4f988ca17ec5e74db4ef1f83997606d9">SH_StringQuestionState::minLen</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__StringQuestionState.html#a0efb97212b868551f4d46487fa3b0464" title="m_minLen ">m_minLen</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classSH__StringQuestionState.html#a05b9d1eb5727461f34fea2f0857e33e1">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StringQuestionState.html#a05b9d1eb5727461f34fea2f0857e33e1">SH_StringQuestionState::setMinLen</a>(<span class="keywordtype">int</span> minLen)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classSH__StringQuestionState.html#a0efb97212b868551f4d46487fa3b0464" title="m_minLen ">m_minLen</a> = <a class="code" href="classSH__StringQuestionState.html#a4f988ca17ec5e74db4ef1f83997606d9">minLen</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Juin 20 2013 23:51:12 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>

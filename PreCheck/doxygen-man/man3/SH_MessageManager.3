@@ -1,0 +1,127 @@
+.TH "SH_MessageManager" 3 "Jeudi Juin 20 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SH_MessageManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_MessageManager\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Types publics"
+
+.in +1c
+.ti -1c
+.RI "enum \fBErrorMode\fP { \fBERROR\fP, \fBTEST\fP, \fBDEBUG\fP, \fBDEBUG_VERBOSE\fP, \fBRELEASE\fP }"
+.br
+.in -1c
+.SS "Fonctions membres publiques statiques"
+
+.in +1c
+.ti -1c
+.RI "static void \fBerrorMessage\fP (QString message, QString title='Erreur')"
+.br
+.ti -1c
+.RI "static void \fBinfoMessage\fP (QString message, QString title='Info')"
+.br
+.ti -1c
+.RI "static void \fBsuccessMessage\fP (QString message, QString title='Réussite')"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 11 du fichier SH_MessageManager\&.h\&.
+.SH "Documentation des énumérations membres"
+.PP 
+.SS "enum \fBSH_MessageManager::ErrorMode\fP"
+
+.PP
+\fBValeurs énumérées\fP
+.in +1c
+.TP
+\fB\fIERROR \fP\fP
+.TP
+\fB\fITEST \fP\fP
+.TP
+\fB\fIDEBUG \fP\fP
+.TP
+\fB\fIDEBUG_VERBOSE \fP\fP
+.TP
+\fB\fIRELEASE \fP\fP
+.PP
+Définition à la ligne 23 du fichier SH_MessageManager\&.h\&.
+.PP
+.nf
+23 { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "void SH_MessageManager::errorMessage (QStringmessage, QStringtitle = \fC'Erreur'\fP)\fC [static]\fP"
+
+.PP
+Définition à la ligne 16 du fichier SH_MessageManager\&.cpp\&.
+.PP
+Référencé par SH_SqlDataModel::data(), SH_DatabaseManager::dbConnect(), SH_SqlDataModel::fetch(), main(), et SH_DatabaseManager::SH_DatabaseManager()\&.
+.PP
+.nf
+17 {
+18     if(!message\&.isEmpty()) {
+19 #ifdef DEBUG
+20         qWarning() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+21 #else
+22         QMessageBox::critical(0,QObject::tr("%L1")\&.arg(title),QObject::tr("%L2")\&.arg(message));
+23 #endif
+24     }
+25 }
+.fi
+.SS "void SH_MessageManager::infoMessage (QStringmessage, QStringtitle = \fC'Info'\fP)\fC [static]\fP"
+
+.PP
+Définition à la ligne 54 du fichier SH_MessageManager\&.cpp\&.
+.PP
+Référencé par SH_SqlDataModel::data(), et SH_SqlDataModel::fetch()\&.
+.PP
+.nf
+55 {
+56     if(!message\&.isEmpty()) {
+57         /*switch(errorMode) {
+58     case DEBUG:*/
+59         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+60         /*break;
+61     case TEST:
+62     case RELEASE:
+63         QMessageBox::information(0,QObject::tr("%L1)\&.arg(title),QObject::tr("%L2)\&.arg(message));
+64     default:
+65         console\&.log(title+" : " + message);
+66     }*/
+67     }
+68 }
+.fi
+.SS "void SH_MessageManager::successMessage (QStringmessage, QStringtitle = \fC'Réussite'\fP)\fC [static]\fP"
+
+.PP
+Définition à la ligne 33 du fichier SH_MessageManager\&.cpp\&.
+.PP
+.nf
+34 {
+35     if(!message\&.isEmpty()) {
+36         /*switch(errorMode) {
+37     case DEBUG:*/
+38         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+39         /*break;
+40     case TEST:
+41     case RELEASE:
+42         QMessageBox::information(0,QObject::tr("%L1)\&.arg(title),QObject::tr("%L2)\&.arg(message));
+43     default:
+44         console\&.log(title+" : " + message);
+45     }*/
+46     }
+47 }
+.fi
+
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>PreCheck:  Fichier source de logic/SH_QuestionState.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="$relpathdoxygen.css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0f9694b8de2575528c6c0ae9f79dda65.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_QuestionState.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__QuestionState_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef QUESTIONSTATE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define QUESTIONSTATE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="SH__IOState_8h.html">SH_IOState.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classSH__QuestionState.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__QuestionState.html">SH_QuestionState</a> : <span class="keyword">public</span> <a class="code" href="classSH__InOutState.html">SH_InOutState</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classSH__QuestionState.html#ad7ea575ec284d1dc89da5df9f31cd751">SH_QuestionState</a>(QString question, QString <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>, <a class="code" href="classQState.html">QState</a> *parent = 0);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__QuestionState.html#a3ca5459c20ef591023c0572d8224146c">checkValidity</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> QVariant <a class="code" href="classSH__QuestionState.html#abde97c61175be95358ece622fd16593e">givenAnswer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__QuestionState.html#a9d285a34a7002fd05a7fa8ff9139c264">setGivenAnswer</a>(<span class="keyword">const</span> QVariant &amp;givenAnswer);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__QuestionState.html#a331222d371d9c97392f35c84a5ef43e1">setInput</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__InOutState.html#a04364c76d2fd8a3781e7b325955e5bd9">input</a>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__QuestionState.html#ac195d7ad87a52ab276a7c4a902eab691">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;givenAnswer) = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;signals:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__QuestionState.html#a04e259643788d15ab6244bc8a04286d6" title="answerValid ">answerValid</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__QuestionState.html#a3348a8a683130678ac87a10ba2a25486" title="answerInvalid ">answerInvalid</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classSH__QuestionState.html#a309bb96a6aed67d190f9ab995fdc7c61">   80</a></span>&#160;    QVariant <a class="code" href="classSH__QuestionState.html#a309bb96a6aed67d190f9ab995fdc7c61" title="m_givenAnswer ">m_givenAnswer</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* QUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Juin 20 2013 23:51:12 pour PreCheck par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>

@@ -1,0 +1,21 @@
+\hypertarget{SH__ServicesTableModel_8cpp}{\section{S\-H\-\_\-\-Services\-Table\-Model.\-cpp}
+\label{SH__ServicesTableModel_8cpp}\index{models/\-S\-H\-\_\-\-Services\-Table\-Model.\-cpp@{models/\-S\-H\-\_\-\-Services\-Table\-Model.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__ServicesTableModel_8h}{SH\_ServicesTableModel.h}"}
+00002 
+00003 
+\hypertarget{SH__ServicesTableModel_8cpp_source_l00009}{}\hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{00009} \hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{SH\_ServicesTableModel::SH\_ServicesTableModel}(
+      \hyperlink{classQObject}{QObject} *parent):
+00010     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
+00011 \{
+00012     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{setTable}(\textcolor{stringliteral}{"SERVICESINFOS"});
+00013 \}
+00014 
+00015 
+\hypertarget{SH__ServicesTableModel_8cpp_source_l00021}{}\hyperlink{classSH__ServicesTableModel_aa61563f840bc9761343e91ba9e89bbf3}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__ServicesTableModel_aa61563f840bc9761343e91ba9e89bbf3}{SH\_ServicesTableModel::fillModel}()
+00022 \{
+00023     \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{SH\_ExtendedProxyModel::sort}(1,Qt::AscendingOrder);
+00024 \}
+\end{DoxyCode}

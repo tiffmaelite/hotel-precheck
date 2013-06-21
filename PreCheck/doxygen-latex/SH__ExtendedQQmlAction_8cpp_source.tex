@@ -1,0 +1,192 @@
+\hypertarget{SH__ExtendedQQmlAction_8cpp}{\section{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}
+\label{SH__ExtendedQQmlAction_8cpp}\index{views/\-S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp@{views/\-S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <QtGui/QGuiApplication>}
+00002 \textcolor{preprocessor}{#include <QtQuick/QQuickItem>}
+00003 \textcolor{preprocessor}{#include <QtQuick/QQuickWindow>}
+00004 \textcolor{preprocessor}{#include <QQmlFile>}
+00005 \textcolor{preprocessor}{#include "\hyperlink{SH__ExtendedQQmlAction_8h}{SH\_ExtendedQQmlAction.h}"}
+00006 \textcolor{comment}{/*#include "../../src/gui/kernel/qguiapplication\_p.h"*/}
+00007 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00014}{}\hyperlink{classSH__ExtendedQQmlAction_aaecd8af53387938e1d1478f7c1c8f566}{00014} \hyperlink{classSH__ExtendedQQmlAction_aaecd8af53387938e1d1478f7c1c8f566}{SH\_ExtendedQQmlAction::SH\_ExtendedQQmlAction}(
+      \hyperlink{classQObject}{QObject} *parent)
+00015     : \hyperlink{classQObject}{QObject}(parent)
+00016     , m\_enabled(true)
+00017 \{
+00018 \}
+00019 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00025}{}\hyperlink{classSH__ExtendedQQmlAction_a03c5eae20747d7a8b444c7939d2ab262}{00025} \hyperlink{classSH__ExtendedQQmlAction_a03c5eae20747d7a8b444c7939d2ab262}{SH\_ExtendedQQmlAction::~SH\_ExtendedQQmlAction}()
+00026 \{
+00027     \hyperlink{classSH__ExtendedQQmlAction_a009073e1d5001219d34c0cd22a9e9a09}{setKeyShortcut}(Qt::Key\_unknown);
+00028     \hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{setMnemonicFromText}(QString());
+00029 \}
+00030 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00036}{}\hyperlink{classSH__ExtendedQQmlAction_af0b32d40b7195ad38b0348cec6dd7c70}{00036} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_af0b32d40b7195ad38b0348cec6dd7c70}{SH\_ExtendedQQmlAction::setText}(\textcolor{keyword}{const} QString &text)
+00037 \{
+00038     \textcolor{keywordflow}{if} (text == \hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text})
+00039         \textcolor{keywordflow}{return};
+00040     \hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text} = \hyperlink{classSH__ExtendedQQmlAction_a827915b0ce23a1af60d9aaaf7d052447}{text};
+00041     \hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{setMnemonicFromText}(\hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text});
+00042     emit \hyperlink{classSH__ExtendedQQmlAction_ad92aa9cd574579e12923d27c5e131429}{textChanged}();
+00043 \}
+00044 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00050}{}\hyperlink{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{00050} \textcolor{keywordtype}{bool} \hyperlink{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{qShortcutContextMatcher}(\hyperlink{classQObject}{QObject} *o, Qt::ShortcutContext context)
+00051 \{
+00052     \textcolor{keywordflow}{switch} (context) \{
+00053     \textcolor{keywordflow}{case} Qt::ApplicationShortcut:
+00054         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00055     \textcolor{keywordflow}{case} Qt::WindowShortcut: \{
+00056         \hyperlink{classQObject}{QObject} *w = o;
+00057         \textcolor{keywordflow}{while} (w && !w->isWindowType()) \{
+00058             w = w->parent();
+00059             \textcolor{keywordflow}{if} (\hyperlink{classQQuickItem}{QQuickItem} * item = qobject\_cast<QQuickItem*>(w))
+00060                 w = item->window();
+00061         \}
+00062         \textcolor{keywordflow}{if} (w && w == QGuiApplication::focusWindow())
+00063             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00064     \}
+00065     \textcolor{keywordflow}{case} Qt::WidgetShortcut:
+00066     \textcolor{keywordflow}{case} Qt::WidgetWithChildrenShortcut:
+00067         \textcolor{keywordflow}{break};
+00068     \}
+00069 
+00070     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00071 \}
+00072 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00078}{}\hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{00078} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{SH\_ExtendedQQmlAction::setKeySequence}(\textcolor{keyword}{const} QKeySequence &
+      sequence) \{
+00079     \textcolor{keywordflow}{if} (sequence == \hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut})
+00080         \textcolor{keywordflow}{return};
+00081 
+00082     \textcolor{comment}{/*if (!m\_shortcut.isEmpty())}
+00083 \textcolor{comment}{        QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, m\_shortcut);}
+00084 \textcolor{comment}{    */}
+00085     \hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut} = sequence;
+00086 
+00087     \textcolor{keywordflow}{if} (!\hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut}.isEmpty()) \{
+00088         Qt::ShortcutContext context = Qt::WindowShortcut;
+00089         \textcolor{comment}{/*QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m\_shortcut, context,
+       qShortcutContextMatcher);*/}
+00090     \}
+00091     emit \hyperlink{classSH__ExtendedQQmlAction_a4102c2ecaadd0d5f8ac2586763de2eb8}{shortcutChanged}(\hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{shortcut}());
+00092 \}
+00093 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00099}{}\hyperlink{classSH__ExtendedQQmlAction_a009073e1d5001219d34c0cd22a9e9a09}{00099} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a009073e1d5001219d34c0cd22a9e9a09}{SH\_ExtendedQQmlAction::setKeyShortcut}(\textcolor{keyword}{const} Qt::Key &shortcut)
+00100 \{
+00101     \hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{setKeySequence}(QKeySequence(shortcut));
+00102 \}
+00103 
+00109 QString \hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{SH\_ExtendedQQmlAction::shortcut}()\textcolor{keyword}{ const}
+00110 \textcolor{keyword}{}\{
+00111     \textcolor{keywordflow}{return} \hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut}.toString(QKeySequence::NativeText);
+00112 \}
+00113 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00119}{}\hyperlink{classSH__ExtendedQQmlAction_a2153c886f7663d5a714c354a05c8b855}{00119} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a2153c886f7663d5a714c354a05c8b855}{SH\_ExtendedQQmlAction::setShortcut}(\textcolor{keyword}{const} QString &arg)
+00120 \{
+00121     \textcolor{keywordflow}{if}(\hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{shortcut}() == arg)
+00122         \textcolor{keywordflow}{return};
+00123 
+00124     \hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{setKeySequence}(QKeySequence::fromString(arg));
+00125 \}
+00126 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00132}{}\hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{00132} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{SH\_ExtendedQQmlAction::setMnemonicFromText}(\textcolor{keyword}{const} QString &
+      text)
+00133 \{
+00134     QKeySequence sequence = QKeySequence::mnemonic(text);
+00135     \textcolor{keywordflow}{if} (\hyperlink{classSH__ExtendedQQmlAction_a7c924c07aa50a7228b6e8f31c4520896}{m\_mnemonic} == sequence)
+00136         \textcolor{keywordflow}{return};
+00137 
+00138     \textcolor{comment}{/*if (!m\_mnemonic.isEmpty())}
+00139 \textcolor{comment}{        QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, m\_mnemonic);}
+00140 \textcolor{comment}{    */}
+00141     \hyperlink{classSH__ExtendedQQmlAction_a7c924c07aa50a7228b6e8f31c4520896}{m\_mnemonic} = sequence;
+00142 
+00143     \textcolor{keywordflow}{if} (!\hyperlink{classSH__ExtendedQQmlAction_a7c924c07aa50a7228b6e8f31c4520896}{m\_mnemonic}.isEmpty()) \{
+00144         Qt::ShortcutContext context = Qt::WindowShortcut;
+00145         \textcolor{comment}{/*QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m\_mnemonic, context,
+       qShortcutContextMatcher);*/}
+00146     \}
+00147 \}
+00148 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00154}{}\hyperlink{classSH__ExtendedQQmlAction_a703b29eb866cdc4d739e3f22ada92fb6}{00154} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a703b29eb866cdc4d739e3f22ada92fb6}{SH\_ExtendedQQmlAction::setIconSource}(\textcolor{keyword}{const} QUrl &iconSource)
+00155 \{
+00156     \textcolor{keywordflow}{if} (iconSource == \hyperlink{classSH__ExtendedQQmlAction_a61c8633eab1fa3b69752074220e785fc}{m\_iconSource})
+00157         \textcolor{keywordflow}{return};
+00158 
+00159     \hyperlink{classSH__ExtendedQQmlAction_a61c8633eab1fa3b69752074220e785fc}{m\_iconSource} = \hyperlink{classSH__ExtendedQQmlAction_a4256635783087124d3df6fa9726e7d55}{iconSource};
+00160     \textcolor{keywordflow}{if} (\hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName}.isEmpty() || \hyperlink{classSH__ExtendedQQmlAction_a4386f56e28c2c70cfedd16c1d8c2c4a4}{m\_icon}.isNull()) \{
+00161         QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
+00162         \hyperlink{classSH__ExtendedQQmlAction_a4386f56e28c2c70cfedd16c1d8c2c4a4}{m\_icon} = QIcon(fileString);
+00163 
+00164         emit \hyperlink{classSH__ExtendedQQmlAction_ac47156b58d63ae5408e8d06b3669005c}{iconChanged}();
+00165     \}
+00166     emit \hyperlink{classSH__ExtendedQQmlAction_a86d7d90947e9dcd0d80faba2734f580e}{iconSourceChanged}();
+00167 \}
+00168 
+00174 QString \hyperlink{classSH__ExtendedQQmlAction_afaa301943c53a8689ec5447560ffc97f}{SH\_ExtendedQQmlAction::iconName}()\textcolor{keyword}{ const}
+00175 \textcolor{keyword}{}\{
+00176     \textcolor{keywordflow}{return} \hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName};
+00177 \}
+00178 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00184}{}\hyperlink{classSH__ExtendedQQmlAction_abf2bb83a227c27c4d71f1b2670dcb3b4}{00184} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_abf2bb83a227c27c4d71f1b2670dcb3b4}{SH\_ExtendedQQmlAction::setIconName}(\textcolor{keyword}{const} QString &iconName)
+00185 \{
+00186     \textcolor{keywordflow}{if} (iconName == \hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName})
+00187         \textcolor{keywordflow}{return};
+00188     \hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName} = \hyperlink{classSH__ExtendedQQmlAction_afaa301943c53a8689ec5447560ffc97f}{iconName};
+00189     \hyperlink{classSH__ExtendedQQmlAction_a4386f56e28c2c70cfedd16c1d8c2c4a4}{m\_icon} = QIcon::fromTheme(\hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName}, QIcon(QQmlFile::urlToLocalFileOrQrc(
+      \hyperlink{classSH__ExtendedQQmlAction_a61c8633eab1fa3b69752074220e785fc}{m\_iconSource})));
+00190     emit \hyperlink{classSH__ExtendedQQmlAction_aa031ceaf4f89e9ead2986aa587764f0e}{iconNameChanged}();
+00191     emit \hyperlink{classSH__ExtendedQQmlAction_ac47156b58d63ae5408e8d06b3669005c}{iconChanged}();
+00192 \}
+00193 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00199}{}\hyperlink{classSH__ExtendedQQmlAction_a2368d82145d8f268af41ee5cb6d540d4}{00199} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a2368d82145d8f268af41ee5cb6d540d4}{SH\_ExtendedQQmlAction::setTooltip}(\textcolor{keyword}{const} QString &arg)
+00200 \{
+00201     \textcolor{keywordflow}{if} (\hyperlink{classSH__ExtendedQQmlAction_af04bb6a8446dcd4701a98fc667be693f}{m\_tooltip} != arg) \{
+00202         \hyperlink{classSH__ExtendedQQmlAction_af04bb6a8446dcd4701a98fc667be693f}{m\_tooltip} = arg;
+00203         emit \hyperlink{classSH__ExtendedQQmlAction_a4fefcbe12f99c7eccec7e15aa3585a37}{tooltipChanged}(arg);
+00204     \}
+00205 \}
+00206 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00212}{}\hyperlink{classSH__ExtendedQQmlAction_a29f12b5f71a384d860062ea7b8981aeb}{00212} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a29f12b5f71a384d860062ea7b8981aeb}{SH\_ExtendedQQmlAction::setEnabled}(\textcolor{keywordtype}{bool} e)
+00213 \{
+00214     \textcolor{keywordflow}{if} (e == \hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled})
+00215         \textcolor{keywordflow}{return};
+00216     \hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled} = e;
+00217     emit \hyperlink{classSH__ExtendedQQmlAction_a3304a346460b7abb04416b2c53090b1b}{enabledChanged}();
+00218 \}
+00219 
+00220 
+00221 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00228}{}\hyperlink{classSH__ExtendedQQmlAction_a2067689e7c1e14a316ad6095e57d6cf6}{00228} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedQQmlAction_a2067689e7c1e14a316ad6095e57d6cf6}{SH\_ExtendedQQmlAction::event}(QEvent *e)
+00229 \{
+00230     \textcolor{keywordflow}{if} (!\hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled})
+00231         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00232 
+00233     \textcolor{keywordflow}{if} (e->type() != QEvent::Shortcut)
+00234         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00235 
+00236     QShortcutEvent *se = \textcolor{keyword}{static\_cast<}QShortcutEvent *\textcolor{keyword}{>}(e);
+00237 
+00238     Q\_ASSERT\_X(se->key() == \hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut} || se->key() == \hyperlink{classSH__ExtendedQQmlAction_a7c924c07aa50a7228b6e8f31c4520896}{m\_mnemonic},
+00239                \textcolor{stringliteral}{"QQQuickAction::event"},
+00240                \textcolor{stringliteral}{"Received shortcut event from incorrect shortcut"});
+00241     \textcolor{keywordflow}{if} (se->isAmbiguous()) \{
+00242         qWarning(\textcolor{stringliteral}{"QQQuickAction::event: Ambiguous shortcut overload: %s"}, se->key().toString(
+      QKeySequence::NativeText).toLatin1().constData());
+00243         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00244     \}
+00245 
+00246     \hyperlink{classSH__ExtendedQQmlAction_adb355d9ce9bc1539651377427a264f34}{trigger}();
+00247 
+00248     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00249 \}
+00250 
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00256}{}\hyperlink{classSH__ExtendedQQmlAction_adb355d9ce9bc1539651377427a264f34}{00256} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_adb355d9ce9bc1539651377427a264f34}{SH\_ExtendedQQmlAction::trigger}()
+00257 \{
+00258     \textcolor{keywordflow}{if} (!\hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled})
+00259         \textcolor{keywordflow}{return};
+00260     emit \hyperlink{classSH__ExtendedQQmlAction_a36cdd406d8692f0277b50a61611bd52c}{triggered}();
+00261 \}
+\end{DoxyCode}

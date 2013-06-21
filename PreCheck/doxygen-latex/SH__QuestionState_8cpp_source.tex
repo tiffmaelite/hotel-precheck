@@ -1,0 +1,47 @@
+\hypertarget{SH__QuestionState_8cpp}{\section{S\-H\-\_\-\-Question\-State.\-cpp}
+\label{SH__QuestionState_8cpp}\index{logic/\-S\-H\-\_\-\-Question\-State.\-cpp@{logic/\-S\-H\-\_\-\-Question\-State.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__QuestionState_8h}{SH\_QuestionState.h}"}
+00002 
+\hypertarget{SH__QuestionState_8cpp_source_l00009}{}\hyperlink{classSH__QuestionState_ad7ea575ec284d1dc89da5df9f31cd751}{00009} \hyperlink{classSH__QuestionState_ad7ea575ec284d1dc89da5df9f31cd751}{SH\_QuestionState::SH\_QuestionState}(QString question, QString name, 
+      \hyperlink{classQState}{QState} *parent) :
+00010     \hyperlink{classSH__InOutState}{SH\_InOutState}(question, name, parent)
+00011 \{
+00012 \}
+00013 
+\hypertarget{SH__QuestionState_8cpp_source_l00020}{}\hyperlink{classSH__QuestionState_a3ca5459c20ef591023c0572d8224146c}{00020} \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a3ca5459c20ef591023c0572d8224146c}{SH\_QuestionState::checkValidity}()
+00021 \{
+00022     \textcolor{keywordtype}{bool} ok = this->\hyperlink{classSH__QuestionState_ac195d7ad87a52ab276a7c4a902eab691}{isAnswerValid}(this->\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer}());
+00023     \textcolor{keywordflow}{if}(ok) \{
+00024         qDebug() << this->\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer}() << \textcolor{stringliteral}{" answer valid !"};
+00025         qDebug() << this->\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer}();
+00026         \hyperlink{classSH__InOutState_a0206ab7d5616f28b0da7bfd5451614e8}{SH\_InOutState::setInput}(this->\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer}());
+00027         emit \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
+00028         emit \hyperlink{classSH__GenericState_a030e67a872956135c52e6876d960a7b5}{next}();
+00029     \} \textcolor{keywordflow}{else} \{
+00030         qDebug() << this->\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer}() << \textcolor{stringliteral}{" answer invalid :-("};
+00031         qDebug() << this->\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer}();
+00032         emit \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
+00033     \}
+00034     \textcolor{keywordflow}{return} ok;
+00035 \}
+00036 
+\hypertarget{SH__QuestionState_8cpp_source_l00043}{}\hyperlink{classSH__QuestionState_a331222d371d9c97392f35c84a5ef43e1}{00043} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a331222d371d9c97392f35c84a5ef43e1}{SH\_QuestionState::setInput}(\textcolor{keyword}{const} QVariant &input)
+00044 \{
+00045     qDebug() << \textcolor{stringliteral}{"new answer "} << input.toString();
+00046     this->\hyperlink{classSH__QuestionState_a9d285a34a7002fd05a7fa8ff9139c264}{setGivenAnswer}(input);
+00047 \}
+00048 
+\hypertarget{SH__QuestionState_8cpp_source_l00055}{}\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{00055} QVariant \hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{SH\_QuestionState::givenAnswer}()\textcolor{keyword}{ const}
+00056 \textcolor{keyword}{}\{
+00057     \textcolor{keywordflow}{return} this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
+00058 \}
+00059 
+\hypertarget{SH__QuestionState_8cpp_source_l00066}{}\hyperlink{classSH__QuestionState_a9d285a34a7002fd05a7fa8ff9139c264}{00066} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a9d285a34a7002fd05a7fa8ff9139c264}{SH\_QuestionState::setGivenAnswer}(\textcolor{keyword}{const} QVariant &givenAsnwer)
+00067 \{
+00068     this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer} = givenAsnwer;
+00069     this->\hyperlink{classSH__QuestionState_a3ca5459c20ef591023c0572d8224146c}{checkValidity}();
+00070 \}
+\end{DoxyCode}

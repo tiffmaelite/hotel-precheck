@@ -1,0 +1,25 @@
+\hypertarget{SH__AdaptDatabaseState_8h}{\section{S\-H\-\_\-\-Adapt\-Database\-State.\-h}
+\label{SH__AdaptDatabaseState_8h}\index{logic/\-S\-H\-\_\-\-Adapt\-Database\-State.\-h@{logic/\-S\-H\-\_\-\-Adapt\-Database\-State.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef ADAPTDATABASE\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ADAPTDATABASE\_H}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__GenericDebugableState_8h}{SH\_GenericDebugableState.h}"}
+00004 
+\hypertarget{SH__AdaptDatabaseState_8h_source_l00009}{}\hyperlink{classSH__AdaptDatabaseState}{00009} \textcolor{keyword}{class }\hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState} : \textcolor{keyword}{public} \hyperlink{classSH__GenericState}{SH\_GenericState}
+00010 \{
+00011     Q\_OBJECT
+00012 \textcolor{keyword}{public}:
+00019     \hyperlink{classSH__AdaptDatabaseState_aaca9bab6a7263320c40149987b82c024}{SH\_AdaptDatabaseState}(QString \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}, \hyperlink{classQState}{QState} *parent = 0);
+00020 
+00028     QVariant \hyperlink{classSH__AdaptDatabaseState_ab010e64da052db416328d3bcb9ca01d4}{insertUpdate}(QString table, QVariantMap content);
+00029 
+00030 signals:
+00031 
+00032 \textcolor{keyword}{public} slots:
+00033 
+00034 \};
+00035 
+00036 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* ADAPTDATABASE\_H*/}\textcolor{preprocessor}{}
+\end{DoxyCode}
