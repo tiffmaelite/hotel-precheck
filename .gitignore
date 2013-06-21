@@ -1,11 +1,23 @@
 #working builds
-build/
-#documentation generation error log
+build/*
+
+#wiki folder (not only its content)
+wiki
+
+#documentation generation error log folders
 doc/doclog
 docs/doclog
-#heavy doxygen documentation
-#doc/PreCheck/doxygen*
+
+#heavy documentation
+doc/PreCheck/*
+# But not these files...
+!doc/PreCheck/doxygen-latex/refman.pdf
+!doc/PreCheck/howtos/*
+!doc/PreCheck/doxygen-*.html
+!doc/PreCheck/doxygen-*.css
+
 #QtCreator config user files
 src/PreCheck/PreCheck.pro.user*
+
 #lib images
-src/PreCheck/views/img/lib/
+src/PreCheck/views/img/lib
