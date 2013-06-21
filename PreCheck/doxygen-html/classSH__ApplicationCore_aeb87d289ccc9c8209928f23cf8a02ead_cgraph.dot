@@ -1,0 +1,35 @@
+digraph "SH_ApplicationCore::setMode"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_ApplicationCore\l::setMode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 [label="SH_User::exists",height=0.2,width=0.4,color="black",URL="$classSH__User.html#aa83a99478cf6c738f995c5c36345bcd3"];
+  Node2 -> Node3 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node3 [label="SH_User::userExists",height=0.2,width=0.4,color="black",URL="$classSH__User.html#a5ca23c3c396d8867d5d605d087efb82f"];
+  Node3 -> Node4 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node4 [label="SH_DatabaseManager\l::getInstance",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a638369a15265ab0aa053080a32d2ca39"];
+  Node4 -> Node5 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node5 [label="SH_DatabaseManager\l::SH_DatabaseManager",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a7b5d0e372c153eb59cdab98588994904"];
+  Node5 -> Node6 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node6 [label="SH_MessageManager::\lerrorMessage",height=0.2,width=0.4,color="black",URL="$classSH__MessageManager.html#acb5615cc90f198f4768da800a5d32362"];
+  Node5 -> Node7 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node7 [label="SH_DatabaseManager\l::dbConnect",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#aeb077fe5437f435c0cbe8d77d96dd846"];
+  Node7 -> Node6 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 -> Node8 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node8 [label="SH_User::traineeExists",height=0.2,width=0.4,color="black",URL="$classSH__User.html#af40edc91cf1a4d8065fb43d2899c3dcb"];
+  Node8 -> Node4 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node1 -> Node9 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node9 [label="SH_User::isAdministrator",height=0.2,width=0.4,color="black",URL="$classSH__User.html#ad2acd7b3caca088be8cab00aee11c0e1"];
+  Node1 -> Node10 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node10 [label="SH_User::isManagerX",height=0.2,width=0.4,color="black",URL="$classSH__User.html#ac69553a66b8c7177c9a5e28a64f02d48"];
+  Node1 -> Node11 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node11 [label="SH_User::isManagerZ",height=0.2,width=0.4,color="black",URL="$classSH__User.html#aa59c59a6f538628c883216e4a73e4c75"];
+  Node1 -> Node12 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node12 [label="SH_User::isReceptionist",height=0.2,width=0.4,color="black",URL="$classSH__User.html#aa0da8b3326fe98d0ce5ec32e284d8e67"];
+  Node1 -> Node13 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node13 [label="SH_ApplicationCore\l::mode",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a210295d4d7a6e16e9def6e0a29816b51"];
+}

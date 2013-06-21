@@ -1,0 +1,39 @@
+\hypertarget{SH__RoomsDelegate_8qml}{\section{S\-H\-\_\-\-Rooms\-Delegate.\-qml}
+\label{SH__RoomsDelegate_8qml}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Rooms\-Delegate.\-qml@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Rooms\-Delegate.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{SH__RoomsDelegate_8qml_source_l00004}{}\hyperlink{classSH__RoomsDelegate}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+00007 
+00011 SH\_DataDelegate \{
+00012     \textcolor{keywordtype}{id}: btn
+00013     text: qsTr(\textcolor{stringliteral}{"%L1"}).arg(NUMBER);
+00014     value: NUMBER
+00015     style: ButtonStyle \{
+00016         background:
+00017             \hyperlink{classItem}{Item} \{
+00018             BorderImage \{
+00019                 anchors.fill: parent
+00020                 border.top: 1
+00021                 border.bottom: 1
+00022                 border.left: 1
+00023                 border.right: 1
+00024                 anchors.bottomMargin: -1
+00025                 \textcolor{comment}{/*property color color:(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' ||
+       AVAILABILITY === 1) ? "green" : "orange")*/}
+00026                 \textcolor{keyword}{property} \textcolor{keywordtype}{string} color:(AVAILABILITY == \textcolor{stringliteral}{''}) ? \textcolor{stringliteral}{'blue'} : ((AVAILABILITY === \textcolor{charliteral}{'1'} || 
+      AVAILABILITY === 1) ? \textcolor{stringliteral}{"green"} : \textcolor{stringliteral}{"orange"})
+00027                 \textcolor{comment}{/*source: btn.pressed ? "../img/button"+color.toString().toUpperCase()+"down.png" : "../img
+      /button"+color.toString().toUpperCase()+"up.png"*/}
+00028                 source: btn.pressed ? \textcolor{stringliteral}{"../img/button"}+color.toUpperCase()+\textcolor{stringliteral}{"down.png"} : \textcolor{stringliteral}{"../img/button"}+
+      color.toUpperCase()+\textcolor{stringliteral}{"up.png"}
+00029             \}
+00030         \}
+00031     \}
+00032 \}
+\end{DoxyCode}

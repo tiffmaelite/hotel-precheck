@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/models/SH_SqlDataField.h</title>
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <!--td style="padding-left: 0.5em;"-->
+  <td>
+   <div id="projectname">PreCheck
+   <span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+   <link href="tabs.css" rel="stylesheet" type="text/css"/>
+   <link href="doxygen.css" rel="stylesheet" type="text/css" />
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.html">PreCheck</a></li><li class="navelem"><a class="el" href="dir_0ca75c10eadacd982647138e60a4938c.html">models</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_SqlDataField.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__SqlDataField_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SQLDATAFIELDS_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SQLDATAFIELDS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QtQuick&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__SqlDataFields.html">SH_SqlDataFields</a> : <span class="keyword">public</span> <a class="code" href="classQQuickItem.html">QQuickItem</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        Q_OBJECT</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a470f53e16cc7918594b5b727290ed9d2">   15</a></span>&#160;        Q_PROPERTY(QString <a class="code" href="classSH__SqlDataFields.html#a4951291928ce837435411166d66a5a3f">name</a> READ <a class="code" href="classSH__SqlDataFields.html#a4951291928ce837435411166d66a5a3f">name</a> WRITE <a class="code" href="classSH__SqlDataFields.html#ab658a817f459e5d0a8c0f5c4e8c28a9d">setName</a> NOTIFY <a class="code" href="classSH__SqlDataFields.html#ae3d52ec9938ab55f18ecdbcc5a8fd761">nameChanged</a>)</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a30fa26427d0ee5476fd59813390f99b9">   16</a></span>&#160;        Q_PROPERTY(QString <a class="code" href="classSH__SqlDataFields.html#a7d8b3f434dc35ee83a9d8d9811e0e8eb">text</a> READ <a class="code" href="classSH__SqlDataFields.html#a7d8b3f434dc35ee83a9d8d9811e0e8eb">text</a> WRITE <a class="code" href="classSH__SqlDataFields.html#a377b4964546e91bd344c8c6f5190a833">setText</a> NOTIFY <a class="code" href="classSH__SqlDataFields.html#ae91d833d4b50bff27c87015179b1ac24">textChanged</a>)</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a7ec3ef0a355a12b9adab707d508bfa94">   17</a></span>&#160;        Q_PROPERTY(QByteArray <a class="code" href="classSH__SqlDataFields.html#a6e5a9b95f0249a85ccf2fd0844ab7170">role</a> READ <a class="code" href="classSH__SqlDataFields.html#a6e5a9b95f0249a85ccf2fd0844ab7170">role</a> NOTIFY <a class="code" href="classSH__SqlDataFields.html#a2f98ae1dff83fc150b9e836ad782e6bf">roleChanged</a>)</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#aec4483df7b9edfe22100985047d97bdd">   18</a></span>&#160;        Q_PROPERTY(Qt::SortOrder <a class="code" href="classSH__SqlDataFields.html#af7ecc3a493545e81e6959d778352d9ac">sortOrder</a> READ <a class="code" href="classSH__SqlDataFields.html#af7ecc3a493545e81e6959d778352d9ac">sortOrder</a> WRITE <a class="code" href="classSH__SqlDataFields.html#a6ace4d4f29e74ce3ed81f75a2c278e83">setSortOrder</a> NOTIFY <a class="code" href="classSH__SqlDataFields.html#a4aa8b620b962b3e03b94b6e68bb81952">sortOrderChanged</a>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    public:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        explicit <a class="code" href="classSH__SqlDataFields.html">SH_SqlDataFields</a>(<a class="code" href="classQQuickItem.html">QQuickItem</a> *parent = 0);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a7d8b3f434dc35ee83a9d8d9811e0e8eb">   35</a></span>&#160;        QString <a class="code" href="classSH__SqlDataFields.html#a7d8b3f434dc35ee83a9d8d9811e0e8eb">text</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classSH__SqlDataFields.html#a55352d3aea0863fcab26c948babe8523" title="m_text ">m_text</a>; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a4951291928ce837435411166d66a5a3f">   42</a></span>&#160;        QString <a class="code" href="classSH__SqlDataFields.html#a4951291928ce837435411166d66a5a3f">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classSH__SqlDataFields.html#a3c0e82a8b6652335bdc53b211d39d4e2" title="m_name ">m_name</a>; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a6e5a9b95f0249a85ccf2fd0844ab7170">   49</a></span>&#160;        QByteArray <a class="code" href="classSH__SqlDataFields.html#a6e5a9b95f0249a85ccf2fd0844ab7170">role</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> QByteArray(<a class="code" href="classSH__SqlDataFields.html#a3c0e82a8b6652335bdc53b211d39d4e2" title="m_name ">m_name</a>.toUpper().toStdString().c_str()); }</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#af7ecc3a493545e81e6959d778352d9ac">   56</a></span>&#160;        Qt::SortOrder <a class="code" href="classSH__SqlDataFields.html#af7ecc3a493545e81e6959d778352d9ac">sortOrder</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classSH__SqlDataFields.html#aa5dbfa2beef7114fba275d61135a6760" title="m_sortOrder ">m_sortOrder</a>; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#a377b4964546e91bd344c8c6f5190a833">setText</a>(QString newText);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#ab658a817f459e5d0a8c0f5c4e8c28a9d">setName</a>(QString newName);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#a6ace4d4f29e74ce3ed81f75a2c278e83">setSortOrder</a>(Qt::SortOrder newSortOrder);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a55352d3aea0863fcab26c948babe8523">   84</a></span>&#160;        QString <a class="code" href="classSH__SqlDataFields.html#a55352d3aea0863fcab26c948babe8523" title="m_text ">m_text</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#a3c0e82a8b6652335bdc53b211d39d4e2">   88</a></span>&#160;        QString <a class="code" href="classSH__SqlDataFields.html#a3c0e82a8b6652335bdc53b211d39d4e2" title="m_name ">m_name</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="classSH__SqlDataFields.html#aa5dbfa2beef7114fba275d61135a6760">   92</a></span>&#160;        Qt::SortOrder <a class="code" href="classSH__SqlDataFields.html#aa5dbfa2beef7114fba275d61135a6760" title="m_sortOrder ">m_sortOrder</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    signals:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#ae91d833d4b50bff27c87015179b1ac24">textChanged</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#ae3d52ec9938ab55f18ecdbcc5a8fd761">nameChanged</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#a2f98ae1dff83fc150b9e836ad782e6bf">roleChanged</a>();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataFields.html#a4aa8b620b962b3e03b94b6e68bb81952">sortOrderChanged</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SQLDATAFIELDS_H*/</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><small>
+<span class="qmi"><a href="http://github.com/skozlovf/doxygen-qmi-style">qmi style</a></span>
+<address class="footer">
+Généré le Vendredi Juin 21 2013 18:03:47 pour PreCheck par <a href="http://www.doxygen.org/index.html">doxygen</a> 1.8.4
+</small></address>
+</body>
+</html>

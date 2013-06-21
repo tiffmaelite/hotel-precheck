@@ -1,0 +1,564 @@
+.TH "SH_ApplicationCore" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SH_ApplicationCore \- 
+.PP
+Classe principale du coeur de l'application, avec laquelle communique l'interface graphique\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_ApplicationCore\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Types publics"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAppMode\fP { \fBCONNEXION\fP, \fBACCUEIL\fP, \fBRECEPTION\fP, \fBMANAGEMENT_X\fP, \fBMANAGEMENT_Z\fP, \fBADMINISTRATION\fP }"
+.br
+.RI "\fI\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::CONNEXION\fP \fP"
+.in -1c
+.SS "Connecteurs publics"
+
+.in +1c
+.ti -1c
+.RI "bool \fBbalanceLogRoutine\fP ()"
+.br
+.ti -1c
+.RI "void \fBcancelReplacement\fP ()"
+.br
+.ti -1c
+.RI "bool \fBcancelRunningThread\fP ()"
+.br
+.ti -1c
+.RI "Q_INVOKABLE bool \fBlaunchBillingsThread\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlaunchBillThread\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlaunchBookingsThread\fP ()"
+.br
+.ti -1c
+.RI "void \fBreceiveConfirmation\fP ()"
+.br
+.ti -1c
+.RI "void \fBreceiveInput\fP (QString in)"
+.br
+.ti -1c
+.RI "void \fBreceiveValidation\fP ()"
+.br
+.ti -1c
+.RI "void \fBreplaceInput\fP (QString inputName)"
+.br
+.ti -1c
+.RI "bool \fBsetUser\fP (QString login, QString pass)"
+.br
+.ti -1c
+.RI "bool \fBuserExists\fP (QString login)"
+.br
+.ti -1c
+.RI "bool \fBuserLogOut\fP ()"
+.br
+.in -1c
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBclearAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBcurrentFSMchanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBdisplayCalendar\fP ()"
+.br
+.ti -1c
+.RI "void \fBmodeChanged\fP (QVariant \fBmode\fP)"
+.br
+.ti -1c
+.RI "void \fBopenTab\fP (QVariant tabPos)"
+.br
+.ti -1c
+.RI "void \fBresendText\fP (QString text)"
+.br
+.ti -1c
+.RI "void \fBsendText\fP (QString text)"
+.br
+.ti -1c
+.RI "void \fBuserChanged\fP (QVariant name)"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_ApplicationCore\fP (\fBQObject\fP *parent=0)"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "\fBAppMode\fP \fBmode\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetMode\fP (\fBAppMode\fP \fBmode\fP)"
+.br
+.ti -1c
+.RI "\fBSH_User\fP * \fBuser\fP () const "
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "bool \fBconnectRunningThread\fP ()"
+.br
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "\fBAppMode\fP \fBcurrentMode\fP"
+.br
+.ti -1c
+.RI "\fBSH_User\fP \fBcurrentUser\fP"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_InOutStateMachine\fP * \fBm_currentFSM\fP"
+.br
+.RI "\fIm_currentFSM \fP"
+.ti -1c
+.RI "\fBSH_User\fP * \fBm_currentUser\fP"
+.br
+.RI "\fIm_currentUser \fP"
+.ti -1c
+.RI "\fBAppMode\fP \fBm_mode\fP"
+.br
+.RI "\fIm_mode \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Classe principale du coeur de l'application, avec laquelle communique l'interface graphique\&. 
+.PP
+Définition à la ligne 12 du fichier SH_ApplicationCore\&.h\&.
+.SH "Documentation des énumérations membres"
+.PP 
+.SS "enum \fBSH_ApplicationCore::AppMode\fP"
+
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::CONNEXION\fP Énumération des modes possibles de l'application\&.
+.PP
+Mode de l'application qui ne contient que le formulaire de connexion
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::ACCUEIL\fP Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès /*!  \fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::RECEPTION\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::MANAGEMENT_X\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::MANAGEMENT_Z\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable Z (lecture et modifications) du service
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::ADMINISTRATION\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un technicien en charge de paramétrer l'application ou de modifier ses données (comptes utilisateurs, chambres\&.\&.\&.) 
+.PP
+\fBValeurs énumérées\fP
+.in +1c
+.TP
+\fB\fICONNEXION \fP\fP
+.TP
+\fB\fIACCUEIL \fP\fP
+.TP
+\fB\fIRECEPTION \fP\fP
+.TP
+\fB\fIMANAGEMENT_X \fP\fP
+.TP
+\fB\fIMANAGEMENT_Z \fP\fP
+.TP
+\fB\fIADMINISTRATION \fP\fP
+.PP
+Définition à la ligne 57 du fichier SH_ApplicationCore\&.h\&.
+.PP
+.nf
+57 { CONNEXION, ACCUEIL, RECEPTION, MANAGEMENT_X, MANAGEMENT_Z, ADMINISTRATION };
+.fi
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SH_ApplicationCore::SH_ApplicationCore (\fBQObject\fP *parent = \fC0\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIparent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 14 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références init()\&.
+.PP
+.nf
+14                                                       :
+15     QObject(parent)
+16 {
+17     init();
+18 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "bool SH_ApplicationCore::balanceLogRoutine ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 112 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+.nf
+112                                            {
+113     /*AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(H)");
+114     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(D)");
+115     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(W)");
+116     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(M)");
+117     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(Y)");*/
+118 }
+.fi
+.SS "void SH_ApplicationCore::cancelReplacement ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 169 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::cancelReplacement(), et m_currentFSM\&.
+.PP
+.nf
+170 {
+171     if(this->m_currentFSM) {
+172         emit this->m_currentFSM->cancelReplacement();
+173     }
+174 }
+.fi
+.SS "bool SH_ApplicationCore::cancelRunningThread ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 232 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentFSM\&.
+.PP
+.nf
+233 {
+234     /*if(!this->m_currentFSM) {
+235         return true;
+236     }*/
+237     this->m_currentFSM->stop();
+238     bool ok = !this->m_currentFSM->isRunning();
+239     this->m_currentFSM = NULL;
+240     return ok;
+241 }
+.fi
+.SS "void SH_ApplicationCore::clearAll ()\fC [signal]\fP"
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "bool SH_ApplicationCore::connectRunningThread ()\fC [protected]\fP"
+
+.PP
+Définition à la ligne 249 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::clearAll(), clearAll(), SH_InOutStateMachine::displayCalendar(), displayCalendar(), m_currentFSM, SH_InOutStateMachine::resendText(), resendText(), SH_InOutStateMachine::sendText(), et sendText()\&.
+.PP
+Référencé par launchBillingsThread(), launchBillThread(), et launchBookingsThread()\&.
+.PP
+.nf
+250 {
+251     /*if(!this->m_currentFSM) {
+252         return false;
+253     }*/
+254     qDebug() << "coucou";
+255     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, this, &SH_ApplicationCore::sendText, Qt::DirectConnection);
+256         QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
+257         QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
+258     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);
+259     return this->m_currentFSM->isRunning();
+260 }
+.fi
+.SS "void SH_ApplicationCore::currentFSMchanged ()\fC [signal]\fP"
+
+.SS "void SH_ApplicationCore::displayCalendar ()\fC [signal]\fP"
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "void SH_ApplicationCore::init ()"
+
+.PP
+Définition à la ligne 35 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentUser\&.
+.PP
+Référencé par SH_ApplicationCore()\&.
+.PP
+.nf
+35                               {
+36     this->m_currentUser = new SH_User();
+37 }
+.fi
+.SS "bool SH_ApplicationCore::launchBillingsThread ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 182 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références connectRunningThread(), m_currentFSM, et SH_InOutStateMachine::toString()\&.
+.PP
+.nf
+183 {
+184     qDebug() << "Hallo !";
+185     /*if(this->m_currentFSM) {
+186         return false;
+187     }*/
+188     qDebug() << "Hallo !";
+189     this->m_currentFSM= new SH_BillingCreationStateMachine("création facturation");
+190     this->m_currentFSM->start();
+191     qDebug() << this->m_currentFSM->toString() << " " << this->m_currentFSM->initialState();
+192     return this->connectRunningThread();
+193 
+194 }
+.fi
+.SS "bool SH_ApplicationCore::launchBillThread ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 216 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références connectRunningThread(), SH_User::id, m_currentFSM, m_currentUser, et SH_InOutStateMachine::setContentValue()\&.
+.PP
+.nf
+217 {
+218     /*if(this->m_currentFSM) {
+219         return false;
+220     }*/
+221     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
+222     this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->id()), "BILL_ID");
+223     this->m_currentFSM->start();
+224     return this->connectRunningThread();
+225 }
+.fi
+.SS "bool SH_ApplicationCore::launchBookingsThread ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 201 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références connectRunningThread()\&.
+.PP
+.nf
+202 {
+203     /*if(this->m_currentFSM) {
+204         return false;
+205     }*/
+206     /*this->m_currentFSM= new BookingCreationStateMachine("création facturation");*/
+207     /*this->m_currentFSM->start();*/
+208     return this->connectRunningThread();
+209 }
+.fi
+.SS "\fBSH_ApplicationCore::AppMode\fP SH_ApplicationCore::mode () const"
+
+.PP
+Définition à la ligne 25 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_mode\&.
+.PP
+Référencé par setMode()\&.
+.PP
+.nf
+26 {
+27     return m_mode;
+28 }
+.fi
+.SS "void SH_ApplicationCore::modeChanged (QVariantmode)\fC [signal]\fP"
+
+.SS "void SH_ApplicationCore::openTab (QVarianttabPos)\fC [signal]\fP"
+
+.SS "void SH_ApplicationCore::receiveConfirmation ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 147 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SH_InOutStateMachine::confirmInput(), et m_currentFSM\&.
+.PP
+.nf
+148 {
+149 
+150     emit this->m_currentFSM->confirmInput();
+151 
+152 }
+.fi
+.SS "void SH_ApplicationCore::receiveInput (QStringin)\fC [slot]\fP"
+
+.PP
+Définition à la ligne 125 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentFSM, et SH_InOutStateMachine::receiveInput()\&.
+.PP
+.nf
+126 {
+127     qDebug() << "input received "<<in;
+128     emit this->m_currentFSM->receiveInput(in);
+129 
+130 }
+.fi
+.SS "void SH_ApplicationCore::receiveValidation ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 136 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentFSM, et SH_InOutStateMachine::validateInput()\&.
+.PP
+.nf
+137 {
+138 
+139     emit this->m_currentFSM->validateInput();
+140 
+141 }
+.fi
+.SS "void SH_ApplicationCore::replaceInput (QStringinputName)\fC [slot]\fP"
+
+.PP
+Définition à la ligne 158 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentFSM, et SH_InOutStateMachine::replaceInput()\&.
+.PP
+.nf
+159 {
+160 
+161     emit this->m_currentFSM->replaceInput(inputName);
+162 
+163 }
+.fi
+.SS "void SH_ApplicationCore::resendText (QStringtext)\fC [signal]\fP"
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "void SH_ApplicationCore::sendText (QStringtext)\fC [signal]\fP"
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "void SH_ApplicationCore::setMode (\fBSH_ApplicationCore::AppMode\fPmode)"
+
+.PP
+Définition à la ligne 44 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références ACCUEIL, ADMINISTRATION, CONNEXION, SH_User::exists(), SH_User::isAdministrator(), SH_User::isManagerX(), SH_User::isManagerZ(), SH_User::isReceptionist(), m_currentUser, m_mode, MANAGEMENT_X, MANAGEMENT_Z, mode(), SH_User::name, et RECEPTION\&.
+.PP
+.nf
+45 {
+46     if(!this->m_currentUser || ! SH_User::exists(QVariant(this->m_currentUser->name()))\&.toBool()) {
+47         this->m_mode = CONNEXION;
+48     } else {
+49         if(((mode == ADMINISTRATION) && (!this->m_currentUser->isAdministrator())) ||
+50                 ((mode == MANAGEMENT_X) && (!this->m_currentUser->isManagerX())) ||
+51                 ((mode == MANAGEMENT_Z) && (!this->m_currentUser->isManagerZ())) ||
+52                 ((mode == RECEPTION) && (!this->m_currentUser->isReceptionist()))) {
+53             this->m_mode = ACCUEIL;
+54         } else {
+55             this->m_mode = mode;
+56         }
+57     }
+58 }
+.fi
+.SS "bool SH_ApplicationCore::setUser (QStringlogin, QStringpass)\fC [slot]\fP"
+
+.PP
+Définition à la ligne 86 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SH_User::isValid(), SH_User::logIn(), m_currentUser, SH_User::name, et userChanged()\&.
+.PP
+.nf
+87 {
+88     this->m_currentUser = SH_User::logIn(login,pass);
+89     if(this->m_currentUser->isValid()) {
+90         emit userChanged(QVariant(this->m_currentUser->name()));
+91         return true;
+92     }
+93     return false;
+94 }
+.fi
+.SS "\fBSH_User\fP * SH_ApplicationCore::user () const"
+
+.PP
+Définition à la ligne 65 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentUser\&.
+.PP
+.nf
+66 {
+67     return this->m_currentUser;
+68 }
+.fi
+.SS "void SH_ApplicationCore::userChanged (QVariantname)\fC [signal]\fP"
+
+.PP
+Référencé par setUser()\&.
+.SS "bool SH_ApplicationCore::userExists (QStringlogin)\fC [slot]\fP"
+
+.PP
+Définition à la ligne 102 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SH_User::exists()\&.
+.PP
+.nf
+103 {
+104     return SH_User::exists(login)\&.toBool();
+105 }
+.fi
+.SS "bool SH_ApplicationCore::userLogOut ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 75 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SH_User::isValid(), et m_currentUser\&.
+.PP
+.nf
+76 {
+77     this->m_currentUser = new SH_User();
+78     return !this->m_currentUser->isValid();
+79 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "\fBSH_InOutStateMachine\fP* SH_ApplicationCore::m_currentFSM\fC [private]\fP"
+
+.PP
+m_currentFSM 
+.PP
+Définition à la ligne 268 du fichier SH_ApplicationCore\&.h\&.
+.PP
+Référencé par cancelReplacement(), cancelRunningThread(), connectRunningThread(), launchBillingsThread(), launchBillThread(), receiveConfirmation(), receiveInput(), receiveValidation(), et replaceInput()\&.
+.SS "\fBSH_User\fP* SH_ApplicationCore::m_currentUser\fC [private]\fP"
+
+.PP
+m_currentUser 
+.PP
+Définition à la ligne 260 du fichier SH_ApplicationCore\&.h\&.
+.PP
+Référencé par init(), launchBillThread(), setMode(), setUser(), user(), et userLogOut()\&.
+.SS "\fBAppMode\fP SH_ApplicationCore::m_mode\fC [private]\fP"
+
+.PP
+m_mode 
+.PP
+Définition à la ligne 264 du fichier SH_ApplicationCore\&.h\&.
+.PP
+Référencé par mode(), et setMode()\&.
+.SH "Documentation des propriétés"
+.PP 
+.SS "SH_ApplicationCore::currentMode\fC [read]\fP, \fC [write]\fP"
+
+.PP
+Définition à la ligne 24 du fichier SH_ApplicationCore\&.h\&.
+.SS "SH_ApplicationCore::currentUser\fC [read]\fP"
+
+.PP
+Définition à la ligne 19 du fichier SH_ApplicationCore\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,0 +1,40 @@
+\hypertarget{SH__DatabaseContentQuestionState_8h}{\section{S\-H\-\_\-\-Database\-Content\-Question\-State.\-h}
+\label{SH__DatabaseContentQuestionState_8h}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Database\-Content\-Question\-State.\-h@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Database\-Content\-Question\-State.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef DATABASECONTENTQUESTIONSTATE\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DATABASECONTENTQUESTIONSTATE\_H}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__QuestionState_8h}{SH\_QuestionState.h}"}
+00004 
+\hypertarget{SH__DatabaseContentQuestionState_8h_source_l00010}{}\hyperlink{classSH__DatabaseContentQuestionState}{00010} \textcolor{keyword}{class }\hyperlink{classSH__DatabaseContentQuestionState}{SH\_DatabaseContentQuestionState} : \textcolor{keyword}{public} 
+      \hyperlink{classSH__QuestionState}{SH\_QuestionState}
+00011 \{
+00012     Q\_OBJECT
+00013 \textcolor{keyword}{public}:
+00025     \hyperlink{classSH__DatabaseContentQuestionState_ab26490ea519262a8f9ca72c000bf7313}{SH\_DatabaseContentQuestionState}(QString question, QString 
+      \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}, QString databaseTable, QString tableField, QString databaseCondition = \textcolor{stringliteral}{""}, 
+      \hyperlink{classQState}{QState} *parent = 0);
+00032     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseContentQuestionState_a9262aeba84c1bb7feff540ca5edb27a7}{isAnswerValid}(\textcolor{keyword}{const} QVariant &\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer});
+00033 
+00034 
+00040     \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseContentQuestionState_aff932cdd7974baeea9a477cf0abc5ace}{setOutput}(\textcolor{keyword}{const} QString &\hyperlink{classSH__InOutState_a1a2fd4f34484125058e20730aaee7e46}{output});
+00041 
+00047     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__DatabaseContentQuestionState_a344d9109e15509506b1b998d28392cac}{rawInput}() \textcolor{keyword}{const};
+00048 
+00054     QMap<int, QVariant> \hyperlink{classSH__DatabaseContentQuestionState_a15092c0fa6188ce6c4427d2ec9751055}{choiceList}();
+00055 
+00056 signals:
+00061     \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseContentQuestionState_a66670db6f05e5197dc0c9e77c6d28e07}{displayChoiceList}();
+00062 \textcolor{keyword}{public} slots:
+00063 
+00064 \textcolor{keyword}{private}:
+\hypertarget{SH__DatabaseContentQuestionState_8h_source_l00068}{}\hyperlink{classSH__DatabaseContentQuestionState_a95d8a6ffc051cd9283314a56f7a11296}{00068}     QString \hyperlink{classSH__DatabaseContentQuestionState_a95d8a6ffc051cd9283314a56f7a11296}{m\_table};
+\hypertarget{SH__DatabaseContentQuestionState_8h_source_l00072}{}\hyperlink{classSH__DatabaseContentQuestionState_aaffd467fccc69b6d46194f04831a1edc}{00072}     QString \hyperlink{classSH__DatabaseContentQuestionState_aaffd467fccc69b6d46194f04831a1edc}{m\_condition};
+\hypertarget{SH__DatabaseContentQuestionState_8h_source_l00076}{}\hyperlink{classSH__DatabaseContentQuestionState_a32b3f4f2cadbc4837add2556c1a926d4}{00076}     QString \hyperlink{classSH__DatabaseContentQuestionState_a32b3f4f2cadbc4837add2556c1a926d4}{m\_field};
+\hypertarget{SH__DatabaseContentQuestionState_8h_source_l00080}{}\hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{00080}     QMap<int, QVariant> \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices};
+\hypertarget{SH__DatabaseContentQuestionState_8h_source_l00084}{}\hyperlink{classSH__DatabaseContentQuestionState_aff4d8f402d9299029038ec4f21271b2b}{00084}     \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseContentQuestionState_aff4d8f402d9299029038ec4f21271b2b}{m\_choicesDisplayed};
+00085 \};
+00086 
+00087 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* DATABASECONTENTQUESTIONSTATE\_H*/}\textcolor{preprocessor}{}
+\end{DoxyCode}

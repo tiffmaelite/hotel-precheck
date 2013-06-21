@@ -1,0 +1,30 @@
+digraph "SH_RoomsTableModel"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  Node1 [label="{SH_RoomsTableModel\n||+ SH_RoomsTableModel()\l# fillModel()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node2 [label="{SH_ExtendedProxyModel\n|+ empty\l+ fieldsList\l+ lastError\l+ sortKeyColumn\l+ table\l|+ SH_ExtendedProxyModel()\l+ addFilterKeyColumn()\l+ containsFilterKeyColumn()\l+ currentSortKeyColumn()\l+ data()\l+ data()\l+ fetch()\l+ field()\l+ fields()\l+ fieldsCount()\l+ flags()\l+ invalidateFilter()\l+ isEmpty()\l+ lastError()\l+ removeFilterKeyColumn()\l+ roleNames()\l+ setBooleanColumns()\l+ setData()\l+ setNotNullColumns()\l+ setNullColumns()\l+ setPasswordColumns()\l+ setReadOnlyColumns()\l+ setSortKeyColumn()\l+ sort()\l+ tableName()\l# fillModel()\l# filterAcceptsRow()\l- replaceSet()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ExtendedProxyModel.html"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node3 [label="{QSortFilterProxyModel\n||}",height=0.2,width=0.4,color="black",URL="$classQSortFilterProxyModel.html"];
+  Node4 -> Node2 [color="grey25",fontsize="11",style="solid",label=" -nullSet\n-readonlySet\n-passwordSet\n-notNullSet\n-filters\n-booleanSet" ,arrowhead="odiamond"];
+  Node4 [label="{QList\< int \>\n||}",height=0.2,width=0.4,color="grey75"];
+  Node5 -> Node2 [color="grey25",fontsize="11",style="solid",label=" -sortIndex" ,arrowhead="odiamond"];
+  Node5 [label="{int\n||}",height=0.2,width=0.4,color="grey75"];
+  Node6 -> Node2 [color="grey25",fontsize="11",style="solid",label=" #model" ,arrowhead="odiamond"];
+  Node6 [label="{SH_SqlDataModel\n|+ filter\l+ lastError\l+ table\l|+ SH_SqlDataModel()\l+ data()\l+ datas()\l+ fetch()\l+ field()\l+ fieldFromRole()\l+ fieldsCount()\l+ fieldsList()\l+ filter()\l+ isEmpty()\l+ lastError()\l+ query()\l+ resetFieldsToAll()\l+ resetFilterCondition()\l+ roleForField()\l+ roleNames()\l+ rowCount()\l+ setFields()\l+ setFilterCondition()\l+ setHeaderData()\l+ setOrderBy()\l+ setTable()\l+ tableName()\l# applyRoles()\l}",height=0.2,width=0.4,color="black",URL="$classSH__SqlDataModel.html"];
+  Node7 -> Node6 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node7 [label="{QAbstractListModel\n||}",height=0.2,width=0.4,color="black",URL="$classQAbstractListModel.html"];
+  Node8 -> Node6 [color="grey25",fontsize="11",style="solid",label=" -mSqlQuery" ,arrowhead="odiamond"];
+  Node8 [label="{QSqlQuery\n||}",height=0.2,width=0.4,color="grey75"];
+  Node9 -> Node6 [color="grey25",fontsize="11",style="solid",label=" -mRoles" ,arrowhead="odiamond"];
+  Node9 [label="{QHash\< int, QByteArray \>\n||}",height=0.2,width=0.4,color="grey75"];
+  Node10 -> Node6 [color="grey25",fontsize="11",style="solid",label=" -mTable\n-mFilter\n-mSort" ,arrowhead="odiamond"];
+  Node10 [label="{QString\n||}",height=0.2,width=0.4,color="grey75"];
+  Node11 -> Node6 [color="grey25",fontsize="11",style="solid",label=" -mDataFields" ,arrowhead="odiamond"];
+  Node11 [label="{QList\< SH_SqlDataFields * \>\n||}",height=0.2,width=0.4,color="grey75"];
+  Node12 -> Node6 [color="grey25",fontsize="11",style="solid",label=" -mRecords" ,arrowhead="odiamond"];
+  Node12 [label="{QList\< QSqlRecord \>\n||}",height=0.2,width=0.4,color="grey75"];
+}

@@ -1,0 +1,51 @@
+\hypertarget{SH__Keyboard_8qml}{\section{S\-H\-\_\-\-Keyboard.\-qml}
+\label{SH__Keyboard_8qml}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Keyboard.\-qml@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Keyboard.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{SH__Keyboard_8qml_source_l00004}{}\hyperlink{classSH__Keyboard}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+\hypertarget{SH__Keyboard_8qml_source_l00007}{}\hyperlink{classSH__Keyboard_a0fafeb62ceee0f38c8d7d9d5919795e5}{00007} 
+00011 GridLayout \{
+00012     \textcolor{keywordtype}{id}: layout
+00013     rowSpacing:0
+00014     columnSpacing:0
+00015     \textcolor{keyword}{property} var actionsList: []
+00016     Repeater \{
+00017         \textcolor{keywordtype}{id}: repeater
+00018         model: (layout.actionsList==null) ? 0 :  layout.actionsList.length
+00019         delegate:
+00020             \hyperlink{classSH__DataDelegate}{SH\_DataDelegate} \{
+00021             \textcolor{keywordtype}{id}: btn
+00022             enabled: layout.enabled
+00023             Layout.minimumHeight: (layout.rows > 0) ? (Math.floor(layout.height / layout.rows) - layout.
+      rowSpacing) : (Math.floor((layout.height * layout.columns) / repeater.count) - layout.rowSpacing)
+00024             Layout.minimumWidth: (layout.columns > 0) ? Math.floor(layout.width / layout.columns) - layout.
+      columnSpacing : Math.floor((layout.width * layout.rows) / repeater.count) - layout.columnSpacing
+00025             Layout.fillHeight: \textcolor{keyword}{true}
+00026             Layout.fillWidth: \textcolor{keyword}{true}
+00027             text: actionsList[index].text
+00028             tooltip: actionsList[index].tooltip
+00029             iconSource: actionsList[index].iconSource
+00030             checkable: \textcolor{keyword}{false}
+00031             action: Action \{
+00032                 \textcolor{keywordtype}{id}: act
+00033                 text: actionsList[index].text
+00034                 shortcut: actionsList[index].shortcut
+00035                 checkable: \textcolor{keyword}{false}
+00036                 enabled: actionsList[index].enabled
+00037                 iconName: actionsList[index].iconName
+00038                 iconSource: actionsList[index].iconSource
+00039                 tooltip: actionsList[index].tooltip
+00040                 Component.onCompleted: \{
+00041                     act.triggered.connect(actionsList[index].triggered);
+00042                 \}
+00043             \}
+00044         \}
+00045     \}
+00046 \}
+\end{DoxyCode}

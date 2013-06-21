@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/views/qml/SH_TriStateCheckImage.qml</title>
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <!--td style="padding-left: 0.5em;"-->
+  <td>
+   <div id="projectname">PreCheck
+   <span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+   <link href="tabs.css" rel="stylesheet" type="text/css"/>
+   <link href="doxygen.css" rel="stylesheet" type="text/css" />
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.html">PreCheck</a></li><li class="navelem"><a class="el" href="dir_c6b67c5d790d73d5f77581c2751c7958.html">views</a></li><li class="navelem"><a class="el" href="dir_2d0df5ce6a012e960077ac659b7557ab.html">qml</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_TriStateCheckImage.qml</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__TriStateCheckImage_8qml.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> QtQuick 2.1</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;import QtQuick.Window 2.1</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;import QtQuick.Controls 1.0</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html">    4</a></span>&#160;import QtQuick.Controls.Styles 1.0</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;import QtQuick.Layouts 1.0</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;import PreCheck 1.0</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#af51c5a98710ecd059fd02bd955443d4c">    7</a></span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#afb0d31a1bf26dffbb2a186c82ab8e58d">   11</a></span>&#160;FocusScope {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">id</span>:root</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#af1e4845c499b61447425538898cf9dbb">   13</a></span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    signal pressed</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#a94f6100793509e72d00079b4566a74f8">   15</a></span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">property</span> <span class="keywordtype">bool</span> checked</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#a1dd7b1fbd15c10d427d72a9bd0d1e4d5">   17</a></span>&#160;    <span class="keyword">property</span> <span class="keywordtype">bool</span> up</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">property</span> real labelSpacing: 0</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#aa4fa21a8c9124188a7ea87b4a922c617">   19</a></span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">property</span> alias text: txtPart.text</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#a4adf1659a5328f5e26243cd58f1d6ee7">   21</a></span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    readonly <span class="keyword">property</span> <span class="keywordtype">string</span> imgUp: <span class="stringliteral">&quot;../img/up.png&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classSH__TriStateCheckImage.html#a34d45a4093bca7a689f72b1e9f4d8247">   23</a></span>&#160;    readonly <span class="keyword">property</span> <span class="keywordtype">string</span> imgDown: <span class="stringliteral">&quot;../img/down.png&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    readonly <span class="keyword">property</span> real length: txtPart.paintedWidth+imgPart.paintedWidth</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    readonly <span class="keyword">property</span> real innerHeight: root.height-root.anchors.topMargin-root.anchors.bottomMargin</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    readonly <span class="keyword">property</span> real innerWidth: root.width-root.anchors.rightMargin-root.anchors.leftMargin</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Image {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">id</span>: imgPart</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        fillMode: Image.PreserveAspectFit</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        width: root.innerHeight</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        height: root.innerHeight</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        source: root.up ? root.imgUp : root.imgDown</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        visible: root.checked</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        anchors.left: root.left</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        anchors.top: root.top</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        anchors.bottom: root.bottom</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">/*TouchArea {*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        MouseArea {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            onClicked: {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                root.pressed();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                root.up = !root.up;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            focus: imgPart.visible</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            anchors.fill: imgPart</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            hoverEnabled: <span class="keyword">true</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    Text {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">id</span>:txtPart</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        visible: <span class="keyword">true</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        height: root.innerHeight</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        width: imgPart.visible ? root.innerWidth-imgPart.paintedWidth-root.labelSpacing : root.innerWidth</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        anchors.left: imgPart.visible ? imgPart.right : root.left</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        anchors.right: root.right</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        anchors.top: root.top</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        anchors.bottom: root.bottom</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        font.strikeout: !root.checked</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        wrapMode: Text.Wrap</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">/*TouchArea {*/</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        MouseArea {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            onClicked: {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                root.pressed();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                root.checked = !root.checked;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            focus: !imgPart.visible</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            anchors.fill: txtPart</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            hoverEnabled: <span class="keyword">true</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><small>
+<span class="qmi"><a href="http://github.com/skozlovf/doxygen-qmi-style">qmi style</a></span>
+<address class="footer">
+Généré le Vendredi Juin 21 2013 18:03:47 pour PreCheck par <a href="http://www.doxygen.org/index.html">doxygen</a> 1.8.4
+</small></address>
+</body>
+</html>

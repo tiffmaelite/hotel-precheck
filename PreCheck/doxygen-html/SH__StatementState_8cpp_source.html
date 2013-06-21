@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/logic/SH_StatementState.cpp</title>
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <!--td style="padding-left: 0.5em;"-->
+  <td>
+   <div id="projectname">PreCheck
+   <span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+   <link href="tabs.css" rel="stylesheet" type="text/css"/>
+   <link href="doxygen.css" rel="stylesheet" type="text/css" />
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.html">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_StatementState.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__StatementState_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__StatementState_8h.html">SH_StatementState.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classSH__StatementState.html#acc888fc333049b693f05ff760e363f27">    9</a></span>&#160;<a class="code" href="classSH__StatementState.html#acc888fc333049b693f05ff760e363f27">SH_StatementState::SH_StatementState</a>(QString output, QString name, <a class="code" href="classQState.html">QState</a> *parent) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classSH__InOutState.html">SH_InOutState</a>(output, name, parent)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;salut ! &quot;</span>&lt;&lt; <a class="code" href="classSH__InOutState.html#a1a2fd4f34484125058e20730aaee7e46">output</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classSH__StatementState.html#a20e5cf0df2d918a16f73a50a5c7d065e">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.html#a20e5cf0df2d918a16f73a50a5c7d065e">SH_StatementState::setInput</a>(<span class="keyword">const</span> QVariant &amp;input)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Q_UNUSED(input);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/*DO NOTHING*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classSH__StatementState.html#ac62f9c27b2966034e56762a6e532dbe4">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.html#ac62f9c27b2966034e56762a6e532dbe4">SH_StatementState::onEntry</a>(QEvent *event)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classSH__GenericState.html#a7c30692635023ce7cf65e5ba5bb18a9c">SH_GenericState::onEntry</a>(event);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classSH__InOutState.html#a918e8a7f5fe00dc16004e46eeee1281d">display</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    emit <a class="code" href="classSH__GenericState.html#a030e67a872956135c52e6876d960a7b5">next</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><small>
+<span class="qmi"><a href="http://github.com/skozlovf/doxygen-qmi-style">qmi style</a></span>
+<address class="footer">
+Généré le Vendredi Juin 21 2013 18:03:47 pour PreCheck par <a href="http://www.doxygen.org/index.html">doxygen</a> 1.8.4
+</small></address>
+</body>
+</html>

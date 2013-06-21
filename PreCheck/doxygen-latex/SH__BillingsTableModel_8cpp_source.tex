@@ -1,0 +1,31 @@
+\hypertarget{SH__BillingsTableModel_8cpp}{\section{S\-H\-\_\-\-Billings\-Table\-Model.\-cpp}
+\label{SH__BillingsTableModel_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-Billings\-Table\-Model.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-Billings\-Table\-Model.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__BillingsTableModel_8h}{SH\_BillingsTableModel.h}"}
+00002 
+00003 
+00004 
+\hypertarget{SH__BillingsTableModel_8cpp_source_l00010}{}\hyperlink{classSH__BillingsTableModel_a96183b1dd581519136c9b3932607f3d0}{00010} \hyperlink{classSH__BillingsTableModel_a96183b1dd581519136c9b3932607f3d0}{SH\_BillingsTableModel::SH\_BillingsTableModel}(
+      \hyperlink{classQObject}{QObject} *parent):
+00011     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
+00012 \{
+00013     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{setTable}(\textcolor{stringliteral}{"BILLINGSINFOS"});
+00014 \}
+00015 
+00016 
+\hypertarget{SH__BillingsTableModel_8cpp_source_l00022}{}\hyperlink{classSH__BillingsTableModel_a71a4e8482cf80dfca43a009400d7b96e}{00022} \textcolor{keywordtype}{void} \hyperlink{classSH__BillingsTableModel_a71a4e8482cf80dfca43a009400d7b96e}{SH\_BillingsTableModel::fillModel}()
+00023 \{
+00024     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(1, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Nom client"}));
+00025     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(3, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Chambre"}));
+00026     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(4, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Date arrivée"}));
+00027     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(5, Qt::Horizontal,
+       QObject::tr(\textcolor{stringliteral}{"Date départ prévue"}));
+00028     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{field}(4)->
+      \hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{setSortOrder}(Qt::AscendingOrder);
+00029 \}
+\end{DoxyCode}

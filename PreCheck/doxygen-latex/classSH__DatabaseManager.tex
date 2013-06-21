@@ -1,0 +1,734 @@
+\hypertarget{classSH__DatabaseManager}{\section{Référence de la classe S\-H\-\_\-\-Database\-Manager}
+\label{classSH__DatabaseManager}\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}}
+}
+
+
+{\ttfamily \#include $<$S\-H\-\_\-\-Database\-Manager.\-h$>$}
+
+
+
+Graphe d'héritage de S\-H\-\_\-\-Database\-Manager\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{classSH__DatabaseManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de S\-H\-\_\-\-Database\-Manager\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classSH__DatabaseManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{$\sim$\-S\-H\-\_\-\-Database\-Manager} ()
+\item 
+int \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{data\-Count} (Q\-String table\-Name, Q\-String filter)
+\item 
+bool \hyperlink{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{db\-Connect} ()
+\item 
+bool \hyperlink{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}{db\-Disconnect} ()
+\item 
+Q\-Variant \hyperlink{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}{exec\-Insert\-Returning\-Query} (Q\-String table\-Name, Q\-Variant\-Map values, Q\-String returning\-Field)
+\item 
+bool \hyperlink{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7}{exec\-Replace\-Query} (Q\-String table\-Name, Q\-Variant\-Map values)
+\item 
+Q\-Sql\-Query \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{exec\-Select\-Query} (Q\-String table\-Name, Q\-String\-List fields=Q\-String\-List(\char`\"{}$\ast$\char`\"{}), Q\-String condition=\char`\"{}\char`\"{}, Q\-String ordering=\char`\"{}\char`\"{})
+\item 
+Q\-Sql\-Database \hyperlink{classSH__DatabaseManager_adf7c1e261fd3feed3dea6614d8a80d5f}{get\-Db\-Connection} ()
+\item 
+bool \hyperlink{classSH__DatabaseManager_ab125b77320dca843740fc9928fbbe16f}{is\-Connected} ()
+\item 
+bool \hyperlink{classSH__DatabaseManager_af83a53b26cee86b3194cac14928115ed}{table\-Exists} (Q\-String table\-Name)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSH__DatabaseManager}{S\-H\-\_\-\-Database\-Manager} $\ast$ \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{get\-Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+Q\-Sql\-Database \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}
+\begin{DoxyCompactList}\small\item\em db\-Connection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{divide\-Q\-Variant\-Map} (Q\-Variant\-Map values, Q\-String \&fields, Q\-String \&vals)
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSH__DatabaseManager}{S\-H\-\_\-\-Database\-Manager} $\ast$ \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\-\_\-instance} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00062}{62} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}}
+\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{S\-H\-\_\-\-Database\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00044}{44} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{db\-Connect()}, \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}, \hyperlink{SH__DatabaseManager_8h_adeeb3449586b533bdd3cd5938d501807}{db\-Driver\-Not\-Exist\-Str}, \hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{db\-Driver\-Str}, \hyperlink{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{db\-File\-Name\-Str}, \hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{db\-File\-Path\-Str}, \hyperlink{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}{db\-Password\-Str}, \hyperlink{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}{db\-Username\-Str}, et \hyperlink{classSH__MessageManager_acb5615cc90f198f4768da800a5d32362}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{get\-Instance()}.
+
+
+\begin{DoxyCode}
+00045 \{
+00046     \textcolor{comment}{/*}
+00047 \textcolor{comment}{     *Check the existence of the database driver.}
+00048 \textcolor{comment}{     */}
+00049     \textcolor{keywordflow}{if} (!QSqlDatabase::isDriverAvailable(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr}))
+00050     \{
+00051         \textcolor{comment}{/*}
+00052 \textcolor{comment}{        *Gui message that informs that the driver does not exist}
+00053 \textcolor{comment}{        */}
+00054         \hyperlink{classSH__MessageManager_acb5615cc90f198f4768da800a5d32362}{SH\_MessageManager::errorMessage}(
+      \hyperlink{SH__DatabaseManager_8h_adeeb3449586b533bdd3cd5938d501807}{dbDriverNotExistStr});
+00055         qDebug() << \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.lastError();
+00056         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.drivers().count(); i++)
+00057         \{
+00058             qDebug() << \textcolor{stringliteral}{"AVAILABLE DRIVERS : "} << \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.drivers()[i] << endl;
+00059         \}
+00060         exit(1);
+00061     \}
+00062 
+00063     \textcolor{comment}{/*}
+00064 \textcolor{comment}{    *Connect to the database with the following driver.}
+00065 \textcolor{comment}{    */}
+00066     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection} = QSqlDatabase::addDatabase(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr});
+00067     \textcolor{keywordflow}{if} (\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr} == \textcolor{stringliteral}{"QIBASE"})
+00068     \{
+00069         \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setDatabaseName(\hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{dbFilePathStr});
+00070     \} \textcolor{keywordflow}{else} \{
+00071         \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setDatabaseName(\hyperlink{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{dbFileNameStr});
+00072     \}
+00073 
+00074     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setUserName(\hyperlink{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}{dbUsernameStr});
+00075     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setPassword(\hyperlink{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}{dbPasswordStr});
+00076     \hyperlink{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{dbConnect}();
+00077 
+00078 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!$\sim$\-S\-H\-\_\-\-Database\-Manager@{$\sim$\-S\-H\-\_\-\-Database\-Manager}}
+\index{$\sim$\-S\-H\-\_\-\-Database\-Manager@{$\sim$\-S\-H\-\_\-\-Database\-Manager}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{$\sim$\-S\-H\-\_\-\-Database\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Database\-Manager\-::$\sim$\-S\-H\-\_\-\-Database\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00033}{33} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}{db\-Disconnect()}.
+
+
+\begin{DoxyCode}
+00034 \{
+00035     \hyperlink{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}{dbDisconnect}();
+00036 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!data\-Count@{data\-Count}}
+\index{data\-Count@{data\-Count}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{data\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-Database\-Manager\-::data\-Count (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-String}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00170}{170} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}, et \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{exec\-Select\-Query()}.
+
+
+\begin{DoxyCode}
+00170                                                                    \{
+00171     \textcolor{keywordflow}{if}(!tableName.isEmpty() && !filter.isEmpty()) \{
+00172         QSqlQuery result = \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(tableName, QStringList(\textcolor{stringliteral}{"COUNT(*) AS MATCH"}), 
+      filter);
+00173         \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driver()->hasFeature(QSqlDriver::QuerySize)) \{
+00174             \textcolor{keywordflow}{return} result.size();
+00175         \} \textcolor{keywordflow}{else} \{
+00176             \textcolor{keywordflow}{if}(result.next()) \{
+00177                 QSqlRecord rec = result.record();
+00178                 \textcolor{keywordflow}{if}(!rec.isEmpty()  && result.isValid()) \{
+00179                     \textcolor{keywordflow}{return} rec.value(rec.indexOf(\textcolor{stringliteral}{"MATCH"})).toInt();
+00180                 \}
+00181             \}
+00182         \}
+00183     \}
+00184     \textcolor{keywordflow}{return} 0;
+00185 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!db\-Connect@{db\-Connect}}
+\index{db\-Connect@{db\-Connect}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{db\-Connect}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Database\-Manager\-::db\-Connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00089}{89} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{SH__DatabaseManager_8h_a19d48066a97c8a9a81827ccf23fd736f}{db\-Cannot\-Open\-Str}, \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}, et \hyperlink{classSH__MessageManager_acb5615cc90f198f4768da800a5d32362}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager()}.
+
+
+\begin{DoxyCode}
+00090 \{
+00091     \textcolor{comment}{/*}
+00092 \textcolor{comment}{            *Open database, if the database cannot open for}
+00093 \textcolor{comment}{            *any reason print a warning.}
+00094 \textcolor{comment}{            */}
+00095     \textcolor{keywordflow}{if} (!\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.open())
+00096     \{
+00097         \textcolor{comment}{/*}
+00098 \textcolor{comment}{                 *Gui message that informs that the database cannot open}
+00099 \textcolor{comment}{                 */}
+00100         \hyperlink{classSH__MessageManager_acb5615cc90f198f4768da800a5d32362}{SH\_MessageManager::errorMessage}(
+      \hyperlink{SH__DatabaseManager_8h_a19d48066a97c8a9a81827ccf23fd736f}{dbCannotOpenStr});
+00101         qDebug() << \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.lastError();
+00102 
+00103         \textcolor{comment}{/*}
+00104 \textcolor{comment}{                 *@return false if database connection failed.}
+00105 \textcolor{comment}{                 */}
+00106         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00107     \}
+00108 
+00109     \textcolor{comment}{/*}
+00110 \textcolor{comment}{             *@return true if database connection successed}
+00111 \textcolor{comment}{             */}
+00112     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen();
+00113 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!db\-Disconnect@{db\-Disconnect}}
+\index{db\-Disconnect@{db\-Disconnect}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{db\-Disconnect}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Database\-Manager\-::db\-Disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00124}{124} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{$\sim$\-S\-H\-\_\-\-Database\-Manager()}.
+
+
+\begin{DoxyCode}
+00125 \{
+00126     \textcolor{comment}{/*}
+00127 \textcolor{comment}{             *close database}
+00128 \textcolor{comment}{             */}
+00129     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.close();
+00130     \textcolor{keywordflow}{return} (!\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen());
+00131 \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!divide\-Q\-Variant\-Map@{divide\-Q\-Variant\-Map}}
+\index{divide\-Q\-Variant\-Map@{divide\-Q\-Variant\-Map}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{divide\-Q\-Variant\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Database\-Manager\-::divide\-Q\-Variant\-Map (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant\-Map}]{values, }
+\item[{Q\-String \&}]{fields, }
+\item[{Q\-String \&}]{vals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00260}{260} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}{exec\-Insert\-Returning\-Query()}, et \hyperlink{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7}{exec\-Replace\-Query()}.
+
+
+\begin{DoxyCode}
+00260                                                                                              \{
+00261     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} field : values.keys())
+00262     \{
+00263         fields += field+\textcolor{stringliteral}{","};
+00264         QVariant val = values.value(field);
+00265         \textcolor{keywordtype}{bool} ok;
+00266         \textcolor{keywordtype}{int} intVal = val.toInt(&ok);
+00267         \textcolor{keywordflow}{if}(ok) \{
+00268             vals += QString::number(intVal)+\textcolor{stringliteral}{","};
+00269         \}
+00270         \textcolor{keywordtype}{double} dbVal = val.toDouble(&ok);
+00271         \textcolor{keywordflow}{if}(ok) \{
+00272             vals += QString::number(dbVal)+\textcolor{stringliteral}{","};
+00273         \}
+00274         \textcolor{comment}{/*bool boolVal = val.toBool();}
+00275 \textcolor{comment}{                if(boolVal) \{}
+00276 \textcolor{comment}{                    &vals += "'"+1+"'',";}
+00277 \textcolor{comment}{                \}*/}
+00278         QDate dateVal = val.toDate();
+00279         \textcolor{keywordflow}{if}(dateVal.isValid()) \{
+00280             vals += \textcolor{stringliteral}{"'"}+dateVal.toString()+\textcolor{stringliteral}{"'',"}; \textcolor{comment}{/*FIXME adapt date format*/}
+00281         \}
+00282         QDateTime dateTimeVal = val.toDateTime();
+00283         \textcolor{keywordflow}{if}(dateTimeVal.isValid()) \{
+00284             vals += \textcolor{stringliteral}{"'"}+dateTimeVal.toString()+\textcolor{stringliteral}{"'',"}; \textcolor{comment}{/*FIXME adapt datetime format*/}
+00285         \}
+00286         QString stringVal = val.toString();
+00287         vals += \textcolor{stringliteral}{"'"}+stringVal+\textcolor{stringliteral}{"'',"};
+00288     \}
+00289     fields = fields.left(fields.lastIndexOf(\textcolor{charliteral}{','})-1);
+00290     vals = vals.left(vals.lastIndexOf(\textcolor{charliteral}{','})-1);
+00291 \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!exec\-Insert\-Returning\-Query@{exec\-Insert\-Returning\-Query}}
+\index{exec\-Insert\-Returning\-Query@{exec\-Insert\-Returning\-Query}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{exec\-Insert\-Returning\-Query}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant S\-H\-\_\-\-Database\-Manager\-::exec\-Insert\-Returning\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-Variant\-Map}]{values, }
+\item[{Q\-String}]{returning\-Field}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00237}{237} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}, et \hyperlink{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{divide\-Q\-Variant\-Map()}.
+
+
+
+Référencé par \hyperlink{classSH__AdaptDatabaseState_ab010e64da052db416328d3bcb9ca01d4}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}.
+
+
+\begin{DoxyCode}
+00237                                                                                                            
+              \{
+00238     QString fields;
+00239     QString vals;
+00240     \hyperlink{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{divideQVariantMap}(values, fields, vals);
+00241     QString query;
+00242     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00243         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4"}).arg(tableName)
+      .arg(fields).arg(vals).arg(returningField);
+00244     \}
+00245     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.exec(query);
+00246     qDebug() << result.executedQuery() << \textcolor{stringliteral}{" > "} << result.isValid() <<\textcolor{stringliteral}{" "}<< result.isActive();
+00247     \textcolor{keywordflow}{if}(result.next()) \{
+00248         QSqlRecord rec = result.record();
+00249         \textcolor{keywordflow}{if}(!rec.isEmpty()  && result.isValid()) \{
+00250             \textcolor{keywordflow}{return} rec.value(rec.indexOf(returningField));
+00251         \}
+00252     \}
+00253     \textcolor{keywordflow}{return} QVariant();
+00254 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!exec\-Replace\-Query@{exec\-Replace\-Query}}
+\index{exec\-Replace\-Query@{exec\-Replace\-Query}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{exec\-Replace\-Query}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Database\-Manager\-::exec\-Replace\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-Variant\-Map}]{values}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00220}{220} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}, et \hyperlink{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{divide\-Q\-Variant\-Map()}.
+
+
+\begin{DoxyCode}
+00220                                                                                \{
+00221     QString fields;
+00222     QString vals;
+00223     \hyperlink{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{divideQVariantMap}(values, fields, vals);
+00224     QString query;
+00225     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00226         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)"}).arg(tableName).arg(fields).
+      arg(vals);
+00227     \}
+00228     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.exec(query);
+00229     qDebug() << result.executedQuery() << \textcolor{stringliteral}{" > "} << result.isValid() <<\textcolor{stringliteral}{" "}<< result.isActive();
+00230     \textcolor{keywordflow}{return} (result.numRowsAffected() > 0);
+00231 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!exec\-Select\-Query@{exec\-Select\-Query}}
+\index{exec\-Select\-Query@{exec\-Select\-Query}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{exec\-Select\-Query}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Sql\-Query S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-String\-List}]{fields = {\ttfamily QStringList(\char`\"{}$\ast$\char`\"{})}, }
+\item[{Q\-String}]{condition = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{Q\-String}]{ordering = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00193}{193} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{data\-Count()}, \hyperlink{classSH__SqlDataModel_a8d9b08d282a304945b9ee2f474020980}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{S\-H\-\_\-\-User\-::log\-In()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+
+\begin{DoxyCode}
+00193                                                                                                            
+                   \{
+00194     \textcolor{keywordflow}{if}(fields.isEmpty()) \{
+00195         fields.append(\textcolor{stringliteral}{"*"});
+00196     \}
+00197 
+00198     QString query;
+00199     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00200         query = QString(\textcolor{stringliteral}{"SELECT %1 FROM %2"}).arg(fields.join(\textcolor{stringliteral}{", "})).arg(tableName);
+00201         \textcolor{keywordflow}{if}(!condition.isEmpty()) \{
+00202             query = QString(\textcolor{stringliteral}{"%1 WHERE %2"}).arg(query).arg(condition);
+00203         \}
+00204         \textcolor{keywordflow}{if}(!ordering.isEmpty()) \{
+00205             query = QString(\textcolor{stringliteral}{"%1 ORDER BY %2"}).arg(query).arg(ordering);
+00206         \}
+00207     \}
+00208     qDebug() << query;
+00209     QSqlQuery result;
+00210     result.exec(query);
+00211     qDebug() << result.executedQuery() << \textcolor{stringliteral}{" > "} << result.isValid() <<\textcolor{stringliteral}{" "}<< result.isActive();
+00212     \textcolor{keywordflow}{return} result;
+00213 \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_adf7c1e261fd3feed3dea6614d8a80d5f}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!get\-Db\-Connection@{get\-Db\-Connection}}
+\index{get\-Db\-Connection@{get\-Db\-Connection}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{get\-Db\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Sql\-Database S\-H\-\_\-\-Database\-Manager\-::get\-Db\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_adf7c1e261fd3feed3dea6614d8a80d5f}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00150}{150} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}.
+
+
+\begin{DoxyCode}
+00151 \{
+00152     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection};
+00153 \}
+\end{DoxyCode}
+\hypertarget{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-\-Database\-Manager} $\ast$ S\-H\-\_\-\-Database\-Manager\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00017}{17} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\-\_\-instance}, \hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{db\-File\-Path\-Str}, et \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager()}.
+
+
+
+Référencé par \hyperlink{classSH__SqlDataModel_a8d9b08d282a304945b9ee2f474020980}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{classSH__AdaptDatabaseState_ab010e64da052db416328d3bcb9ca01d4}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{S\-H\-\_\-\-User\-::log\-In()}, \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}, \hyperlink{classSH__User_af40edc91cf1a4d8065fb43d2899c3dcb}{S\-H\-\_\-\-User\-::trainee\-Exists()}, et \hyperlink{classSH__User_a5ca23c3c396d8867d5d605d087efb82f}{S\-H\-\_\-\-User\-::user\-Exists()}.
+
+
+\begin{DoxyCode}
+00018 \{
+00019     \textcolor{keywordflow}{if} (\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance} == 0)
+00020     \{
+00021         \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance} = \textcolor{keyword}{new} \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{SH\_DatabaseManager};
+00022     \}
+00023     qDebug() << \hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{dbFilePathStr};
+00024     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance};
+00025 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__DatabaseManager_ab125b77320dca843740fc9928fbbe16f}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!is\-Connected@{is\-Connected}}
+\index{is\-Connected@{is\-Connected}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{is\-Connected}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Database\-Manager\-::is\-Connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_ab125b77320dca843740fc9928fbbe16f}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00139}{139} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}.
+
+
+\begin{DoxyCode}
+00140 \{
+00141     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen();
+00142 \}
+\end{DoxyCode}
+\hypertarget{classSH__DatabaseManager_af83a53b26cee86b3194cac14928115ed}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!table\-Exists@{table\-Exists}}
+\index{table\-Exists@{table\-Exists}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{table\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Database\-Manager\-::table\-Exists (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name}
+\end{DoxyParamCaption}
+)}}\label{classSH__DatabaseManager_af83a53b26cee86b3194cac14928115ed}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00160}{160} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{db\-Connection}.
+
+
+\begin{DoxyCode}
+00161 \{
+00162     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) 
+      || \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.tables(QSql::Tables).contains(tableName.toUpper(), Qt::CaseInsensitive);
+00163 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!\-\_\-instance@{\-\_\-instance}}
+\index{\-\_\-instance@{\-\_\-instance}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{\-\_\-instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-\-Database\-Manager} $\ast$ S\-H\-\_\-\-Database\-Manager\-::\-\_\-instance = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}
+\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{S\-H\-\_\-\-Database\-Manager\-::\-\_\-instance} 
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00066}{66} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{get\-Instance()}.
+
+\hypertarget{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!db\-Connection@{db\-Connection}}
+\index{db\-Connection@{db\-Connection}!SH_DatabaseManager@{S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{db\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Sql\-Database S\-H\-\_\-\-Database\-Manager\-::db\-Connection\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}
+
+
+db\-Connection 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00087}{87} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{data\-Count()}, \hyperlink{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{db\-Connect()}, \hyperlink{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}{db\-Disconnect()}, \hyperlink{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}{exec\-Insert\-Returning\-Query()}, \hyperlink{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7}{exec\-Replace\-Query()}, \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{exec\-Select\-Query()}, \hyperlink{classSH__DatabaseManager_adf7c1e261fd3feed3dea6614d8a80d5f}{get\-Db\-Connection()}, \hyperlink{classSH__DatabaseManager_ab125b77320dca843740fc9928fbbe16f}{is\-Connected()}, \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager()}, et \hyperlink{classSH__DatabaseManager_af83a53b26cee86b3194cac14928115ed}{table\-Exists()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\hyperlink{SH__DatabaseManager_8h}{S\-H\-\_\-\-Database\-Manager.\-h}\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\hyperlink{SH__DatabaseManager_8cpp}{S\-H\-\_\-\-Database\-Manager.\-cpp}\end{DoxyCompactItemize}

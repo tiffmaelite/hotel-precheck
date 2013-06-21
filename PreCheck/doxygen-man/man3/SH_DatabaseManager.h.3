@@ -1,0 +1,139 @@
+.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/SH_DatabaseManager.h" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/SH_DatabaseManager.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <QSqlDatabase>\fP
+.br
+\fC#include <QString>\fP
+.br
+\fC#include <QSqlQuery>\fP
+.br
+\fC#include <QObject>\fP
+.br
+\fC#include <QtCore>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBSH_DatabaseManager\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static const QString \fBdbAliasNameStr\fP = 'precheck-hotel'"
+.br
+.RI "\fIdbAliasNameStr \fP"
+.ti -1c
+.RI "static QString \fBdbCannotOpenStr\fP = QObject::tr('The database %1 cannot be opened\&.')\&.arg(\fBdbFilePathStr\fP)"
+.br
+.RI "\fIdbCannotOpenStr \fP"
+.ti -1c
+.RI "static QString \fBdbDriverNotExistStr\fP = QObject::tr('%1 database driver is not available\&.')\&.arg(\fBdbDriverStr\fP)"
+.br
+.RI "\fIdbDriverNotExistStr \fP"
+.ti -1c
+.RI "static const QString \fBdbDriverStr\fP = 'QIBASE'"
+.br
+.RI "\fIdbDriverStr \fP"
+.ti -1c
+.RI "static const QString \fBdbFileNameStr\fP = 'PreCheckDB\&.fdb'"
+.br
+.RI "\fIdbFileNameStr \fP"
+.ti -1c
+.RI "static const QString \fBdbFilePathStr\fP = QString('%1/%2')\&.arg(\fBdbFolderPathStr\fP)\&.arg(\fBdbFileNameStr\fP)"
+.br
+.RI "\fIdbFilePathStr \fP"
+.ti -1c
+.RI "static const QString \fBdbFolderPathStr\fP = QDir::cleanPath(QDir::currentPath()+'/\&.\&./\&.\&./\&.\&./src/Database/')"
+.br
+.RI "\fIdbFolderPathStr \fP"
+.ti -1c
+.RI "static const QString \fBdbPasswordStr\fP = 'masterkey'"
+.br
+.RI "\fIdbPasswordStr \fP"
+.ti -1c
+.RI "static const QString \fBdbUsernameStr\fP = 'SYSDBA'"
+.br
+.RI "\fIdbUsernameStr \fP"
+.in -1c
+.SH "Documentation des variables"
+.PP 
+.SS "const QString dbAliasNameStr = 'precheck-hotel'\fC [static]\fP"
+
+.PP
+dbAliasNameStr 
+.PP
+Définition à la ligne 23 du fichier SH_DatabaseManager\&.h\&.
+.SS "QString dbCannotOpenStr = QObject::tr('The database %1 cannot be opened\&.')\&.arg(\fBdbFilePathStr\fP)\fC [static]\fP"
+
+.PP
+dbCannotOpenStr 
+.PP
+Définition à la ligne 53 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::dbConnect()\&.
+.SS "QString dbDriverNotExistStr = QObject::tr('%1 database driver is not available\&.')\&.arg(\fBdbDriverStr\fP)\fC [static]\fP"
+
+.PP
+dbDriverNotExistStr 
+.PP
+Définition à la ligne 49 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString dbDriverStr = 'QIBASE'\fC [static]\fP"
+
+.PP
+dbDriverStr 
+.PP
+Définition à la ligne 15 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString dbFileNameStr = 'PreCheckDB\&.fdb'\fC [static]\fP"
+
+.PP
+dbFileNameStr 
+.PP
+Définition à la ligne 19 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString dbFilePathStr = QString('%1/%2')\&.arg(\fBdbFolderPathStr\fP)\&.arg(\fBdbFileNameStr\fP)\fC [static]\fP"
+
+.PP
+dbFilePathStr 
+.PP
+Définition à la ligne 40 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::getInstance(), et SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+'/\&.\&./\&.\&./\&.\&./src/Database/')\fC [static]\fP"
+
+.PP
+dbFolderPathStr 
+.PP
+Définition à la ligne 36 du fichier SH_DatabaseManager\&.h\&.
+.SS "const QString dbPasswordStr = 'masterkey'\fC [static]\fP"
+
+.PP
+dbPasswordStr 
+.PP
+Définition à la ligne 31 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString dbUsernameStr = 'SYSDBA'\fC [static]\fP"
+
+.PP
+dbUsernameStr 
+.PP
+Définition à la ligne 27 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SH_DatabaseManager::SH_DatabaseManager()\&.
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,0 +1,106 @@
+\hypertarget{SH__app_8qml}{\section{S\-H\-\_\-app.\-qml}
+\label{SH__app_8qml}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-app.\-qml@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-app.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+00004 import QtQuick.Controls.Styles 1.0
+\hypertarget{SH__app_8qml_source_l00005}{}\hyperlink{classSH__app}{00005} import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+00007 
+00012 ApplicationWindow \{
+00013     \textcolor{keywordtype}{id}: window
+00014     visibility: Window.Windowed
+00015     \textcolor{comment}{/*maximumHeight: 600*/}
+00016     \textcolor{comment}{/*maximumWidth: 800*/}
+00017     height: maximumHeight
+00018     width: maximumWidth
+00019     title: \textcolor{stringliteral}{"Réception"}
+00020     \textcolor{keyword}{property} alias pages: stack
+00021     signal reload()
+00022     statusBar: StatusBar \{
+00023         Label \{
+00024             \textcolor{keywordtype}{id}: status
+00025             text: \textcolor{stringliteral}{""}
+00026             anchors.centerIn: parent
+00027         \}
+00028     \}
+00029     onReload: \{
+00030         status.text = Qt.binding(\textcolor{keyword}{function}() \{\textcolor{keywordflow}{return} ((SH\_App.currentMode === SH\_AppMode.CONNEXION) ? qsTr(\textcolor{stringliteral}{"
+      Connexion"}) : (SH\_App.currentUser.valid ? SH\_App.currentUser.name : \textcolor{stringliteral}{""}));\});
+00031     \}
+00032     Component.onCompleted: \{
+00033         window.reload();
+00034     \}
+00035 
+00036     StackView \{
+00037         \textcolor{keywordtype}{id}: stack
+00038         signal cycle(\hyperlink{classItem}{Item} c)
+00039         anchors.fill: parent
+00040         Component.onCompleted: \{
+00041             stack.push(\{item: commonPage, immediate:\textcolor{keyword}{true}\});
+00042             stack.push(\{item: welcomePage, immediate: \textcolor{keyword}{true}\});
+00043             stack.push(\{item: connexionPage, immediate: \textcolor{keyword}{true}\});
+00044         \}
+00045         onCycle: \{
+00046             window.reload();
+00047             c.reload();
+00048             stack.push(\{item: stack.get(c.Stack.index)\});
+00049         \}
+00050         delegate: StackViewDelegate \{
+00059             \textcolor{keyword}{function} getTransition(properties)
+00060             \{
+00061                 \textcolor{comment}{/*return (properties.enterItem.Stack.index % 2) ? fading : bouncing*/}
+00062                 \textcolor{keywordflow}{return} fading;
+00063             \}
+00064 
+00065             \textcolor{keyword}{property} Component fading: StackViewTransition \{
+00066                 PropertyAnimation \{
+00067                     target: exitItem
+00068                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"opacity"}
+00069                     from: 100
+00070                     to: 0
+00071                     duration: 50
+00072                 \}
+00073                 PropertyAnimation \{
+00074                     target: enterItem
+00075                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"opacity"}
+00076                     from: 0
+00077                     to: 100
+00078                     duration: 600
+00079                 \}
+00080             \}
+00081         \}
+00082     \}
+00083     \hyperlink{classSH__WelcomePage}{SH\_WelcomePage} \{
+00084         \textcolor{keywordtype}{id}:welcomePage
+00085         objectName: \textcolor{stringliteral}{"Welcome"}
+00086         onQuit: \{
+00087             Qt.\hyperlink{classSH__WelcomePage_add4c38249bbc1cdf0d3ff7aed9049a6f}{quit}();
+00088         \}
+00089         onClicked : \{
+00090             stack.cycle(commonPage);
+00091         \}
+00092         onLoggedOut: \{
+00093             stack.cycle(connexionPage);
+00094         \}
+00095     \}
+00096     \hyperlink{classSH__ConnexionPage}{SH\_ConnexionPage} \{
+00097         \textcolor{keywordtype}{id}: connexionPage
+00098         objectName: \textcolor{stringliteral}{"Connexion"}
+00099         onLoggedIn: \{
+00100             stack.cycle(welcomePage);
+00101         \}
+00102     \}
+00103 
+00104     \hyperlink{classSH__CommonPage}{SH\_CommonPage} \{
+00105         \textcolor{keywordtype}{id}: commonPage
+00106         objectName: \textcolor{stringliteral}{"Common"}
+00107         onQuit: \{
+00108             stack.cycle(welcomePage);
+00109         \}
+00110     \}
+00111 \}
+\end{DoxyCode}

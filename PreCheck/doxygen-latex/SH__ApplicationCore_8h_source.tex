@@ -1,0 +1,53 @@
+\hypertarget{SH__ApplicationCore_8h}{\section{S\-H\-\_\-\-Application\-Core.\-h}
+\label{SH__ApplicationCore_8h}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\-S\-H\-\_\-\-Application\-Core.\-h@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\-S\-H\-\_\-\-Application\-Core.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef RESTRICTIVEAPPLICATION\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define RESTRICTIVEAPPLICATION\_H}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__User_8h}{models/SH\_User.h}"}
+00004 \textcolor{preprocessor}{#include <QApplication>}
+00005 \textcolor{preprocessor}{#include "\hyperlink{SH__IOStateMachine_8h}{logic/SH\_IOStateMachine.h}"}
+\hypertarget{SH__ApplicationCore_8h_source_l00012}{}\hyperlink{classSH__ApplicationCore}{00012} \textcolor{keyword}{class }\hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore} : \textcolor{keyword}{public} \hyperlink{classQObject}{QObject}
+00013 \{
+00014     Q\_OBJECT
+\hypertarget{SH__ApplicationCore_8h_source_l00019}{}\hyperlink{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}{00019}     Q\_PROPERTY(\hyperlink{classSH__User}{SH\_User}* \hyperlink{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}{currentUser} READ \hyperlink{classSH__ApplicationCore_aa154f69097fb07514b300f9c8f189da9}{user} NOTIFY 
+      \hyperlink{classSH__ApplicationCore_af0c5c92e7b410b226c3497cec2ddfd97}{userChanged})
+\hypertarget{SH__ApplicationCore_8h_source_l00024}{}\hyperlink{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}{00024}     Q\_PROPERTY(\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{AppMode} \hyperlink{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}{currentMode} READ \hyperlink{classSH__ApplicationCore_a210295d4d7a6e16e9def6e0a29816b51}{mode} WRITE \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{setMode} NOTIFY 
+      \hyperlink{classSH__ApplicationCore_adad0e1b383ce90a698cb5dd49a88ab79}{modeChanged})
+00025 
+00026     Q\_ENUMS(\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{AppMode})
+00027 
+00028 public:
+\hypertarget{SH__ApplicationCore_8h_source_l00057}{}\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{00057} 
+00065 
+00073 
+00081 
+00088 
+00095 
+00104 
+00112 
+00121 
+00128 
+00136 
+00143 
+00150 
+00157 
+00164 
+00170 
+00176 
+00184 
+00190 
+00198 
+00205 
+00212 
+00219 
+00226 
+00233 
+00239 
+00246 
+00254 
+\hypertarget{SH__ApplicationCore_8h_source_l00260}{}\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{00260} 
+\hypertarget{SH__ApplicationCore_8h_source_l00264}{}\hyperlink{classSH__ApplicationCore_ac9587a451ab2294abe7a9eb738d93cb0}{00264} 
+\hypertarget{SH__ApplicationCore_8h_source_l00268}{}\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{00268} 
+\end{DoxyCode}

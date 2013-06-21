@@ -1,0 +1,27 @@
+\hypertarget{SH__StatementState_8cpp}{\section{S\-H\-\_\-\-Statement\-State.\-cpp}
+\label{SH__StatementState_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Statement\-State.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Statement\-State.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__StatementState_8h}{SH\_StatementState.h}"}
+00002 
+\hypertarget{SH__StatementState_8cpp_source_l00009}{}\hyperlink{classSH__StatementState_acc888fc333049b693f05ff760e363f27}{00009} \hyperlink{classSH__StatementState_acc888fc333049b693f05ff760e363f27}{SH\_StatementState::SH\_StatementState}(QString output, QString name, 
+      \hyperlink{classQState}{QState} *parent) :
+00010     \hyperlink{classSH__InOutState}{SH\_InOutState}(output, name, parent)
+00011 \{
+00012     qDebug() << \textcolor{stringliteral}{"salut ! "}<< \hyperlink{classSH__InOutState_a1a2fd4f34484125058e20730aaee7e46}{output};
+00013 \}
+00014 
+\hypertarget{SH__StatementState_8cpp_source_l00021}{}\hyperlink{classSH__StatementState_a20e5cf0df2d918a16f73a50a5c7d065e}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__StatementState_a20e5cf0df2d918a16f73a50a5c7d065e}{SH\_StatementState::setInput}(\textcolor{keyword}{const} QVariant &input)
+00022 \{
+00023     Q\_UNUSED(input);
+00024     \textcolor{comment}{/*DO NOTHING*/}
+00025 \}
+00026 
+\hypertarget{SH__StatementState_8cpp_source_l00033}{}\hyperlink{classSH__StatementState_ac62f9c27b2966034e56762a6e532dbe4}{00033} \textcolor{keywordtype}{void} \hyperlink{classSH__StatementState_ac62f9c27b2966034e56762a6e532dbe4}{SH\_StatementState::onEntry}(QEvent *event)
+00034 \{
+00035     \hyperlink{classSH__GenericState_a7c30692635023ce7cf65e5ba5bb18a9c}{SH\_GenericState::onEntry}(event);
+00036     \hyperlink{classSH__InOutState_a918e8a7f5fe00dc16004e46eeee1281d}{display}(\textcolor{keyword}{true});
+00037     emit \hyperlink{classSH__GenericState_a030e67a872956135c52e6876d960a7b5}{next}();
+00038 \}
+\end{DoxyCode}

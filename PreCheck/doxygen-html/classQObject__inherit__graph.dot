@@ -1,0 +1,22 @@
+digraph "QObject"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  Node1 [label="{QObject\n||}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node2 [label="{SH_ApplicationCore\n|+ currentMode\l+ currentUser\l- m_currentFSM\l- m_currentUser\l- m_mode\l|+ SH_ApplicationCore()\l+ init()\l+ mode()\l+ setMode()\l+ user()\l+ balanceLogRoutine()\l+ cancelReplacement()\l+ cancelRunningThread()\l+ launchBillingsThread()\l+ launchBillThread()\l+ launchBookingsThread()\l+ receiveConfirmation()\l+ receiveInput()\l+ receiveValidation()\l+ replaceInput()\l+ setUser()\l+ userExists()\l+ userLogOut()\l# connectRunningThread()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html",tooltip="Classe principale du coeur de l&#39;application, avec laquelle communique l&#39;interface graphique..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node3 [label="{SH_Company\n||}",height=0.2,width=0.4,color="black",URL="$classSH__Company.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node4 [label="{SH_DatabaseManager\n|# dbConnection\l- _instance\l|+ ~SH_DatabaseManager()\l+ dataCount()\l+ dbConnect()\l+ dbDisconnect()\l+ execInsertReturningQuery()\l+ execReplaceQuery()\l+ execSelectQuery()\l+ getDbConnection()\l+ isConnected()\l+ tableExists()\l+ getInstance()\l# SH_DatabaseManager()\l- divideQVariantMap()\l}",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node5 [label="{SH_ExtendedQQmlAction\n|+ __icon\l+ enabled\l+ iconName\l+ iconSource\l+ keyShortcut\l+ shortcut\l+ text\l+ tooltip\l- m_enabled\l- m_icon\l- m_iconName\l- m_iconSource\l- m_mnemonic\l- m_shortcut\l- m_text\l- m_tooltip\l|+ SH_ExtendedQQmlAction()\l+ ~SH_ExtendedQQmlAction()\l+ event()\l+ icon()\l+ iconName()\l+ iconSource()\l+ iconVariant()\l+ isEnabled()\l+ keyShortcut()\l+ setEnabled()\l+ setIcon()\l+ setIconName()\l+ setIconSource()\l+ setKeyShortcut()\l+ setMnemonicFromText()\l+ setShortcut()\l+ setText()\l+ setTooltip()\l+ shortcut()\l+ text()\l+ tooltip()\l+ trigger()\l# setKeySequence()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ExtendedQQmlAction.html"];
+  Node1 -> Node6 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node6 [label="{SH_MessageManager\n||+ errorMessage()\l+ infoMessage()\l+ successMessage()\l}",height=0.2,width=0.4,color="black",URL="$classSH__MessageManager.html"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node7 [label="{SH_User\n|+ administrator\l+ id\l+ managerX\l+ managerZ\l+ name\l+ receptionist\l+ roles\l+ valid\l- m_administrator\l- m_id\l- m_managerX\l- m_managerZ\l- m_name\l- m_receptionist\l|+ SH_User()\l+ id()\l+ isAdministrator()\l+ isManagerX()\l+ isManagerZ()\l+ isReceptionist()\l+ isValid()\l+ name()\l+ roles()\l+ logIn()\l+ traineeExists()\l+ userExists()\l+ exists()\l- setID()\l- setName()\l}",height=0.2,width=0.4,color="black",URL="$classSH__User.html"];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
+  Node8 [label="{SH_Trainee\n||+ SH_Trainee()\l}",height=0.2,width=0.4,color="black",URL="$classSH__Trainee.html"];
+}

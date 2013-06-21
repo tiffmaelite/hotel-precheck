@@ -1,0 +1,33 @@
+digraph "SH_ApplicationCore"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  Node1 [label="{SH_ApplicationCore\n|+ currentMode\l+ currentUser\l|+ SH_ApplicationCore()\l+ init()\l+ mode()\l+ setMode()\l+ user()\l+ balanceLogRoutine()\l+ cancelReplacement()\l+ cancelRunningThread()\l+ launchBillingsThread()\l+ launchBillThread()\l+ launchBookingsThread()\l+ receiveConfirmation()\l+ receiveInput()\l+ receiveValidation()\l+ replaceInput()\l+ setUser()\l+ userExists()\l+ userLogOut()\l# connectRunningThread()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node2 [label="{QObject\n||}",height=0.2,width=0.4,color="black",URL="$classQObject.html"];
+  Node3 -> Node1 [color="grey25",fontsize="11",style="solid",label=" -m_currentUser" ,arrowhead="odiamond"];
+  Node3 [label="{SH_User\n|+ administrator\l+ id\l+ managerX\l+ managerZ\l+ name\l+ receptionist\l+ roles\l+ valid\l|+ SH_User()\l+ id()\l+ isAdministrator()\l+ isManagerX()\l+ isManagerZ()\l+ isReceptionist()\l+ isValid()\l+ name()\l+ roles()\l+ logIn()\l+ traineeExists()\l+ userExists()\l+ exists()\l- setID()\l- setName()\l}",height=0.2,width=0.4,color="black",URL="$classSH__User.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node4 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_name" ,arrowhead="odiamond"];
+  Node4 [label="{QString\n||}",height=0.2,width=0.4,color="grey75"];
+  Node5 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_id" ,arrowhead="odiamond"];
+  Node5 [label="{int\n||}",height=0.2,width=0.4,color="grey75"];
+  Node6 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_administrator\n-m_receptionist\n-m_managerX\n-m_managerZ" ,arrowhead="odiamond"];
+  Node6 [label="{bool\n||}",height=0.2,width=0.4,color="grey75"];
+  Node7 -> Node1 [color="grey25",fontsize="11",style="solid",label=" -m_currentFSM" ,arrowhead="odiamond"];
+  Node7 [label="{SH_InOutStateMachine\n||+ SH_InOutStateMachine()\l+ getContentValue()\l+ historyValue()\l+ ioContent()\l+ setIOcontent()\l+ setIOStateHistory()\l+ setTableName()\l+ tableName()\l+ toString()\l+ addChildrenNextTransition()\l+ addIOState()\l+ addIOStateMachine()\l+ setContentValue()\l# ioStatesHistory()\l- setIOStatesHistory()\l}",height=0.2,width=0.4,color="black",URL="$classSH__InOutStateMachine.html"];
+  Node8 -> Node7 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node8 [label="{QStateMachine\n||}",height=0.2,width=0.4,color="black",URL="$classQStateMachine.html"];
+  Node9 -> Node7 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal"];
+  Node9 [label="{SH_NamedObject\n||+ SH_NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}",height=0.2,width=0.4,color="black",URL="$classSH__NamedObject.html"];
+  Node4 -> Node9 [color="grey25",fontsize="11",style="solid",label=" -m_ptraddress\n-m_name" ,arrowhead="odiamond"];
+  Node10 -> Node7 [color="grey25",fontsize="11",style="solid",label=" #m_ioStatesHistory" ,arrowhead="odiamond"];
+  Node10 [label="{QMap\< QString, QHistoryState * \>\n||}",height=0.2,width=0.4,color="grey75"];
+  Node4 -> Node7 [color="grey25",fontsize="11",style="solid",label=" #m_tableName" ,arrowhead="odiamond"];
+  Node11 -> Node7 [color="grey25",fontsize="11",style="solid",label=" #m_ioContent" ,arrowhead="odiamond"];
+  Node11 [label="{QVariantMap\n||}",height=0.2,width=0.4,color="grey75"];
+  Node12 -> Node1 [color="grey25",fontsize="11",style="solid",label=" -m_mode" ,arrowhead="odiamond"];
+  Node12 [label="{AppMode\n||}",height=0.2,width=0.4,color="grey75"];
+}

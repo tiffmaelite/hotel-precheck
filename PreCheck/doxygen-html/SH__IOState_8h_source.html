@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/logic/SH_IOState.h</title>
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <!--td style="padding-left: 0.5em;"-->
+  <td>
+   <div id="projectname">PreCheck
+   <span id="projectnumber">0.3</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+   <link href="tabs.css" rel="stylesheet" type="text/css"/>
+   <link href="doxygen.css" rel="stylesheet" type="text/css" />
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Généré par Doxygen 1.8.4 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.html">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.html">logic</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_IOState.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__IOState_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef IOSTATE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IOSTATE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="SH__GenericDebugableState_8h.html">SH_GenericDebugableState.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QtCore&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classSH__InOutState.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__InOutState.html">SH_InOutState</a> : <span class="keyword">public</span> <a class="code" href="classSH__GenericState.html">SH_GenericState</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classSH__InOutState.html#a5fa88487103a8e197a8453c991bb056b">SH_InOutState</a>(QString <a class="code" href="classSH__InOutState.html#a1a2fd4f34484125058e20730aaee7e46">output</a>, QString <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>, <a class="code" href="classQState.html">QState</a> *parent = 0);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> QVariant <a class="code" href="classSH__InOutState.html#a04364c76d2fd8a3781e7b325955e5bd9">input</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> QVariant <a class="code" href="classSH__InOutState.html#a4b1ca094de91c47690ec2d1e95678273">rawInput</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> QString <a class="code" href="classSH__InOutState.html#a1a2fd4f34484125058e20730aaee7e46">output</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#a36636cba0d68476288bce5fd4c041db0">onExit</a>(QEvent *event);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__InOutState.html#a8c496b2fe21a51a587c6e4409c0f37ec">visibility</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#a918e8a7f5fe00dc16004e46eeee1281d">display</a>(<span class="keywordtype">bool</span> canDisplay);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;signals:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#ad40e929a5537eb1d4883d5aa6eee5b15">sendOutput</a>(QVariant output);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#afa791181eb61a18d4337a04827f9b200">resendInput</a>(QVariant input);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#a0206ab7d5616f28b0da7bfd5451614e8">setInput</a>(<span class="keyword">const</span> QVariant &amp;input);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#a7dc244d72e09fdbc30eb3a704b05a4d8">setOutput</a>(<span class="keyword">const</span> QString &amp;output);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__InOutState.html#a7706a2ea1367ab3416db27fa0f4794f7">setVisibility</a>(<span class="keywordtype">bool</span> isVisible);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classSH__InOutState.html#ae43d6fdc62047f285913837648a1e883">  116</a></span>&#160;    QVariant <a class="code" href="classSH__InOutState.html#ae43d6fdc62047f285913837648a1e883" title="m_input ">m_input</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="classSH__InOutState.html#ae735e741ce229d2600448d8daa0abc2d">  120</a></span>&#160;    QString <a class="code" href="classSH__InOutState.html#ae735e741ce229d2600448d8daa0abc2d" title="m_output ">m_output</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="classSH__InOutState.html#a8fd66b185c9a55f0e84daa97e2acf53a">  124</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__InOutState.html#a8fd66b185c9a55f0e84daa97e2acf53a" title="m_isVisible ">m_isVisible</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classSH__InOutState.html#a3351fa53593266a1ae4334d33d0b1610">  128</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__InOutState.html#a3351fa53593266a1ae4334d33d0b1610" title="m_display ">m_display</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IOSTATE_H*/</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+
+<hr class="footer"/><small>
+<span class="qmi"><a href="http://github.com/skozlovf/doxygen-qmi-style">qmi style</a></span>
+<address class="footer">
+Généré le Vendredi Juin 21 2013 18:03:47 pour PreCheck par <a href="http://www.doxygen.org/index.html">doxygen</a> 1.8.4
+</small></address>
+</body>
+</html>

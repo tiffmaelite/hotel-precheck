@@ -1,0 +1,178 @@
+\hypertarget{SH__DatabaseManager_8h}{\section{Référence du fichier /home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\-S\-H\-\_\-\-Database\-Manager.h}
+\label{SH__DatabaseManager_8h}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\-S\-H\-\_\-\-Database\-Manager.\-h@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\-S\-H\-\_\-\-Database\-Manager.\-h}}
+}
+{\ttfamily \#include $<$Q\-Sql\-Database$>$}\\*
+{\ttfamily \#include $<$Q\-String$>$}\\*
+{\ttfamily \#include $<$Q\-Sql\-Query$>$}\\*
+{\ttfamily \#include $<$Q\-Object$>$}\\*
+{\ttfamily \#include $<$Qt\-Core$>$}\\*
+Graphe des dépendances par inclusion de S\-H\-\_\-\-Database\-Manager.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SH__DatabaseManager_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SH__DatabaseManager_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classSH__DatabaseManager}{S\-H\-\_\-\-Database\-Manager}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_a6ea3da6c82e06907039cdf906ae15fd1}{db\-Alias\-Name\-Str} = \char`\"{}precheck-\/hotel\char`\"{}
+\begin{DoxyCompactList}\small\item\em db\-Alias\-Name\-Str \end{DoxyCompactList}\item 
+static Q\-String \hyperlink{SH__DatabaseManager_8h_a19d48066a97c8a9a81827ccf23fd736f}{db\-Cannot\-Open\-Str} = Q\-Object\-::tr(\char`\"{}The database \%1 cannot be opened.\char`\"{}).arg(\hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{db\-File\-Path\-Str})
+\begin{DoxyCompactList}\small\item\em db\-Cannot\-Open\-Str \end{DoxyCompactList}\item 
+static Q\-String \hyperlink{SH__DatabaseManager_8h_adeeb3449586b533bdd3cd5938d501807}{db\-Driver\-Not\-Exist\-Str} = Q\-Object\-::tr(\char`\"{}\%1 database driver is not available.\char`\"{}).arg(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{db\-Driver\-Str})
+\begin{DoxyCompactList}\small\item\em db\-Driver\-Not\-Exist\-Str \end{DoxyCompactList}\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{db\-Driver\-Str} = \char`\"{}Q\-I\-B\-A\-S\-E\char`\"{}
+\begin{DoxyCompactList}\small\item\em db\-Driver\-Str \end{DoxyCompactList}\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{db\-File\-Name\-Str} = \char`\"{}Pre\-Check\-D\-B.\-fdb\char`\"{}
+\begin{DoxyCompactList}\small\item\em db\-File\-Name\-Str \end{DoxyCompactList}\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{db\-File\-Path\-Str} = Q\-String(\char`\"{}\%1/\%2\char`\"{}).arg(\hyperlink{SH__DatabaseManager_8h_a74e17c2ab66452c74a37bdc0f32e9e08}{db\-Folder\-Path\-Str}).arg(\hyperlink{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{db\-File\-Name\-Str})
+\begin{DoxyCompactList}\small\item\em db\-File\-Path\-Str \end{DoxyCompactList}\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_a74e17c2ab66452c74a37bdc0f32e9e08}{db\-Folder\-Path\-Str} = Q\-Dir\-::clean\-Path(Q\-Dir\-::current\-Path()+\char`\"{}/../../../src/Database/\char`\"{})
+\begin{DoxyCompactList}\small\item\em db\-Folder\-Path\-Str \end{DoxyCompactList}\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}{db\-Password\-Str} = \char`\"{}masterkey\char`\"{}
+\begin{DoxyCompactList}\small\item\em db\-Password\-Str \end{DoxyCompactList}\item 
+static const Q\-String \hyperlink{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}{db\-Username\-Str} = \char`\"{}S\-Y\-S\-D\-B\-A\char`\"{}
+\begin{DoxyCompactList}\small\item\em db\-Username\-Str \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des variables}
+\hypertarget{SH__DatabaseManager_8h_a6ea3da6c82e06907039cdf906ae15fd1}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Alias\-Name\-Str@{db\-Alias\-Name\-Str}}
+\index{db\-Alias\-Name\-Str@{db\-Alias\-Name\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Alias\-Name\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-Alias\-Name\-Str = \char`\"{}precheck-\/hotel\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a6ea3da6c82e06907039cdf906ae15fd1}
+
+
+db\-Alias\-Name\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00023}{23} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+\hypertarget{SH__DatabaseManager_8h_a19d48066a97c8a9a81827ccf23fd736f}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Cannot\-Open\-Str@{db\-Cannot\-Open\-Str}}
+\index{db\-Cannot\-Open\-Str@{db\-Cannot\-Open\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Cannot\-Open\-Str}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String db\-Cannot\-Open\-Str = Q\-Object\-::tr(\char`\"{}The database \%1 cannot be opened.\char`\"{}).arg({\bf db\-File\-Path\-Str})\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a19d48066a97c8a9a81827ccf23fd736f}
+
+
+db\-Cannot\-Open\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00053}{53} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{S\-H\-\_\-\-Database\-Manager\-::db\-Connect()}.
+
+\hypertarget{SH__DatabaseManager_8h_adeeb3449586b533bdd3cd5938d501807}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Driver\-Not\-Exist\-Str@{db\-Driver\-Not\-Exist\-Str}}
+\index{db\-Driver\-Not\-Exist\-Str@{db\-Driver\-Not\-Exist\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Driver\-Not\-Exist\-Str}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String db\-Driver\-Not\-Exist\-Str = Q\-Object\-::tr(\char`\"{}\%1 database driver is not available.\char`\"{}).arg({\bf db\-Driver\-Str})\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_adeeb3449586b533bdd3cd5938d501807}
+
+
+db\-Driver\-Not\-Exist\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00049}{49} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+
+\hypertarget{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Driver\-Str@{db\-Driver\-Str}}
+\index{db\-Driver\-Str@{db\-Driver\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Driver\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-Driver\-Str = \char`\"{}Q\-I\-B\-A\-S\-E\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}
+
+
+db\-Driver\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00015}{15} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+
+\hypertarget{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-File\-Name\-Str@{db\-File\-Name\-Str}}
+\index{db\-File\-Name\-Str@{db\-File\-Name\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-File\-Name\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-File\-Name\-Str = \char`\"{}Pre\-Check\-D\-B.\-fdb\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}
+
+
+db\-File\-Name\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00019}{19} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+
+\hypertarget{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-File\-Path\-Str@{db\-File\-Path\-Str}}
+\index{db\-File\-Path\-Str@{db\-File\-Path\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-File\-Path\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-File\-Path\-Str = Q\-String(\char`\"{}\%1/\%2\char`\"{}).arg({\bf db\-Folder\-Path\-Str}).arg({\bf db\-File\-Name\-Str})\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}
+
+
+db\-File\-Path\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00040}{40} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}, et \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+
+\hypertarget{SH__DatabaseManager_8h_a74e17c2ab66452c74a37bdc0f32e9e08}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Folder\-Path\-Str@{db\-Folder\-Path\-Str}}
+\index{db\-Folder\-Path\-Str@{db\-Folder\-Path\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Folder\-Path\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-Folder\-Path\-Str = Q\-Dir\-::clean\-Path(Q\-Dir\-::current\-Path()+\char`\"{}/../../../src/Database/\char`\"{})\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a74e17c2ab66452c74a37bdc0f32e9e08}
+
+
+db\-Folder\-Path\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00036}{36} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+\hypertarget{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Password\-Str@{db\-Password\-Str}}
+\index{db\-Password\-Str@{db\-Password\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Password\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-Password\-Str = \char`\"{}masterkey\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}
+
+
+db\-Password\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00031}{31} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+
+\hypertarget{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}{\index{S\-H\-\_\-\-Database\-Manager.\-h@{S\-H\-\_\-\-Database\-Manager.\-h}!db\-Username\-Str@{db\-Username\-Str}}
+\index{db\-Username\-Str@{db\-Username\-Str}!SH_DatabaseManager.h@{S\-H\-\_\-\-Database\-Manager.\-h}}
+\subsubsection[{db\-Username\-Str}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String db\-Username\-Str = \char`\"{}S\-Y\-S\-D\-B\-A\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}
+
+
+db\-Username\-Str 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00027}{27} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+

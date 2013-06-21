@@ -1,0 +1,19 @@
+digraph "Graphe hiérarchique des classes"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="Button",height=0.2,width=0.4,color="black",URL="$classButton.html"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 [label="SH_DataDelegate",height=0.2,width=0.4,color="black",URL="$classSH__DataDelegate.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node3 [label="SH_BillingsDelegate",height=0.2,width=0.4,color="black",URL="$classSH__BillingsDelegate.html"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node4 [label="SH_BookingsDelegate",height=0.2,width=0.4,color="black",URL="$classSH__BookingsDelegate.html"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node5 [label="SH_RoomsDelegate",height=0.2,width=0.4,color="black",URL="$classSH__RoomsDelegate.html"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node6 [label="SH_ServicesDelegate",height=0.2,width=0.4,color="black",URL="$classSH__ServicesDelegate.html"];
+}

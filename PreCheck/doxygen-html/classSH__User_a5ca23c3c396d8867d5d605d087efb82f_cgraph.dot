@@ -1,0 +1,18 @@
+digraph "SH_User::userExists"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_User::userExists",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 [label="SH_DatabaseManager\l::getInstance",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a638369a15265ab0aa053080a32d2ca39"];
+  Node2 -> Node3 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node3 [label="SH_DatabaseManager\l::SH_DatabaseManager",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a7b5d0e372c153eb59cdab98588994904"];
+  Node3 -> Node4 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node4 [label="SH_DatabaseManager\l::dbConnect",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#aeb077fe5437f435c0cbe8d77d96dd846"];
+  Node4 -> Node5 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node5 [label="SH_MessageManager::\lerrorMessage",height=0.2,width=0.4,color="black",URL="$classSH__MessageManager.html#acb5615cc90f198f4768da800a5d32362"];
+  Node3 -> Node5 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+}

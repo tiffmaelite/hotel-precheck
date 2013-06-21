@@ -1,0 +1,33 @@
+\hypertarget{SH__NamedObject_8cpp}{\section{S\-H\-\_\-\-Named\-Object.\-cpp}
+\label{SH__NamedObject_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Named\-Object.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Named\-Object.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__NamedObject_8h}{SH\_NamedObject.h}"}
+00002 
+\hypertarget{SH__NamedObject_8cpp_source_l00009}{}\hyperlink{classSH__NamedObject_a6ceff219e80ad3f5c36db5f4258e74fd}{00009} \hyperlink{classSH__NamedObject_a6ceff219e80ad3f5c36db5f4258e74fd}{SH\_NamedObject::SH\_NamedObject}(QString name) :
+00010     m\_name(name)
+00011 \{
+00012     \textcolor{comment}{/*m\_ptraddress = QString(&this);*/}
+00013 \}
+00014 
+\hypertarget{SH__NamedObject_8cpp_source_l00021}{}\hyperlink{classSH__NamedObject_af73e97f6476ca1ef3a22b159d179f5e7}{00021} QString \hyperlink{classSH__NamedObject_af73e97f6476ca1ef3a22b159d179f5e7}{SH\_NamedObject::toString}()
+00022 \{
+00023     \textcolor{keywordflow}{return} this->\hyperlink{classSH__NamedObject_a7f8e3346256986c337a792339ea5a015}{m\_name};
+00024 \}
+00025 
+\hypertarget{SH__NamedObject_8cpp_source_l00032}{}\hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{00032} QString \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{SH\_NamedObject::name}()\textcolor{keyword}{ const}
+00033 \textcolor{keyword}{}\{
+00034     \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a7f8e3346256986c337a792339ea5a015}{m\_name};
+00035 \}
+00036 
+\hypertarget{SH__NamedObject_8cpp_source_l00043}{}\hyperlink{classSH__NamedObject_a18e1860b747e029eefa140f8324bb503}{00043} \textcolor{keywordtype}{void} \hyperlink{classSH__NamedObject_a18e1860b747e029eefa140f8324bb503}{SH\_NamedObject::setName}(\textcolor{keyword}{const} QString &name)
+00044 \{
+00045     \hyperlink{classSH__NamedObject_a7f8e3346256986c337a792339ea5a015}{m\_name} = \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name};
+00046 \}
+00047 
+\hypertarget{SH__NamedObject_8cpp_source_l00054}{}\hyperlink{classSH__NamedObject_a98806c492b55a54d01330bbecce5118b}{00054} QString \hyperlink{classSH__NamedObject_a98806c492b55a54d01330bbecce5118b}{SH\_NamedObject::ptraddress}()\textcolor{keyword}{ const}
+00055 \textcolor{keyword}{}\{
+00056     \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_acfc489299f90750082785bf9ac42f4ff}{m\_ptraddress};
+00057 \}
+\end{DoxyCode}

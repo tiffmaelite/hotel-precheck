@@ -1,0 +1,232 @@
+.TH "SH_GenericState" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SH_GenericState \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_GenericDebugableState\&.h>\fP
+.PP
+Est dérivée de \fBQState\fP, et \fBSH_NamedObject\fP\&.
+.PP
+Dérivée par \fBSH_AdaptDatabaseState\fP, \fBSH_InOutState\fP, et \fBSH_PrintingState\fP\&.
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBnext\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_GenericState\fP (QString \fBname\fP='', \fBQState\fP *parent=0)"
+.br
+.ti -1c
+.RI "QString \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "void \fBonEntry\fP (QEvent *event)"
+.br
+.ti -1c
+.RI "void \fBonExit\fP (QEvent *event)"
+.br
+.in -1c
+.SS "Connecteurs privés"
+
+.in +1c
+.ti -1c
+.RI "void \fBonMachineStarted\fP ()"
+.br
+.ti -1c
+.RI "void \fBonTransitionTriggered\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres privées"
+
+.in +1c
+.ti -1c
+.RI "virtual QString \fBname\fP () const "
+.br
+.ti -1c
+.RI "QString \fBptraddress\fP () const "
+.br
+.ti -1c
+.RI "virtual void \fBsetName\fP (const QString &\fBname\fP)"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 12 du fichier SH_GenericDebugableState\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SH_GenericState::SH_GenericState (QStringname = \fC''\fP, \fBQState\fP *parent = \fC0\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 10 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+.nf
+10                                                              :
+11     QState(parent), SH_NamedObject(name)
+12 {
+13 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "QString SH_NamedObject::name () const\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 32 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références SH_NamedObject::m_name\&.
+.PP
+Référencé par onEntry(), onExit(), onTransitionTriggered(), SH_NamedObject::setName(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+33 {
+34     return m_name;
+35 }
+.fi
+.SS "void SH_GenericState::next ()\fC [signal]\fP"
+
+.PP
+Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_AdaptDatabaseState::insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+.SS "void SH_GenericState::onEntry (QEvent *event)\fC [protected]\fP"
+
+.PP
+Définition à la ligne 62 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SH_NamedObject::name()\&.
+.PP
+Référencé par SH_StatementState::onEntry()\&.
+.PP
+.nf
+63 {
+64     Q_UNUSED(event);
+65     qDebug() << "Machine: " << machine()->objectName() << " entered " << name();
+66 }
+.fi
+.SS "void SH_GenericState::onExit (QEvent *event)\fC [protected]\fP"
+
+.PP
+Définition à la ligne 73 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SH_NamedObject::name()\&.
+.PP
+Référencé par SH_InOutState::onExit()\&.
+.PP
+.nf
+74 {
+75     Q_UNUSED(event);
+76     qDebug() << "Machine: " << machine()->objectName() << " exited  " << name();
+77 }
+.fi
+.SS "void SH_GenericState::onMachineStarted ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+Définition à la ligne 83 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références onTransitionTriggered()\&.
+.PP
+.nf
+84 {
+85     foreach (QAbstractTransition* tr, transitions())
+86            connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
+87 }
+.fi
+.SS "void SH_GenericState::onTransitionTriggered ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+Définition à la ligne 36 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SH_NamedObject::name()\&.
+.PP
+Référencé par onMachineStarted()\&.
+.PP
+.nf
+37 {
+38     QAbstractTransition* tr = qobject_cast<QAbstractTransition*>(sender());
+39     if (tr == 00) return;
+40 
+41     SH_GenericState* sourceState = qobject_cast<SH_GenericState*>(tr->sourceState());
+42     SH_GenericState* targetState = qobject_cast<SH_GenericState*>(tr->targetState());
+43 
+44     QString log;
+45     QTextStream logStream(&log);
+46     logStream << machine()->objectName() << " transition from ";
+47     if (sourceState) logStream << sourceState->name();
+48     else logStream << tr->sourceState();
+49     logStream << " to ";
+50     if (targetState) logStream << targetState->name();
+51     else logStream << tr->targetState();
+52     logStream\&.flush();
+53     qDebug() << "Machine: " << log;
+54 }
+.fi
+.SS "QString SH_NamedObject::ptraddress () const\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 54 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références SH_NamedObject::m_ptraddress\&.
+.PP
+.nf
+55 {
+56     return m_ptraddress;
+57 }
+.fi
+.SS "void SH_NamedObject::setName (const QString &name)\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 43 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références SH_NamedObject::m_name, et SH_NamedObject::name()\&.
+.PP
+.nf
+44 {
+45     m_name = name;
+46 }
+.fi
+.SS "QString SH_GenericState::toString ()\fC [virtual]\fP"
+
+.PP
+Réimplémentée à partir de \fBSH_NamedObject\fP\&.
+.PP
+Définition à la ligne 21 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SH_NamedObject::toString(), et SH_InOutStateMachine::toString()\&.
+.PP
+Référencé par SH_InOutStateMachine::addChildrenNextTransition(), SH_DateQuestionState::rawInput(), et SH_InOutStateMachine::toString()\&.
+.PP
+.nf
+22 {
+23     QStateMachine* machine = this->machine();
+24     SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
+25     if(mach) {
+26         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
+27     } else {
+28         return SH_NamedObject::toString();
+29     }
+30 }
+.fi
+
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,0 +1,36 @@
+\hypertarget{SH__DateQuestionState_8h}{\section{S\-H\-\_\-\-Date\-Question\-State.\-h}
+\label{SH__DateQuestionState_8h}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Date\-Question\-State.\-h@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\-S\-H\-\_\-\-Date\-Question\-State.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef DATEQUESTIONSTATE\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DATEQUESTIONSTATE\_H}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__QuestionState_8h}{SH\_QuestionState.h}"}
+00004 
+\hypertarget{SH__DateQuestionState_8h_source_l00010}{}\hyperlink{classSH__DateQuestionState}{00010} \textcolor{keyword}{class }\hyperlink{classSH__DateQuestionState}{SH\_DateQuestionState} : \textcolor{keyword}{public} \hyperlink{classSH__QuestionState}{SH\_QuestionState}
+00011 \{
+00012     Q\_OBJECT
+00013 \textcolor{keyword}{public}:
+00024     \hyperlink{classSH__DateQuestionState_a9a60060ebcd5994d62f0ca5f0e6b5e98}{SH\_DateQuestionState}(QString question, QString \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}, \textcolor{keywordtype}{bool} past = \textcolor{keyword}{true}, \textcolor{keywordtype}{bool} 
+      future = \textcolor{keyword}{false}, \hyperlink{classQState}{QState} *parent = 0);
+00031 \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_aacd24891431755fb857c17a864d39ba9}{isAnswerValid}(\textcolor{keyword}{const} QVariant &\hyperlink{classSH__QuestionState_abde97c61175be95358ece622fd16593e}{givenAnswer});
+00032 
+00039 \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_a13b9815a4c8b0f5bd78426efdc754b8c}{getPast}() \textcolor{keyword}{const};
+00046 \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_a06f77c3d6449354c0d1135cc9755dd41}{setPast}(\textcolor{keywordtype}{bool} value);
+00047 
+00054 \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_aa0ac7bfdd8528fdbc7b517d7f2f1fcc7}{getFuture}() \textcolor{keyword}{const};
+00061 \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_ae160da14278cb25ce255f108f481d5eb}{setFuture}(\textcolor{keywordtype}{bool} value);
+00062 
+00068 QVariant \hyperlink{classSH__DateQuestionState_ac72e5b6b416614631032ff643d3c180e}{rawInput}() \textcolor{keyword}{const};
+00069 signals:
+00070 
+00071 \textcolor{keyword}{public} slots:
+00072 
+00073 
+00074 \textcolor{keyword}{private}:
+\hypertarget{SH__DateQuestionState_8h_source_l00078}{}\hyperlink{classSH__DateQuestionState_afa33fd208cf539167bcc26c83e57d803}{00078} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_afa33fd208cf539167bcc26c83e57d803}{m\_past};
+\hypertarget{SH__DateQuestionState_8h_source_l00082}{}\hyperlink{classSH__DateQuestionState_a0a1577dc70f9c1120a6d623f8eb635c8}{00082} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_a0a1577dc70f9c1120a6d623f8eb635c8}{m\_future};
+00083 \};
+00084 
+00085 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* DATEQUESTIONSTATE\_H*/}\textcolor{preprocessor}{}
+\end{DoxyCode}

@@ -1,0 +1,294 @@
+\hypertarget{SH__CalendarDialog_8qml}{\section{S\-H\-\_\-\-Calendar\-Dialog.\-qml}
+\label{SH__CalendarDialog_8qml}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Calendar\-Dialog.\-qml@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Calendar\-Dialog.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{SH__CalendarDialog_8qml_source_l00004}{}\hyperlink{classSH__CalendarDialog}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+\hypertarget{SH__CalendarDialog_8qml_source_l00007}{}\hyperlink{classSH__CalendarDialog_ada6f44b6f1a93ae9ef40b2fd3acdabd1}{00007} 
+\hypertarget{SH__CalendarDialog_8qml_source_l00011}{}\hyperlink{classSH__CalendarDialog_a697b1e3c3faeee03197b575dd17cecdb}{00011} Rectangle \{
+00012     color: \textcolor{stringliteral}{"green"}
+\hypertarget{SH__CalendarDialog_8qml_source_l00013}{}\hyperlink{classSH__CalendarDialog_aa573e78a85228cbf2312b3bd7b776bbd}{00013}     \textcolor{keywordtype}{id}: calendar
+00014     \textcolor{keyword}{property} \textcolor{keywordtype}{int} firstWeekdayIndex: 1
+\hypertarget{SH__CalendarDialog_8qml_source_l00015}{}\hyperlink{classSH__CalendarDialog_a2c0ae47d55757e17551d5d6ea5413bb9}{00015}     \textcolor{keyword}{property} \textcolor{keywordtype}{string} text
+00016     readonly \textcolor{keyword}{property} alias currentDate: calendarBase.currentDate
+\hypertarget{SH__CalendarDialog_8qml_source_l00017}{}\hyperlink{classSH__CalendarDialog_a297eca7b6afa21350ff89a43580ff406}{00017}     readonly \textcolor{keyword}{property} alias currentWeekday: calendarBase.currentWeekday
+00018     readonly \textcolor{keyword}{property} alias currentDay: calendarBase.currentDay
+\hypertarget{SH__CalendarDialog_8qml_source_l00019}{}\hyperlink{classSH__CalendarDialog_a98760601bdd0a916ee33f4ed7ff185aa}{00019}     readonly \textcolor{keyword}{property} alias currentMonth: calendarBase.currentMonth
+00020     readonly \textcolor{keyword}{property} alias currentYear: calendarBase.currentYear
+\hypertarget{SH__CalendarDialog_8qml_source_l00021}{}\hyperlink{classSH__CalendarDialog_a9708f1f6b6cdcf136c533e206a29d98e}{00021}     readonly \textcolor{keyword}{property} alias currentMonthLength: calendarBase.currentMonthLength
+00022     readonly \textcolor{keyword}{property} variant monthsList: [qsTr(\textcolor{stringliteral}{"Janvier"}),qsTr(\textcolor{stringliteral}{"Février"}),qsTr(\textcolor{stringliteral}{"Mars"}), qsTr(\textcolor{stringliteral}{"Avril"}),qsTr
+      (\textcolor{stringliteral}{"Mai"}),qsTr(\textcolor{stringliteral}{"Juin"}),qsTr(\textcolor{stringliteral}{"Juillet"}),qsTr(\textcolor{stringliteral}{"Août"}),qsTr(\textcolor{stringliteral}{"Septembre"}),qsTr(\textcolor{stringliteral}{"Octobre"}),qsTr(\textcolor{stringliteral}{"Novembre"}),qsTr(\textcolor{stringliteral}{"
+      Décembre"})]
+\hypertarget{SH__CalendarDialog_8qml_source_l00023}{}\hyperlink{classSH__CalendarDialog_a86a4ef51cbfb7299a55bbddf2ae60f6a}{00023}     readonly \textcolor{keyword}{property} variant weekdaysList: [qsTr(\textcolor{stringliteral}{"Di"}),qsTr(\textcolor{stringliteral}{"Lu"}),qsTr(\textcolor{stringliteral}{"Ma"}),qsTr(\textcolor{stringliteral}{"Me"}), qsTr(\textcolor{stringliteral}{"Je"}),qsTr(\textcolor{stringliteral}{"
+      Ve"}),qsTr(\textcolor{stringliteral}{"Sa"})]
+00024     signal clicked(date selectedDate)
+\hypertarget{SH__CalendarDialog_8qml_source_l00025}{}\hyperlink{classSH__CalendarDialog_a4ceac0c8c8f2b0d05060ddd66986b8e0}{00025}     signal refresh(date newDate)
+00026     signal selected(\textcolor{keywordtype}{string} selectedDate)
+00027     signal closed()
+00028     signal opened()
+00029     visible: true
+00030     onClosed: \{
+00031         calendar.visible = \textcolor{keyword}{false};
+00032     \}
+00033     onOpened: \{
+00034         calendar.visible = \textcolor{keyword}{true};
+00035     \}
+00036 
+00037     Component.onCompleted: \{
+00038         calendar.clicked(\textcolor{keyword}{new} Date());
+00039         calendar.refresh(\textcolor{keyword}{new} Date());
+00040     \}
+00041     onClicked: \{
+00042         \textcolor{comment}{/*console.log("selected date "+selectedDate);*/}
+00043         var year = selectedDate.getFullYear();
+00044         var month = selectedDate.getMonth();
+00045         var day = selectedDate.getDate();
+00046         dateDay.text = day;
+00047         dateMonth.text = monthsList[month];
+00048         dateYear.text = year;
+00049         calendar.text = qsTr(\textcolor{stringliteral}{"%1 - %2 - %3"}).arg(day).arg(monthsList[month]).arg(year);
+00050     \}
+00051 
+00052     onRefresh: \{
+00053         calendarBase.ready = \textcolor{keyword}{false};
+00054         \textcolor{comment}{/*console.log("refreshed with date "+newDate);*/}
+00055         calendarBase.currentDate = newDate;
+00056         var year = newDate.getFullYear();
+00057         var month = newDate.getMonth();
+00058         var day = newDate.getDate();
+00059         var monthLength = \textcolor{keyword}{new} Date(year, month+1, 0).getDate(); \textcolor{comment}{/*javascript Date trick since day count
+       "starts" at 1 whereas month count starts at 0*/}
+00060         var firstWeekday = \textcolor{keyword}{new} Date(year, month, 1).getDay();
+00061         calendarBase.currentWeekday = newDate.getDay();
+00062         calendarBase.currentDay = day;
+00063         calendarBase.currentMonth = month;
+00064         calendarBase.currentYear = year;
+00065         calendarBase.currentMonthLength = monthLength;
+00066         calendarBase.currentMonthFirstWeekday = (calendar.firstWeekdayIndex >= 0 && calendar.
+      firstWeekdayIndex < 7) ? ((firstWeekday - calendar.firstWeekdayIndex) % 7) : firstWeekday;
+00067         \textcolor{comment}{/*calendarBase.currentMonthLastWeekday = new Date(year, month, new Date(year, month,
+       0).getDate()).getDay();*/}
+00068         month.text = qsTr(\textcolor{stringliteral}{"%1 %2"}).arg(monthsList[month]).arg(year);
+00069         gridRepeater.model = 7 * (Math.ceil(monthLength / 7) + 1);
+00070         calendarBase.ready = \textcolor{keyword}{true};
+00071     \}
+00072 
+00073     ColumnLayout \{
+00074         \textcolor{keywordtype}{id}: calendarBase
+00075         \textcolor{keyword}{property} date currentDate: \textcolor{keyword}{new} Date()
+00076         property \textcolor{keywordtype}{bool} ready: true
+00077         property \textcolor{keywordtype}{string} currentWeekday
+00078         property \textcolor{keywordtype}{string} currentDay
+00079         property \textcolor{keywordtype}{string} currentMonth
+00080         property \textcolor{keywordtype}{string} currentYear
+00081         property \textcolor{keywordtype}{int} currentMonthLength
+00082         property \textcolor{keywordtype}{int} currentMonthFirstWeekday
+00083         property \textcolor{keywordtype}{int} currentMonthLastWeekday
+00084         spacing: 0
+00085         anchors.fill: calendar
+00086         RowLayout \{
+00087             \textcolor{keywordtype}{id}: dateDisplay
+00088             Layout.minimumWidth: childrenRect.width
+00089             Layout.preferredHeight: Math.max(Math.max(dateDay.paintedHeight,dateMonth.paintedHeight),
+      dateYear.paintedHeight)+20
+00090             Layout.fillWidth: \textcolor{keyword}{true}
+00091             Text \{
+00092                 \textcolor{keywordtype}{id}: dateDay
+00093                 Layout.preferredWidth: calendar.width / 3 - 2
+00094                 horizontalAlignment: Text.AlignHCenter
+00095             \}
+00096             Text \{
+00097                 \textcolor{keywordtype}{id}: dateMonth
+00098                 Layout.preferredWidth: calendar.width / 3 - 2
+00099                 horizontalAlignment: Text.AlignHCenter
+00100             \}
+00101             Text \{
+00102                 \textcolor{keywordtype}{id}: dateYear
+00103                 Layout.preferredWidth: calendar.width / 3 - 2
+00104                 horizontalAlignment: Text.AlignHCenter
+00105             \}
+00106             MouseArea \{
+00107                 \textcolor{keywordtype}{id}: dateDisplayArea
+00108                 anchors.fill: dateDisplay
+00109                 onClicked: \{
+00110                     calendar.opened();
+00111                 \}
+00112                 onDoubleClicked: \{
+00113                     dateDisplayArea.clicked(mouse);
+00114                 \}
+00115             \}
+00116         \}
+00117 
+00118         \hyperlink{classRectangle}{Rectangle} \{
+00119             \textcolor{keywordtype}{id}: headRow
+00120             color: \textcolor{stringliteral}{"red"}
+00121             Layout.minimumWidth: childrenRect.width
+00122             Layout.minimumHeight: month.paintedHeight
+00123             Layout.maximumHeight: 3*month.paintedHeight/2
+00124             Layout.fillWidth: \textcolor{keyword}{true}
+00125             RowLayout \{
+00126                 anchors.fill:headRow
+00127                 spacing: 0
+00128                 Image \{
+00129                     \textcolor{keywordtype}{id}: previousMonth
+00130                     Layout.preferredHeight: headRow.height
+00131                     fillMode: Image.PreserveAspectFit
+00132                     source: \textcolor{stringliteral}{"../img/left.png"}
+00133                     Layout.alignment: Qt.AlignLeft
+00134                     Layout.columnSpan: 1
+00135                     MouseArea \{
+00136                         \textcolor{keywordtype}{id}: previousMonthArea
+00137                         enabled: calendarBase.ready
+00138                         anchors.fill: previousMonth
+00139                         onClicked: \{
+00140                             calendar.refresh(\textcolor{keyword}{new} Date(calendarBase.currentYear, (calendarBase.currentMonth 
+      - 1 % 12), 1));
+00141                         \}
+00142                         onDoubleClicked: \{
+00143                             previousMonthArea.clicked(mouse)
+00144                         \}
+00145                     \}
+00146                 \}
+00147                 Text \{
+00148                     \textcolor{keywordtype}{id}: month
+00149                     text:qsTr(\textcolor{stringliteral}{"%1 %L2"}).arg(monthsList[calendarBase.currentMonth]).arg(calendarBase.
+      currentYear);
+00150                     Layout.preferredHeight: headRow.height
+00151                     Layout.alignment: Qt.AlignHCenter
+00152                     Layout.columnSpan: 6
+00153                 \}
+00154                 Image \{
+00155                     \textcolor{keywordtype}{id}:nextMonth
+00156                     Layout.alignment: Qt.AlignRight
+00157                     Layout.columnSpan: 1
+00158                     Layout.preferredHeight: headRow.height
+00159                     fillMode: Image.PreserveAspectFit
+00160                     source: \textcolor{stringliteral}{"../img/right.png"}
+00161                     MouseArea \{
+00162                         \textcolor{keywordtype}{id}:  nextMonthArea
+00163                         enabled: calendarBase.ready
+00164                         anchors.fill: nextMonth
+00165                         onClicked: \{
+00166                             calendar.refresh(\textcolor{keyword}{new} Date(calendarBase.currentYear, (calendarBase.currentMonth 
+      + 1 % 12), 1));
+00167                         \}
+00168                         onDoubleClicked: \{
+00169                             nextMonthArea.clicked(mouse)
+00170                         \}
+00171                     \}
+00172                 \}
+00173             \}
+00174         \}
+00175         \hyperlink{classRectangle}{Rectangle} \{
+00176             \textcolor{keywordtype}{id}:grid
+00177             color: \textcolor{stringliteral}{"pink"}
+00178             Layout.fillHeight: \textcolor{keyword}{true}
+00179             Layout.fillWidth: \textcolor{keyword}{true}
+00180             Layout.preferredHeight: childrenRect.height+2
+00181             Layout.preferredWidth: childrenRect.width+2
+00182             \hyperlink{classGridLayout}{GridLayout} \{
+00183                 \textcolor{keywordtype}{id}: calendarGrid
+00184                 anchors.fill:grid
+00185                 columns: 7
+00186                 flow: Qt.LeftToRight
+00187                 \textcolor{comment}{/*rows: 1 + Math.ceil(calendarBase.currentMonthLength / 7) */} \textcolor{comment}{/*unnecessary because of the
+       horizontal flow*/}
+00188                 columnSpacing: 1
+00189                 rowSpacing: 1
+00190                 Repeater \{
+00191                     \textcolor{keywordtype}{id}: gridRepeater
+00192                     \textcolor{comment}{/*Layout.fillWidth: true */}\textcolor{comment}{/*no effect*/}
+00193                     \textcolor{comment}{/*Layout.fillHeight: true */}\textcolor{comment}{/*no effect*/}
+00194                     model : 7 * (Math.ceil(calendarBase.currentMonthLength / 7) + 1)
+00195                     delegate:
+00196                         \hyperlink{classRectangle}{Rectangle} \{
+00197                         \textcolor{keywordtype}{id}: cell
+00198                         \textcolor{comment}{/*anchors.fill:parent */} \textcolor{comment}{/*hides the other cells*/}
+00199                         readonly \textcolor{keyword}{property} real preferredW: (grid.width /7) - calendarGrid.columnSpacing
+00200                         readonly property real preferredH: (grid.height / (Math.ceil(calendarBase.
+      currentMonthLength / 7) + 1)) - calendarGrid.RowSpacing
+00201                         readonly \textcolor{keyword}{property} real minW: cellText.paintedWidth+3
+00202                         readonly \textcolor{keyword}{property} real minH: cellText.paintedHeight+5
+00203                         Layout.minimumHeight: Math.min(cell.preferredH, cell.minH)
+00204                         Layout.minimumWidth: Math.min(cell.preferredW, cell.minW)
+00205                         Layout.preferredWidth: Math.max(cell.preferredW, cell.minW)
+00206                         Layout.preferredHeight: Math.max(cell.preferredH, cell.minH)
+00207                         readonly \textcolor{keyword}{property} \textcolor{keywordtype}{int} previousMonthLength: \textcolor{keyword}{new} Date(currentYear, currentMonth, 0).
+      getDate()
+00208                         readonly \textcolor{keyword}{property} \textcolor{keywordtype}{int} dayIndexInMonth : (index < 7) ?  \textcolor{comment}{/*1ère ligne (liste des
+       jours de la semaine) ?*/}
+00209                                                                               0 : \textcolor{comment}{/*pas de compteur*/}
+00210                                                                               (index - 7 - calendarBase.
+      currentMonthFirstWeekday + 1) \textcolor{comment}{/* sinon, on soustrait du compteur les 7 cases sans compteurs, puis de nouveau le
+       nombre de colonnes de décalage avec le début du mois*/}
+00211                         \textcolor{keyword}{property} \textcolor{keywordtype}{int} dayIndex: (index < 7) ? \textcolor{comment}{/* 1ère ligne (liste des jours de la semaine)
+       ?*/}
+00212                                                              0 : ( \textcolor{comment}{/*pas de compteur*/}
+00213                                                                   (dayIndexInMonth <= 0 ) ? \textcolor{comment}{/* avant le
+       début du mois ?*/}
+00214                                                                                             (
+      dayIndexInMonth + previousMonthLength) : ( \textcolor{comment}{/* date dans le mois précédent*/}
+00215                                                                                                            
+                                  (dayIndexInMonth > currentMonthLength) ? \textcolor{comment}{/* après la fin du mois ?*/}
+00216                                                                                                            
+                                                                           (dayIndexInMonth - currentMonthLength) 
+      : \textcolor{comment}{/*date dans le mois suivant (nombre de jours du mois suivant)*/}
+00217                                                                                                            
+                                                                           dayIndexInMonth \textcolor{comment}{/* sinon : date dans le
+       mois*/}
+00218                                                                                                            
+                                  )
+00219                                                                   )
+00220                         color: (index < 7) ? \textcolor{stringliteral}{"white"} :
+00221                                              (dayIndexInMonth <= 0 || dayIndexInMonth > currentMonthLength)
+       ? \textcolor{comment}{/* en dehors du mois ?*/}
+00222                                                                                                            
+         \textcolor{stringliteral}{"lightgrey"} :
+00223                                                                                                            
+         ((cell.dayIndexInMonth === calendarBase.currentDay) ? \textcolor{stringliteral}{"blue"} : \textcolor{stringliteral}{"lightsteelblue"})
+00224                         border.width: 1
+00225                         border.color: \textcolor{stringliteral}{"darkblue"}
+00226 
+00227                         Text \{
+00228                             \textcolor{keywordtype}{id}: cellText
+00229                             text: (index < 7) ? \textcolor{comment}{/* 1ère ligne (liste des jours de la semaine) ?*/}
+00230                                                 calendar.weekdaysList[(index+calendar.firstWeekdayIndex) % 
+      7] :
+00231                                                 cell.dayIndex.toString() \textcolor{comment}{/*sinon le numéro de jour*/}
+00232                             horizontalAlignment: Text.AlignHCenter
+00233                             anchors.centerIn: cell
+00234                         \}
+00235                         MouseArea \{
+00236                             \textcolor{keywordtype}{id}: cellArea
+00237                             anchors.fill: cell
+00238                             onPressed: \{
+00239                                 cell.color = \textcolor{stringliteral}{"lightblue"};
+00240                             \}
+00241                             onReleased: \{
+00242                                 cell.color = (index < 7) ? \textcolor{stringliteral}{"white"} : ((cell.dayIndexInMonth === 
+      calendarBase.currentDay) ? \textcolor{stringliteral}{"blue"} : \textcolor{stringliteral}{"lightsteelblue"});
+00243                             \}
+00244 
+00245                             onClicked: \{
+00246                                 var d = \textcolor{keyword}{new} Date(calendarBase.currentYear, calendarBase.currentMonth, 
+      cellText.text);
+00247                                 calendar.clicked(d);
+00248                                 calendar.selected(d.toLocaleDateString());
+00249                                 calendar.closed();
+00250                             \}
+00251                             onDoubleClicked: \{
+00252                                 cellArea.clicked(mouse)
+00253                             \}
+00254                         \}
+00255                     \}
+00256                 \}
+00257             \}
+00258         \}
+00259     \}
+00260 \}
+\end{DoxyCode}

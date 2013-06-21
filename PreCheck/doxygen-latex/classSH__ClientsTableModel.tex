@@ -1,0 +1,1115 @@
+\hypertarget{classSH__ClientsTableModel}{\section{Référence de la classe S\-H\-\_\-\-Clients\-Table\-Model}
+\label{classSH__ClientsTableModel}\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}}
+}
+
+
+{\ttfamily \#include $<$S\-H\-\_\-\-Clients\-Table\-Model.\-h$>$}
+
+
+
+Graphe d'héritage de S\-H\-\_\-\-Clients\-Table\-Model\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSH__ClientsTableModel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de S\-H\-\_\-\-Clients\-Table\-Model\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ClientsTableModel__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_a573590c2763d06d07c6509d4c91a06b2}{sort\-Changed} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3}{S\-H\-\_\-\-Clients\-Table\-Model} (\hyperlink{classQObject}{Q\-Object} $\ast$parent=0)
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E void \hyperlink{classSH__ExtendedProxyModel_a4e98e24b6b94adf31a2c5e935a48f831}{add\-Filter\-Key\-Column} (int column)
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E bool \hyperlink{classSH__ExtendedProxyModel_a865da9bd795526dc63b8c6447d59cfc0}{contains\-Filter\-Key\-Column} (int column)
+\item 
+const int \hyperlink{classSH__ExtendedProxyModel_a76786ad4b81dbd521a610c2f6f973a96}{current\-Sort\-Key\-Column} () const 
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E Q\-Variant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data} (int row, int column) const 
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E Q\-Variant \hyperlink{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926c52902a1c}{data} (const Q\-Model\-Index \&index, int role=Qt\-::\-Display\-Role) const 
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E bool \hyperlink{classSH__ExtendedProxyModel_a64f684a4a7d35925ff4f4b81984da60e}{fetch} (Q\-String \hyperlink{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a}{table\-Name}=\char`\"{}\char`\"{}, Q\-String filter=\char`\"{}\char`\"{}, Q\-String \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{sort}=\char`\"{}\char`\"{}, Q\-String\-List \hyperlink{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a}{fields}=Q\-String\-List())
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E \hyperlink{classSH__SqlDataFields}{S\-H\-\_\-\-Sql\-Data\-Fields} $\ast$ \hyperlink{classSH__ExtendedProxyModel_ac73fae31c6ad69663b4df97f65ec945f}{field} (int i) const 
+\item 
+const Q\-String \hyperlink{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a}{fields} () const 
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E int \hyperlink{classSH__ExtendedProxyModel_a5a5e6b84a9a397e096f4404cec5e9e0c}{fields\-Count} () const 
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E Qt\-::\-Item\-Flags \hyperlink{classSH__ExtendedProxyModel_a0fed636838c17a8a027a3d1968e5bcf0}{flags} (const Q\-Model\-Index \&index) const 
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_a012a631fa5724bb8446bc5dce10be767}{invalidate\-Filter} ()
+\item 
+const bool \hyperlink{classSH__ExtendedProxyModel_a1f2183d82782002e73a6573702db030e}{is\-Empty} () const 
+\item 
+const Q\-String \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{last\-Error} () const 
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E void \hyperlink{classSH__ExtendedProxyModel_a99c5fe8ea4e2327003a4810a1d869dac}{remove\-Filter\-Key\-Column} (int column)
+\item 
+virtual Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E Q\-Hash$<$ int, \\*
+Q\-Byte\-Array $>$ \hyperlink{classSH__ExtendedProxyModel_ac7c8ce454ec81726c49ce12e9c4e7bba}{role\-Names} () const 
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_ac9836a6109137161ef67d5da25e699fe}{set\-Boolean\-Columns} (Q\-List$<$ int $>$ bool\-Cols)
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E bool \hyperlink{classSH__ExtendedProxyModel_af92835fcefa1917f9cab64307f6b95b8}{set\-Data} (const Q\-Model\-Index \&index, const Q\-Variant \&value, int role=Qt\-::\-Edit\-Role)
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_aa198a2c1f4bfaae18d9e9dd8dce7e5cc}{set\-Not\-Null\-Columns} (Q\-List$<$ int $>$ not\-Null\-Cols)
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_acf3e473b4ed806f9daf0ad6e32f0c3af}{set\-Null\-Columns} (Q\-List$<$ int $>$ null\-Cols)
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_a79389378df6e07a2affb721216ac6961}{set\-Password\-Columns} (Q\-List$<$ int $>$ password\-Cols)
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_ada56eb3eda9b0a1024d7b54e4f30ddb3}{set\-Read\-Only\-Columns} (Q\-List$<$ int $>$ readonly\-Cols)
+\item 
+void \hyperlink{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}{set\-Sort\-Key\-Column} (int column)
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E void \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{sort} (int column, Qt\-::\-Sort\-Order new\-Order=Qt\-::\-Ascending\-Order)
+\item 
+const Q\-String \hyperlink{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a}{table\-Name} () const 
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSH__ClientsTableModel_ae26e1b2a4e4ae52efbc0929324bf01ed}{fill\-Model} ()
+\item 
+bool \hyperlink{classSH__ExtendedProxyModel_a5c9a68f10afb83af24896beac56e0ae3}{filter\-Accepts\-Row} (int source\-\_\-row, const Q\-Model\-Index \&source\-\_\-parent) const 
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSH__SqlDataModel}{S\-H\-\_\-\-Sql\-Data\-Model} $\ast$ \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}
+\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}{empty}
+\item 
+Q\-String \hyperlink{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}{fields\-List}
+\item 
+Q\-String \hyperlink{classSH__ExtendedProxyModel_a1597853dfae8c3972ef3396293d5d0fc}{last\-Error}
+\item 
+int \hyperlink{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}{sort\-Key\-Column}
+\item 
+Q\-String \hyperlink{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}{table}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{SH__ClientsTableModel_8h_source_l00014}{14} du fichier \hyperlink{SH__ClientsTableModel_8h_source}{S\-H\-\_\-\-Clients\-Table\-Model.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{S\-H\-\_\-\-Clients\-Table\-Model}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Clients\-Table\-Model\-::\-S\-H\-\_\-\-Clients\-Table\-Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\-Object} $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3}
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__ClientsTableModel_8cpp_source_l00009}{9} du fichier \hyperlink{SH__ClientsTableModel_8cpp_source}{S\-H\-\_\-\-Clients\-Table\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, et \hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{S\-H\-\_\-\-Sql\-Data\-Model\-::set\-Table()}.
+
+
+\begin{DoxyCode}
+00009                                                          :
+00010     \hyperlink{classSH__ExtendedProxyModel_a63b0969a9f5799c9e871e6ceb13cf83e}{SH\_ExtendedProxyModel}(parent)
+00011 \{
+00012     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{setTable}(\textcolor{stringliteral}{"CLIENTS"});
+00013 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSH__ExtendedProxyModel_a4e98e24b6b94adf31a2c5e935a48f831}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!add\-Filter\-Key\-Column@{add\-Filter\-Key\-Column}}
+\index{add\-Filter\-Key\-Column@{add\-Filter\-Key\-Column}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{add\-Filter\-Key\-Column}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::add\-Filter\-Key\-Column (
+\begin{DoxyParamCaption}
+\item[{int}]{column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a4e98e24b6b94adf31a2c5e935a48f831}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00259}{259} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::filters}.
+
+
+
+Référencé par \hyperlink{classSH__RoomsTableModel_ac11a4147485348d4504a8508e6bb5398}{S\-H\-\_\-\-Rooms\-Table\-Model\-::fill\-Model()}.
+
+
+\begin{DoxyCode}
+00260 \{
+00261     this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.append(column);
+00262 \}
+\end{DoxyCode}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a4e98e24b6b94adf31a2c5e935a48f831_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_a865da9bd795526dc63b8c6447d59cfc0}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!contains\-Filter\-Key\-Column@{contains\-Filter\-Key\-Column}}
+\index{contains\-Filter\-Key\-Column@{contains\-Filter\-Key\-Column}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{contains\-Filter\-Key\-Column}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Extended\-Proxy\-Model\-::contains\-Filter\-Key\-Column (
+\begin{DoxyParamCaption}
+\item[{int}]{column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a865da9bd795526dc63b8c6447d59cfc0}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00225}{225} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::filters}.
+
+
+\begin{DoxyCode}
+00226 \{
+00227     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.contains(column);
+00228 \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_a76786ad4b81dbd521a610c2f6f973a96}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!current\-Sort\-Key\-Column@{current\-Sort\-Key\-Column}}
+\index{current\-Sort\-Key\-Column@{current\-Sort\-Key\-Column}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{current\-Sort\-Key\-Column}]{\setlength{\rightskip}{0pt plus 5cm}const int S\-H\-\_\-\-Extended\-Proxy\-Model\-::current\-Sort\-Key\-Column (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a76786ad4b81dbd521a610c2f6f973a96}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00038}{38} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort\-Index}.
+
+
+\begin{DoxyCode}
+00038 \{\textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex};\}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!data@{data}}
+\index{data@{data}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant S\-H\-\_\-\-Extended\-Proxy\-Model\-::data (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{column}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00269}{269} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, et \hyperlink{classSH__SqlDataModel_a0e05155c3c22c6fef7b91ec57d383ae5}{S\-H\-\_\-\-Sql\-Data\-Model\-::role\-For\-Field()}.
+
+
+
+Référencé par \hyperlink{classSH__ExtendedProxyModel_af92835fcefa1917f9cab64307f6b95b8}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Data()}.
+
+
+\begin{DoxyCode}
+00270 \{
+00271     QModelIndex modelIndex = this->index(row, 0);
+00272     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data}(modelIndex, this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a0e05155c3c22c6fef7b91ec57d383ae5}{roleForField}(column));
+00273 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926c52902a1c}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!data@{data}}
+\index{data@{data}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant S\-H\-\_\-\-Extended\-Proxy\-Model\-::data (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index, }
+\item[{int}]{role = {\ttfamily Qt\-:\-:DisplayRole}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926c52902a1c}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00127}{127} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::boolean\-Set}, \hyperlink{classSH__SqlDataModel_a30cc763618d73a1bb5410c84812c0b9f}{S\-H\-\_\-\-Sql\-Data\-Model\-::data()}, \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::filters}, \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, et \hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::password\-Set}.
+
+
+\begin{DoxyCode}
+00128 \{
+00129     \textcolor{keywordflow}{if} (index.isValid())
+00130     \{
+00131         \textcolor{keywordflow}{if} (this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}.contains(role))
+00132         \{
+00133             \textcolor{keywordflow}{return} index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
+00134         \}
+00135         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this->\hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{passwordSet}.contains(role))
+00136         \{
+00137             \textcolor{keywordflow}{return} QVariant(\textcolor{stringliteral}{"***"});
+00138         \}
+00139         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.contains(role))
+00140         \{
+00141             QModelIndex source\_index = QSortFilterProxyModel::mapToSource(index);
+00142             \textcolor{keywordflow}{if} (source\_index.isValid()) \{
+00143                 \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a30cc763618d73a1bb5410c84812c0b9f}{data}(source\_index, role);
+00144             \}
+00145         \}
+00146     \}
+00147     \textcolor{keywordflow}{return} QVariant();
+00148 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926c52902a1c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_a64f684a4a7d35925ff4f4b81984da60e}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!fetch@{fetch}}
+\index{fetch@{fetch}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{fetch}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Extended\-Proxy\-Model\-::fetch (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{Q\-String}]{filter = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{Q\-String}]{sort = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{Q\-String\-List}]{fields = {\ttfamily QStringList()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a64f684a4a7d35925ff4f4b81984da60e}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00280}{280} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a8d9b08d282a304945b9ee2f474020980}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{classSH__ExtendedProxyModel_aff5c328203f14725f6f13e33a9f245ee}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fill\-Model()}, et \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}.
+
+
+\begin{DoxyCode}
+00281 \{
+00282     \textcolor{keywordtype}{bool} fetched = this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a8d9b08d282a304945b9ee2f474020980}{fetch}(\hyperlink{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a}{tableName}, filter, \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{sort}, 
+      \hyperlink{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a}{fields});
+00283     \textcolor{keywordflow}{if} (fetched)
+00284     \{
+00285         this->\hyperlink{classSH__ExtendedProxyModel_aff5c328203f14725f6f13e33a9f245ee}{fillModel}();
+00286     \}
+00287     this->setSourceModel(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model});
+00288     \textcolor{keywordflow}{return} fetched;
+00289 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a64f684a4a7d35925ff4f4b81984da60e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_ac73fae31c6ad69663b4df97f65ec945f}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!field@{field}}
+\index{field@{field}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{field}]{\setlength{\rightskip}{0pt plus 5cm}Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E {\bf S\-H\-\_\-\-Sql\-Data\-Fields}$\ast$ S\-H\-\_\-\-Extended\-Proxy\-Model\-::field (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_ac73fae31c6ad69663b4df97f65ec945f}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00082}{82} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{S\-H\-\_\-\-Sql\-Data\-Model\-::field()}, et \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}.
+
+
+\begin{DoxyCode}
+00082 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{field}(i); \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_ac73fae31c6ad69663b4df97f65ec945f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!fields@{fields}}
+\index{fields@{fields}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{fields}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00052}{52} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_aaca5b8197cf2e6a10cdda5e19522ffec}{S\-H\-\_\-\-Sql\-Data\-Model\-::fields\-List()}, et \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}.
+
+
+\begin{DoxyCode}
+00052 \{ \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_aaca5b8197cf2e6a10cdda5e19522ffec}{fieldsList}().isEmpty())\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"*"};\} \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} this->
+      \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_aaca5b8197cf2e6a10cdda5e19522ffec}{fieldsList}().join(\textcolor{stringliteral}{", "});\} \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_a5a5e6b84a9a397e096f4404cec5e9e0c}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!fields\-Count@{fields\-Count}}
+\index{fields\-Count@{fields\-Count}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{fields\-Count}]{\setlength{\rightskip}{0pt plus 5cm}Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E int S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a5a5e6b84a9a397e096f4404cec5e9e0c}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00089}{89} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a0fd7bd5380ce0ba9a2ca84033093432d}{S\-H\-\_\-\-Sql\-Data\-Model\-::fields\-Count()}, et \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}.
+
+
+\begin{DoxyCode}
+00089 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a0fd7bd5380ce0ba9a2ca84033093432d}{fieldsCount}(); \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a5a5e6b84a9a397e096f4404cec5e9e0c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ClientsTableModel_ae26e1b2a4e4ae52efbc0929324bf01ed}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!fill\-Model@{fill\-Model}}
+\index{fill\-Model@{fill\-Model}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{fill\-Model}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Clients\-Table\-Model\-::fill\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classSH__ClientsTableModel_ae26e1b2a4e4ae52efbc0929324bf01ed}
+
+
+Implémente \hyperlink{classSH__ExtendedProxyModel_aff5c328203f14725f6f13e33a9f245ee}{S\-H\-\_\-\-Extended\-Proxy\-Model}.
+
+
+
+Définition à la ligne \hyperlink{SH__ClientsTableModel_8cpp_source_l00021}{21} du fichier \hyperlink{SH__ClientsTableModel_8cpp_source}{S\-H\-\_\-\-Clients\-Table\-Model.\-cpp}.
+
+
+\begin{DoxyCode}
+00022 \{
+00023 \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_a5c9a68f10afb83af24896beac56e0ae3}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!filter\-Accepts\-Row@{filter\-Accepts\-Row}}
+\index{filter\-Accepts\-Row@{filter\-Accepts\-Row}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{filter\-Accepts\-Row}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Extended\-Proxy\-Model\-::filter\-Accepts\-Row (
+\begin{DoxyParamCaption}
+\item[{int}]{source\-\_\-row, }
+\item[{const Q\-Model\-Index \&}]{source\-\_\-parent}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a5c9a68f10afb83af24896beac56e0ae3}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00092}{92} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::not\-Null\-Set}, et \hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::null\-Set}.
+
+
+\begin{DoxyCode}
+00093 \{
+00094     Q\_UNUSED(source\_parent);
+00095 
+00096     \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet}.isEmpty())
+00097     \{
+00098         QSqlQueryModel *m = \textcolor{keyword}{static\_cast<}QSqlQueryModel *\textcolor{keyword}{>}(sourceModel());
+00099         \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} column, this->\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet})
+00100         \{
+00101             \textcolor{keywordflow}{if} (m->record(source\_row).isNull(column))
+00102             \{
+00103                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00104             \}
+00105         \}
+00106     \}
+00107 
+00108     \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet}.isEmpty())
+00109     \{
+00110         QSqlQueryModel *m = \textcolor{keyword}{static\_cast<}QSqlQueryModel *\textcolor{keyword}{>}(sourceModel());
+00111         \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} column, this->\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet})
+00112         \{
+00113             \textcolor{keywordflow}{if} (!m->record(source\_row).isNull(column))
+00114             \{
+00115                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00116             \}
+00117         \}
+00118     \}
+00119     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00120 \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_a0fed636838c17a8a027a3d1968e5bcf0}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!flags@{flags}}
+\index{flags@{flags}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}Qt\-::\-Item\-Flags S\-H\-\_\-\-Extended\-Proxy\-Model\-::flags (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a0fed636838c17a8a027a3d1968e5bcf0}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00179}{179} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::boolean\-Set}, et \hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::readonly\-Set}.
+
+
+\begin{DoxyCode}
+00180 \{
+00181     \textcolor{keywordflow}{if} (!index.isValid())
+00182     \{
+00183         \textcolor{keywordflow}{return} Qt::ItemIsEnabled;
+00184     \}
+00185     \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}.isEmpty())
+00186     \{
+00187         \textcolor{keywordflow}{return} Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+00188     \}
+00189     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{readonlySet}.isEmpty())
+00190     \{
+00191         \textcolor{keywordflow}{return} Qt::ItemIsSelectable;
+00192     \}
+00193     \textcolor{keywordflow}{else}
+00194     \{
+00195         \textcolor{keywordflow}{return} QSortFilterProxyModel::flags(index);
+00196     \}
+00197 
+00198 \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_a012a631fa5724bb8446bc5dce10be767}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!invalidate\-Filter@{invalidate\-Filter}}
+\index{invalidate\-Filter@{invalidate\-Filter}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{invalidate\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::invalidate\-Filter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a012a631fa5724bb8446bc5dce10be767}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00205}{205} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::filters}.
+
+
+\begin{DoxyCode}
+00206 \{
+00207     this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.clear();
+00208 \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_a1f2183d82782002e73a6573702db030e}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}const bool S\-H\-\_\-\-Extended\-Proxy\-Model\-::is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a1f2183d82782002e73a6573702db030e}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00066}{66} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a9bc7c550e40c23632445678b87fd4b48}{S\-H\-\_\-\-Sql\-Data\-Model\-::is\-Empty()}, et \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}.
+
+
+\begin{DoxyCode}
+00066 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a9bc7c550e40c23632445678b87fd4b48}{isEmpty}(); \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a1f2183d82782002e73a6573702db030e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!last\-Error@{last\-Error}}
+\index{last\-Error@{last\-Error}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{last\-Error}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String S\-H\-\_\-\-Extended\-Proxy\-Model\-::last\-Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00059}{59} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a43b4b2cca5c2d19fd63b2e528d6c0686}{S\-H\-\_\-\-Sql\-Data\-Model\-::last\-Error}, et \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}.
+
+
+\begin{DoxyCode}
+00059 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a43b4b2cca5c2d19fd63b2e528d6c0686}{lastError}(); \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_a99c5fe8ea4e2327003a4810a1d869dac}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!remove\-Filter\-Key\-Column@{remove\-Filter\-Key\-Column}}
+\index{remove\-Filter\-Key\-Column@{remove\-Filter\-Key\-Column}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{remove\-Filter\-Key\-Column}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::remove\-Filter\-Key\-Column (
+\begin{DoxyParamCaption}
+\item[{int}]{column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a99c5fe8ea4e2327003a4810a1d869dac}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00215}{215} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::filters}.
+
+
+\begin{DoxyCode}
+00216 \{
+00217     this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.removeAt(this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.indexOf(column));
+00218 \}
+\end{DoxyCode}
+\hypertarget{classSH__ExtendedProxyModel_ac7c8ce454ec81726c49ce12e9c4e7bba}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!role\-Names@{role\-Names}}
+\index{role\-Names@{role\-Names}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{role\-Names}]{\setlength{\rightskip}{0pt plus 5cm}virtual Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E Q\-Hash$<$int, Q\-Byte\-Array$>$ S\-H\-\_\-\-Extended\-Proxy\-Model\-::role\-Names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_ac7c8ce454ec81726c49ce12e9c4e7bba}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00165}{165} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, et \hyperlink{classSH__SqlDataModel_a3f45d120bfe91faeb921b160e01a8a3f}{S\-H\-\_\-\-Sql\-Data\-Model\-::role\-Names()}.
+
+
+\begin{DoxyCode}
+00165 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a3f45d120bfe91faeb921b160e01a8a3f}{roleNames}(); \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_ac7c8ce454ec81726c49ce12e9c4e7bba_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_ac9836a6109137161ef67d5da25e699fe}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Boolean\-Columns@{set\-Boolean\-Columns}}
+\index{set\-Boolean\-Columns@{set\-Boolean\-Columns}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Boolean\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Boolean\-Columns (
+\begin{DoxyParamCaption}
+\item[{Q\-List$<$ int $>$}]{bool\-Cols}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_ac9836a6109137161ef67d5da25e699fe}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00041}{41} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::boolean\-Set}, et \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::replace\-Set()}.
+
+
+\begin{DoxyCode}
+00041                                                                  \{
+00042     \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}, boolCols);
+00043 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_ac9836a6109137161ef67d5da25e699fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_af92835fcefa1917f9cab64307f6b95b8}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Data@{set\-Data}}
+\index{set\-Data@{set\-Data}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Data}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Data (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index, }
+\item[{const Q\-Variant \&}]{value, }
+\item[{int}]{role = {\ttfamily Qt\-:\-:EditRole}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_af92835fcefa1917f9cab64307f6b95b8}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00156}{156} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::boolean\-Set}, et \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::data()}.
+
+
+\begin{DoxyCode}
+00157 \{
+00158     \textcolor{keywordflow}{if} (!index.isValid())
+00159         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00160 
+00161     \textcolor{keywordflow}{if} (this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}.contains(role))
+00162     \{
+00163         QVariant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data} = (value.toInt() == Qt::Checked) ? QVariant(1) : QVariant(0);
+00164         \textcolor{keywordflow}{return} QSortFilterProxyModel::setData(index, data, role);
+00165     \}
+00166     \textcolor{keywordflow}{else}
+00167     \{
+00168         \textcolor{keywordflow}{return} QSortFilterProxyModel::setData(index, value, role);
+00169     \}
+00170 
+00171 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_af92835fcefa1917f9cab64307f6b95b8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_aa198a2c1f4bfaae18d9e9dd8dce7e5cc}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Not\-Null\-Columns@{set\-Not\-Null\-Columns}}
+\index{set\-Not\-Null\-Columns@{set\-Not\-Null\-Columns}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Not\-Null\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Not\-Null\-Columns (
+\begin{DoxyParamCaption}
+\item[{Q\-List$<$ int $>$}]{not\-Null\-Cols}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_aa198a2c1f4bfaae18d9e9dd8dce7e5cc}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00080}{80} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::not\-Null\-Set}, et \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::replace\-Set()}.
+
+
+\begin{DoxyCode}
+00080                                                                     \{
+00081     \textcolor{keywordflow}{if} (sourceModel()->inherits(\textcolor{stringliteral}{"QSqlQueryModel"})) \{
+00082         \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet}, notNullCols);
+00083     \}
+00084 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_aa198a2c1f4bfaae18d9e9dd8dce7e5cc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_acf3e473b4ed806f9daf0ad6e32f0c3af}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Null\-Columns@{set\-Null\-Columns}}
+\index{set\-Null\-Columns@{set\-Null\-Columns}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Null\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Null\-Columns (
+\begin{DoxyParamCaption}
+\item[{Q\-List$<$ int $>$}]{null\-Cols}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_acf3e473b4ed806f9daf0ad6e32f0c3af}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00068}{68} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::null\-Set}, et \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::replace\-Set()}.
+
+
+\begin{DoxyCode}
+00068                                                               \{
+00069     \textcolor{keywordflow}{if} (sourceModel()->inherits(\textcolor{stringliteral}{"QSqlQueryModel"})) \{
+00070         \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet}, nullCols);
+00071     \}
+00072 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_acf3e473b4ed806f9daf0ad6e32f0c3af_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_a79389378df6e07a2affb721216ac6961}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Password\-Columns@{set\-Password\-Columns}}
+\index{set\-Password\-Columns@{set\-Password\-Columns}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Password\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Password\-Columns (
+\begin{DoxyParamCaption}
+\item[{Q\-List$<$ int $>$}]{password\-Cols}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a79389378df6e07a2affb721216ac6961}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00059}{59} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::password\-Set}, et \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::replace\-Set()}.
+
+
+\begin{DoxyCode}
+00059                                                                       \{
+00060     \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{passwordSet}, passwordCols);
+00061 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a79389378df6e07a2affb721216ac6961_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_ada56eb3eda9b0a1024d7b54e4f30ddb3}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Read\-Only\-Columns@{set\-Read\-Only\-Columns}}
+\index{set\-Read\-Only\-Columns@{set\-Read\-Only\-Columns}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Read\-Only\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Read\-Only\-Columns (
+\begin{DoxyParamCaption}
+\item[{Q\-List$<$ int $>$}]{readonly\-Cols}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_ada56eb3eda9b0a1024d7b54e4f30ddb3}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00050}{50} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::readonly\-Set}, et \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::replace\-Set()}.
+
+
+\begin{DoxyCode}
+00050                                                                       \{
+00051     \hyperlink{classSH__ExtendedProxyModel_a83a4b566cb35e030a501e1ec2b346455}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{readonlySet}, readonlyCols);
+00052 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_ada56eb3eda9b0a1024d7b54e4f30ddb3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!set\-Sort\-Key\-Column@{set\-Sort\-Key\-Column}}
+\index{set\-Sort\-Key\-Column@{set\-Sort\-Key\-Column}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{set\-Sort\-Key\-Column}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Sort\-Key\-Column (
+\begin{DoxyParamCaption}
+\item[{int}]{column}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00246}{246} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{S\-H\-\_\-\-Sql\-Data\-Model\-::field()}, \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, \hyperlink{classSH__SqlDataModel_a0e05155c3c22c6fef7b91ec57d383ae5}{S\-H\-\_\-\-Sql\-Data\-Model\-::role\-For\-Field()}, \hyperlink{classSH__ExtendedProxyModel_a573590c2763d06d07c6509d4c91a06b2}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort\-Changed()}, \hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort\-Index}, et \hyperlink{classSH__SqlDataFields_aec4483df7b9edfe22100985047d97bdd}{S\-H\-\_\-\-Sql\-Data\-Fields\-::sort\-Order}.
+
+
+
+Référencé par \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort()}.
+
+
+\begin{DoxyCode}
+00247 \{
+00248     this->\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex} = column;
+00249     QSortFilterProxyModel::setSortRole(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a0e05155c3c22c6fef7b91ec57d383ae5}{roleForField}(column));
+00250     QSortFilterProxyModel::sort(0, this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{field}(column)->
+      \hyperlink{classSH__SqlDataFields_aec4483df7b9edfe22100985047d97bdd}{sortOrder}());
+00251     emit \hyperlink{classSH__ExtendedProxyModel_a573590c2763d06d07c6509d4c91a06b2}{sortChanged}();
+00252 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!sort@{sort}}
+\index{sort@{sort}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort (
+\begin{DoxyParamCaption}
+\item[{int}]{column, }
+\item[{Qt\-::\-Sort\-Order}]{new\-Order = {\ttfamily Qt\-:\-:AscendingOrder}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedProxyModel_8cpp_source_l00235}{235} du fichier \hyperlink{SH__ExtendedProxyModel_8cpp_source}{S\-H\-\_\-\-Extended\-Proxy\-Model.\-cpp}.
+
+
+
+Références \hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{S\-H\-\_\-\-Sql\-Data\-Model\-::field()}, \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, \hyperlink{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Sort\-Key\-Column()}, et \hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{S\-H\-\_\-\-Sql\-Data\-Fields\-::set\-Sort\-Order()}.
+
+
+
+Référencé par \hyperlink{classSH__RoomsTableModel_ac11a4147485348d4504a8508e6bb5398}{S\-H\-\_\-\-Rooms\-Table\-Model\-::fill\-Model()}, et \hyperlink{classSH__ServicesTableModel_aa61563f840bc9761343e91ba9e89bbf3}{S\-H\-\_\-\-Services\-Table\-Model\-::fill\-Model()}.
+
+
+\begin{DoxyCode}
+00236 \{
+00237     this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{field}(column)->\hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{setSortOrder}(newOrder);
+00238     \hyperlink{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}{SH\_ExtendedProxyModel::setSortKeyColumn}(column);
+00239 \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_a573590c2763d06d07c6509d4c91a06b2}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!sort\-Changed@{sort\-Changed}}
+\index{sort\-Changed@{sort\-Changed}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{sort\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort\-Changed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a573590c2763d06d07c6509d4c91a06b2}
+
+
+Référencé par \hyperlink{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Sort\-Key\-Column()}.
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_a573590c2763d06d07c6509d4c91a06b2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!table\-Name@{table\-Name}}
+\index{table\-Name@{table\-Name}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{table\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String S\-H\-\_\-\-Extended\-Proxy\-Model\-::table\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00045}{45} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Références \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::model}, et \hyperlink{classSH__SqlDataModel_a2497b87a0e4864f3d3e2f10f16ca19f1}{S\-H\-\_\-\-Sql\-Data\-Model\-::table\-Name()}.
+
+
+\begin{DoxyCode}
+00045 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a2497b87a0e4864f3d3e2f10f16ca19f1}{tableName}(); \}
+\end{DoxyCode}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!model@{model}}
+\index{model@{model}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-\-Sql\-Data\-Model}$\ast$ S\-H\-\_\-\-Extended\-Proxy\-Model\-::model\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00241}{241} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926c52902a1c}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::data()}, \hyperlink{classSH__ExtendedProxyModel_a64f684a4a7d35925ff4f4b81984da60e}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fetch()}, \hyperlink{classSH__ExtendedProxyModel_ac73fae31c6ad69663b4df97f65ec945f}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::field()}, \hyperlink{classSH__ExtendedProxyModel_addbd48beef730fe7adfaffcaca8b256a}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields()}, \hyperlink{classSH__ExtendedProxyModel_a5a5e6b84a9a397e096f4404cec5e9e0c}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields\-Count()}, \hyperlink{classSH__BillingsTableModel_a71a4e8482cf80dfca43a009400d7b96e}{S\-H\-\_\-\-Billings\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__RoomsTableModel_ac11a4147485348d4504a8508e6bb5398}{S\-H\-\_\-\-Rooms\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__BookingsTableModel_a3531ec1df4b0fb132b706bab80c29995}{S\-H\-\_\-\-Bookings\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__ExtendedProxyModel_a1f2183d82782002e73a6573702db030e}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::is\-Empty()}, \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::last\-Error()}, \hyperlink{classSH__ExtendedProxyModel_ac7c8ce454ec81726c49ce12e9c4e7bba}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::role\-Names()}, \hyperlink{classSH__ExtendedProxyModel_ad1eb97a28d23e9aba8174bd5ffd7a5e4}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Sort\-Key\-Column()}, \hyperlink{classSH__BillingsTableModel_a96183b1dd581519136c9b3932607f3d0}{S\-H\-\_\-\-Billings\-Table\-Model\-::\-S\-H\-\_\-\-Billings\-Table\-Model()}, \hyperlink{classSH__BillsTableModel_ab93c4113bb4f81833f9a3b7d9365ed3f}{S\-H\-\_\-\-Bills\-Table\-Model\-::\-S\-H\-\_\-\-Bills\-Table\-Model()}, \hyperlink{classSH__BookingsTableModel_a870c87c10391ca25985f3b8ea04cbaa6}{S\-H\-\_\-\-Bookings\-Table\-Model\-::\-S\-H\-\_\-\-Bookings\-Table\-Model()}, \hyperlink{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3}{S\-H\-\_\-\-Clients\-Table\-Model()}, \hyperlink{classSH__ExtendedProxyModel_a63b0969a9f5799c9e871e6ceb13cf83e}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::\-S\-H\-\_\-\-Extended\-Proxy\-Model()}, \hyperlink{classSH__GroupsTableModel_a038761e5d85ea2d06867f4b28ffc6677}{S\-H\-\_\-\-Groups\-Table\-Model\-::\-S\-H\-\_\-\-Groups\-Table\-Model()}, \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{S\-H\-\_\-\-Rooms\-Table\-Model\-::\-S\-H\-\_\-\-Rooms\-Table\-Model()}, \hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{S\-H\-\_\-\-Services\-Table\-Model\-::\-S\-H\-\_\-\-Services\-Table\-Model()}, \hyperlink{classSH__ExtendedProxyModel_a5ed9b14df78667efe8b22d19617d6c4b}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort()}, et \hyperlink{classSH__ExtendedProxyModel_aba6e6f8bbde17ea533de3e9a127c804a}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::table\-Name()}.
+
+
+
+\subsection{Documentation des propriétés}
+\hypertarget{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!empty@{empty}}
+\index{empty@{empty}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Extended\-Proxy\-Model\-::empty\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00021}{21} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+\hypertarget{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!fields\-List@{fields\-List}}
+\index{fields\-List@{fields\-List}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{fields\-List}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields\-List\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00018}{18} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+\hypertarget{classSH__ExtendedProxyModel_a1597853dfae8c3972ef3396293d5d0fc}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!last\-Error@{last\-Error}}
+\index{last\-Error@{last\-Error}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{last\-Error}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String S\-H\-\_\-\-Extended\-Proxy\-Model\-::last\-Error\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a1597853dfae8c3972ef3396293d5d0fc}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00019}{19} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+\hypertarget{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!sort\-Key\-Column@{sort\-Key\-Column}}
+\index{sort\-Key\-Column@{sort\-Key\-Column}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{sort\-Key\-Column}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-Extended\-Proxy\-Model\-::sort\-Key\-Column\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00020}{20} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+\hypertarget{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}{\index{S\-H\-\_\-\-Clients\-Table\-Model@{S\-H\-\_\-\-Clients\-Table\-Model}!table@{table}}
+\index{table@{table}!SH_ClientsTableModel@{S\-H\-\_\-\-Clients\-Table\-Model}}
+\subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String S\-H\-\_\-\-Extended\-Proxy\-Model\-::table\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [inherited]}}}\label{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedSqlProxyModel_8h_source_l00017}{17} du fichier \hyperlink{SH__ExtendedSqlProxyModel_8h_source}{S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\hyperlink{SH__ClientsTableModel_8h}{S\-H\-\_\-\-Clients\-Table\-Model.\-h}\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\hyperlink{SH__ClientsTableModel_8cpp}{S\-H\-\_\-\-Clients\-Table\-Model.\-cpp}\end{DoxyCompactItemize}

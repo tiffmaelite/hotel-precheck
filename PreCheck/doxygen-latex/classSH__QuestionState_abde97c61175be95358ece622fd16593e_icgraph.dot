@@ -1,0 +1,22 @@
+digraph "SH_QuestionState::givenAnswer"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_QuestionState::givenAnswer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node2 [label="SH_QuestionState::checkValidity",height=0.2,width=0.4,color="black",URL="$classSH__QuestionState.html#a3ca5459c20ef591023c0572d8224146c"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node3 [label="SH_QuestionState::setGiven\lAnswer",height=0.2,width=0.4,color="black",URL="$classSH__QuestionState.html#a9d285a34a7002fd05a7fa8ff9139c264"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node4 [label="SH_QuestionState::setInput",height=0.2,width=0.4,color="black",URL="$classSH__QuestionState.html#a331222d371d9c97392f35c84a5ef43e1"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node5 [label="SH_ServiceCharging\l::SH_ServiceCharging",height=0.2,width=0.4,color="black",URL="$classSH__ServiceCharging.html#afa5273d046049b1c2b020a6a19a8290b",tooltip="SH_ServiceCharging. "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node6 [label="SH_DatabaseContentQuestion\lState::rawInput",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseContentQuestionState.html#a344d9109e15509506b1b998d28392cac"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node7 [label="SH_BillingCreationStateMachine\l::SH_BillingCreationStateMachine",height=0.2,width=0.4,color="black",URL="$classSH__BillingCreationStateMachine.html#ad62b77fa4aeafe200056ff3974562f83",tooltip="SH_BillingCreationStateMachine. "];
+}

@@ -1,0 +1,220 @@
+\hypertarget{SH__OutputZone_8qml}{\section{S\-H\-\_\-\-Output\-Zone.\-qml}
+\label{SH__OutputZone_8qml}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Output\-Zone.\-qml@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-Output\-Zone.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{SH__OutputZone_8qml_source_l00004}{}\hyperlink{classSH__OutputZone}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+\hypertarget{SH__OutputZone_8qml_source_l00007}{}\hyperlink{classSH__OutputZone_ae324bcdd20ad4a9e435678d045964dc9}{00007} 
+00011 Rectangle \{
+00012     \textcolor{keywordtype}{id}: output
+00013     visible: \textcolor{keyword}{true}
+00014     color: \textcolor{stringliteral}{"lightgrey"}
+00015     \textcolor{keyword}{property} \textcolor{keywordtype}{int} lastVisibleRow: -1
+00016 
+00017     signal display(\textcolor{keywordtype}{string} text)
+00018     signal displayNewFixed(\textcolor{keywordtype}{string} text)
+00019     signal displayNew(\textcolor{keywordtype}{string} text, \textcolor{keywordtype}{bool} editable)
+00020     signal replace(\textcolor{keywordtype}{string} text)
+00021     signal selected(\textcolor{keywordtype}{string} selectedItem)
+00022 
+00023     onReplace: \{
+00024         \textcolor{keywordflow}{if}(output.lastVisibleRow >= 0) \{
+00025             \textcolor{keywordflow}{if}(rep.itemAt(output.lastVisibleRow).model === \textcolor{stringliteral}{""}) \{
+00026                 output.lastVisibleRow = Math.max(0, output.lastVisibleRow-1);
+00027             \}
+00028 
+00029             layout.changeTextDisplay(output.lastVisibleRow,text, rep.itemAt(output.lastVisibleRow).editable
+      );
+00030         \} \textcolor{keywordflow}{else} \{
+00031             display(text);
+00032         \}
+00033     \}
+00034     onDisplay: layout.continueTextDisplay(output.lastVisibleRow,text);
+00035     onDisplayNew: layout.changeTextDisplay(output.lastVisibleRow+1,text, editable);
+00036     onDisplayNewFixed: layout.changeTextDisplay(output.lastVisibleRow+1,text, \textcolor{keyword}{false});
+00037 
+00046     \textcolor{keyword}{function} clear(row) \{
+00047         \textcolor{keywordflow}{if}(row <= output.lastVisibleRow) \{
+00048             rep.itemAt(row).model = \textcolor{stringliteral}{""};
+00049         \}
+00050     \}
+00059     \textcolor{keyword}{function} clearAll() \{
+00060         \textcolor{keywordflow}{for}(var currentRow = 0; currentRow<rep.count; currentRow++) \{
+00061             output.clear(currentRow);
+00062         \}
+00063         output.lastVisibleRow = -1;
+00064     \}
+00073     \textcolor{keyword}{function} displayText(text) \{
+00074         layout.changeTextDisplay(output.lastVisibleRow+1,text, \textcolor{keyword}{false});
+00075     \}
+00084     \textcolor{keyword}{function} displayCalendar() \{
+00085         \textcolor{comment}{/*TODO*/}
+00086     \}
+00095     \textcolor{keyword}{function} displaySqlDatas(sqlData, sqlDelegate) \{
+00096         rep.itemAt(output.lastVisibleRow).model = sqlData;
+00097         rep.itemAt(output.lastVisibleRow).state=\textcolor{stringliteral}{"choices"};
+00098     \}
+00107     \textcolor{keyword}{function} displaySqlDetail(sqlData) \{
+00108         rep.itemAt(output.lastVisibleRow).model = sqlData;
+00109         rep.itemAt(output.lastVisibleRow).state=\textcolor{stringliteral}{"detail"};
+00110         \textcolor{comment}{/*console.log(table+" "+row);*/}
+00111     \}
+00112 
+00113     ColumnLayout \{
+00114         \textcolor{keywordtype}{id}:layout
+00115         anchors.margins: 5
+00116         anchors.fill: output
+00117         height: output.height
+00118         width: output.width
+00127         \textcolor{keyword}{function} changeTextDisplay(row, text, editable) \{
+00128             \textcolor{keywordflow}{if}(row < rep.count) \{
+00129                 \textcolor{keywordflow}{if}(row > output.lastVisibleRow) \{
+00130                     output.lastVisibleRow=row;
+00131                 \}
+00132                 rep.itemAt(row).editable = editable;
+00133                 rep.itemAt(row).model = text;
+00134             \}
+00135         \}
+00144         \textcolor{keyword}{function} continueTextDisplay(row, text) \{
+00145             console.log(\textcolor{stringliteral}{"continue display"});
+00146             console.log(row)
+00147             console.log(text);
+00148             \textcolor{keywordflow}{if}(output.lastVisibleRow<0) \{
+00149                 output.lastVisibleRow=0;
+00150             \}
+00151 
+00152             \textcolor{keywordflow}{if}(row < 0) \{
+00153                 console.log(\textcolor{stringliteral}{"row > 0"});
+00154                 layout.changeTextDisplay(row+1, text, \textcolor{keyword}{false});
+00155             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(row > output.lastVisibleRow) \{
+00156                 console.log(\textcolor{stringliteral}{"row > "}+output.lastVisibleRow);
+00157                 layout.changeTextDisplay(output.lastVisibleRow, text, \textcolor{keyword}{false});
+00158             \} \textcolor{keywordflow}{else} \{
+00159                 console.log(\textcolor{stringliteral}{"row <= 0"});
+00160                 \textcolor{keywordflow}{if}(row >= rep.count) \{
+00161                     row = rep.count-1;
+00162                 \}
+00163                 rep.itemAt(row).model = rep.itemAt(row).model+text;
+00164             \}
+00165         \}
+00166 
+00167         Repeater \{
+00168             \textcolor{keywordtype}{id}: rep
+00169             model: 25
+00170             delegate:
+00171                 RowLayout \{
+00172                 \textcolor{keywordtype}{id}: row
+00173                 \textcolor{keyword}{property} var model: \textcolor{stringliteral}{""}
+00174                 \textcolor{keyword}{property} \textcolor{keywordtype}{bool} editable: \textcolor{keyword}{true}
+00175                 Layout.minimumHeight: layout.height / rep.model - layout.spacing -layout.anchors.margins
+00176                 Layout.minimumWidth: layout.width-layout.anchors.margins
+00177                 Layout.fillWidth: \textcolor{keyword}{true}
+00178                 Layout.fillHeight: \textcolor{keyword}{true}
+00179                 visible: \textcolor{keyword}{true}
+00180                 state: \textcolor{stringliteral}{"text"}
+00181                 states: [
+00182                     State\{
+00183                         name: \textcolor{stringliteral}{"text"}
+00184                         PropertyChanges \{
+00185                             target: defaultContent
+00186                             text: row.model
+00187                             readOnly:  !row.editable
+00188                             visible: \textcolor{keyword}{true}
+00189                         \}
+00190                         PropertyChanges \{
+00191                             target: choiceContent
+00192                             model: 0
+00193                             visible: \textcolor{keyword}{false}
+00194                         \}
+00195                         \textcolor{comment}{/*PropertyChanges \{}
+00196 \textcolor{comment}{                            target: calendarContent}
+00197 \textcolor{comment}{                            visible: false}
+00198 \textcolor{comment}{                        \}*/}
+00199                         PropertyChanges \{
+00200                             target: detailedContent
+00201                             model: 0
+00202                             visible: \textcolor{keyword}{false}
+00203                         \}
+00204                     \},
+00205                     State\{
+00206                         name: \textcolor{stringliteral}{"choices"}
+00207                         PropertyChanges \{
+00208                             target: defaultContent
+00209                             visible: \textcolor{keyword}{false}
+00210                         \}
+00211                         PropertyChanges \{
+00212                             target: choiceContent
+00213                             model: row.model===\textcolor{stringliteral}{""}? 0  : row.model
+00214                             visible: \textcolor{keyword}{true}
+00215                         \}
+00216                         \textcolor{comment}{/*PropertyChanges \{}
+00217 \textcolor{comment}{                            target: calendarContent}
+00218 \textcolor{comment}{                            visible: false}
+00219 \textcolor{comment}{                        \}*/}
+00220                         PropertyChanges \{
+00221                             target: detailedContent
+00222                             model: 0
+00223                             visible: \textcolor{keyword}{false}
+00224                         \}
+00225                     \},
+00226                     State\{
+00227                         name: \textcolor{stringliteral}{"choices"}
+00228                         PropertyChanges \{
+00229                             target: defaultContent
+00230                             visible: \textcolor{keyword}{false}
+00231                         \}
+00232                         PropertyChanges \{
+00233                             target: detailedContent
+00234                             model: row.model===\textcolor{stringliteral}{""}? 0  : row.model
+00235                             visible: \textcolor{keyword}{true}
+00236                         \}
+00237                         \textcolor{comment}{/*PropertyChanges \{}
+00238 \textcolor{comment}{                            target: calendarContent}
+00239 \textcolor{comment}{                            visible: false}
+00240 \textcolor{comment}{                        \}*/}
+00241                         PropertyChanges \{
+00242                             target: choiceContent
+00243                             model: 0
+00244                             visible: \textcolor{keyword}{false}
+00245                         \}
+00246                     \}
+00247                 ]
+00248                 Column \{
+00249                     TextEdit \{
+00250                         \textcolor{keywordtype}{id}: defaultContent
+00251                         readOnly:  !row.editable
+00252                         wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere;
+00253                         Layout.fillHeight: \textcolor{keyword}{true}
+00254                         Layout.fillWidth: \textcolor{keyword}{true}
+00255                         font.pointSize: 12
+00256                         color: defaultContent.readOnly ? \textcolor{stringliteral}{"grey"} : \textcolor{stringliteral}{"darkgrey"}
+00257                     \}
+00258                     \hyperlink{classSH__ContentView}{SH\_ContentView} \{
+00259                         \textcolor{keywordtype}{id}: choiceContent
+00260                         model: 0
+00261                         Layout.fillHeight: \textcolor{keyword}{true}
+00262                         Layout.fillWidth: \textcolor{keyword}{true}
+00263                     \}
+00264                     \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00265                         \textcolor{keywordtype}{id}: detailedContent
+00266                         model: 0
+00267                         Layout.fillHeight: \textcolor{keyword}{true}
+00268                         Layout.fillWidth: \textcolor{keyword}{true}
+00269                     \}
+00270 
+00271                     \textcolor{comment}{/*SH\_CalendarDialog \{}
+00272 \textcolor{comment}{                        id: calendarContent}
+00273 \textcolor{comment}{                        Layout.fillHeight: true}
+00274 \textcolor{comment}{                        Layout.fillWidth: true}
+00275 \textcolor{comment}{                    \}*/}
+00276                 \}
+00277             \}
+00278         \}
+00279     \}
+00280 \}
+\end{DoxyCode}

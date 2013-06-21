@@ -1,0 +1,17 @@
+digraph "SH_ApplicationCore::displayCalendar"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_ApplicationCore\l::displayCalendar",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node2 [label="SH_ApplicationCore\l::connectRunningThread",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a3a10c2d662707140340d7a827d119c8d"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node3 [label="SH_ApplicationCore\l::launchBillingsThread",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a30738281acefd721fe9d06db46dcf123"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node4 [label="SH_ApplicationCore\l::launchBillThread",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a17a048025bc51a96663029e58c722741"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="11",style="solid"];
+  Node5 [label="SH_ApplicationCore\l::launchBookingsThread",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a193a9132da92b5e7a450e9307b657893"];
+}

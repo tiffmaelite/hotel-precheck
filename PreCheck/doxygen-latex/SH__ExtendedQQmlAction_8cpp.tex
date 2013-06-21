@@ -1,0 +1,59 @@
+\hypertarget{SH__ExtendedQQmlAction_8cpp}{\section{Référence du fichier /home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/\-S\-H\-\_\-\-Extended\-Q\-Qml\-Action.cpp}
+\label{SH__ExtendedQQmlAction_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/\-S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/\-S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}}
+}
+{\ttfamily \#include $<$Qt\-Gui/\-Q\-Gui\-Application$>$}\\*
+{\ttfamily \#include $<$Qt\-Quick/\-Q\-Quick\-Item$>$}\\*
+{\ttfamily \#include $<$Qt\-Quick/\-Q\-Quick\-Window$>$}\\*
+{\ttfamily \#include $<$Q\-Qml\-File$>$}\\*
+{\ttfamily \#include \char`\"{}S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-h\char`\"{}}\\*
+Graphe des dépendances par inclusion de S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SH__ExtendedQQmlAction_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{q\-Shortcut\-Context\-Matcher} (\hyperlink{classQObject}{Q\-Object} $\ast$o, Qt\-::\-Shortcut\-Context context)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{\index{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp@{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}!q\-Shortcut\-Context\-Matcher@{q\-Shortcut\-Context\-Matcher}}
+\index{q\-Shortcut\-Context\-Matcher@{q\-Shortcut\-Context\-Matcher}!SH_ExtendedQQmlAction.cpp@{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}}
+\subsubsection[{q\-Shortcut\-Context\-Matcher}]{\setlength{\rightskip}{0pt plus 5cm}bool q\-Shortcut\-Context\-Matcher (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\-Object} $\ast$}]{o, }
+\item[{Qt\-::\-Shortcut\-Context}]{context}
+\end{DoxyParamCaption}
+)}}\label{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}
+
+
+Définition à la ligne \hyperlink{SH__ExtendedQQmlAction_8cpp_source_l00050}{50} du fichier \hyperlink{SH__ExtendedQQmlAction_8cpp_source}{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}.
+
+
+\begin{DoxyCode}
+00051 \{
+00052     \textcolor{keywordflow}{switch} (context) \{
+00053     \textcolor{keywordflow}{case} Qt::ApplicationShortcut:
+00054         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00055     \textcolor{keywordflow}{case} Qt::WindowShortcut: \{
+00056         \hyperlink{classQObject}{QObject} *w = o;
+00057         \textcolor{keywordflow}{while} (w && !w->isWindowType()) \{
+00058             w = w->parent();
+00059             \textcolor{keywordflow}{if} (\hyperlink{classQQuickItem}{QQuickItem} * item = qobject\_cast<QQuickItem*>(w))
+00060                 w = item->window();
+00061         \}
+00062         \textcolor{keywordflow}{if} (w && w == QGuiApplication::focusWindow())
+00063             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00064     \}
+00065     \textcolor{keywordflow}{case} Qt::WidgetShortcut:
+00066     \textcolor{keywordflow}{case} Qt::WidgetWithChildrenShortcut:
+00067         \textcolor{keywordflow}{break};
+00068     \}
+00069 
+00070     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00071 \}
+\end{DoxyCode}

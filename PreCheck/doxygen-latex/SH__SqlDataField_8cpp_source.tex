@@ -1,0 +1,42 @@
+\hypertarget{SH__SqlDataField_8cpp}{\section{S\-H\-\_\-\-Sql\-Data\-Field.\-cpp}
+\label{SH__SqlDataField_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-Sql\-Data\-Field.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-Sql\-Data\-Field.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__SqlDataField_8h}{SH\_SqlDataField.h}"}
+00002 
+\hypertarget{SH__SqlDataField_8cpp_source_l00008}{}\hyperlink{classSH__SqlDataFields_a484883a960eddc6d6d33831681252a97}{00008} \hyperlink{classSH__SqlDataFields_a484883a960eddc6d6d33831681252a97}{SH\_SqlDataFields::SH\_SqlDataFields}(\hyperlink{classQQuickItem}{QQuickItem} *parent) :
+00009     \hyperlink{classQQuickItem}{QQuickItem}(parent)
+00010 \{
+00011     this->setHeight(15);
+00012 \}
+00013 
+\hypertarget{SH__SqlDataField_8cpp_source_l00019}{}\hyperlink{classSH__SqlDataFields_a377b4964546e91bd344c8c6f5190a833}{00019} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_a377b4964546e91bd344c8c6f5190a833}{SH\_SqlDataFields::setText}(QString newText)
+00020 \{
+00021     \hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text} = newText;
+00022     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name} == \textcolor{stringliteral}{""})
+00023     \{
+00024         this->\hyperlink{classSH__SqlDataFields_ab658a817f459e5d0a8c0f5c4e8c28a9d}{setName}(\hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text}.toUpper());
+00025     \}
+00026     emit \hyperlink{classSH__SqlDataFields_ae91d833d4b50bff27c87015179b1ac24}{textChanged}();
+00027 \}
+00028 
+\hypertarget{SH__SqlDataField_8cpp_source_l00035}{}\hyperlink{classSH__SqlDataFields_ab658a817f459e5d0a8c0f5c4e8c28a9d}{00035} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_ab658a817f459e5d0a8c0f5c4e8c28a9d}{SH\_SqlDataFields::setName}(QString newName)
+00036 \{
+00037     \hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name} = newName;
+00038     this->\hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{setSortOrder}(Qt::AscendingOrder);
+00039     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text} == \textcolor{stringliteral}{""})
+00040     \{
+00041         this->\hyperlink{classSH__SqlDataFields_a377b4964546e91bd344c8c6f5190a833}{setText}(\hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name});
+00042     \}
+00043     emit \hyperlink{classSH__SqlDataFields_ae3d52ec9938ab55f18ecdbcc5a8fd761}{nameChanged}();
+00044     emit \hyperlink{classSH__SqlDataFields_a2f98ae1dff83fc150b9e836ad782e6bf}{roleChanged}();
+00045 \}
+00046 
+00047 
+\hypertarget{SH__SqlDataField_8cpp_source_l00054}{}\hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{00054} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{SH\_SqlDataFields::setSortOrder}(Qt::SortOrder newSortOrder)
+00055 \{
+00056     \hyperlink{classSH__SqlDataFields_aa5dbfa2beef7114fba275d61135a6760}{m\_sortOrder} = newSortOrder;
+00057     emit \hyperlink{classSH__SqlDataFields_a4aa8b620b962b3e03b94b6e68bb81952}{sortOrderChanged}();
+00058 \}
+\end{DoxyCode}
