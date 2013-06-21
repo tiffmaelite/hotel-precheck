@@ -129,5 +129,5 @@ OTHER_FILES *= \
     views/qml/SH_CalendarDialog.qml \
     views/qml/SH_BookingsDelegate.qml \
     views/qml/SH_app.qml \
-    ../../doc/DoxygenConfigFile \
-    ../../doc/DoxyAssistConfigFile.xml
+    ../../../gh-pages/DoxygenConfigFile \
+    ../../../gh-pages/DoxyAssistConfigFile.xml
