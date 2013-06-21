@@ -3,14 +3,14 @@
 #include "SH_IOStateMachine.h"
 
 /*!
- * \brief The SH_ClientCreationStateMachine class
+ *\brief \~french  The SH_ClientCreationStateMachine class
  */
 class SH_ClientCreationStateMachine : public SH_InOutStateMachine
 {
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
  \fn SH_ClientCreationStateMachine TODO comment this
  \param name TODO comment this
  \param parent TODO comment this

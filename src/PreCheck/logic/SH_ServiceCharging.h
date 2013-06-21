@@ -3,14 +3,14 @@
 #include "SH_LoopingIOStateMachine.h"
 
 /*!
- * \brief The SH_ServiceCharging class
+ *\brief \~french  The SH_ServiceCharging class
  */
 class SH_ServiceCharging : public Sh_LoopingInOutStateMachine
 {
     Q_OBJECT
 public:
     /*!
-     * \brief SH_ServiceCharging
+     *\brief \~french  SH_ServiceCharging
      * \param name
      * \param parent
      */
@@ -22,11 +22,11 @@ public slots:
 
 private:
     /*!
-     * \brief m_priceMin
+     *\brief \~french  m_priceMin
      */
     qreal m_priceMin;
     /*!
-     * \brief m_vat
+     *\brief \~french  m_vat
      */
     qreal m_vat;
 

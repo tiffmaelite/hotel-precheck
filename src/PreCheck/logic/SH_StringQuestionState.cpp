@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StringQuestionState::StringQuestionState
 
@@ -14,7 +14,7 @@ SH_StringQuestionState::SH_StringQuestionState(QString question, QString name, i
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StringQuestionState::isAnswerValid
 
@@ -31,7 +31,7 @@ bool SH_StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StringQuestionState::maxLen
 
@@ -42,7 +42,7 @@ int SH_StringQuestionState::maxLen() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StringQuestionState::setMaxLen
 
@@ -53,7 +53,7 @@ void SH_StringQuestionState::setMaxLen(int maxLen)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StringQuestionState::minLen
 
@@ -64,7 +64,7 @@ int SH_StringQuestionState::minLen() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StringQuestionState::setMinLen
 

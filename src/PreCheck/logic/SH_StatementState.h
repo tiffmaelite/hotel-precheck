@@ -3,7 +3,7 @@
 #include "SH_IOState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_StatementState statementstate.h "logic/statementstate.h"
 */
@@ -12,7 +12,7 @@ class SH_StatementState : public SH_InOutState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_StatementState
  \param output
@@ -22,14 +22,14 @@ public:
     SH_StatementState(QString output, QString name, QState *parent = 0);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setInput
      \param input
     */
     void setInput(const QVariant &input);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_onEntry
      \param event

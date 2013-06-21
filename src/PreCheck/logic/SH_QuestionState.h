@@ -3,7 +3,7 @@
 #include "SH_IOState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_QuestionState
 \headerfile questionstate.h "logic/questionstate.h"
@@ -13,7 +13,7 @@ class SH_QuestionState : public SH_InOutState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_QuestionState
  \param question
@@ -22,7 +22,7 @@ public:
 */
     SH_QuestionState(QString question, QString name, QState *parent = 0);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_checkValidity
      \return bool
@@ -30,21 +30,21 @@ public:
     bool checkValidity();
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_givenAnswer
      \return QVariant
     */
     virtual QVariant givenAnswer() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setGivenAnswer
      \param givenAnswer
     */
     virtual void setGivenAnswer(const QVariant &givenAnswer);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setInput
      \param input
@@ -52,7 +52,7 @@ public:
     virtual void setInput(const QVariant &input);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isAnswerValid
      \param givenAnswer
@@ -62,11 +62,11 @@ public:
 
 signals:
     /*!
-     * \brief answerValid
+     *\brief \~french  answerValid
      */
     void answerValid();
     /*!
-     * \brief answerInvalid
+     *\brief \~french  answerInvalid
      */
     void answerInvalid();
 
@@ -75,7 +75,7 @@ public slots:
 
 private:
     /*!
-     * \brief m_givenAnswer
+     *\brief \~french  m_givenAnswer
      */
     QVariant m_givenAnswer;
 };

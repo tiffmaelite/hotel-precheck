@@ -1,7 +1,7 @@
 #include "SH_QuestionState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QuestionState::QuestionState
 
@@ -12,7 +12,7 @@ SH_QuestionState::SH_QuestionState(QString question, QString name, QState *paren
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QuestionState::checkValidity
 
@@ -35,7 +35,7 @@ bool SH_QuestionState::checkValidity()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QuestionState::setInput
 
@@ -47,7 +47,7 @@ void SH_QuestionState::setInput(const QVariant &input)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QuestionState::givenAnswer
 
@@ -58,7 +58,7 @@ QVariant SH_QuestionState::givenAnswer() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QuestionState::setGivenAnswer
 

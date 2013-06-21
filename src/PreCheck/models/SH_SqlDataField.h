@@ -5,7 +5,7 @@
 #include <QtQuick>
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_SqlDataFields sql_data_field.h "models/sql_data_field.h"
 */
@@ -19,7 +19,7 @@ class SH_SqlDataFields : public QQuickItem
     public:
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_SqlDataFields
          \param parent
@@ -27,28 +27,28 @@ class SH_SqlDataFields : public QQuickItem
         explicit SH_SqlDataFields(QQuickItem *parent = 0);
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_text
          \return QString
         */
         QString text() const { return m_text; }
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_name
          \return QString
         */
         QString name() const { return m_name; }
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_role
          \return QByteArray
         */
         QByteArray role() const { return QByteArray(m_name.toUpper().toStdString().c_str()); }
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_sortOrder
          \return Qt::SortOrder
@@ -56,21 +56,21 @@ class SH_SqlDataFields : public QQuickItem
         Qt::SortOrder sortOrder() const { return m_sortOrder; }
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_setText
          \param newText
         */
         void setText(QString newText);
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_setName
          \param newName
         */
         void setName(QString newName);
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_setSortOrder
          \param newSortOrder
@@ -79,39 +79,39 @@ class SH_SqlDataFields : public QQuickItem
 
     private:
         /*!
-         * \brief m_text
+         *\brief \~french  m_text
          */
         QString m_text;
         /*!
-         * \brief m_name
+         *\brief \~french  m_name
          */
         QString m_name;
         /*!
-         * \brief m_sortOrder
+         *\brief \~french  m_sortOrder
          */
         Qt::SortOrder m_sortOrder;
 
     signals:
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_textChanged
         */
         void textChanged();
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_nameChanged
         */
         void nameChanged();
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_roleChanged
         */
         void roleChanged();
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_sortOrderChanged
         */

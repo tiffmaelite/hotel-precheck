@@ -3,7 +3,7 @@
 #include "SH_QuestionState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_DateQuestionState datequestionstate.h "logic/datequestionstate.h"
 */
@@ -12,7 +12,7 @@ class SH_DateQuestionState : public SH_QuestionState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_DateQuestionState
  \param question
@@ -23,7 +23,7 @@ public:
 */
     SH_DateQuestionState(QString question, QString name, bool past = true, bool future = false, QState *parent = 0);
 /*!
- \brief
+\brief \~french 
 
  \fn SH_isAnswerValid
  \param givenAnswer
@@ -31,14 +31,14 @@ public:
 virtual bool isAnswerValid(const QVariant &givenAnswer);
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_getPast
  \return bool
 */
 bool getPast() const;
 /*!
- \brief
+\brief \~french 
 
  \fn SH_setPast
  \param value
@@ -46,14 +46,14 @@ bool getPast() const;
 void setPast(bool value);
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_getFuture
  \return bool
 */
 bool getFuture() const;
 /*!
- \brief
+\brief \~french 
 
  \fn SH_setFuture
  \param value
@@ -61,7 +61,7 @@ bool getFuture() const;
 void setFuture(bool value);
 
 /*!
- \brief
+\brief \~french 
  \fn SH_rawInput TODO comment this
  \return QVariant TODO comment this
 */
@@ -73,11 +73,11 @@ public slots:
 
 private:
 /*!
- * \brief m_past
+ *\brief \~french  m_past
  */
 bool m_past;
 /*!
- * \brief m_future
+ *\brief \~french  m_future
  */
 bool m_future;
 };

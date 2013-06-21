@@ -3,7 +3,7 @@
 #include "SH_QuestionState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_DatabaseContentQuestionState databasecontentquestionstate.h "logic/databasecontentquestionstate.h"
 */
@@ -12,7 +12,7 @@ class SH_DatabaseContentQuestionState : public SH_QuestionState
     Q_OBJECT
 public:
     /*!
- \brief
+\brief \~french 
 
  \fn SH_DatabaseContentQuestionState
  \param question
@@ -24,7 +24,7 @@ public:
 */
     SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition = "", QState *parent = 0);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isAnswerValid
      \param givenAnswer
@@ -33,21 +33,21 @@ public:
 
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_setOutput TODO comment this
      \param output TODO comment this
     */
     void setOutput(const QString &output);
 
     /*!
-         \brief
+        \brief \~french 
          \fn SH_rawInput TODO comment this
          \return QVariant TODO comment this
         */
     virtual QVariant rawInput() const;
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_choiceList TODO comment this
      \return QMap<int, QVariant> TODO comment this
     */
@@ -55,7 +55,7 @@ public:
 
 signals:
     /*!
-     \brief
+    \brief \~french 
      \fn SH_displayChoiceList TODO comment this
     */
     void displayChoiceList();
@@ -63,23 +63,23 @@ public slots:
 
 private:
     /*!
-     * \brief m_table
+     *\brief \~french  m_table
      */
     QString m_table;
     /*!
-     * \brief m_condition
+     *\brief \~french  m_condition
      */
     QString m_condition;
     /*!
-     * \brief m_field
+     *\brief \~french  m_field
      */
     QString m_field;
     /*!
-     * \brief m_choices
+     *\brief \~french  m_choices
      */
     QMap<int, QVariant> m_choices;
     /*!
-     * \brief m_choicesDisplayed
+     *\brief \~french  m_choicesDisplayed
      */
     bool m_choicesDisplayed;
 };

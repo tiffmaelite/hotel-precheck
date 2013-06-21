@@ -6,7 +6,7 @@
 /*#include "../../src/gui/kernel/qguiapplication_p.h"*/
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::QQQuickAction
 
@@ -18,7 +18,7 @@ SH_ExtendedQQmlAction::SH_ExtendedQQmlAction(QObject *parent)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::~QQQuickAction
 */
@@ -29,7 +29,7 @@ SH_ExtendedQQmlAction::~SH_ExtendedQQmlAction()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setText
 */
@@ -43,7 +43,7 @@ void SH_ExtendedQQmlAction::setText(const QString &text)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_qShortcutContextMatcher
 */
@@ -71,7 +71,7 @@ bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setKeySequence
 */
@@ -92,7 +92,7 @@ void SH_ExtendedQQmlAction::setKeySequence(const QKeySequence &sequence) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setKeyShortcut
 */
@@ -102,7 +102,7 @@ void SH_ExtendedQQmlAction::setKeyShortcut(const Qt::Key &shortcut)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::shortcut
 */
@@ -112,7 +112,7 @@ QString SH_ExtendedQQmlAction::shortcut() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setShortcut
 */
@@ -125,7 +125,7 @@ void SH_ExtendedQQmlAction::setShortcut(const QString &arg)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setMnemonicFromText
 */
@@ -147,7 +147,7 @@ void SH_ExtendedQQmlAction::setMnemonicFromText(const QString &text)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setIconSource
 */
@@ -167,7 +167,7 @@ void SH_ExtendedQQmlAction::setIconSource(const QUrl &iconSource)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::iconName
 */
@@ -177,7 +177,7 @@ QString SH_ExtendedQQmlAction::iconName() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setIconName
 */
@@ -192,7 +192,7 @@ void SH_ExtendedQQmlAction::setIconName(const QString &iconName)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setTooltip
 */
@@ -205,7 +205,7 @@ void SH_ExtendedQQmlAction::setTooltip(const QString &arg)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::setEnabled
 */
@@ -220,7 +220,7 @@ void SH_ExtendedQQmlAction::setEnabled(bool e)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::event
  \param e
@@ -249,7 +249,7 @@ bool SH_ExtendedQQmlAction::event(QEvent *e)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_QQQuickAction::trigger
 */

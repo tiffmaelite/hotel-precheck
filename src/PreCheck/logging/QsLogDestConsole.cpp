@@ -8,17 +8,17 @@
 /* are permitted provided that the following conditions are met:
 */
 
-/* * Redistributions of source code must retain the above copyright notice, this
+/* Redistributions of source code must retain the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer.
 */
-/* * Redistributions in binary form must reproduce the above copyright notice, this
+/* Redistributions in binary form must reproduce the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer in the documentation and/or other
 */
 /*   materials provided with the distribution.
 */
-/* * The name of the contributors may not be used to endorse or promote products
+/* The name of the contributors may not be used to endorse or promote products
 */
 /*   derived from this software without specific prior written permission.
 */
@@ -52,7 +52,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 /*!
- * \details QsDebugOutput::output
+ * \details \~french QsDebugOutput::output
  */
 void QsDebugOutput::output( const QString& message )
 {
@@ -62,7 +62,7 @@ void QsDebugOutput::output( const QString& message )
 #elif defined(Q_OS_SYMBIAN)
 #include <e32debug.h>
 /*!
- * \details QsDebugOutput::output
+ * \details \~french QsDebugOutput::output
  */
 void QsDebugOutput::output( const QString& message )
 {
@@ -85,7 +85,7 @@ void QsDebugOutput::output( const QString& message )
 #elif defined(Q_OS_UNIX)
 #include <cstdio>
 /*!
- * \details QsDebugOutput::output
+ * \details \~french QsDebugOutput::output
  */
 void QsDebugOutput::output( const QString& message )
 {
@@ -94,7 +94,7 @@ void QsDebugOutput::output( const QString& message )
 }
 #endif
 /*!
- * \details QsLogging::DebugOutputDestination::write
+ * \details \~french QsLogging::DebugOutputDestination::write
  */
 void QsLogging::DebugOutputDestination::write(const QString& message, Level)
 {

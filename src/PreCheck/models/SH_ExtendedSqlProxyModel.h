@@ -5,7 +5,7 @@
 #include "SH_SqlDataModel.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_CheckableSortFilterProxyMode
  \headerfile checkable_sort_filter_proxy_model.h "models/checkable_sort_filter_proxy_model.h"
@@ -22,7 +22,7 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
 
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_CheckableSortFilterProxyModel
  \param parent
@@ -30,42 +30,42 @@ public:
     SH_ExtendedProxyModel(QObject *parent = 0);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_currentSortKeyColumn
      \return const int
     */
     const int currentSortKeyColumn() const {return this->sortIndex;}
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_tableName
      \return const QString
     */
     const QString tableName() const { return this->model->tableName(); }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fields
      \return const QString
     */
     const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_lastError
      \return const QString
     */
     const QString lastError() const { return this->model->lastError(); }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isEmpty
      \return const bool
     */
     const bool isEmpty() const { return this->model->isEmpty(); }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setSortKeyColumn
      \param column
@@ -73,7 +73,7 @@ public:
     void setSortKeyColumn(int column);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_field
      \param i
@@ -81,14 +81,14 @@ public:
     */
     Q_INVOKABLE SH_SqlDataFields *field(int i) const { return this->model->field(i); }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fieldsCount
      \return int
     */
     Q_INVOKABLE int fieldsCount() const { return this->model->fieldsCount(); }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fetch
      \param tableName
@@ -99,7 +99,7 @@ public:
     */
     Q_INVOKABLE bool fetch(QString tableName = "", QString filter = "", QString sort = "", QStringList fields = QStringList());
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_sort
      \param column
@@ -107,21 +107,21 @@ public:
     */
     Q_INVOKABLE void sort(int column, Qt::SortOrder newOrder = Qt::AscendingOrder);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_addFilterKeyColumn
      \param column
     */
     Q_INVOKABLE void addFilterKeyColumn(int column);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_removeFilterKeyColumn
      \param column
     */
     Q_INVOKABLE void removeFilterKeyColumn(int column);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_containsFilterKeyColumn
      \param column
@@ -129,7 +129,7 @@ public:
     */
     Q_INVOKABLE bool containsFilterKeyColumn(int column);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_data
      \param row
@@ -138,7 +138,7 @@ public:
     */
     Q_INVOKABLE QVariant data(int row, int column) const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_data
      \param index
@@ -147,7 +147,7 @@ public:
     */
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setData
      \param index
@@ -157,14 +157,14 @@ public:
     */
     Q_INVOKABLE bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_roleNames
      \return QHash<int, QByteArray>
     */
     Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->model->roleNames(); }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_flags
      \param index
@@ -173,41 +173,41 @@ public:
     Q_INVOKABLE Qt::ItemFlags flags(const QModelIndex &index) const;
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_invalidateFilter
     */
     void invalidateFilter();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setBooleanColumns
      \param boolCols
     */
     void setBooleanColumns(QList<int> boolCols);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setReadOnlyColumns
      \param readonlyCols
     */
     void setReadOnlyColumns(QList<int> readonlyCols);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setPasswordColumns
      \param passwordCols
     */
     void setPasswordColumns(QList<int> passwordCols);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setNullColumns
      \param nullCols
     */
     void setNullColumns(QList<int> nullCols);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setNotNullColumns
      \param notNullCols
@@ -216,7 +216,7 @@ public:
 
 signals:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_sortChanged
     */
@@ -224,13 +224,13 @@ signals:
 
 protected:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fillModel
     */
     virtual void fillModel() = 0;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_filterAcceptsRow
      \param source_row
@@ -242,7 +242,7 @@ protected:
 
 private:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_replaceSet
      \param originalSet
@@ -250,31 +250,31 @@ private:
     */
     void replaceSet(QList<int>& originalSet, QList<int> newSet);
     /*!
-     * \brief booleanSet
+     *\brief \~french  booleanSet
      */
     QList<int> booleanSet;
     /*!
-     * \brief passwordSet
+     *\brief \~french  passwordSet
      */
     QList<int> passwordSet;
     /*!
-     * \brief readonlySet
+     *\brief \~french  readonlySet
      */
     QList<int> readonlySet;
     /*!
-     * \brief notNullSet
+     *\brief \~french  notNullSet
      */
     QList<int> notNullSet;
     /*!
-     * \brief nullSet
+     *\brief \~french  nullSet
      */
     QList<int> nullSet;
     /*!
-     * \brief filters
+     *\brief \~french  filters
      */
     QList<int> filters;
     /*!
-     * \brief sortIndex
+     *\brief \~french  sortIndex
      */
     int sortIndex;
 };

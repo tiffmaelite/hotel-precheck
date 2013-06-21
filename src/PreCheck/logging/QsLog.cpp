@@ -8,17 +8,17 @@
 /* are permitted provided that the following conditions are met:
 */
 
-/* * Redistributions of source code must retain the above copyright notice, this
+/* Redistributions of source code must retain the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer.
 */
-/* * Redistributions in binary form must reproduce the above copyright notice, this
+/* Redistributions in binary form must reproduce the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer in the documentation and/or other
 */
 /*   materials provided with the distribution.
 */
-/* * The name of the contributors may not be used to endorse or promote products
+/* The name of the contributors may not be used to endorse or promote products
 */
 /*   derived from this software without specific prior written permission.
 */
@@ -92,7 +92,7 @@ static const char FatalString[] = "FATAL";
 
 /*!
  * \var fmtDateTime
- * \details not using Qt::ISODate because we need the milliseconds too
+ * \details \~french not using Qt::ISODate because we need the milliseconds too
  */
 static const QString fmtDateTime("yyyy-MM-ddThh:mm:ss.zzz");
 /*!
@@ -233,7 +233,7 @@ Level Logger::loggingLevel() const
 
 /*!
  * \fn SH_Logger::Helper::writeToLog
- * \details creates the complete log message and passes it to the logger
+ * \details \~french creates the complete log message and passes it to the logger
  */
 void Logger::Helper::writeToLog()
 {
@@ -264,7 +264,7 @@ Logger::Helper::~Helper()
 
 /*!
  * \fn SH_Logger::enqueueWrite
- * \details directs the message to the task queue or writes it directly
+ * \details \~french directs the message to the task queue or writes it directly
  */
 void Logger::enqueueWrite(const QString& message, Level level)
 {
@@ -280,7 +280,7 @@ void Logger::enqueueWrite(const QString& message, Level level)
 
 /*!
  * \fn SH_Logger::write
- * \details Sends the message to all the destinations. The level for this message is passed in case it's useful for processing in the destination.
+ * \details \~french Sends the message to all the destinations. The level for this message is passed in case it's useful for processing in the destination.
  */
 void Logger::write(const QString& message, Level level)
 {

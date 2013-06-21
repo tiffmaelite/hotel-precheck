@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_GroupsTableModel::GroupsTableModel
 */
@@ -13,7 +13,7 @@ SH_GroupsTableModel::SH_GroupsTableModel(QObject *parent):
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_GroupsTableModel::fillModel
 */

@@ -1,7 +1,7 @@
 #include "SH_AddressCreation.h"
 
 /*!
- \details
+ \details \~french
  \fn SH_AddressCreation::AddressCreation TODO comment this
 
 */

@@ -3,7 +3,7 @@
 #include "SH_QuestionState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_DecimalQuestionState
 \headerfile decimalquestionstate.h "logic/decimalquestionstate.h"
@@ -13,7 +13,7 @@ class SH_DecimalQuestionState : public SH_QuestionState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_DecimalQuestionState
  \param question
@@ -24,7 +24,7 @@ public:
 */
     SH_DecimalQuestionState(QString question, QString name, qreal min=0, qreal max=-1, QState *parent = 0);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isAnswerValid
      \param givenAnswer
@@ -32,14 +32,14 @@ public:
     virtual bool isAnswerValid(const QVariant &givenAnswer);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_min
      \return qreal
     */
     qreal min() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setMin
      \param min
@@ -47,14 +47,14 @@ public:
     void setMin(const qreal &min);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_max
      \return qreal
     */
     qreal max() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setMax
      \param max
@@ -67,11 +67,11 @@ public slots:
 
 private:
     /*!
-     * \brief m_min
+     *\brief \~french  m_min
      */
     qreal m_min;
     /*!
-     * \brief m_max
+     *\brief \~french  m_max
      */
     qreal m_max;
 };

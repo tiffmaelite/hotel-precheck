@@ -3,7 +3,7 @@
 #include "SH_QuestionState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_StringQuestionState stringquestionstate.h "logic/stringquestionstate.h"
 */
@@ -12,7 +12,7 @@ class SH_StringQuestionState : public SH_QuestionState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_StringQuestionState
  \param question
@@ -23,7 +23,7 @@ public:
 */
     SH_StringQuestionState(QString question, QString name, int minLength = 0, int maxLength = -1, QState *parent = 0);
 /*!
- \brief
+\brief \~french 
 
  \fn SH_isAnswerValid
  \param givenAnswer
@@ -31,14 +31,14 @@ public:
 virtual bool isAnswerValid(const QVariant &givenAnswer);
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_maxLen
  \return int
 */
 int maxLen() const;
 /*!
- \brief
+\brief \~french 
 
  \fn SH_setMaxLen
  \param maxLen
@@ -46,14 +46,14 @@ int maxLen() const;
 void setMaxLen(int maxLen);
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_minLen
  \return int
 */
 int minLen() const;
 /*!
- \brief
+\brief \~french 
 
  \fn SH_setMinLen
  \param minLen
@@ -66,11 +66,11 @@ public slots:
 
 private:
 /*!
- * \brief m_minLen
+ *\brief \~french  m_minLen
  */
 int m_minLen;
 /*!
- * \brief m_maxLen
+ *\brief \~french  m_maxLen
  */
 int m_maxLen;
 

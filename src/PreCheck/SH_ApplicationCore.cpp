@@ -6,9 +6,9 @@
 
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::RestrictiveApplication
+ \fn SH_ApplicationCore::RestrictiveApplication
 */
 
 SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
@@ -18,9 +18,9 @@ SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::mode
+ \fn SH_ApplicationCore::mode
 */
 SH_ApplicationCore::AppMode SH_ApplicationCore::mode() const
 {
@@ -28,18 +28,18 @@ SH_ApplicationCore::AppMode SH_ApplicationCore::mode() const
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::init
+ \fn SH_ApplicationCore::init
 */
 void SH_ApplicationCore::init() {
     this->m_currentUser = new SH_User();
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::setMode
+ \fn SH_ApplicationCore::setMode
 */
 void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 {
@@ -58,9 +58,9 @@ void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::user
+ \fn SH_ApplicationCore::user
 */
 SH_User *SH_ApplicationCore::user() const
 {
@@ -68,9 +68,9 @@ SH_User *SH_ApplicationCore::user() const
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::userLogOut
+ \fn SH_ApplicationCore::userLogOut
 */
 bool SH_ApplicationCore::userLogOut()
 {
@@ -79,9 +79,9 @@ bool SH_ApplicationCore::userLogOut()
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::setUser
+ \fn SH_ApplicationCore::setUser
 */
 bool SH_ApplicationCore::setUser(QString login, QString pass)
 {
@@ -95,9 +95,9 @@ bool SH_ApplicationCore::setUser(QString login, QString pass)
 
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::userExists
+ \fn SH_ApplicationCore::userExists
 */
 bool SH_ApplicationCore::userExists(QString login)
 {
@@ -106,8 +106,8 @@ bool SH_ApplicationCore::userExists(QString login)
 
 
 /*!
- \details
- \fn SH_RestrictiveApplication::balanceLogRoutine TODO comment this
+ \details \~french
+ \fn SH_ApplicationCore::balanceLogRoutine TODO comment this
 */
 bool SH_ApplicationCore::balanceLogRoutine() {
     /*AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
@@ -119,8 +119,8 @@ bool SH_ApplicationCore::balanceLogRoutine() {
 
 
 /*!
- \details
- \fn SH_RestrictiveApplication::receiveInput TODO comment this
+ \details \~french
+ \fn SH_ApplicationCore::receiveInput TODO comment this
 */
 void SH_ApplicationCore::receiveInput(QString in)
 {
@@ -130,8 +130,8 @@ void SH_ApplicationCore::receiveInput(QString in)
 }
 
 /*!
- \details
- \fn SH_RestrictiveApplication::receiveValidation TODO comment this
+ \details \~french
+ \fn SH_ApplicationCore::receiveValidation TODO comment this
 */
 void SH_ApplicationCore::receiveValidation()
 {
@@ -141,8 +141,8 @@ void SH_ApplicationCore::receiveValidation()
 }
 
 /*!
- \details
- \fn SH_RestrictiveApplication::receiveConfirmation TODO comment this
+ \details \~french
+ \fn SH_ApplicationCore::receiveConfirmation TODO comment this
 */
 void SH_ApplicationCore::receiveConfirmation()
 {
@@ -152,8 +152,8 @@ void SH_ApplicationCore::receiveConfirmation()
 }
 
 /*!
- \details
- \fn SH_RestrictiveApplication::replaceInput TODO comment this
+ \details \~french
+ \fn SH_ApplicationCore::replaceInput TODO comment this
 */
 void SH_ApplicationCore::replaceInput(QString inputName)
 {
@@ -163,8 +163,8 @@ void SH_ApplicationCore::replaceInput(QString inputName)
 }
 
 /*!
- \details
- \fn SH_RestrictiveApplication::cancelReplacement TODO comment this
+ \details \~french
+ \fn SH_ApplicationCore::cancelReplacement TODO comment this
 */
 void SH_ApplicationCore::cancelReplacement()
 {
@@ -175,9 +175,9 @@ void SH_ApplicationCore::cancelReplacement()
 
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::launchBillingsThread
+ \fn SH_ApplicationCore::launchBillingsThread
 */
 bool SH_ApplicationCore::launchBillingsThread()
 {
@@ -194,9 +194,9 @@ bool SH_ApplicationCore::launchBillingsThread()
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::launchBookingsThread
+ \fn SH_ApplicationCore::launchBookingsThread
 */
 bool SH_ApplicationCore::launchBookingsThread()
 {
@@ -209,9 +209,9 @@ bool SH_ApplicationCore::launchBookingsThread()
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::launchBillThread
+ \fn SH_ApplicationCore::launchBillThread
 */
 bool SH_ApplicationCore::launchBillThread()
 {
@@ -225,9 +225,9 @@ bool SH_ApplicationCore::launchBillThread()
 }
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::cancelRunningThread
+ \fn SH_ApplicationCore::cancelRunningThread
 */
 bool SH_ApplicationCore::cancelRunningThread()
 {
@@ -242,9 +242,9 @@ bool SH_ApplicationCore::cancelRunningThread()
 
 
 /*!
- \details
+ \details \~french
 
- \fn SH_RestrictiveApplication::connectRunningThread
+ \fn SH_ApplicationCore::connectRunningThread
 */
 bool SH_ApplicationCore::connectRunningThread()
 {

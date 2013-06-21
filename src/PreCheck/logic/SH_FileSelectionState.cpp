@@ -1,7 +1,7 @@
 #include "SH_FileSelectionState.h"
 
 /*!
- \details
+ \details \~french
  \fn SH_FileSelectionState::FileSelectionState TODO comment this
 
 */

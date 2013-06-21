@@ -3,7 +3,7 @@
 #include "SH_ConfirmationState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_ValidationState validationstate.h "logic/validationstate.h"
 */
@@ -12,7 +12,7 @@ class SH_ValidationState : public SH_ConfirmationState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_ValidationState
  \param output

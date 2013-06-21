@@ -6,7 +6,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_BillsTableModel bills_table_model.h "models/bills_table_model.h"
 */
@@ -17,7 +17,7 @@ class SH_BillsTableModel : public SH_ExtendedProxyModel
     public:
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_BillsTableModel
  \param parent
@@ -28,7 +28,7 @@ class SH_BillsTableModel : public SH_ExtendedProxyModel
 
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

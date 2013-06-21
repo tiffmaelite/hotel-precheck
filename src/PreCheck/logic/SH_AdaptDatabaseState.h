@@ -3,7 +3,7 @@
 #include "SH_GenericDebugableState.h"
 
 /*!
- \brief
+\brief \~french 
  \class SH_ adaptDatabase TODO comment this adaptdatabase.h "logic/adaptdatabase.h"
 */
 class SH_AdaptDatabaseState : public SH_GenericState
@@ -11,7 +11,7 @@ class SH_AdaptDatabaseState : public SH_GenericState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
  \fn SH_adaptDatabase TODO comment this
  \param name TODO comment this
  \param parent TODO comment this
@@ -19,7 +19,7 @@ public:
     SH_AdaptDatabaseState(QString name, QState *parent = 0);
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_insertUpdate TODO comment this
      \param table TODO comment this
      \param content TODO comment this

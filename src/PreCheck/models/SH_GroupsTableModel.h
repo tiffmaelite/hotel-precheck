@@ -6,7 +6,7 @@
 #include "SH_ExtendedSqlProxyModel.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_GroupsTableModel
 \headerfile groups_table_model.h "models/groups_table_model.h"
@@ -18,7 +18,7 @@ class SH_GroupsTableModel : public SH_ExtendedProxyModel
 
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_GroupsTableModel
  \param parent
@@ -30,7 +30,7 @@ class SH_GroupsTableModel : public SH_ExtendedProxyModel
 
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

@@ -7,7 +7,7 @@
 #include "SH_DatabaseManager.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::User
 
@@ -24,7 +24,7 @@ SH_User::SH_User(QString name, int id, bool isReceptionist, bool isManagerX, boo
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::isValid
 
@@ -34,7 +34,7 @@ bool SH_User::isValid() const {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::setName
 
@@ -46,7 +46,7 @@ void SH_User::setName(QString name)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::name
  */
@@ -56,7 +56,7 @@ QString SH_User::name() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::isReceptionist
 
@@ -67,7 +67,7 @@ bool SH_User::isReceptionist() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::roles
 
@@ -91,7 +91,7 @@ int SH_User::roles() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::setID
 
@@ -102,7 +102,7 @@ void SH_User::setID(int id)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::userExists
 
@@ -113,7 +113,7 @@ bool SH_User::userExists(QString login) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::traineeExists
 
@@ -124,7 +124,7 @@ bool SH_User::traineeExists(QString login) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_User::logIn
 

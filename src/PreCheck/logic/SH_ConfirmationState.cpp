@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_ConfirmationState::ConfirmationState
 
@@ -14,7 +14,7 @@ SH_ConfirmationState::SH_ConfirmationState(QString output, QString name, QState 
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_ConfirmationState::confirmInput
 */

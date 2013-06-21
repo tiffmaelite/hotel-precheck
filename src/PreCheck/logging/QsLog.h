@@ -8,17 +8,17 @@
 /* are permitted provided that the following conditions are met:
 */
 
-/* * Redistributions of source code must retain the above copyright notice, this
+/* Redistributions of source code must retain the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer.
 */
-/* * Redistributions in binary form must reproduce the above copyright notice, this
+/* Redistributions in binary form must reproduce the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer in the documentation and/or other
 */
 /*   materials provided with the distribution.
 */
-/* * The name of the contributors may not be used to endorse or promote products
+/* The name of the contributors may not be used to endorse or promote products
 */
 /*   derived from this software without specific prior written permission.
 */
@@ -61,7 +61,7 @@ class LoggerImpl; /* d pointer
 */
 
 /*!
- \brief
+\brief \~french
 
  \class SH_Logger
  \headerfile QsLog.h "logging/QsLog.h"
@@ -70,7 +70,7 @@ class Logger
 {
 public:
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_instance
      \return Logger
@@ -82,7 +82,7 @@ public:
     }
 
     /*!
-     \brief Adds a log message destination. Don't add null destinations.
+    \brief \~french  Adds a log message destination. Don't add null destinations.
 
      \fn SH_addDestination
      \param destination
@@ -90,7 +90,7 @@ public:
     void addDestination(DestinationPtr destination);
 
     /*!
-     \brief Logging at a level < 'newLevel' will be ignored
+    \brief \~french  Logging at a level < 'newLevel' will be ignored
 
      \fn SH_setLoggingLevel
      \param newLevel
@@ -98,7 +98,7 @@ public:
     void setLoggingLevel(Level newLevel);
 
     /*!
-     \brief The default level is INFO
+    \brief \~french  The default level is INFO
 
      \fn SH_loggingLevel
      \return Level
@@ -106,7 +106,7 @@ public:
     Level loggingLevel() const;
 
     /*!
-     \brief The helper forwards the streaming to QDebug and builds the final log message.
+    \brief \~french  The helper forwards the streaming to QDebug and builds the final log message.
 
      \class SH_Helper
     \headerfile QsLog.h "logging/QsLog.h"
@@ -115,7 +115,7 @@ public:
     {
     public:
         /*!
-         \brief
+        \brief \~french
 
          \fn SH_Helper
          \param logLevel
@@ -124,13 +124,13 @@ public:
             level(logLevel),
             qtDebug(&buffer) {}
         /*!
-         \brief
+        \brief \~french
 
          \fn SH_~Helper
         */
         ~Helper();
         /*!
-         \brief
+        \brief \~french
 
          \fn SH_stream
          \return QDebug
@@ -139,41 +139,41 @@ public:
 
     private:
         /*!
-         \brief
+        \brief \~french
 
          \fn SH_writeToLog
         */
         void writeToLog();
         /*!
-         * \brief level
+         *\brief \~french  level
          */
         Level level;
         /*!
-         * \brief buffer
+         *\brief \~french  buffer
          */
         QString buffer;
         /*!
-         * \brief qtDebug
+         *\brief \~french  qtDebug
          */
         QDebug qtDebug;
     };
 
 private:
     /*!
- \brief
+\brief \~french
   \fn SH_Logger
 */
     Logger();
 
     /*!
- \brief
+\brief \~french
 
  \fn SH_Logger
  \param
 */
     Logger(const Logger&);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_operator =
      \param
@@ -181,14 +181,14 @@ private:
     */
     Logger& operator=(const Logger&);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_~Logger
     */
     ~Logger();
 
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_enqueueWrite
      \param message
@@ -196,7 +196,7 @@ private:
     */
     void enqueueWrite(const QString& message, Level level);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_write
      \param message

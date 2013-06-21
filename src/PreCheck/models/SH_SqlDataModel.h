@@ -7,7 +7,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_SqlDataModel SqlDataModel.h "models/SqlDataModel.h"
 */
@@ -20,14 +20,14 @@ class SH_SqlDataModel : public QAbstractListModel
 
 public:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_SqlDataModel
      \param parent
     */
     explicit SH_SqlDataModel(QObject *parent = 0);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_rowCount
      \param parent
@@ -35,7 +35,7 @@ public:
     */
     int rowCount(const QModelIndex &parent) const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_data
      \param index
@@ -44,7 +44,7 @@ public:
     */
     QVariant data(const QModelIndex &index, int role) const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_datas
      \param index
@@ -53,7 +53,7 @@ public:
     */
     QVariantMap datas() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setHeaderData
      \param section
@@ -64,7 +64,7 @@ public:
     */
     bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_roleForField
      \param fieldIndex
@@ -72,7 +72,7 @@ public:
     */
     int roleForField(int fieldIndex) const { return Qt::UserRole + fieldIndex;}
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fieldFromRole
      \param role
@@ -80,21 +80,21 @@ public:
     */
     int fieldFromRole(int role) const { return role - Qt::UserRole; }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_tableName
      \return const QString
     */
     const QString &tableName() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_lastError
      \return const QString
     */
     const QString &lastError();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_filter
      \return const QString
@@ -102,41 +102,41 @@ public:
     const QString &filter() const;
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setTable
      \param tableName
     */
     void setTable(const QString &tableName);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setFilterCondition
      \param filter
     */
     void setFilterCondition(const QString &filter);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_resetFilterCondition
     */
     void resetFilterCondition();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setFields
      \param fieldList
     */
     void setFields(QStringList fieldList);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_resetFieldsToAll
     */
     void resetFieldsToAll();
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fetch
      \param tableName
@@ -147,7 +147,7 @@ public:
     */
     bool fetch(QString tableName = "", QString filter = "", QString sort="", QStringList fields = QStringList());
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_field
      \param i
@@ -155,14 +155,14 @@ public:
     */
     SH_SqlDataFields *field(int i) const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fieldsCount
      \return int
     */
     int fieldsCount() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setOrderBy
      \param sort
@@ -171,7 +171,7 @@ public:
     /*!This function allows mapping of role identifiers to role property names in scripting languages.
         !*/
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_roleNames
      \return QHash<int, QByteArray>
@@ -179,7 +179,7 @@ public:
     virtual QHash<int, QByteArray> roleNames() const { return this->mRoles; }
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isEmpty
      \return bool
@@ -187,14 +187,14 @@ public:
     bool isEmpty() const;
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_query
      \return const QString
     */
     const QString &query() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fieldsList
      \return const QString
@@ -203,69 +203,69 @@ public:
 
 signals:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_fieldsChanged
     */
     void fieldsChanged();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_tableChanged
     */
     void tableChanged();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_lastErrorChanged
     */
     void lastErrorChanged();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_filterChanged
     */
     void filterChanged();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_rolesChanged
     */
     void rolesChanged();
 protected:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_applyRoles
     */
     void applyRoles();
 private:
     /*!
-     * \brief mTable
+     *\brief \~french  mTable
      */
     QString mTable;
     /*!
-     * \brief mFilter
+     *\brief \~french  mFilter
      */
     QString mFilter;
     /*!
-     * \brief mSort
+     *\brief \~french  mSort
      */
     QString mSort;
     /*!
-     * \brief mDataFields
+     *\brief \~french  mDataFields
      */
     QList<SH_SqlDataFields *> mDataFields;
     /*!
-     * \brief mRoles
+     *\brief \~french  mRoles
      */
     QHash<int, QByteArray> mRoles;
     /*!
-     * \brief mSqlQuery
+     *\brief \~french  mSqlQuery
      */
     QSqlQuery mSqlQuery;
     /*!
-     * \brief mRecords
+     *\brief \~french  mRecords
      */
     QList<QSqlRecord> mRecords;
 };

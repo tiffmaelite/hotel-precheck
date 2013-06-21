@@ -4,7 +4,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_Company
 \headerfile company.h "models/company.h"

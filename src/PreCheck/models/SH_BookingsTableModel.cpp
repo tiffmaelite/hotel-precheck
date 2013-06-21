@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_BookingsTableModel::BookingsTableModel
 */
@@ -15,7 +15,7 @@ SH_BookingsTableModel::SH_BookingsTableModel(QObject *parent):
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_BookingsTableModel::fillModel
 */

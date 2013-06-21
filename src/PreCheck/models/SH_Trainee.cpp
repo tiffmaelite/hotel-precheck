@@ -1,7 +1,7 @@
 #include "SH_Trainee.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_Trainee::Trainee
 

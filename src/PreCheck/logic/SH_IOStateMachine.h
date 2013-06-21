@@ -8,7 +8,7 @@
 #include "SH_IOState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_IOStateMachine iostatemachine.h "logic/iostatemachine.h"
 */
@@ -17,7 +17,7 @@ class SH_InOutStateMachine : public QStateMachine, SH_NamedObject
     Q_OBJECT
 public:
     /*!
- \brief
+\brief \~french 
 
  \fn SH_IOStateMachine
  \param tableName
@@ -27,7 +27,7 @@ public:
     SH_InOutStateMachine(QString tableName, QString name="", QObject *parent = 0);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_toString
      \return QString
@@ -35,21 +35,21 @@ public:
     QString toString();
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_ioContent
      \return QVariantMap
     */
     QVariantMap ioContent() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setIOcontent
      \param ioContent
     */
     void setIOcontent(const QVariantMap &ioContent);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_getContentValue
      \param field
@@ -58,14 +58,14 @@ public:
     QVariant getContentValue(QString field);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_tableName
      \return QString
     */
     QString tableName() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setTableName
      \param tableName
@@ -73,7 +73,7 @@ public:
     void setTableName(const QString &tableName);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setIOStateHistory
      \param state
@@ -81,7 +81,7 @@ public:
     */
     void setIOStateHistory(QHistoryState *state, QString field);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_historyValue
      \param field
@@ -91,19 +91,19 @@ public:
 
 signals: /*messagers à envoyer ou transmettre*/
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_next
     */
     void next();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_clearAll
     */
     void clearAll();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_sendText
      \param text
@@ -117,53 +117,53 @@ signals: /*messagers à envoyer ou transmettre*/
    */
     void resendText(QString text, bool editable=false);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_receiveInput
      \param input
     */
     void receiveInput(QString input);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_confirmInput
     */
     void confirmInput();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_validateInput
     */
     void validateInput();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_replaceInput
      \param field
     */
     void replaceInput(QString field);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_cancelReplacement
     */
     void cancelReplacement();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_displayCalendar
     */
     void displayCalendar();
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_displayFileDialog TODO comment this
     */
     void displayFileDialog();
 
 public slots: /*réception de messagers*/
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setContentValue
      \param content
@@ -171,7 +171,7 @@ public slots: /*réception de messagers*/
     */
     void setContentValue(QVariant content, QString field);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_addIOState
      \param state
@@ -180,14 +180,14 @@ public slots: /*réception de messagers*/
     void addIOState(SH_InOutState *state, QString field);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_addIOStateMachine
      \param fsm
     */
     void addIOStateMachine(SH_InOutStateMachine* fsm);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_addChildrenNextTransition
      \param previousState
@@ -197,29 +197,29 @@ public slots: /*réception de messagers*/
 
 protected:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_ioStatesHistory
      \return QMap<QString, QHistoryState *>
     */
     QMap<QString, QHistoryState *> ioStatesHistory() const;
     /*!
-     * \brief m_ioContent
+     *\brief \~french  m_ioContent
      */
     QVariantMap m_ioContent;
     /*!
-     * \brief m_tableName
+     *\brief \~french  m_tableName
      */
     QString m_tableName;
     /*!
-     * \brief m_ioStatesHistory
+     *\brief \~french  m_ioStatesHistory
      */
     QMap<QString, QHistoryState*> m_ioStatesHistory;
 
 
 private:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setIOStatesHistory
      \param QMap<QString

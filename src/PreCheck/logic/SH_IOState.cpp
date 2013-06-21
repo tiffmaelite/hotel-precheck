@@ -1,7 +1,7 @@
 #include "SH_IOState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOState::IOState
 
@@ -12,7 +12,7 @@ SH_InOutState::SH_InOutState(QString output, QString name, QState *parent) :
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOState::input
 
@@ -23,7 +23,7 @@ QVariant SH_InOutState::input() const
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_IOState::rawInput TODO comment this
 
 */
@@ -33,7 +33,7 @@ QVariant SH_InOutState::rawInput() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOState::setInput
 
@@ -48,7 +48,7 @@ void SH_InOutState::setInput(const QVariant &input)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOState::output
 
@@ -60,7 +60,7 @@ QString SH_InOutState::output() const
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOState::setOutput
 
@@ -74,7 +74,7 @@ void SH_InOutState::setOutput(const QString &output)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_IOState::setVisibility TODO comment this
 
 */
@@ -84,7 +84,7 @@ void SH_InOutState::setVisibility(bool isVisible)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_IOState::visibility TODO comment this
 
 */
@@ -102,7 +102,7 @@ void SH_InOutState::display(bool canDisplay)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOState::onExit
 

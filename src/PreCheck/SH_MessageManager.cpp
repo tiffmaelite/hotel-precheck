@@ -9,7 +9,7 @@
 #include <QMessageBox>
 
 /*!
- \details
+ \details \~french
 
  \fn SH_MessageManager::errorMessage
 */
@@ -26,7 +26,7 @@ void SH_MessageManager::errorMessage(QString message, QString title)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_MessageManager::successMessage
 */
@@ -47,7 +47,7 @@ void SH_MessageManager::successMessage(QString message, QString title)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_MessageManager::infoMessage
 */

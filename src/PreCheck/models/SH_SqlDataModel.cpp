@@ -8,7 +8,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::SqlDataModel
 
@@ -19,7 +19,7 @@ SH_SqlDataModel::SH_SqlDataModel(QObject *parent) :
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::rowCount
 
@@ -31,7 +31,7 @@ int SH_SqlDataModel::rowCount(const QModelIndex &parent) const
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::data
 
@@ -55,7 +55,7 @@ QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_SqlDataModel::datas TODO comment this
 
 */
@@ -77,7 +77,7 @@ QVariantMap SH_SqlDataModel::datas() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::setHeaderData
 
@@ -93,7 +93,7 @@ bool SH_SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, co
     return false;
 }
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::query
 
@@ -104,7 +104,7 @@ const QString &SH_SqlDataModel::query() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::tableName
 
@@ -115,7 +115,7 @@ const QString &SH_SqlDataModel::tableName() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::filter
 
@@ -126,7 +126,7 @@ const QString &SH_SqlDataModel::filter() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::fieldsList
 
@@ -145,7 +145,7 @@ const QStringList SH_SqlDataModel::fieldsList() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::setTable
 
@@ -160,7 +160,7 @@ void SH_SqlDataModel::setTable(const QString &tableName)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::setFilterCondition
 
@@ -175,7 +175,7 @@ void SH_SqlDataModel::setFilterCondition(const QString &filter)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::resetFilterCondition
 */
@@ -186,7 +186,7 @@ void SH_SqlDataModel::resetFilterCondition()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::fetch
 
@@ -263,7 +263,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::field
 
@@ -276,7 +276,7 @@ SH_SqlDataFields *SH_SqlDataModel::field(int i) const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::setFields
 
@@ -299,7 +299,7 @@ void SH_SqlDataModel::setFields(QStringList fields)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::resetFieldsToAll
 */
@@ -311,7 +311,7 @@ void SH_SqlDataModel::resetFieldsToAll()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::lastError
 
@@ -332,7 +332,7 @@ const QString &SH_SqlDataModel::lastError()
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::applyRoles
 */
@@ -350,7 +350,7 @@ void SH_SqlDataModel::applyRoles()
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::fieldsCount
 
@@ -361,7 +361,7 @@ int SH_SqlDataModel::fieldsCount() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::setOrderBy
 
@@ -372,7 +372,7 @@ void SH_SqlDataModel::setOrderBy(QString sort)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataModel::isEmpty
 

@@ -6,7 +6,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_BillingsTableModel billings_table_model.h "models/billings_table_model.h"
 */
@@ -17,7 +17,7 @@ public:
 
 
     /*!
- \brief
+\brief \~french 
 
  \fn SH_BillingsTableModel
  \param parent
@@ -28,7 +28,7 @@ protected:
 
 
     /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

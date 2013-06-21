@@ -6,7 +6,7 @@
 #include "SH_AdaptDatabaseState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::IOStateMachine
 
@@ -18,7 +18,7 @@ SH_InOutStateMachine::SH_InOutStateMachine(QString tableName, QString name, QObj
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::toString
 
@@ -35,7 +35,7 @@ QString SH_InOutStateMachine::toString()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::ioContent
 
@@ -46,7 +46,7 @@ QVariantMap SH_InOutStateMachine::ioContent() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::setIOcontent
 
@@ -57,7 +57,7 @@ void SH_InOutStateMachine::setIOcontent(const QVariantMap &ioContent)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::getContentValue
 
@@ -68,7 +68,7 @@ QVariant SH_InOutStateMachine::getContentValue(QString field)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::tableName
 
@@ -79,7 +79,7 @@ QString SH_InOutStateMachine::tableName() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::setTableName
 
@@ -91,7 +91,7 @@ void SH_InOutStateMachine::setTableName(const QString &tableName)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::setContentValue
 
@@ -102,7 +102,7 @@ void SH_InOutStateMachine::setContentValue(QVariant content, QString field)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::addIOState
 
@@ -167,7 +167,7 @@ void SH_InOutStateMachine::addIOState(SH_InOutState *state, QString field)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::addIOStateMachine
 
@@ -194,7 +194,7 @@ void SH_InOutStateMachine::addIOStateMachine(SH_InOutStateMachine *fsm)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::ioStatesHistory
 
@@ -206,7 +206,7 @@ QMap<QString, QHistoryState *> SH_InOutStateMachine::ioStatesHistory() const
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::setIOStatesHistory
 
@@ -218,7 +218,7 @@ void SH_InOutStateMachine::setIOStatesHistory(const QMap<QString, QHistoryState 
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::setIOStateHistory
 
@@ -230,7 +230,7 @@ void SH_InOutStateMachine::setIOStateHistory(QHistoryState *state, QString field
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::historyValue
 
@@ -242,7 +242,7 @@ QHistoryState *SH_InOutStateMachine::historyValue(QString field)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::addChildrenNextTransition
 

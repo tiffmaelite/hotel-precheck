@@ -4,13 +4,13 @@
 #include <QtSql>
 
 /*!
- * \details SH_DatabaseManager::_instance
+ * \details \~french SH_DatabaseManager::_instance
  */
 SH_DatabaseManager *SH_DatabaseManager::_instance = 0;
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_AppDatabase::getInstance
 */
@@ -26,7 +26,7 @@ SH_DatabaseManager *SH_DatabaseManager::getInstance()
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_AppDatabase::~AppDatabase
 */
@@ -37,7 +37,7 @@ SH_DatabaseManager::~SH_DatabaseManager()
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_AppDatabase::AppDatabase
 */
@@ -82,7 +82,7 @@ SH_DatabaseManager::SH_DatabaseManager()
          */
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::dbConnect
         */
@@ -117,7 +117,7 @@ bool SH_DatabaseManager::dbConnect()
          */
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::dbDisconnect
         */
@@ -132,7 +132,7 @@ bool SH_DatabaseManager::dbDisconnect()
 
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::isConnected
         */
@@ -143,7 +143,7 @@ bool SH_DatabaseManager::isConnected()
 
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::getDbConnection
         */
@@ -153,7 +153,7 @@ QSqlDatabase SH_DatabaseManager::getDbConnection()
 }
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::tableExistsl
         */
@@ -163,7 +163,7 @@ bool SH_DatabaseManager::tableExists(QString tableName)
 }
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::dataExists
         */
@@ -186,7 +186,7 @@ int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
 
 
 /*!
-         \details
+         \details \~french
 
          \fn SH_AppDatabase::execQuery
         */
@@ -214,7 +214,7 @@ QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fie
 
 
 /*!
-         \details
+         \details \~french
          \fn SH_AppDatabase::execReplaceQuery TODO comment this
         */
 bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values) {
@@ -231,7 +231,7 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
 }
 
 /*!
-         \details
+         \details \~french
          \fn SH_AppDatabase::execInsertReturningQuery TODO comment this
         */
 QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField) {
@@ -254,7 +254,7 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
 }
 
 /*!
-         \details
+         \details \~french
          \fn SH_divideQVariantMap TODO comment this
         */
 void SH_DatabaseManager::divideQVariantMap(QVariantMap values, QString& fields, QString& vals) {

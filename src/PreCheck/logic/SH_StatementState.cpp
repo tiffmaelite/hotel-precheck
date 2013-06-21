@@ -1,7 +1,7 @@
 #include "SH_StatementState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StatementState::StatementState
 
@@ -13,7 +13,7 @@ SH_StatementState::SH_StatementState(QString output, QString name, QState *paren
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StatementState::setInput
 
@@ -25,7 +25,7 @@ void SH_StatementState::setInput(const QVariant &input)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_StatementState::onEntry
 

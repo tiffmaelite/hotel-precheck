@@ -2,7 +2,7 @@
 #include "SH_IOStateMachine.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_GenericState::GenericState
 
@@ -13,7 +13,7 @@ SH_GenericState::SH_GenericState(QString name, QState *parent) :
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_GenericState::toString
 
@@ -30,7 +30,7 @@ QString SH_GenericState::toString()
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_GenericState::onTransitionTriggered TODO comment this
 */
 void SH_GenericState::onTransitionTriggered()
@@ -55,7 +55,7 @@ void SH_GenericState::onTransitionTriggered()
 
 
 /*!
- \details
+ \details \~french
  \fn SH_GenericState::onEntry TODO comment this
 
 */
@@ -66,7 +66,7 @@ void SH_GenericState::onEntry(QEvent *event)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_GenericState::onExit TODO comment this
 
 */
@@ -77,7 +77,7 @@ void SH_GenericState::onExit(QEvent *event)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_GenericState::onMachineStarted TODO comment this
 */
 void SH_GenericState::onMachineStarted()

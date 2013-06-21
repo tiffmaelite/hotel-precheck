@@ -3,7 +3,7 @@
 #include "SH_MessageManager.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_RoomsTableModel::RoomsTableModel
 */
@@ -15,7 +15,7 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_RoomsTableModel::fillModel
 */

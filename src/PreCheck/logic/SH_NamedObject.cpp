@@ -1,7 +1,7 @@
 #include "SH_NamedObject.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NamedObject::NamedObject
 
@@ -13,7 +13,7 @@ SH_NamedObject::SH_NamedObject(QString name) :
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NamedObject::toString
 
@@ -24,7 +24,7 @@ QString SH_NamedObject::toString()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NamedObject::name
 
@@ -35,7 +35,7 @@ QString SH_NamedObject::name() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NamedObject::setName
 
@@ -46,7 +46,7 @@ void SH_NamedObject::setName(const QString &name)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NamedObject::ptraddress
 

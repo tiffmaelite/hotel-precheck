@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NumericQuestionState::NumericQuestionState
 
@@ -14,7 +14,7 @@ SH_NumericQuestionState::SH_NumericQuestionState(QString question, QString name,
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NumericQuestionState::isAnswerValid
 
@@ -32,7 +32,7 @@ bool SH_NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NumericQuestionState::min
 
@@ -43,7 +43,7 @@ int SH_NumericQuestionState::min() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NumericQuestionState::setMin
  \param min*/
@@ -53,7 +53,7 @@ void SH_NumericQuestionState::setMin(int min)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NumericQuestionState::max
 
@@ -64,7 +64,7 @@ int SH_NumericQuestionState::max() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_NumericQuestionState::setMax
 

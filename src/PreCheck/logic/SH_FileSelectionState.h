@@ -2,14 +2,14 @@
 #define FILESELECTIONSTATE_H
 #include "SH_IOState.h"
 /*!
- * \brief The SH_FileSelectionState class
+ *\brief \~french  The SH_FileSelectionState class
  */
 class SH_FileSelectionState : public SH_InOutState
 {
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
  \fn SH_FileSelectionState TODO comment this
  \param output TODO comment this
  \param name TODO comment this

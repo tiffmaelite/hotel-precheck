@@ -4,12 +4,12 @@
 /* Redistribution and use in source and binary forms, with or without modification,*/
 /* are permitted provided that the following conditions are met:*/
 
-/* * Redistributions of source code must retain the above copyright notice, this*/
+/* Redistributions of source code must retain the above copyright notice, this*/
 /*   list of conditions and the following disclaimer.*/
-/* * Redistributions in binary form must reproduce the above copyright notice, this*/
+/* Redistributions in binary form must reproduce the above copyright notice, this*/
 /*   list of conditions and the following disclaimer in the documentation and/or other*/
 /*   materials provided with the distribution.*/
-/* * The name of the contributors may not be used to endorse or promote products*/
+/* The name of the contributors may not be used to endorse or promote products*/
 /*   derived from this software without specific prior written permission.*/
 
 /* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND*/
@@ -29,17 +29,17 @@
 #include <QtGlobal>
 #include <iostream>
 /*!
- * \details QsLogging::SizeRotationStrategy::MaxBackupCount
+ * \details \~french QsLogging::SizeRotationStrategy::MaxBackupCount
  */
 const int QsLogging::SizeRotationStrategy::MaxBackupCount = 10;
 /*!
- * \details QsLogging::RotationStrategy::~RotationStrategy
+ * \details \~french QsLogging::RotationStrategy::~RotationStrategy
  */
 QsLogging::RotationStrategy::~RotationStrategy()
 {
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::SizeRotationStrategy
+ * \details \~french QsLogging::SizeRotationStrategy::SizeRotationStrategy
  */
 QsLogging::SizeRotationStrategy::SizeRotationStrategy()
     : mCurrentSizeInBytes(0)
@@ -48,7 +48,7 @@ QsLogging::SizeRotationStrategy::SizeRotationStrategy()
 {
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::setInitialInfo
+ * \details \~french QsLogging::SizeRotationStrategy::setInitialInfo
  */
 void QsLogging::SizeRotationStrategy::setInitialInfo(const QFile &file)
 {
@@ -56,14 +56,14 @@ void QsLogging::SizeRotationStrategy::setInitialInfo(const QFile &file)
     mCurrentSizeInBytes = file.size();
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::includeMessageInCalculation
+ * \details \~french QsLogging::SizeRotationStrategy::includeMessageInCalculation
  */
 void QsLogging::SizeRotationStrategy::includeMessageInCalculation(const QString &message)
 {
     mCurrentSizeInBytes += message.toUtf8().size();
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::shouldRotate
+ * \details \~french QsLogging::SizeRotationStrategy::shouldRotate
  */
 bool QsLogging::SizeRotationStrategy::shouldRotate()
 {
@@ -73,7 +73,7 @@ bool QsLogging::SizeRotationStrategy::shouldRotate()
 /* Algorithm assumes backups will be named filename.X, where 1 <= X <= mBackupsCount.*/
 /* All X's will be shifted up.*/
 /*!
- * \details QsLogging::SizeRotationStrategy::rotate
+ * \details \~french QsLogging::SizeRotationStrategy::rotate
  */
 void QsLogging::SizeRotationStrategy::rotate()
 {
@@ -116,14 +116,14 @@ void QsLogging::SizeRotationStrategy::rotate()
      }
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::recommendedOpenModeFlag
+ * \details \~french QsLogging::SizeRotationStrategy::recommendedOpenModeFlag
  */
 QIODevice::OpenMode QsLogging::SizeRotationStrategy::recommendedOpenModeFlag()
 {
     return QIODevice::Append;
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::setMaximumSizeInBytes
+ * \details \~french QsLogging::SizeRotationStrategy::setMaximumSizeInBytes
  */
 void QsLogging::SizeRotationStrategy::setMaximumSizeInBytes(qint64 size)
 {
@@ -131,7 +131,7 @@ void QsLogging::SizeRotationStrategy::setMaximumSizeInBytes(qint64 size)
     mMaxSizeInBytes = size;
 }
 /*!
- * \details QsLogging::SizeRotationStrategy::setBackupCount
+ * \details \~french QsLogging::SizeRotationStrategy::setBackupCount
  */
 void QsLogging::SizeRotationStrategy::setBackupCount(int backups)
 {
@@ -140,7 +140,7 @@ void QsLogging::SizeRotationStrategy::setBackupCount(int backups)
 }
 
 /*!
- * \details QsLogging::FileDestination::FileDestination
+ * \details \~french QsLogging::FileDestination::FileDestination
  */
 QsLogging::FileDestination::FileDestination(const QString& filePath, RotationStrategyPtr rotationStrategy)
     : mRotationStrategy(rotationStrategy)
@@ -154,7 +154,7 @@ QsLogging::FileDestination::FileDestination(const QString& filePath, RotationStr
     mRotationStrategy->setInitialInfo(mFile);
 }
 /*!
- * \details QsLogging::FileDestination::write
+ * \details \~french QsLogging::FileDestination::write
  */
 void QsLogging::FileDestination::write(const QString& message, Level)
 {
@@ -173,7 +173,7 @@ void QsLogging::FileDestination::write(const QString& message, Level)
     mOutputStream.flush();
 }
 /*!
- * \details QsLogging::FileDestination::isValid
+ * \details \~french QsLogging::FileDestination::isValid
  */
 bool QsLogging::FileDestination::isValid()
 {

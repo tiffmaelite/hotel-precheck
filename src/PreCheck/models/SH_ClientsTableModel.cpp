@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_ClientsTableModel::ClientsTableModel
 */
@@ -14,7 +14,7 @@ SH_ClientsTableModel::SH_ClientsTableModel(QObject *parent):
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_ClientsTableModel::fillModel
 */

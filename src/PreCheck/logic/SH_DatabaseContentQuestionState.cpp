@@ -2,7 +2,7 @@
 #include "models/SH_SqlDataModel.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DatabaseContentQuestionState::DatabaseContentQuestionState
 
@@ -25,7 +25,7 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DatabaseContentQuestionState::isAnswerValid
 
@@ -37,7 +37,7 @@ bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_DatabaseContentQuestionState::setOutput TODO comment this
  */
 void SH_DatabaseContentQuestionState::setOutput(const QString &output)
@@ -50,7 +50,7 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_DatabaseContentQuestionState::rawInput TODO comment this
 
 */
@@ -60,7 +60,7 @@ QVariant SH_DatabaseContentQuestionState::rawInput() const
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_DatabaseContentQuestionState::choiceList TODO comment this
 
 */

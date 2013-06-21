@@ -1,7 +1,7 @@
 #include "SH_RegExpQuestionState.h"
 
 /*!
- \details
+ \details \~french
  \fn SH_RegExQuestionState::RegExQuestionState TODO comment this
 
 */
@@ -11,7 +11,7 @@ SH_RegExpQuestionState::SH_RegExpQuestionState(QString question, QString name, Q
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_RegExQuestionState::isAnswerValid TODO comment this
 
 */
@@ -24,7 +24,7 @@ bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
 
 
 /*!
- \details
+ \details \~french
  \fn SH_RegExQuestionState::regexp TODO comment this
 
 */
@@ -34,7 +34,7 @@ QRegularExpression SH_RegExpQuestionState::regexp() const
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_RegExQuestionState::setRegexp TODO comment this
 
 */

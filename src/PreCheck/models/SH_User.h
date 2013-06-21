@@ -7,7 +7,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_User
 \headerfile user.h "models/user.h"
@@ -26,7 +26,7 @@ class SH_User : public QObject
 
 public:
     /*!
- \brief
+\brief \~french 
 
  \fn SH_User
  \param name
@@ -39,56 +39,56 @@ public:
 */
     SH_User(QString name = "", int id = 0, bool isReceptionist = false, bool isManagerX = false, bool isManagerZ = false, bool isAdministrator = false, QObject *parent = 0);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_name
      \return QString
     */
     QString name() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_id
      \return int
     */
     int id() const { return this->m_id; }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isReceptionist
      \return bool
     */
     bool isReceptionist() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isManagerX
      \return bool
     */
     bool isManagerX() const { return this->m_managerX; }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isManagerZ
      \return bool
     */
     bool isManagerZ() const { return this->m_managerZ; }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isAdministrator
      \return bool
     */
     bool isAdministrator() const { return this->m_administrator; }
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_roles
      \return int
     */
     int roles() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_isValid
      \return bool
@@ -96,7 +96,7 @@ public:
     bool isValid() const;
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_logIn
      \param login
@@ -105,7 +105,7 @@ public:
     */
     static SH_User *logIn(QString login, QString pass);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_traineeExists
      \param login
@@ -113,7 +113,7 @@ public:
     */
     static bool traineeExists(QString login);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_userExists
      \param login
@@ -123,7 +123,7 @@ public:
 
 public slots:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_exists
      \param login
@@ -132,19 +132,19 @@ public slots:
     static QVariant exists(QVariant login) {return QVariant(SH_User::userExists(login.toString()) || SH_User::traineeExists(login.toString()));}
 signals:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_nameChanged
     */
     void nameChanged();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_rolesChanged
     */
     void rolesChanged();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_validityChanged
     */
@@ -152,14 +152,14 @@ signals:
 
 private:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setName
      \param name
     */
     void setName(QString name);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setID
      \param id
@@ -167,27 +167,27 @@ private:
     void setID(int id);
 
     /*!
-     * \brief m_name
+     *\brief \~french  m_name
      */
     QString m_name;
     /*!
-     * \brief m_receptionist
+     *\brief \~french  m_receptionist
      */
     bool m_receptionist;
     /*!
-     * \brief m_managerX
+     *\brief \~french  m_managerX
      */
     bool m_managerX;
     /*!
-     * \brief m_managerZ
+     *\brief \~french  m_managerZ
      */
     bool m_managerZ;
     /*!
-     * \brief m_administrator
+     *\brief \~french  m_administrator
      */
     bool m_administrator;
     /*!
-     * \brief m_id
+     *\brief \~french  m_id
      */
     int m_id;
 };

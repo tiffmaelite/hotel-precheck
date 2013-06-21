@@ -5,7 +5,7 @@
 #include "SH_NamedObject.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_GenericState genericstate.h "logic/genericstate.h"
 */
@@ -14,7 +14,7 @@ class SH_GenericState : public QState,SH_NamedObject
     Q_OBJECT
 public:
     /*!
- \brief
+\brief \~french 
 
  \fn SH_GenericState
  \param name
@@ -22,7 +22,7 @@ public:
 */
     SH_GenericState(QString name="", QState *parent = 0);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_toString
      \return QString
@@ -32,7 +32,7 @@ public:
 
 signals:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_next
     */
@@ -40,13 +40,13 @@ signals:
 
 protected:
     /*!
-     \brief
+    \brief \~french 
      \fn SH_onEntry TODO comment this
      \param event TODO comment this
     */
     void onEntry(QEvent *event);
     /*!
-     \brief
+    \brief \~french 
      \fn SH_onExit TODO comment this
      \param event TODO comment this
     */
@@ -57,12 +57,12 @@ private:
 
 private slots:
     /*!
-     \brief
+    \brief \~french 
      \fn SH_onMachineStarted TODO comment this
     */
     void onMachineStarted();
     /*!
-     \brief
+    \brief \~french 
      \fn SH_onTransitionTriggered TODO comment this
     */
     void onTransitionTriggered();

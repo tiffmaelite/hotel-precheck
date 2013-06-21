@@ -8,17 +8,17 @@
 /* are permitted provided that the following conditions are met:
 */
 
-/* * Redistributions of source code must retain the above copyright notice, this
+/* Redistributions of source code must retain the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer.
 */
-/* * Redistributions in binary form must reproduce the above copyright notice, this
+/* Redistributions in binary form must reproduce the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer in the documentation and/or other
 */
 /*   materials provided with the distribution.
 */
-/* * The name of the contributors may not be used to endorse or promote products
+/* The name of the contributors may not be used to endorse or promote products
 */
 /*   derived from this software without specific prior written permission.
 */
@@ -51,13 +51,13 @@
 
 class QString;
 /*!
- * \brief The QsDebugOutput class
+ *\brief \~french  The QsDebugOutput class
  */
 class QsDebugOutput
 {
 public:
     /*!
-    * \brief output
+    *\brief \~french  output
     * \param a_message
     */
    static void output(const QString& a_message);
@@ -69,19 +69,19 @@ namespace QsLogging
 /* debugger sink
 */
 /*!
- * \brief The DebugOutputDestination class
+ *\brief \~french  The DebugOutputDestination class
  */
 class DebugOutputDestination : public Destination
 {
 public:
     /*!
-     * \brief write
+     *\brief \~french  write
      * \param message
      * \param level
      */
     virtual void write(const QString& message, Level level);
     /*!
-     * \brief isValid
+     *\brief \~french  isValid
      * \return
      */
     virtual bool isValid();

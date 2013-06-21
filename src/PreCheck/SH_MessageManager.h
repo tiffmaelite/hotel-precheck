@@ -4,7 +4,7 @@
 #include <QObject>
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_MessageManager message_manager.h "views/message_manager.h"
 */
@@ -16,14 +16,14 @@ class SH_MessageManager: QObject
 
 public:
     /*!
-     \brief
+    \brief \~french 
 
      \enum ErrorMode
     */
     enum ErrorMode { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_errorMessage
      \param message
@@ -31,7 +31,7 @@ public:
     */
     static void errorMessage(QString message, QString title = "Erreur");
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_successMessage
      \param message
@@ -39,7 +39,7 @@ public:
     */
     static void successMessage(QString message, QString title ="Réussite");
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_infoMessage
      \param message

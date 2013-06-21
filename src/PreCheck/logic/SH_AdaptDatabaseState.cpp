@@ -3,7 +3,7 @@
 #include <QtCore>
 
 /*!
- \details
+ \details \~french
  \fn SH_adaptDatabase::adaptDatabase TODO comment this
 */
 SH_AdaptDatabaseState::SH_AdaptDatabaseState(QString name, QState *parent) :
@@ -12,7 +12,7 @@ SH_AdaptDatabaseState::SH_AdaptDatabaseState(QString name, QState *parent) :
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_adaptDatabase::insertUpdate TODO comment this
 */
 QVariant SH_AdaptDatabaseState::insertUpdate(QString table, QVariantMap content)

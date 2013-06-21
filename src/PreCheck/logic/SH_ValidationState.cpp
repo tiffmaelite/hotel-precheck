@@ -3,7 +3,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_ValidationState::ValidationState
 

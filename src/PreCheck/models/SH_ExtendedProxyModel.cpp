@@ -5,7 +5,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::CheckableSortFilterProxyModel
 */
@@ -20,7 +20,7 @@ SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::replaceSet
 */
@@ -34,7 +34,7 @@ void SH_ExtendedProxyModel::replaceSet(QList<int>& originalSet, QList<int> newSe
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setBooleanColumns
 */
@@ -43,7 +43,7 @@ void SH_ExtendedProxyModel::setBooleanColumns(QList<int> boolCols) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setReadOnlyColumns
 */
@@ -52,7 +52,7 @@ void SH_ExtendedProxyModel::setReadOnlyColumns(QList<int> readonlyCols) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setPasswordColumns
 */
@@ -61,7 +61,7 @@ void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setNullColumns
 */
@@ -72,7 +72,7 @@ void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setNotNullColumns
  \param notNullCols
@@ -85,7 +85,7 @@ void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::filterAcceptsRow
 */
@@ -120,7 +120,7 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::data
 */
@@ -149,7 +149,7 @@ QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role) const
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setData
 */
@@ -172,7 +172,7 @@ bool SH_ExtendedProxyModel::setData(const QModelIndex &index, const QVariant &va
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::flags
 */
@@ -198,7 +198,7 @@ Qt::ItemFlags SH_ExtendedProxyModel::flags(const QModelIndex &index) const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::invalidateFilter
 */
@@ -208,7 +208,7 @@ void SH_ExtendedProxyModel::invalidateFilter()
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::removeFilterKeyColumn
 */
@@ -218,7 +218,7 @@ void SH_ExtendedProxyModel::removeFilterKeyColumn(int column)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::containsFilterKeyColumn
 */
@@ -228,7 +228,7 @@ bool SH_ExtendedProxyModel::containsFilterKeyColumn(int column)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::sort
 */
@@ -239,7 +239,7 @@ void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::setSortKeyColumn
 */
@@ -252,7 +252,7 @@ void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::addFilterKeyColumn
 */
@@ -262,7 +262,7 @@ void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::data
 */
@@ -273,7 +273,7 @@ QVariant SH_ExtendedProxyModel::data(int row, int column) const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::fetch
 */

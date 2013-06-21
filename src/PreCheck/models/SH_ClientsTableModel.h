@@ -7,7 +7,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_ClientsTableModel clients_table_model.h "models/clients_table_model.h"
 */
@@ -18,7 +18,7 @@ class SH_ClientsTableModel : public SH_ExtendedProxyModel
 
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_ClientsTableModel
  \param parent
@@ -30,7 +30,7 @@ class SH_ClientsTableModel : public SH_ExtendedProxyModel
 
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

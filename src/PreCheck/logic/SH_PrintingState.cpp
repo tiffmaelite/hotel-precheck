@@ -1,7 +1,7 @@
 #include "SH_PrintingState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_PrintingState::PrintingState
 

@@ -8,17 +8,17 @@
 /* are permitted provided that the following conditions are met:
 */
 
-/* * Redistributions of source code must retain the above copyright notice, this
+/* Redistributions of source code must retain the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer.
 */
-/* * Redistributions in binary form must reproduce the above copyright notice, this
+/* Redistributions in binary form must reproduce the above copyright notice, this
 */
 /*   list of conditions and the following disclaimer in the documentation and/or other
 */
 /*   materials provided with the distribution.
 */
-/* * The name of the contributors may not be used to endorse or promote products
+/* The name of the contributors may not be used to endorse or promote products
 */
 /*   derived from this software without specific prior written permission.
 */
@@ -55,42 +55,42 @@ class QString;
 namespace QsLogging
 {
 /*!
- * \brief The Destination class
+ *\brief \~french  The Destination class
  */
 class Destination
 {
 public:
     /*!
-     * \brief ~Destination
+     *\brief \~french  ~Destination
      */
     virtual ~Destination(){}
     /*!
-     * \brief write
+     *\brief \~french  write
      * \param message
      * \param level
      */
     virtual void write(const QString& message, Level level) = 0;
     /*!
-     * \brief isValid
+     *\brief \~french  isValid
      * \return
      */
     virtual bool isValid() = 0; /* returns whether the destination was created correctly
 */
 };
 /*!
- * \brief DestinationPtr
+ *\brief \~french  DestinationPtr
  */
 typedef QSharedPointer<Destination> DestinationPtr;
 
 /*!
  * \class SH_The DestinationFactory class
- * \brief Creates logging destinations/sinks. The caller will have ownership of the newly created destinations.
+ *\brief \~french  Creates logging destinations/sinks. The caller will have ownership of the newly created destinations.
  */
 class DestinationFactory
 {
 public:
     /*!
-     * \brief MakeFileDestination
+     *\brief \~french  MakeFileDestination
      * \param filePath
      * \param enableRotation
      * \param sizeInBytesToRotateAfter
@@ -99,7 +99,7 @@ public:
      */
     static DestinationPtr MakeFileDestination(const QString& filePath, bool enableRotation = false, qint64 sizeInBytesToRotateAfter = 0, int oldLogsToKeep = 0);
     /*!
-     * \brief MakeDebugOutputDestination
+     *\brief \~french  MakeDebugOutputDestination
      * \return
      */
     static DestinationPtr MakeDebugOutputDestination();

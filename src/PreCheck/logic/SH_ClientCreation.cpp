@@ -7,7 +7,7 @@
 #include "SH_AddressCreation.h"
 
 /*!
- \details
+ \details \~french
  \fn SH_ClientCreationStateMachine::ClientCreationStateMachine TODO comment this
 */
 SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObject *parent) :

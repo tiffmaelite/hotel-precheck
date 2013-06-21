@@ -3,7 +3,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_BillingsTableModel::BillingsTableModel
 */
@@ -15,7 +15,7 @@ SH_BillingsTableModel::SH_BillingsTableModel(QObject *parent):
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_BillingsTableModel::fillModel
 */

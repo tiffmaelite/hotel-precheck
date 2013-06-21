@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DecimalQuestionState::DecimalQuestionState
 
@@ -14,7 +14,7 @@ SH_DecimalQuestionState::SH_DecimalQuestionState(QString question, QString name,
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DecimalQuestionState::isAnswerValid
 
@@ -31,7 +31,7 @@ bool SH_DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DecimalQuestionState::min
 
@@ -42,7 +42,7 @@ qreal SH_DecimalQuestionState::min() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DecimalQuestionState::setMin
 
@@ -53,7 +53,7 @@ void SH_DecimalQuestionState::setMin(const qreal &min)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DecimalQuestionState::max
 
@@ -64,7 +64,7 @@ qreal SH_DecimalQuestionState::max() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DecimalQuestionState::setMax
 

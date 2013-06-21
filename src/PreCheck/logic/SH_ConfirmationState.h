@@ -3,7 +3,7 @@
 #include "SH_StatementState.h"
 
 /*!
- \brief La class ConfirmationState représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation
+\brief \~french  La class ConfirmationState représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation
 
  \class SH_ConfirmationState confirmationstate.h "logic/confirmationstate.h"
 
@@ -15,7 +15,7 @@ class SH_ConfirmationState : public SH_StatementState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_ConfirmationState
  \param output
@@ -30,7 +30,7 @@ signals:
 
 public slots:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_confirmInput
     */

@@ -3,7 +3,7 @@
 #include "SH_GenericDebugableState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_PrintingState printingstate.h "logic/printingstate.h"
 */
@@ -12,7 +12,7 @@ class SH_PrintingState : public SH_GenericState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_PrintingState
  \param name
@@ -22,13 +22,13 @@ public:
 
 signals:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_printStarted
     */
     void printStarted();
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_printFinished
     */

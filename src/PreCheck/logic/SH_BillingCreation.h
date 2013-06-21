@@ -2,14 +2,14 @@
 #define BILLINGCREATIONSTATEMACHINE_H
 #include "SH_IOStateMachine.h"
 /*!
- * \brief The SH_BillingCreationStateMachine class
+ *\brief \~french  The SH_BillingCreationStateMachine class
  */
 class SH_BillingCreationStateMachine : public SH_InOutStateMachine
 {
     Q_OBJECT
 public:
     /*!
-     * \brief SH_BillingCreationStateMachine
+     *\brief \~french  SH_BillingCreationStateMachine
      * \param name
      * \param parent
      */

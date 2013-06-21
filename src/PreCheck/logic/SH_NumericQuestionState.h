@@ -3,7 +3,7 @@
 #include "SH_QuestionState.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_NumericQuestionState numericquestionstate.h "logic/numericquestionstate.h"
 */
@@ -12,7 +12,7 @@ class SH_NumericQuestionState : public SH_QuestionState
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_NumericQuestionState
  \param question
@@ -23,7 +23,7 @@ public:
 */
     SH_NumericQuestionState(QString question, QString name, int min=0, int max=-1, QState *parent = 0);
 /*!
- \brief
+\brief \~french 
 
  \fn SH_isAnswerValid
  \param givenAnswer
@@ -31,14 +31,14 @@ public:
 virtual bool isAnswerValid(const QVariant &givenAnswer);
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_min
  \return int
 */
 int min() const;
 /*!
- \brief
+\brief \~french 
 
  \fn SH_setMin
  \param min
@@ -46,14 +46,14 @@ int min() const;
 void setMin(int min);
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_max
  \return int
 */
 int max() const;
 /*!
- \brief
+\brief \~french 
 
  \fn SH_setMax
  \param max
@@ -67,11 +67,11 @@ public slots:
 
 private:
 /*!
- * \brief m_min
+ *\brief \~french  m_min
  */
 int m_min;
 /*!
- * \brief m_max
+ *\brief \~french  m_max
  */
 int m_max;
 };

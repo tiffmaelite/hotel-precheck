@@ -1,7 +1,7 @@
 #include "SH_DateQuestionState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DateQuestionState::DateQuestionState
 
@@ -12,7 +12,7 @@ SH_DateQuestionState::SH_DateQuestionState(QString question, QString name, bool 
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DateQuestionState::isAnswerValid
 
@@ -29,7 +29,7 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DateQuestionState::getPast
 
@@ -40,7 +40,7 @@ bool SH_DateQuestionState::getPast() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DateQuestionState::setPast
 
@@ -51,7 +51,7 @@ void SH_DateQuestionState::setPast(bool value)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DateQuestionState::getFuture
 
@@ -62,7 +62,7 @@ bool SH_DateQuestionState::getFuture() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_DateQuestionState::setFuture
 
@@ -73,7 +73,7 @@ void SH_DateQuestionState::setFuture(bool value)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_DateQuestionState::rawInput TODO comment this
 
 */

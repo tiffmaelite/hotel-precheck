@@ -9,7 +9,7 @@
 #include "SH_ClientCreation.h"
 
 /*!
- * \details SH_BillingCreationStateMachine::SH_BillingCreationStateMachine
+ * \details \~french SH_BillingCreationStateMachine::SH_BillingCreationStateMachine
  */
 SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QObject *parent) :
     SH_InOutStateMachine("BILLINGS",name, parent)

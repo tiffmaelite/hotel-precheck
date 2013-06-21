@@ -2,7 +2,7 @@
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_BillsTableModel::BillsTableModel
 */
@@ -14,7 +14,7 @@ SH_BillsTableModel::SH_BillsTableModel(QObject *parent):
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_BillsTableModel::fillModel
 */

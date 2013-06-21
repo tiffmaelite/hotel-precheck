@@ -6,7 +6,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_Trainee
 \headerfile trainee.h "models/trainee.h"
@@ -16,7 +16,7 @@ class SH_Trainee : public SH_User
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_Trainee
  \param name

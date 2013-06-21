@@ -4,7 +4,7 @@
 #include <QtCore>
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_IOState iostate.h "logic/iostate.h"
 */
@@ -13,7 +13,7 @@ class SH_InOutState : public SH_GenericState
     Q_OBJECT
 public:
     /*!
- \brief
+\brief \~french 
 
  \fn SH_IOState
  \param output
@@ -23,7 +23,7 @@ public:
     SH_InOutState(QString output, QString name, QState *parent = 0);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_input
      \return QVariant
@@ -31,7 +31,7 @@ public:
     virtual QVariant input() const;
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_rawInput
      \return QVariant
@@ -39,7 +39,7 @@ public:
     virtual QVariant rawInput() const;
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_output
      \return QString
@@ -48,7 +48,7 @@ public:
 
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_onExit
      \param event
@@ -56,14 +56,14 @@ public:
     void onExit(QEvent *event);
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_visibility TODO comment this
      \return bool TODO comment this
     */
     bool visibility();
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_display TODO comment this
      \param canDisplay TODO comment this
     */
@@ -71,14 +71,14 @@ public:
 
 signals:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_sendOutput
      \param output
     */
     void sendOutput(QVariant output);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_resendInput
      \param input
@@ -87,14 +87,14 @@ signals:
 
 public slots:
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setInput
      \param input
     */
     virtual void setInput(const QVariant &input);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setOutput
      \param output
@@ -103,7 +103,7 @@ public slots:
 
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_setVisibility TODO comment this
      \param isVisible TODO comment this
     */
@@ -111,19 +111,19 @@ public slots:
 
 private:
     /*!
-     * \brief m_input
+     *\brief \~french  m_input
      */
     QVariant m_input;
     /*!
-     * \brief m_output
+     *\brief \~french  m_output
      */
     QString m_output;
     /*!
-     * \brief m_isVisible
+     *\brief \~french  m_isVisible
      */
     bool m_isVisible;
     /*!
-     * \brief m_display
+     *\brief \~french  m_display
      */
     bool m_display;
 };

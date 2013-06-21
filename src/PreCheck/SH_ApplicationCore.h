@@ -4,41 +4,76 @@
 #include <QApplication>
 #include "logic/SH_IOStateMachine.h"
 /*!
- \brief
+\brief \~french  \~french Classe principale du coeur de l'application, avec laquelle communique l'interface graphique
 
- \class SH_RestrictiveApplication RestrictiveApplication.h "models/RestrictiveApplication.h"
+ \class SH_ApplicationCore
+\headerfile RestrictiveApplication.h "models/RestrictiveApplication.h"
 */
 class SH_ApplicationCore : public QObject
 {
     Q_OBJECT
+    /*!
+      \property currentUser
+      \brief \~french
+      */
     Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged)
+    /*!
+      \property currentMode
+      \brief \~french
+      */
     Q_PROPERTY(AppMode currentMode READ mode WRITE setMode NOTIFY modeChanged)
 
     Q_ENUMS(AppMode)
 
 public:
     /*!
-     \brief
+    \brief \~french Énumération des modes possibles de l'application
 
      \enum AppMode
+     */
+    /*!
+     \value SH_ApplicationCore::AppMode SH_ApplicationCore::CONNEXION
+     \brief \~french Mode de l'application qui ne contient que le formulaire de connexion
+     */
+    /*!
+     \value SH_ApplicationCore::AppMode SH_ApplicationCore::ACCUEIL
+     \brief \~french Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès
+     /*!
+     \value SH_ApplicationCore::AppMode SH_ApplicationCore::RECEPTION
+     \brief \~french Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+     */
+    /*!
+     \value SH_ApplicationCore::AppMode SH_ApplicationCore::MANAGEMENT_X
+     \brief \~french Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
+     */
+    /*!
+     \value SH_ApplicationCore::AppMode SH_ApplicationCore::MANAGEMENT_Z
+     \brief \~french Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable Z (lecture et modifications) du service
+     */
+    /*!
+     \value SH_ApplicationCore::AppMode SH_ApplicationCore::ADMINISTRATION
+          \brief \~french Mode de l'application qui regroupe les interfaces liées aux activités d'un technicien en charge de paramétrer l'application ou de modifier ses données (comptes utilisateurs, chambres...)
     */
     enum AppMode { CONNEXION, ACCUEIL, RECEPTION, MANAGEMENT_X, MANAGEMENT_Z, ADMINISTRATION };
-    /*!
- \brief
 
- \fn SH_RestrictiveApplication
- \param parent
-*/
-    SH_ApplicationCore(QObject* parent=0);
     /*!
-     \brief
+    \brief \~french
+
+ \fn SH_ApplicationCore
+ \param parent
+    */
+    SH_ApplicationCore(QObject* parent=0);
+
+    /*!
+    \brief \~french
 
      \fn SH_mode
      \return AppMode
     */
     AppMode mode() const;
+
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_user
      \return User
@@ -46,13 +81,13 @@ public:
     SH_User* user() const;
     /*Q_INVOKABLE User* currentUser() const;*/
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_init
     */
     void init();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_setMode
      \param mode
@@ -62,13 +97,13 @@ public:
 
 public slots:
     /*!
-         \brief
+        \brief \~french
          \fn SH_balanceLogRoutine TODO comment this
          \return bool TODO comment this
         */
     bool balanceLogRoutine();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_userExists
      \param login
@@ -76,7 +111,7 @@ public slots:
     */
     bool userExists(QString login);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_setUser
      \param login
@@ -85,7 +120,7 @@ public slots:
     */
     bool setUser(QString login, QString pass);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_userLogOut
      \return bool
@@ -93,28 +128,28 @@ public slots:
     bool userLogOut();
 
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_launchBookingsThread
      \return bool
     */
     bool launchBookingsThread();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_launchBillThread
      \return bool
     */
     bool launchBillThread();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_launchBillingsThread
      \return bool
     */
     Q_INVOKABLE bool launchBillingsThread();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_cancelRunningThread
      \return bool
@@ -122,33 +157,33 @@ public slots:
     bool cancelRunningThread();
 
     /*!
-     \brief
+    \brief \~french
      \fn SH_receiveInput TODO comment this
      \param in TODO comment this
     */
     void receiveInput(QString in);
 
     /*!
-     \brief
+    \brief \~french
      \fn SH_receiveValidation TODO comment this
     */
     void receiveValidation();
 
     /*!
-     \brief
+    \brief \~french
      \fn SH_receiveConfirmation TODO comment this
     */
     void receiveConfirmation();
 
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_replaceInput
      \param inputName
     */
     void replaceInput(QString inputName);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_cancelReplacement
     */
@@ -156,20 +191,20 @@ public slots:
 
 signals:
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_clearAll
     */
     void clearAll();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_userChanged
      \param name
     */
     void userChanged(QVariant name);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_modeChanged
      \param mode
@@ -177,33 +212,33 @@ signals:
     void modeChanged(QVariant mode);
 
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_currentFSMchanged
     */
     void currentFSMchanged();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_sendText
      \param text
     */
     void sendText(QString text);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_resendText
      \param text
     */
     void resendText(QString text);
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_displayCalendar
     */
     void displayCalendar();
     /*!
-     \brief
+    \brief \~french
 
      \fn SH_openTab
      \param tabPos
@@ -212,7 +247,7 @@ signals:
 
 protected:
     /*!
-     \brief
+    \brief \~french
      \fn SH_connectRunningThread TODO comment this
      \return bool TODO comment this
     */
@@ -220,15 +255,15 @@ protected:
 
 private:
     /*!
-     * \brief m_currentUser
+     *\brief \~french  m_currentUser
      */
     SH_User* m_currentUser;
     /*!
-     * \brief m_mode
+     *\brief \~french  m_mode
      */
     AppMode m_mode;
     /*!
-     * \brief m_currentFSM
+     *\brief \~french  m_currentFSM
      */
     SH_InOutStateMachine* m_currentFSM;
 };

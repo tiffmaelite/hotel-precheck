@@ -1,7 +1,7 @@
 #include "SH_SqlDataField.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataFields::SqlDataFields
 */
@@ -12,7 +12,7 @@ SH_SqlDataFields::SH_SqlDataFields(QQuickItem *parent) :
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataFields::setText
  */
@@ -27,7 +27,7 @@ void SH_SqlDataFields::setText(QString newText)
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataFields::setName
 
@@ -46,7 +46,7 @@ void SH_SqlDataFields::setName(QString newName)
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_SqlDataFields::setSortOrder
 

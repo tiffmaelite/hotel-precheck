@@ -2,7 +2,7 @@
 #include "SH_AdaptDatabaseState.h"
 
 /*!
- \details
+ \details \~french
 
  \fn SH_LoopingStateMachine::LoopingStateMachine
 
@@ -15,7 +15,7 @@ Sh_LoopingInOutStateMachine::Sh_LoopingInOutStateMachine(QString tableName, QStr
 
 
 /*!
- \details
+ \details \~french
 
  \fn SH_LoopingStateMachine::current
 
@@ -26,7 +26,7 @@ int Sh_LoopingInOutStateMachine::current() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_LoopingStateMachine::setCurrent
 
@@ -42,7 +42,7 @@ void Sh_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QStr
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_LoopingStateMachine::limit
 
@@ -53,7 +53,7 @@ int Sh_LoopingInOutStateMachine::limit() const
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_LoopingStateMachine::setLimit
 
@@ -66,7 +66,7 @@ void Sh_LoopingInOutStateMachine::setLimit(int limit)
 
 
 /*!
- \details
+ \details \~french
  \fn SH_LoopingIOStateMachine::stopLooping TODO comment this
 */
 void Sh_LoopingInOutStateMachine::stopLooping() {
@@ -78,7 +78,7 @@ void Sh_LoopingInOutStateMachine::stopLooping() {
 }
 
 /*!
- \details
+ \details \~french
 
  \fn SH_IOStateMachine::addChildrenNextTransition
 

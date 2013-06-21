@@ -5,7 +5,7 @@
 #include "SH_ExtendedSqlProxyModel.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_ServicesTableModel
 \headerfile services_table_model.h "models/services_table_model.h"
@@ -17,7 +17,7 @@ public:
 
 
     /*!
- \brief
+\brief \~french 
 
  \fn SH_ServicesTableModel
  \param parent
@@ -28,7 +28,7 @@ public:
 protected:
 
     /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

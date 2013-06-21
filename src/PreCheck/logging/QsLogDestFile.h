@@ -4,12 +4,12 @@
 /* Redistribution and use in source and binary forms, with or without modification,*/
 /* are permitted provided that the following conditions are met:*/
 
-/* * Redistributions of source code must retain the above copyright notice, this*/
+/* Redistributions of source code must retain the above copyright notice, this*/
 /*   list of conditions and the following disclaimer.*/
-/* * Redistributions in binary form must reproduce the above copyright notice, this*/
+/* Redistributions in binary form must reproduce the above copyright notice, this*/
 /*   list of conditions and the following disclaimer in the documentation and/or other*/
 /*   materials provided with the distribution.*/
-/* * The name of the contributors may not be used to endorse or promote products*/
+/* The name of the contributors may not be used to endorse or promote products*/
 /*   derived from this software without specific prior written permission.*/
 
 /* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND*/
@@ -35,36 +35,36 @@
 namespace QsLogging
 {
 /*!
- * \brief The RotationStrategy class
+ *\brief \~french  The RotationStrategy class
  */
 class RotationStrategy
 {
 public:
     /*!
-     * \brief ~RotationStrategy
+     *\brief \~french  ~RotationStrategy
      */
     virtual ~RotationStrategy();
     /*!
-     * \brief setInitialInfo
+     *\brief \~french  setInitialInfo
      * \param file
      */
     virtual void setInitialInfo(const QFile &file) = 0;
     /*!
-     * \brief includeMessageInCalculation
+     *\brief \~french  includeMessageInCalculation
      * \param message
      */
     virtual void includeMessageInCalculation(const QString &message) = 0;
     /*!
-     * \brief shouldRotate
+     *\brief \~french  shouldRotate
      * \return
      */
     virtual bool shouldRotate() = 0;
     /*!
-     * \brief rotate
+     *\brief \~french  rotate
      */
     virtual void rotate() = 0;
     /*!
-     * \brief recommendedOpenModeFlag
+     *\brief \~french  recommendedOpenModeFlag
      * \return
      */
     virtual QIODevice::OpenMode recommendedOpenModeFlag() = 0;
@@ -72,30 +72,30 @@ public:
 
 /* Never rotates file, overwrites existing file.*/
 /*!
- * \brief The NullRotationStrategy class
+ *\brief \~french  The NullRotationStrategy class
  */
 class NullRotationStrategy : public RotationStrategy
 {
 public:
     /*!
-     * \brief setInitialInfo
+     *\brief \~french  setInitialInfo
      */
     virtual void setInitialInfo(const QFile &) {}
     /*!
-     * \brief includeMessageInCalculation
+     *\brief \~french  includeMessageInCalculation
      */
     virtual void includeMessageInCalculation(const QString &) {}
     /*!
-     * \brief shouldRotate
+     *\brief \~french  shouldRotate
      * \return
      */
     virtual bool shouldRotate() { return false; }
     /*!
-     * \brief rotate
+     *\brief \~french  rotate
      */
     virtual void rotate() {}
     /*!
-     * \brief recommendedOpenModeFlag
+     *\brief \~french  recommendedOpenModeFlag
      * \return
      */
     virtual QIODevice::OpenMode recommendedOpenModeFlag() { return QIODevice::Truncate; }
@@ -103,113 +103,113 @@ public:
 
 /* Rotates after a size is reached, keeps a number of <= 10 backups, appends to existing file.*/
 /*!
- * \brief The SizeRotationStrategy class
+ *\brief \~french  The SizeRotationStrategy class
  */
 class SizeRotationStrategy : public RotationStrategy
 {
 public:
     /*!
-     * \brief SizeRotationStrategy
+     *\brief \~french  SizeRotationStrategy
      */
     SizeRotationStrategy();
     /*!
-     * \brief MaxBackupCount
+     *\brief \~french  MaxBackupCount
      */
     static const int MaxBackupCount;
     /*!
-     * \brief setInitialInfo
+     *\brief \~french  setInitialInfo
      * \param file
      */
     virtual void setInitialInfo(const QFile &file);
     /*!
-     * \brief includeMessageInCalculation
+     *\brief \~french  includeMessageInCalculation
      * \param message
      */
     virtual void includeMessageInCalculation(const QString &message);
     /*!
-     * \brief shouldRotate
+     *\brief \~french  shouldRotate
      * \return
      */
     virtual bool shouldRotate();
     /*!
-     * \brief rotate
+     *\brief \~french  rotate
      */
     virtual void rotate();
     /*!
-     * \brief recommendedOpenModeFlag
+     *\brief \~french  recommendedOpenModeFlag
      * \return
      */
     virtual QIODevice::OpenMode recommendedOpenModeFlag();
     /*!
-     * \brief setMaximumSizeInBytes
+     *\brief \~french  setMaximumSizeInBytes
      * \param size
      */
     void setMaximumSizeInBytes(qint64 size);
     /*!
-     * \brief setBackupCount
+     *\brief \~french  setBackupCount
      * \param backups
      */
     void setBackupCount(int backups);
 
 private:
     /*!
-     * \brief mFileName
+     *\brief \~french  mFileName
      */
     QString mFileName;
     /*!
-     * \brief mCurrentSizeInBytes
+     *\brief \~french  mCurrentSizeInBytes
      */
     qint64 mCurrentSizeInBytes;
     /*!
-     * \brief mMaxSizeInBytes
+     *\brief \~french  mMaxSizeInBytes
      */
     qint64 mMaxSizeInBytes;
     /*!
-     * \brief mBackupsCount
+     *\brief \~french  mBackupsCount
      */
     int mBackupsCount;
 };
 /*!
- * \brief RotationStrategyPtr
+ *\brief \~french  RotationStrategyPtr
  */
 typedef QSharedPointer<RotationStrategy> RotationStrategyPtr;
 
 /* file message sink*/
 /*!
- * \brief The FileDestination class
+ *\brief \~french  The FileDestination class
  */
 class FileDestination : public Destination
 {
 public:
     /*!
-     * \brief FileDestination
+     *\brief \~french  FileDestination
      * \param filePath
      * \param rotationStrategy
      */
     FileDestination(const QString& filePath, RotationStrategyPtr rotationStrategy);
     /*!
-     * \brief write
+     *\brief \~french  write
      * \param message
      * \param level
      */
     virtual void write(const QString& message, Level level);
     /*!
-     * \brief isValid
+     *\brief \~french  isValid
      * \return
      */
     virtual bool isValid();
 
 private:
     /*!
-     * \brief mFile
+     *\brief \~french  mFile
      */
     QFile mFile;
     /*!
-     * \brief mOutputStream
+     *\brief \~french  mOutputStream
      */
     QTextStream mOutputStream;
     /*!
-     * \brief mRotationStrategy
+     *\brief \~french  mRotationStrategy
      */
     QSharedPointer<RotationStrategy> mRotationStrategy;
 };

@@ -7,7 +7,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_BookingsTableModel bookings_table_model.h "models/bookings_table_model.h"
 */
@@ -18,7 +18,7 @@ class SH_BookingsTableModel : public SH_ExtendedProxyModel
 
 
 /*!
- \brief
+\brief \~french 
 
  \fn SH_BookingsTableModel
  \param parent
@@ -30,7 +30,7 @@ class SH_BookingsTableModel : public SH_ExtendedProxyModel
 
 
         /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

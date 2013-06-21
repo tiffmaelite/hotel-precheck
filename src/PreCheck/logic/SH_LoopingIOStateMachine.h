@@ -3,7 +3,7 @@
 #include "SH_IOStateMachine.h"
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_LoopingStateMachine loopingstatemachine.h "logic/loopingstatemachine.h"
 */
@@ -14,7 +14,7 @@ class Sh_LoopingInOutStateMachine : public SH_InOutStateMachine
 
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_LoopingStateMachine
  \param tableName
@@ -25,14 +25,14 @@ public:
     Sh_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_current
      \return int
     */
     int current() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setCurrent
      \param current
@@ -40,7 +40,7 @@ public:
     void setCurrent(int current);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setPersistentContentValue
      \param content
@@ -49,14 +49,14 @@ public:
     void setPersistentContentValue(QVariant value, QString field);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_limit
      \return int
     */
     int limit() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setLimit
      \param limit
@@ -64,20 +64,20 @@ public:
     void setLimit(int limit);
 
     /*!
-     \brief
+    \brief \~french 
      \fn SH_addChildrenNextTransition TODO comment this
      \param previousState TODO comment this
      \param nextState TODO comment this
     */
     void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
     /*!
-     \brief
+    \brief \~french 
      \fn SH_stopLooping TODO comment this
     */
     void stopLooping();
 signals:
     /*!
-     \brief
+    \brief \~french 
      \fn SH_limitChanged TODO comment this
     */
     void limitChanged();
@@ -86,19 +86,19 @@ public slots:
 
 private:
     /*!
-     * \brief m_limit
+     *\brief \~french  m_limit
      */
     int m_limit;
     /*!
-     * \brief m_current
+     *\brief \~french  m_current
      */
     int m_current;
     /*!
-     * \brief m_contents
+     *\brief \~french  m_contents
      */
     QList<QVariantMap> m_contents;
     /*!
-     * \brief m_persistentContent
+     *\brief \~french  m_persistentContent
      */
     QVariantMap m_persistentContent;
 };

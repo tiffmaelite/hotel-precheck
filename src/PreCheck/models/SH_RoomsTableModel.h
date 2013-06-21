@@ -8,7 +8,7 @@
 
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_RoomsTableModel
 \headerfile rooms_table_model.h "models/rooms_table_model.h"
@@ -19,7 +19,7 @@ class SH_RoomsTableModel : public SH_ExtendedProxyModel
 public:
 
     /*!
- \brief
+\brief \~french 
 
  \fn SH_RoomsTableModel
  \param parent
@@ -28,7 +28,7 @@ public:
 
 protected:
     /*!
-         \brief
+        \brief \~french 
 
          \fn SH_fillModel
         */

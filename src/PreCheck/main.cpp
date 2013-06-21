@@ -24,7 +24,7 @@ const int iterations = 20;
 
 
 /*!
- \details
+ \details \~french
  \fn SH_statusChanged TODO comment this
  \param status TODO comment this
 */
@@ -38,7 +38,7 @@ void statusChanged(QQmlComponent* component, QQmlComponent::Status status) {
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_exportlog TODO comment this
  \param type TODO comment this
  \param msg TODO comment this
@@ -61,11 +61,11 @@ void exportlog(QtMsgType type, const QMessageLogContext &context, const QString 
 
 
 /*!
- \details
+ \details \~french
  \fn SH_enableLogging TODO comment this
 */
 /*!
- * \details enableLogging
+ * \details \~french enableLogging
  * \param sLogPath
  */
 void enableLogging(const QString sLogPath)
@@ -101,7 +101,7 @@ void enableLogging(const QString sLogPath)
 
 
 /*!
- \details
+ \details \~french
  \fn SH_spin TODO comment this
  \param iteration TODO comment this
 */
@@ -116,7 +116,7 @@ void spin(int &iteration)
 }
 
 /*!
- \details
+ \details \~french
  \fn SH_main TODO comment this
  \param argc TODO comment this
  \param argv TODO comment this

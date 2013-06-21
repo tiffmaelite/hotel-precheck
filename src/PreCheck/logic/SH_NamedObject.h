@@ -3,7 +3,7 @@
 #include <QString>
 
 /*!
- \brief
+\brief \~french 
 
  \class SH_NamedObject namedobject.h "logic/namedobject.h"
 */
@@ -11,14 +11,14 @@ class SH_NamedObject
 {
 public:
 /*!
- \brief
+\brief \~french 
 
  \fn SH_NamedObject
  \param name
 */
     SH_NamedObject(QString name);
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_toString
      \return QString
@@ -26,14 +26,14 @@ public:
     virtual QString toString();
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_name
      \return QString
     */
     virtual QString name() const;
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_setName
      \param name
@@ -41,7 +41,7 @@ public:
     virtual void setName(const QString &name);
 
     /*!
-     \brief
+    \brief \~french 
 
      \fn SH_ptraddress
      \return QString
@@ -50,11 +50,11 @@ public:
 
 private:
     /*!
-     * \brief m_name
+     *\brief \~french  m_name
      */
     QString m_name;
     /*!
-     * \brief m_ptraddress
+     *\brief \~french  m_ptraddress
      */
     QString m_ptraddress;
 };

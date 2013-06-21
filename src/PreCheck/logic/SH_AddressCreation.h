@@ -2,14 +2,14 @@
 #define ADDRESSCREATION_H
 #include "SH_IOStateMachine.h"
 /*!
- * \brief The SH_AddressCreationStateMachine class
+ *\brief \~french  The SH_AddressCreationStateMachine class
  */
 class SH_AddressCreationStateMachine : public SH_InOutStateMachine
 {
     Q_OBJECT
 public:
 /*!
- \brief
+\brief \~french 
  \fn SH_AddressCreation TODO comment this
  \param name TODO comment this
  \param parent TODO comment this
