@@ -3,6 +3,11 @@
 }
 
 
+Classe principale du coeur de l'application, avec laquelle communique l'interface graphique.  
+
+
+
+
 {\ttfamily \#include $<$S\-H\-\_\-\-Application\-Core.\-h$>$}
 
 
@@ -35,7 +40,7 @@ enum \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\
 \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z}, 
 \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{S\-H\-\_\-\-Application\-Core\-::\-C\-O\-N\-N\-E\-X\-I\-O\-N} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Connecteurs publics}
 \begin{DoxyCompactItemize}
 \item 
@@ -105,9 +110,9 @@ bool \hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{conn
 \subsection*{Propriétés}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\-Mode} \hyperlink{classSH__ApplicationCore_a5b51b2abe52d58a11a0a8bb2a95bdbd2}{current\-Mode}
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\-Mode} \hyperlink{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}{current\-Mode}
 \item 
-\hyperlink{classSH__User}{S\-H\-\_\-\-User} \hyperlink{classSH__ApplicationCore_afe36b3fd891c706ff1458b2eb7d46c5f}{current\-User}
+\hyperlink{classSH__User}{S\-H\-\_\-\-User} \hyperlink{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}{current\-User}
 \end{DoxyCompactItemize}
 \subsection*{Attributs privés}
 \begin{DoxyCompactItemize}
@@ -121,9 +126,9 @@ bool \hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{conn
 
 
 \subsection{Description détaillée}
+Classe principale du coeur de l'application, avec laquelle communique l'interface graphique. 
 
-
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00011}{11} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00012}{12} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
@@ -131,7 +136,21 @@ Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00011}{11} du 
 \hypertarget{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!App\-Mode@{App\-Mode}}
 \index{App\-Mode@{App\-Mode}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
 \subsubsection[{App\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf S\-H\-\_\-\-Application\-Core\-::\-App\-Mode}}}\label{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}
-\begin{Desc}
+
+
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{S\-H\-\_\-\-Application\-Core\-::\-C\-O\-N\-N\-E\-X\-I\-O\-N} 
+
+Énumération des modes possibles de l'application.
+
+Mode de l'application qui ne contient que le formulaire de connexion
+
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{S\-H\-\_\-\-Application\-Core\-::\-A\-C\-C\-U\-E\-I\-L} Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès /$\ast$!  \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{S\-H\-\_\-\-Application\-Core\-::\-R\-E\-C\-E\-P\-T\-I\-O\-N} Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{S\-H\-\_\-\-Application\-Core\-::\-M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X} Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
+
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{S\-H\-\_\-\-Application\-Core\-::\-M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z} Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable Z (lecture et modifications) du service
+
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{S\-H\-\_\-\-Application\-Core\-::\-A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N} Mode de l'application qui regroupe les interfaces liées aux activités d'un technicien en charge de paramétrer l'application ou de modifier ses données (comptes utilisateurs, chambres...) \begin{Desc}
 \item[Valeurs énumérées]\par
 \begin{description}
 \index{C\-O\-N\-N\-E\-X\-I\-O\-N@{C\-O\-N\-N\-E\-X\-I\-O\-N}!S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}}\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!C\-O\-N\-N\-E\-X\-I\-O\-N@{C\-O\-N\-N\-E\-X\-I\-O\-N}}\item[{\em 
@@ -150,11 +169,11 @@ Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00011}{11} du 
 \end{Desc}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00025}{25} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00057}{57} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 \begin{DoxyCode}
-00025 \{ \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}, 
+00057 \{ \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}, 
       \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{MANAGEMENT\_Z}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{ADMINISTRATION} \};
 \end{DoxyCode}
 
@@ -167,6 +186,11 @@ Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00025}{25} du 
 \item[{{\bf Q\-Object} $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{classSH__ApplicationCore_a3c33fe8a39bd571c4c809d8c55603156}
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
 
 
 Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00014}{14} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
@@ -919,7 +943,7 @@ m\-\_\-current\-F\-S\-M
 
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00233}{233} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00268}{268} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
@@ -934,7 +958,7 @@ m\-\_\-current\-User
 
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00225}{225} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00260}{260} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
@@ -949,7 +973,7 @@ m\-\_\-mode
 
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00229}{229} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00264}{264} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
@@ -958,19 +982,19 @@ Référencé par \hyperlink{classSH__ApplicationCore_a210295d4d7a6e16e9def6e0a29
 
 
 \subsection{Documentation des propriétés}
-\hypertarget{classSH__ApplicationCore_a5b51b2abe52d58a11a0a8bb2a95bdbd2}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!current\-Mode@{current\-Mode}}
+\hypertarget{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!current\-Mode@{current\-Mode}}
 \index{current\-Mode@{current\-Mode}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{current\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf App\-Mode} S\-H\-\_\-\-Application\-Core\-::current\-Mode\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}}\label{classSH__ApplicationCore_a5b51b2abe52d58a11a0a8bb2a95bdbd2}
+\subsubsection[{current\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::current\-Mode\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}}\label{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00015}{15} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00024}{24} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
-\hypertarget{classSH__ApplicationCore_afe36b3fd891c706ff1458b2eb7d46c5f}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!current\-User@{current\-User}}
+\hypertarget{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!current\-User@{current\-User}}
 \index{current\-User@{current\-User}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{current\-User}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-\-User} S\-H\-\_\-\-Application\-Core\-::current\-User\hspace{0.3cm}{\ttfamily [read]}}}\label{classSH__ApplicationCore_afe36b3fd891c706ff1458b2eb7d46c5f}
+\subsubsection[{current\-User}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::current\-User\hspace{0.3cm}{\ttfamily [read]}}}\label{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00014}{14} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00019}{19} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 

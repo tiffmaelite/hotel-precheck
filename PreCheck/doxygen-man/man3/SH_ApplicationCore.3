@@ -3,6 +3,9 @@
 .nh
 .SH NAME
 SH_ApplicationCore \- 
+.PP
+Classe principale du coeur de l'application, avec laquelle communique l'interface graphique\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -16,6 +19,7 @@ Est dérivée de \fBQObject\fP\&.
 .ti -1c
 .RI "enum \fBAppMode\fP { \fBCONNEXION\fP, \fBACCUEIL\fP, \fBRECEPTION\fP, \fBMANAGEMENT_X\fP, \fBMANAGEMENT_Z\fP, \fBADMINISTRATION\fP }"
 .br
+.RI "\fI\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::CONNEXION\fP \fP"
 .in -1c
 .SS "Connecteurs publics"
 
@@ -142,11 +146,25 @@ Est dérivée de \fBQObject\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 11 du fichier SH_ApplicationCore\&.h\&.
+Classe principale du coeur de l'application, avec laquelle communique l'interface graphique\&. 
+.PP
+Définition à la ligne 12 du fichier SH_ApplicationCore\&.h\&.
 .SH "Documentation des énumérations membres"
 .PP 
 .SS "enum \fBSH_ApplicationCore::AppMode\fP"
 
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::CONNEXION\fP Énumération des modes possibles de l'application\&.
+.PP
+Mode de l'application qui ne contient que le formulaire de connexion
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::ACCUEIL\fP Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès /*!  \fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::RECEPTION\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::MANAGEMENT_X\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::MANAGEMENT_Z\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable Z (lecture et modifications) du service
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::ADMINISTRATION\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un technicien en charge de paramétrer l'application ou de modifier ses données (comptes utilisateurs, chambres\&.\&.\&.) 
 .PP
 \fBValeurs énumérées\fP
 .in +1c
@@ -163,14 +181,21 @@ Définition à la ligne 11 du fichier SH_ApplicationCore\&.h\&.
 .TP
 \fB\fIADMINISTRATION \fP\fP
 .PP
-Définition à la ligne 25 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 57 du fichier SH_ApplicationCore\&.h\&.
 .PP
 .nf
-25 { CONNEXION, ACCUEIL, RECEPTION, MANAGEMENT_X, MANAGEMENT_Z, ADMINISTRATION };
+57 { CONNEXION, ACCUEIL, RECEPTION, MANAGEMENT_X, MANAGEMENT_Z, ADMINISTRATION };
 .fi
 .SH "Documentation des constructeurs et destructeur"
 .PP 
 .SS "SH_ApplicationCore::SH_ApplicationCore (\fBQObject\fP *parent = \fC0\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIparent\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 14 du fichier SH_ApplicationCore\&.cpp\&.
@@ -504,7 +529,7 @@ Références SH_User::isValid(), et m_currentUser\&.
 .PP
 m_currentFSM 
 .PP
-Définition à la ligne 233 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 268 du fichier SH_ApplicationCore\&.h\&.
 .PP
 Référencé par cancelReplacement(), cancelRunningThread(), connectRunningThread(), launchBillingsThread(), launchBillThread(), receiveConfirmation(), receiveInput(), receiveValidation(), et replaceInput()\&.
 .SS "\fBSH_User\fP* SH_ApplicationCore::m_currentUser\fC [private]\fP"
@@ -512,7 +537,7 @@ Référencé par cancelReplacement(), cancelRunningThread(), connectRunningThrea
 .PP
 m_currentUser 
 .PP
-Définition à la ligne 225 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 260 du fichier SH_ApplicationCore\&.h\&.
 .PP
 Référencé par init(), launchBillThread(), setMode(), setUser(), user(), et userLogOut()\&.
 .SS "\fBAppMode\fP SH_ApplicationCore::m_mode\fC [private]\fP"
@@ -520,19 +545,19 @@ Référencé par init(), launchBillThread(), setMode(), setUser(), user(), et us
 .PP
 m_mode 
 .PP
-Définition à la ligne 229 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 264 du fichier SH_ApplicationCore\&.h\&.
 .PP
 Référencé par mode(), et setMode()\&.
 .SH "Documentation des propriétés"
 .PP 
-.SS "\fBAppMode\fP SH_ApplicationCore::currentMode\fC [read]\fP, \fC [write]\fP"
+.SS "SH_ApplicationCore::currentMode\fC [read]\fP, \fC [write]\fP"
 
 .PP
-Définition à la ligne 15 du fichier SH_ApplicationCore\&.h\&.
-.SS "\fBSH_User\fP SH_ApplicationCore::currentUser\fC [read]\fP"
+Définition à la ligne 24 du fichier SH_ApplicationCore\&.h\&.
+.SS "SH_ApplicationCore::currentUser\fC [read]\fP"
 
 .PP
-Définition à la ligne 14 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 19 du fichier SH_ApplicationCore\&.h\&.
 
 .SH "Auteur"
 .PP 
