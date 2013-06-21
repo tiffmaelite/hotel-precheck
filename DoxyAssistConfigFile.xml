@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The main tag provides the version (1.0 only for now). The type attribute
+     is not required, and defaults to "generic". To use a different project handler,
+     change its type. The "name" attribute defines the name of your configuration.
+     Note: you must define and use the "http://simply-life.net/doxyassist/project.xsd"
+     namespace for the XML file to be processed properly.  -->
+<DoxyAssist xmlns="http://simply-life.net/doxyassist/doxyassist.xsd"
+            xmlns:da="http://simply-life.net/doxyassist/doxyassist.xsd"
+            version="1.0" type="generic" name="PreCheck">
+  <!-- You can set global settings here. The doxyfile attribute defines the
+       Doxyfile to load by default. If none is given, or the template cannot be
+       loaded, the default Doxygen settings are used as base.
+
+       You can include any setting here, and it will be passed to Doxygen
+       (even if it is not a recognized setting). You can add as many as you like,
+       overriding the template or default Doxyfile.
+
+       The given template file will never be overwritten by Doxygen Assistant.
+       Instead the project specific version will be kept in memory and written
+       to Doxygen over a pipe.
+
+       Note that some settings are always overridden due to project definitions.
+       See the information near the projects for more information. Changing these
+       settings here will have no effect when using the Doxygen Assistant to
+       run Doxygen. -->
+  <doxygen doxyfile="/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/doc/DoxygenConfigFile" />
+
+  <!-- Settings for the Qt Help Collection to create. If not present, no
+       help collection will be created. See
+       http://doc.trolltech.com/assistant-custom-help-viewer.html for a
+       description of all settings; the inner configuration is copied directly
+       into the <assistant> section of the project file.
+
+       The collectionFile attribute contains the path to the collection file to
+       create (this file must be writable). Additionally provide the name for the
+       project file in the projectFile attribute. By default this is the same
+       as the collection file, with an extension of "qhcp" instead of "qhc"
+
+       The storage attribute defines the subdirectory to place copies of Qt
+       Compressed Help files in. The copyAction attribute defaults to making
+       actual copies; this attribute can be set to "copy", "move" and "symlink".
+  -->
+  <qtHelp collectionFile="/path/to/helpcollection.qhc"
+          projectFile="/path/to/helpcollection.qhcp"
+          storage="qch" copyAction="copy">
+    <title>PreCheck Help</title>
+    <startPage>qthelp://org.SimplHotel.PreCheck.0_3_0/doc/index.html</startPage>
+    <!-- See http://doc.trolltech.com/assistant-custom-help-viewer.html for more
+         settings in the <assistant> section. -->
+  </qtHelp>
+  <!-- Start a list of projects -->
+  <projects>
+    <!-- A project contains information about one Doxygen run, as well as
+         as well as subprojects. It can have its completely own Doxygen
+         configuration.
+
+         Various settings are determined by the Doxygen Assistant; they will
+         always override the Doxyfile settings. All values are by default inherited
+         from the parent project, or empty if there is nothing to inherit from,
+         unless noted otherwise. Note that even if a value is empty, this will
+         override the Doxyfile settings. The following Doxyfile settings are
+         overridden:
+         - PROJECT_NAME
+         - PROJECT_VERSION
+         - INPUT
+         - EXCLUDE
+         - OUTPUT_DIRECTORY
+         - WARN_LOGFILE
+         - DOCSET_BUNDLE_ID
+         - QCH_FILE
+         - QHP_NAMESPACE
+         - QHP_CUST_FILTER_NAME
+         - QHP_CUST_FILTER_ATTRS
+         - QHP_SECT_FILTER_ATTRS
+    -->
+    <project>
+      <!-- The name of the project -->
+      <name>PreCheck</name>
+      <!-- The version number of the documentation -->
+      <version>0.3</version>
+      <!-- Whether to build version specific documentation for the projects or not.
+         Note that if this is set, Qt Help filters may become invalid when newer
+         versions of the documentation are built. Due to user-specific settings,
+         it may be necessary to remove the user specific cache files to reset
+         the filters. It does however allow you to keep documentation of multiple
+         versions next to each other. Default value is false.
+
+         Note that regardless of this setting, the version is still used in the
+         PROJECT_NUMBER setting, as well as the PROJECT_NAME of subprojects -->
+      <versionSpecific>false</versionSpecific>
+      <!-- Full path to the directory with documented source code. You can add
+           multiple input lines if you need to add multiple locations.
+
+           If you want documentation of subprojects to be explicitly included as well,
+           you must list the EXACT same input directories in the parent; this
+           will prevent the directories from being excluded. -->
+      <input>/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src</input>
+      <!-- A list of files/paths to exclude. Add one <exclude> tag per path to
+           exclude. This will automatically be expanded to exclude input directories
+           of subprojects, and prevent mangled documentation. -->
+      <!--<exclude></exclude>-->
+      <!-- Directory to store Doxygen output for this project. Note that within
+           this directory, a subdirectory is created based on the project name.
+           Additionally, if the <versionspecific> setting has a value of true,
+           another subdirectory based on the version number will be created (e.g.
+           "/path/to/my-application/out/my-application/1.0". -->
+      <output>/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/doc</output>
+      <!-- The directory where error and log files will be stored. Log and error
+           files will be named "my-application.1-0.log" and
+           "my-application.1-0-error.log" respectively. -->
+      <logDirectory>/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/doc/doclog</logDirectory>
+      <!-- Optional base namespace for this application. This is prefixed to the
+           normalized project name and version number (if version specific is set).
+           The full namespace would now become "com.mycompany.my-application.1-0"
+           in this example. -->
+      <!--<namespace></namespace>-->
+
+    </project>
+    <!-- And you can even add more top level projects to collect. -->
+  </projects>
+</DoxyAssist>
