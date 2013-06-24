@@ -53,23 +53,23 @@
 00051     \}
 00052     onSelected: \{
 00053         console.log(\textcolor{stringliteral}{"selection: "}+selectedItem);
-00054         SH\_App.receiveInput(selectedItem);
+00054         App.receiveInput(selectedItem);
 00055     \}
 00056     onCancelProcess: \{
-00057         SH\_App.cancelRunningThread();
+00057         App.cancelRunningThread();
 00058         console.log(\textcolor{stringliteral}{"processus interrompu"});
 00059     \}
 00060     onValidate: \{
-00061         SH\_App.receiveValidation();
+00061         App.receiveValidation();
 00062     \}
 00063     onConfirm: \{
-00064         SH\_App.receiveConfirmation();
+00064         App.receiveConfirmation();
 00065     \}
 00066     onReplace: \{
-00067         SH\_App.replaceInput(field);
+00067         App.replaceInput(field);
 00068     \}
 00069     onCancelReplace: \{
-00070         SH\_App.cancelReplacement();
+00070         App.cancelReplacement();
 00071     \}
 00072 
 00073     onKeySelected: \{
@@ -328,20 +328,20 @@
 00320         \textcolor{keywordtype}{id}: escapeAction
 00321         text: qsTr(\textcolor{stringliteral}{"ÉCHAP"})
 00322         keyShortcut: Qt.Key\_Escape
-00323         onTriggered: \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_a500427619a33ea991ed173fa0ac3b446}{cancelProcess}()
+00323         onTriggered: commonPage.cancelProcess()
 00324     \}
 00325     SH\_ComplexAction \{
 00326         \textcolor{keywordtype}{id}: enterAction
 00327         text: qsTr(\textcolor{stringliteral}{"ENTRÉE"})
 00328         keyShortcut: Qt.Key\_Enter
-00329         onTriggered: \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_af59ae18e73706e3622c000c2005d9550}{streamBuffer}.clearBuffer();
+00329         onTriggered: commonPage.streamBuffer.clearBuffer();
 00330     \}
 00331     SH\_ComplexAction \{
 00332         \textcolor{keywordtype}{id}: confirmAction
 00333         text: qsTr(\textcolor{stringliteral}{"CONFIRMER"})
 00334         keyShortcut: Qt.Key\_Return
 00335         onTriggered: \{
-00336             \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_a66387106e42e843b3fd3ffbbcabbb8eb}{confirm}();
+00336             commonPage.confirm();
 00337         \}
 00338     \}
 00339     SH\_ComplexAction \{
@@ -349,8 +349,8 @@
 00341         text: qsTr(\textcolor{stringliteral}{"QUITTER"})
 00342         keyShortcut: Qt.Key\_unknown
 00343         onTriggered: \{
-00344             \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_a500427619a33ea991ed173fa0ac3b446}{cancelProcess}();
-00345             \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_a5b15093af63a454ca459407ba1283038}{quit}();
+00344             commonPage.cancelProcess();
+00345             commonPage.quit();
 00346         \}
 00347     \}
 00348     SH\_ComplexAction \{
@@ -778,10 +778,9 @@
 00770     \}
 00771     SH\_ComplexAction \{
 00772         \textcolor{keywordtype}{id}: capsAction
-00773         text: qsTr(\textcolor{stringliteral}{"MAJ."})
+00773         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"min."}) : qsTr(\textcolor{stringliteral}{"MAJ."})
 00774         keyShortcut: Qt.Key\_CapsLock
-00775         onTriggered: \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_af59ae18e73706e3622c000c2005d9550}{streamBuffer}.upperCase = !
-      \hyperlink{classSH__CommonPage}{SH\_CommonPage}.\hyperlink{classSH__CommonPage_af59ae18e73706e3622c000c2005d9550}{streamBuffer}.upperCase;
+00775         onTriggered: commonPage.streamBuffer.upperCase = !commonPage.streamBuffer.upperCase;
 00776     \}
 00777     SH\_ComplexAction \{
 00778         \textcolor{keywordtype}{id}: dotAction

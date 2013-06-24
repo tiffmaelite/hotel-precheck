@@ -13,13 +13,13 @@
 00011 \{
 00012 \}
 00013 
-\hypertarget{SH__AdaptDatabaseState_8cpp_source_l00018}{}\hyperlink{classSH__AdaptDatabaseState_ab010e64da052db416328d3bcb9ca01d4}{00018} QVariant \hyperlink{classSH__AdaptDatabaseState_ab010e64da052db416328d3bcb9ca01d4}{SH\_AdaptDatabaseState::insertUpdate}(QString table, QVariantMap 
+\hypertarget{SH__AdaptDatabaseState_8cpp_source_l00018}{}\hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{00018} QVariant \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{SH\_AdaptDatabaseState::insertUpdate}(QString table, QVariantMap 
       content)
 00019 \{
-00020     QVariant \textcolor{keywordtype}{id} = \hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{SH\_DatabaseManager::getInstance}()->
-      \hyperlink{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}{execInsertReturningQuery}(table, content, \textcolor{stringliteral}{"id"});
+00020     QVariant \textcolor{keywordtype}{id} = \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+      \hyperlink{classSH__DatabaseManager_a55268fae16792142072af49238f7bb94}{execInsertReturningQuery}(table, content, \textcolor{stringliteral}{"id"});
 00021     \textcolor{keywordflow}{if}(\textcolor{keywordtype}{id}.isValid()) \{
-00022         emit \hyperlink{classSH__GenericState_a030e67a872956135c52e6876d960a7b5}{next}();
+00022         emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
 00023     \}
 00024     \textcolor{keywordflow}{return} id;
 00025 \}

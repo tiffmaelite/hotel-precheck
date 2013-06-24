@@ -6,7 +6,7 @@ digraph "SH_NamedObject"
   node [fontname="Verdana",fontsize="11",shape=record];
   Node1 [label="{SH_NamedObject\n|- m_name\l- m_ptraddress\l|+ SH_NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
   Node1 -> Node2 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal"];
-  Node2 [label="{SH_GenericState\n||+ SH_GenericState()\l+ toString()\l# onEntry()\l# onExit()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
+  Node2 [label="{SH_GenericState\n|- m_isRunning\l|+ SH_GenericState()\l+ isRunning()\l+ toString()\l# onEntry()\l# onExit()\l- emitGoNext()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
   Node3 [label="{SH_AdaptDatabaseState\n||+ SH_AdaptDatabaseState()\l+ insertUpdate()\l}",height=0.2,width=0.4,color="black",URL="$classSH__AdaptDatabaseState.html"];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
@@ -36,15 +36,17 @@ digraph "SH_NamedObject"
   Node2 -> Node16 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
   Node16 [label="{SH_PrintingState\n||+ SH_PrintingState()\l}",height=0.2,width=0.4,color="black",URL="$classSH__PrintingState.html"];
   Node1 -> Node17 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal"];
-  Node17 [label="{SH_InOutStateMachine\n|# m_ioContent\l# m_ioStatesHistory\l# m_tableName\l|+ SH_InOutStateMachine()\l+ getContentValue()\l+ historyValue()\l+ ioContent()\l+ setIOcontent()\l+ setIOStateHistory()\l+ setTableName()\l+ tableName()\l+ toString()\l+ addChildrenNextTransition()\l+ addIOState()\l+ addIOStateMachine()\l+ setContentValue()\l# ioStatesHistory()\l- setIOStatesHistory()\l}",height=0.2,width=0.4,color="black",URL="$classSH__InOutStateMachine.html"];
+  Node17 [label="{SH_GenericStateMachine\n|- m_isRunning\l|+ SH_GenericStateMachine()\l+ addChildrenNextTransition()\l+ isRunning()\l+ toString()\l# onEntry()\l# onExit()\l# emitGoNext()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericStateMachine.html"];
   Node17 -> Node18 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
-  Node18 [label="{SH_AddressCreationStateMachine\n||+ SH_AddressCreationStateMachine()\l}",height=0.2,width=0.4,color="black",URL="$classSH__AddressCreationStateMachine.html",tooltip="The SH_AddressCreationStateMachine class. "];
-  Node17 -> Node19 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
-  Node19 [label="{SH_BillingCreationStateMachine\n||+ SH_BillingCreationStateMachine()\l}",height=0.2,width=0.4,color="black",URL="$classSH__BillingCreationStateMachine.html",tooltip="The SH_BillingCreationStateMachine class. "];
-  Node17 -> Node20 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
-  Node20 [label="{SH_ClientCreationStateMachine\n||+ SH_ClientCreationStateMachine()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ClientCreationStateMachine.html",tooltip="The SH_ClientCreationStateMachine class. "];
-  Node17 -> Node21 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
-  Node21 [label="{Sh_LoopingInOutStateMachine\n|+ limit\l- m_contents\l- m_current\l- m_limit\l- m_persistentContent\l|+ Sh_LoopingInOutStateMachine()\l+ addChildrenNextTransition()\l+ current()\l+ limit()\l+ setCurrent()\l+ setLimit()\l+ setPersistentContentValue()\l+ stopLooping()\l}",height=0.2,width=0.4,color="black",URL="$classSh__LoopingInOutStateMachine.html"];
-  Node21 -> Node22 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
-  Node22 [label="{SH_ServiceCharging\n|- m_priceMin\l- m_vat\l|+ SH_ServiceCharging()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ServiceCharging.html",tooltip="The SH_ServiceCharging class. "];
+  Node18 [label="{SH_InOutStateMachine\n|# m_ioContent\l# m_ioStatesHistory\l# m_tableName\l- m_errorState\l- m_isRunning\l|+ SH_InOutStateMachine()\l+ getContentValue()\l+ historyValue()\l+ ioContent()\l+ setIOcontent()\l+ setIOStateHistory()\l+ setTableName()\l+ tableName()\l+ addChildrenNextTransition()\l+ addChildrenReplaceTransition()\l+ addIOState()\l+ addIOStateMachine()\l+ setContentValue()\l# ioStatesHistory()\l# isERunning()\l- setIOStatesHistory()\l}",height=0.2,width=0.4,color="black",URL="$classSH__InOutStateMachine.html"];
+  Node18 -> Node19 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node19 [label="{SH_AddressCreationStateMachine\n||+ SH_AddressCreationStateMachine()\l}",height=0.2,width=0.4,color="black",URL="$classSH__AddressCreationStateMachine.html",tooltip="La classe SH_AddressCreationStateMachine fournit une machine d&#39;états finis permettant la création d&#39;u..."];
+  Node18 -> Node20 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node20 [label="{SH_BillingCreationStateMachine\n||+ SH_BillingCreationStateMachine()\l}",height=0.2,width=0.4,color="black",URL="$classSH__BillingCreationStateMachine.html",tooltip="The SH_BillingCreationStateMachine class. "];
+  Node18 -> Node21 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node21 [label="{SH_ClientCreationStateMachine\n||+ SH_ClientCreationStateMachine()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ClientCreationStateMachine.html",tooltip="The SH_ClientCreationStateMachine class. "];
+  Node18 -> Node22 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node22 [label="{SH_LoopingInOutStateMachine\n|+ limit\l- m_contents\l- m_current\l- m_limit\l- m_persistentContent\l|+ SH_LoopingInOutStateMachine()\l+ addChildrenNextTransition()\l+ current()\l+ limit()\l+ setCurrent()\l+ setLimit()\l+ setPersistentContentValue()\l+ stopLooping()\l}",height=0.2,width=0.4,color="black",URL="$classSH__LoopingInOutStateMachine.html"];
+  Node22 -> Node23 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
+  Node23 [label="{SH_ServiceCharging\n|- m_priceMin\l- m_vat\l|+ SH_ServiceCharging()\l}",height=0.2,width=0.4,color="black",URL="$classSH__ServiceCharging.html",tooltip="The SH_ServiceCharging class. "];
 }

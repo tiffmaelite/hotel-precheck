@@ -1,0 +1,21 @@
+digraph "SH_ApplicationCore::launchBillingsThread"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_ApplicationCore\l::launchBillingsThread",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 [label="SH_ApplicationCore\l::connectRunningThread",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a264c6e0c0c2e25a36a2502d1d9bcb109"];
+  Node2 -> Node3 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node3 [label="SH_GenericStateMachine\l::isRunning",height=0.2,width=0.4,color="black",URL="$classSH__GenericStateMachine.html#a7e650d582a4c1b8cf2869fb5873b36a9"];
+  Node1 -> Node4 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node4 [label="SH_GenericStateMachine\l::toString",height=0.2,width=0.4,color="black",URL="$classSH__GenericStateMachine.html#a85c0c1c9d258ae991f84667412fa47cd"];
+  Node4 -> Node5 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node5 [label="SH_NamedObject::toString",height=0.2,width=0.4,color="black",URL="$classSH__NamedObject.html#a9f4b19df6a96a17daaf1060b3019ef47"];
+  Node4 -> Node6 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node6 [label="SH_GenericState::toString",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html#a7779babbb40f3f8faa71112204d9804f"];
+  Node6 -> Node4 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node6 -> Node5 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+}

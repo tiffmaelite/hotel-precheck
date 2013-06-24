@@ -1,4 +1,4 @@
-.TH "SH_AdaptDatabaseState" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_AdaptDatabaseState" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,6 +14,9 @@ Est dérivée de \fBSH_GenericState\fP\&.
 
 .in +1c
 .ti -1c
+.RI "void \fBgoNext\fP ()"
+.br
+.ti -1c
 .RI "void \fBnext\fP ()"
 .br
 .in -1c
@@ -25,6 +28,10 @@ Est dérivée de \fBSH_GenericState\fP\&.
 .br
 .ti -1c
 .RI "QVariant \fBinsertUpdate\fP (QString table, QVariantMap content)"
+.br
+.RI "\fIEnregistre dans la base de données les valeurs données\&. \fP"
+.ti -1c
+.RI "bool \fBisRunning\fP ()"
 .br
 .ti -1c
 .RI "QString \fBtoString\fP ()"
@@ -42,11 +49,11 @@ Est dérivée de \fBSH_GenericState\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 9 du fichier SH_AdaptDatabaseState\&.h\&.
+Définition à la ligne 10 du fichier SH_AdaptDatabaseState\&.h\&.
 .SH "Documentation des constructeurs et destructeur"
 .PP 
 .SS "SH_AdaptDatabaseState::SH_AdaptDatabaseState (QStringname, \fBQState\fP *parent = \fC0\fP)"
-
+Construit une instance de la classe \fBSH_AdaptDatabaseState\fP 
 .PP
 Définition à la ligne 9 du fichier SH_AdaptDatabaseState\&.cpp\&.
 .PP
@@ -58,79 +65,145 @@ Définition à la ligne 9 du fichier SH_AdaptDatabaseState\&.cpp\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "QVariant SH_AdaptDatabaseState::insertUpdate (QStringtable, QVariantMapcontent)"
+.SS "SH_GenericState::goNext ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericState::SH_GenericState(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+.SS "SH_AdaptDatabaseState::insertUpdate (QStringtable, QVariantMapcontent)"
+
+.PP
+Enregistre dans la base de données les valeurs données\&. Enregistre dans la base de données les valeurs données, sous forme d'une insertion ou d'une mise à jour, selon le besoin
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItable\fP Le nom de la table à modifier 
+.br
+\fIcontent\fP Le contenu à enregistrer, sous la forme d'une \fIQVariantMap\fP associant les champs de la table aux valeurs à insérer/modifier 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool Retourne \fItrue\fP si l'enregistrement a réussi, \fIfalse\fP sinon 
+.RE
+.PP
 
 .PP
 Définition à la ligne 18 du fichier SH_AdaptDatabaseState\&.cpp\&.
 .PP
-Références SH_DatabaseManager::execInsertReturningQuery(), SH_DatabaseManager::getInstance(), et SH_GenericState::next()\&.
+Références SH_DatabaseManager::execInsertReturningQuery(), SH_DatabaseManager::getInstance(), et SH_GenericState::goNext()\&.
 .PP
-Référencé par Sh_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+Référencé par SH_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
 .PP
 .nf
 19 {
 20     QVariant id = SH_DatabaseManager::getInstance()->execInsertReturningQuery(table, content, "id");
 21     if(id\&.isValid()) {
-22         emit next();
+22         emit goNext();
 23     }
 24     return id;
 25 }
 .fi
-.SS "void SH_GenericState::next ()\fC [signal]\fP, \fC [inherited]\fP"
+.SS "SH_GenericState::isRunning ()\fC [inherited]\fP"
 
 .PP
-Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_ServiceCharging::SH_ServiceCharging()\&.
-.SS "void SH_GenericState::onEntry (QEvent *event)\fC [protected]\fP, \fC [inherited]\fP"
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
-Définition à la ligne 62 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 92 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_NamedObject::name()\&.
+Références SH_GenericState::m_isRunning\&.
+.PP
+Référencé par SH_InOutStateMachine::addChildrenReplaceTransition(), SH_InOutState::display(), SH_GenericState::emitGoNext(), SH_InOutState::setInput(), SH_InOutState::setOutput(), et SH_InOutState::setVisibility()\&.
+.PP
+.nf
+93 {
+94     return m_isRunning;
+95 }
+.fi
+.SS "SH_GenericState::next ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SH_GenericState::emitGoNext()\&.
+.SS "SH_GenericState::onEntry (QEvent *event)\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIevent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 71 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SH_GenericState::m_isRunning, et SH_NamedObject::name()\&.
 .PP
 Référencé par SH_StatementState::onEntry()\&.
 .PP
 .nf
-63 {
-64     Q_UNUSED(event);
-65     qDebug() << "Machine: " << machine()->objectName() << " entered " << name();
-66 }
+72 {
+73     Q_UNUSED(event);
+74     m_isRunning = true;
+75     this->blockSignals(!m_isRunning);
+76     qDebug() << "Machine: " << machine()->objectName() << " entered " << name();
+77 }
 .fi
-.SS "void SH_GenericState::onExit (QEvent *event)\fC [protected]\fP, \fC [inherited]\fP"
+.SS "SH_GenericState::onExit (QEvent *event)\fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
-Définition à la ligne 73 du fichier SH_GenericDebugableState\&.cpp\&.
+\fBParamètres:\fP
+.RS 4
+\fIevent\fP 
+.RE
 .PP
-Références SH_NamedObject::name()\&.
+
+.PP
+Définition à la ligne 84 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SH_GenericState::m_isRunning, et SH_NamedObject::name()\&.
 .PP
 Référencé par SH_InOutState::onExit()\&.
 .PP
 .nf
-74 {
-75     Q_UNUSED(event);
-76     qDebug() << "Machine: " << machine()->objectName() << " exited  " << name();
-77 }
+85 {
+86     Q_UNUSED(event);
+87     m_isRunning = false;
+88     this->blockSignals(!m_isRunning);
+89     qDebug() << "Machine: " << machine()->objectName() << " exited  " << name();
+90 }
 .fi
-.SS "QString SH_GenericState::toString ()\fC [virtual]\fP, \fC [inherited]\fP"
+.SS "SH_GenericState::toString ()\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Réimplémentée à partir de \fBSH_NamedObject\fP\&.
 .PP
-Définition à la ligne 21 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 22 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_NamedObject::toString(), et SH_InOutStateMachine::toString()\&.
+Références SH_GenericStateMachine::toString(), et SH_NamedObject::toString()\&.
 .PP
-Référencé par SH_InOutStateMachine::addChildrenNextTransition(), SH_DateQuestionState::rawInput(), et SH_InOutStateMachine::toString()\&.
+Référencé par SH_GenericStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOState(), SH_DateQuestionState::rawInput(), et SH_GenericStateMachine::toString()\&.
 .PP
 .nf
-22 {
-23     QStateMachine* machine = this->machine();
-24     SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
-25     if(mach) {
-26         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
-27     } else {
-28         return SH_NamedObject::toString();
-29     }
-30 }
+23 {
+24     QStateMachine* machine = this->machine();
+25     SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
+26     if(mach) {
+27         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
+28     } else {
+29         return SH_NamedObject::toString();
+30     }
+31 }
 .fi
 
 

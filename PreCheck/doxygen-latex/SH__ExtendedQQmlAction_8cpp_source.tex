@@ -19,17 +19,17 @@
 00019 
 \hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00025}{}\hyperlink{classSH__ExtendedQQmlAction_a03c5eae20747d7a8b444c7939d2ab262}{00025} \hyperlink{classSH__ExtendedQQmlAction_a03c5eae20747d7a8b444c7939d2ab262}{SH\_ExtendedQQmlAction::~SH\_ExtendedQQmlAction}()
 00026 \{
-00027     \hyperlink{classSH__ExtendedQQmlAction_a009073e1d5001219d34c0cd22a9e9a09}{setKeyShortcut}(Qt::Key\_unknown);
-00028     \hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{setMnemonicFromText}(QString());
+00027     \hyperlink{classSH__ExtendedQQmlAction_aef8b6648357a2ea81a477e134ca885fa}{setKeyShortcut}(Qt::Key\_unknown);
+00028     \hyperlink{classSH__ExtendedQQmlAction_a717e828cb0341e3d77eabe05e6143032}{setMnemonicFromText}(QString());
 00029 \}
 00030 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00036}{}\hyperlink{classSH__ExtendedQQmlAction_af0b32d40b7195ad38b0348cec6dd7c70}{00036} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_af0b32d40b7195ad38b0348cec6dd7c70}{SH\_ExtendedQQmlAction::setText}(\textcolor{keyword}{const} QString &text)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00036}{}\hyperlink{classSH__ExtendedQQmlAction_a2071b7b2ea7583a21553b28b4be814ef}{00036} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a2071b7b2ea7583a21553b28b4be814ef}{SH\_ExtendedQQmlAction::setText}(\textcolor{keyword}{const} QString &text)
 00037 \{
 00038     \textcolor{keywordflow}{if} (text == \hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text})
 00039         \textcolor{keywordflow}{return};
 00040     \hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text} = \hyperlink{classSH__ExtendedQQmlAction_a827915b0ce23a1af60d9aaaf7d052447}{text};
-00041     \hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{setMnemonicFromText}(\hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text});
-00042     emit \hyperlink{classSH__ExtendedQQmlAction_ad92aa9cd574579e12923d27c5e131429}{textChanged}();
+00041     \hyperlink{classSH__ExtendedQQmlAction_a717e828cb0341e3d77eabe05e6143032}{setMnemonicFromText}(\hyperlink{classSH__ExtendedQQmlAction_a8fd83c5e68691a582fa7e0c62d661c71}{m\_text});
+00042     emit \hyperlink{classSH__ExtendedQQmlAction_af07f0daeecec4f12d65bf084e83cc305}{textChanged}();
 00043 \}
 00044 
 \hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00050}{}\hyperlink{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{00050} \textcolor{keywordtype}{bool} \hyperlink{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{qShortcutContextMatcher}(\hyperlink{classQObject}{QObject} *o, Qt::ShortcutContext context)
@@ -55,7 +55,7 @@
 00070     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
 00071 \}
 00072 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00078}{}\hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{00078} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{SH\_ExtendedQQmlAction::setKeySequence}(\textcolor{keyword}{const} QKeySequence &
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00078}{}\hyperlink{classSH__ExtendedQQmlAction_a7d624821268cc19aa44bcda3cd85b967}{00078} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a7d624821268cc19aa44bcda3cd85b967}{SH\_ExtendedQQmlAction::setKeySequence}(\textcolor{keyword}{const} QKeySequence &
       sequence) \{
 00079     \textcolor{keywordflow}{if} (sequence == \hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut})
 00080         \textcolor{keywordflow}{return};
@@ -70,12 +70,12 @@
 00089         \textcolor{comment}{/*QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m\_shortcut, context,
        qShortcutContextMatcher);*/}
 00090     \}
-00091     emit \hyperlink{classSH__ExtendedQQmlAction_a4102c2ecaadd0d5f8ac2586763de2eb8}{shortcutChanged}(\hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{shortcut}());
+00091     emit \hyperlink{classSH__ExtendedQQmlAction_a2db5d52edf0a362a13971ebc04b870c1}{shortcutChanged}(\hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{shortcut}());
 00092 \}
 00093 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00099}{}\hyperlink{classSH__ExtendedQQmlAction_a009073e1d5001219d34c0cd22a9e9a09}{00099} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a009073e1d5001219d34c0cd22a9e9a09}{SH\_ExtendedQQmlAction::setKeyShortcut}(\textcolor{keyword}{const} Qt::Key &shortcut)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00099}{}\hyperlink{classSH__ExtendedQQmlAction_aef8b6648357a2ea81a477e134ca885fa}{00099} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_aef8b6648357a2ea81a477e134ca885fa}{SH\_ExtendedQQmlAction::setKeyShortcut}(\textcolor{keyword}{const} Qt::Key &shortcut)
 00100 \{
-00101     \hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{setKeySequence}(QKeySequence(shortcut));
+00101     \hyperlink{classSH__ExtendedQQmlAction_a7d624821268cc19aa44bcda3cd85b967}{setKeySequence}(QKeySequence(shortcut));
 00102 \}
 00103 
 00109 QString \hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{SH\_ExtendedQQmlAction::shortcut}()\textcolor{keyword}{ const}
@@ -83,15 +83,15 @@
 00111     \textcolor{keywordflow}{return} \hyperlink{classSH__ExtendedQQmlAction_ac84d3a2113efb715321b905580b08bc5}{m\_shortcut}.toString(QKeySequence::NativeText);
 00112 \}
 00113 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00119}{}\hyperlink{classSH__ExtendedQQmlAction_a2153c886f7663d5a714c354a05c8b855}{00119} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a2153c886f7663d5a714c354a05c8b855}{SH\_ExtendedQQmlAction::setShortcut}(\textcolor{keyword}{const} QString &arg)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00119}{}\hyperlink{classSH__ExtendedQQmlAction_a3e731c850a34194354e6e043dc249a39}{00119} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a3e731c850a34194354e6e043dc249a39}{SH\_ExtendedQQmlAction::setShortcut}(\textcolor{keyword}{const} QString &arg)
 00120 \{
 00121     \textcolor{keywordflow}{if}(\hyperlink{classSH__ExtendedQQmlAction_a070cac95bfc43b184ca1f0a75592877b}{shortcut}() == arg)
 00122         \textcolor{keywordflow}{return};
 00123 
-00124     \hyperlink{classSH__ExtendedQQmlAction_a33a3ff960a56b08d97afd9ed5351cf68}{setKeySequence}(QKeySequence::fromString(arg));
+00124     \hyperlink{classSH__ExtendedQQmlAction_a7d624821268cc19aa44bcda3cd85b967}{setKeySequence}(QKeySequence::fromString(arg));
 00125 \}
 00126 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00132}{}\hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{00132} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_ae2ef95196ee3b14e505f0d028e60b8d8}{SH\_ExtendedQQmlAction::setMnemonicFromText}(\textcolor{keyword}{const} QString &
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00132}{}\hyperlink{classSH__ExtendedQQmlAction_a717e828cb0341e3d77eabe05e6143032}{00132} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a717e828cb0341e3d77eabe05e6143032}{SH\_ExtendedQQmlAction::setMnemonicFromText}(\textcolor{keyword}{const} QString &
       text)
 00133 \{
 00134     QKeySequence sequence = QKeySequence::mnemonic(text);
@@ -110,7 +110,7 @@
 00146     \}
 00147 \}
 00148 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00154}{}\hyperlink{classSH__ExtendedQQmlAction_a703b29eb866cdc4d739e3f22ada92fb6}{00154} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a703b29eb866cdc4d739e3f22ada92fb6}{SH\_ExtendedQQmlAction::setIconSource}(\textcolor{keyword}{const} QUrl &iconSource)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00154}{}\hyperlink{classSH__ExtendedQQmlAction_ae34fe314ba335d65d99932b27f1404f7}{00154} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_ae34fe314ba335d65d99932b27f1404f7}{SH\_ExtendedQQmlAction::setIconSource}(\textcolor{keyword}{const} QUrl &iconSource)
 00155 \{
 00156     \textcolor{keywordflow}{if} (iconSource == \hyperlink{classSH__ExtendedQQmlAction_a61c8633eab1fa3b69752074220e785fc}{m\_iconSource})
 00157         \textcolor{keywordflow}{return};
@@ -120,9 +120,9 @@
 00161         QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
 00162         \hyperlink{classSH__ExtendedQQmlAction_a4386f56e28c2c70cfedd16c1d8c2c4a4}{m\_icon} = QIcon(fileString);
 00163 
-00164         emit \hyperlink{classSH__ExtendedQQmlAction_ac47156b58d63ae5408e8d06b3669005c}{iconChanged}();
+00164         emit \hyperlink{classSH__ExtendedQQmlAction_adb8e4632768121ebabc5a402f6307c8d}{iconChanged}();
 00165     \}
-00166     emit \hyperlink{classSH__ExtendedQQmlAction_a86d7d90947e9dcd0d80faba2734f580e}{iconSourceChanged}();
+00166     emit \hyperlink{classSH__ExtendedQQmlAction_a9f174f4cba5993805b89c2b310f0c5dc}{iconSourceChanged}();
 00167 \}
 00168 
 00174 QString \hyperlink{classSH__ExtendedQQmlAction_afaa301943c53a8689ec5447560ffc97f}{SH\_ExtendedQQmlAction::iconName}()\textcolor{keyword}{ const}
@@ -130,36 +130,36 @@
 00176     \textcolor{keywordflow}{return} \hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName};
 00177 \}
 00178 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00184}{}\hyperlink{classSH__ExtendedQQmlAction_abf2bb83a227c27c4d71f1b2670dcb3b4}{00184} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_abf2bb83a227c27c4d71f1b2670dcb3b4}{SH\_ExtendedQQmlAction::setIconName}(\textcolor{keyword}{const} QString &iconName)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00184}{}\hyperlink{classSH__ExtendedQQmlAction_a348526d65cd47b4ea6378e2a62065135}{00184} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a348526d65cd47b4ea6378e2a62065135}{SH\_ExtendedQQmlAction::setIconName}(\textcolor{keyword}{const} QString &iconName)
 00185 \{
 00186     \textcolor{keywordflow}{if} (iconName == \hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName})
 00187         \textcolor{keywordflow}{return};
 00188     \hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName} = \hyperlink{classSH__ExtendedQQmlAction_afaa301943c53a8689ec5447560ffc97f}{iconName};
 00189     \hyperlink{classSH__ExtendedQQmlAction_a4386f56e28c2c70cfedd16c1d8c2c4a4}{m\_icon} = QIcon::fromTheme(\hyperlink{classSH__ExtendedQQmlAction_a3375d1504e5ec862ed05500bf529d95c}{m\_iconName}, QIcon(QQmlFile::urlToLocalFileOrQrc(
       \hyperlink{classSH__ExtendedQQmlAction_a61c8633eab1fa3b69752074220e785fc}{m\_iconSource})));
-00190     emit \hyperlink{classSH__ExtendedQQmlAction_aa031ceaf4f89e9ead2986aa587764f0e}{iconNameChanged}();
-00191     emit \hyperlink{classSH__ExtendedQQmlAction_ac47156b58d63ae5408e8d06b3669005c}{iconChanged}();
+00190     emit \hyperlink{classSH__ExtendedQQmlAction_a32deffc45767f5c61949c445ca018156}{iconNameChanged}();
+00191     emit \hyperlink{classSH__ExtendedQQmlAction_adb8e4632768121ebabc5a402f6307c8d}{iconChanged}();
 00192 \}
 00193 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00199}{}\hyperlink{classSH__ExtendedQQmlAction_a2368d82145d8f268af41ee5cb6d540d4}{00199} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a2368d82145d8f268af41ee5cb6d540d4}{SH\_ExtendedQQmlAction::setTooltip}(\textcolor{keyword}{const} QString &arg)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00199}{}\hyperlink{classSH__ExtendedQQmlAction_a8c90255e9b7a957e82de4cae2226d3f8}{00199} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a8c90255e9b7a957e82de4cae2226d3f8}{SH\_ExtendedQQmlAction::setTooltip}(\textcolor{keyword}{const} QString &arg)
 00200 \{
 00201     \textcolor{keywordflow}{if} (\hyperlink{classSH__ExtendedQQmlAction_af04bb6a8446dcd4701a98fc667be693f}{m\_tooltip} != arg) \{
 00202         \hyperlink{classSH__ExtendedQQmlAction_af04bb6a8446dcd4701a98fc667be693f}{m\_tooltip} = arg;
-00203         emit \hyperlink{classSH__ExtendedQQmlAction_a4fefcbe12f99c7eccec7e15aa3585a37}{tooltipChanged}(arg);
+00203         emit \hyperlink{classSH__ExtendedQQmlAction_a79b7c4c9e03e3b18a16f1fc14a6e8342}{tooltipChanged}(arg);
 00204     \}
 00205 \}
 00206 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00212}{}\hyperlink{classSH__ExtendedQQmlAction_a29f12b5f71a384d860062ea7b8981aeb}{00212} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_a29f12b5f71a384d860062ea7b8981aeb}{SH\_ExtendedQQmlAction::setEnabled}(\textcolor{keywordtype}{bool} e)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00212}{}\hyperlink{classSH__ExtendedQQmlAction_aff39518e3dbf185d6b91f827521fa358}{00212} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_aff39518e3dbf185d6b91f827521fa358}{SH\_ExtendedQQmlAction::setEnabled}(\textcolor{keywordtype}{bool} e)
 00213 \{
 00214     \textcolor{keywordflow}{if} (e == \hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled})
 00215         \textcolor{keywordflow}{return};
 00216     \hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled} = e;
-00217     emit \hyperlink{classSH__ExtendedQQmlAction_a3304a346460b7abb04416b2c53090b1b}{enabledChanged}();
+00217     emit \hyperlink{classSH__ExtendedQQmlAction_aa4caaf211f7f26e0d670929b998efb97}{enabledChanged}();
 00218 \}
 00219 
 00220 
 00221 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00228}{}\hyperlink{classSH__ExtendedQQmlAction_a2067689e7c1e14a316ad6095e57d6cf6}{00228} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedQQmlAction_a2067689e7c1e14a316ad6095e57d6cf6}{SH\_ExtendedQQmlAction::event}(QEvent *e)
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00228}{}\hyperlink{classSH__ExtendedQQmlAction_a218053d85e9fc54e06ab39b1bb37dd4b}{00228} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedQQmlAction_a218053d85e9fc54e06ab39b1bb37dd4b}{SH\_ExtendedQQmlAction::event}(QEvent *e)
 00229 \{
 00230     \textcolor{keywordflow}{if} (!\hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled})
 00231         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
@@ -178,15 +178,15 @@
 00243         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
 00244     \}
 00245 
-00246     \hyperlink{classSH__ExtendedQQmlAction_adb355d9ce9bc1539651377427a264f34}{trigger}();
+00246     \hyperlink{classSH__ExtendedQQmlAction_abf79bb6cb923d27e2fc5dfc05ff513c2}{trigger}();
 00247 
 00248     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
 00249 \}
 00250 
-\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00256}{}\hyperlink{classSH__ExtendedQQmlAction_adb355d9ce9bc1539651377427a264f34}{00256} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_adb355d9ce9bc1539651377427a264f34}{SH\_ExtendedQQmlAction::trigger}()
+\hypertarget{SH__ExtendedQQmlAction_8cpp_source_l00256}{}\hyperlink{classSH__ExtendedQQmlAction_abf79bb6cb923d27e2fc5dfc05ff513c2}{00256} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedQQmlAction_abf79bb6cb923d27e2fc5dfc05ff513c2}{SH\_ExtendedQQmlAction::trigger}()
 00257 \{
 00258     \textcolor{keywordflow}{if} (!\hyperlink{classSH__ExtendedQQmlAction_ad93920806001da9e32b7b2a3d3d9213e}{m\_enabled})
 00259         \textcolor{keywordflow}{return};
-00260     emit \hyperlink{classSH__ExtendedQQmlAction_a36cdd406d8692f0277b50a61611bd52c}{triggered}();
+00260     emit \hyperlink{classSH__ExtendedQQmlAction_a94a8d72f8d53e12ded7db5b8f6ed6db0}{triggered}();
 00261 \}
 \end{DoxyCode}

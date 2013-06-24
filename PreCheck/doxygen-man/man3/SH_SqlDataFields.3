@@ -1,4 +1,4 @@
-.TH "SH_SqlDataFields" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_SqlDataFields" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -94,13 +94,6 @@ Définition à la ligne 12 du fichier SH_SqlDataField\&.h\&.
 .SS "SH_SqlDataFields::SH_SqlDataFields (\fBQQuickItem\fP *parent = \fC0\fP)\fC [explicit]\fP"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIparent\fP 
-.RE
-.PP
-
-.PP
 Définition à la ligne 8 du fichier SH_SqlDataField\&.cpp\&.
 .PP
 .nf
@@ -122,7 +115,7 @@ Références m_name\&.
 .nf
 42 { return m_name; }
 .fi
-.SS "void SH_SqlDataFields::nameChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataFields::nameChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setName()\&.
@@ -136,11 +129,18 @@ Références m_name\&.
 .nf
 49 { return QByteArray(m_name\&.toUpper()\&.toStdString()\&.c_str()); }
 .fi
-.SS "void SH_SqlDataFields::roleChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataFields::roleChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setName()\&.
-.SS "void SH_SqlDataFields::setName (QStringnewName)"
+.SS "SH_SqlDataFields::setName (QStringnewName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInewName\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 35 du fichier SH_SqlDataField\&.cpp\&.
@@ -161,7 +161,14 @@ Référencé par SH_SqlDataModel::fetch(), SH_SqlDataModel::setFields(), et setT
 44     emit roleChanged();
 45 }
 .fi
-.SS "void SH_SqlDataFields::setSortOrder (Qt::SortOrdernewSortOrder)"
+.SS "SH_SqlDataFields::setSortOrder (Qt::SortOrdernewSortOrder)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInewSortOrder\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 54 du fichier SH_SqlDataField\&.cpp\&.
@@ -176,7 +183,14 @@ Référencé par SH_BillingsTableModel::fillModel(), SH_BookingsTableModel::fill
 57     emit sortOrderChanged();
 58 }
 .fi
-.SS "void SH_SqlDataFields::setText (QStringnewText)"
+.SS "SH_SqlDataFields::setText (QStringnewText)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInewText\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 19 du fichier SH_SqlDataField\&.cpp\&.
@@ -205,7 +219,7 @@ Références m_sortOrder\&.
 .nf
 56 { return m_sortOrder; }
 .fi
-.SS "void SH_SqlDataFields::sortOrderChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataFields::sortOrderChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setSortOrder()\&.
@@ -219,7 +233,7 @@ Références m_text\&.
 .nf
 35 { return m_text; }
 .fi
-.SS "void SH_SqlDataFields::textChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataFields::textChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setText()\&.
@@ -251,23 +265,51 @@ Définition à la ligne 84 du fichier SH_SqlDataField\&.h\&.
 Référencé par setName(), setText(), et text()\&.
 .SH "Documentation des propriétés"
 .PP 
-.SS "QString SH_SqlDataFields::name\fC [read]\fP, \fC [write]\fP"
+.SS "SH_SqlDataFields::name\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 15 du fichier SH_SqlDataField\&.h\&.
 .PP
 Référencé par SH_SqlDataModel::fetch()\&.
-.SS "QByteArray SH_SqlDataFields::role\fC [read]\fP"
+.SS "SH_SqlDataFields::role\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QByteArray 
+.RE
+.PP
 
 .PP
 Définition à la ligne 17 du fichier SH_SqlDataField\&.h\&.
-.SS "Qt::SortOrder SH_SqlDataFields::sortOrder\fC [read]\fP, \fC [write]\fP"
+.SS "SH_SqlDataFields::sortOrder\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+Qt::SortOrder 
+.RE
+.PP
 
 .PP
 Définition à la ligne 18 du fichier SH_SqlDataField\&.h\&.
 .PP
 Référencé par SH_ExtendedProxyModel::setSortKeyColumn()\&.
-.SS "QString SH_SqlDataFields::text\fC [read]\fP, \fC [write]\fP"
+.SS "SH_SqlDataFields::text\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 16 du fichier SH_SqlDataField\&.h\&.

@@ -6,11 +6,13 @@ digraph "SH_PrintingState"
   node [fontname="Verdana",fontsize="11",shape=record];
   Node1 [label="{SH_PrintingState\n||+ SH_PrintingState()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
-  Node2 [label="{SH_GenericState\n||+ SH_GenericState()\l+ toString()\l# onEntry()\l# onExit()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
+  Node2 [label="{SH_GenericState\n||+ SH_GenericState()\l+ isRunning()\l+ toString()\l# onEntry()\l# onExit()\l- emitGoNext()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
   Node3 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
   Node3 [label="{QState\n||}",height=0.2,width=0.4,color="black",URL="$classQState.html"];
   Node4 -> Node2 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
   Node4 [label="{SH_NamedObject\n||+ SH_NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}",height=0.2,width=0.4,color="black",URL="$classSH__NamedObject.html"];
   Node5 -> Node4 [color="grey25",fontsize="11",style="solid",label=" -m_ptraddress\n-m_name" ,arrowhead="odiamond",fontname="Verdana"];
   Node5 [label="{QString\n||}",height=0.2,width=0.4,color="grey75"];
+  Node6 -> Node2 [color="grey25",fontsize="11",style="solid",label=" -m_isRunning" ,arrowhead="odiamond",fontname="Verdana"];
+  Node6 [label="{bool\n||}",height=0.2,width=0.4,color="grey75"];
 }

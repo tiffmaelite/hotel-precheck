@@ -7,38 +7,38 @@
 00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOOPINGSTATEMACHINE\_H}
 00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__IOStateMachine_8h}{SH\_IOStateMachine.h}"}
 00004 
-\hypertarget{SH__LoopingIOStateMachine_8h_source_l00010}{}\hyperlink{classSh__LoopingInOutStateMachine}{00010} \textcolor{keyword}{class }\hyperlink{classSh__LoopingInOutStateMachine}{Sh\_LoopingInOutStateMachine} : \textcolor{keyword}{public} 
+\hypertarget{SH__LoopingIOStateMachine_8h_source_l00010}{}\hyperlink{classSH__LoopingInOutStateMachine}{00010} \textcolor{keyword}{class }\hyperlink{classSH__LoopingInOutStateMachine}{SH\_LoopingInOutStateMachine} : \textcolor{keyword}{public} 
       \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}
 00011 \{
 00012     Q\_OBJECT
-\hypertarget{SH__LoopingIOStateMachine_8h_source_l00013}{}\hyperlink{classSh__LoopingInOutStateMachine_aea47cac4b5f895ba85604cdce1160ccd}{00013}     Q\_PROPERTY(\textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_ac44b7158256f09b878c8958cf3ae3bf8}{limit} READ \hyperlink{classSh__LoopingInOutStateMachine_ac44b7158256f09b878c8958cf3ae3bf8}{limit} WRITE \hyperlink{classSh__LoopingInOutStateMachine_ab5e9ac94cbd9a47a45dcb50e777c398b}{setLimit} NOTIFY 
-      \hyperlink{classSh__LoopingInOutStateMachine_a5b65ad7a49294022ff781c71c4702157}{limitChanged})
+\hypertarget{SH__LoopingIOStateMachine_8h_source_l00013}{}\hyperlink{classSH__LoopingInOutStateMachine_a7b61682544bd06b52020df3e0d801d21}{00013}     Q\_PROPERTY(\textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit} READ \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit} WRITE \hyperlink{classSH__LoopingInOutStateMachine_a6dbf2fbcc6524bba5a70baadb8d61be4}{setLimit} NOTIFY 
+      \hyperlink{classSH__LoopingInOutStateMachine_ab9ce2fc14467ccbfaf9ccb696d90d9df}{limitChanged})
 00014 
 00015 \textcolor{keyword}{public}:
-00025     \hyperlink{classSh__LoopingInOutStateMachine_a5de32ba5bb4fd034036a16665f91cdb4}{Sh\_LoopingInOutStateMachine}(QString \hyperlink{classSH__InOutStateMachine_a18b07a985695100612bbcbda870933b4}{tableName}, QString 
-      \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}=\textcolor{stringliteral}{"looping"}, \textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_ac44b7158256f09b878c8958cf3ae3bf8}{limit}=0, \hyperlink{classQObject}{QObject} *parent = 0);
+00025     \hyperlink{classSH__LoopingInOutStateMachine_ab183e4ef00fa1297e942b3a4d78b3523}{SH\_LoopingInOutStateMachine}(QString \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{tableName}, QString 
+      \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}=\textcolor{stringliteral}{"looping"}, \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit}=0, \hyperlink{classQObject}{QObject} *parent = 0);
 00026 
-00033     \textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_a1b4661f92617e9cdbacc1be354f2a54a}{current}() \textcolor{keyword}{const};
-00040     \textcolor{keywordtype}{void} \hyperlink{classSh__LoopingInOutStateMachine_ac94dde3e948b7b86a575e421cce2b9ba}{setCurrent}(\textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_a1b4661f92617e9cdbacc1be354f2a54a}{current});
+00033     \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{current}() \textcolor{keyword}{const};
+00040     \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_aed2f3a75029856cbf28cae78040e17c1}{setCurrent}(\textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{current});
 00041 
-00049     \textcolor{keywordtype}{void} \hyperlink{classSh__LoopingInOutStateMachine_aa7d8c9cc870607ed9ef75319bff88500}{setPersistentContentValue}(QVariant value, QString field);
+00049     \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a99686121d80e3de4c64bebb1d5890ac0}{setPersistentContentValue}(QVariant value, QString field);
 00050 
-00057     \textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_ac44b7158256f09b878c8958cf3ae3bf8}{limit}() \textcolor{keyword}{const};
-00064     \textcolor{keywordtype}{void} \hyperlink{classSh__LoopingInOutStateMachine_ab5e9ac94cbd9a47a45dcb50e777c398b}{setLimit}(\textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_ac44b7158256f09b878c8958cf3ae3bf8}{limit});
+00057     \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit}() \textcolor{keyword}{const};
+00064     \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a6dbf2fbcc6524bba5a70baadb8d61be4}{setLimit}(\textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit});
 00065 
-00072     \textcolor{keywordtype}{void} \hyperlink{classSh__LoopingInOutStateMachine_acfd8d0711c793b13c759f6c50be6a315}{addChildrenNextTransition}(QAbstractState *previousState, QAbstractState *
+00072     \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{addChildrenNextTransition}(QAbstractState *previousState, QAbstractState *
       nextState);
-00077     \textcolor{keywordtype}{void} \hyperlink{classSh__LoopingInOutStateMachine_a8788fa9e4c3149bcf7554e2a2b960c51}{stopLooping}();
+00077     \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a73d75e30318da22fec99387e9bf02a9b}{stopLooping}();
 00078 signals:
-00083     \textcolor{keywordtype}{void} \hyperlink{classSh__LoopingInOutStateMachine_a5b65ad7a49294022ff781c71c4702157}{limitChanged}();
+00083     \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_ab9ce2fc14467ccbfaf9ccb696d90d9df}{limitChanged}();
 00084 
 00085 \textcolor{keyword}{public} slots:
 00086 
 00087 \textcolor{keyword}{private}:
-\hypertarget{SH__LoopingIOStateMachine_8h_source_l00091}{}\hyperlink{classSh__LoopingInOutStateMachine_a320ece6cf74c2667c70059b9421117fb}{00091}     \textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_a320ece6cf74c2667c70059b9421117fb}{m\_limit};
-\hypertarget{SH__LoopingIOStateMachine_8h_source_l00095}{}\hyperlink{classSh__LoopingInOutStateMachine_a6bcf7bcfe684dbd4d11ed327948e161b}{00095}     \textcolor{keywordtype}{int} \hyperlink{classSh__LoopingInOutStateMachine_a6bcf7bcfe684dbd4d11ed327948e161b}{m\_current};
-\hypertarget{SH__LoopingIOStateMachine_8h_source_l00099}{}\hyperlink{classSh__LoopingInOutStateMachine_a267e7cbcb3d6a137e2a4e1f93fb57e68}{00099}     QList<QVariantMap> \hyperlink{classSh__LoopingInOutStateMachine_a267e7cbcb3d6a137e2a4e1f93fb57e68}{m\_contents};
-\hypertarget{SH__LoopingIOStateMachine_8h_source_l00103}{}\hyperlink{classSh__LoopingInOutStateMachine_ad9c0db5b057a6ba340ffcaddce60d6da}{00103}     QVariantMap \hyperlink{classSh__LoopingInOutStateMachine_ad9c0db5b057a6ba340ffcaddce60d6da}{m\_persistentContent};
+\hypertarget{SH__LoopingIOStateMachine_8h_source_l00091}{}\hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{00091}     \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit};
+\hypertarget{SH__LoopingIOStateMachine_8h_source_l00095}{}\hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{00095}     \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current};
+\hypertarget{SH__LoopingIOStateMachine_8h_source_l00099}{}\hyperlink{classSH__LoopingInOutStateMachine_a145e625dcb4d5438bd9c761eeb9425d4}{00099}     QList<QVariantMap> \hyperlink{classSH__LoopingInOutStateMachine_a145e625dcb4d5438bd9c761eeb9425d4}{m\_contents};
+\hypertarget{SH__LoopingIOStateMachine_8h_source_l00103}{}\hyperlink{classSH__LoopingInOutStateMachine_a4e9ea23cf1eecbe26c6ed93b290a9115}{00103}     QVariantMap \hyperlink{classSH__LoopingInOutStateMachine_a4e9ea23cf1eecbe26c6ed93b290a9115}{m\_persistentContent};
 00104 \};
 00105 
 00106 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* LOOPINGSTATEMACHINE\_H*/}\textcolor{preprocessor}{}

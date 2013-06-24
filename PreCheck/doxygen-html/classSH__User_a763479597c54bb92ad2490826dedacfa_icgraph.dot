@@ -1,0 +1,17 @@
+digraph "SH_User::isManagerZ"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_User::isManagerZ",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 [label="SH_ApplicationCore\l::setMode",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a2bfe19528b27831332559d5d2cd24d25",tooltip="Modifie le mode dans lequel se trouve l&#39;application. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node3 [label="SH_User::SH_User",height=0.2,width=0.4,color="black",URL="$classSH__User.html#a96c0ebb3f11c1654935aaecb92295724"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node4 [label="SH_User::logIn",height=0.2,width=0.4,color="black",URL="$classSH__User.html#a98e3e3ca706a6988e6d7af23ce8bb82a"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node5 [label="SH_ApplicationCore\l::setUser",height=0.2,width=0.4,color="black",URL="$classSH__ApplicationCore.html#a2dd5c029a2ea348f1dfd0a60dea476e4",tooltip="Modifie l&#39;utilisateur actuel. "];
+}

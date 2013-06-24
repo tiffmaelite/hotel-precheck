@@ -14,53 +14,53 @@
 \hypertarget{SH__SqlDataModel_8h_source_l00014}{}\hyperlink{classSH__SqlDataModel}{00014} \textcolor{keyword}{class }\hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel} : \textcolor{keyword}{public} \hyperlink{classQAbstractListModel}{QAbstractListModel}
 00015 \{
 00016     Q\_OBJECT
-\hypertarget{SH__SqlDataModel_8h_source_l00017}{}\hyperlink{classSH__SqlDataModel_afd3e2e62c847463c5177ccad35ad4992}{00017}     Q\_PROPERTY(QString \hyperlink{classSH__SqlDataModel_afd3e2e62c847463c5177ccad35ad4992}{table} READ \hyperlink{classSH__SqlDataModel_a2497b87a0e4864f3d3e2f10f16ca19f1}{tableName} WRITE \hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{setTable} NOTIFY 
-      \hyperlink{classSH__SqlDataModel_a7698572dd8e2b03fa3fb2c415a62576b}{tableChanged})
-\hypertarget{SH__SqlDataModel_8h_source_l00018}{}\hyperlink{classSH__SqlDataModel_a52d2212d201cd31ad0ebfebc1664c3ad}{00018}     Q\_PROPERTY(QString \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} READ \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} WRITE \hyperlink{classSH__SqlDataModel_a89f54fd7a3f4288367d45d3fc17d2821}{setFilterCondition} NOTIFY 
-      \hyperlink{classSH__SqlDataModel_a53a40286bb38b97bc14a95c905dc8353}{filterChanged})
-\hypertarget{SH__SqlDataModel_8h_source_l00019}{}\hyperlink{classSH__SqlDataModel_a43b4b2cca5c2d19fd63b2e528d6c0686}{00019}     Q\_PROPERTY(QString \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError} READ \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError} NOTIFY 
-      \hyperlink{classSH__SqlDataModel_a94c0c04c44f22b0d9958bcf490568dab}{lastErrorChanged})
+\hypertarget{SH__SqlDataModel_8h_source_l00017}{}\hyperlink{classSH__SqlDataModel_afd3e2e62c847463c5177ccad35ad4992}{00017}     Q\_PROPERTY(QString \hyperlink{classSH__SqlDataModel_afd3e2e62c847463c5177ccad35ad4992}{table} READ \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName} WRITE \hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable} NOTIFY 
+      \hyperlink{classSH__SqlDataModel_a791a6cc9d8a2ba109fe5f54ab287dc80}{tableChanged})
+\hypertarget{SH__SqlDataModel_8h_source_l00018}{}\hyperlink{classSH__SqlDataModel_a1f3b35273198f9c67ca4bca5b29876e9}{00018}     Q\_PROPERTY(QString \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} READ \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} WRITE \hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{setFilterCondition} NOTIFY 
+      \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}{filterChanged})
+\hypertarget{SH__SqlDataModel_8h_source_l00019}{}\hyperlink{classSH__SqlDataModel_a28af51642aee51bc7e0ce19b97c57b60}{00019}     Q\_PROPERTY(QString \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError} READ \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError} NOTIFY 
+      \hyperlink{classSH__SqlDataModel_a16f5316d5ca383f137d0d571931e4cc5}{lastErrorChanged})
 00020 
 00021 public:
 00028     explicit \hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel}(\hyperlink{classQObject}{QObject} *parent = 0);
-00036     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_adde1b5e5e50b0bd9ca4096447c75ca15}{rowCount}(const QModelIndex &parent) const;
-00045     QVariant \hyperlink{classSH__SqlDataModel_a30cc763618d73a1bb5410c84812c0b9f}{data}(const QModelIndex &index, \textcolor{keywordtype}{int} role) const;
-00054     QVariantMap \hyperlink{classSH__SqlDataModel_a6d91d42cfaf86d1fbbaeeb7a32efc26b}{datas}() const;
-00065     \textcolor{keywordtype}{bool} \hyperlink{classSH__SqlDataModel_aa9ad9f29681bffdec372db4bba0aa82f}{setHeaderData}(\textcolor{keywordtype}{int} section, Qt::Orientation orientation, const QVariant &value, \textcolor{keywordtype}{int} 
+00036     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_a48d361600552aa4f80af693a68fc41dd}{rowCount}(const QModelIndex &parent) const;
+00045     QVariant \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{data}(const QModelIndex &index, \textcolor{keywordtype}{int} role) const;
+00054     QVariantMap \hyperlink{classSH__SqlDataModel_a24db284b370930b57e2261a7a72e2da8}{datas}() const;
+00065     \textcolor{keywordtype}{bool} \hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(\textcolor{keywordtype}{int} section, Qt::Orientation orientation, const QVariant &value, \textcolor{keywordtype}{int} 
       role = Qt::EditRole);
-\hypertarget{SH__SqlDataModel_8h_source_l00073}{}\hyperlink{classSH__SqlDataModel_a0e05155c3c22c6fef7b91ec57d383ae5}{00073}     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_a0e05155c3c22c6fef7b91ec57d383ae5}{roleForField}(\textcolor{keywordtype}{int} fieldIndex)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Qt::UserRole + fieldIndex;\}
-\hypertarget{SH__SqlDataModel_8h_source_l00081}{}\hyperlink{classSH__SqlDataModel_a0883eb1a7bc16b44a0f404e53f6df104}{00081}     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_a0883eb1a7bc16b44a0f404e53f6df104}{fieldFromRole}(\textcolor{keywordtype}{int} role)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} role - Qt::UserRole; \}
-00088     \textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_a2497b87a0e4864f3d3e2f10f16ca19f1}{tableName}() \textcolor{keyword}{const};
+\hypertarget{SH__SqlDataModel_8h_source_l00073}{}\hyperlink{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{00073}     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{roleForField}(\textcolor{keywordtype}{int} fieldIndex)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Qt::UserRole + fieldIndex;\}
+\hypertarget{SH__SqlDataModel_8h_source_l00081}{}\hyperlink{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{00081}     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{fieldFromRole}(\textcolor{keywordtype}{int} role)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} role - Qt::UserRole; \}
+00088     \textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}() \textcolor{keyword}{const};
 00095     \textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError}();
 00102     \textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter}() \textcolor{keyword}{const};
 00103 
-00110     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a25a89526277d5ae8ebe2466dd178da8f}{setTable}(\textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_a2497b87a0e4864f3d3e2f10f16ca19f1}{tableName});
-00117     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a89f54fd7a3f4288367d45d3fc17d2821}{setFilterCondition}(\textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter});
-00123     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a365514bffdc835545c64b2d0a67849c9}{resetFilterCondition}();
-00130     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a1a345d536e6e08a03cb333351ce677af}{setFields}(QStringList fieldList);
-00136     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a2ce01d331acbef46e8ae9d5963f3521d}{resetFieldsToAll}();
+00110     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName});
+00117     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{setFilterCondition}(\textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter});
+00123     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a0bf147a87376fc3aa436562f94661679}{resetFilterCondition}();
+00130     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_ad297d359375d55e66493ce8935f8ff05}{setFields}(QStringList fieldList);
+00136     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_ad0477d16e78ba808250e2054952f9833}{resetFieldsToAll}();
 00137 
-00148     \textcolor{keywordtype}{bool} \hyperlink{classSH__SqlDataModel_a8d9b08d282a304945b9ee2f474020980}{fetch}(QString \hyperlink{classSH__SqlDataModel_a2497b87a0e4864f3d3e2f10f16ca19f1}{tableName} = \textcolor{stringliteral}{""}, QString \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} = \textcolor{stringliteral}{""}, QString sort=\textcolor{stringliteral}{""}, 
+00148     \textcolor{keywordtype}{bool} \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch}(QString \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName} = \textcolor{stringliteral}{""}, QString \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} = \textcolor{stringliteral}{""}, QString sort=\textcolor{stringliteral}{""}, 
       QStringList fields = QStringList());
-00156     \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__SqlDataModel_a442cdea9007cb61ed9d2fbdd01ddccbf}{field}(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};
-00163     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_a0fd7bd5380ce0ba9a2ca84033093432d}{fieldsCount}() \textcolor{keyword}{const};
-00170     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a34cae2fefa659a4bfefbfb3a6328e832}{setOrderBy}(QString sort);
-\hypertarget{SH__SqlDataModel_8h_source_l00179}{}\hyperlink{classSH__SqlDataModel_a3f45d120bfe91faeb921b160e01a8a3f}{00179}     \textcolor{keyword}{virtual} QHash<int, QByteArray> \hyperlink{classSH__SqlDataModel_a3f45d120bfe91faeb921b160e01a8a3f}{roleNames}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
+00156     \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field}(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};
+00163     \textcolor{keywordtype}{int} \hyperlink{classSH__SqlDataModel_a46f0951fd358e30892a982ebd34e43c2}{fieldsCount}() \textcolor{keyword}{const};
+00170     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{setOrderBy}(QString sort);
+\hypertarget{SH__SqlDataModel_8h_source_l00179}{}\hyperlink{classSH__SqlDataModel_ac9954bbf92ed14566128c74318e3125b}{00179}     \textcolor{keyword}{virtual} QHash<int, QByteArray> \hyperlink{classSH__SqlDataModel_ac9954bbf92ed14566128c74318e3125b}{roleNames}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
       \hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}; \}
 00180 
-00187     \textcolor{keywordtype}{bool} \hyperlink{classSH__SqlDataModel_a9bc7c550e40c23632445678b87fd4b48}{isEmpty}() \textcolor{keyword}{const};
+00187     \textcolor{keywordtype}{bool} \hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}() \textcolor{keyword}{const};
 00188 
-00195     \textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_acca7800c1da13145fd5386f287c15da3}{query}() \textcolor{keyword}{const};
-00202     \textcolor{keyword}{const} QStringList \hyperlink{classSH__SqlDataModel_aaca5b8197cf2e6a10cdda5e19522ffec}{fieldsList}() \textcolor{keyword}{const};
+00195     \textcolor{keyword}{const} QString &\hyperlink{classSH__SqlDataModel_aee909d0a29715d02d920fcf854bfbba2}{query}() \textcolor{keyword}{const};
+00202     \textcolor{keyword}{const} QStringList \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}() \textcolor{keyword}{const};
 00203 
 00204 signals:
-00210     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_aca80a3b90b76f217e2878f99607c78ed}{fieldsChanged}();
-00216     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a7698572dd8e2b03fa3fb2c415a62576b}{tableChanged}();
-00222     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a94c0c04c44f22b0d9958bcf490568dab}{lastErrorChanged}();
-00228     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a53a40286bb38b97bc14a95c905dc8353}{filterChanged}();
-00234     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_ae95ebc4f78d24e3fb8868b7e7b0b17a1}{rolesChanged}();
+00210     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
+00216     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a791a6cc9d8a2ba109fe5f54ab287dc80}{tableChanged}();
+00222     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a16f5316d5ca383f137d0d571931e4cc5}{lastErrorChanged}();
+00228     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}{filterChanged}();
+00234     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_acf85dacdcc946ef27377d221b16b0e41}{rolesChanged}();
 00235 \textcolor{keyword}{protected}:
-00241     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_a2e529bea67d6b31d8eb4723a81a1b354}{applyRoles}();
+00241     \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
 00242 \textcolor{keyword}{private}:
 \hypertarget{SH__SqlDataModel_8h_source_l00246}{}\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{00246}     QString \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable};
 \hypertarget{SH__SqlDataModel_8h_source_l00250}{}\hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{00250}     QString \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter};

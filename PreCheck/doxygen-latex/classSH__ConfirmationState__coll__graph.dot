@@ -10,16 +10,17 @@ digraph "SH_ConfirmationState"
   Node3 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
   Node3 [label="{SH_InOutState\n||+ SH_InOutState()\l+ display()\l+ input()\l+ onExit()\l+ output()\l+ rawInput()\l+ visibility()\l+ setInput()\l+ setOutput()\l+ setVisibility()\l}",height=0.2,width=0.4,color="black",URL="$classSH__InOutState.html"];
   Node4 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
-  Node4 [label="{SH_GenericState\n||+ SH_GenericState()\l+ toString()\l# onEntry()\l# onExit()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
+  Node4 [label="{SH_GenericState\n||+ SH_GenericState()\l+ isRunning()\l+ toString()\l# onEntry()\l# onExit()\l- emitGoNext()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
   Node5 -> Node4 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal"];
   Node5 [label="{QState\n||}",height=0.2,width=0.4,color="black",URL="$classQState.html"];
   Node6 -> Node4 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal"];
   Node6 [label="{SH_NamedObject\n||+ SH_NamedObject()\l+ name()\l+ ptraddress()\l+ setName()\l+ toString()\l}",height=0.2,width=0.4,color="black",URL="$classSH__NamedObject.html"];
   Node7 -> Node6 [color="grey25",fontsize="11",style="solid",label=" -m_ptraddress\n-m_name" ,arrowhead="odiamond"];
   Node7 [label="{QString\n||}",height=0.2,width=0.4,color="grey75"];
-  Node8 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_input" ,arrowhead="odiamond"];
-  Node8 [label="{QVariant\n||}",height=0.2,width=0.4,color="grey75"];
+  Node8 -> Node4 [color="grey25",fontsize="11",style="solid",label=" -m_isRunning" ,arrowhead="odiamond"];
+  Node8 [label="{bool\n||}",height=0.2,width=0.4,color="grey75"];
+  Node9 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_input" ,arrowhead="odiamond"];
+  Node9 [label="{QVariant\n||}",height=0.2,width=0.4,color="grey75"];
   Node7 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_output" ,arrowhead="odiamond"];
-  Node9 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_isVisible\n-m_display" ,arrowhead="odiamond"];
-  Node9 [label="{bool\n||}",height=0.2,width=0.4,color="grey75"];
+  Node8 -> Node3 [color="grey25",fontsize="11",style="solid",label=" -m_isVisible\n-m_display" ,arrowhead="odiamond"];
 }

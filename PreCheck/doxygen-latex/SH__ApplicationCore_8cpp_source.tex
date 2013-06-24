@@ -14,183 +14,183 @@
       \hyperlink{classQObject}{QObject}* parent) :
 00015     \hyperlink{classQObject}{QObject}(parent)
 00016 \{
-00017     \hyperlink{classSH__ApplicationCore_ab50397fef5fa4a514e0a1a0443b886ce}{init}();
+00017     \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{init}();
 00018 \}
 00019 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00025}{}\hyperlink{classSH__ApplicationCore_a210295d4d7a6e16e9def6e0a29816b51}{00025} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{SH\_ApplicationCore::AppMode} \hyperlink{classSH__ApplicationCore_a210295d4d7a6e16e9def6e0a29816b51}{SH\_ApplicationCore::mode}()\textcolor{keyword}{
+\hypertarget{SH__ApplicationCore_8cpp_source_l00025}{}\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{00025} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{SH\_ApplicationCore::AppMode} \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{SH\_ApplicationCore::mode}()\textcolor{keyword}{
        const}
 00026 \textcolor{keyword}{}\{
-00027     \textcolor{keywordflow}{return} \hyperlink{classSH__ApplicationCore_ac9587a451ab2294abe7a9eb738d93cb0}{m\_mode};
+00027     \textcolor{keywordflow}{return} \hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode};
 00028 \}
 00029 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00035}{}\hyperlink{classSH__ApplicationCore_ab50397fef5fa4a514e0a1a0443b886ce}{00035} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_ab50397fef5fa4a514e0a1a0443b886ce}{SH\_ApplicationCore::init}() \{
-00036     this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
+\hypertarget{SH__ApplicationCore_8cpp_source_l00035}{}\hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{00035} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{SH\_ApplicationCore::init}() \{
+00036     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
 00037 \}
 00038 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00044}{}\hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{00044} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_aeb87d289ccc9c8209928f23cf8a02ead}{SH\_ApplicationCore::setMode}(
+\hypertarget{SH__ApplicationCore_8cpp_source_l00044}{}\hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{00044} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{SH\_ApplicationCore::setMode}(
       \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{SH\_ApplicationCore::AppMode} mode)
 00045 \{
-00046     \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser} || ! \hyperlink{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}{SH\_User::exists}(QVariant(this->
-      \hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->\hyperlink{classSH__User_a18a7ad8ceded0edd3cb93e36cfcd2099}{name}())).toBool()) \{
-00047         this->\hyperlink{classSH__ApplicationCore_ac9587a451ab2294abe7a9eb738d93cb0}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION};
+00046     \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} || ! \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{SH\_User::exists}(QVariant(this->
+      \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_ae32b20d52e62ec32c1f335006f52214e}{name}())).toBool()) \{
+00047         this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION};
 00048     \} \textcolor{keywordflow}{else} \{
-00049         \textcolor{keywordflow}{if}(((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{ADMINISTRATION}) && (!this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->
-      \hyperlink{classSH__User_ad2acd7b3caca088be8cab00aee11c0e1}{isAdministrator}())) ||
-00050                 ((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}) && (!this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->
-      \hyperlink{classSH__User_ac69553a66b8c7177c9a5e28a64f02d48}{isManagerX}())) ||
-00051                 ((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{MANAGEMENT\_Z}) && (!this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->
-      \hyperlink{classSH__User_aa59c59a6f538628c883216e4a73e4c75}{isManagerZ}())) ||
-00052                 ((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}) && (!this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->
-      \hyperlink{classSH__User_aa0da8b3326fe98d0ce5ec32e284d8e67}{isReceptionist}()))) \{
-00053             this->\hyperlink{classSH__ApplicationCore_ac9587a451ab2294abe7a9eb738d93cb0}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL};
+00049         \textcolor{keywordflow}{if}(((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{ADMINISTRATION}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+      \hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator}())) ||
+00050                 ((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+      \hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX}())) ||
+00051                 ((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{MANAGEMENT\_Z}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+      \hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ}())) ||
+00052                 ((mode == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+      \hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist}()))) \{
+00053             this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL};
 00054         \} \textcolor{keywordflow}{else} \{
-00055             this->\hyperlink{classSH__ApplicationCore_ac9587a451ab2294abe7a9eb738d93cb0}{m\_mode} = \hyperlink{classSH__ApplicationCore_a210295d4d7a6e16e9def6e0a29816b51}{mode};
+00055             this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode};
 00056         \}
 00057     \}
 00058 \}
 00059 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00065}{}\hyperlink{classSH__ApplicationCore_aa154f69097fb07514b300f9c8f189da9}{00065} \hyperlink{classSH__User}{SH\_User} *\hyperlink{classSH__ApplicationCore_aa154f69097fb07514b300f9c8f189da9}{SH\_ApplicationCore::user}()\textcolor{keyword}{ const}
+\hypertarget{SH__ApplicationCore_8cpp_source_l00065}{}\hyperlink{classSH__ApplicationCore_a57fa0d6b5fd5f4a02f8a129ee470697b}{00065} \hyperlink{classSH__User}{SH\_User} *\hyperlink{classSH__ApplicationCore_a57fa0d6b5fd5f4a02f8a129ee470697b}{SH\_ApplicationCore::user}()\textcolor{keyword}{ const}
 00066 \textcolor{keyword}{}\{
-00067     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser};
+00067     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser};
 00068 \}
 00069 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00075}{}\hyperlink{classSH__ApplicationCore_abe6683bdada7ecf979b74656748be106}{00075} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_abe6683bdada7ecf979b74656748be106}{SH\_ApplicationCore::userLogOut}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00075}{}\hyperlink{classSH__ApplicationCore_a3603a68faa57edb8722f9d1b67767368}{00075} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a3603a68faa57edb8722f9d1b67767368}{SH\_ApplicationCore::userLogOut}()
 00076 \{
-00077     this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
-00078     \textcolor{keywordflow}{return} !this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->\hyperlink{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}{isValid}();
+00077     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
+00078     \textcolor{keywordflow}{return} !this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid}();
 00079 \}
 00080 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00086}{}\hyperlink{classSH__ApplicationCore_a83d2df40550a95586e70a08833dc5e5f}{00086} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a83d2df40550a95586e70a08833dc5e5f}{SH\_ApplicationCore::setUser}(QString login, QString pass)
+\hypertarget{SH__ApplicationCore_8cpp_source_l00086}{}\hyperlink{classSH__ApplicationCore_a2dd5c029a2ea348f1dfd0a60dea476e4}{00086} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a2dd5c029a2ea348f1dfd0a60dea476e4}{SH\_ApplicationCore::setUser}(QString login, QString pass)
 00087 \{
-00088     this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser} = \hyperlink{classSH__User_ad83af309786cb1ed5dbbd2cdca195c30}{SH\_User::logIn}(login,pass);
-00089     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->\hyperlink{classSH__User_aa1b7fd66632c13905f3b6fd941505c02}{isValid}()) \{
-00090         emit \hyperlink{classSH__ApplicationCore_af0c5c92e7b410b226c3497cec2ddfd97}{userChanged}(QVariant(this->\hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->
-      \hyperlink{classSH__User_a18a7ad8ceded0edd3cb93e36cfcd2099}{name}()));
+00088     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{SH\_User::logIn}(login,pass);
+00089     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid}()) \{
+00090         emit \hyperlink{classSH__ApplicationCore_aeeac6cde618cb677218d72c4ea7ecf18}{userChanged}(QVariant(this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+      \hyperlink{classSH__User_ae32b20d52e62ec32c1f335006f52214e}{name}()));
 00091         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
 00092     \}
 00093     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
 00094 \}
 00095 
 00096 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00102}{}\hyperlink{classSH__ApplicationCore_acce6b4e70ccc2035072df11acba7065a}{00102} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_acce6b4e70ccc2035072df11acba7065a}{SH\_ApplicationCore::userExists}(QString login)
+\hypertarget{SH__ApplicationCore_8cpp_source_l00102}{}\hyperlink{classSH__ApplicationCore_a63afe07c7ef380f8709854aba85fdb9e}{00102} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a63afe07c7ef380f8709854aba85fdb9e}{SH\_ApplicationCore::userExists}(QString login)
 00103 \{
-00104     \textcolor{keywordflow}{return} \hyperlink{classSH__User_aa83a99478cf6c738f995c5c36345bcd3}{SH\_User::exists}(login).toBool();
+00104     \textcolor{keywordflow}{return} \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{SH\_User::exists}(login).toBool();
 00105 \}
 00106 
 00107 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00112}{}\hyperlink{classSH__ApplicationCore_aa0cbddb57a9ade990d6ee9b4ee6c3fb3}{00112} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_aa0cbddb57a9ade990d6ee9b4ee6c3fb3}{SH\_ApplicationCore::balanceLogRoutine}() \{
-00113     \textcolor{comment}{/*AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");}
-00114 \textcolor{comment}{    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");}
-00115 \textcolor{comment}{    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");}
-00116 \textcolor{comment}{    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");}
-00117 \textcolor{comment}{    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/}
+\hypertarget{SH__ApplicationCore_8cpp_source_l00112}{}\hyperlink{classSH__ApplicationCore_a008b4a797ce77f88df8c59226a151708}{00112} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a008b4a797ce77f88df8c59226a151708}{SH\_ApplicationCore::balanceLogRoutine}() \{
+00113     \textcolor{comment}{/*SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");}
+00114 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");}
+00115 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");}
+00116 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");}
+00117 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/}
 00118 \}
 00119 
 00120 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00125}{}\hyperlink{classSH__ApplicationCore_ae53ffaee0269f03c3c938595b9b4b39f}{00125} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_ae53ffaee0269f03c3c938595b9b4b39f}{SH\_ApplicationCore::receiveInput}(QString in)
+\hypertarget{SH__ApplicationCore_8cpp_source_l00125}{}\hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{00125} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{SH\_ApplicationCore::receiveInput}(QString in)
 00126 \{
 00127     qDebug() << \textcolor{stringliteral}{"input received "}<<in;
-00128     emit this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_ab224e4a6ab99c15770bc63e1b8fdb771}{receiveInput}(in);
+00128     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{receiveInput}(in);
 00129 
 00130 \}
 00131 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00136}{}\hyperlink{classSH__ApplicationCore_af450727db378ebec9ec61457b2e13664}{00136} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_af450727db378ebec9ec61457b2e13664}{SH\_ApplicationCore::receiveValidation}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00136}{}\hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{00136} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{SH\_ApplicationCore::receiveValidation}()
 00137 \{
 00138 
-00139     emit this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a5a5804bd32a04d25926f6e323b906887}{validateInput}();
+00139     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{validateInput}();
 00140 
 00141 \}
 00142 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00147}{}\hyperlink{classSH__ApplicationCore_a942eacab69b9fe54442591c07773c908}{00147} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a942eacab69b9fe54442591c07773c908}{SH\_ApplicationCore::receiveConfirmation}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00147}{}\hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{00147} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{SH\_ApplicationCore::receiveConfirmation}()
 00148 \{
 00149 
-00150     emit this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a0fb4c4d63ccb19df48f1e060d02d8ae3}{confirmInput}();
+00150     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{confirmInput}();
 00151 
 00152 \}
 00153 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00158}{}\hyperlink{classSH__ApplicationCore_ae8bcd097ea219fc9a54f7d0d9ff9c335}{00158} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_ae8bcd097ea219fc9a54f7d0d9ff9c335}{SH\_ApplicationCore::replaceInput}(QString inputName)
+\hypertarget{SH__ApplicationCore_8cpp_source_l00158}{}\hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{00158} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{SH\_ApplicationCore::replaceInput}(QString inputName)
 00159 \{
 00160 
-00161     emit this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_af5f82970faef3bca48a147863dba2ee1}{replaceInput}(inputName);
+00161     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{replaceInput}(inputName);
 00162 
 00163 \}
 00164 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00169}{}\hyperlink{classSH__ApplicationCore_a5b788738972737e1d9b52daeb41e8788}{00169} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a5b788738972737e1d9b52daeb41e8788}{SH\_ApplicationCore::cancelReplacement}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00169}{}\hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{00169} \textcolor{keywordtype}{void} \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{SH\_ApplicationCore::cancelReplacement}()
 00170 \{
-00171     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}) \{
-00172         emit this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a67ce246a765ad91fef76f70ece12213f}{cancelReplacement}();
+00171     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}) \{
+00172         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{cancelReplacement}();
 00173     \}
 00174 \}
 00175 
 00176 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00182}{}\hyperlink{classSH__ApplicationCore_a30738281acefd721fe9d06db46dcf123}{00182} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a30738281acefd721fe9d06db46dcf123}{SH\_ApplicationCore::launchBillingsThread}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00182}{}\hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{00182} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{SH\_ApplicationCore::launchBillingsThread}()
 00183 \{
 00184     qDebug() << \textcolor{stringliteral}{"Hallo !"};
 00185     \textcolor{comment}{/*if(this->m\_currentFSM) \{}
 00186 \textcolor{comment}{        return false;}
 00187 \textcolor{comment}{    \}*/}
 00188     qDebug() << \textcolor{stringliteral}{"Hallo !"};
-00189     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__BillingCreationStateMachine}{SH\_BillingCreationStateMachine}(\textcolor{stringliteral}{"
+00189     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__BillingCreationStateMachine}{SH\_BillingCreationStateMachine}(\textcolor{stringliteral}{"
       création facturation"});
-00190     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->start();
-00191     qDebug() << this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a60ecd7de03d948e2d1e9cbedb5c3e5fa}{toString}() << \textcolor{stringliteral}{" "} << this->
-      \hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->initialState();
-00192     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{connectRunningThread}();
+00190     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->start();
+00191     qDebug() << this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}() << \textcolor{stringliteral}{" "} << this->
+      \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->initialState();
+00192     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connectRunningThread}();
 00193 
 00194 \}
 00195 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00201}{}\hyperlink{classSH__ApplicationCore_a193a9132da92b5e7a450e9307b657893}{00201} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a193a9132da92b5e7a450e9307b657893}{SH\_ApplicationCore::launchBookingsThread}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00201}{}\hyperlink{classSH__ApplicationCore_af70c0875c93910b83acbcd49e56bf0fb}{00201} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_af70c0875c93910b83acbcd49e56bf0fb}{SH\_ApplicationCore::launchBookingsThread}()
 00202 \{
 00203     \textcolor{comment}{/*if(this->m\_currentFSM) \{}
 00204 \textcolor{comment}{        return false;}
 00205 \textcolor{comment}{    \}*/}
 00206     \textcolor{comment}{/*this->m\_currentFSM= new BookingCreationStateMachine("création facturation");*/}
 00207     \textcolor{comment}{/*this->m\_currentFSM->start();*/}
-00208     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{connectRunningThread}();
+00208     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connectRunningThread}();
 00209 \}
 00210 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00216}{}\hyperlink{classSH__ApplicationCore_a17a048025bc51a96663029e58c722741}{00216} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a17a048025bc51a96663029e58c722741}{SH\_ApplicationCore::launchBillThread}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00216}{}\hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{00216} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{SH\_ApplicationCore::launchBillThread}()
 00217 \{
 00218     \textcolor{comment}{/*if(this->m\_currentFSM) \{}
 00219 \textcolor{comment}{        return false;}
 00220 \textcolor{comment}{    \}*/}
-00221     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__ServiceCharging}{SH\_ServiceCharging}(\textcolor{stringliteral}{"facturation prestation"});
-00222     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_aa2766b7a7ba39c35a10df7fc0c151b4f}{setContentValue}(QVariant(this->
-      \hyperlink{classSH__ApplicationCore_aa61720acee7e06e9828c570e8190304a}{m\_currentUser}->\hyperlink{classSH__User_ad6fb57220df359c4cd28fbd8fcc71b12}{id}()), \textcolor{stringliteral}{"BILL\_ID"});
-00223     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->start();
-00224     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{connectRunningThread}();
+00221     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__ServiceCharging}{SH\_ServiceCharging}(\textcolor{stringliteral}{"facturation prestation"});
+00222     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(QVariant(this->
+      \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a187ee34e1d6d3466f3852e091cdb69e9}{id}()), \textcolor{stringliteral}{"BILL\_ID"});
+00223     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->start();
+00224     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connectRunningThread}();
 00225 \}
 00226 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00232}{}\hyperlink{classSH__ApplicationCore_af50ebbfed4c12ad7d69cc78f4b0d0d85}{00232} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_af50ebbfed4c12ad7d69cc78f4b0d0d85}{SH\_ApplicationCore::cancelRunningThread}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00232}{}\hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}{00232} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}{SH\_ApplicationCore::cancelRunningThread}()
 00233 \{
 00234     \textcolor{comment}{/*if(!this->m\_currentFSM) \{}
 00235 \textcolor{comment}{        return true;}
 00236 \textcolor{comment}{    \}*/}
-00237     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->stop();
-00238     \textcolor{keywordtype}{bool} ok = !this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->isRunning();
-00239     this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM} = NULL;
+00237     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->stop();
+00238     \textcolor{keywordtype}{bool} ok = !this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}();
+00239     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM} = NULL;
 00240     \textcolor{keywordflow}{return} ok;
 00241 \}
 00242 
 00243 
-\hypertarget{SH__ApplicationCore_8cpp_source_l00249}{}\hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{00249} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a3a10c2d662707140340d7a827d119c8d}{SH\_ApplicationCore::connectRunningThread}()
+\hypertarget{SH__ApplicationCore_8cpp_source_l00249}{}\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{00249} \textcolor{keywordtype}{bool} \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{SH\_ApplicationCore::connectRunningThread}()
 00250 \{
 00251     \textcolor{comment}{/*if(!this->m\_currentFSM) \{}
 00252 \textcolor{comment}{        return false;}
 00253 \textcolor{comment}{    \}*/}
 00254     qDebug() << \textcolor{stringliteral}{"coucou"};
-00255     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_ae2cbbe3cd207158668dcb4838938c7ad}{SH\_InOutStateMachine::sendText}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_ac70121669e6133e84b0b8266b09b9199}{SH\_ApplicationCore::sendText}, Qt::DirectConnection);
-00256         QObject::connect(this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_ad722deb53285919796b04db5af6e51b4}{SH\_InOutStateMachine::clearAll}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_a5f60ca485028cf56d9d56f7e80685f10}{SH\_ApplicationCore::clearAll}, Qt::DirectConnection);
-00257         QObject::connect(this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}, &
+00255     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{SH\_InOutStateMachine::sendText}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_aeaf9c78e68e7f55564f75e07d0f327aa}{SH\_ApplicationCore::sendText}, Qt::DirectConnection);
+00256         QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{SH\_InOutStateMachine::clearAll}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{SH\_ApplicationCore::clearAll}, Qt::DirectConnection);
+00257         QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
       \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{SH\_InOutStateMachine::resendText}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_a5eb6c04758ff47330a8249da2b3265f2}{SH\_ApplicationCore::resendText}, Qt::DirectConnection);
-00258     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_a0d241868828cbf9798233a8c74c69851}{SH\_InOutStateMachine::displayCalendar}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_a7236456c901a089ca6e5735ec7e5da03}{SH\_ApplicationCore::displayCalendar}, Qt::DirectConnection);
-00259     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a1088f3ba13abb8b3989cc0c325524232}{m\_currentFSM}->isRunning();
+      \hyperlink{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{SH\_ApplicationCore::resendText}, Qt::DirectConnection);
+00258     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}{SH\_ApplicationCore::displayCalendar}, Qt::DirectConnection);
+00259     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}();
 00260 \}
 \end{DoxyCode}

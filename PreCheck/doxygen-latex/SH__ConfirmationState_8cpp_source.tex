@@ -10,11 +10,12 @@
       QString name, \hyperlink{classQState}{QState} *parent) :
 00011     \hyperlink{classSH__StatementState}{SH\_StatementState}(output, name, parent)
 00012 \{
-00013     qDebug() << \textcolor{stringliteral}{"confirmatiooooon !"};
+00013 
 00014 \}
 00015 
-\hypertarget{SH__ConfirmationState_8cpp_source_l00021}{}\hyperlink{classSH__ConfirmationState_ae47d89a7fc0ada8eb51d8bef2317b348}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__ConfirmationState_ae47d89a7fc0ada8eb51d8bef2317b348}{SH\_ConfirmationState::confirmInput}()
+\hypertarget{SH__ConfirmationState_8cpp_source_l00021}{}\hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{SH\_ConfirmationState::confirmInput}()
 00022 \{
-00023     emit \hyperlink{classSH__GenericState_a030e67a872956135c52e6876d960a7b5}{next}();
-00024 \}
+00023     qDebug() << \textcolor{stringliteral}{"confirmatiooooon !"};
+00024     emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
+00025 \}
 \end{DoxyCode}

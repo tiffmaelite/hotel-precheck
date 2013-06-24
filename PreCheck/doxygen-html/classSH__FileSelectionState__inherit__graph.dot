@@ -8,7 +8,7 @@ digraph "SH_FileSelectionState"
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
   Node2 [label="{SH_InOutState\n|- m_display\l- m_input\l- m_isVisible\l- m_output\l|+ SH_InOutState()\l+ display()\l+ input()\l+ onExit()\l+ output()\l+ rawInput()\l+ visibility()\l+ setInput()\l+ setOutput()\l+ setVisibility()\l}",height=0.2,width=0.4,color="black",URL="$classSH__InOutState.html"];
   Node3 -> Node2 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
-  Node3 [label="{SH_GenericState\n||+ SH_GenericState()\l+ toString()\l# onEntry()\l# onExit()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
+  Node3 [label="{SH_GenericState\n|- m_isRunning\l|+ SH_GenericState()\l+ isRunning()\l+ toString()\l# onEntry()\l# onExit()\l- emitGoNext()\l- onMachineStarted()\l- onTransitionTriggered()\l}",height=0.2,width=0.4,color="black",URL="$classSH__GenericState.html"];
   Node4 -> Node3 [dir="back",color="midnightblue",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];
   Node4 [label="{QState\n||}",height=0.2,width=0.4,color="black",URL="$classQState.html"];
   Node5 -> Node3 [dir="back",color="firebrick4",fontsize="11",style="solid",arrowtail="onormal",fontname="Verdana"];

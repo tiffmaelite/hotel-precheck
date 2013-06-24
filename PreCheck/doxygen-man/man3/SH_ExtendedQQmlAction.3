@@ -1,4 +1,4 @@
-.TH "SH_ExtendedQQmlAction" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_ExtendedQQmlAction" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -220,11 +220,23 @@ Références setKeyShortcut(), et setMnemonicFromText()\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "void SH_ExtendedQQmlAction::enabledChanged ()\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::enabledChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setEnabled()\&.
-.SS "bool SH_ExtendedQQmlAction::event (QEvent *e)"
+.SS "SH_ExtendedQQmlAction::event (QEvent *e)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIe\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 228 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -254,7 +266,14 @@ Références m_enabled, m_mnemonic, m_shortcut, et trigger()\&.
 248     return true;
 249 }
 .fi
-.SS "QIcon SH_ExtendedQQmlAction::icon () const\fC [inline]\fP"
+.SS "SH_ExtendedQQmlAction::icon () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QIcon 
+.RE
+.PP
 
 .PP
 Définition à la ligne 166 du fichier SH_ExtendedQQmlAction\&.h\&.
@@ -266,7 +285,7 @@ Référencé par setIcon()\&.
 .nf
 166 { return m_icon; }
 .fi
-.SS "void SH_ExtendedQQmlAction::iconChanged ()\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::iconChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setIcon(), setIconName(), et setIconSource()\&.
@@ -274,7 +293,7 @@ Référencé par setIcon(), setIconName(), et setIconSource()\&.
 
 .PP
 Référencé par setIconName()\&.
-.SS "void SH_ExtendedQQmlAction::iconNameChanged ()\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::iconNameChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setIconName()\&.
@@ -290,11 +309,18 @@ Référencé par setIconSource()\&.
 .nf
 121 { return m_iconSource; }
 .fi
-.SS "void SH_ExtendedQQmlAction::iconSourceChanged ()\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::iconSourceChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setIconSource()\&.
-.SS "QVariant SH_ExtendedQQmlAction::iconVariant () const\fC [inline]\fP"
+.SS "SH_ExtendedQQmlAction::iconVariant () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
 
 .PP
 Définition à la ligne 173 du fichier SH_ExtendedQQmlAction\&.h\&.
@@ -304,7 +330,14 @@ Références m_icon\&.
 .nf
 173 { return QVariant(m_icon); }
 .fi
-.SS "bool SH_ExtendedQQmlAction::isEnabled () const\fC [inline]\fP"
+.SS "SH_ExtendedQQmlAction::isEnabled () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 151 du fichier SH_ExtendedQQmlAction\&.h\&.
@@ -324,9 +357,23 @@ Références m_shortcut\&.
 .nf
 83 { return m_shortcut; }
 .fi
-.SS "void SH_ExtendedQQmlAction::keyShortcutChanged (Qt::KeykeyShortcut)\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::keyShortcutChanged (Qt::KeykeyShortcut)\fC [signal]\fP"
 
-.SS "void SH_ExtendedQQmlAction::setEnabled (boole)"
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIkeyShortcut\fP 
+.RE
+.PP
+
+.SS "SH_ExtendedQQmlAction::setEnabled (boole)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIe\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 212 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -341,7 +388,14 @@ Références enabledChanged(), et m_enabled\&.
 217     emit enabledChanged();
 218 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setIcon (QIconicon)\fC [inline]\fP"
+.SS "SH_ExtendedQQmlAction::setIcon (QIconicon)\fC [inline]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIicon\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 180 du fichier SH_ExtendedQQmlAction\&.h\&.
@@ -351,7 +405,14 @@ Références icon(), iconChanged(), et m_icon\&.
 .nf
 180 { m_icon = icon; emit iconChanged(); }
 .fi
-.SS "void SH_ExtendedQQmlAction::setIconName (const QString &iconName)"
+.SS "SH_ExtendedQQmlAction::setIconName (const QString &iconName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIiconName\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 184 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -368,7 +429,14 @@ Références iconChanged(), iconName(), iconNameChanged(), m_icon, m_iconName, e
 191     emit iconChanged();
 192 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setIconSource (const QUrl &iconSource)"
+.SS "SH_ExtendedQQmlAction::setIconSource (const QUrl &iconSource)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIiconSource\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 154 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -390,7 +458,14 @@ Références iconChanged(), iconSource(), iconSourceChanged(), m_icon, m_iconNam
 166     emit iconSourceChanged();
 167 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setKeySequence (const QKeySequence &sequence)\fC [protected]\fP"
+.SS "SH_ExtendedQQmlAction::setKeySequence (const QKeySequence &sequence)\fC [protected]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsequence\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 78 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -416,7 +491,14 @@ Référencé par setKeyShortcut(), et setShortcut()\&.
 91     emit shortcutChanged(shortcut());
 92 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setKeyShortcut (const Qt::Key &shortcut)"
+.SS "SH_ExtendedQQmlAction::setKeyShortcut (const Qt::Key &shortcut)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIshortcut\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 99 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -430,7 +512,14 @@ Référencé par ~SH_ExtendedQQmlAction()\&.
 101     setKeySequence(QKeySequence(shortcut));
 102 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setMnemonicFromText (const QString &mnemonic)"
+.SS "SH_ExtendedQQmlAction::setMnemonicFromText (const QString &mnemonic)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImnemonic\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 132 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -456,7 +545,14 @@ Référencé par setText(), et ~SH_ExtendedQQmlAction()\&.
 146     }
 147 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setShortcut (const QString &shortcut)"
+.SS "SH_ExtendedQQmlAction::setShortcut (const QString &shortcut)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIshortcut\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 119 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -471,7 +567,14 @@ Références setKeySequence(), et shortcut()\&.
 124     setKeySequence(QKeySequence::fromString(arg));
 125 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setText (const QString &text)"
+.SS "SH_ExtendedQQmlAction::setText (const QString &text)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItext\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 36 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -487,7 +590,14 @@ Références m_text, setMnemonicFromText(), text(), et textChanged()\&.
 42     emit textChanged();
 43 }
 .fi
-.SS "void SH_ExtendedQQmlAction::setTooltip (const QString &tooltip)"
+.SS "SH_ExtendedQQmlAction::setTooltip (const QString &tooltip)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItooltip\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 199 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -506,7 +616,14 @@ Références m_tooltip, et tooltipChanged()\&.
 
 .PP
 Référencé par setKeySequence(), et setShortcut()\&.
-.SS "void SH_ExtendedQQmlAction::shortcutChanged (QStringshortcut)\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::shortcutChanged (QStringshortcut)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIshortcut\fP 
+.RE
+.PP
 
 .PP
 Référencé par setKeySequence()\&.
@@ -522,11 +639,18 @@ Référencé par setText()\&.
 .nf
 53 { return m_text; }
 .fi
-.SS "void SH_ExtendedQQmlAction::textChanged ()\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::textChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setText()\&.
-.SS "void SH_ExtendedQQmlAction::toggled (boolchecked)\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::toggled (boolchecked)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIchecked\fP 
+.RE
+.PP
 
 .SS "QString SH_ExtendedQQmlAction::tooltip () const\fC [inline]\fP"
 
@@ -538,11 +662,18 @@ Références m_tooltip\&.
 .nf
 136 { return m_tooltip; }
 .fi
-.SS "void SH_ExtendedQQmlAction::tooltipChanged (QStringarg)\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::tooltipChanged (QStringarg)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIarg\fP 
+.RE
+.PP
 
 .PP
 Référencé par setTooltip()\&.
-.SS "void SH_ExtendedQQmlAction::trigger ()\fC [slot]\fP"
+.SS "SH_ExtendedQQmlAction::trigger ()\fC [slot]\fP"
 
 .PP
 Définition à la ligne 256 du fichier SH_ExtendedQQmlAction\&.cpp\&.
@@ -558,7 +689,7 @@ Référencé par event()\&.
 260     emit triggered();
 261 }
 .fi
-.SS "void SH_ExtendedQQmlAction::triggered ()\fC [signal]\fP"
+.SS "SH_ExtendedQQmlAction::triggered ()\fC [signal]\fP"
 
 .PP
 Référencé par trigger()\&.
@@ -638,27 +769,69 @@ Définition à la ligne 23 du fichier SH_ExtendedQQmlAction\&.h\&.
 
 .PP
 Définition à la ligne 25 du fichier SH_ExtendedQQmlAction\&.h\&.
-.SS "QString SH_ExtendedQQmlAction::iconName\fC [read]\fP, \fC [write]\fP"
+.SS "SH_ExtendedQQmlAction::iconName\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 22 du fichier SH_ExtendedQQmlAction\&.h\&.
-.SS "QUrl SH_ExtendedQQmlAction::iconSource\fC [read]\fP, \fC [write]\fP"
+.SS "SH_ExtendedQQmlAction::iconSource\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QUrl 
+.RE
+.PP
 
 .PP
 Définition à la ligne 21 du fichier SH_ExtendedQQmlAction\&.h\&.
-.SS "Qt::Key SH_ExtendedQQmlAction::keyShortcut\fC [write]\fP"
+.SS "SH_ExtendedQQmlAction::keyShortcut\fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QKeySequence 
+.RE
+.PP
 
 .PP
 Définition à la ligne 29 du fichier SH_ExtendedQQmlAction\&.h\&.
-.SS "QString SH_ExtendedQQmlAction::shortcut\fC [read]\fP, \fC [write]\fP"
+.SS "SH_ExtendedQQmlAction::shortcut\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 28 du fichier SH_ExtendedQQmlAction\&.h\&.
-.SS "QString SH_ExtendedQQmlAction::text\fC [read]\fP, \fC [write]\fP"
+.SS "SH_ExtendedQQmlAction::text\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 20 du fichier SH_ExtendedQQmlAction\&.h\&.
-.SS "QString SH_ExtendedQQmlAction::tooltip\fC [read]\fP, \fC [write]\fP"
+.SS "SH_ExtendedQQmlAction::tooltip\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 24 du fichier SH_ExtendedQQmlAction\&.h\&.

@@ -1,4 +1,4 @@
-.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/main.cpp" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/main.cpp" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -176,7 +176,7 @@ Références enableLogging(), et SH_MessageManager::errorMessage()\&.
 153         qmlRegisterUncreatableType<SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
 154         qmlRegisterType<SH_User>("PreCheck", 1, 0, "User");
 155         SH_ApplicationCore* appManager = new SH_ApplicationCore();
-156         engine\&.rootContext()->setContextProperty("SH_App", appManager);
+156         engine\&.rootContext()->setContextProperty("App", appManager);
 157 
 158         qmlRegisterType<SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
 159         qmlRegisterType<SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");

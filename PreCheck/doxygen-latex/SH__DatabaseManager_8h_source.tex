@@ -3,8 +3,8 @@
 }
 
 \begin{DoxyCode}
-00001 \textcolor{preprocessor}{#ifndef APPDATABASESINGLETON\_H}
-00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define APPDATABASESINGLETON\_H}
+00001 \textcolor{preprocessor}{#ifndef SH\_DatabaseManagerSINGLETON\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SH\_DatabaseManagerSINGLETON\_H}
 00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <QSqlDatabase>}
 00004 \textcolor{preprocessor}{#include <QString>}
 00005 \textcolor{preprocessor}{#include <QSqlQuery>}
@@ -36,45 +36,51 @@
 00054 
 00055 
 00056 
-\hypertarget{SH__DatabaseManager_8h_source_l00062}{}\hyperlink{classSH__DatabaseManager}{00062} \textcolor{keyword}{class }\hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager}: \textcolor{keyword}{public} \hyperlink{classQObject}{QObject}
-00063 \{
-00064     Q\_OBJECT
-00065     \textcolor{keyword}{private}:
-\hypertarget{SH__DatabaseManager_8h_source_l00066}{}\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{00066}         \textcolor{keyword}{static} \hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance};
-00067 
-00075         \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseManager_acab8936d9c694610eda1c157a405ead3}{divideQVariantMap}(QVariantMap values, QString &fields, QString &vals);
-00076 \textcolor{keyword}{protected}:
-00077 
-00083         \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{SH\_DatabaseManager}();
-\hypertarget{SH__DatabaseManager_8h_source_l00087}{}\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{00087}         QSqlDatabase \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection};
-00088 
-00089     \textcolor{keyword}{public}:
-00090 
-00091 
-00098         \textcolor{keyword}{static} \hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a638369a15265ab0aa053080a32d2ca39}{getInstance}();
-00099 
-00100 
-00101 
-00108         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_aeb077fe5437f435c0cbe8d77d96dd846}{dbConnect}();
-00109 
-00116         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ab125b77320dca843740fc9928fbbe16f}{isConnected}();
-00117 
+\hypertarget{SH__DatabaseManager_8h_source_l00063}{}\hyperlink{classSH__DatabaseManager}{00063} \textcolor{keyword}{class }\hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager}: \textcolor{keyword}{public} \hyperlink{classQObject}{QObject}
+00064 \{
+00065     Q\_OBJECT
+00066     \textcolor{keyword}{private}:
+\hypertarget{SH__DatabaseManager_8h_source_l00070}{}\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{00070}         \textcolor{keyword}{static} \hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance};
+00071 
+00079         \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{divideQVariantMap}(QVariantMap values, QString &fields, QString &vals);
+00080 \textcolor{keyword}{protected}:
+00081 
+00086         \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{SH\_DatabaseManager}();
+00087 
+\hypertarget{SH__DatabaseManager_8h_source_l00091}{}\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{00091}         QSqlDatabase \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection};
+00092 
+00093     \textcolor{keyword}{public}:
+00094 
+00095 
+00101         \textcolor{keyword}{static} \hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{getInstance}();
+00102 
+00103 
+00104 
+00110         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{dbConnect}();
+00111 
+00117         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_aba5832c8be2fe4894781c9bf34be5b8b}{isConnected}();
 00118 
-00125         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a3716cf1a5f521cc49584dbcb2fab28bf}{dbDisconnect}();
+00119 
+00125         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{dbDisconnect}();
 00126 
 00127 
-00134         QSqlDatabase \hyperlink{classSH__DatabaseManager_adf7c1e261fd3feed3dea6614d8a80d5f}{getDbConnection}();
+00133         QSqlDatabase \hyperlink{classSH__DatabaseManager_a0ce86f671946975c2e7b4ad50c9a92a2}{getDbConnection}();
+00134 
 00135 
-00136 
-00142         \hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{~SH\_DatabaseManager}();
-00150         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_af83a53b26cee86b3194cac14928115ed}{tableExists}(QString tableName);
-00159         \textcolor{keywordtype}{int} \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{dataCount}(QString tableName, QString filter);
-00167         QSqlQuery \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(QString tableName, QStringList fields=QStringList(\textcolor{stringliteral}{"*"}), 
+00140         \hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{~SH\_DatabaseManager}();
+00141 
+00148         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ac18f4ee3abd86cb0db25b3cb593e28b8}{tableExists}(QString tableName);
+00149 
+00157         \textcolor{keywordtype}{int} \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{dataCount}(QString tableName, QString filter);
+00158 
+00165         QSqlQuery \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(QString tableName, QStringList fields=QStringList(\textcolor{stringliteral}{"*"}), 
       QString condition=\textcolor{stringliteral}{""}, QString ordering=\textcolor{stringliteral}{""});
-00174         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_aa42b90708c2fdb89588cb67d2e4f8ad7}{execReplaceQuery}(QString tableName, QVariantMap values);
-00182         QVariant \hyperlink{classSH__DatabaseManager_a1c0399265021ed79a1c07a0e01c7a5dc}{execInsertReturningQuery}(QString tableName, QVariantMap values, 
+00166 
+00173         \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{execReplaceQuery}(QString tableName, QVariantMap values);
+00174 
+00182         QVariant \hyperlink{classSH__DatabaseManager_a55268fae16792142072af49238f7bb94}{execInsertReturningQuery}(QString tableName, QVariantMap values, 
       QString returningField);
 00183 \};
 00184 
-00185 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* APPDATABASESINGLETON\_H*/}\textcolor{preprocessor}{}
+00185 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* SH\_DatabaseManagerSINGLETON\_H*/}\textcolor{preprocessor}{}
 \end{DoxyCode}

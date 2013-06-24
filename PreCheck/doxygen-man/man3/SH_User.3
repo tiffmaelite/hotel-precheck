@@ -1,4 +1,4 @@
-.TH "SH_User" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_User" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -150,25 +150,6 @@ Définition à la ligne 15 du fichier SH_User\&.h\&.
 .SS "SH_User::SH_User (QStringname = \fC''\fP, intid = \fC0\fP, boolisReceptionist = \fCfalse\fP, boolisManagerX = \fCfalse\fP, boolisManagerZ = \fCfalse\fP, boolisAdministrator = \fCfalse\fP, \fBQObject\fP *parent = \fC0\fP)"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIname\fP 
-.br
-\fIid\fP 
-.br
-\fIisReceptionist\fP 
-.br
-\fIisManagerX\fP 
-.br
-\fIisManagerZ\fP 
-.br
-\fIisAdministrator\fP 
-.br
-\fIparent\fP 
-.RE
-.PP
-
-.PP
 Définition à la ligne 15 du fichier SH_User\&.cpp\&.
 .PP
 Références isAdministrator(), isManagerX(), isManagerZ(), isReceptionist(), m_administrator, m_managerX, m_managerZ, m_receptionist, setID(), et setName()\&.
@@ -188,7 +169,19 @@ Référencé par logIn()\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "static QVariant SH_User::exists (QVariantlogin)\fC [inline]\fP, \fC [static]\fP, \fC [slot]\fP"
+.SS "SH_User::exists (QVariantlogin)\fC [inline]\fP, \fC [static]\fP, \fC [slot]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
 
 .PP
 Définition à la ligne 132 du fichier SH_User\&.h\&.
@@ -212,7 +205,14 @@ Référencé par setID()\&.
 .nf
 54 { return this->m_id; }
 .fi
-.SS "bool SH_User::isAdministrator () const\fC [inline]\fP"
+.SS "SH_User::isAdministrator () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 82 du fichier SH_User\&.h\&.
@@ -224,7 +224,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User()\&.
 .nf
 82 { return this->m_administrator; }
 .fi
-.SS "bool SH_User::isManagerX () const\fC [inline]\fP"
+.SS "SH_User::isManagerX () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 68 du fichier SH_User\&.h\&.
@@ -236,7 +243,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User()\&.
 .nf
 68 { return this->m_managerX; }
 .fi
-.SS "bool SH_User::isManagerZ () const\fC [inline]\fP"
+.SS "SH_User::isManagerZ () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 75 du fichier SH_User\&.h\&.
@@ -248,7 +262,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User()\&.
 .nf
 75 { return this->m_managerZ; }
 .fi
-.SS "bool SH_User::isReceptionist () const"
+.SS "SH_User::isReceptionist () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 64 du fichier SH_User\&.cpp\&.
@@ -262,7 +283,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User()\&.
 66     return this->m_receptionist;
 67 }
 .fi
-.SS "bool SH_User::isValid () const"
+.SS "SH_User::isValid () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 32 du fichier SH_User\&.cpp\&.
@@ -276,7 +304,21 @@ Référencé par logIn(), SH_ApplicationCore::setUser(), et SH_ApplicationCore::
 33     return ((!this->m_name\&.isEmpty()) && (this->m_id != 0));
 34 }
 .fi
-.SS "\fBSH_User\fP * SH_User::logIn (QStringlogin, QStringpass)\fC [static]\fP"
+.SS "SH_User::logIn (QStringlogin, QStringpass)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.br
+\fIpass\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+User 
+.RE
+.PP
 
 .PP
 Définition à la ligne 132 du fichier SH_User\&.cpp\&.
@@ -326,13 +368,20 @@ Référencé par SH_ApplicationCore::setUser()\&.
 
 .PP
 Référencé par setName()\&.
-.SS "void SH_User::nameChanged ()\fC [signal]\fP"
+.SS "SH_User::nameChanged ()\fC [signal]\fP"
 
 .SS "int SH_User::roles () const"
 
-.SS "void SH_User::rolesChanged ()\fC [signal]\fP"
+.SS "SH_User::rolesChanged ()\fC [signal]\fP"
 
-.SS "void SH_User::setID (intid)\fC [private]\fP"
+.SS "SH_User::setID (intid)\fC [private]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIid\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 99 du fichier SH_User\&.cpp\&.
@@ -346,7 +395,14 @@ Référencé par SH_User()\&.
 101     m_id = id;
 102 }
 .fi
-.SS "void SH_User::setName (QStringname)\fC [private]\fP"
+.SS "SH_User::setName (QStringname)\fC [private]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 42 du fichier SH_User\&.cpp\&.
@@ -360,7 +416,19 @@ Référencé par SH_User()\&.
 44     m_name = name;
 45 }
 .fi
-.SS "bool SH_User::traineeExists (QStringlogin)\fC [static]\fP"
+.SS "SH_User::traineeExists (QStringlogin)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 121 du fichier SH_User\&.cpp\&.
@@ -375,7 +443,19 @@ Référencé par exists(), et logIn()\&.
 123     return (SH_DatabaseManager::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
 124 }
 .fi
-.SS "bool SH_User::userExists (QStringlogin)\fC [static]\fP"
+.SS "SH_User::userExists (QStringlogin)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 110 du fichier SH_User\&.cpp\&.
@@ -390,7 +470,7 @@ Référencé par exists(), et logIn()\&.
 112     return (SH_DatabaseManager::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
 113 }
 .fi
-.SS "void SH_User::validityChanged ()\fC [signal]\fP"
+.SS "SH_User::validityChanged ()\fC [signal]\fP"
 
 .SH "Documentation des données membres"
 .PP 
@@ -448,7 +528,14 @@ Référencé par isReceptionist(), et SH_User()\&.
 
 .PP
 Définition à la ligne 23 du fichier SH_User\&.h\&.
-.SS "int SH_User::id\fC [read]\fP"
+.SS "SH_User::id\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 18 du fichier SH_User\&.h\&.
@@ -462,7 +549,14 @@ Définition à la ligne 21 du fichier SH_User\&.h\&.
 
 .PP
 Définition à la ligne 22 du fichier SH_User\&.h\&.
-.SS "QString SH_User::name\fC [read]\fP"
+.SS "SH_User::name\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 19 du fichier SH_User\&.h\&.
@@ -472,7 +566,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_ApplicationCore::setUser()
 
 .PP
 Définition à la ligne 20 du fichier SH_User\&.h\&.
-.SS "int SH_User::roles\fC [read]\fP"
+.SS "SH_User::roles\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 24 du fichier SH_User\&.h\&.

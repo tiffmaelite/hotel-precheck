@@ -25,13 +25,13 @@
 00031     \}
 00032     onNewBilling: \{
 00033         console.log(\textcolor{stringliteral}{"launch new billings thread ?"});
-00034         SH\_App.launchBillingsThread();
+00034         App.launchBillingsThread();
 00035     \}
 00036     onNewBooking: \{
-00037         SH\_App.launchBookingsThread();
+00037         App.launchBookingsThread();
 00038     \}
 00039     onNewSelling: \{
-00040         SH\_App.launchBillThread();
+00040         App.launchBillThread();
 00041     \}
 00042 
 00043 
@@ -62,24 +62,24 @@
 00068         \textcolor{keywordflow}{for}(var i = 1; i < nbTabs; i++) \{
 00069             tabView.removeTab(i)
 00070         \}
-00071         \textcolor{keywordflow}{switch}(SH\_App.currentMode) \{
-00072         \textcolor{keywordflow}{case} SH\_AppMode.RECEPTION:
+00071         \textcolor{keywordflow}{switch}(App.currentMode) \{
+00072         \textcolor{keywordflow}{case} AppMode.RECEPTION:
 00073             tabView.addTab(qsTr(\textcolor{stringliteral}{"Prestations"}), servicesTab);
 00074             tabView.addTab(qsTr(\textcolor{stringliteral}{"Chambres"}), roomsTab);
 00075             tabView.addTab(qsTr(\textcolor{stringliteral}{"Facturations"}), billingsTab);
 00076             tabView.addTab(qsTr(\textcolor{stringliteral}{"Réservations"}), bookingsTab);
 00077             \textcolor{comment}{/*tabView.addTab(qsTr("Offres"), offersTab);*/}
 00078             \textcolor{keywordflow}{break};
-00079         \textcolor{keywordflow}{case} SH\_AppMode.MANAGEMENT\_Z:
+00079         \textcolor{keywordflow}{case} AppMode.MANAGEMENT\_Z:
 00080             \textcolor{comment}{/*tabView.addTab(qsTr("Clôtures"), accountsTab);*/}
-00081         \textcolor{keywordflow}{case} SH\_AppMode.MANAGEMENT\_X:
+00081         \textcolor{keywordflow}{case} AppMode.MANAGEMENT\_X:
 00082             \textcolor{comment}{/*tabView.addTab(qsTr("Prestations"), servicesEditTab);*/}
 00083             tabView.addTab(qsTr(\textcolor{stringliteral}{"Chambres"}), roomsEditTab);
 00084             \textcolor{comment}{/*tabView.addTab(qsTr("Clients privés"), clientsEditTab);*/}
 00085             \textcolor{comment}{/*tabView.addTab(qsTr("Groupes"), groupsEditTab);*/}
 00086             \textcolor{comment}{/*tabView.addTab(qsTr("Rapports"), reportsTab);*/}
 00087             \textcolor{keywordflow}{break};
-00088         \textcolor{keywordflow}{case} SH\_AppMode.ADMINISTRATION :
+00088         \textcolor{keywordflow}{case} AppMode.ADMINISTRATION :
 00089             \textcolor{comment}{/*tabView.addTab(qsTr("Paramètres"), settingsTab);*/}
 00090             \textcolor{comment}{/*tabView.addTab(qsTr("Utilisateurs"), usersTab);*/}
 00091             \textcolor{comment}{/*tabView.addTab(qsTr("Design"), skinTab);*/}

@@ -1,10 +1,10 @@
-.TH "SH_ApplicationCore" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_ApplicationCore" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 SH_ApplicationCore \- 
 .PP
-Classe principale du coeur de l'application, avec laquelle communique l'interface graphique\&.  
+La classe \fBSH_ApplicationCore\fP est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique\&.  
 
 .SH SYNOPSIS
 .br
@@ -34,7 +34,7 @@ Est dérivée de \fBQObject\fP\&.
 .RI "bool \fBcancelRunningThread\fP ()"
 .br
 .ti -1c
-.RI "Q_INVOKABLE bool \fBlaunchBillingsThread\fP ()"
+.RI "bool \fBlaunchBillingsThread\fP ()"
 .br
 .ti -1c
 .RI "bool \fBlaunchBillThread\fP ()"
@@ -57,12 +57,15 @@ Est dérivée de \fBQObject\fP\&.
 .ti -1c
 .RI "bool \fBsetUser\fP (QString login, QString pass)"
 .br
+.RI "\fIModifie l'utilisateur actuel\&. \fP"
 .ti -1c
 .RI "bool \fBuserExists\fP (QString login)"
 .br
+.RI "\fIVérifie s'il existe un utilisateur avec le pseudo fourni\&. \fP"
 .ti -1c
 .RI "bool \fBuserLogOut\fP ()"
 .br
+.RI "\fI'Déconnecte' l'utilisateur actuel, et le remplace par un utilisateur invalide \fP"
 .in -1c
 .SS "Signaux"
 
@@ -101,15 +104,19 @@ Est dérivée de \fBQObject\fP\&.
 .ti -1c
 .RI "void \fBinit\fP ()"
 .br
+.RI "\fIInitialise l'application avec un utilisateur invalide, et le mode \fICONNEXION\fP\&. \fP"
 .ti -1c
 .RI "\fBAppMode\fP \fBmode\fP () const "
 .br
+.RI "\fIRetourne le mode actuel de l'application\&. \fP"
 .ti -1c
 .RI "void \fBsetMode\fP (\fBAppMode\fP \fBmode\fP)"
 .br
+.RI "\fIModifie le mode dans lequel se trouve l'application\&. \fP"
 .ti -1c
 .RI "\fBSH_User\fP * \fBuser\fP () const "
 .br
+.RI "\fIretourne l'utilisateur actuellement connecté \fP"
 .in -1c
 .SS "Fonctions membres protégées"
 
@@ -124,9 +131,11 @@ Est dérivée de \fBQObject\fP\&.
 .ti -1c
 .RI "\fBAppMode\fP \fBcurrentMode\fP"
 .br
+.RI "\fILe mode actuel de l'application\&. \fP"
 .ti -1c
 .RI "\fBSH_User\fP \fBcurrentUser\fP"
 .br
+.RI "\fIL'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté) \fP"
 .in -1c
 .SS "Attributs privés"
 
@@ -134,19 +143,16 @@ Est dérivée de \fBQObject\fP\&.
 .ti -1c
 .RI "\fBSH_InOutStateMachine\fP * \fBm_currentFSM\fP"
 .br
-.RI "\fIm_currentFSM \fP"
 .ti -1c
 .RI "\fBSH_User\fP * \fBm_currentUser\fP"
 .br
-.RI "\fIm_currentUser \fP"
 .ti -1c
 .RI "\fBAppMode\fP \fBm_mode\fP"
 .br
-.RI "\fIm_mode \fP"
 .in -1c
 .SH "Description détaillée"
 .PP 
-Classe principale du coeur de l'application, avec laquelle communique l'interface graphique\&. 
+La classe \fBSH_ApplicationCore\fP est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique\&. 
 .PP
 Définition à la ligne 12 du fichier SH_ApplicationCore\&.h\&.
 .SH "Documentation des énumérations membres"
@@ -191,13 +197,6 @@ Définition à la ligne 57 du fichier SH_ApplicationCore\&.h\&.
 .SS "SH_ApplicationCore::SH_ApplicationCore (\fBQObject\fP *parent = \fC0\fP)"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIparent\fP 
-.RE
-.PP
-
-.PP
 Définition à la ligne 14 du fichier SH_ApplicationCore\&.cpp\&.
 .PP
 Références init()\&.
@@ -211,21 +210,28 @@ Références init()\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "bool SH_ApplicationCore::balanceLogRoutine ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::balanceLogRoutine ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 112 du fichier SH_ApplicationCore\&.cpp\&.
 .PP
 .nf
 112                                            {
-113     /*AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(H)");
-114     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(D)");
-115     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(W)");
-116     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(M)");
-117     AppDatabase::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(Y)");*/
+113     /*SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(H)");
+114     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(D)");
+115     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(W)");
+116     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(M)");
+117     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(Y)");*/
 118 }
 .fi
-.SS "void SH_ApplicationCore::cancelReplacement ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::cancelReplacement ()\fC [slot]\fP"
 
 .PP
 Définition à la ligne 169 du fichier SH_ApplicationCore\&.cpp\&.
@@ -239,12 +245,19 @@ Références SH_InOutStateMachine::cancelReplacement(), et m_currentFSM\&.
 173     }
 174 }
 .fi
-.SS "bool SH_ApplicationCore::cancelRunningThread ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::cancelRunningThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 232 du fichier SH_ApplicationCore\&.cpp\&.
 .PP
-Références m_currentFSM\&.
+Références SH_GenericStateMachine::isRunning(), et m_currentFSM\&.
 .PP
 .nf
 233 {
@@ -257,16 +270,23 @@ Références m_currentFSM\&.
 240     return ok;
 241 }
 .fi
-.SS "void SH_ApplicationCore::clearAll ()\fC [signal]\fP"
+.SS "SH_ApplicationCore::clearAll ()\fC [signal]\fP"
 
 .PP
 Référencé par connectRunningThread()\&.
-.SS "bool SH_ApplicationCore::connectRunningThread ()\fC [protected]\fP"
+.SS "SH_ApplicationCore::connectRunningThread ()\fC [protected]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 249 du fichier SH_ApplicationCore\&.cpp\&.
 .PP
-Références SH_InOutStateMachine::clearAll(), clearAll(), SH_InOutStateMachine::displayCalendar(), displayCalendar(), m_currentFSM, SH_InOutStateMachine::resendText(), resendText(), SH_InOutStateMachine::sendText(), et sendText()\&.
+Références SH_InOutStateMachine::clearAll(), clearAll(), SH_InOutStateMachine::displayCalendar(), displayCalendar(), SH_GenericStateMachine::isRunning(), m_currentFSM, SH_InOutStateMachine::resendText(), resendText(), SH_InOutStateMachine::sendText(), et sendText()\&.
 .PP
 Référencé par launchBillingsThread(), launchBillThread(), et launchBookingsThread()\&.
 .PP
@@ -283,14 +303,16 @@ Référencé par launchBillingsThread(), launchBillThread(), et launchBookingsTh
 259     return this->m_currentFSM->isRunning();
 260 }
 .fi
-.SS "void SH_ApplicationCore::currentFSMchanged ()\fC [signal]\fP"
+.SS "SH_ApplicationCore::currentFSMchanged ()\fC [signal]\fP"
 
-.SS "void SH_ApplicationCore::displayCalendar ()\fC [signal]\fP"
+.SS "SH_ApplicationCore::displayCalendar ()\fC [signal]\fP"
 
 .PP
 Référencé par connectRunningThread()\&.
-.SS "void SH_ApplicationCore::init ()"
+.SS "SH_ApplicationCore::init ()"
 
+.PP
+Initialise l'application avec un utilisateur invalide, et le mode \fICONNEXION\fP\&. 
 .PP
 Définition à la ligne 35 du fichier SH_ApplicationCore\&.cpp\&.
 .PP
@@ -303,12 +325,19 @@ Référencé par SH_ApplicationCore()\&.
 36     this->m_currentUser = new SH_User();
 37 }
 .fi
-.SS "bool SH_ApplicationCore::launchBillingsThread ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::launchBillingsThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 182 du fichier SH_ApplicationCore\&.cpp\&.
 .PP
-Références connectRunningThread(), m_currentFSM, et SH_InOutStateMachine::toString()\&.
+Références connectRunningThread(), m_currentFSM, et SH_GenericStateMachine::toString()\&.
 .PP
 .nf
 183 {
@@ -324,7 +353,14 @@ Références connectRunningThread(), m_currentFSM, et SH_InOutStateMachine::toSt
 193 
 194 }
 .fi
-.SS "bool SH_ApplicationCore::launchBillThread ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::launchBillThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 216 du fichier SH_ApplicationCore\&.cpp\&.
@@ -342,7 +378,14 @@ Références connectRunningThread(), SH_User::id, m_currentFSM, m_currentUser, e
 224     return this->connectRunningThread();
 225 }
 .fi
-.SS "bool SH_ApplicationCore::launchBookingsThread ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::launchBookingsThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 201 du fichier SH_ApplicationCore\&.cpp\&.
@@ -359,7 +402,16 @@ Références connectRunningThread()\&.
 208     return this->connectRunningThread();
 209 }
 .fi
-.SS "\fBSH_ApplicationCore::AppMode\fP SH_ApplicationCore::mode () const"
+.SS "SH_ApplicationCore::mode () const"
+
+.PP
+Retourne le mode actuel de l'application\&. 
+.PP
+\fBRenvoie:\fP
+.RS 4
+AppMode 
+.RE
+.PP
 
 .PP
 Définition à la ligne 25 du fichier SH_ApplicationCore\&.cpp\&.
@@ -373,11 +425,25 @@ Référencé par setMode()\&.
 27     return m_mode;
 28 }
 .fi
-.SS "void SH_ApplicationCore::modeChanged (QVariantmode)\fC [signal]\fP"
+.SS "SH_ApplicationCore::modeChanged (QVariantmode)\fC [signal]\fP"
 
-.SS "void SH_ApplicationCore::openTab (QVarianttabPos)\fC [signal]\fP"
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImode\fP 
+.RE
+.PP
 
-.SS "void SH_ApplicationCore::receiveConfirmation ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::openTab (QVarianttabPos)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItabPos\fP 
+.RE
+.PP
+
+.SS "SH_ApplicationCore::receiveConfirmation ()\fC [slot]\fP"
 
 .PP
 Définition à la ligne 147 du fichier SH_ApplicationCore\&.cpp\&.
@@ -391,7 +457,14 @@ Références SH_InOutStateMachine::confirmInput(), et m_currentFSM\&.
 151 
 152 }
 .fi
-.SS "void SH_ApplicationCore::receiveInput (QStringin)\fC [slot]\fP"
+.SS "SH_ApplicationCore::receiveInput (QStringin)\fC [slot]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIin\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 125 du fichier SH_ApplicationCore\&.cpp\&.
@@ -405,7 +478,7 @@ Références m_currentFSM, et SH_InOutStateMachine::receiveInput()\&.
 129 
 130 }
 .fi
-.SS "void SH_ApplicationCore::receiveValidation ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::receiveValidation ()\fC [slot]\fP"
 
 .PP
 Définition à la ligne 136 du fichier SH_ApplicationCore\&.cpp\&.
@@ -419,7 +492,14 @@ Références m_currentFSM, et SH_InOutStateMachine::validateInput()\&.
 140 
 141 }
 .fi
-.SS "void SH_ApplicationCore::replaceInput (QStringinputName)\fC [slot]\fP"
+.SS "SH_ApplicationCore::replaceInput (QStringinputName)\fC [slot]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIinputName\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 158 du fichier SH_ApplicationCore\&.cpp\&.
@@ -433,15 +513,38 @@ Références m_currentFSM, et SH_InOutStateMachine::replaceInput()\&.
 162 
 163 }
 .fi
-.SS "void SH_ApplicationCore::resendText (QStringtext)\fC [signal]\fP"
+.SS "SH_ApplicationCore::resendText (QStringtext)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItext\fP 
+.RE
+.PP
 
 .PP
 Référencé par connectRunningThread()\&.
-.SS "void SH_ApplicationCore::sendText (QStringtext)\fC [signal]\fP"
+.SS "SH_ApplicationCore::sendText (QStringtext)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItext\fP 
+.RE
+.PP
 
 .PP
 Référencé par connectRunningThread()\&.
-.SS "void SH_ApplicationCore::setMode (\fBSH_ApplicationCore::AppMode\fPmode)"
+.SS "SH_ApplicationCore::setMode (\fBSH_ApplicationCore::AppMode\fPmode)"
+
+.PP
+Modifie le mode dans lequel se trouve l'application\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImode\fP Le nouveau mode de l'application 
+.RE
+.PP
 
 .PP
 Définition à la ligne 44 du fichier SH_ApplicationCore\&.cpp\&.
@@ -464,7 +567,23 @@ Références ACCUEIL, ADMINISTRATION, CONNEXION, SH_User::exists(), SH_User::isA
 57     }
 58 }
 .fi
-.SS "bool SH_ApplicationCore::setUser (QStringlogin, QStringpass)\fC [slot]\fP"
+.SS "SH_ApplicationCore::setUser (QStringlogin, QStringpass)\fC [slot]\fP"
+
+.PP
+Modifie l'utilisateur actuel\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP Le nom d'utilisateur du nouvel utilisateur 
+.br
+\fIpass\fP Le mot de passe du nouvel utilisateur 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool Retourne \fItrue\fP si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; \fIfalse\fP sinon 
+.RE
+.PP
 
 .PP
 Définition à la ligne 86 du fichier SH_ApplicationCore\&.cpp\&.
@@ -481,7 +600,16 @@ Références SH_User::isValid(), SH_User::logIn(), m_currentUser, SH_User::name,
 93     return false;
 94 }
 .fi
-.SS "\fBSH_User\fP * SH_ApplicationCore::user () const"
+.SS "SH_ApplicationCore::user () const"
+
+.PP
+retourne l'utilisateur actuellement connecté 
+.PP
+\fBRenvoie:\fP
+.RS 4
+User 
+.RE
+.PP
 
 .PP
 Définition à la ligne 65 du fichier SH_ApplicationCore\&.cpp\&.
@@ -493,11 +621,32 @@ Références m_currentUser\&.
 67     return this->m_currentUser;
 68 }
 .fi
-.SS "void SH_ApplicationCore::userChanged (QVariantname)\fC [signal]\fP"
+.SS "SH_ApplicationCore::userChanged (QVariantname)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
 
 .PP
 Référencé par setUser()\&.
-.SS "bool SH_ApplicationCore::userExists (QStringlogin)\fC [slot]\fP"
+.SS "SH_ApplicationCore::userExists (QStringlogin)\fC [slot]\fP"
+
+.PP
+Vérifie s'il existe un utilisateur avec le pseudo fourni\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP Le nom d'utilisateur pour lequel il faut effectuer une vérification 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 102 du fichier SH_ApplicationCore\&.cpp\&.
@@ -509,7 +658,16 @@ Références SH_User::exists()\&.
 104     return SH_User::exists(login)\&.toBool();
 105 }
 .fi
-.SS "bool SH_ApplicationCore::userLogOut ()\fC [slot]\fP"
+.SS "SH_ApplicationCore::userLogOut ()\fC [slot]\fP"
+
+.PP
+'Déconnecte' l'utilisateur actuel, et le remplace par un utilisateur invalide 
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool Retourne \fItrue\fP si le changement a réussi, \fIfalse\fP sinon 
+.RE
+.PP
 
 .PP
 Définition à la ligne 75 du fichier SH_ApplicationCore\&.cpp\&.
@@ -524,28 +682,22 @@ Références SH_User::isValid(), et m_currentUser\&.
 .fi
 .SH "Documentation des données membres"
 .PP 
-.SS "\fBSH_InOutStateMachine\fP* SH_ApplicationCore::m_currentFSM\fC [private]\fP"
+.SS "SH_ApplicationCore::m_currentFSM\fC [private]\fP"
 
 .PP
-m_currentFSM 
-.PP
-Définition à la ligne 268 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 265 du fichier SH_ApplicationCore\&.h\&.
 .PP
 Référencé par cancelReplacement(), cancelRunningThread(), connectRunningThread(), launchBillingsThread(), launchBillThread(), receiveConfirmation(), receiveInput(), receiveValidation(), et replaceInput()\&.
-.SS "\fBSH_User\fP* SH_ApplicationCore::m_currentUser\fC [private]\fP"
+.SS "SH_ApplicationCore::m_currentUser\fC [private]\fP"
 
 .PP
-m_currentUser 
-.PP
-Définition à la ligne 260 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 255 du fichier SH_ApplicationCore\&.h\&.
 .PP
 Référencé par init(), launchBillThread(), setMode(), setUser(), user(), et userLogOut()\&.
-.SS "\fBAppMode\fP SH_ApplicationCore::m_mode\fC [private]\fP"
+.SS "SH_ApplicationCore::m_mode\fC [private]\fP"
 
 .PP
-m_mode 
-.PP
-Définition à la ligne 264 du fichier SH_ApplicationCore\&.h\&.
+Définition à la ligne 260 du fichier SH_ApplicationCore\&.h\&.
 .PP
 Référencé par mode(), et setMode()\&.
 .SH "Documentation des propriétés"
@@ -553,9 +705,13 @@ Référencé par mode(), et setMode()\&.
 .SS "SH_ApplicationCore::currentMode\fC [read]\fP, \fC [write]\fP"
 
 .PP
+Le mode actuel de l'application\&. 
+.PP
 Définition à la ligne 24 du fichier SH_ApplicationCore\&.h\&.
 .SS "SH_ApplicationCore::currentUser\fC [read]\fP"
 
+.PP
+L'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté) 
 .PP
 Définition à la ligne 19 du fichier SH_ApplicationCore\&.h\&.
 

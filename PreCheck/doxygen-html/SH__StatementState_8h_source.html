@@ -3,6 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/logic/SH_StatementState.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-extra-stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div! -->
@@ -16,19 +31,36 @@
    <span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
-   <link href="tabs.css" rel="stylesheet" type="text/css"/>
-   <link href="doxygen.css" rel="stylesheet" type="text/css" />
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- Généré par Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -37,11 +69,35 @@
       <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.html">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.html">logic</a></li>  </ul>
-</div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('SH__StatementState_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="headertitle">
 <div class="title">SH_StatementState.h</div>  </div>
@@ -55,10 +111,10 @@
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classSH__StatementState.html#acc888fc333049b693f05ff760e363f27">SH_StatementState</a>(QString <a class="code" href="classSH__InOutState.html#a1a2fd4f34484125058e20730aaee7e46">output</a>, QString <a class="code" href="classSH__NamedObject.html#a970f265df31b28b2179bbbceb6170ac2">name</a>, <a class="code" href="classQState.html">QState</a> *parent = 0);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classSH__StatementState.html#acc888fc333049b693f05ff760e363f27">SH_StatementState</a>(QString <a class="code" href="classSH__InOutState.html#a17ed7eaf5e3ed5af80a4f9fe65d5bfd9">output</a>, QString <a class="code" href="classSH__NamedObject.html#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>, <a class="code" href="classQState.html">QState</a> *parent = 0);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.html#a20e5cf0df2d918a16f73a50a5c7d065e">setInput</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__InOutState.html#a04364c76d2fd8a3781e7b325955e5bd9">input</a>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.html#ac62f9c27b2966034e56762a6e532dbe4">onEntry</a>(QEvent *event);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.html#ac9d6483521908224e4cb3765d680d113">setInput</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__InOutState.html#a8e1b78069343122df7713624a1a5a100">input</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.html#ab866a023213fe1bd1857705bf98a8f65">onEntry</a>(QEvent *event);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;signals:</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
@@ -68,11 +124,12 @@
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* STATEMENTSTATE_H*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 
-<hr class="footer"/><small>
-<span class="qmi"><a href="http://github.com/skozlovf/doxygen-qmi-style">qmi style</a></span>
-<address class="footer">
-Généré le Vendredi Juin 21 2013 18:03:47 pour PreCheck par <a href="http://www.doxygen.org/index.html">doxygen</a> 1.8.4
-</small></address>
+	<li class="footer">Généré le Lundi Juin 24 2013 12:58:46 pour PreCheck par
+	<!--<span class="qmi"><a href="http://github.com/skozlovf/doxygen-qmi-style">qmi style</a> |</span>-->
+	<a href="http://www.doxygen.org/index.html">doxygen</a> 1.8.4 </li>
+   </ul>
+ </div>
 </body>
 </html>

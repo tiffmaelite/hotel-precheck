@@ -1,4 +1,4 @@
-.TH "SH_Trainee" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_Trainee" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -110,17 +110,6 @@ Définition à la ligne 14 du fichier SH_Trainee\&.h\&.
 .SS "SH_Trainee::SH_Trainee (QStringname, intid, \fBQObject\fP *parent = \fC0\fP)"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIname\fP 
-.br
-\fIid\fP 
-.br
-\fIparent\fP 
-.RE
-.PP
-
-.PP
 Définition à la ligne 9 du fichier SH_Trainee\&.cpp\&.
 .PP
 .nf
@@ -131,7 +120,19 @@ Définition à la ligne 9 du fichier SH_Trainee\&.cpp\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "static QVariant SH_User::exists (QVariantlogin)\fC [inline]\fP, \fC [static]\fP, \fC [slot]\fP, \fC [inherited]\fP"
+.SS "SH_User::exists (QVariantlogin)\fC [inline]\fP, \fC [static]\fP, \fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
 
 .PP
 Définition à la ligne 132 du fichier SH_User\&.h\&.
@@ -155,7 +156,14 @@ Référencé par SH_User::setID()\&.
 .nf
 54 { return this->m_id; }
 .fi
-.SS "bool SH_User::isAdministrator () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_User::isAdministrator () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 82 du fichier SH_User\&.h\&.
@@ -167,7 +175,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .nf
 82 { return this->m_administrator; }
 .fi
-.SS "bool SH_User::isManagerX () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_User::isManagerX () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 68 du fichier SH_User\&.h\&.
@@ -179,7 +194,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .nf
 68 { return this->m_managerX; }
 .fi
-.SS "bool SH_User::isManagerZ () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_User::isManagerZ () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 75 du fichier SH_User\&.h\&.
@@ -191,7 +213,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .nf
 75 { return this->m_managerZ; }
 .fi
-.SS "bool SH_User::isReceptionist () const\fC [inherited]\fP"
+.SS "SH_User::isReceptionist () const\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 64 du fichier SH_User\&.cpp\&.
@@ -205,7 +234,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 66     return this->m_receptionist;
 67 }
 .fi
-.SS "bool SH_User::isValid () const\fC [inherited]\fP"
+.SS "SH_User::isValid () const\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 32 du fichier SH_User\&.cpp\&.
@@ -219,7 +255,21 @@ Référencé par SH_User::logIn(), SH_ApplicationCore::setUser(), et SH_Applicat
 33     return ((!this->m_name\&.isEmpty()) && (this->m_id != 0));
 34 }
 .fi
-.SS "\fBSH_User\fP * SH_User::logIn (QStringlogin, QStringpass)\fC [static]\fP, \fC [inherited]\fP"
+.SS "SH_User::logIn (QStringlogin, QStringpass)\fC [static]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.br
+\fIpass\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+User 
+.RE
+.PP
 
 .PP
 Définition à la ligne 132 du fichier SH_User\&.cpp\&.
@@ -269,13 +319,25 @@ Référencé par SH_ApplicationCore::setUser()\&.
 
 .PP
 Référencé par SH_User::setName()\&.
-.SS "void SH_User::nameChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+.SS "SH_User::nameChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
 .SS "int SH_User::roles () const\fC [inherited]\fP"
 
-.SS "void SH_User::rolesChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+.SS "SH_User::rolesChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
-.SS "bool SH_User::traineeExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
+.SS "SH_User::traineeExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 121 du fichier SH_User\&.cpp\&.
@@ -290,7 +352,19 @@ Référencé par SH_User::exists(), et SH_User::logIn()\&.
 123     return (SH_DatabaseManager::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
 124 }
 .fi
-.SS "bool SH_User::userExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
+.SS "SH_User::userExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 110 du fichier SH_User\&.cpp\&.
@@ -305,7 +379,7 @@ Référencé par SH_User::exists(), et SH_User::logIn()\&.
 112     return (SH_DatabaseManager::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
 113 }
 .fi
-.SS "void SH_User::validityChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+.SS "SH_User::validityChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
 .SH "Documentation des propriétés"
 .PP 
@@ -313,7 +387,14 @@ Référencé par SH_User::exists(), et SH_User::logIn()\&.
 
 .PP
 Définition à la ligne 23 du fichier SH_User\&.h\&.
-.SS "int SH_User::id\fC [read]\fP, \fC [inherited]\fP"
+.SS "SH_User::id\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 18 du fichier SH_User\&.h\&.
@@ -327,7 +408,14 @@ Définition à la ligne 21 du fichier SH_User\&.h\&.
 
 .PP
 Définition à la ligne 22 du fichier SH_User\&.h\&.
-.SS "QString SH_User::name\fC [read]\fP, \fC [inherited]\fP"
+.SS "SH_User::name\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 19 du fichier SH_User\&.h\&.
@@ -337,7 +425,14 @@ Référencé par SH_ApplicationCore::setMode(), et SH_ApplicationCore::setUser()
 
 .PP
 Définition à la ligne 20 du fichier SH_User\&.h\&.
-.SS "int SH_User::roles\fC [read]\fP, \fC [inherited]\fP"
+.SS "SH_User::roles\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 24 du fichier SH_User\&.h\&.

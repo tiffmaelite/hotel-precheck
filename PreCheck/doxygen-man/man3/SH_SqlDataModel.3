@@ -1,4 +1,4 @@
-.TH "SH_SqlDataModel" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_SqlDataModel" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -80,6 +80,7 @@ Est dérivée de \fBQAbstractListModel\fP\&.
 .ti -1c
 .RI "virtual QHash< int, QByteArray > \fBroleNames\fP () const "
 .br
+.RI "\fIThis function allows mapping of role identifiers to role property names in scripting languages\&. \fP"
 .ti -1c
 .RI "int \fBrowCount\fP (const QModelIndex &parent) const "
 .br
@@ -162,13 +163,6 @@ Définition à la ligne 14 du fichier SH_SqlDataModel\&.h\&.
 .SS "SH_SqlDataModel::SH_SqlDataModel (\fBQObject\fP *parent = \fC0\fP)\fC [explicit]\fP"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIparent\fP 
-.RE
-.PP
-
-.PP
 Définition à la ligne 16 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 .nf
@@ -179,7 +173,7 @@ Définition à la ligne 16 du fichier SH_SqlDataModel\&.cpp\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "void SH_SqlDataModel::applyRoles ()\fC [protected]\fP"
+.SS "SH_SqlDataModel::applyRoles ()\fC [protected]\fP"
 
 .PP
 Définition à la ligne 339 du fichier SH_SqlDataModel\&.cpp\&.
@@ -200,7 +194,21 @@ Référencé par fetch(), resetFieldsToAll(), et setFields()\&.
 348     emit rolesChanged();
 349 }
 .fi
-.SS "QVariant SH_SqlDataModel::data (const QModelIndex &index, introle) const"
+.SS "SH_SqlDataModel::data (const QModelIndex &index, introle) const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIindex\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
 
 .PP
 Définition à la ligne 39 du fichier SH_SqlDataModel\&.cpp\&.
@@ -227,7 +235,21 @@ Référencé par SH_ExtendedProxyModel::data()\&.
 54     return QVariant();
 55 }
 .fi
-.SS "QVariantMap SH_SqlDataModel::datas () const"
+.SS "SH_SqlDataModel::datas () const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIindex\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
 
 .PP
 Définition à la ligne 62 du fichier SH_SqlDataModel\&.cpp\&.
@@ -253,7 +275,25 @@ Référencé par SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionStat
 76     return result;
 77 }
 .fi
-.SS "bool SH_SqlDataModel::fetch (QStringtableName = \fC''\fP, QStringfilter = \fC''\fP, QStringsort = \fC''\fP, QStringListfields = \fCQStringList()\fP)"
+.SS "SH_SqlDataModel::fetch (QStringtableName = \fC''\fP, QStringfilter = \fC''\fP, QStringsort = \fC''\fP, QStringListfields = \fCQStringList()\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItableName\fP 
+.br
+\fIfilter\fP 
+.br
+\fIsort\fP 
+.br
+\fIfields\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 194 du fichier SH_SqlDataModel\&.cpp\&.
@@ -333,7 +373,19 @@ Référencé par SH_ExtendedProxyModel::fetch(), et SH_DatabaseContentQuestionSt
 262     return (!this->isEmpty());
 263 }
 .fi
-.SS "\fBSH_SqlDataFields\fP * SH_SqlDataModel::field (inti) const"
+.SS "SH_SqlDataModel::field (inti) const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIi\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+SqlDataFields 
+.RE
+.PP
 
 .PP
 Définition à la ligne 271 du fichier SH_SqlDataModel\&.cpp\&.
@@ -349,7 +401,19 @@ Référencé par fetch(), SH_ExtendedProxyModel::field(), SH_BillingsTableModel:
 275     return this->mDataFields\&.at(i);
 276 }
 .fi
-.SS "int SH_SqlDataModel::fieldFromRole (introle) const\fC [inline]\fP"
+.SS "SH_SqlDataModel::fieldFromRole (introle) const\fC [inline]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 81 du fichier SH_SqlDataModel\&.h\&.
@@ -359,11 +423,18 @@ Référencé par data()\&.
 .nf
 81 { return role - Qt::UserRole; }
 .fi
-.SS "void SH_SqlDataModel::fieldsChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataModel::fieldsChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par fetch(), resetFieldsToAll(), et setFields()\&.
-.SS "int SH_SqlDataModel::fieldsCount () const"
+.SS "SH_SqlDataModel::fieldsCount () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 358 du fichier SH_SqlDataModel\&.cpp\&.
@@ -377,7 +448,14 @@ Référencé par field(), et SH_ExtendedProxyModel::fieldsCount()\&.
 360     return mDataFields\&.count();
 361 }
 .fi
-.SS "const QStringList SH_SqlDataModel::fieldsList () const"
+.SS "SH_SqlDataModel::fieldsList () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 134 du fichier SH_SqlDataModel\&.cpp\&.
@@ -403,11 +481,18 @@ Référencé par fetch(), et SH_ExtendedProxyModel::fields()\&.
 
 .PP
 Référencé par setFilterCondition()\&.
-.SS "void SH_SqlDataModel::filterChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataModel::filterChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par resetFilterCondition(), et setFilterCondition()\&.
-.SS "bool SH_SqlDataModel::isEmpty () const"
+.SS "SH_SqlDataModel::isEmpty () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 380 du fichier SH_SqlDataModel\&.cpp\&.
@@ -425,9 +510,16 @@ Référencé par fetch(), et SH_ExtendedProxyModel::isEmpty()\&.
 
 .PP
 Référencé par fetch()\&.
-.SS "void SH_SqlDataModel::lastErrorChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataModel::lastErrorChanged ()\fC [signal]\fP"
 
-.SS "const QString & SH_SqlDataModel::query () const"
+.SS "SH_SqlDataModel::query () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 101 du fichier SH_SqlDataModel\&.cpp\&.
@@ -439,7 +531,7 @@ Références mSqlQuery\&.
 103     return mSqlQuery\&.lastQuery();
 104 }
 .fi
-.SS "void SH_SqlDataModel::resetFieldsToAll ()"
+.SS "SH_SqlDataModel::resetFieldsToAll ()"
 
 .PP
 Définition à la ligne 306 du fichier SH_SqlDataModel\&.cpp\&.
@@ -453,7 +545,7 @@ Références applyRoles(), fieldsChanged(), et mDataFields\&.
 310     emit fieldsChanged();
 311 }
 .fi
-.SS "void SH_SqlDataModel::resetFilterCondition ()"
+.SS "SH_SqlDataModel::resetFilterCondition ()"
 
 .PP
 Définition à la ligne 182 du fichier SH_SqlDataModel\&.cpp\&.
@@ -466,7 +558,19 @@ Références filterChanged(), et mFilter\&.
 185     emit filterChanged();
 186 }
 .fi
-.SS "int SH_SqlDataModel::roleForField (intfieldIndex) const\fC [inline]\fP"
+.SS "SH_SqlDataModel::roleForField (intfieldIndex) const\fC [inline]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIfieldIndex\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 73 du fichier SH_SqlDataModel\&.h\&.
@@ -476,7 +580,16 @@ Référencé par applyRoles(), SH_ExtendedProxyModel::data(), et SH_ExtendedProx
 .nf
 73 { return Qt::UserRole + fieldIndex;}
 .fi
-.SS "virtual QHash<int, QByteArray> SH_SqlDataModel::roleNames () const\fC [inline]\fP, \fC [virtual]\fP"
+.SS "SH_SqlDataModel::roleNames () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+This function allows mapping of role identifiers to role property names in scripting languages\&. !
+.PP
+\fBRenvoie:\fP
+.RS 4
+QHash<int, QByteArray> 
+.RE
+.PP
 
 .PP
 Définition à la ligne 179 du fichier SH_SqlDataModel\&.h\&.
@@ -488,11 +601,23 @@ Référencé par SH_ExtendedProxyModel::roleNames()\&.
 .nf
 179 { return this->mRoles; }
 .fi
-.SS "void SH_SqlDataModel::rolesChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataModel::rolesChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par applyRoles()\&.
-.SS "int SH_SqlDataModel::rowCount (const QModelIndex &parent) const"
+.SS "SH_SqlDataModel::rowCount (const QModelIndex &parent) const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIparent\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 27 du fichier SH_SqlDataModel\&.cpp\&.
@@ -504,7 +629,14 @@ Références mRecords\&.
 29     return mRecords\&.count();
 30 }
 .fi
-.SS "void SH_SqlDataModel::setFields (QStringListfieldList)"
+.SS "SH_SqlDataModel::setFields (QStringListfieldList)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIfieldList\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 284 du fichier SH_SqlDataModel\&.cpp\&.
@@ -530,7 +662,14 @@ Référencé par fetch()\&.
 298     }
 299 }
 .fi
-.SS "void SH_SqlDataModel::setFilterCondition (const QString &filter)"
+.SS "SH_SqlDataModel::setFilterCondition (const QString &filter)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIfilter\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 168 du fichier SH_SqlDataModel\&.cpp\&.
@@ -548,7 +687,25 @@ Référencé par fetch(), et SH_BookingsTableModel::SH_BookingsTableModel()\&.
 174     }
 175 }
 .fi
-.SS "bool SH_SqlDataModel::setHeaderData (intsection, Qt::Orientationorientation, const QVariant &value, introle = \fCQt::EditRole\fP)"
+.SS "SH_SqlDataModel::setHeaderData (intsection, Qt::Orientationorientation, const QVariant &value, introle = \fCQt::EditRole\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsection\fP 
+.br
+\fIorientation\fP 
+.br
+\fIvalue\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 85 du fichier SH_SqlDataModel\&.cpp\&.
@@ -568,7 +725,14 @@ Référencé par SH_BillingsTableModel::fillModel(), SH_RoomsTableModel::fillMod
 93     return false;
 94 }
 .fi
-.SS "void SH_SqlDataModel::setOrderBy (QStringsort)"
+.SS "SH_SqlDataModel::setOrderBy (QStringsort)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsort\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 369 du fichier SH_SqlDataModel\&.cpp\&.
@@ -582,7 +746,14 @@ Référencé par fetch(), et SH_RoomsTableModel::SH_RoomsTableModel()\&.
 371     this->mSort = sort;
 372 }
 .fi
-.SS "void SH_SqlDataModel::setTable (const QString &tableName)"
+.SS "SH_SqlDataModel::setTable (const QString &tableName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItableName\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 153 du fichier SH_SqlDataModel\&.cpp\&.
@@ -600,11 +771,18 @@ Référencé par fetch(), SH_BillingsTableModel::SH_BillingsTableModel(), SH_Bil
 159     }
 160 }
 .fi
-.SS "void SH_SqlDataModel::tableChanged ()\fC [signal]\fP"
+.SS "SH_SqlDataModel::tableChanged ()\fC [signal]\fP"
 
 .PP
 Référencé par setTable()\&.
-.SS "const QString & SH_SqlDataModel::tableName () const"
+.SS "SH_SqlDataModel::tableName () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 112 du fichier SH_SqlDataModel\&.cpp\&.
@@ -678,11 +856,25 @@ Définition à la ligne 246 du fichier SH_SqlDataModel\&.h\&.
 Référencé par fetch(), setTable(), et tableName()\&.
 .SH "Documentation des propriétés"
 .PP 
-.SS "const QString & SH_SqlDataModel::filter\fC [read]\fP, \fC [write]\fP"
+.SS "SH_SqlDataModel::filter\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 18 du fichier SH_SqlDataModel\&.h\&.
-.SS "const QString & SH_SqlDataModel::lastError\fC [read]\fP"
+.SS "SH_SqlDataModel::lastError\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 19 du fichier SH_SqlDataModel\&.h\&.

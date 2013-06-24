@@ -1,4 +1,4 @@
-.TH "SH_MessageManager" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_MessageManager" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -32,7 +32,7 @@ Est dérivée de \fBQObject\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 11 du fichier SH_MessageManager\&.h\&.
+Définition à la ligne 12 du fichier SH_MessageManager\&.h\&.
 .SH "Documentation des énumérations membres"
 .PP 
 .SS "enum \fBSH_MessageManager::ErrorMode\fP"
@@ -51,14 +51,23 @@ Définition à la ligne 11 du fichier SH_MessageManager\&.h\&.
 .TP
 \fB\fIRELEASE \fP\fP
 .PP
-Définition à la ligne 23 du fichier SH_MessageManager\&.h\&.
+Définition à la ligne 24 du fichier SH_MessageManager\&.h\&.
 .PP
 .nf
-23 { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
+24 { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "void SH_MessageManager::errorMessage (QStringmessage, QStringtitle = \fC'Erreur'\fP)\fC [static]\fP"
+.SS "SH_MessageManager::errorMessage (QStringmessage, QStringtitle = \fC'Erreur'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 16 du fichier SH_MessageManager\&.cpp\&.
@@ -76,7 +85,16 @@ Référencé par SH_SqlDataModel::data(), SH_DatabaseManager::dbConnect(), SH_Sq
 24     }
 25 }
 .fi
-.SS "void SH_MessageManager::infoMessage (QStringmessage, QStringtitle = \fC'Info'\fP)\fC [static]\fP"
+.SS "SH_MessageManager::infoMessage (QStringmessage, QStringtitle = \fC'Info'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 54 du fichier SH_MessageManager\&.cpp\&.
@@ -99,7 +117,16 @@ Référencé par SH_SqlDataModel::data(), et SH_SqlDataModel::fetch()\&.
 67     }
 68 }
 .fi
-.SS "void SH_MessageManager::successMessage (QStringmessage, QStringtitle = \fC'Réussite'\fP)\fC [static]\fP"
+.SS "SH_MessageManager::successMessage (QStringmessage, QStringtitle = \fC'Réussite'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 33 du fichier SH_MessageManager\&.cpp\&.

@@ -1,0 +1,22 @@
+digraph "SH_AdaptDatabaseState::insertUpdate"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Verdana",fontsize="11",labelfontname="Verdana",labelfontsize="11"];
+  node [fontname="Verdana",fontsize="11",shape=record];
+  rankdir="LR";
+  Node1 [label="SH_AdaptDatabaseState\l::insertUpdate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node2 [label="SH_DatabaseManager\l::execInsertReturningQuery",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a55268fae16792142072af49238f7bb94"];
+  Node2 -> Node3 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node3 [label="SH_DatabaseManager\l::divideQVariantMap",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a4562e0c0027c0adbba645edc433f7fd1"];
+  Node1 -> Node4 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node4 [label="SH_DatabaseManager\l::getInstance",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a31198eb4de0f8b18e3fa0eed09f24d19"];
+  Node4 -> Node5 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node5 [label="SH_DatabaseManager\l::SH_DatabaseManager",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#a7b5d0e372c153eb59cdab98588994904"];
+  Node5 -> Node6 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node6 [label="SH_MessageManager::\lerrorMessage",height=0.2,width=0.4,color="black",URL="$classSH__MessageManager.html#a0cb4f06cf67539457482ba1c8544eb06"];
+  Node5 -> Node7 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+  Node7 [label="SH_DatabaseManager\l::dbConnect",height=0.2,width=0.4,color="black",URL="$classSH__DatabaseManager.html#ab634ce39ef483e7ad2fe08d4b8ba74f7"];
+  Node7 -> Node6 [color="midnightblue",fontsize="11",style="solid",fontname="Verdana"];
+}

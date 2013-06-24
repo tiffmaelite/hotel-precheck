@@ -130,7 +130,7 @@
 00154         qmlRegisterType<SH\_User>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"User"});
 00155         \hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore}* appManager = \textcolor{keyword}{new} 
       \hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore}();
-00156         engine.rootContext()->setContextProperty(\textcolor{stringliteral}{"SH\_App"}, appManager);
+00156         engine.rootContext()->setContextProperty(\textcolor{stringliteral}{"App"}, appManager);
 00157 
 00158         qmlRegisterType<SH\_RoomsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_RoomsModel"});
 00159         qmlRegisterType<SH\_BillingsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BillingsModel"});
@@ -181,7 +181,7 @@
 00199     \}
 00200     \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception &e)
 00201     \{
-00202         \hyperlink{classSH__MessageManager_acb5615cc90f198f4768da800a5d32362}{SH\_MessageManager::errorMessage}(e.what());
+00202         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(e.what());
 00203     \}
 00204 \}
 \end{DoxyCode}

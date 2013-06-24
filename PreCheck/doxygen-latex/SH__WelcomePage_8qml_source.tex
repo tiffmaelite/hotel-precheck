@@ -18,16 +18,16 @@
 00016     signal clicked()
 00017     signal reload()
 00018     onLogOut: \{
-00019         \textcolor{keywordflow}{if}(SH\_App.userLogOut()) \{
+00019         \textcolor{keywordflow}{if}(App.userLogOut()) \{
 00020             welcomePage.loggedOut();
 00021         \}
 00022     \}
 00023     onReload: \{
 00024         buttons.anchors.centerIn = welcomePage;
-00025         receptionButton.visible = SH\_App.currentUser.receptionist;
-00026         administrationButton.visible = SH\_App.currentUser.administrator;
-00027         managementXButton.visible = SH\_App.currentUser.managerX;
-00028         managementZButton.visible = SH\_App.currentUser.managerZ;
+00025         receptionButton.visible = App.currentUser.receptionist;
+00026         administrationButton.visible = App.currentUser.administrator;
+00027         managementXButton.visible = App.currentUser.managerX;
+00028         managementZButton.visible = App.currentUser.managerZ;
 00029     \}
 00030 
 00031     ColumnLayout \{
@@ -59,7 +59,7 @@
 00057         \hyperlink{classGridLayout}{GridLayout} \{
 00058             \textcolor{keywordtype}{id}: grid
 00059             columns: 2
-00060             \textcolor{keyword}{property} \textcolor{keywordtype}{int} count: SH\_App.currentUser.roles
+00060             \textcolor{keyword}{property} \textcolor{keywordtype}{int} count: App.currentUser.roles
 00061             \hyperlink{classRectangle}{Rectangle} \{
 00062                 color: \textcolor{stringliteral}{"transparent"}
 00063                 Layout.minimumHeight: childrenRect.height
@@ -72,9 +72,9 @@
 00069                     height: (buttons.height/2)-buttons.spacing
 00070                     width: (buttons.width/2)-buttons.spacing
 00071                     text: qsTr(\textcolor{stringliteral}{"Réception"})
-00072                     visible: SH\_App.currentUser.receptionist
+00072                     visible: App.currentUser.receptionist
 00073                     onClicked: \{
-00074                         SH\_App.currentMode = SH\_AppMode.RECEPTION;
+00074                         App.currentMode = AppMode.RECEPTION;
 00075                         welcomePage.clicked();
 00076                     \}
 00077                 \}
@@ -90,9 +90,9 @@
 00086                     height: (buttons.height/2)-buttons.spacing
 00087                     width: (buttons.width/2)-buttons.spacing
 00088                     text: qsTr(\textcolor{stringliteral}{"Administration"})
-00089                     visible: SH\_App.currentUser.administrator
+00089                     visible: App.currentUser.administrator
 00090                     onClicked: \{
-00091                         SH\_App.currentMode = SH\_AppMode.ADMINISTRATION;
+00091                         App.currentMode = AppMode.ADMINISTRATION;
 00092                         welcomePage.clicked();
 00093                     \}
 00094                 \}
@@ -108,9 +108,9 @@
 00103                     height: (buttons.height/2)-buttons.spacing
 00104                     width: (buttons.width/2)-buttons.spacing
 00105                     text: qsTr(\textcolor{stringliteral}{"Gestion lecture"})
-00106                     visible: SH\_App.currentUser.managerX
+00106                     visible: App.currentUser.managerX
 00107                     onClicked: \{
-00108                         SH\_App.currentMode = SH\_AppMode.MANAGEMENT\_X;
+00108                         App.currentMode = AppMode.MANAGEMENT\_X;
 00109                         welcomePage.clicked();
 00110                     \}
 00111                 \}
@@ -126,9 +126,9 @@
 00120                     height: (buttons.height/2)-buttons.spacing
 00121                     width: (buttons.width/2)-buttons.spacing
 00122                     text: qsTr(\textcolor{stringliteral}{"Gestion lecture écriture"})
-00123                     visible: SH\_App.currentUser.managerZ
+00123                     visible: App.currentUser.managerZ
 00124                     onClicked: \{
-00125                         SH\_App.currentMode = SH\_AppMode.MANAGEMENT\_Z;
+00125                         App.currentMode = AppMode.MANAGEMENT\_Z;
 00126                         welcomePage.clicked();
 00127                     \}
 00128                 \}

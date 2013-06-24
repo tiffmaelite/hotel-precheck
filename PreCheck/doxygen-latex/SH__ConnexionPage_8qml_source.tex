@@ -18,7 +18,7 @@
 00016     signal loggedIn
 00017 
 00018     onCheckUsername: \{
-00019         \textcolor{keywordflow}{if}(!SH\_App.userExists(name)) \{
+00019         \textcolor{keywordflow}{if}(!App.userExists(name)) \{
 00020             errorLabel.text=qsTr(\textcolor{stringliteral}{"Cet utilisateur n'existe pas"});
 00021             errorLabel.visible = \textcolor{keyword}{true};
 00022             login.textColor=\textcolor{stringliteral}{"darkred"};
@@ -26,10 +26,10 @@
 00024     \}
 00025 
 00026     onLogIn: \{
-00027         \textcolor{keywordflow}{if}(SH\_App.setUser(login, password)) \{
+00027         \textcolor{keywordflow}{if}(App.setUser(login, password)) \{
 00028             errorLabel.visible=\textcolor{keyword}{false};
 00029             errorLabel.text=\textcolor{stringliteral}{""};
-00030             SH\_App.currentMode = SH\_AppMode.ACCUEIL;
+00030             App.currentMode = AppMode.ACCUEIL;
 00031             connexionPage.loggedIn();
 00032         \} \textcolor{keywordflow}{else} \{
 00033             errorLabel.text=qsTr(\textcolor{stringliteral}{"Le mot de passe entré est incorrect"});

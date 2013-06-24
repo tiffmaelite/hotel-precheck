@@ -8,61 +8,81 @@
 00003 
 \hypertarget{SH__GenericDebugableState_8cpp_source_l00010}{}\hyperlink{classSH__GenericState_a3cc3cb1491b812dfdd032fc6438dfd4e}{00010} \hyperlink{classSH__GenericState_a3cc3cb1491b812dfdd032fc6438dfd4e}{SH\_GenericState::SH\_GenericState}(QString name, 
       \hyperlink{classQState}{QState} *parent) :
-00011     \hyperlink{classQState}{QState}(parent), \hyperlink{classSH__NamedObject}{SH\_NamedObject}(name)
+00011     \hyperlink{classQState}{QState}(parent), \hyperlink{classSH__NamedObject}{SH\_NamedObject}(name), m\_isRunning(false)
 00012 \{
-00013 \}
-00014 
-\hypertarget{SH__GenericDebugableState_8cpp_source_l00021}{}\hyperlink{classSH__GenericState_a5480c5ee725fd801d8f6292cd4c803b8}{00021} QString \hyperlink{classSH__GenericState_a5480c5ee725fd801d8f6292cd4c803b8}{SH\_GenericState::toString}()
-00022 \{
-00023     \hyperlink{classQStateMachine}{QStateMachine}* machine = this->machine();
-00024     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* mach = qobject\_cast<
+00013     connect(\textcolor{keyword}{this}, &\hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{SH\_GenericState::goNext}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290582}{SH\_GenericState::emitGoNext});
+00014     this->blockSignals(!\hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning});
+00015 \}
+00016 
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00022}{}\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{00022} QString \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{SH\_GenericState::toString}()
+00023 \{
+00024     \hyperlink{classQStateMachine}{QStateMachine}* machine = this->machine();
+00025     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* mach = qobject\_cast<
       \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine} *>(machine);
-00025     \textcolor{keywordflow}{if}(mach) \{
-00026         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_af73e97f6476ca1ef3a22b159d179f5e7}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [in "}+mach->
-      \hyperlink{classSH__InOutStateMachine_a60ecd7de03d948e2d1e9cbedb5c3e5fa}{toString}()+\textcolor{stringliteral}{"] "};
-00027     \} \textcolor{keywordflow}{else} \{
-00028         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_af73e97f6476ca1ef3a22b159d179f5e7}{SH\_NamedObject::toString}();
-00029     \}
-00030 \}
-00031 
-\hypertarget{SH__GenericDebugableState_8cpp_source_l00036}{}\hyperlink{classSH__GenericState_addfc0b47a1e83f51b9cd80c86e838be0}{00036} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_addfc0b47a1e83f51b9cd80c86e838be0}{SH\_GenericState::onTransitionTriggered}()
-00037 \{
-00038     QAbstractTransition* tr = qobject\_cast<QAbstractTransition*>(sender());
-00039     \textcolor{keywordflow}{if} (tr == 00) \textcolor{keywordflow}{return};
+00026     \textcolor{keywordflow}{if}(mach) \{
+00027         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [in "}+mach->
+      \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}()+\textcolor{stringliteral}{"] "};
+00028     \} \textcolor{keywordflow}{else} \{
+00029         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
+00030     \}
+00031 \}
+00032 
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00033}{}\hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290582}{00033} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290582}{SH\_GenericState::emitGoNext}()
+00034 \{
+00035     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
+00036         emit \hyperlink{classSH__GenericState_ad5e2a1f3dc129336c8f529cf897c2eb0}{next}();
+00037     \}
+00038 \}
+00039 
 00040 
-00041     \hyperlink{classSH__GenericState}{SH\_GenericState}* sourceState = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState}*>(tr->
+00041 
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00046}{}\hyperlink{classSH__GenericState_aad4259cc1e6a51681d6a92e995486380}{00046} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_aad4259cc1e6a51681d6a92e995486380}{SH\_GenericState::onTransitionTriggered}()
+00047 \{
+00048     QAbstractTransition* tr = qobject\_cast<QAbstractTransition*>(sender());
+00049     \textcolor{keywordflow}{if} (tr == 00) \textcolor{keywordflow}{return};
+00050     \hyperlink{classSH__GenericState}{SH\_GenericState}* sourceState = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState}*>(tr->
       sourceState());
-00042     \hyperlink{classSH__GenericState}{SH\_GenericState}* targetState = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState}*>(tr->
+00051     \hyperlink{classSH__GenericState}{SH\_GenericState}* targetState = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState}*>(tr->
       targetState());
-00043 
-00044     QString log;
-00045     QTextStream logStream(&log);
-00046     logStream << machine()->objectName() << \textcolor{stringliteral}{" transition from "};
-00047     \textcolor{keywordflow}{if} (sourceState) logStream << sourceState->\hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}();
-00048     \textcolor{keywordflow}{else} logStream << tr->sourceState();
-00049     logStream << \textcolor{stringliteral}{" to "};
-00050     \textcolor{keywordflow}{if} (targetState) logStream << targetState->name();
-00051     \textcolor{keywordflow}{else} logStream << tr->targetState();
-00052     logStream.flush();
-00053     qDebug() << \textcolor{stringliteral}{"Machine: "} << log;
-00054 \}
-00055 
-00056 
-\hypertarget{SH__GenericDebugableState_8cpp_source_l00062}{}\hyperlink{classSH__GenericState_a7c30692635023ce7cf65e5ba5bb18a9c}{00062} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_a7c30692635023ce7cf65e5ba5bb18a9c}{SH\_GenericState::onEntry}(QEvent *event)
-00063 \{
-00064     Q\_UNUSED(event);
-00065     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}();
-00066 \}
-00067 
-\hypertarget{SH__GenericDebugableState_8cpp_source_l00073}{}\hyperlink{classSH__GenericState_accf3326011661417fb0ca0eede3ed9a1}{00073} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_accf3326011661417fb0ca0eede3ed9a1}{SH\_GenericState::onExit}(QEvent *event)
-00074 \{
-00075     Q\_UNUSED(event);
-00076     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" exited  "} << \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}();
+00052 
+00053     QString log;
+00054     QTextStream logStream(&log);
+00055     logStream << machine()->objectName() << \textcolor{stringliteral}{" transition from "};
+00056     \textcolor{keywordflow}{if} (sourceState) logStream << sourceState->\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
+00057     \textcolor{keywordflow}{else} logStream << tr->sourceState();
+00058     logStream << \textcolor{stringliteral}{" to "};
+00059     \textcolor{keywordflow}{if} (targetState) logStream << targetState->name();
+00060     \textcolor{keywordflow}{else} logStream << tr->targetState();
+00061     logStream.flush();
+00062     qDebug() << \textcolor{stringliteral}{"Machine: "} << log;
+00063 \}
+00064 
+00065 
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00071}{}\hyperlink{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{00071} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{SH\_GenericState::onEntry}(QEvent *event)
+00072 \{
+00073     Q\_UNUSED(event);
+00074     \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning} = \textcolor{keyword}{true};
+00075     this->blockSignals(!\hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning});
+00076     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
 00077 \}
 00078 
-\hypertarget{SH__GenericDebugableState_8cpp_source_l00083}{}\hyperlink{classSH__GenericState_acb2c9207a5f3c6d32a01b0b7789bb209}{00083} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_acb2c9207a5f3c6d32a01b0b7789bb209}{SH\_GenericState::onMachineStarted}()
-00084 \{
-00085     \textcolor{keywordflow}{foreach} (QAbstractTransition* tr, transitions())
-00086            connect(tr, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(\hyperlink{classSH__GenericState_addfc0b47a1e83f51b9cd80c86e838be0}{onTransitionTriggered}()));
-00087 \}
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00084}{}\hyperlink{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{00084} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{SH\_GenericState::onExit}(QEvent *event)
+00085 \{
+00086     Q\_UNUSED(event);
+00087     \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning} = \textcolor{keyword}{false};
+00088     this->blockSignals(!\hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning});
+00089     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" exited  "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
+00090 \}
+00091 
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00092}{}\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{00092} \textcolor{keywordtype}{bool} \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{SH\_GenericState::isRunning}()
+00093 \{
+00094     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning};
+00095 \}
+00096 
+\hypertarget{SH__GenericDebugableState_8cpp_source_l00101}{}\hyperlink{classSH__GenericState_a4bf70be0a8f92cd7d6dacd953df90f52}{00101} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericState_a4bf70be0a8f92cd7d6dacd953df90f52}{SH\_GenericState::onMachineStarted}()
+00102 \{
+00103     \textcolor{keywordflow}{foreach} (QAbstractTransition* tr, transitions())
+00104         connect(tr, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(\hyperlink{classSH__GenericState_aad4259cc1e6a51681d6a92e995486380}{onTransitionTriggered}()));
+00105 \}
 \end{DoxyCode}

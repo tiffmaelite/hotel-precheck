@@ -28,8 +28,8 @@
 00027         \}
 00028     \}
 00029     onReload: \{
-00030         status.text = Qt.binding(\textcolor{keyword}{function}() \{\textcolor{keywordflow}{return} ((SH\_App.currentMode === SH\_AppMode.CONNEXION) ? qsTr(\textcolor{stringliteral}{"
-      Connexion"}) : (SH\_App.currentUser.valid ? SH\_App.currentUser.name : \textcolor{stringliteral}{""}));\});
+00030         status.text = Qt.binding(\textcolor{keyword}{function}() \{\textcolor{keywordflow}{return} ((App.currentMode === AppMode.CONNEXION) ? qsTr(\textcolor{stringliteral}{"
+      Connexion"}) : (App.currentUser.valid ? App.currentUser.name : \textcolor{stringliteral}{""}));\});
 00031     \}
 00032     Component.onCompleted: \{
 00033         window.reload();

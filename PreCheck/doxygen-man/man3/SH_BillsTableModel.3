@@ -1,4 +1,4 @@
-.TH "SH_BillsTableModel" 3 "Vendredi Juin 21 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
+.TH "SH_BillsTableModel" 3 "Lundi Juin 24 2013" "Version 0.3" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -142,13 +142,6 @@ Définition à la ligne 13 du fichier SH_BillsTableModel\&.h\&.
 .SS "SH_BillsTableModel::SH_BillsTableModel (\fBQObject\fP *parent = \fC0\fP)"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIparent\fP 
-.RE
-.PP
-
-.PP
 Définition à la ligne 9 du fichier SH_BillsTableModel\&.cpp\&.
 .PP
 Références SH_ExtendedProxyModel::model, et SH_SqlDataModel::setTable()\&.
@@ -162,7 +155,14 @@ Références SH_ExtendedProxyModel::model, et SH_SqlDataModel::setTable()\&.
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "void SH_ExtendedProxyModel::addFilterKeyColumn (intcolumn)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::addFilterKeyColumn (intcolumn)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIcolumn\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 259 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -176,7 +176,19 @@ Référencé par SH_RoomsTableModel::fillModel()\&.
 261     this->filters\&.append(column);
 262 }
 .fi
-.SS "bool SH_ExtendedProxyModel::containsFilterKeyColumn (intcolumn)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::containsFilterKeyColumn (intcolumn)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIcolumn\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 225 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -188,7 +200,14 @@ Références SH_ExtendedProxyModel::filters\&.
 227     return this->filters\&.contains(column);
 228 }
 .fi
-.SS "const int SH_ExtendedProxyModel::currentSortKeyColumn () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::currentSortKeyColumn () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 38 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -243,7 +262,25 @@ Références SH_ExtendedProxyModel::booleanSet, SH_SqlDataModel::data(), SH_Exte
 147     return QVariant();
 148 }
 .fi
-.SS "bool SH_ExtendedProxyModel::fetch (QStringtableName = \fC''\fP, QStringfilter = \fC''\fP, QStringsort = \fC''\fP, QStringListfields = \fCQStringList()\fP)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::fetch (QStringtableName = \fC''\fP, QStringfilter = \fC''\fP, QStringsort = \fC''\fP, QStringListfields = \fCQStringList()\fP)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItableName\fP 
+.br
+\fIfilter\fP 
+.br
+\fIsort\fP 
+.br
+\fIfields\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 280 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -261,7 +298,19 @@ Références SH_SqlDataModel::fetch(), SH_ExtendedProxyModel::fillModel(), et SH
 288     return fetched;
 289 }
 .fi
-.SS "Q_INVOKABLE \fBSH_SqlDataFields\fP* SH_ExtendedProxyModel::field (inti) const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::field (inti) const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIi\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+SqlDataFields 
+.RE
+.PP
 
 .PP
 Définition à la ligne 82 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -271,7 +320,14 @@ Références SH_SqlDataModel::field(), et SH_ExtendedProxyModel::model\&.
 .nf
 82 { return this->model->field(i); }
 .fi
-.SS "const QString SH_ExtendedProxyModel::fields () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::fields () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 52 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -281,7 +337,14 @@ Références SH_SqlDataModel::fieldsList(), et SH_ExtendedProxyModel::model\&.
 .nf
 52 { if(this->model->fieldsList()\&.isEmpty()){ return "*";} else { return this->model->fieldsList()\&.join(", ");} }
 .fi
-.SS "Q_INVOKABLE int SH_ExtendedProxyModel::fieldsCount () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::fieldsCount () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
 
 .PP
 Définition à la ligne 89 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -291,7 +354,7 @@ Références SH_SqlDataModel::fieldsCount(), et SH_ExtendedProxyModel::model\&.
 .nf
 89 { return this->model->fieldsCount(); }
 .fi
-.SS "void SH_BillsTableModel::fillModel ()\fC [protected]\fP, \fC [virtual]\fP"
+.SS "SH_BillsTableModel::fillModel ()\fC [protected]\fP, \fC [virtual]\fP"
 
 .PP
 Implémente \fBSH_ExtendedProxyModel\fP\&.
@@ -302,7 +365,21 @@ Définition à la ligne 21 du fichier SH_BillsTableModel\&.cpp\&.
 22 {
 23 }
 .fi
-.SS "bool SH_ExtendedProxyModel::filterAcceptsRow (intsource_row, const QModelIndex &source_parent) const\fC [protected]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::filterAcceptsRow (intsource_row, const QModelIndex &source_parent) const\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsource_row\fP 
+.br
+\fIsource_parent\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 92 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -339,7 +416,19 @@ Références SH_ExtendedProxyModel::notNullSet, et SH_ExtendedProxyModel::nullSe
 119     return true;
 120 }
 .fi
-.SS "Qt::ItemFlags SH_ExtendedProxyModel::flags (const QModelIndex &index) const\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::flags (const QModelIndex &index) const\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIindex\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+Qt::ItemFlags 
+.RE
+.PP
 
 .PP
 Définition à la ligne 179 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -367,7 +456,7 @@ Références SH_ExtendedProxyModel::booleanSet, et SH_ExtendedProxyModel::readon
 197 
 198 }
 .fi
-.SS "void SH_ExtendedProxyModel::invalidateFilter ()\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::invalidateFilter ()\fC [inherited]\fP"
 
 .PP
 Définition à la ligne 205 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -379,7 +468,14 @@ Références SH_ExtendedProxyModel::filters\&.
 207     this->filters\&.clear();
 208 }
 .fi
-.SS "const bool SH_ExtendedProxyModel::isEmpty () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::isEmpty () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 66 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -399,7 +495,14 @@ Références SH_SqlDataModel::lastError, et SH_ExtendedProxyModel::model\&.
 .nf
 59 { return this->model->lastError(); }
 .fi
-.SS "void SH_ExtendedProxyModel::removeFilterKeyColumn (intcolumn)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::removeFilterKeyColumn (intcolumn)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIcolumn\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 215 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -411,7 +514,14 @@ Références SH_ExtendedProxyModel::filters\&.
 217     this->filters\&.removeAt(this->filters\&.indexOf(column));
 218 }
 .fi
-.SS "virtual Q_INVOKABLE QHash<int, QByteArray> SH_ExtendedProxyModel::roleNames () const\fC [inline]\fP, \fC [virtual]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::roleNames () const\fC [inline]\fP, \fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QHash<int, QByteArray> 
+.RE
+.PP
 
 .PP
 Définition à la ligne 165 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -421,7 +531,14 @@ Références SH_ExtendedProxyModel::model, et SH_SqlDataModel::roleNames()\&.
 .nf
 165 { return this->model->roleNames(); }
 .fi
-.SS "void SH_ExtendedProxyModel::setBooleanColumns (QList< int >boolCols)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setBooleanColumns (QList< int >boolCols)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIboolCols\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 41 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -433,7 +550,23 @@ Références SH_ExtendedProxyModel::booleanSet, et SH_ExtendedProxyModel::replac
 42     replaceSet(this->booleanSet, boolCols);
 43 }
 .fi
-.SS "bool SH_ExtendedProxyModel::setData (const QModelIndex &index, const QVariant &value, introle = \fCQt::EditRole\fP)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setData (const QModelIndex &index, const QVariant &value, introle = \fCQt::EditRole\fP)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIindex\fP 
+.br
+\fIvalue\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
 
 .PP
 Définition à la ligne 156 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -457,7 +590,14 @@ Références SH_ExtendedProxyModel::booleanSet, et SH_ExtendedProxyModel::data()
 170 
 171 }
 .fi
-.SS "void SH_ExtendedProxyModel::setNotNullColumns (QList< int >notNullCols)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setNotNullColumns (QList< int >notNullCols)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInotNullCols\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 80 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -471,7 +611,14 @@ Références SH_ExtendedProxyModel::notNullSet, et SH_ExtendedProxyModel::replac
 83     }
 84 }
 .fi
-.SS "void SH_ExtendedProxyModel::setNullColumns (QList< int >nullCols)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setNullColumns (QList< int >nullCols)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInullCols\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 68 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -485,7 +632,14 @@ Références SH_ExtendedProxyModel::nullSet, et SH_ExtendedProxyModel::replaceSe
 71     }
 72 }
 .fi
-.SS "void SH_ExtendedProxyModel::setPasswordColumns (QList< int >passwordCols)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setPasswordColumns (QList< int >passwordCols)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIpasswordCols\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 59 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -497,7 +651,14 @@ Références SH_ExtendedProxyModel::passwordSet, et SH_ExtendedProxyModel::repla
 60     replaceSet(this->passwordSet, passwordCols);
 61 }
 .fi
-.SS "void SH_ExtendedProxyModel::setReadOnlyColumns (QList< int >readonlyCols)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setReadOnlyColumns (QList< int >readonlyCols)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIreadonlyCols\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 50 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -509,7 +670,14 @@ Références SH_ExtendedProxyModel::readonlySet, et SH_ExtendedProxyModel::repla
 51     replaceSet(this->readonlySet, readonlyCols);
 52 }
 .fi
-.SS "void SH_ExtendedProxyModel::setSortKeyColumn (intcolumn)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::setSortKeyColumn (intcolumn)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIcolumn\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 246 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -526,7 +694,16 @@ Référencé par SH_ExtendedProxyModel::sort()\&.
 251     emit sortChanged();
 252 }
 .fi
-.SS "void SH_ExtendedProxyModel::sort (intcolumn, Qt::SortOrdernewOrder = \fCQt::AscendingOrder\fP)\fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::sort (intcolumn, Qt::SortOrdernewOrder = \fCQt::AscendingOrder\fP)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIcolumn\fP 
+.br
+\fInewOrder\fP 
+.RE
+.PP
 
 .PP
 Définition à la ligne 235 du fichier SH_ExtendedProxyModel\&.cpp\&.
@@ -541,11 +718,18 @@ Référencé par SH_RoomsTableModel::fillModel(), et SH_ServicesTableModel::fill
 238     SH_ExtendedProxyModel::setSortKeyColumn(column);
 239 }
 .fi
-.SS "void SH_ExtendedProxyModel::sortChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::sortChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
 .PP
 Référencé par SH_ExtendedProxyModel::setSortKeyColumn()\&.
-.SS "const QString SH_ExtendedProxyModel::tableName () const\fC [inline]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::tableName () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 45 du fichier SH_ExtendedSqlProxyModel\&.h\&.
@@ -573,7 +757,14 @@ Définition à la ligne 21 du fichier SH_ExtendedSqlProxyModel\&.h\&.
 
 .PP
 Définition à la ligne 18 du fichier SH_ExtendedSqlProxyModel\&.h\&.
-.SS "QString SH_ExtendedProxyModel::lastError\fC [read]\fP, \fC [inherited]\fP"
+.SS "SH_ExtendedProxyModel::lastError\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
 
 .PP
 Définition à la ligne 19 du fichier SH_ExtendedSqlProxyModel\&.h\&.

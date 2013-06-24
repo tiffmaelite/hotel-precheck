@@ -9,13 +9,13 @@
 \hypertarget{SH__ContentView_8qml_source_l00004}{}\hyperlink{classSH__ContentView}{00004} import QtQuick.Controls.Styles 1.0
 00005 import QtQuick.Layouts 1.0
 00006 import PreCheck 1.0
-\hypertarget{SH__ContentView_8qml_source_l00007}{}\hyperlink{classSH__ContentView_a61539dec6a9f22a4bab8fad98231e549}{00007} 
+\hypertarget{SH__ContentView_8qml_source_l00007}{}\hyperlink{classSH__ContentView_a4587c7cc61cefdb55d96e2f3b05e02b4}{00007} 
 \hypertarget{SH__ContentView_8qml_source_l00011}{}\hyperlink{classSH__ContentView_a5a5fa8f42e23b857494f2c88b39d1177}{00011} GridLayout \{
 00012     \textcolor{keywordtype}{id}: dataView
 \hypertarget{SH__ContentView_8qml_source_l00013}{}\hyperlink{classSH__ContentView_a7ea5cf24986d3fb77ebcdfc9c3a3822a}{00013}     columns: 5
 00014     columnSpacing: 1
 \hypertarget{SH__ContentView_8qml_source_l00015}{}\hyperlink{classSH__ContentView_a554c2eaf9b48986c87fa8fb0178c0d1d}{00015}     rowSpacing: 1
-00016     \textcolor{keyword}{property} \textcolor{keywordtype}{string} \hyperlink{classSH__DataDelegate}{SH\_DataDelegate}
+00016     \textcolor{keyword}{property} \textcolor{keywordtype}{string} dataDelegate
 \hypertarget{SH__ContentView_8qml_source_l00017}{}\hyperlink{classSH__ContentView_ace8288902fb10eb93de67293bc8ac57c}{00017}     \textcolor{keyword}{property} \textcolor{keywordtype}{string} emptyDelegate
 00018     \textcolor{keyword}{property} \textcolor{keywordtype}{string} sectionDelegate
 00019     \textcolor{keyword}{property} variant activeFilterIndicatorIndexes
@@ -306,7 +306,7 @@
 00329 
 00330             Loader \{
 00331                 \textcolor{keywordtype}{id}:contentLoader
-00332                 source: dataView.SH\_DataDelegate
+00332                 source: dataView.dataDelegate
 00333                 Binding \{
 00334                     target: contentLoader.item
 00335                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"width"}

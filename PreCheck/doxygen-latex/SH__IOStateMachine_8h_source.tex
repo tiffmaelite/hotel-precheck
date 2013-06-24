@@ -9,61 +9,81 @@
 00004 \textcolor{preprocessor}{#include <QStateMachine>}
 00005 \textcolor{preprocessor}{#include <QHistoryState>}
 00006 \textcolor{preprocessor}{#include <QtCore>}
-00007 \textcolor{preprocessor}{#include "\hyperlink{SH__NamedObject_8h}{SH\_NamedObject.h}"}
+00007 \textcolor{preprocessor}{#include "\hyperlink{SH__GenericDebugableStateMachine_8h}{SH\_GenericDebugableStateMachine.h}"}
 00008 \textcolor{preprocessor}{#include "\hyperlink{SH__IOState_8h}{SH\_IOState.h}"}
 00009 
-\hypertarget{SH__IOStateMachine_8h_source_l00015}{}\hyperlink{classSH__InOutStateMachine}{00015} \textcolor{keyword}{class }\hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine} : \textcolor{keyword}{public} \hyperlink{classQStateMachine}{QStateMachine}, 
-      \hyperlink{classSH__NamedObject}{SH\_NamedObject}
+\hypertarget{SH__IOStateMachine_8h_source_l00015}{}\hyperlink{classSH__InOutStateMachine}{00015} \textcolor{keyword}{class }\hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine} : \textcolor{keyword}{public} \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}
 00016 \{
 00017     Q\_OBJECT
 00018 \textcolor{keyword}{public}:
-00027     \hyperlink{classSH__InOutStateMachine_abd780037922920c674b43d80c2b50d16}{SH\_InOutStateMachine}(QString \hyperlink{classSH__InOutStateMachine_a18b07a985695100612bbcbda870933b4}{tableName}, QString 
-      \hyperlink{classSH__NamedObject_a970f265df31b28b2179bbbceb6170ac2}{name}=\textcolor{stringliteral}{""}, \hyperlink{classQObject}{QObject} *parent = 0);
+00027     \hyperlink{classSH__InOutStateMachine_abd780037922920c674b43d80c2b50d16}{SH\_InOutStateMachine}(QString \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{tableName}, QString 
+      \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}=\textcolor{stringliteral}{""}, \hyperlink{classQObject}{QObject} *parent = 0);
 00028 
-00035     QString \hyperlink{classSH__InOutStateMachine_a60ecd7de03d948e2d1e9cbedb5c3e5fa}{toString}();
-00036 
-00043     QVariantMap \hyperlink{classSH__InOutStateMachine_a79b456cb2e353cb61ef9fe19c97fc8fb}{ioContent}() \textcolor{keyword}{const};
-00050     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a23a925522339132a51d16a7cff9074b9}{setIOcontent}(\textcolor{keyword}{const} QVariantMap &ioContent);
-00058     QVariant \hyperlink{classSH__InOutStateMachine_a2cdd914f1e597ac52d021106eec75c89}{getContentValue}(QString field);
-00059 
-00066     QString \hyperlink{classSH__InOutStateMachine_a18b07a985695100612bbcbda870933b4}{tableName}() \textcolor{keyword}{const};
-00073     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a437a730d07ddd15bd96314ab0b6cf40e}{setTableName}(\textcolor{keyword}{const} QString &tableName);
-00074 
-00082     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a4b72e6da839782a211692a4d728c3925}{setIOStateHistory}(QHistoryState *state, QString field);
-00090     QHistoryState* \hyperlink{classSH__InOutStateMachine_a84fb2b2c2105cae9c590c0d15960854a}{historyValue}(QString field);
-00091 
-00092 signals: \textcolor{comment}{/*messagers à envoyer ou transmettre*/}
-00098     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_aa9ee51efe0e17dcf5366c8a97b523892}{next}();
-00104     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ad722deb53285919796b04db5af6e51b4}{clearAll}();
-00112     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ae2cbbe3cd207158668dcb4838938c7ad}{sendText}(QString text, \textcolor{keywordtype}{bool} editable=\textcolor{keyword}{false});
-00118     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{resendText}(QString text, \textcolor{keywordtype}{bool} editable=\textcolor{keyword}{false});
-00125     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ab224e4a6ab99c15770bc63e1b8fdb771}{receiveInput}(QString input);
-00131     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a0fb4c4d63ccb19df48f1e060d02d8ae3}{confirmInput}();
-00137     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a5a5804bd32a04d25926f6e323b906887}{validateInput}();
-00144     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_af5f82970faef3bca48a147863dba2ee1}{replaceInput}(QString field);
-00150     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a67ce246a765ad91fef76f70ece12213f}{cancelReplacement}();
-00156     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a0d241868828cbf9798233a8c74c69851}{displayCalendar}();
-00157 
-00162     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_aeddfbc098f5ee8ac05eadbaf37803fb1}{displayFileDialog}();
-00163 
-00164 \textcolor{keyword}{public} slots: \textcolor{comment}{/*réception de messagers*/}
-00172     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_aa2766b7a7ba39c35a10df7fc0c151b4f}{setContentValue}(QVariant content, QString field);
-00180     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ad6b778d052f741daee720c047059ce0e}{addIOState}(\hyperlink{classSH__InOutState}{SH\_InOutState} *state, QString field);
-00181 
-00188     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a56954869252c7f1980abf37df9919b5e}{addIOStateMachine}(\hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* fsm);
-00196     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a689e5513ef6ef3fc1598efacd413372e}{addChildrenNextTransition}(QAbstractState* previousState, QAbstractState *
-      nextState);
-00197 
-00198 \textcolor{keyword}{protected}:
-00205     QMap<QString, QHistoryState *> \hyperlink{classSH__InOutStateMachine_a4ec3ebb4c40ea57c63afdf5976e62a94}{ioStatesHistory}() \textcolor{keyword}{const};
-\hypertarget{SH__IOStateMachine_8h_source_l00209}{}\hyperlink{classSH__InOutStateMachine_a661a1c7bd3b1086b3b5cd60ca957ecbd}{00209}     QVariantMap \hyperlink{classSH__InOutStateMachine_a661a1c7bd3b1086b3b5cd60ca957ecbd}{m\_ioContent};
-\hypertarget{SH__IOStateMachine_8h_source_l00213}{}\hyperlink{classSH__InOutStateMachine_acc0f5d5133af2dcca30939f53ec8837b}{00213}     QString \hyperlink{classSH__InOutStateMachine_acc0f5d5133af2dcca30939f53ec8837b}{m\_tableName};
-\hypertarget{SH__IOStateMachine_8h_source_l00217}{}\hyperlink{classSH__InOutStateMachine_aaca2ea542b3f5b4cd238396b07492455}{00217}     QMap<QString, QHistoryState*> \hyperlink{classSH__InOutStateMachine_aaca2ea542b3f5b4cd238396b07492455}{m\_ioStatesHistory};
-00218 
-00219 
-00220 \textcolor{keyword}{private}:
-00228     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ab35839e7880506286ebb5a11c2a924c2}{setIOStatesHistory}(\textcolor{keyword}{const} QMap<QString, QHistoryState *> &ioStatesHistory);
-00229 \};
-00230 
-00231 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* IOSTATEMACHINE\_H*/}\textcolor{preprocessor}{}
+00035     QVariantMap \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{ioContent}() \textcolor{keyword}{const};
+00042     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a8271a7ec7d5f6502449dd3b4da5f4155}{setIOcontent}(\textcolor{keyword}{const} QVariantMap &ioContent);
+00050     QVariant \hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{getContentValue}(QString field);
+00051 
+00058     QString \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{tableName}() \textcolor{keyword}{const};
+00065     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc739ab08c}{setTableName}(\textcolor{keyword}{const} QString &tableName);
+00066 
+00074     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_acbcce2c4300af1634d928b30e5e9be1c}{setIOStateHistory}(QHistoryState *state, QString field);
+00082     QHistoryState* \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{historyValue}(QString field);
+00083 
+00084 signals: \textcolor{comment}{/*signaux : messagers à envoyer ou transmettre*/}
+00085 
+00091     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{clearAll}();
+00092 
+00100     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{sendText}(QString text, \textcolor{keywordtype}{bool} editable=\textcolor{keyword}{false});
+00101 
+00107     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{resendText}(QString text, \textcolor{keywordtype}{bool} editable=\textcolor{keyword}{false});
+00108 
+00115     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{receiveInput}(QString input);
+00116 
+00121     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{confirmInput}();
+00122 
+00127     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{validateInput}();
+00128 
+00134     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{replaceInput}(QString field);
+00135 
+00140     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{cancelReplacement}();
+00141 
+00146     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{displayCalendar}();
+00147 
+00152     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{displayFileDialog}();
+00153 
+00154 \textcolor{keyword}{public} slots: \textcolor{comment}{/*connecteurs : récepteurs de signaux*/}
+00155 
+00156 
+00163     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(QVariant content, QString field);
+00164 
+00171     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{addIOState}(\hyperlink{classSH__InOutState}{SH\_InOutState} *state, QString field);
+00172 
+00178     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{addIOStateMachine}(\hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* fsm);
+00179 
+00186     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{addChildrenNextTransition}(QAbstractState* previousState, 
+      QAbstractState *nextState);
+00187 
+00194     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{addChildrenReplaceTransition}(QAbstractState *previousState, 
+      QAbstractState *nextState);
+00195 
+00196 \textcolor{keyword}{protected}:
+00202     QMap<QString, QHistoryState *> \hyperlink{classSH__InOutStateMachine_a13889998c6dcd17db984dd6ed1454e80}{ioStatesHistory}() \textcolor{keyword}{const};
+00203 
+00204 
+00210     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutStateMachine_ae6c7448fbe267b035017108a9ffdff2e}{isERunning}();
+00211 
+\hypertarget{SH__IOStateMachine_8h_source_l00216}{}\hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{00216}     QVariantMap \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent};
+00217 
+\hypertarget{SH__IOStateMachine_8h_source_l00222}{}\hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{00222}     QString \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName};
+00223 
+\hypertarget{SH__IOStateMachine_8h_source_l00228}{}\hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{00228}     QMap<QString, QHistoryState*> \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory};
+00229 
+00230 \textcolor{keyword}{private}:
+00237     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutStateMachine_af51f92c37d00a4eec4da42113cfd7d73}{setIOStatesHistory}(\textcolor{keyword}{const} QMap<QString, QHistoryState *> &ioStatesHistory);
+00238 
+\hypertarget{SH__IOStateMachine_8h_source_l00243}{}\hyperlink{classSH__InOutStateMachine_a7c65b7b5356594770172c130330fedf0}{00243}     \hyperlink{classQState}{QState}* \hyperlink{classSH__InOutStateMachine_a7c65b7b5356594770172c130330fedf0}{m\_errorState};
+\hypertarget{SH__IOStateMachine_8h_source_l00248}{}\hyperlink{classSH__InOutStateMachine_ab07d531e1e27f414034a9e51abce1d23}{00248}     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutStateMachine_ab07d531e1e27f414034a9e51abce1d23}{m\_isRunning};
+00249 \};
+00250 
+00251 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* IOSTATEMACHINE\_H*/}\textcolor{preprocessor}{}
 \end{DoxyCode}

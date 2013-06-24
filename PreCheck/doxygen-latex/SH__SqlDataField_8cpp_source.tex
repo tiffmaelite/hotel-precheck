@@ -11,32 +11,32 @@
 00011     this->setHeight(15);
 00012 \}
 00013 
-\hypertarget{SH__SqlDataField_8cpp_source_l00019}{}\hyperlink{classSH__SqlDataFields_a377b4964546e91bd344c8c6f5190a833}{00019} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_a377b4964546e91bd344c8c6f5190a833}{SH\_SqlDataFields::setText}(QString newText)
+\hypertarget{SH__SqlDataField_8cpp_source_l00019}{}\hyperlink{classSH__SqlDataFields_ae098408de73ecbd532de8f44dea2b6d0}{00019} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_ae098408de73ecbd532de8f44dea2b6d0}{SH\_SqlDataFields::setText}(QString newText)
 00020 \{
 00021     \hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text} = newText;
 00022     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name} == \textcolor{stringliteral}{""})
 00023     \{
-00024         this->\hyperlink{classSH__SqlDataFields_ab658a817f459e5d0a8c0f5c4e8c28a9d}{setName}(\hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text}.toUpper());
+00024         this->\hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{setName}(\hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text}.toUpper());
 00025     \}
-00026     emit \hyperlink{classSH__SqlDataFields_ae91d833d4b50bff27c87015179b1ac24}{textChanged}();
+00026     emit \hyperlink{classSH__SqlDataFields_ae9e241e4389dd1e2fd4f7c7d797c1ab0}{textChanged}();
 00027 \}
 00028 
-\hypertarget{SH__SqlDataField_8cpp_source_l00035}{}\hyperlink{classSH__SqlDataFields_ab658a817f459e5d0a8c0f5c4e8c28a9d}{00035} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_ab658a817f459e5d0a8c0f5c4e8c28a9d}{SH\_SqlDataFields::setName}(QString newName)
+\hypertarget{SH__SqlDataField_8cpp_source_l00035}{}\hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{00035} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{SH\_SqlDataFields::setName}(QString newName)
 00036 \{
 00037     \hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name} = newName;
-00038     this->\hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{setSortOrder}(Qt::AscendingOrder);
+00038     this->\hyperlink{classSH__SqlDataFields_a32a7c040a081d39594245e1a4a68f70d}{setSortOrder}(Qt::AscendingOrder);
 00039     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataFields_a55352d3aea0863fcab26c948babe8523}{m\_text} == \textcolor{stringliteral}{""})
 00040     \{
-00041         this->\hyperlink{classSH__SqlDataFields_a377b4964546e91bd344c8c6f5190a833}{setText}(\hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name});
+00041         this->\hyperlink{classSH__SqlDataFields_ae098408de73ecbd532de8f44dea2b6d0}{setText}(\hyperlink{classSH__SqlDataFields_a3c0e82a8b6652335bdc53b211d39d4e2}{m\_name});
 00042     \}
-00043     emit \hyperlink{classSH__SqlDataFields_ae3d52ec9938ab55f18ecdbcc5a8fd761}{nameChanged}();
-00044     emit \hyperlink{classSH__SqlDataFields_a2f98ae1dff83fc150b9e836ad782e6bf}{roleChanged}();
+00043     emit \hyperlink{classSH__SqlDataFields_a2769afd59dde74e989bc28ed98bb04d8}{nameChanged}();
+00044     emit \hyperlink{classSH__SqlDataFields_a6059e1ea44ad77f9b7b92e3c5e0da99c}{roleChanged}();
 00045 \}
 00046 
 00047 
-\hypertarget{SH__SqlDataField_8cpp_source_l00054}{}\hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{00054} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_a6ace4d4f29e74ce3ed81f75a2c278e83}{SH\_SqlDataFields::setSortOrder}(Qt::SortOrder newSortOrder)
+\hypertarget{SH__SqlDataField_8cpp_source_l00054}{}\hyperlink{classSH__SqlDataFields_a32a7c040a081d39594245e1a4a68f70d}{00054} \textcolor{keywordtype}{void} \hyperlink{classSH__SqlDataFields_a32a7c040a081d39594245e1a4a68f70d}{SH\_SqlDataFields::setSortOrder}(Qt::SortOrder newSortOrder)
 00055 \{
 00056     \hyperlink{classSH__SqlDataFields_aa5dbfa2beef7114fba275d61135a6760}{m\_sortOrder} = newSortOrder;
-00057     emit \hyperlink{classSH__SqlDataFields_a4aa8b620b962b3e03b94b6e68bb81952}{sortOrderChanged}();
+00057     emit \hyperlink{classSH__SqlDataFields_a0b98b00a8e7eb421e423c15bddd12e36}{sortOrderChanged}();
 00058 \}
 \end{DoxyCode}
