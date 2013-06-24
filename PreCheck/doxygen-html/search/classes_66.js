@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['focusscope',['FocusScope',['../classFocusScope.html',1,'']]]
+  ['focusscope',['FocusScope',['../classFocusScope.xhtml',1,'']]]
 ];

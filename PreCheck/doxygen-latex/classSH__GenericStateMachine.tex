@@ -5,24 +5,10 @@
 
 {\ttfamily \#include $<$S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-h$>$}
 
-
-
-Graphe d'héritage de S\-H\-\_\-\-Generic\-State\-Machine\-:
-\nopagebreak
-\begin{figure}[H]
+Graphe d'héritage de S\-H\-\_\-\-Generic\-State\-Machine\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine__inherit__graph}
-\end{center}
-\end{figure}
-
-
-Graphe de collaboration de S\-H\-\_\-\-Generic\-State\-Machine\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine__coll__graph}
+\includegraphics[height=3.240741cm]{classSH__GenericStateMachine}
 \end{center}
 \end{figure}
 \subsection*{Signaux}
@@ -37,7 +23,7 @@ void \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{
 \item 
 \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine} (Q\-String \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}=\char`\"{}\char`\"{}, \hyperlink{classQObject}{Q\-Object} $\ast$parent=0)
 \item 
-virtual void \hyperlink{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c}{add\-Children\-Next\-Transition} (Q\-Abstract\-State $\ast$previous\-State, Q\-Abstract\-State $\ast$next\-State)
+virtual void \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{add\-Children\-Next\-Transition} (Q\-Abstract\-State $\ast$previous\-State, Q\-Abstract\-State $\ast$next\-State)
 \item 
 bool \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{is\-Running} ()
 \item 
@@ -67,6 +53,8 @@ virtual void \hyperlink{classSH__NamedObject_a6bc164e6fa10ae190770529af75d1775}{
 \subsection*{Attributs privés}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classQState}{Q\-State} $\ast$ \hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\-\_\-error\-State}
+\item 
 bool \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\-\_\-is\-Running}
 \end{DoxyCompactItemize}
 
@@ -88,53 +76,60 @@ Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8h_source_l0
 \end{DoxyParamCaption}
 )}}\label{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}
 
+\begin{DoxyParams}{Paramètres}
+{\em name} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00006}{6} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00013}{13} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{emit\-Go\-Next()}, \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{go\-Next()}, et \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\-\_\-is\-Running}.
+Références \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{emit\-Go\-Next()}, \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{go\-Next()}, \hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\-\_\-error\-State}, \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\-\_\-is\-Running}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{to\-String()}.
 
 
 \begin{DoxyCode}
-00006                                                                             :
-00007     \hyperlink{classQStateMachine}{QStateMachine}(parent), \hyperlink{classSH__NamedObject_a6ceff219e80ad3f5c36db5f4258e74fd}{SH\_NamedObject}(\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name})
-00008 \{
-00009     connect(\textcolor{keyword}{this}, &\hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{SH\_GenericStateMachine::goNext}, \textcolor{keyword}{this}, &
+00013                                                                             :
+00014     \hyperlink{classQStateMachine}{QStateMachine}(parent), \hyperlink{classSH__NamedObject_a6ceff219e80ad3f5c36db5f4258e74fd}{SH\_NamedObject}(\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}), 
+      \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning}(\textcolor{keyword}{false})
+00015 \{
+00016     connect(\textcolor{keyword}{this}, &\hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{SH\_GenericStateMachine::goNext}, \textcolor{keyword}{this}, &
       \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{SH\_GenericStateMachine::emitGoNext});
-00010     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
-00011 \}
+00017     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
+00018     \hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\_errorState} = \textcolor{keyword}{new} \hyperlink{classSH__GenericState}{SH\_GenericState}(\textcolor{stringliteral}{"error state"}, \textcolor{keyword}{this});
+00019     this->setErrorState(\hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\_errorState});
+00020     connect(\hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\_errorState}, &QState::entered, [=]() \{ qDebug() << \textcolor{stringliteral}{"Error in machine "} << this->
+      \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}() << \textcolor{stringliteral}{": "} << this->errorString(); \});
+00021 \}
 \end{DoxyCode}
 
 
-Voici le graphe d'appel pour cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
 \subsection{Documentation des fonctions membres}
-\hypertarget{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!add\-Children\-Next\-Transition@{add\-Children\-Next\-Transition}}
+\hypertarget{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!add\-Children\-Next\-Transition@{add\-Children\-Next\-Transition}}
 \index{add\-Children\-Next\-Transition@{add\-Children\-Next\-Transition}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
-\subsubsection[{add\-Children\-Next\-Transition}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition (
+\subsubsection[{add\-Children\-Next\-Transition}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition (
 \begin{DoxyParamCaption}
 \item[{Q\-Abstract\-State $\ast$}]{previous\-State, }
 \item[{Q\-Abstract\-State $\ast$}]{next\-State}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}
+
+\begin{DoxyParams}{Paramètres}
+{\em previous\-State} & \\
+\hline
+{\em next\-State} & \\
+\hline
+\end{DoxyParams}
 
 
 Réimplémentée dans \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine}.
 
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00060}{60} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00099}{99} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -146,50 +141,26 @@ Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f27
 
 
 \begin{DoxyCode}
-00061 \{
-00062     \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}* fsmPreviousState = qobject\_cast<
+00100 \{
+00101     \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}* fsmPreviousState = qobject\_cast<
       \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}*>(previousState);
-00063     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
+00102     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
       \hyperlink{classSH__GenericState}{SH\_GenericState}*>(previousState);
-00064     QFinalState* \textcolor{keyword}{final} = qobject\_cast<QFinalState*>(nextState);
-00065     \textcolor{keywordflow}{if}(!\textcolor{keyword}{final}) \{
-00066         \textcolor{keywordflow}{if}(genPreviousState) \{
-00067             qDebug() << \textcolor{stringliteral}{"next transition between "} << genPreviousState->\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}() << \textcolor{stringliteral}{" and "} << 
+00103     QFinalState* \textcolor{keyword}{final} = qobject\_cast<QFinalState*>(nextState);
+00104     \textcolor{keywordflow}{if}(!\textcolor{keyword}{final}) \{
+00105         \textcolor{keywordflow}{if}(genPreviousState) \{
+00106             qDebug() << \textcolor{stringliteral}{"next transition between "} << genPreviousState->\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}() << \textcolor{stringliteral}{" and "} << 
       nextState;
-00068             genPreviousState->addTransition(genPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextState);
-00069         \}
-00070         \textcolor{keywordflow}{if}(fsmPreviousState) \{
-00071             qDebug() << \textcolor{stringliteral}{"next transition between "} << fsmPreviousState->\hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}() << \textcolor{stringliteral}{" and "} << 
+00107             genPreviousState->addTransition(genPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextState);
+00108         \}
+00109         \textcolor{keywordflow}{if}(fsmPreviousState) \{
+00110             qDebug() << \textcolor{stringliteral}{"next transition between "} << fsmPreviousState->\hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}() << \textcolor{stringliteral}{" and "} << 
       nextState;
-00072             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextState);
-00073         \}
-00074     \}
-00075 \}
+00111             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextState);
+00112         \}
+00113     \}
+00114 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!emit\-Go\-Next@{emit\-Go\-Next}}
 \index{emit\-Go\-Next@{emit\-Go\-Next}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{emit\-Go\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Generic\-State\-Machine\-::emit\-Go\-Next (
@@ -199,7 +170,7 @@ Voici le graphe des appelants de cette fonction \-:
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}}\label{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00031}{31} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00058}{58} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -211,36 +182,12 @@ Référencé par \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e2770809
 
 
 \begin{DoxyCode}
-00032 \{
-00033     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}()) \{
-00034         emit \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}();
-00035     \}
-00036 \}
+00059 \{
+00060     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}()) \{
+00061         emit \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}();
+00062     \}
+00063 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!go\-Next@{go\-Next}}
 \index{go\-Next@{go\-Next}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{go\-Next}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::go\-Next (
@@ -251,18 +198,6 @@ Voici le graphe des appelants de cette fonction \-:
 
 
 Référencé par \hyperlink{classSH__AddressCreationStateMachine_aabbda0fa01d5a59aaff1bd0e7153386d}{S\-H\-\_\-\-Address\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Address\-Creation\-State\-Machine()}, et \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine()}.
-
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e_icgraph}
-\end{center}
-\end{figure}
-
 
 \hypertarget{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!is\-Running@{is\-Running}}
 \index{is\-Running@{is\-Running}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
@@ -276,7 +211,7 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00025}{25} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00047}{47} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -288,22 +223,10 @@ Référencé par \hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f3170
 
 
 \begin{DoxyCode}
-00026 \{
-00027     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning};
-00028 \}
+00048 \{
+00049     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning};
+00050 \}
 \end{DoxyCode}
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!name@{name}}
 \index{name@{name}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Named\-Object\-::name (
@@ -332,17 +255,6 @@ Référencé par \hyperlink{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf2
 00034     \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a7f8e3346256986c337a792339ea5a015}{m\_name};
 00035 \}
 \end{DoxyCode}
-
-
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!next@{next}}
 \index{next@{next}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::next (
@@ -352,19 +264,7 @@ Voici le graphe des appelants de cette fonction \-:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}
 
 
-Référencé par \hyperlink{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c}{add\-Children\-Next\-Transition()}, \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{emit\-Go\-Next()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
-
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6_icgraph}
-\end{center}
-\end{figure}
-
+Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{add\-Children\-Next\-Transition()}, \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{emit\-Go\-Next()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
 
 \hypertarget{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf21f03cbb951}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!on\-Entry@{on\-Entry}}
 \index{on\-Entry@{on\-Entry}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
@@ -380,7 +280,7 @@ Voici le graphe des appelants de cette fonction \-:
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00039}{39} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00072}{72} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -388,25 +288,13 @@ Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703
 
 
 \begin{DoxyCode}
-00040 \{
-00041     \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning} = \textcolor{keyword}{true};
-00042     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
-00043     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << this->
+00073 \{
+00074     \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning} = \textcolor{keyword}{true};
+00075     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
+00076     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << this->
       \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
-00044 \}
+00077 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf21f03cbb951_cgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericStateMachine_a4b36d60fa1876908493d3d07f191a30f}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!on\-Exit@{on\-Exit}}
 \index{on\-Exit@{on\-Exit}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{on\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::on\-Exit (
@@ -421,7 +309,7 @@ Voici le graphe d'appel pour cette fonction \-:
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00046}{46} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00085}{85} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -429,24 +317,12 @@ Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703
 
 
 \begin{DoxyCode}
-00047 \{
-00048     \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning} = \textcolor{keyword}{false};
-00049     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
-00050     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" exited  "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
-00051 \}
+00086 \{
+00087     \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning} = \textcolor{keyword}{false};
+00088     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
+00089     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" exited  "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
+00090 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a4b36d60fa1876908493d3d07f191a30f_cgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__NamedObject_a147d0e52d9f0fc1d3a423d02f82325f5}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!ptraddress@{ptraddress}}
 \index{ptraddress@{ptraddress}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{ptraddress}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Named\-Object\-::ptraddress (
@@ -497,17 +373,6 @@ Références \hyperlink{classSH__NamedObject_a7f8e3346256986c337a792339ea5a015}{
 00045     \hyperlink{classSH__NamedObject_a7f8e3346256986c337a792339ea5a015}{m\_name} = \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name};
 00046 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__NamedObject_a6bc164e6fa10ae190770529af75d1775_cgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!to\-String@{to\-String}}
 \index{to\-String@{to\-String}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String (
@@ -524,7 +389,7 @@ Réimplémentée à partir de \hyperlink{classSH__NamedObject_a9f4b19df6a96a17da
 
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00014}{14} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00030}{30} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -532,54 +397,41 @@ Références \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{
 
 
 
-Référencé par \hyperlink{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c}{add\-Children\-Next\-Transition()}, \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{S\-H\-\_\-\-Application\-Core\-::launch\-Billings\-Thread()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__InOutStateMachine_abd780037922920c674b43d80c2b50d16}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine()}, et \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}.
+Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{add\-Children\-Next\-Transition()}, \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{S\-H\-\_\-\-Application\-Core\-::launch\-Billings\-Thread()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine()}, et \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}.
 
 
 \begin{DoxyCode}
-00015 \{
-00016     \hyperlink{classQObject}{QObject}* parent = this->parent();
-00017     \hyperlink{classSH__GenericState}{SH\_GenericState}* par = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState} *>(parent);
-00018     \textcolor{keywordflow}{if}(par) \{
-00019         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [descending from "}+par->
+00031 \{
+00032     \hyperlink{classQObject}{QObject}* parent = this->parent();
+00033     \hyperlink{classSH__GenericState}{SH\_GenericState}* par = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState} *>(parent);
+00034     \textcolor{keywordflow}{if}(par) \{
+00035         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [descending from "}+par->
       \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()+\textcolor{stringliteral}{"] "};
-00020     \} \textcolor{keywordflow}{else} \{
-00021         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
-00022     \}
-00023 \}
+00036     \} \textcolor{keywordflow}{else} \{
+00037         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
+00038     \}
+00039 \}
 \end{DoxyCode}
 
 
-Voici le graphe d'appel pour cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd_icgraph}
-\end{center}
-\end{figure}
-
-
-
-
 \subsection{Documentation des données membres}
+\hypertarget{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!m\-\_\-error\-State@{m\-\_\-error\-State}}
+\index{m\-\_\-error\-State@{m\-\_\-error\-State}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
+\subsubsection[{m\-\_\-error\-State}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::m\-\_\-error\-State\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}
+
+
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8h_source_l00083}{83} du fichier \hyperlink{SH__GenericDebugableStateMachine_8h_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine()}.
+
 \hypertarget{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{\index{S\-H\-\_\-\-Generic\-State\-Machine@{S\-H\-\_\-\-Generic\-State\-Machine}!m\-\_\-is\-Running@{m\-\_\-is\-Running}}
 \index{m\-\_\-is\-Running@{m\-\_\-is\-Running}!SH_GenericStateMachine@{S\-H\-\_\-\-Generic\-State\-Machine}}
 \subsubsection[{m\-\_\-is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::m\-\_\-is\-Running\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8h_source_l00070}{70} du fichier \hyperlink{SH__GenericDebugableStateMachine_8h_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-h}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8h_source_l00077}{77} du fichier \hyperlink{SH__GenericDebugableStateMachine_8h_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-h}.
 
 
 

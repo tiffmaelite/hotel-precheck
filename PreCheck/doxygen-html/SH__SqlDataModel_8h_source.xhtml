@@ -1,0 +1,189 @@
+<!-- HTML header for doxygen 1.8.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/models/SH_SqlDataModel.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen-extra-stylesheets.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.4</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.xhtml"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.xhtml"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.xhtml"><span>Classes</span></a></li>
+      <li class="current"><a href="files.xhtml"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.xhtml"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.xhtml"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('SH__SqlDataModel_8h_source.xhtml','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_SqlDataModel.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__SqlDataModel_8h.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SQLDATAMODEL_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SQLDATAMODEL_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QAbstractListModel&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QtSql&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__SqlDataField_8h.xhtml">SH_SqlDataField.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__SqlDataModel.xhtml">SH_SqlDataModel</a> : <span class="keyword">public</span> <a class="code" href="classQAbstractListModel.xhtml">QAbstractListModel</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#afd3e2e62c847463c5177ccad35ad4992">   17</a></span>&#160;    Q_PROPERTY(QString <a class="code" href="classSH__SqlDataModel.xhtml#afd3e2e62c847463c5177ccad35ad4992">table</a> READ <a class="code" href="classSH__SqlDataModel.xhtml#afced07f7b9e6fecd349a5428a1a4615e">tableName</a> WRITE <a class="code" href="classSH__SqlDataModel.xhtml#a2c09d14926326a1149c1df7856c9879c">setTable</a> NOTIFY <a class="code" href="classSH__SqlDataModel.xhtml#a791a6cc9d8a2ba109fe5f54ab287dc80">tableChanged</a>)</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a1f3b35273198f9c67ca4bca5b29876e9">   18</a></span>&#160;    Q_PROPERTY(QString <a class="code" href="classSH__SqlDataModel.xhtml#aa86018df823c85798574ec8d63413c1a">filter</a> READ <a class="code" href="classSH__SqlDataModel.xhtml#aa86018df823c85798574ec8d63413c1a">filter</a> WRITE <a class="code" href="classSH__SqlDataModel.xhtml#a99c6317027a7c9f723215b53b69e0647">setFilterCondition</a> NOTIFY <a class="code" href="classSH__SqlDataModel.xhtml#ab7bf039eba1e085b137509b7b93ea39b">filterChanged</a>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a28af51642aee51bc7e0ce19b97c57b60">   19</a></span>&#160;    Q_PROPERTY(QString <a class="code" href="classSH__SqlDataModel.xhtml#ade915650ffbdb8d026e00893d1f5a195">lastError</a> READ <a class="code" href="classSH__SqlDataModel.xhtml#ade915650ffbdb8d026e00893d1f5a195">lastError</a> NOTIFY <a class="code" href="classSH__SqlDataModel.xhtml#a16f5316d5ca383f137d0d571931e4cc5">lastErrorChanged</a>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;public:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    explicit <a class="code" href="classSH__SqlDataModel.xhtml">SH_SqlDataModel</a>(<a class="code" href="classQObject.xhtml">QObject</a> *parent = 0);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSH__SqlDataModel.xhtml#a48d361600552aa4f80af693a68fc41dd">rowCount</a>(const QModelIndex &amp;parent) const;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QVariant <a class="code" href="classSH__SqlDataModel.xhtml#aa4664329d52c2d2cba2bacc42fa1a564">data</a>(const QModelIndex &amp;index, <span class="keywordtype">int</span> role) const;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QVariantMap <a class="code" href="classSH__SqlDataModel.xhtml#a24db284b370930b57e2261a7a72e2da8">datas</a>() const;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__SqlDataModel.xhtml#aae31b72ec89a35a7b8d4175d7bcaa33a">setHeaderData</a>(<span class="keywordtype">int</span> section, Qt::Orientation orientation, const QVariant &amp;value, <span class="keywordtype">int</span> role = Qt::EditRole);</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#aa487bb763eaf2544e4eb5822cd666105">   73</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSH__SqlDataModel.xhtml#aa487bb763eaf2544e4eb5822cd666105">roleForField</a>(<span class="keywordtype">int</span> fieldIndex)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Qt::UserRole + fieldIndex;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a3c6539114dd06aa8043e7a4e9762f6f4">   81</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSH__SqlDataModel.xhtml#a3c6539114dd06aa8043e7a4e9762f6f4">fieldFromRole</a>(<span class="keywordtype">int</span> role)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> role - Qt::UserRole; }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">const</span> QString &amp;<a class="code" href="classSH__SqlDataModel.xhtml#afced07f7b9e6fecd349a5428a1a4615e">tableName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">const</span> QString &amp;<a class="code" href="classSH__SqlDataModel.xhtml#ade915650ffbdb8d026e00893d1f5a195">lastError</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">const</span> QString &amp;<a class="code" href="classSH__SqlDataModel.xhtml#aa86018df823c85798574ec8d63413c1a">filter</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#a2c09d14926326a1149c1df7856c9879c">setTable</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="classSH__SqlDataModel.xhtml#afced07f7b9e6fecd349a5428a1a4615e">tableName</a>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#a99c6317027a7c9f723215b53b69e0647">setFilterCondition</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="classSH__SqlDataModel.xhtml#aa86018df823c85798574ec8d63413c1a">filter</a>);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#a0bf147a87376fc3aa436562f94661679">resetFilterCondition</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#ad297d359375d55e66493ce8935f8ff05">setFields</a>(QStringList fieldList);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#ad0477d16e78ba808250e2054952f9833">resetFieldsToAll</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__SqlDataModel.xhtml#ab6c206088250a66ddc8cb8d33a38e421">fetch</a>(QString <a class="code" href="classSH__SqlDataModel.xhtml#afced07f7b9e6fecd349a5428a1a4615e">tableName</a> = <span class="stringliteral">&quot;&quot;</span>, QString <a class="code" href="classSH__SqlDataModel.xhtml#aa86018df823c85798574ec8d63413c1a">filter</a> = <span class="stringliteral">&quot;&quot;</span>, QString sort=<span class="stringliteral">&quot;&quot;</span>, QStringList fields = QStringList());</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="classSH__SqlDataFields.xhtml">SH_SqlDataFields</a> *<a class="code" href="classSH__SqlDataModel.xhtml#a92c51d5c1f6aca08a7ee566ece1e4cb6">field</a>(<span class="keywordtype">int</span> i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSH__SqlDataModel.xhtml#a46f0951fd358e30892a982ebd34e43c2">fieldsCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#ab443cd7935993270c37f9bd977b33875">setOrderBy</a>(QString sort);</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#ac9954bbf92ed14566128c74318e3125b">  179</a></span>&#160;    <span class="keyword">virtual</span> QHash&lt;int, QByteArray&gt; <a class="code" href="classSH__SqlDataModel.xhtml#ac9954bbf92ed14566128c74318e3125b" title="This function allows mapping of role identifiers to role property names in scripting languages...">roleNames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="classSH__SqlDataModel.xhtml#ad1e46c72a6aeb83e3e7bb0c3110d12a4" title="mRoles ">mRoles</a>; }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__SqlDataModel.xhtml#ad85bfde0f7ffb06172eb5543e26d1331">isEmpty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">const</span> QString &amp;<a class="code" href="classSH__SqlDataModel.xhtml#aee909d0a29715d02d920fcf854bfbba2">query</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">const</span> QStringList <a class="code" href="classSH__SqlDataModel.xhtml#a571bdc1f9592bd13f98fd748563d46c0">fieldsList</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;signals:</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#a34a4750c1fb9c7ed05fe869d6de84e28">fieldsChanged</a>();</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#a791a6cc9d8a2ba109fe5f54ab287dc80">tableChanged</a>();</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#a16f5316d5ca383f137d0d571931e4cc5">lastErrorChanged</a>();</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#ab7bf039eba1e085b137509b7b93ea39b">filterChanged</a>();</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#acf85dacdcc946ef27377d221b16b0e41">rolesChanged</a>();</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__SqlDataModel.xhtml#ad4f032ceb7c2f70b2d7388e3afd161ab">applyRoles</a>();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a88b8738a0d2803c94295c90c83d65f32">  246</a></span>&#160;    QString <a class="code" href="classSH__SqlDataModel.xhtml#a88b8738a0d2803c94295c90c83d65f32" title="mTable ">mTable</a>;</div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#af83c15ae3ad1dc4617dd58f2a852a1e2">  250</a></span>&#160;    QString <a class="code" href="classSH__SqlDataModel.xhtml#af83c15ae3ad1dc4617dd58f2a852a1e2" title="mFilter ">mFilter</a>;</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a7e36fd116b7cb50e949ee56af0c31772">  254</a></span>&#160;    QString <a class="code" href="classSH__SqlDataModel.xhtml#a7e36fd116b7cb50e949ee56af0c31772" title="mSort ">mSort</a>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a3e998f75dd5b3193783612002461888d">  258</a></span>&#160;    QList&lt;SH_SqlDataFields *&gt; <a class="code" href="classSH__SqlDataModel.xhtml#a3e998f75dd5b3193783612002461888d" title="mDataFields ">mDataFields</a>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#ad1e46c72a6aeb83e3e7bb0c3110d12a4">  262</a></span>&#160;    QHash&lt;int, QByteArray&gt; <a class="code" href="classSH__SqlDataModel.xhtml#ad1e46c72a6aeb83e3e7bb0c3110d12a4" title="mRoles ">mRoles</a>;</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#a54f0cf057e3200f6b199508958e43fec">  266</a></span>&#160;    QSqlQuery <a class="code" href="classSH__SqlDataModel.xhtml#a54f0cf057e3200f6b199508958e43fec" title="mSqlQuery ">mSqlQuery</a>;</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="code" href="classSH__SqlDataModel.xhtml#aa58096989daac3cd3fdea5e6dd4f27ee">  270</a></span>&#160;    QList&lt;QSqlRecord&gt; <a class="code" href="classSH__SqlDataModel.xhtml#aa58096989daac3cd3fdea5e6dd4f27ee" title="mRecords ">mRecords</a>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;};</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SQLDATAMODEL_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.4-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_0ca75c10eadacd982647138e60a4938c.xhtml">models</a></li><li class="navelem"><a class="el" href="SH__SqlDataModel_8h.xhtml">SH_SqlDataModel.h</a></li>
+    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!-- HTML header for doxygen 1.8.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/logic/SH_IOStateMachine.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen-extra-stylesheets.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.4</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.xhtml"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.xhtml"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.xhtml"><span>Classes</span></a></li>
+      <li class="current"><a href="files.xhtml"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.xhtml"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.xhtml"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('SH__IOStateMachine_8h_source.xhtml','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_IOStateMachine.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__IOStateMachine_8h.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef IOSTATEMACHINE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IOSTATEMACHINE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QStateMachine&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QHistoryState&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QtCore&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__GenericDebugableStateMachine_8h.xhtml">SH_GenericDebugableStateMachine.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__IOState_8h.xhtml">SH_IOState.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__InOutStateMachine.xhtml">SH_InOutStateMachine</a> : <span class="keyword">public</span> <a class="code" href="classSH__GenericStateMachine.xhtml">SH_GenericStateMachine</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml#abd780037922920c674b43d80c2b50d16">SH_InOutStateMachine</a>(QString <a class="code" href="classSH__InOutStateMachine.xhtml#a4288a6c86ddf83effefff886675591c9">tableName</a>, QString <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>=<span class="stringliteral">&quot;&quot;</span>, <a class="code" href="classQObject.xhtml">QObject</a> *parent = 0);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QVariantMap <a class="code" href="classSH__InOutStateMachine.xhtml#aaca105fbd5f5cc3bac115389ad3694c5">ioContent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a8271a7ec7d5f6502449dd3b4da5f4155">setIOcontent</a>(<span class="keyword">const</span> QVariantMap &amp;ioContent);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QVariant <a class="code" href="classSH__InOutStateMachine.xhtml#aa1a3bd3c0ea8a59b9bc916dc718eb9ca">getContentValue</a>(QString field);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QString <a class="code" href="classSH__InOutStateMachine.xhtml#a4288a6c86ddf83effefff886675591c9">tableName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a95db31a7e7f31f36a8737adc739ab08c">setTableName</a>(<span class="keyword">const</span> QString &amp;tableName);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#acbcce2c4300af1634d928b30e5e9be1c">setIOStateHistory</a>(QHistoryState *state, QString field);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    QHistoryState* <a class="code" href="classSH__InOutStateMachine.xhtml#af71bfdb3b59b7bf2763588b513b4205f">historyValue</a>(QString field);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;signals: <span class="comment">/*signaux : messagers à envoyer ou transmettre*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#aa1d5860888c96ff94c55dc77e0fdfdcf">clearAll</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a5e7f5958bae31696b6a8deab94ad2b4f">sendText</a>(QString text, <span class="keywordtype">bool</span> editable=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a526822c66b46aa0cd81ba4473fa5573f">resendText</a>(QString text, <span class="keywordtype">bool</span> editable=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a037ed5e13ecfae2123a8d4940292e410">receiveInput</a>(QString input);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a7f7d9c9300c1d05bce2c26029f28cc31">confirmInput</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#aec1b3fef3c1f82499aa1f73beaecd08a">validateInput</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a9fa5db44086de2576c812f631aa4f60a">replaceInput</a>(QString field);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a035d37535533d4805fe2606f38c19380">cancelReplacement</a>();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#ab3a12d1f9b658d8ffdc17669a6c065f2">displayCalendar</a>();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#abd206c3bc32bb7690df9c3e1cd546ebc">displayFileDialog</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">public</span> slots: <span class="comment">/*connecteurs : récepteurs de signaux*/</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a9ab1534306b2bdb62743d4bcefe40c17">setContentValue</a>(QVariant content, QString field);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a2528cffddbe6f98c32ebef41423c0118">addIOState</a>(<a class="code" href="classSH__InOutState.xhtml">SH_InOutState</a> *state, QString field);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a6f65dff277508e650eb697628c857b19">addIOStateMachine</a>(<a class="code" href="classSH__InOutStateMachine.xhtml">SH_InOutStateMachine</a>* fsm);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#aa78420f8778d7777809aad77eb8473b4">addChildrenNextTransition</a>(QAbstractState* previousState, QAbstractState *nextState);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#ae0f3b4622d2c70884bb224dee86e95c0">addChildrenReplaceTransition</a>(QAbstractState *previousState, QAbstractState *nextState);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    QMap&lt;QString, QHistoryState *&gt; <a class="code" href="classSH__InOutStateMachine.xhtml#a13889998c6dcd17db984dd6ed1454e80">ioStatesHistory</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__InOutStateMachine.xhtml#ae6c7448fbe267b035017108a9ffdff2e">isERunning</a>();</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">  216</a></span>&#160;    QVariantMap <a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">m_ioContent</a>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#aa009eecc5ab6181358faafb5996b6006">  222</a></span>&#160;    QString <a class="code" href="classSH__InOutStateMachine.xhtml#aa009eecc5ab6181358faafb5996b6006">m_tableName</a>;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#ac46ad1af230e1b2156d805275690dec3">  228</a></span>&#160;    QMap&lt;QString, QHistoryState*&gt; <a class="code" href="classSH__InOutStateMachine.xhtml#ac46ad1af230e1b2156d805275690dec3">m_ioStatesHistory</a>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#af51f92c37d00a4eec4da42113cfd7d73">setIOStatesHistory</a>(<span class="keyword">const</span> QMap&lt;QString, QHistoryState *&gt; &amp;ioStatesHistory);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;};</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IOSTATEMACHINE_H*/</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.4-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__IOStateMachine_8h.xhtml">SH_IOStateMachine.h</a></li>
+    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
+</body>
+</html>

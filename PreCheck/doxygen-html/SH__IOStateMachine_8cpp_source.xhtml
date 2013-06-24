@@ -1,0 +1,323 @@
+<!-- HTML header for doxygen 1.8.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/logic/SH_IOStateMachine.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen-extra-stylesheets.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.4</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.xhtml"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.xhtml"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.xhtml"><span>Classes</span></a></li>
+      <li class="current"><a href="files.xhtml"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.xhtml"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.xhtml"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('SH__IOStateMachine_8cpp_source.xhtml','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_IOStateMachine.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__IOStateMachine_8cpp.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__IOStateMachine_8h.xhtml">SH_IOStateMachine.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__ValidationState_8h.xhtml">SH_ValidationState.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__ConfirmationState_8h.xhtml">SH_ConfirmationState.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__FileSelectionState_8h.xhtml">SH_FileSelectionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__DateQuestionState_8h.xhtml">SH_DateQuestionState.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__AdaptDatabaseState_8h.xhtml">SH_AdaptDatabaseState.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#abd780037922920c674b43d80c2b50d16">   13</a></span>&#160;<a class="code" href="classSH__InOutStateMachine.xhtml#abd780037922920c674b43d80c2b50d16">SH_InOutStateMachine::SH_InOutStateMachine</a>(QString tableName, QString name, <a class="code" href="classQObject.xhtml">QObject</a> *parent) :</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classSH__GenericStateMachine.xhtml">SH_GenericStateMachine</a>(name, parent), m_tableName(tableName)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;nouvelle IOStateMachine&quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#aaca105fbd5f5cc3bac115389ad3694c5">   27</a></span>&#160;QVariantMap <a class="code" href="classSH__InOutStateMachine.xhtml#aaca105fbd5f5cc3bac115389ad3694c5">SH_InOutStateMachine::ioContent</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">m_ioContent</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a8271a7ec7d5f6502449dd3b4da5f4155">   38</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a8271a7ec7d5f6502449dd3b4da5f4155">SH_InOutStateMachine::setIOcontent</a>(<span class="keyword">const</span> QVariantMap &amp;ioContent)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">m_ioContent</a> = <a class="code" href="classSH__InOutStateMachine.xhtml#aaca105fbd5f5cc3bac115389ad3694c5">ioContent</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#aa1a3bd3c0ea8a59b9bc916dc718eb9ca">   49</a></span>&#160;QVariant <a class="code" href="classSH__InOutStateMachine.xhtml#aa1a3bd3c0ea8a59b9bc916dc718eb9ca">SH_InOutStateMachine::getContentValue</a>(QString field)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">m_ioContent</a>.value(field);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a4288a6c86ddf83effefff886675591c9">   60</a></span>&#160;QString <a class="code" href="classSH__InOutStateMachine.xhtml#a4288a6c86ddf83effefff886675591c9">SH_InOutStateMachine::tableName</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__InOutStateMachine.xhtml#aa009eecc5ab6181358faafb5996b6006">m_tableName</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a95db31a7e7f31f36a8737adc739ab08c">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a95db31a7e7f31f36a8737adc739ab08c">SH_InOutStateMachine::setTableName</a>(<span class="keyword">const</span> QString &amp;tableName)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml#aa009eecc5ab6181358faafb5996b6006">m_tableName</a> = <a class="code" href="classSH__InOutStateMachine.xhtml#a4288a6c86ddf83effefff886675591c9">tableName</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a9ab1534306b2bdb62743d4bcefe40c17">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a9ab1534306b2bdb62743d4bcefe40c17">SH_InOutStateMachine::setContentValue</a>(QVariant content, QString field)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">m_ioContent</a>.insert(field, content);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a2528cffddbe6f98c32ebef41423c0118">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a2528cffddbe6f98c32ebef41423c0118">SH_InOutStateMachine::addIOState</a>(<a class="code" href="classSH__InOutState.xhtml">SH_InOutState</a> *state, QString field)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">/*à faire au moment de l&#39;entrée dans l&#39;état state*/</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    connect(state, &amp;QState::entered, [=]() {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        qDebug() &lt;&lt; state-&gt;<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>() &lt;&lt; <span class="stringliteral">&quot;entered !&quot;</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        state-&gt;<a class="code" href="classSH__InOutState.xhtml#a616f88b20478b81b2927a9ddc2b4f521">display</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a037ed5e13ecfae2123a8d4940292e410">SH_InOutStateMachine::receiveInput</a>, state, &amp;<a class="code" href="classSH__InOutState.xhtml#aaec9c2b5ef7c406bff7469461352d47c">SH_InOutState::setInput</a>, Qt::QueuedConnection); <span class="comment">/* la réception d&#39;une valeur entraîne son enregistrement comme entrée de l&#39;utilisateur auprès de l&#39;état*/</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a037ed5e13ecfae2123a8d4940292e410">SH_InOutStateMachine::receiveInput</a>, [=](QString in){ qDebug() &lt;&lt; state-&gt;<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>() &lt;&lt; <span class="stringliteral">&quot;hello world !&quot;</span>; state-&gt;<a class="code" href="classSH__InOutState.xhtml#aaec9c2b5ef7c406bff7469461352d47c">setInput</a>(in);}); <span class="comment">/* la réception d&#39;une valeur entraîne son enregistrement comme entrée de l&#39;utilisateur auprès de l&#39;état*/</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        connect(state, &amp;<a class="code" href="classSH__InOutState.xhtml#af611c84134e262739cd834797b315c80">SH_InOutState::setOutput</a>, [=](QVariant out) {qDebug() &lt;&lt; state-&gt;<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>() &lt;&lt; <span class="stringliteral">&quot;out !&quot;</span>;});</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        connect(state, &amp;<a class="code" href="classSH__InOutState.xhtml#a77921c5f42059bc97361f4ff7827da12">SH_InOutState::sendOutput</a>, [=](QVariant out) {qDebug() &lt;&lt; state-&gt;<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>() &lt;&lt; <span class="stringliteral">&quot;connected !&quot;</span>; emit this-&gt;<a class="code" href="classSH__InOutStateMachine.xhtml#a5e7f5958bae31696b6a8deab94ad2b4f">sendText</a>(out.toString(), <span class="keyword">false</span>);});</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        connect(state, &amp;<a class="code" href="classSH__InOutState.xhtml#a1f00480afefd173002cf56d4c4128048">SH_InOutState::resendInput</a>, [=](QVariant in) {emit this-&gt;<a class="code" href="classSH__InOutStateMachine.xhtml#a526822c66b46aa0cd81ba4473fa5573f">resendText</a>(in.toString(), <span class="keyword">true</span>);});</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span>(state-&gt;<a class="code" href="classSH__InOutState.xhtml#a3a18752c4122c26a2ebf38310c9c1b75">visibility</a>()) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            state-&gt;<a class="code" href="classSH__InOutState.xhtml#a77921c5f42059bc97361f4ff7827da12">sendOutput</a>(QVariant(state-&gt;<a class="code" href="classSH__InOutState.xhtml#a17ed7eaf5e3ed5af80a4f9fe65d5bfd9">output</a>()));</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            qDebug() &lt;&lt; <span class="stringliteral">&quot;invisible&quot;</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    });</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classSH__ValidationState.xhtml">SH_ValidationState</a> *validationState = qobject_cast&lt;<a class="code" href="classSH__ValidationState.xhtml">SH_ValidationState</a>*&gt;(state);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span>(validationState) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">/*à faire au moment de l&#39;entrée dans l&#39;état state*/</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        connect(validationState, &amp;QState::entered, [=]() {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#aec1b3fef3c1f82499aa1f73beaecd08a">SH_InOutStateMachine::validateInput</a>, validationState, &amp;<a class="code" href="classSH__ConfirmationState.xhtml#a039267260de5d102ac7511e6a5fae87f">SH_ValidationState::confirmInput</a>, Qt::QueuedConnection);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        });</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="classSH__ConfirmationState.xhtml" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">SH_ConfirmationState</a> *confirmationState = qobject_cast&lt;<a class="code" href="classSH__ConfirmationState.xhtml" title="La class ConfirmationState représente un état dans lequel le système attend que l&#39;utilisateur appuie ...">SH_ConfirmationState</a>*&gt;(state);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span>(confirmationState) {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">/*à faire au moment de l&#39;entrée dans l&#39;état state*/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        connect(confirmationState, &amp;QState::entered, [=]() {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#aec1b3fef3c1f82499aa1f73beaecd08a">SH_InOutStateMachine::validateInput</a>, confirmationState, &amp;<a class="code" href="classSH__ConfirmationState.xhtml#a039267260de5d102ac7511e6a5fae87f">SH_ConfirmationState::confirmInput</a>, Qt::QueuedConnection);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        });</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml">SH_DateQuestionState</a> *dateState = qobject_cast&lt;<a class="code" href="classSH__DateQuestionState.xhtml">SH_DateQuestionState</a>*&gt;(state);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(dateState) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">/*à faire au moment de l&#39;entrée dans l&#39;état state*/</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        connect(dateState, &amp;QState::entered, <span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#ab3a12d1f9b658d8ffdc17669a6c065f2">SH_InOutStateMachine::displayCalendar</a>, Qt::QueuedConnection);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="classSH__FileSelectionState.xhtml" title="The SH_FileSelectionState class. ">SH_FileSelectionState</a> *fileState = qobject_cast&lt;<a class="code" href="classSH__FileSelectionState.xhtml" title="The SH_FileSelectionState class. ">SH_FileSelectionState</a>*&gt;(state);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span>(fileState) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment">/*à faire au moment de l&#39;entrée dans l&#39;état state*/</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        connect(fileState, &amp;QState::entered, <span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#abd206c3bc32bb7690df9c3e1cd546ebc">SH_InOutStateMachine::displayFileDialog</a>, Qt::QueuedConnection);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="comment">/*à faire au moment de la sortie de l&#39;état state*/</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    connect(state, &amp;QState::exited, [=]() {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        qDebug() &lt;&lt; <span class="stringliteral">&quot;exited !&quot;</span>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">if</span>(!field.isEmpty()) {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <a class="code" href="classSH__InOutStateMachine.xhtml#a9ab1534306b2bdb62743d4bcefe40c17">setContentValue</a>(state-&gt;<a class="code" href="classSH__InOutState.xhtml#a4c674a54f41d2e6ef951b22393dcd89f">rawInput</a>(), field);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="comment">/*gestion de l&#39;historique des états pour pouvoir revenir à l&#39;état state après l&#39;avoir quitté*/</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            QHistoryState* hState = <span class="keyword">new</span> QHistoryState(state);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="classSH__InOutStateMachine.xhtml#acbcce2c4300af1634d928b30e5e9be1c">setIOStateHistory</a>(hState, field);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        state-&gt;disconnect(<span class="keyword">this</span>); <span class="comment">/*plus aucune action sur l&#39;état ne pourra être provoquée par la machine*/</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    });</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    QAbstractState* astate = qobject_cast&lt;QAbstractState *&gt;(state);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">if</span>(astate) {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        addState(astate);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a6f65dff277508e650eb697628c857b19">  160</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#a6f65dff277508e650eb697628c857b19">SH_InOutStateMachine::addIOStateMachine</a>(<a class="code" href="classSH__InOutStateMachine.xhtml">SH_InOutStateMachine</a> *fsm)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">/*à faire au moment de l&#39;entrée dans la machine d&#39;état fsm*/</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    connect(fsm, &amp;QState::entered, [=]() {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a037ed5e13ecfae2123a8d4940292e410">SH_InOutStateMachine::receiveInput</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a037ed5e13ecfae2123a8d4940292e410">SH_InOutStateMachine::receiveInput</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a5e7f5958bae31696b6a8deab94ad2b4f">SH_InOutStateMachine::sendText</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a5e7f5958bae31696b6a8deab94ad2b4f">SH_InOutStateMachine::sendText</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a526822c66b46aa0cd81ba4473fa5573f">SH_InOutStateMachine::resendText</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a526822c66b46aa0cd81ba4473fa5573f">SH_InOutStateMachine::resendText</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a7f7d9c9300c1d05bce2c26029f28cc31">SH_InOutStateMachine::confirmInput</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a7f7d9c9300c1d05bce2c26029f28cc31">SH_InOutStateMachine::confirmInput</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#aec1b3fef3c1f82499aa1f73beaecd08a">SH_InOutStateMachine::validateInput</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#aec1b3fef3c1f82499aa1f73beaecd08a">SH_InOutStateMachine::validateInput</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a9fa5db44086de2576c812f631aa4f60a">SH_InOutStateMachine::replaceInput</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a9fa5db44086de2576c812f631aa4f60a">SH_InOutStateMachine::replaceInput</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a035d37535533d4805fe2606f38c19380">SH_InOutStateMachine::cancelReplacement</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a035d37535533d4805fe2606f38c19380">SH_InOutStateMachine::cancelReplacement</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#ab3a12d1f9b658d8ffdc17669a6c065f2">SH_InOutStateMachine::displayCalendar</a>, fsm, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#ab3a12d1f9b658d8ffdc17669a6c065f2">SH_InOutStateMachine::displayCalendar</a>,Qt::QueuedConnection);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    });</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="comment">/*à faire au moment de la sortie de la machine d&#39;état fsm*/</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    connect(fsm, &amp;QState::exited, [=]() {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        fsm-&gt;disconnect(<span class="keyword">this</span>); <span class="comment">/*plus aucune action sur la machine d&#39;état fille ne pourra être provoquée par la machine mère*/</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    });</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#a13889998c6dcd17db984dd6ed1454e80">  187</a></span>&#160;QMap&lt;QString, QHistoryState *&gt; <a class="code" href="classSH__InOutStateMachine.xhtml#a13889998c6dcd17db984dd6ed1454e80">SH_InOutStateMachine::ioStatesHistory</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__InOutStateMachine.xhtml#ac46ad1af230e1b2156d805275690dec3">m_ioStatesHistory</a>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#af51f92c37d00a4eec4da42113cfd7d73">  199</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#af51f92c37d00a4eec4da42113cfd7d73">SH_InOutStateMachine::setIOStatesHistory</a>(<span class="keyword">const</span> QMap&lt;QString, QHistoryState *&gt; &amp;ioStatesHistory)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;{</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml#ac46ad1af230e1b2156d805275690dec3">m_ioStatesHistory</a> = <a class="code" href="classSH__InOutStateMachine.xhtml#a13889998c6dcd17db984dd6ed1454e80">ioStatesHistory</a>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#acbcce2c4300af1634d928b30e5e9be1c">  211</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#acbcce2c4300af1634d928b30e5e9be1c">SH_InOutStateMachine::setIOStateHistory</a>(QHistoryState *state, QString field)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;{</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml#ac46ad1af230e1b2156d805275690dec3">m_ioStatesHistory</a>.insert(field, state); <span class="comment">/*remplacement si plusieurs fois*/</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#af71bfdb3b59b7bf2763588b513b4205f">  223</a></span>&#160;QHistoryState *<a class="code" href="classSH__InOutStateMachine.xhtml#af71bfdb3b59b7bf2763588b513b4205f">SH_InOutStateMachine::historyValue</a>(QString field)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;{</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__InOutStateMachine.xhtml#ac46ad1af230e1b2156d805275690dec3">m_ioStatesHistory</a>.value(field);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#ae0f3b4622d2c70884bb224dee86e95c0">  236</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#ae0f3b4622d2c70884bb224dee86e95c0">SH_InOutStateMachine::addChildrenReplaceTransition</a>(QAbstractState *previousState, QAbstractState *nextState)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;{</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* genPreviousState = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>*&gt;(previousState);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">if</span>(genPreviousState) {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="comment">/*à faire au moment de l&#39;entrée dans l&#39;état previousState*/</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__InOutStateMachine.xhtml#a9fa5db44086de2576c812f631aa4f60a">SH_InOutStateMachine::replaceInput</a>, [=](QString field) {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="keywordflow">if</span>(genPreviousState-&gt;<a class="code" href="classSH__GenericState.xhtml#a5f731810dad0cacd28828ccbf1539e4e">isRunning</a>()) {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                <span class="comment">/*après avoir demandé à revenir sur un état précédent, on attend la fin de l&#39;état actuel puis on retourne à l&#39;historique de l&#39;état désiré; celui-ci fini, on passe à l&#39;état qui aurait du suivre celui pendant lequel on a demandé à revenir sur un état précédent*/</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                QHistoryState* hState = <a class="code" href="classSH__InOutStateMachine.xhtml#af71bfdb3b59b7bf2763588b513b4205f">historyValue</a>(field);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span>(hState) { <span class="comment">/*si l&#39;historique existe (on a déjà quitté l&#39;état voulu)*/</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                    hState-&gt;parentState()-&gt;addTransition(hState-&gt;parentState(), SIGNAL(<a class="code" href="classSH__GenericStateMachine.xhtml#af4771d31d87951c997fba1633c2d67f6">next</a>()), nextState);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    genPreviousState-&gt;addTransition(genPreviousState, SIGNAL(<a class="code" href="classSH__GenericStateMachine.xhtml#af4771d31d87951c997fba1633c2d67f6">next</a>()), hState);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        });</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="code" href="classSH__InOutStateMachine.xhtml#aa78420f8778d7777809aad77eb8473b4">  260</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__InOutStateMachine.xhtml#aa78420f8778d7777809aad77eb8473b4">SH_InOutStateMachine::addChildrenNextTransition</a>(QAbstractState *previousState, QAbstractState *nextState)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;{</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <a class="code" href="classSH__GenericStateMachine.xhtml">SH_GenericStateMachine</a>* fsmPreviousState = qobject_cast&lt;<a class="code" href="classSH__GenericStateMachine.xhtml">SH_GenericStateMachine</a>*&gt;(previousState);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* genPreviousState = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>*&gt;(previousState);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    QFinalState* <span class="keyword">final</span> = qobject_cast&lt;QFinalState*&gt;(nextState);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">final</span>) {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <a class="code" href="classSH__AdaptDatabaseState.xhtml">SH_AdaptDatabaseState</a>* saveState = <span class="keyword">new</span> <a class="code" href="classSH__AdaptDatabaseState.xhtml">SH_AdaptDatabaseState</a>(<span class="stringliteral">&quot;enregistrement de la machine &quot;</span>+<a class="code" href="classSH__GenericStateMachine.xhtml#a85c0c1c9d258ae991f84667412fa47cd">toString</a>());</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">if</span>(genPreviousState) {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            genPreviousState-&gt;addTransition(genPreviousState, SIGNAL(<a class="code" href="classSH__GenericStateMachine.xhtml#af4771d31d87951c997fba1633c2d67f6">next</a>()), saveState);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">if</span>(fsmPreviousState) {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            fsmPreviousState-&gt;addTransition(fsmPreviousState, SIGNAL(<a class="code" href="classSH__GenericStateMachine.xhtml#af4771d31d87951c997fba1633c2d67f6">next</a>()), saveState);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">if</span>(genPreviousState || fsmPreviousState) {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            connect(previousState, &amp;QAbstractState::exited, [=]() {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                connect(saveState, &amp;QAbstractState::entered, [=]() {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                    emit this-&gt;<a class="code" href="classSH__InOutStateMachine.xhtml#a5e7f5958bae31696b6a8deab94ad2b4f">sendText</a>(<span class="stringliteral">&quot;Merci !&quot;</span>);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                    <a class="code" href="classSH__InOutStateMachine.xhtml#a9ab1534306b2bdb62743d4bcefe40c17">setContentValue</a>(saveState-&gt;<a class="code" href="classSH__AdaptDatabaseState.xhtml#a037db544ea05f42d21fcbdda758839fe" title="Enregistre dans la base de données les valeurs données. ">insertUpdate</a>(<a class="code" href="classSH__InOutStateMachine.xhtml#aa009eecc5ab6181358faafb5996b6006">m_tableName</a>, <a class="code" href="classSH__InOutStateMachine.xhtml#a8cfbc27eef057bf37b7711bdfef2077e">m_ioContent</a>), <span class="stringliteral">&quot;ID&quot;</span>);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                    emit this-&gt;<a class="code" href="classSH__InOutStateMachine.xhtml#aa1d5860888c96ff94c55dc77e0fdfdcf">clearAll</a>();</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                });</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            });</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            saveState-&gt;addTransition(saveState, SIGNAL(<a class="code" href="classSH__GenericStateMachine.xhtml#af4771d31d87951c997fba1633c2d67f6">next</a>()),<span class="keyword">final</span>);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="classSH__GenericStateMachine.xhtml#a22433f8df2f41120a05bfa4bbfa9e0ae">SH_GenericStateMachine::addChildrenNextTransition</a>(previousState, nextState);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.4-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__IOStateMachine_8cpp.xhtml">SH_IOStateMachine.cpp</a></li>
+    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
+</body>
+</html>

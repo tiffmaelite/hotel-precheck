@@ -1,0 +1,199 @@
+<!-- HTML header for doxygen 1.8.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>PreCheck:  Fichier source de /home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/SH_DatabaseManager.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen-extra-stylesheets.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PreCheck
+   &#160;<span id="projectnumber">0.4</span>
+   </div>
+   <div id="projectbrief">Logiciel open-source de main-courante pour une réception                                                 d&#39;hôtel à écran tactile, permettant l&#39;impression de                                                 factures pré-check et la gestion d&#39;une archive client</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.xhtml"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.xhtml"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.xhtml"><span>Classes</span></a></li>
+      <li class="current"><a href="files.xhtml"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.xhtml"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.xhtml"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('SH__DatabaseManager_8h_source.xhtml','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Propriétés</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SH_DatabaseManager.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SH__DatabaseManager_8h.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SH_DatabaseManagerSINGLETON_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SH_DatabaseManagerSINGLETON_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QSqlDatabase&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QSqlQuery&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QtCore&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * declare DB driver and filename.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a867ada6d1926e2ded0e68678e02a19c7">   15</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a867ada6d1926e2ded0e68678e02a19c7" title="dbDriverStr ">dbDriverStr</a> = <span class="stringliteral">&quot;QIBASE&quot;</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a6c6a636455d1d86d7215a52de4bc6828">   19</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a6c6a636455d1d86d7215a52de4bc6828" title="dbFileNameStr ">dbFileNameStr</a> = <span class="stringliteral">&quot;PreCheckDB.fdb&quot;</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a6ea3da6c82e06907039cdf906ae15fd1">   23</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a6ea3da6c82e06907039cdf906ae15fd1" title="dbAliasNameStr ">dbAliasNameStr</a> = <span class="stringliteral">&quot;precheck-hotel&quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a15964752bd7d7c2075f3bafca2218411">   27</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a15964752bd7d7c2075f3bafca2218411" title="dbUsernameStr ">dbUsernameStr</a> = <span class="stringliteral">&quot;SYSDBA&quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a5dbd4602b69f5a87243d49f9c873ac64">   31</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a5dbd4602b69f5a87243d49f9c873ac64" title="dbPasswordStr ">dbPasswordStr</a> = <span class="stringliteral">&quot;masterkey&quot;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a74e17c2ab66452c74a37bdc0f32e9e08">   36</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a74e17c2ab66452c74a37bdc0f32e9e08" title="dbFolderPathStr ">dbFolderPathStr</a> = QDir::cleanPath(QDir::currentPath()+<span class="stringliteral">&quot;/../../../src/Database/&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#acee79beb6e5aec996fd46b84264d072a">   40</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#acee79beb6e5aec996fd46b84264d072a" title="dbFilePathStr ">dbFilePathStr</a> = QString(<span class="stringliteral">&quot;%1/%2&quot;</span>).arg(<a class="code" href="SH__DatabaseManager_8h.xhtml#a74e17c2ab66452c74a37bdc0f32e9e08" title="dbFolderPathStr ">dbFolderPathStr</a>).arg(<a class="code" href="SH__DatabaseManager_8h.xhtml#a6c6a636455d1d86d7215a52de4bc6828" title="dbFileNameStr ">dbFileNameStr</a>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> * GUI string messages.</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#adeeb3449586b533bdd3cd5938d501807">   49</a></span>&#160;<span class="keyword">static</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#adeeb3449586b533bdd3cd5938d501807" title="dbDriverNotExistStr ">dbDriverNotExistStr</a> = QObject::tr(<span class="stringliteral">&quot;%1 database driver is not available.&quot;</span>).arg(<a class="code" href="SH__DatabaseManager_8h.xhtml#a867ada6d1926e2ded0e68678e02a19c7" title="dbDriverStr ">dbDriverStr</a>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="SH__DatabaseManager_8h.xhtml#a19d48066a97c8a9a81827ccf23fd736f">   53</a></span>&#160;<span class="keyword">static</span> QString <a class="code" href="SH__DatabaseManager_8h.xhtml#a19d48066a97c8a9a81827ccf23fd736f" title="dbCannotOpenStr ">dbCannotOpenStr</a> = QObject::tr(<span class="stringliteral">&quot;The database %1 cannot be opened.&quot;</span>).arg(dbFilePathStr);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classSH__DatabaseManager.xhtml">   63</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__DatabaseManager.xhtml">SH_DatabaseManager</a>: <span class="keyword">public</span> <a class="code" href="classQObject.xhtml">QObject</a></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classSH__DatabaseManager.xhtml#a8ca37d0cafa6a181582d60e045a8d5ab">   70</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="classSH__DatabaseManager.xhtml">SH_DatabaseManager</a> *<a class="code" href="classSH__DatabaseManager.xhtml#a8ca37d0cafa6a181582d60e045a8d5ab" title="_instance ">_instance</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSH__DatabaseManager.xhtml#a4562e0c0027c0adbba645edc433f7fd1">divideQVariantMap</a>(QVariantMap values, QString &amp;fields, QString &amp;vals);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="classSH__DatabaseManager.xhtml#a7b5d0e372c153eb59cdab98588994904">SH_DatabaseManager</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classSH__DatabaseManager.xhtml#a9291f61c3abbba2c4f1567b1d8325f0e">   91</a></span>&#160;        QSqlDatabase <a class="code" href="classSH__DatabaseManager.xhtml#a9291f61c3abbba2c4f1567b1d8325f0e" title="dbConnection ">dbConnection</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSH__DatabaseManager.xhtml">SH_DatabaseManager</a> *<a class="code" href="classSH__DatabaseManager.xhtml#a31198eb4de0f8b18e3fa0eed09f24d19">getInstance</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseManager.xhtml#ab634ce39ef483e7ad2fe08d4b8ba74f7">dbConnect</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseManager.xhtml#aba5832c8be2fe4894781c9bf34be5b8b">isConnected</a>();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseManager.xhtml#a096c26457bbb03f92283c5d104401e90">dbDisconnect</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        QSqlDatabase <a class="code" href="classSH__DatabaseManager.xhtml#a0ce86f671946975c2e7b4ad50c9a92a2">getDbConnection</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <a class="code" href="classSH__DatabaseManager.xhtml#ad899140e4638301b6a6ed68a3289b34b">~SH_DatabaseManager</a>();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseManager.xhtml#ac18f4ee3abd86cb0db25b3cb593e28b8">tableExists</a>(QString tableName);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSH__DatabaseManager.xhtml#ad3e372d89b60b43e3f3bae649be6d7fb">dataCount</a>(QString tableName, QString filter);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        QSqlQuery <a class="code" href="classSH__DatabaseManager.xhtml#ab8f9850cb68444ab9a4e613b36a3b044">execSelectQuery</a>(QString tableName, QStringList fields=QStringList(<span class="stringliteral">&quot;*&quot;</span>), QString condition=<span class="stringliteral">&quot;&quot;</span>, QString ordering=<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseManager.xhtml#a25e0f24d7833c2728f55b85be529063d">execReplaceQuery</a>(QString tableName, QVariantMap values);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        QVariant <a class="code" href="classSH__DatabaseManager.xhtml#a55268fae16792142072af49238f7bb94">execInsertReturningQuery</a>(QString tableName, QVariantMap values, QString returningField);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;};</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SH_DatabaseManagerSINGLETON_H*/</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.4-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="SH__DatabaseManager_8h.xhtml">SH_DatabaseManager.h</a></li>
+    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
+  </ul>
+</div>
+</body>
+</html>

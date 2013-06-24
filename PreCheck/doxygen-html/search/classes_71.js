@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['qabstractlistmodel',['QAbstractListModel',['../classQAbstractListModel.html',1,'']]],
-  ['qobject',['QObject',['../classQObject.html',1,'']]],
-  ['qquickitem',['QQuickItem',['../classQQuickItem.html',1,'']]],
-  ['qsortfilterproxymodel',['QSortFilterProxyModel',['../classQSortFilterProxyModel.html',1,'']]],
-  ['qstate',['QState',['../classQState.html',1,'']]],
-  ['qstatemachine',['QStateMachine',['../classQStateMachine.html',1,'']]]
+  ['qabstractlistmodel',['QAbstractListModel',['../classQAbstractListModel.xhtml',1,'']]],
+  ['qobject',['QObject',['../classQObject.xhtml',1,'']]],
+  ['qquickitem',['QQuickItem',['../classQQuickItem.xhtml',1,'']]],
+  ['qsortfilterproxymodel',['QSortFilterProxyModel',['../classQSortFilterProxyModel.xhtml',1,'']]],
+  ['qstate',['QState',['../classQState.xhtml',1,'']]],
+  ['qstatemachine',['QStateMachine',['../classQStateMachine.xhtml',1,'']]]
 ];

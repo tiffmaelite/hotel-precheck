@@ -1,25 +1,26 @@
 var NAVTREE =
 [
-  [ "PreCheck", "index.html", [
+  [ "PreCheck", "index.xhtml", [
+    [ "hotel-precheck", "md__home_tiff_Stage-IUT_app_simplhotel_hotel-precheck_README.xhtml", null ],
     [ "Classes", null, [
-      [ "Liste des classes", "annotated.html", "annotated" ],
-      [ "Index des classes", "classes.html", null ],
-      [ "Hiérarchie des classes", "hierarchy.html", "hierarchy" ],
-      [ "Membres de classe", "functions.html", [
-        [ "Tout", "functions.html", "functions_dup" ],
-        [ "Fonctions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Énumérations", "functions_enum.html", null ],
-        [ "Valeurs énumérées", "functions_eval.html", null ],
-        [ "Propriétés", "functions_prop.html", null ]
+      [ "Liste des classes", "annotated.xhtml", "annotated" ],
+      [ "Index des classes", "classes.xhtml", null ],
+      [ "Hiérarchie des classes", "hierarchy.xhtml", "hierarchy" ],
+      [ "Membres de classe", "functions.xhtml", [
+        [ "Tout", "functions.xhtml", "functions_dup" ],
+        [ "Fonctions", "functions_func.xhtml", "functions_func" ],
+        [ "Variables", "functions_vars.xhtml", null ],
+        [ "Énumérations", "functions_enum.xhtml", null ],
+        [ "Valeurs énumérées", "functions_eval.xhtml", null ],
+        [ "Propriétés", "functions_prop.xhtml", null ]
       ] ]
     ] ],
     [ "Fichiers", null, [
-      [ "Liste des fichiers", "files.html", "files" ],
-      [ "Membres de fichier", "globals.html", [
-        [ "Tout", "globals.html", null ],
-        [ "Fonctions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ]
+      [ "Liste des fichiers", "files.xhtml", "files" ],
+      [ "Membres de fichier", "globals.xhtml", [
+        [ "Tout", "globals.xhtml", null ],
+        [ "Fonctions", "globals_func.xhtml", null ],
+        [ "Variables", "globals_vars.xhtml", null ]
       ] ]
     ] ]
   ] ]
@@ -27,13 +28,13 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"SH__AdaptDatabaseState_8cpp.html",
-"classSH__AddressCreationStateMachine.html#aa1a3bd3c0ea8a59b9bc916dc718eb9ca",
-"classSH__ClientCreationStateMachine.html#ae6c7448fbe267b035017108a9ffdff2e",
-"classSH__ExtendedQQmlAction.html#a32deffc45767f5c61949c445ca018156",
-"classSH__NamedObject.html#a147d0e52d9f0fc1d3a423d02f82325f5",
-"classSH__SqlDataFields.html#a6e5a9b95f0249a85ccf2fd0844ab7170",
-"functions_0x7e.html"
+"README.xhtml",
+"classSH__AddressCreationStateMachine.xhtml#a9fa5db44086de2576c812f631aa4f60a",
+"classSH__ClientCreationStateMachine.xhtml#adfd82f2532595ed7c4bcf21f03cbb951",
+"classSH__ExtendedQQmlAction.xhtml#a2db5d52edf0a362a13971ebc04b870c1",
+"classSH__NamedObject.xhtml",
+"classSH__SqlDataFields.xhtml#a67b20d296535d6b9dda6c85f75427ad1",
+"functions_0x76.xhtml"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

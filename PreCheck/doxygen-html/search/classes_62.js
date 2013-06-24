@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['button',['Button',['../classButton.html',1,'']]]
+  ['button',['Button',['../classButton.xhtml',1,'']]]
 ];

@@ -5,24 +5,10 @@
 
 {\ttfamily \#include $<$S\-H\-\_\-\-Printing\-State.\-h$>$}
 
-
-
-Graphe d'héritage de S\-H\-\_\-\-Printing\-State\-:
-\nopagebreak
-\begin{figure}[H]
+Graphe d'héritage de S\-H\-\_\-\-Printing\-State\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=290pt]{classSH__PrintingState__inherit__graph}
-\end{center}
-\end{figure}
-
-
-Graphe de collaboration de S\-H\-\_\-\-Printing\-State\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=550pt]{classSH__PrintingState__coll__graph}
+\includegraphics[height=3.000000cm]{classSH__PrintingState}
 \end{center}
 \end{figure}
 \subsection*{Signaux}
@@ -95,18 +81,6 @@ Définition à la ligne \hyperlink{SH__PrintingState_8cpp_source_l00009}{9} du f
 
 Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{S\-H\-\_\-\-Question\-State\-::check\-Validity()}, \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{S\-H\-\_\-\-Statement\-State\-::on\-Entry()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__GenericState_a3cc3cb1491b812dfdd032fc6438dfd4e}{S\-H\-\_\-\-Generic\-State\-::\-S\-H\-\_\-\-Generic\-State()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
 
-
-
-Voici le graphe des appelants de cette fonction \-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{\index{S\-H\-\_\-\-Printing\-State@{S\-H\-\_\-\-Printing\-State}!is\-Running@{is\-Running}}
 \index{is\-Running@{is\-Running}!SH_PrintingState@{S\-H\-\_\-\-Printing\-State}}
 \subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-::is\-Running (
@@ -135,17 +109,6 @@ Référencé par \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224de
 00094     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning};
 00095 \}
 \end{DoxyCode}
-
-
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericState_ad5e2a1f3dc129336c8f529cf897c2eb0}{\index{S\-H\-\_\-\-Printing\-State@{S\-H\-\_\-\-Printing\-State}!next@{next}}
 \index{next@{next}!SH_PrintingState@{S\-H\-\_\-\-Printing\-State}}
 \subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-::next (
@@ -156,17 +119,6 @@ Voici le graphe des appelants de cette fonction \-:\nopagebreak
 
 
 Référencé par \hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290582}{S\-H\-\_\-\-Generic\-State\-::emit\-Go\-Next()}.
-
-
-
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_ad5e2a1f3dc129336c8f529cf897c2eb0_icgraph}
-\end{center}
-\end{figure}
-
 
 \hypertarget{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{\index{S\-H\-\_\-\-Printing\-State@{S\-H\-\_\-\-Printing\-State}!on\-Entry@{on\-Entry}}
 \index{on\-Entry@{on\-Entry}!SH_PrintingState@{S\-H\-\_\-\-Printing\-State}}
@@ -201,28 +153,6 @@ Référencé par \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98
 00076     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
 00077 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{\index{S\-H\-\_\-\-Printing\-State@{S\-H\-\_\-\-Printing\-State}!on\-Exit@{on\-Exit}}
 \index{on\-Exit@{on\-Exit}!SH_PrintingState@{S\-H\-\_\-\-Printing\-State}}
 \subsubsection[{on\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-::on\-Exit (
@@ -256,28 +186,6 @@ Référencé par \hyperlink{classSH__InOutState_afc0433d63375063a43e39adca641e33
 00089     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" exited  "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
 00090 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{classSH__PrintingState_a2d3819c50a51e825ca27b2d320af4828}{\index{S\-H\-\_\-\-Printing\-State@{S\-H\-\_\-\-Printing\-State}!print\-Finished@{print\-Finished}}
 \index{print\-Finished@{print\-Finished}!SH_PrintingState@{S\-H\-\_\-\-Printing\-State}}
 \subsubsection[{print\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Printing\-State\-::print\-Finished (
@@ -316,7 +224,7 @@ Références \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412
 
 
 
-Référencé par \hyperlink{classSH__GenericStateMachine_a16d844020bc26480bd81d6b794c8364c}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{S\-H\-\_\-\-Date\-Question\-State\-::raw\-Input()}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
+Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{S\-H\-\_\-\-Date\-Question\-State\-::raw\-Input()}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
 
 
 \begin{DoxyCode}
@@ -332,28 +240,6 @@ Référencé par \hyperlink{classSH__GenericStateMachine_a16d844020bc26480bd81d6
 00030     \}
 00031 \}
 \end{DoxyCode}
-
-
-Voici le graphe d'appel pour cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f_icgraph}
-\end{center}
-\end{figure}
-
-
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}

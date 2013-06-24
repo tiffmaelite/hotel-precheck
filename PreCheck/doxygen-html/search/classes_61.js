@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['applicationwindow',['ApplicationWindow',['../classApplicationWindow.html',1,'']]]
+  ['applicationwindow',['ApplicationWindow',['../classApplicationWindow.xhtml',1,'']]]
 ];

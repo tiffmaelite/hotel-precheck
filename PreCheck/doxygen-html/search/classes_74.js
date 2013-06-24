@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tableview',['TableView',['../classTableView.html',1,'']]],
-  ['tabview',['TabView',['../classTabView.html',1,'']]]
+  ['tableview',['TableView',['../classTableView.xhtml',1,'']]],
+  ['tabview',['TabView',['../classTabView.xhtml',1,'']]]
 ];
