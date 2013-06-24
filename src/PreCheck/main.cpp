@@ -25,8 +25,8 @@ const int iterations = 20;
 
 /*!
  \details \~french
- \fn SH_statusChanged TODO comment this
- \param status TODO comment this
+ \fn SH_statusChanged
+ \param status
 */
 void statusChanged(QQmlComponent* component, QQmlComponent::Status status) {
     if (status == QQmlComponent::Error) {
@@ -39,9 +39,9 @@ void statusChanged(QQmlComponent* component, QQmlComponent::Status status) {
 
 /*!
  \details \~french
- \fn SH_exportlog TODO comment this
- \param type TODO comment this
- \param msg TODO comment this
+ \fn SH_exportlog
+ \param type
+ \param msg
 */
 void exportlog(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     QFile file(QApplication::applicationDirPath()+"/"+qAppName()+".log");
@@ -62,7 +62,7 @@ void exportlog(QtMsgType type, const QMessageLogContext &context, const QString 
 
 /*!
  \details \~french
- \fn SH_enableLogging TODO comment this
+ \fn SH_enableLogging
 */
 /*!
  * \details \~french enableLogging
@@ -102,8 +102,8 @@ void enableLogging(const QString sLogPath)
 
 /*!
  \details \~french
- \fn SH_spin TODO comment this
- \param iteration TODO comment this
+ \fn SH_spin
+ \param iteration
 */
 void spin(int &iteration)
 {
@@ -117,10 +117,10 @@ void spin(int &iteration)
 
 /*!
  \details \~french
- \fn SH_main TODO comment this
- \param argc TODO comment this
- \param argv TODO comment this
- \return int TODO comment this
+ \fn SH_main
+ \param argc
+ \param argv
+ \return int
 */
 int main(int argc, char **argv)
 {
@@ -153,7 +153,7 @@ int main(int argc, char **argv)
         qmlRegisterUncreatableType<SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
         qmlRegisterType<SH_User>("PreCheck", 1, 0, "User");
         SH_ApplicationCore* appManager = new SH_ApplicationCore();
-        engine.rootContext()->setContextProperty("SH_App", appManager);
+        engine.rootContext()->setContextProperty("App", appManager);
 
         qmlRegisterType<SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
         qmlRegisterType<SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");

@@ -14,7 +14,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_NumericQuestionState
+ \fn NumericQuestionState
  \param question
  \param name
  \param min
@@ -25,7 +25,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_isAnswerValid
+ \fn isAnswerValid
  \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -33,14 +33,14 @@ virtual bool isAnswerValid(const QVariant &givenAnswer);
 /*!
 \brief \~french 
 
- \fn SH_min
+ \fn min
  \return int
 */
 int min() const;
 /*!
 \brief \~french 
 
- \fn SH_setMin
+ \fn setMin
  \param min
 */
 void setMin(int min);
@@ -48,14 +48,14 @@ void setMin(int min);
 /*!
 \brief \~french 
 
- \fn SH_max
+ \fn max
  \return int
 */
 int max() const;
 /*!
 \brief \~french 
 
- \fn SH_setMax
+ \fn setMax
  \param max
 */
 void setMax(int max);

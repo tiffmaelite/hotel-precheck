@@ -57,8 +57,7 @@
 namespace QsLogging
 {
 class Destination;
-class LoggerImpl; /* d pointer
-*/
+class LoggerImpl; /* d pointer  */
 
 /*!
 \brief \~french
@@ -71,8 +70,7 @@ class Logger
 public:
     /*!
     \brief \~french
-
-     \fn SH_instance
+     \fn instance
      \return Logger
     */
     static Logger& instance()
@@ -83,31 +81,27 @@ public:
 
     /*!
     \brief \~french  Adds a log message destination. Don't add null destinations.
-
-     \fn SH_addDestination
+     \fn addDestination
      \param destination
     */
     void addDestination(DestinationPtr destination);
 
     /*!
     \brief \~french  Logging at a level < 'newLevel' will be ignored
-
-     \fn SH_setLoggingLevel
+     \fn setLoggingLevel
      \param newLevel
     */
     void setLoggingLevel(Level newLevel);
 
     /*!
     \brief \~french  The default level is INFO
-
-     \fn SH_loggingLevel
+     \fn loggingLevel
      \return Level
     */
     Level loggingLevel() const;
 
     /*!
     \brief \~french  The helper forwards the streaming to QDebug and builds the final log message.
-
      \class SH_Helper
     \headerfile QsLog.h "logging/QsLog.h"
     */
@@ -116,23 +110,22 @@ public:
     public:
         /*!
         \brief \~french
-
-         \fn SH_Helper
+         \fn Helper
          \param logLevel
         */
         explicit Helper(Level logLevel) :
             level(logLevel),
             qtDebug(&buffer) {}
+
         /*!
         \brief \~french
-
-         \fn SH_~Helper
+         \fn ~Helper
         */
         ~Helper();
+
         /*!
         \brief \~french
-
-         \fn SH_stream
+         \fn stream
          \return QDebug
         */
         QDebug& stream(){ return qtDebug; }
@@ -140,18 +133,20 @@ public:
     private:
         /*!
         \brief \~french
-
-         \fn SH_writeToLog
+         \fn writeToLog
         */
         void writeToLog();
+
         /*!
          *\brief \~french  level
          */
         Level level;
+
         /*!
          *\brief \~french  buffer
          */
         QString buffer;
+
         /*!
          *\brief \~french  qtDebug
          */
@@ -161,50 +156,49 @@ public:
 private:
     /*!
 \brief \~french
-  \fn SH_Logger
+  \fn Logger
 */
     Logger();
 
     /*!
 \brief \~french
-
- \fn SH_Logger
+ \fn Logger
  \param
 */
     Logger(const Logger&);
+
     /*!
     \brief \~french
-
-     \fn SH_operator =
+     \fn operator =
      \param
      \return Logger &operator
     */
     Logger& operator=(const Logger&);
+
     /*!
     \brief \~french
-
-     \fn SH_~Logger
+     \fn ~Logger
     */
     ~Logger();
 
     /*!
     \brief \~french
-
-     \fn SH_enqueueWrite
+     \fn enqueueWrite
      \param message
      \param level
     */
     void enqueueWrite(const QString& message, Level level);
+
     /*!
     \brief \~french
-
-     \fn SH_write
+     \fn write
      \param message
      \param level
     */
     void write(const QString& message, Level level);
+
     /*!
-     * \property d
+     * \var d
      */
     LoggerImpl* d;
     friend class LogWriterRunnable;
@@ -258,5 +252,4 @@ private:
 #include "QsLogDisableForThisFile.h"
 #endif
 
-#endif /* QSLOG_H
-    */
+#endif /* QSLOG_H  */

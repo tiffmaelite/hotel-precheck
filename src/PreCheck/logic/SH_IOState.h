@@ -15,7 +15,7 @@ public:
     /*!
 \brief \~french 
 
- \fn SH_IOState
+ \fn IOState
  \param output
  \param name
  \param parent
@@ -25,7 +25,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_input
+     \fn input
      \return QVariant
     */
     virtual QVariant input() const;
@@ -33,7 +33,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_rawInput
+     \fn rawInput
      \return QVariant
     */
     virtual QVariant rawInput() const;
@@ -41,7 +41,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_output
+     \fn output
      \return QString
     */
     virtual QString output() const;
@@ -50,22 +50,22 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_onExit
+     \fn onExit
      \param event
     */
     void onExit(QEvent *event);
 
     /*!
     \brief \~french 
-     \fn SH_visibility TODO comment this
-     \return bool TODO comment this
+     \fn visibility 
+     \return bool 
     */
     bool visibility();
 
     /*!
     \brief \~french 
-     \fn SH_display TODO comment this
-     \param canDisplay TODO comment this
+     \fn display 
+     \param canDisplay 
     */
     void display(bool canDisplay);
 
@@ -73,14 +73,14 @@ signals:
     /*!
     \brief \~french 
 
-     \fn SH_sendOutput
+     \fn sendOutput
      \param output
     */
     void sendOutput(QVariant output);
     /*!
     \brief \~french 
 
-     \fn SH_resendInput
+     \fn resendInput
      \param input
     */
     void resendInput(QVariant input);
@@ -89,14 +89,14 @@ public slots:
     /*!
     \brief \~french 
 
-     \fn SH_setInput
+     \fn setInput
      \param input
     */
     virtual void setInput(const QVariant &input);
     /*!
     \brief \~french 
 
-     \fn SH_setOutput
+     \fn setOutput
      \param output
     */
     virtual void setOutput(const QString &output);
@@ -104,8 +104,8 @@ public slots:
 
     /*!
     \brief \~french 
-     \fn SH_setVisibility TODO comment this
-     \param isVisible TODO comment this
+     \fn setVisibility 
+     \param isVisible 
     */
     virtual void setVisibility(bool isVisible);
 

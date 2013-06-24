@@ -15,7 +15,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_QuestionState
+ \fn QuestionState
  \param question
  \param name
  \param parent
@@ -24,7 +24,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_checkValidity
+     \fn checkValidity
      \return bool
     */
     bool checkValidity();
@@ -32,21 +32,21 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_givenAnswer
+     \fn givenAnswer
      \return QVariant
     */
     virtual QVariant givenAnswer() const;
     /*!
     \brief \~french 
 
-     \fn SH_setGivenAnswer
+     \fn setGivenAnswer
      \param givenAnswer
     */
     virtual void setGivenAnswer(const QVariant &givenAnswer);
     /*!
     \brief \~french 
 
-     \fn SH_setInput
+     \fn setInput
      \param input
     */
     virtual void setInput(const QVariant &input);
@@ -54,7 +54,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_isAnswerValid
+     \fn isAnswerValid
      \param givenAnswer
      \return bool
     */

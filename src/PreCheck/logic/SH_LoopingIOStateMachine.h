@@ -7,7 +7,7 @@
 
  \class SH_LoopingStateMachine loopingstatemachine.h "logic/loopingstatemachine.h"
 */
-class Sh_LoopingInOutStateMachine : public SH_InOutStateMachine
+class SH_LoopingInOutStateMachine : public SH_InOutStateMachine
 {
     Q_OBJECT
     Q_PROPERTY(int limit READ limit WRITE setLimit NOTIFY limitChanged)
@@ -16,25 +16,25 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_LoopingStateMachine
+ \fn LoopingStateMachine
  \param tableName
  \param limit
  \param name
  \param parent
 */
-    Sh_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
+    SH_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
 
     /*!
     \brief \~french 
 
-     \fn SH_current
+     \fn current
      \return int
     */
     int current() const;
     /*!
     \brief \~french 
 
-     \fn SH_setCurrent
+     \fn setCurrent
      \param current
     */
     void setCurrent(int current);
@@ -42,7 +42,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_setPersistentContentValue
+     \fn setPersistentContentValue
      \param content
      \param field
     */
@@ -51,34 +51,34 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_limit
+     \fn limit
      \return int
     */
     int limit() const;
     /*!
     \brief \~french 
 
-     \fn SH_setLimit
+     \fn setLimit
      \param limit
     */
     void setLimit(int limit);
 
     /*!
     \brief \~french 
-     \fn SH_addChildrenNextTransition TODO comment this
-     \param previousState TODO comment this
-     \param nextState TODO comment this
+     \fn addChildrenNextTransition 
+     \param previousState 
+     \param nextState 
     */
     void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
     /*!
     \brief \~french 
-     \fn SH_stopLooping TODO comment this
+     \fn stopLooping 
     */
     void stopLooping();
 signals:
     /*!
     \brief \~french 
-     \fn SH_limitChanged TODO comment this
+     \fn limitChanged 
     */
     void limitChanged();
 

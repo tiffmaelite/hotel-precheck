@@ -5,7 +5,7 @@
 /*!
  *\brief \~french  The SH_ServiceCharging class
  */
-class SH_ServiceCharging : public Sh_LoopingInOutStateMachine
+class SH_ServiceCharging : public SH_LoopingInOutStateMachine
 {
     Q_OBJECT
 public:

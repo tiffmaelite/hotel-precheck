@@ -14,7 +14,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_StatementState
+ \fn StatementState
  \param output
  \param name
  \param parent
@@ -24,14 +24,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_setInput
+     \fn setInput
      \param input
     */
     void setInput(const QVariant &input);
     /*!
     \brief \~french 
 
-     \fn SH_onEntry
+     \fn onEntry
      \param event
     */
     void onEntry(QEvent *event);

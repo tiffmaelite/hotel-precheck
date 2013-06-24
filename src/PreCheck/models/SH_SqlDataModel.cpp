@@ -56,7 +56,7 @@ QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
 
 /*!
  \details \~french
- \fn SH_SqlDataModel::datas TODO comment this
+ \fn SH_SqlDataModel::datas 
 
 */
 QVariantMap SH_SqlDataModel::datas() const

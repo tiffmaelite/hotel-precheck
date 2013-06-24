@@ -4,22 +4,22 @@
 #include <QStateMachine>
 #include <QHistoryState>
 #include <QtCore>
-#include "SH_NamedObject.h"
+#include "SH_GenericDebugableStateMachine.h"
 #include "SH_IOState.h"
 
 /*!
-\brief \~french 
+\brief \~french
 
  \class SH_IOStateMachine iostatemachine.h "logic/iostatemachine.h"
 */
-class SH_InOutStateMachine : public QStateMachine, SH_NamedObject
+class SH_InOutStateMachine : public SH_GenericStateMachine
 {
     Q_OBJECT
 public:
     /*!
-\brief \~french 
+\brief \~french
 
- \fn SH_IOStateMachine
+ \fn IOStateMachine
  \param tableName
  \param name
  \param parent
@@ -27,205 +27,225 @@ public:
     SH_InOutStateMachine(QString tableName, QString name="", QObject *parent = 0);
 
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_toString
-     \return QString
-    */
-    QString toString();
-
-    /*!
-    \brief \~french 
-
-     \fn SH_ioContent
+     \fn ioContent
      \return QVariantMap
     */
     QVariantMap ioContent() const;
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_setIOcontent
+     \fn setIOcontent
      \param ioContent
     */
     void setIOcontent(const QVariantMap &ioContent);
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_getContentValue
+     \fn getContentValue
      \param field
      \return QVariant
     */
     QVariant getContentValue(QString field);
 
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_tableName
+     \fn tableName
      \return QString
     */
     QString tableName() const;
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_setTableName
+     \fn setTableName
      \param tableName
     */
     void setTableName(const QString &tableName);
 
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_setIOStateHistory
+     \fn setIOStateHistory
      \param state
      \param field
     */
     void setIOStateHistory(QHistoryState *state, QString field);
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_historyValue
+     \fn historyValue
      \param field
      \return QHistoryState
     */
     QHistoryState* historyValue(QString field);
 
-signals: /*messagers à envoyer ou transmettre*/
-    /*!
-    \brief \~french 
+signals: /*signaux : messagers à envoyer ou transmettre*/
 
-     \fn SH_next
-    */
-    void next();
     /*!
-    \brief \~french 
+    \brief \~french
 
-     \fn SH_clearAll
+     \fn clearAll
     */
     void clearAll();
-    /*!
-    \brief \~french 
 
-     \fn SH_sendText
+    /*!
+    \brief \~french
+
+     \fn sendText
      \param text
      \param editable
     */
     void sendText(QString text, bool editable=false);
+
     /*!
-    \fn SH_sendText
+    \fn sendText
     \param text
     \param editable
    */
     void resendText(QString text, bool editable=false);
-    /*!
-    \brief \~french 
 
-     \fn SH_receiveInput
+    /*!
+    \brief \~french
+
+     \fn receiveInput
      \param input
     */
     void receiveInput(QString input);
-    /*!
-    \brief \~french 
 
-     \fn SH_confirmInput
+    /*!
+    \brief \~french
+     \fn confirmInput
     */
     void confirmInput();
-    /*!
-    \brief \~french 
 
-     \fn SH_validateInput
+    /*!
+    \brief \~french
+     \fn validateInput
     */
     void validateInput();
-    /*!
-    \brief \~french 
 
-     \fn SH_replaceInput
+    /*!
+    \brief \~french
+     \fn replaceInput
      \param field
     */
     void replaceInput(QString field);
-    /*!
-    \brief \~french 
 
-     \fn SH_cancelReplacement
+    /*!
+    \brief \~french
+     \fn cancelReplacement
     */
     void cancelReplacement();
-    /*!
-    \brief \~french 
 
-     \fn SH_displayCalendar
+    /*!
+    \brief \~french
+     \fn displayCalendar
     */
     void displayCalendar();
 
     /*!
-    \brief \~french 
-     \fn SH_displayFileDialog TODO comment this
+    \brief \~french
+     \fn displayFileDialog
     */
     void displayFileDialog();
 
-public slots: /*réception de messagers*/
-    /*!
-    \brief \~french 
+public slots: /*connecteurs : récepteurs de signaux*/
 
-     \fn SH_setContentValue
+
+    /*!
+    \brief \~french
+     \fn setContentValue
      \param content
      \param field
     */
     void setContentValue(QVariant content, QString field);
-    /*!
-    \brief \~french 
 
-     \fn SH_addIOState
+    /*!
+    \brief \~french
+     \fn addIOState
      \param state
      \param field
     */
     void addIOState(SH_InOutState *state, QString field);
 
     /*!
-    \brief \~french 
-
-     \fn SH_addIOStateMachine
+    \brief \~french
+     \fn addIOStateMachine
      \param fsm
     */
     void addIOStateMachine(SH_InOutStateMachine* fsm);
-    /*!
-    \brief \~french 
 
-     \fn SH_addChildrenNextTransition
+    /*!
+    \brief \~french
+     \fn addChildrenNextTransition
      \param previousState
      \param nextState
     */
-    void addChildrenNextTransition(QAbstractState* previousState, QAbstractState *nextState);
+    virtual void addChildrenNextTransition(QAbstractState* previousState, QAbstractState *nextState);
+
+    /*!
+     \brief
+     \fn addChildrenReplaceTransition
+     \param previousState
+     \param nextState
+    */
+    virtual void addChildrenReplaceTransition(QAbstractState *previousState, QAbstractState *nextState);
 
 protected:
     /*!
-    \brief \~french 
-
-     \fn SH_ioStatesHistory
+    \brief \~french
+     \fn ioStatesHistory
      \return QMap<QString, QHistoryState *>
     */
     QMap<QString, QHistoryState *> ioStatesHistory() const;
+
+
     /*!
-     *\brief \~french  m_ioContent
+     \brief \~french
+     \fn isERunning
+     \return bool
+    */
+    bool isERunning();
+
+    /*!
+     *\brief \~french
+     *\var  m_ioContent
      */
     QVariantMap m_ioContent;
+
     /*!
-     *\brief \~french  m_tableName
+     *\brief \~french
+     *\var m_tableName
      */
     QString m_tableName;
+
     /*!
-     *\brief \~french  m_ioStatesHistory
+     *\brief \~french
+     *\var m_ioStatesHistory
      */
     QMap<QString, QHistoryState*> m_ioStatesHistory;
 
-
 private:
     /*!
-    \brief \~french 
-
-     \fn SH_setIOStatesHistory
+    \brief \~french
+     \fn setIOStatesHistory
      \param QMap<QString
      \param ioStatesHistory
     */
     void setIOStatesHistory(const QMap<QString, QHistoryState *> &ioStatesHistory);
+
+    /*!
+     \brief \~french
+     \var m_errorState
+    */
+    QState* m_errorState;
+    /*!
+     \brief \~french
+     \var m_isRunning
+    */
+    bool m_isRunning;
 };
 
 #endif /* IOSTATEMACHINE_H*/

@@ -21,7 +21,7 @@ public:
     /*!
 \brief \~french 
 
- \fn SH_RoomsTableModel
+ \fn RoomsTableModel
  \param parent
 */
     SH_RoomsTableModel(QObject *parent = 0);
@@ -30,7 +30,7 @@ protected:
     /*!
         \brief \~french 
 
-         \fn SH_fillModel
+         \fn fillModel
         */
     virtual void fillModel();
 private:

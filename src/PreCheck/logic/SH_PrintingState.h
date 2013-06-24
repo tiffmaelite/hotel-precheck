@@ -14,7 +14,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_PrintingState
+ \fn PrintingState
  \param name
  \param parent
 */
@@ -24,13 +24,13 @@ signals:
     /*!
     \brief \~french 
 
-     \fn SH_printStarted
+     \fn printStarted
     */
     void printStarted();
     /*!
     \brief \~french 
 
-     \fn SH_printFinished
+     \fn printFinished
     */
     void printFinished();
 

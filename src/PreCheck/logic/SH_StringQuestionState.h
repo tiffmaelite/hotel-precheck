@@ -14,7 +14,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_StringQuestionState
+ \fn StringQuestionState
  \param question
  \param name
  \param minLength
@@ -25,7 +25,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_isAnswerValid
+ \fn isAnswerValid
  \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -33,14 +33,14 @@ virtual bool isAnswerValid(const QVariant &givenAnswer);
 /*!
 \brief \~french 
 
- \fn SH_maxLen
+ \fn maxLen
  \return int
 */
 int maxLen() const;
 /*!
 \brief \~french 
 
- \fn SH_setMaxLen
+ \fn setMaxLen
  \param maxLen
 */
 void setMaxLen(int maxLen);
@@ -48,14 +48,14 @@ void setMaxLen(int maxLen);
 /*!
 \brief \~french 
 
- \fn SH_minLen
+ \fn minLen
  \return int
 */
 int minLen() const;
 /*!
 \brief \~french 
 
- \fn SH_setMinLen
+ \fn setMinLen
  \param minLen
 */
 void setMinLen(int minLen);

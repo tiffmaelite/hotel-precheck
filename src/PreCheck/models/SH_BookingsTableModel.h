@@ -20,7 +20,7 @@ class SH_BookingsTableModel : public SH_ExtendedProxyModel
 /*!
 \brief \~french 
 
- \fn SH_BookingsTableModel
+ \fn BookingsTableModel
  \param parent
 */
         SH_BookingsTableModel(QObject *parent = 0);
@@ -32,7 +32,7 @@ class SH_BookingsTableModel : public SH_ExtendedProxyModel
         /*!
         \brief \~french 
 
-         \fn SH_fillModel
+         \fn fillModel
         */
         void fillModel();
 };

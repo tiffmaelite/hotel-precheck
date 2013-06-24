@@ -1,5 +1,5 @@
-#ifndef APPDATABASESINGLETON_H
-#define APPDATABASESINGLETON_H
+#ifndef SH_DatabaseManagerSINGLETON_H
+#define SH_DatabaseManagerSINGLETON_H
 #include <QSqlDatabase>
 #include <QString>
 #include <QSqlQuery>
@@ -55,32 +55,36 @@ static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened."
 
 
 /*!
-\brief \~french 
+\brief \~french
 
- \class SH_AppDatabase database_manager.h "models/database_manager.h"
+ \class SH_SH_DatabaseManager
+\headerfile database_manager.h "models/database_manager.h"
 */
 class SH_DatabaseManager: public QObject
 {
     Q_OBJECT
     private:
+    /*!
+         * \brief _instance
+         */
         static SH_DatabaseManager *_instance;
 
         /*!
-        \brief \~french 
-         \fn SH_divideQVariantMap TODO comment this
-         \param[in] values TODO comment this
-         \param[ou] fields TODO comment this
-         \param[ou] vals TODO comment this
+        \brief \~french
+         \fn divideQVariantMap
+         \param[in] values
+         \param[ou] fields
+         \param[ou] vals
         */
         void divideQVariantMap(QVariantMap values, QString &fields, QString &vals);
 protected:
 
 /*!
-\brief \~french 
-
- \fn SH_AppDatabase
+\brief \~french
+ \fn SH_DatabaseManager
 */
         SH_DatabaseManager();
+
         /*!
          *\brief \~french  dbConnection
          */
@@ -90,96 +94,92 @@ protected:
 
 
         /*!
-        \brief \~french 
-
-         \fn SH_getInstance
-         \return AppDatabase
+        \brief \~french
+         \fn getInstance
+         \return SH_DatabaseManager
         */
         static SH_DatabaseManager *getInstance();
 
 
 
         /*!
-        \brief \~french 
-
-         \fn SH_dbConnect
+        \brief \~french
+         \fn dbConnect
          \return bool
         */
         bool dbConnect();
 
         /*!
-        \brief \~french 
-
-         \fn SH_isConnected
+        \brief \~french
+         \fn isConnected
          \return bool
         */
         bool isConnected();
 
 
         /*!
-        \brief \~french 
-
-         \fn SH_dbDisconnect
+        \brief \~french
+         \fn dbDisconnect
          \return bool
         */
         bool dbDisconnect();
 
 
         /*!
-        \brief \~french 
-
-         \fn SH_getDbConnection
+        \brief \~french
+         \fn getDbConnection
          \return QSqlDatabase
         */
         QSqlDatabase getDbConnection();
 
 
         /*!
-        \brief \~french 
-
-         \fn SH_~AppDatabase
+        \brief \~french
+         \fn ~SH_DatabaseManager
         */
         ~SH_DatabaseManager();
-        /*!
-        \brief \~french 
 
-         \fn SH_tableExists
+        /*!
+        \brief \~french
+         \fn tableExists
          \param tableName
          \return bool
         */
         bool tableExists(QString tableName);
-        /*!
-        \brief \~french 
 
-         \fn SH_dataExists
+        /*!
+        \brief \~french
+         \fn dataExists
          \param tableName
          \param filter
          \return int
         */
         int dataCount(QString tableName, QString filter);
-        /*!
-        \brief \~french 
 
-         \fn SH_execQuery
+        /*!
+        \brief \~french
+         \fn execQuery
          \param query
          \return QSqlQuery
         */
         QSqlQuery execSelectQuery(QString tableName, QStringList fields=QStringList("*"), QString condition="", QString ordering="");
+
         /*!
-        \brief \~french 
-         \fn SH_execReplaceQuery TODO comment this
-         \param query TODO comment this
-         \return bool TODO comment this
+        \brief \~french
+         \fn execReplaceQuery
+         \param query
+         \return bool
         */
         bool execReplaceQuery(QString tableName, QVariantMap values);
+
         /*!
-        \brief \~french 
-         \fn SH_execInsertReturningQuery TODO comment this
-         \param query TODO comment this
-         \param returningField TODO comment this
-         \return QVariant TODO comment this
+        \brief \~french
+         \fn execInsertReturningQuery
+         \param query
+         \param returningField
+         \return QVariant
         */
         QVariant execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField);
 };
 
-#endif /* APPDATABASESINGLETON_H*/
+#endif /* SH_DatabaseManagerSINGLETON_H*/

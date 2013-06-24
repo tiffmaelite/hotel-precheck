@@ -7,7 +7,7 @@
  \fn SH_LoopingStateMachine::LoopingStateMachine
 
 */
-Sh_LoopingInOutStateMachine::Sh_LoopingInOutStateMachine(QString tableName, QString name, int limit, QObject *parent) :
+SH_LoopingInOutStateMachine::SH_LoopingInOutStateMachine(QString tableName, QString name, int limit, QObject *parent) :
     SH_InOutStateMachine(tableName, name, parent), m_limit(limit), m_current(-1)
 {
 
@@ -20,7 +20,7 @@ Sh_LoopingInOutStateMachine::Sh_LoopingInOutStateMachine(QString tableName, QStr
  \fn SH_LoopingStateMachine::current
 
 */
-int Sh_LoopingInOutStateMachine::current() const
+int SH_LoopingInOutStateMachine::current() const
 {
     return m_current;
 }
@@ -31,12 +31,12 @@ int Sh_LoopingInOutStateMachine::current() const
  \fn SH_LoopingStateMachine::setCurrent
 
 */
-void Sh_LoopingInOutStateMachine::setCurrent(int current)
+void SH_LoopingInOutStateMachine::setCurrent(int current)
 {
     m_current = current;
 }
 
-void Sh_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QString field)
+void SH_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QString field)
 {
     m_persistentContent.insert(field, value);
 }
@@ -47,7 +47,7 @@ void Sh_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QStr
  \fn SH_LoopingStateMachine::limit
 
 */
-int Sh_LoopingInOutStateMachine::limit() const
+int SH_LoopingInOutStateMachine::limit() const
 {
     return m_limit;
 }
@@ -58,7 +58,7 @@ int Sh_LoopingInOutStateMachine::limit() const
  \fn SH_LoopingStateMachine::setLimit
 
 */
-void Sh_LoopingInOutStateMachine::setLimit(int limit)
+void SH_LoopingInOutStateMachine::setLimit(int limit)
 {
     m_limit = limit;
     emit limitChanged();
@@ -67,9 +67,9 @@ void Sh_LoopingInOutStateMachine::setLimit(int limit)
 
 /*!
  \details \~french
- \fn SH_LoopingIOStateMachine::stopLooping TODO comment this
+ \fn SH_LoopingIOStateMachine::stopLooping
 */
-void Sh_LoopingInOutStateMachine::stopLooping() {
+void SH_LoopingInOutStateMachine::stopLooping() {
     if(m_limit = 0) {
         m_limit = m_current + 1;
     } else {
@@ -79,11 +79,10 @@ void Sh_LoopingInOutStateMachine::stopLooping() {
 
 /*!
  \details \~french
-
  \fn SH_IOStateMachine::addChildrenNextTransition
 
 */
-void Sh_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState)
+void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState)
 {
     SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
     SH_InOutStateMachine* fsmPreviousState = qobject_cast<SH_InOutStateMachine*>(previousState);
@@ -129,13 +128,6 @@ void Sh_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *prev
                 }
             }
         });
-    } else {
-        if(genPreviousState) {
-            genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
-        }
-        if(fsmPreviousState) {
-            fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
-        }
     }
     if(genPreviousState) {
         /*à faire au moment de l'entrée dans l'état previousState*/
@@ -150,4 +142,6 @@ void Sh_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *prev
             });
         });
     }
+    SH_InOutStateMachine::addChildrenReplaceTransition(previousState, nextState);
+    SH_GenericStateMachine::addChildrenNextTransition(previousState, nextState);
 }

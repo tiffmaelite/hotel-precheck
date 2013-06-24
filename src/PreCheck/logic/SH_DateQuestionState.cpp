@@ -74,7 +74,7 @@ void SH_DateQuestionState::setFuture(bool value)
 
 /*!
  \details \~french
- \fn SH_DateQuestionState::rawInput TODO comment this
+ \fn SH_DateQuestionState::rawInput 
 
 */
 QVariant SH_DateQuestionState::rawInput() const

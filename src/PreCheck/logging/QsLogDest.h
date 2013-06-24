@@ -72,10 +72,9 @@ public:
     virtual void write(const QString& message, Level level) = 0;
     /*!
      *\brief \~french  isValid
-     * \return
+     * \return bool Returns whether the destination was created correctly
      */
-    virtual bool isValid() = 0; /* returns whether the destination was created correctly
-*/
+    virtual bool isValid() = 0;
 };
 /*!
  *\brief \~french  DestinationPtr
@@ -98,6 +97,7 @@ public:
      * \return
      */
     static DestinationPtr MakeFileDestination(const QString& filePath, bool enableRotation = false, qint64 sizeInBytesToRotateAfter = 0, int oldLogsToKeep = 0);
+
     /*!
      *\brief \~french  MakeDebugOutputDestination
      * \return
@@ -105,8 +105,6 @@ public:
     static DestinationPtr MakeDebugOutputDestination();
 };
 
-} /* end namespace
-*/
+} /* end namespace*/
 
-#endif /* QSLOGDEST_H
-*/
+#endif /* QSLOGDEST_H    */

@@ -33,28 +33,28 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_QQQuickAction
+     \fn QQQuickAction
      \param parent
     */
     explicit SH_ExtendedQQmlAction(QObject *parent = 0);
     /*!
     \brief \~french 
 
-     \fn SH_~QQQuickAction
+     \fn ~QQQuickAction
     */
     ~SH_ExtendedQQmlAction();
 
     /*!
     \brief \~french 
 
-     \fn SH_text
+     \fn text
      \return QString
     */
     QString text() const { return m_text; }
     /*!
     \brief \~french 
 
-     \fn SH_setText
+     \fn setText
      \param text
     */
     void setText(const QString &text);
@@ -62,14 +62,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_shortcut
+     \fn shortcut
      \return QString
     */
     QString shortcut() const;
     /*!
     \brief \~french 
 
-     \fn SH_setShortcut
+     \fn setShortcut
      \param shortcut
     */
     void setShortcut(const QString &shortcut);
@@ -77,14 +77,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_keyShortcut
+     \fn keyShortcut
      \return QKeySequence
     */
     QKeySequence keyShortcut() const { return m_shortcut; }
     /*!
     \brief \~french 
 
-     \fn SH_setKeyShortcut
+     \fn setKeyShortcut
      \param shortcut
     */
     void setKeyShortcut(const Qt::Key &shortcut);
@@ -92,7 +92,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_setMnemonicFromText
+     \fn setMnemonicFromText
      \param mnemonic
     */
     void setMnemonicFromText(const QString &mnemonic);
@@ -100,14 +100,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_iconName
+     \fn iconName
      \return QString
     */
     QString iconName() const;
     /*!
     \brief \~french 
 
-     \fn SH_setIconName
+     \fn setIconName
      \param iconName
     */
     void setIconName(const QString &iconName);
@@ -115,14 +115,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_iconSource
+     \fn iconSource
      \return QUrl
     */
     QUrl iconSource() const { return m_iconSource; }
     /*!
     \brief \~french 
 
-     \fn SH_setIconSource
+     \fn setIconSource
      \param iconSource
     */
     void setIconSource(const QUrl &iconSource);
@@ -130,14 +130,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_tooltip
+     \fn tooltip
      \return QString
     */
     QString tooltip() const { return m_tooltip; }
     /*!
     \brief \~french 
 
-     \fn SH_setTooltip
+     \fn setTooltip
      \param tooltip
     */
     void setTooltip(const QString &tooltip);
@@ -145,14 +145,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_isEnabled
+     \fn isEnabled
      \return bool
     */
     bool isEnabled() const { return m_enabled; }
     /*!
     \brief \~french 
 
-     \fn SH_setEnabled
+     \fn setEnabled
      \param e
     */
     void setEnabled(bool e);
@@ -160,21 +160,21 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_icon
+     \fn icon
      \return QIcon
     */
     QIcon icon() const { return m_icon; }
     /*!
     \brief \~french 
 
-     \fn SH_iconVariant
+     \fn iconVariant
      \return QVariant
     */
     QVariant iconVariant() const { return QVariant(m_icon); }
     /*!
     \brief \~french 
 
-     \fn SH_setIcon
+     \fn setIcon
      \param icon
     */
     void setIcon(QIcon icon) { m_icon = icon; emit iconChanged(); }
@@ -182,7 +182,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_event
+     \fn event
      \param e
      \return bool
     */
@@ -193,7 +193,7 @@ public Q_SLOTS:
     /*!
     \brief \~french 
 
-     \fn SH_trigger
+     \fn trigger
     */
     void trigger();
 
@@ -201,13 +201,13 @@ Q_SIGNALS:
     /*!
     \brief \~french 
 
-     \fn SH_triggered
+     \fn triggered
     */
     void triggered();
     /*!
     \brief \~french 
 
-     \fn SH_toggled
+     \fn toggled
      \param checked
     */
     void toggled(bool checked);
@@ -215,20 +215,20 @@ Q_SIGNALS:
     /*!
     \brief \~french 
 
-     \fn SH_textChanged
+     \fn textChanged
     */
     void textChanged();
     /*!
     \brief \~french 
 
-     \fn SH_shortcutChanged
+     \fn shortcutChanged
      \param shortcut
     */
     void shortcutChanged(QString shortcut);
     /*!
     \brief \~french 
 
-     \fn SH_keyShortcutChanged
+     \fn keyShortcutChanged
      \param keyShortcut
     */
     void keyShortcutChanged(Qt::Key keyShortcut);
@@ -236,32 +236,32 @@ Q_SIGNALS:
     /*!
     \brief \~french 
 
-     \fn SH_iconChanged
+     \fn iconChanged
     */
     void iconChanged();
     /*!
     \brief \~french 
 
-     \fn SH_iconNameChanged
+     \fn iconNameChanged
     */
     void iconNameChanged();
     /*!
     \brief \~french 
 
-     \fn SH_iconSourceChanged
+     \fn iconSourceChanged
     */
     void iconSourceChanged();
     /*!
     \brief \~french 
 
-     \fn SH_tooltipChanged
+     \fn tooltipChanged
      \param arg
     */
     void tooltipChanged(QString arg);
     /*!
     \brief \~french 
 
-     \fn SH_enabledChanged
+     \fn enabledChanged
     */
     void enabledChanged();
 
@@ -269,7 +269,7 @@ protected:
     /*!
     \brief \~french 
 
-     \fn SH_setKeySequence
+     \fn setKeySequence
      \param sequence
     */
     void setKeySequence(const QKeySequence &sequence);

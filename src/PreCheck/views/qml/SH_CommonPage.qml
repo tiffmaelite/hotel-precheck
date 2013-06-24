@@ -51,23 +51,23 @@ Item {
     }
     onSelected: {
         console.log("selection: "+selectedItem);
-        SH_App.receiveInput(selectedItem);
+        App.receiveInput(selectedItem);
     }
     onCancelProcess: {
-        SH_App.cancelRunningThread();
+        App.cancelRunningThread();
         console.log("processus interrompu");
     }
     onValidate: {
-        SH_App.receiveValidation();
+        App.receiveValidation();
     }
     onConfirm: {
-        SH_App.receiveConfirmation();
+        App.receiveConfirmation();
     }
     onReplace: {
-        SH_App.replaceInput(field);
+        App.replaceInput(field);
     }
     onCancelReplace: {
-        SH_App.cancelReplacement();
+        App.cancelReplacement();
     }
 
     onKeySelected: {
@@ -320,20 +320,20 @@ Item {
         id: escapeAction
         text: qsTr("ÉCHAP")
         keyShortcut: Qt.Key_Escape
-        onTriggered: SH_CommonPage.cancelProcess()
+        onTriggered: commonPage.cancelProcess()
     }
     SH_ComplexAction {
         id: enterAction
         text: qsTr("ENTRÉE")
         keyShortcut: Qt.Key_Enter
-        onTriggered: SH_CommonPage.streamBuffer.clearBuffer();
+        onTriggered: commonPage.streamBuffer.clearBuffer();
     }
     SH_ComplexAction {
         id: confirmAction
         text: qsTr("CONFIRMER")
         keyShortcut: Qt.Key_Return
         onTriggered: {
-            SH_CommonPage.confirm();
+            commonPage.confirm();
         }
     }
     SH_ComplexAction {
@@ -341,8 +341,8 @@ Item {
         text: qsTr("QUITTER")
         keyShortcut: Qt.Key_unknown
         onTriggered: {
-            SH_CommonPage.cancelProcess();
-            SH_CommonPage.quit();
+            commonPage.cancelProcess();
+            commonPage.quit();
         }
     }
     SH_ComplexAction {
@@ -770,9 +770,9 @@ Item {
     }
     SH_ComplexAction {
         id: capsAction
-        text: qsTr("MAJ.")
+        text: commonPage.streamBuffer.upperCase ? qsTr("min.") : qsTr("MAJ.")
         keyShortcut: Qt.Key_CapsLock
-        onTriggered: SH_CommonPage.streamBuffer.upperCase = !SH_CommonPage.streamBuffer.upperCase;
+        onTriggered: commonPage.streamBuffer.upperCase = !commonPage.streamBuffer.upperCase;
     }
     SH_ComplexAction {
         id: dotAction

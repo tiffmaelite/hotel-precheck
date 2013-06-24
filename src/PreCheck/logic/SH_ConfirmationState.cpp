@@ -10,7 +10,7 @@
 SH_ConfirmationState::SH_ConfirmationState(QString output, QString name, QState *parent) :
     SH_StatementState(output, name, parent)
 {
-    qDebug() << "confirmatiooooon !";
+
 }
 
 /*!
@@ -20,5 +20,6 @@ SH_ConfirmationState::SH_ConfirmationState(QString output, QString name, QState 
 */
 void SH_ConfirmationState::confirmInput()
 {
-    emit next();
+    qDebug() << "confirmatiooooon !";
+    emit goNext();
 }

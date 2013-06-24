@@ -27,7 +27,7 @@ ApplicationWindow {
         }
     }
     onReload: {
-        status.text = Qt.binding(function() {return ((SH_App.currentMode === SH_AppMode.CONNEXION) ? qsTr("Connexion") : (SH_App.currentUser.valid ? SH_App.currentUser.name : ""));});
+        status.text = Qt.binding(function() {return ((App.currentMode === AppMode.CONNEXION) ? qsTr("Connexion") : (App.currentUser.valid ? App.currentUser.name : ""));});
     }
     Component.onCompleted: {
         window.reload();

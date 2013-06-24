@@ -28,7 +28,7 @@ public:
     /*!
 \brief \~french 
 
- \fn SH_User
+ \fn User
  \param name
  \param id
  \param isReceptionist
@@ -41,56 +41,56 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_name
+     \fn name
      \return QString
     */
     QString name() const;
     /*!
     \brief \~french 
 
-     \fn SH_id
+     \fn id
      \return int
     */
     int id() const { return this->m_id; }
     /*!
     \brief \~french 
 
-     \fn SH_isReceptionist
+     \fn isReceptionist
      \return bool
     */
     bool isReceptionist() const;
     /*!
     \brief \~french 
 
-     \fn SH_isManagerX
+     \fn isManagerX
      \return bool
     */
     bool isManagerX() const { return this->m_managerX; }
     /*!
     \brief \~french 
 
-     \fn SH_isManagerZ
+     \fn isManagerZ
      \return bool
     */
     bool isManagerZ() const { return this->m_managerZ; }
     /*!
     \brief \~french 
 
-     \fn SH_isAdministrator
+     \fn isAdministrator
      \return bool
     */
     bool isAdministrator() const { return this->m_administrator; }
     /*!
     \brief \~french 
 
-     \fn SH_roles
+     \fn roles
      \return int
     */
     int roles() const;
     /*!
     \brief \~french 
 
-     \fn SH_isValid
+     \fn isValid
      \return bool
     */
     bool isValid() const;
@@ -98,7 +98,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_logIn
+     \fn logIn
      \param login
      \param pass
      \return User
@@ -107,7 +107,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_traineeExists
+     \fn traineeExists
      \param login
      \return bool
     */
@@ -115,7 +115,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_userExists
+     \fn userExists
      \param login
      \return bool
     */
@@ -125,7 +125,7 @@ public slots:
     /*!
     \brief \~french 
 
-     \fn SH_exists
+     \fn exists
      \param login
      \return QVariant
     */
@@ -134,19 +134,19 @@ signals:
     /*!
     \brief \~french 
 
-     \fn SH_nameChanged
+     \fn nameChanged
     */
     void nameChanged();
     /*!
     \brief \~french 
 
-     \fn SH_rolesChanged
+     \fn rolesChanged
     */
     void rolesChanged();
     /*!
     \brief \~french 
 
-     \fn SH_validityChanged
+     \fn validityChanged
     */
     void validityChanged();
 
@@ -154,14 +154,14 @@ private:
     /*!
     \brief \~french 
 
-     \fn SH_setName
+     \fn setName
      \param name
     */
     void setName(QString name);
     /*!
     \brief \~french 
 
-     \fn SH_setID
+     \fn setID
      \param id
     */
     void setID(int id);

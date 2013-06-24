@@ -18,7 +18,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_Trainee
+ \fn Trainee
  \param name
  \param id
  \param parent

@@ -17,7 +17,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_ConfirmationState
+ \fn ConfirmationState
  \param output
  \param name
  \param parent
@@ -32,7 +32,7 @@ public slots:
     /*!
     \brief \~french 
 
-     \fn SH_confirmInput
+     \fn confirmInput
     */
     void confirmInput();
 

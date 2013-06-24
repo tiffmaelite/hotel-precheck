@@ -4,7 +4,7 @@
 #include <QApplication>
 #include "logic/SH_IOStateMachine.h"
 /*!
-\brief \~french  \~french Classe principale du coeur de l'application, avec laquelle communique l'interface graphique
+\brief \~french La classe SH_ApplicationCore est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique
 
  \class SH_ApplicationCore
 \headerfile RestrictiveApplication.h "models/RestrictiveApplication.h"
@@ -13,13 +13,13 @@ class SH_ApplicationCore : public QObject
 {
     Q_OBJECT
     /*!
+      \brief \~french L'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté)
       \property currentUser
-      \brief \~french
       */
     Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged)
     /*!
+      \brief \~french Le mode actuel de l'application
       \property currentMode
-      \brief \~french
       */
     Q_PROPERTY(AppMode currentMode READ mode WRITE setMode NOTIFY modeChanged)
 
@@ -57,40 +57,36 @@ public:
     enum AppMode { CONNEXION, ACCUEIL, RECEPTION, MANAGEMENT_X, MANAGEMENT_Z, ADMINISTRATION };
 
     /*!
-    \brief \~french
-
- \fn SH_ApplicationCore
- \param parent
+    \brief \~french Construit un objet SH_ApplicationCore
+ \fn ApplicationCore
+ \param parent L'objet parent
     */
     SH_ApplicationCore(QObject* parent=0);
 
     /*!
-    \brief \~french
-
-     \fn SH_mode
+    \brief \~french Retourne le mode actuel de l'application
+     \fn mode
      \return AppMode
     */
     AppMode mode() const;
 
     /*!
-    \brief \~french
-
-     \fn SH_user
+    \brief \~french retourne l'utilisateur actuellement connecté
+     \fn user
      \return User
     */
     SH_User* user() const;
-    /*Q_INVOKABLE User* currentUser() const;*/
-    /*!
-    \brief \~french
 
-     \fn SH_init
+    /*!
+    \brief \~french Initialise l'application avec un utilisateur invalide, et le mode \a CONNEXION
+     \fn init
     */
     void init();
-    /*!
-    \brief \~french
 
-     \fn SH_setMode
-     \param mode
+    /*!
+    \brief \~french Modifie le mode dans lequel se trouve l'application
+     \fn setMode
+     \param mode Le nouveau mode de l'application
     */
     void setMode(AppMode mode);
 
@@ -98,115 +94,113 @@ public:
 public slots:
     /*!
         \brief \~french
-         \fn SH_balanceLogRoutine TODO comment this
-         \return bool TODO comment this
+         \fn balanceLogRoutine
+         \return bool
         */
     bool balanceLogRoutine();
-    /*!
-    \brief \~french
 
-     \fn SH_userExists
-     \param login
+    /*!
+    \brief \~french Vérifie s'il existe un utilisateur avec le pseudo fourni
+     \fn userExists
+     \param login Le nom d'utilisateur pour lequel il faut effectuer une vérification
      \return bool
     */
     bool userExists(QString login);
-    /*!
-    \brief \~french
 
-     \fn SH_setUser
-     \param login
-     \param pass
-     \return bool
+    /*!
+    \brief \~french Modifie l'utilisateur actuel
+     \fn setUser
+     \param login Le nom d'utilisateur du nouvel utilisateur
+     \param pass Le mot de passe du nouvel utilisateur
+     \return bool Retourne \a true si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; \a false sinon
     */
     bool setUser(QString login, QString pass);
-    /*!
-    \brief \~french
 
-     \fn SH_userLogOut
-     \return bool
+    /*!
+    \brief \~french "Déconnecte" l'utilisateur actuel, et le remplace par un utilisateur invalide
+     \fn userLogOut
+     \return bool Retourne \a true si le changement a réussi, \a false sinon
     */
     bool userLogOut();
 
     /*!
     \brief \~french
-
-     \fn SH_launchBookingsThread
+     \fn launchBookingsThread
      \return bool
     */
     bool launchBookingsThread();
+
     /*!
     \brief \~french
-
-     \fn SH_launchBillThread
+     \fn launchBillThread
      \return bool
     */
     bool launchBillThread();
+
     /*!
     \brief \~french
-
-     \fn SH_launchBillingsThread
+     \fn launchBillingsThread
      \return bool
     */
-    Q_INVOKABLE bool launchBillingsThread();
+    bool launchBillingsThread();
+
     /*!
     \brief \~french
-
-     \fn SH_cancelRunningThread
+     \fn cancelRunningThread
      \return bool
     */
     bool cancelRunningThread();
 
     /*!
     \brief \~french
-     \fn SH_receiveInput TODO comment this
-     \param in TODO comment this
+     \fn receiveInput
+     \param in
     */
     void receiveInput(QString in);
 
     /*!
     \brief \~french
-     \fn SH_receiveValidation TODO comment this
+     \fn receiveValidation
     */
     void receiveValidation();
 
     /*!
     \brief \~french
-     \fn SH_receiveConfirmation TODO comment this
+     \fn receiveConfirmation
     */
     void receiveConfirmation();
 
     /*!
     \brief \~french
-
-     \fn SH_replaceInput
+     \fn replaceInput
      \param inputName
     */
     void replaceInput(QString inputName);
+
     /*!
     \brief \~french
-
-     \fn SH_cancelReplacement
+     \fn cancelReplacement
     */
     void cancelReplacement();
 
 signals:
     /*!
     \brief \~french
-
-     \fn SH_clearAll
+     \fn clearAll
     */
     void clearAll();
+
     /*!
     \brief \~french
-
-     \fn SH_userChanged
+     \fn userChanged
      \param name
     */
     void userChanged(QVariant name);
+
     /*!
     \brief \~french
 
-     \fn SH_modeChanged
+     \fn modeChanged
      \param mode
     */
     void modeChanged(QVariant mode);
@@ -214,33 +208,33 @@ signals:
     /*!
     \brief \~french
 
-     \fn SH_currentFSMchanged
+     \fn currentFSMchanged
     */
     void currentFSMchanged();
+
     /*!
     \brief \~french
-
-     \fn SH_sendText
+     \fn sendText
      \param text
     */
     void sendText(QString text);
+
     /*!
     \brief \~french
-
-     \fn SH_resendText
+     \fn resendText
      \param text
     */
     void resendText(QString text);
+
     /*!
     \brief \~french
-
-     \fn SH_displayCalendar
+     \fn displayCalendar
     */
     void displayCalendar();
+
     /*!
     \brief \~french
-
-     \fn SH_openTab
+     \fn openTab
      \param tabPos
     */
     void openTab(QVariant tabPos);
@@ -248,22 +242,25 @@ signals:
 protected:
     /*!
     \brief \~french
-     \fn SH_connectRunningThread TODO comment this
-     \return bool TODO comment this
+     \fn connectRunningThread
+     \return bool
     */
     bool connectRunningThread();
 
 private:
     /*!
-     *\brief \~french  m_currentUser
+     *\brief \~french
+     *\var m_currentUser
      */
     SH_User* m_currentUser;
     /*!
-     *\brief \~french  m_mode
+     *\brief \~french
+     *\var m_mode
      */
     AppMode m_mode;
     /*!
-     *\brief \~french  m_currentFSM
+     *\brief \~french
+     *\var m_currentFSM
      */
     SH_InOutStateMachine* m_currentFSM;
 };

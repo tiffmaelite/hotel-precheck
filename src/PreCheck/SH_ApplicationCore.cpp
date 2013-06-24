@@ -107,20 +107,20 @@ bool SH_ApplicationCore::userExists(QString login)
 
 /*!
  \details \~french
- \fn SH_ApplicationCore::balanceLogRoutine TODO comment this
+ \fn SH_ApplicationCore::balanceLogRoutine
 */
 bool SH_ApplicationCore::balanceLogRoutine() {
-    /*AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
-    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");
-    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");
-    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");
-    AppDatabase::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/
+    /*SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
+    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");
+    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");
+    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");
+    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/
 }
 
 
 /*!
  \details \~french
- \fn SH_ApplicationCore::receiveInput TODO comment this
+ \fn SH_ApplicationCore::receiveInput
 */
 void SH_ApplicationCore::receiveInput(QString in)
 {
@@ -131,7 +131,7 @@ void SH_ApplicationCore::receiveInput(QString in)
 
 /*!
  \details \~french
- \fn SH_ApplicationCore::receiveValidation TODO comment this
+ \fn SH_ApplicationCore::receiveValidation
 */
 void SH_ApplicationCore::receiveValidation()
 {
@@ -142,7 +142,7 @@ void SH_ApplicationCore::receiveValidation()
 
 /*!
  \details \~french
- \fn SH_ApplicationCore::receiveConfirmation TODO comment this
+ \fn SH_ApplicationCore::receiveConfirmation
 */
 void SH_ApplicationCore::receiveConfirmation()
 {
@@ -153,7 +153,7 @@ void SH_ApplicationCore::receiveConfirmation()
 
 /*!
  \details \~french
- \fn SH_ApplicationCore::replaceInput TODO comment this
+ \fn SH_ApplicationCore::replaceInput
 */
 void SH_ApplicationCore::replaceInput(QString inputName)
 {
@@ -164,7 +164,7 @@ void SH_ApplicationCore::replaceInput(QString inputName)
 
 /*!
  \details \~french
- \fn SH_ApplicationCore::cancelReplacement TODO comment this
+ \fn SH_ApplicationCore::cancelReplacement
 */
 void SH_ApplicationCore::cancelReplacement()
 {

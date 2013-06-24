@@ -19,7 +19,7 @@ public:
     /*!
 \brief \~french 
 
- \fn SH_BillingsTableModel
+ \fn BillingsTableModel
  \param parent
 */
     SH_BillingsTableModel(QObject *parent = 0);
@@ -30,7 +30,7 @@ protected:
     /*!
         \brief \~french 
 
-         \fn SH_fillModel
+         \fn fillModel
         */
     void fillModel();
 

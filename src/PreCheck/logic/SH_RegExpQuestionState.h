@@ -11,31 +11,31 @@ class SH_RegExpQuestionState : public SH_StringQuestionState
 public:
 /*!
 \brief \~french 
- \fn SH_RegExQuestionState TODO comment this
- \param question TODO comment this
- \param name TODO comment this
- \param regex TODO comment this
- \param parent TODO comment this
+ \fn RegExQuestionState 
+ \param question 
+ \param name 
+ \param regex 
+ \param parent 
 */
     SH_RegExpQuestionState(QString question, QString name, QRegularExpression regex = QRegularExpression(), QState *parent = 0);
 
     /*!
     \brief \~french 
 
-     \fn SH_isAnswerValid
+     \fn isAnswerValid
      \param givenAnswer
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
     /*!
     \brief \~french 
-     \fn SH_regexp TODO comment this
-     \return QRegularExpression TODO comment this
+     \fn regexp 
+     \return QRegularExpression 
     */
     QRegularExpression regexp() const;
     /*!
     \brief \~french 
-     \fn SH_setRegexp TODO comment this
-     \param regexp TODO comment this
+     \fn setRegexp 
+     \param regexp 
     */
     void setRegexp(const QRegularExpression &regexp);
 

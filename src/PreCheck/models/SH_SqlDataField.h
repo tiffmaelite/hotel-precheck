@@ -21,7 +21,7 @@ class SH_SqlDataFields : public QQuickItem
         /*!
         \brief \~french 
 
-         \fn SH_SqlDataFields
+         \fn SqlDataFields
          \param parent
         */
         explicit SH_SqlDataFields(QQuickItem *parent = 0);
@@ -29,28 +29,28 @@ class SH_SqlDataFields : public QQuickItem
         /*!
         \brief \~french 
 
-         \fn SH_text
+         \fn text
          \return QString
         */
         QString text() const { return m_text; }
         /*!
         \brief \~french 
 
-         \fn SH_name
+         \fn name
          \return QString
         */
         QString name() const { return m_name; }
         /*!
         \brief \~french 
 
-         \fn SH_role
+         \fn role
          \return QByteArray
         */
         QByteArray role() const { return QByteArray(m_name.toUpper().toStdString().c_str()); }
         /*!
         \brief \~french 
 
-         \fn SH_sortOrder
+         \fn sortOrder
          \return Qt::SortOrder
         */
         Qt::SortOrder sortOrder() const { return m_sortOrder; }
@@ -58,21 +58,21 @@ class SH_SqlDataFields : public QQuickItem
         /*!
         \brief \~french 
 
-         \fn SH_setText
+         \fn setText
          \param newText
         */
         void setText(QString newText);
         /*!
         \brief \~french 
 
-         \fn SH_setName
+         \fn setName
          \param newName
         */
         void setName(QString newName);
         /*!
         \brief \~french 
 
-         \fn SH_setSortOrder
+         \fn setSortOrder
          \param newSortOrder
         */
         void setSortOrder(Qt::SortOrder newSortOrder);
@@ -95,25 +95,25 @@ class SH_SqlDataFields : public QQuickItem
         /*!
         \brief \~french 
 
-         \fn SH_textChanged
+         \fn textChanged
         */
         void textChanged();
         /*!
         \brief \~french 
 
-         \fn SH_nameChanged
+         \fn nameChanged
         */
         void nameChanged();
         /*!
         \brief \~french 
 
-         \fn SH_roleChanged
+         \fn roleChanged
         */
         void roleChanged();
         /*!
         \brief \~french 
 
-         \fn SH_sortOrderChanged
+         \fn sortOrderChanged
         */
         void sortOrderChanged();
 

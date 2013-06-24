@@ -24,7 +24,7 @@ QVariant SH_InOutState::input() const
 
 /*!
  \details \~french
- \fn SH_IOState::rawInput TODO comment this
+ \fn SH_IOState::rawInput
 
 */
 QVariant SH_InOutState::rawInput() const
@@ -40,10 +40,12 @@ QVariant SH_InOutState::rawInput() const
 */
 void SH_InOutState::setInput(const QVariant &input)
 {
-    qDebug() << "new input " << input.toString();
-    m_input = input;
-    if(m_isVisible) {
-        emit resendInput(m_input);
+    if(isRunning()) {
+        qDebug() << "new input " << input.toString();
+        m_input = input;
+        if(m_isVisible) {
+            emit resendInput(m_input);
+        }
     }
 }
 
@@ -67,25 +69,29 @@ QString SH_InOutState::output() const
 */
 void SH_InOutState::setOutput(const QString &output)
 {
-    m_output = output;
-    if(m_isVisible) {
-        emit sendOutput(QVariant(m_output));
+    if(isRunning()) {
+        m_output = output;
+        if(m_isVisible) {
+            emit sendOutput(QVariant(m_output));
+        }
     }
 }
 
 /*!
  \details \~french
- \fn SH_IOState::setVisibility TODO comment this
+ \fn SH_IOState::setVisibility
 
 */
 void SH_InOutState::setVisibility(bool isVisible)
 {
-    m_isVisible = isVisible;
+    if(isRunning()) {
+        m_isVisible = isVisible;
+    }
 }
 
 /*!
  \details \~french
- \fn SH_IOState::visibility TODO comment this
+ \fn SH_IOState::visibility
 
 */
 bool SH_InOutState::visibility() {
@@ -94,10 +100,12 @@ bool SH_InOutState::visibility() {
 
 void SH_InOutState::display(bool canDisplay)
 {
-    m_display=canDisplay;
-    if(m_display && !m_output.isEmpty() && m_isVisible) {
-        qDebug() << "resalut !" << QVariant(m_output);
-        emit sendOutput(QVariant(m_output));
+    if(isRunning()) {
+        m_display=canDisplay;
+        if(m_display && !m_output.isEmpty() && m_isVisible) {
+            qDebug() << "resalut !" << QVariant(m_output);
+            emit sendOutput(QVariant(m_output));
+        }
     }
 }
 
@@ -109,8 +117,8 @@ void SH_InOutState::display(bool canDisplay)
 */
 void SH_InOutState::onExit(QEvent *event)
 {
-    SH_GenericState::onExit(event);
     if(m_isVisible) {
         emit resendInput(m_input);
     }
+    SH_GenericState::onExit(event);
 }

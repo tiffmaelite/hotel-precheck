@@ -25,7 +25,7 @@ bool SH_QuestionState::checkValidity()
         qDebug() << this->givenAnswer();
         SH_InOutState::setInput(this->givenAnswer());
         emit answerValid();
-        emit next();
+        emit goNext();
     } else {
         qDebug() << this->givenAnswer() << " answer invalid :-(";
         qDebug() << this->givenAnswer();

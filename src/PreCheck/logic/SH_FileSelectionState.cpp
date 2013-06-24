@@ -2,7 +2,7 @@
 
 /*!
  \details \~french
- \fn SH_FileSelectionState::FileSelectionState TODO comment this
+ \fn SH_FileSelectionState::FileSelectionState 
 
 */
 SH_FileSelectionState::SH_FileSelectionState(QString output, QString name, QState *parent) :

@@ -24,7 +24,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_CheckableSortFilterProxyModel
+ \fn CheckableSortFilterProxyModel
  \param parent
 */
     SH_ExtendedProxyModel(QObject *parent = 0);
@@ -32,42 +32,42 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_currentSortKeyColumn
+     \fn currentSortKeyColumn
      \return const int
     */
     const int currentSortKeyColumn() const {return this->sortIndex;}
     /*!
     \brief \~french 
 
-     \fn SH_tableName
+     \fn tableName
      \return const QString
     */
     const QString tableName() const { return this->model->tableName(); }
     /*!
     \brief \~french 
 
-     \fn SH_fields
+     \fn fields
      \return const QString
     */
     const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
     /*!
     \brief \~french 
 
-     \fn SH_lastError
+     \fn lastError
      \return const QString
     */
     const QString lastError() const { return this->model->lastError(); }
     /*!
     \brief \~french 
 
-     \fn SH_isEmpty
+     \fn isEmpty
      \return const bool
     */
     const bool isEmpty() const { return this->model->isEmpty(); }
     /*!
     \brief \~french 
 
-     \fn SH_setSortKeyColumn
+     \fn setSortKeyColumn
      \param column
     */
     void setSortKeyColumn(int column);
@@ -75,7 +75,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_field
+     \fn field
      \param i
      \return SqlDataFields
     */
@@ -83,14 +83,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_fieldsCount
+     \fn fieldsCount
      \return int
     */
     Q_INVOKABLE int fieldsCount() const { return this->model->fieldsCount(); }
     /*!
     \brief \~french 
 
-     \fn SH_fetch
+     \fn fetch
      \param tableName
      \param filter
      \param sort
@@ -101,7 +101,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_sort
+     \fn sort
      \param column
      \param newOrder
     */
@@ -109,21 +109,21 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_addFilterKeyColumn
+     \fn addFilterKeyColumn
      \param column
     */
     Q_INVOKABLE void addFilterKeyColumn(int column);
     /*!
     \brief \~french 
 
-     \fn SH_removeFilterKeyColumn
+     \fn removeFilterKeyColumn
      \param column
     */
     Q_INVOKABLE void removeFilterKeyColumn(int column);
     /*!
     \brief \~french 
 
-     \fn SH_containsFilterKeyColumn
+     \fn containsFilterKeyColumn
      \param column
      \return bool
     */
@@ -131,7 +131,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_data
+     \fn data
      \param row
      \param column
      \return QVariant
@@ -140,7 +140,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_data
+     \fn data
      \param index
      \param role
      \return QVariant
@@ -149,7 +149,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_setData
+     \fn setData
      \param index
      \param value
      \param role
@@ -159,14 +159,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_roleNames
+     \fn roleNames
      \return QHash<int, QByteArray>
     */
     Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->model->roleNames(); }
     /*!
     \brief \~french 
 
-     \fn SH_flags
+     \fn flags
      \param index
      \return Qt::ItemFlags
     */
@@ -175,41 +175,41 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_invalidateFilter
+     \fn invalidateFilter
     */
     void invalidateFilter();
     /*!
     \brief \~french 
 
-     \fn SH_setBooleanColumns
+     \fn setBooleanColumns
      \param boolCols
     */
     void setBooleanColumns(QList<int> boolCols);
     /*!
     \brief \~french 
 
-     \fn SH_setReadOnlyColumns
+     \fn setReadOnlyColumns
      \param readonlyCols
     */
     void setReadOnlyColumns(QList<int> readonlyCols);
     /*!
     \brief \~french 
 
-     \fn SH_setPasswordColumns
+     \fn setPasswordColumns
      \param passwordCols
     */
     void setPasswordColumns(QList<int> passwordCols);
     /*!
     \brief \~french 
 
-     \fn SH_setNullColumns
+     \fn setNullColumns
      \param nullCols
     */
     void setNullColumns(QList<int> nullCols);
     /*!
     \brief \~french 
 
-     \fn SH_setNotNullColumns
+     \fn setNotNullColumns
      \param notNullCols
     */
     void setNotNullColumns(QList<int> notNullCols);
@@ -218,7 +218,7 @@ signals:
     /*!
     \brief \~french 
 
-     \fn SH_sortChanged
+     \fn sortChanged
     */
     void sortChanged();
 
@@ -226,13 +226,13 @@ protected:
     /*!
     \brief \~french 
 
-     \fn SH_fillModel
+     \fn fillModel
     */
     virtual void fillModel() = 0;
     /*!
     \brief \~french 
 
-     \fn SH_filterAcceptsRow
+     \fn filterAcceptsRow
      \param source_row
      \param source_parent
      \return bool
@@ -244,7 +244,7 @@ private:
     /*!
     \brief \~french 
 
-     \fn SH_replaceSet
+     \fn replaceSet
      \param originalSet
      \param newSet
     */

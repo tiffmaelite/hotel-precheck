@@ -13,7 +13,6 @@ TableView {
     model: 0
     signal selected(string selectedItem)
     Component.onCompleted:{
-        /*var tmp = [];*/
         if(table.model !== 0) {
             table.model.fetch();
             var count = table.model.fieldsCount();
@@ -25,7 +24,6 @@ TableView {
                 }
             }
         }
-        /*return tmp;*/
     }
 
 

@@ -8,7 +8,7 @@
 
 /*!
  \details \~french
- \fn SH_ClientCreationStateMachine::ClientCreationStateMachine TODO comment this
+ \fn SH_ClientCreationStateMachine::ClientCreationStateMachine 
 */
 SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObject *parent) :
     SH_InOutStateMachine("CLIENTS",name, parent)

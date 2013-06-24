@@ -11,9 +11,9 @@ class SH_ClientCreationStateMachine : public SH_InOutStateMachine
 public:
 /*!
 \brief \~french 
- \fn SH_ClientCreationStateMachine TODO comment this
- \param name TODO comment this
- \param parent TODO comment this
+ \fn ClientCreationStateMachine 
+ \param name 
+ \param parent 
 */
     SH_ClientCreationStateMachine(QString name, QObject *parent = 0);
 

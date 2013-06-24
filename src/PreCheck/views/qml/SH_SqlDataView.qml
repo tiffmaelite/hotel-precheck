@@ -83,7 +83,7 @@ Rectangle {
             model: (display.isEmpty) ? 0 : display.sqlModel
             Layout.fillHeight: true
             Layout.fillWidth: true
-            SH_DataDelegate: display.itemDelegate
+            dataDelegate: display.itemDelegate
             emptyDelegate:  display.emptyDelegate
             sectionDelegate:  display.sectionDelegate
             enabled: display.enabled

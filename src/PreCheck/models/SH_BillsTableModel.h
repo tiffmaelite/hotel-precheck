@@ -19,7 +19,7 @@ class SH_BillsTableModel : public SH_ExtendedProxyModel
 /*!
 \brief \~french 
 
- \fn SH_BillsTableModel
+ \fn BillsTableModel
  \param parent
 */
         SH_BillsTableModel(QObject *parent = 0);
@@ -30,7 +30,7 @@ class SH_BillsTableModel : public SH_ExtendedProxyModel
         /*!
         \brief \~french 
 
-         \fn SH_fillModel
+         \fn fillModel
         */
         void fillModel();
 };

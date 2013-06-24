@@ -55,7 +55,8 @@ HEADERS *= \
     logic/SH_ClientCreation.h \
     logic/SH_BillingCreation.h \
     logic/SH_AddressCreation.h \
-    logic/SH_AdaptDatabaseState.h
+    logic/SH_AdaptDatabaseState.h \
+    logic/SH_GenericDebugableStateMachine.h
 
 SOURCES *= \
     main.cpp \
@@ -101,7 +102,8 @@ SOURCES *= \
     logic/SH_QuestionState.cpp \
     logic/SH_StringQuestionState.cpp \
     logic/SH_StatementState.cpp \
-    logic/SH_ValidationState.cpp
+    logic/SH_ValidationState.cpp \
+    logic/SH_GenericDebugableStateMachine.cpp
 
 # QML-files as a ressource
 RESOURCES *= \

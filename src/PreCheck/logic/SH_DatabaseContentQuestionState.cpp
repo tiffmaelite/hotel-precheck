@@ -38,7 +38,7 @@ bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 
 /*!
  \details \~french
- \fn SH_DatabaseContentQuestionState::setOutput TODO comment this
+ \fn SH_DatabaseContentQuestionState::setOutput 
  */
 void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 {
@@ -51,7 +51,7 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 
 /*!
  \details \~french
- \fn SH_DatabaseContentQuestionState::rawInput TODO comment this
+ \fn SH_DatabaseContentQuestionState::rawInput 
 
 */
 QVariant SH_DatabaseContentQuestionState::rawInput() const
@@ -61,7 +61,7 @@ QVariant SH_DatabaseContentQuestionState::rawInput() const
 
 /*!
  \details \~french
- \fn SH_DatabaseContentQuestionState::choiceList TODO comment this
+ \fn SH_DatabaseContentQuestionState::choiceList 
 
 */
 QMap<int, QVariant> SH_DatabaseContentQuestionState::choiceList() {

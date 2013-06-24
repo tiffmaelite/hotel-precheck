@@ -14,7 +14,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_DateQuestionState
+ \fn DateQuestionState
  \param question
  \param name
  \param past
@@ -25,7 +25,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_isAnswerValid
+ \fn isAnswerValid
  \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
@@ -33,14 +33,14 @@ virtual bool isAnswerValid(const QVariant &givenAnswer);
 /*!
 \brief \~french 
 
- \fn SH_getPast
+ \fn getPast
  \return bool
 */
 bool getPast() const;
 /*!
 \brief \~french 
 
- \fn SH_setPast
+ \fn setPast
  \param value
 */
 void setPast(bool value);
@@ -48,22 +48,22 @@ void setPast(bool value);
 /*!
 \brief \~french 
 
- \fn SH_getFuture
+ \fn getFuture
  \return bool
 */
 bool getFuture() const;
 /*!
 \brief \~french 
 
- \fn SH_setFuture
+ \fn setFuture
  \param value
 */
 void setFuture(bool value);
 
 /*!
 \brief \~french 
- \fn SH_rawInput TODO comment this
- \return QVariant TODO comment this
+ \fn rawInput 
+ \return QVariant 
 */
 QVariant rawInput() const;
 signals:

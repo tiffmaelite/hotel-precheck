@@ -16,16 +16,16 @@ Item {
     signal clicked()
     signal reload()
     onLogOut: {
-        if(SH_App.userLogOut()) {
+        if(App.userLogOut()) {
             welcomePage.loggedOut();
         }
     }
     onReload: {
         buttons.anchors.centerIn = welcomePage;
-        receptionButton.visible = SH_App.currentUser.receptionist;
-        administrationButton.visible = SH_App.currentUser.administrator;
-        managementXButton.visible = SH_App.currentUser.managerX;
-        managementZButton.visible = SH_App.currentUser.managerZ;
+        receptionButton.visible = App.currentUser.receptionist;
+        administrationButton.visible = App.currentUser.administrator;
+        managementXButton.visible = App.currentUser.managerX;
+        managementZButton.visible = App.currentUser.managerZ;
     }
 
     ColumnLayout {
@@ -57,7 +57,7 @@ Item {
         GridLayout {
             id: grid
             columns: 2
-            property int count: SH_App.currentUser.roles
+            property int count: App.currentUser.roles
             Rectangle {
                 color: "transparent"
                 Layout.minimumHeight: childrenRect.height
@@ -69,9 +69,9 @@ Item {
                     height: (buttons.height/2)-buttons.spacing
                     width: (buttons.width/2)-buttons.spacing
                     text: qsTr("Réception")
-                    visible: SH_App.currentUser.receptionist
+                    visible: App.currentUser.receptionist
                     onClicked: {
-                        SH_App.currentMode = SH_AppMode.RECEPTION;
+                        App.currentMode = AppMode.RECEPTION;
                         welcomePage.clicked();
                     }
                 }
@@ -86,9 +86,9 @@ Item {
                     height: (buttons.height/2)-buttons.spacing
                     width: (buttons.width/2)-buttons.spacing
                     text: qsTr("Administration")
-                    visible: SH_App.currentUser.administrator
+                    visible: App.currentUser.administrator
                     onClicked: {
-                        SH_App.currentMode = SH_AppMode.ADMINISTRATION;
+                        App.currentMode = AppMode.ADMINISTRATION;
                         welcomePage.clicked();
                     }
                 }
@@ -103,9 +103,9 @@ Item {
                     height: (buttons.height/2)-buttons.spacing
                     width: (buttons.width/2)-buttons.spacing
                     text: qsTr("Gestion lecture")
-                    visible: SH_App.currentUser.managerX
+                    visible: App.currentUser.managerX
                     onClicked: {
-                        SH_App.currentMode = SH_AppMode.MANAGEMENT_X;
+                        App.currentMode = AppMode.MANAGEMENT_X;
                         welcomePage.clicked();
                     }
                 }
@@ -120,9 +120,9 @@ Item {
                     height: (buttons.height/2)-buttons.spacing
                     width: (buttons.width/2)-buttons.spacing
                     text: qsTr("Gestion lecture écriture")
-                    visible: SH_App.currentUser.managerZ
+                    visible: App.currentUser.managerZ
                     onClicked: {
-                        SH_App.currentMode = SH_AppMode.MANAGEMENT_Z;
+                        App.currentMode = AppMode.MANAGEMENT_Z;
                         welcomePage.clicked();
                     }
                 }

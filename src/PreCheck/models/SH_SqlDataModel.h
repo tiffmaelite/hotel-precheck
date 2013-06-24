@@ -22,14 +22,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_SqlDataModel
+     \fn SqlDataModel
      \param parent
     */
     explicit SH_SqlDataModel(QObject *parent = 0);
     /*!
     \brief \~french 
 
-     \fn SH_rowCount
+     \fn rowCount
      \param parent
      \return int
     */
@@ -37,7 +37,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_data
+     \fn data
      \param index
      \param role
      \return QVariant
@@ -46,7 +46,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_datas
+     \fn datas
      \param index
      \param role
      \return QVariant
@@ -55,7 +55,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_setHeaderData
+     \fn setHeaderData
      \param section
      \param orientation
      \param value
@@ -66,7 +66,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_roleForField
+     \fn roleForField
      \param fieldIndex
      \return int
     */
@@ -74,7 +74,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_fieldFromRole
+     \fn fieldFromRole
      \param role
      \return int
     */
@@ -82,21 +82,21 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_tableName
+     \fn tableName
      \return const QString
     */
     const QString &tableName() const;
     /*!
     \brief \~french 
 
-     \fn SH_lastError
+     \fn lastError
      \return const QString
     */
     const QString &lastError();
     /*!
     \brief \~french 
 
-     \fn SH_filter
+     \fn filter
      \return const QString
     */
     const QString &filter() const;
@@ -104,41 +104,41 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_setTable
+     \fn setTable
      \param tableName
     */
     void setTable(const QString &tableName);
     /*!
     \brief \~french 
 
-     \fn SH_setFilterCondition
+     \fn setFilterCondition
      \param filter
     */
     void setFilterCondition(const QString &filter);
     /*!
     \brief \~french 
 
-     \fn SH_resetFilterCondition
+     \fn resetFilterCondition
     */
     void resetFilterCondition();
     /*!
     \brief \~french 
 
-     \fn SH_setFields
+     \fn setFields
      \param fieldList
     */
     void setFields(QStringList fieldList);
     /*!
     \brief \~french 
 
-     \fn SH_resetFieldsToAll
+     \fn resetFieldsToAll
     */
     void resetFieldsToAll();
 
     /*!
     \brief \~french 
 
-     \fn SH_fetch
+     \fn fetch
      \param tableName
      \param filter
      \param sort
@@ -149,7 +149,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_field
+     \fn field
      \param i
      \return SqlDataFields
     */
@@ -157,14 +157,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_fieldsCount
+     \fn fieldsCount
      \return int
     */
     int fieldsCount() const;
     /*!
     \brief \~french 
 
-     \fn SH_setOrderBy
+     \fn setOrderBy
      \param sort
     */
     void setOrderBy(QString sort);
@@ -173,7 +173,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_roleNames
+     \fn roleNames
      \return QHash<int, QByteArray>
     */
     virtual QHash<int, QByteArray> roleNames() const { return this->mRoles; }
@@ -181,7 +181,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_isEmpty
+     \fn isEmpty
      \return bool
     */
     bool isEmpty() const;
@@ -189,14 +189,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_query
+     \fn query
      \return const QString
     */
     const QString &query() const;
     /*!
     \brief \~french 
 
-     \fn SH_fieldsList
+     \fn fieldsList
      \return const QString
     */
     const QStringList fieldsList() const;
@@ -205,38 +205,38 @@ signals:
     /*!
     \brief \~french 
 
-     \fn SH_fieldsChanged
+     \fn fieldsChanged
     */
     void fieldsChanged();
     /*!
     \brief \~french 
 
-     \fn SH_tableChanged
+     \fn tableChanged
     */
     void tableChanged();
     /*!
     \brief \~french 
 
-     \fn SH_lastErrorChanged
+     \fn lastErrorChanged
     */
     void lastErrorChanged();
     /*!
     \brief \~french 
 
-     \fn SH_filterChanged
+     \fn filterChanged
     */
     void filterChanged();
     /*!
     \brief \~french 
 
-     \fn SH_rolesChanged
+     \fn rolesChanged
     */
     void rolesChanged();
 protected:
     /*!
     \brief \~french 
 
-     \fn SH_applyRoles
+     \fn applyRoles
     */
     void applyRoles();
 private:

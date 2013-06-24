@@ -1,26 +1,14 @@
-#ifndef GENERICSTATE_H
-#define GENERICSTATE_H
+#ifndef SH_GENERICDEBUGABLESTATEMACHINE_H
+#define SH_GENERICDEBUGABLESTATEMACHINE_H
 
-#include <QState>
+#include <QStateMachine>
 #include "SH_NamedObject.h"
 
-/*!
-\brief \~french
-
- \class SH_GenericState
- \headerfile genericstate.h "logic/genericstate.h"
-*/
-class SH_GenericState : public QState,SH_NamedObject
+class SH_GenericStateMachine : public QStateMachine,SH_NamedObject
 {
     Q_OBJECT
 public:
-    /*!
-    \brief \~french
-     \fn GenericState
-    \param name
-    \param parent
-    */
-    SH_GenericState(QString name="", QState *parent = 0);
+    SH_GenericStateMachine(QString name="",QObject *parent = 0);
 
     /*!
     \brief \~french
@@ -36,8 +24,9 @@ public:
     */
     bool isRunning();
 
+    virtual void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
 
-private slots:
+protected slots:
     /*!
      \brief
 
@@ -65,24 +54,13 @@ protected:
      \param event
     */
     void onEntry(QEvent *event);
+
     /*!
     \brief \~french
      \fn onExit
      \param event
     */
     void onExit(QEvent *event);
-
-private slots:
-    /*!
-    \brief \~french
-     \fn onMachineStarted
-    */
-    void onMachineStarted();
-    /*!
-    \brief \~french
-     \fn onTransitionTriggered
-    */
-    void onTransitionTriggered();
 
 private:
     /*!
@@ -93,4 +71,4 @@ private:
 
 };
 
-#endif /* GENERICSTATE_H*/
+#endif // SH_GENERICDEBUGABLESTATEMACHINE_H

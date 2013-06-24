@@ -16,7 +16,7 @@ Item {
     signal loggedIn
 
     onCheckUsername: {
-        if(!SH_App.userExists(name)) {
+        if(!App.userExists(name)) {
             errorLabel.text=qsTr("Cet utilisateur n'existe pas");
             errorLabel.visible = true;
             login.textColor="darkred";
@@ -24,10 +24,10 @@ Item {
     }
 
     onLogIn: {
-        if(SH_App.setUser(login, password)) {
+        if(App.setUser(login, password)) {
             errorLabel.visible=false;
             errorLabel.text="";
-            SH_App.currentMode = SH_AppMode.ACCUEIL;
+            App.currentMode = AppMode.ACCUEIL;
             connexionPage.loggedIn();
         } else {
             errorLabel.text=qsTr("Le mot de passe entré est incorrect");

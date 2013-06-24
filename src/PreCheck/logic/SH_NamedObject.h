@@ -13,14 +13,14 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_NamedObject
+ \fn NamedObject
  \param name
 */
     SH_NamedObject(QString name);
     /*!
     \brief \~french 
 
-     \fn SH_toString
+     \fn toString
      \return QString
     */
     virtual QString toString();
@@ -28,14 +28,14 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_name
+     \fn name
      \return QString
     */
     virtual QString name() const;
     /*!
     \brief \~french 
 
-     \fn SH_setName
+     \fn setName
      \param name
     */
     virtual void setName(const QString &name);
@@ -43,7 +43,7 @@ public:
     /*!
     \brief \~french 
 
-     \fn SH_ptraddress
+     \fn ptraddress
      \return QString
     */
     QString ptraddress() const;

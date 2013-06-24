@@ -14,7 +14,7 @@ public:
 /*!
 \brief \~french 
 
- \fn SH_ValidationState
+ \fn ValidationState
  \param output
  \param name
  \param parent

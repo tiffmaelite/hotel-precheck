@@ -78,5 +78,4 @@ DestinationPtr DestinationFactory::MakeDebugOutputDestination()
     return DestinationPtr(new DebugOutputDestination);
 }
 
-} /* end namespace
-*/
+} /* end namespace*/

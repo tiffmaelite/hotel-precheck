@@ -10,10 +10,10 @@ class SH_FileSelectionState : public SH_InOutState
 public:
 /*!
 \brief \~french 
- \fn SH_FileSelectionState TODO comment this
- \param output TODO comment this
- \param name TODO comment this
- \param parent TODO comment this
+ \fn FileSelectionState 
+ \param output 
+ \param name 
+ \param parent 
 */
     SH_FileSelectionState(QString output, QString name, QState *parent = 0);
 

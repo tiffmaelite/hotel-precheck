@@ -20,7 +20,7 @@ class SH_GroupsTableModel : public SH_ExtendedProxyModel
 /*!
 \brief \~french 
 
- \fn SH_GroupsTableModel
+ \fn GroupsTableModel
  \param parent
 */
         SH_GroupsTableModel(QObject *parent = 0);
@@ -32,7 +32,7 @@ class SH_GroupsTableModel : public SH_ExtendedProxyModel
         /*!
         \brief \~french 
 
-         \fn SH_fillModel
+         \fn fillModel
         */
         void fillModel();
 };

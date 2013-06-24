@@ -10,7 +10,7 @@
  * \details \~french SH_ServiceCharging::SH_ServiceCharging
  */
 SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
-    Sh_LoopingInOutStateMachine("CHARGEDSERVICES",name, 0, parent), m_priceMin(0.0)
+    SH_LoopingInOutStateMachine("CHARGEDSERVICES",name, 0, parent), m_priceMin(0.0)
 {
     SH_DatabaseContentQuestionState* service = new SH_DatabaseContentQuestionState("Veuillez sélectionner une prestation ou appuyer sur la touche \"VALIDER\" pour cesser d'ajouter des prestations", "choose service in service charging","SERVICES","CODE");
     SH_InOutState*serviceId = new SH_InOutState("","service id in service charging");
@@ -25,7 +25,7 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     connect(service, &SH_QuestionState::answerInvalid, [=]() {
         int in = service->rawInput().toInt();
         if(in == -1 || in == 0) {
-            emit service->next();
+            emit service->goNext();
         }
     });
     connect(service, &SH_QuestionState::answerValid, [=]() {
@@ -85,5 +85,5 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     this->addChildrenNextTransition(price, vat);
     this->addChildrenNextTransition(vat, final);
     this->setInitialState(service);
-    connect(this, &SH_InOutStateMachine::validateInput, this, &Sh_LoopingInOutStateMachine::stopLooping);
+    connect(this, &SH_InOutStateMachine::validateInput, this, &SH_LoopingInOutStateMachine::stopLooping);
 }

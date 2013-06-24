@@ -31,13 +31,13 @@ TabView {
     }
     onNewBilling: {
         console.log("launch new billings thread ?");
-        SH_App.launchBillingsThread();
+        App.launchBillingsThread();
     }
     onNewBooking: {
-        SH_App.launchBookingsThread();
+        App.launchBookingsThread();
     }
     onNewSelling: {
-        SH_App.launchBillThread();
+        App.launchBillThread();
     }
 
 
@@ -68,24 +68,24 @@ TabView {
         for(var i = 1; i < nbTabs; i++) {
             tabView.removeTab(i)
         }
-        switch(SH_App.currentMode) {
-        case SH_AppMode.RECEPTION:
+        switch(App.currentMode) {
+        case AppMode.RECEPTION:
             tabView.addTab(qsTr("Prestations"), servicesTab);
             tabView.addTab(qsTr("Chambres"), roomsTab);
             tabView.addTab(qsTr("Facturations"), billingsTab);
             tabView.addTab(qsTr("Réservations"), bookingsTab);
             /*tabView.addTab(qsTr("Offres"), offersTab);*/
             break;
-        case SH_AppMode.MANAGEMENT_Z:
+        case AppMode.MANAGEMENT_Z:
             /*tabView.addTab(qsTr("Clôtures"), accountsTab);*/
-        case SH_AppMode.MANAGEMENT_X:
+        case AppMode.MANAGEMENT_X:
             /*tabView.addTab(qsTr("Prestations"), servicesEditTab);*/
             tabView.addTab(qsTr("Chambres"), roomsEditTab);
             /*tabView.addTab(qsTr("Clients privés"), clientsEditTab);*/
             /*tabView.addTab(qsTr("Groupes"), groupsEditTab);*/
             /*tabView.addTab(qsTr("Rapports"), reportsTab);*/
             break;
-        case SH_AppMode.ADMINISTRATION :
+        case AppMode.ADMINISTRATION :
             /*tabView.addTab(qsTr("Paramètres"), settingsTab);*/
             /*tabView.addTab(qsTr("Utilisateurs"), usersTab);*/
             /*tabView.addTab(qsTr("Design"), skinTab);*/

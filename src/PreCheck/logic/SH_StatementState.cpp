@@ -34,5 +34,5 @@ void SH_StatementState::onEntry(QEvent *event)
 {
     SH_GenericState::onEntry(event);
     display(true);
-    emit next();
+    emit goNext();
 }

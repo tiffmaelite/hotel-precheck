@@ -25,10 +25,10 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     SH_ClientCreationStateMachine* clientCreation = new SH_ClientCreationStateMachine("main client creation in billing creation");
     SH_NumericQuestionState* nbRooms = new SH_NumericQuestionState("Veuillez entrer le nombre de chambres", "nb rooms billing creation", 1);
     /*DatabaseContentQuestionState* type = new DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "CODE");*/
-        SH_DatabaseContentQuestionState* type = new SH_DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "ID");
-    Sh_LoopingInOutStateMachine* roomsAffectation = new Sh_LoopingInOutStateMachine("ROOMSOCCUPATION", "rooms affectation billing creation");
-    Sh_LoopingInOutStateMachine* billsCreation = new Sh_LoopingInOutStateMachine("BILLS", "bills creation billing creation");
-    Sh_LoopingInOutStateMachine* clientList = new Sh_LoopingInOutStateMachine("CLIENTS", "bills creation billing creation");
+    SH_DatabaseContentQuestionState* type = new SH_DatabaseContentQuestionState("Veuillez choisir le type de facturation","billing type billing creation", "BILLINGSTYPES", "ID");
+    SH_LoopingInOutStateMachine* roomsAffectation = new SH_LoopingInOutStateMachine("ROOMSOCCUPATION", "rooms affectation billing creation");
+    SH_LoopingInOutStateMachine* billsCreation = new SH_LoopingInOutStateMachine("BILLS", "bills creation billing creation");
+    SH_LoopingInOutStateMachine* clientList = new SH_LoopingInOutStateMachine("CLIENTS", "bills creation billing creation");
     SH_ConfirmationState* confirmPart1 = new SH_ConfirmationState("Veuillez appuyer sur la touche \"CONFIRMER\" pour passer à l'étape suivante", "confirm part 1");
     SH_AdaptDatabaseState* saveState = new SH_AdaptDatabaseState("enregistrement de la machine "+toString());
     SH_ConfirmationState* confirmAll = new SH_ConfirmationState("Veuillez appuyer sur la touche \"CONFIRMER\" pour passer à l'étape suivante", "confirm all");
@@ -70,14 +70,14 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     SH_ClientCreationStateMachine* supplClientCreation = new SH_ClientCreationStateMachine("other client creation in billing creation");
     connect(clientList, &SH_InOutStateMachine::confirmInput, [=]() {
         clientList->stopLooping();
-        supplClient->next();
+        emit supplClient->goNext();
     });
     QFinalState* finalClients = new QFinalState();
     clientList->addChildrenNextTransition(supplClient, finalClients);
     connect(supplClient, &SH_QuestionState::answerInvalid, [=]() {
         supplClientCreation->setContentValue(supplClient->givenAnswer(), "NAME");
         supplClient->addTransition(supplClient, SIGNAL(next()), supplClientCreation);
-        emit supplClient->next();
+        emit supplClient->goNext();
     });
     clientList->addChildrenNextTransition(supplClientCreation, finalClients);
     clientList->addState(finalClients);
@@ -100,7 +100,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
         }
 
         this->setContentValue(QVariant(billType), "BILLTYPE_ID");
-        emit bills->next();
+        emit bills->goNext();
     });
     billsCreation->addChildrenNextTransition(bills, finalBills);
     billsCreation->addState(finalBills);
@@ -119,19 +119,15 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     connect(client, &SH_QuestionState::answerInvalid, [=]() {
         clientCreation->setContentValue(client->givenAnswer(),"NAME");
         client->addTransition(client, SIGNAL(next()), clientCreation);
-        emit client->next();
+        emit client->goNext();
     });
     this->addChildrenNextTransition(clientCreation, nbRooms);
     this->addChildrenNextTransition(nbRooms, type);
-    /*this->addChildrenNextTransition(type, final);*/
-    this->addChildrenNextTransition(type, confirmPart1);
-    confirmPart1->addTransition(confirmPart1, SIGNAL(next()), confirmPart1);
+    confirmPart1->addTransition(confirmPart1, SIGNAL(next()), saveState);
     connect(confirmPart1, &SH_GenericState::exited, [=]() {
-        connect(saveState, &SH_GenericState::entered, [=]() {
-            setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
-        });
+        setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
     });
-    saveState->addTransition(saveState, SIGNAL(next()),confirmAll);
+    this->addChildrenNextTransition(type, confirmPart1);
     saveState->addTransition(saveState, SIGNAL(next()),roomsAffectation);
     this->addChildrenNextTransition(roomsAffectation, billsCreation);
     this->addChildrenNextTransition(billsCreation, clientList);
@@ -151,6 +147,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     this->addIOStateMachine(billsCreation);
     this->addIOStateMachine(roomsAffectation);
     this->addIOStateMachine(clientList);
+    this->addState(saveState);
     this->addState(final);
 
     this->setInitialState(intro);

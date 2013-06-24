@@ -2,7 +2,7 @@
 
 /*!
  \details \~french
- \fn SH_RegExQuestionState::RegExQuestionState TODO comment this
+ \fn SH_RegExQuestionState::RegExQuestionState 
 
 */
 SH_RegExpQuestionState::SH_RegExpQuestionState(QString question, QString name, QRegularExpression regex, QState *parent) :
@@ -12,7 +12,7 @@ SH_RegExpQuestionState::SH_RegExpQuestionState(QString question, QString name, Q
 
 /*!
  \details \~french
- \fn SH_RegExQuestionState::isAnswerValid TODO comment this
+ \fn SH_RegExQuestionState::isAnswerValid 
 
 */
 bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
@@ -25,7 +25,7 @@ bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
 
 /*!
  \details \~french
- \fn SH_RegExQuestionState::regexp TODO comment this
+ \fn SH_RegExQuestionState::regexp 
 
 */
 QRegularExpression SH_RegExpQuestionState::regexp() const
@@ -35,7 +35,7 @@ QRegularExpression SH_RegExpQuestionState::regexp() const
 
 /*!
  \details \~french
- \fn SH_RegExQuestionState::setRegexp TODO comment this
+ \fn SH_RegExQuestionState::setRegexp 
 
 */
 void SH_RegExpQuestionState::setRegexp(const QRegularExpression &regexp)

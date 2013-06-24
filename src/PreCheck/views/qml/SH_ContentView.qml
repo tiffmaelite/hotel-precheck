@@ -13,7 +13,7 @@ GridLayout {
     columns: 5
     columnSpacing: 1
     rowSpacing: 1
-    property string SH_DataDelegate
+    property string dataDelegate
     property string emptyDelegate
     property string sectionDelegate
     property variant activeFilterIndicatorIndexes
@@ -329,7 +329,7 @@ GridLayout {
 
             Loader {
                 id:contentLoader
-                source: dataView.SH_DataDelegate
+                source: dataView.dataDelegate
                 Binding {
                     target: contentLoader.item
                     property: "width"

@@ -20,7 +20,7 @@ class SH_ClientsTableModel : public SH_ExtendedProxyModel
 /*!
 \brief \~french 
 
- \fn SH_ClientsTableModel
+ \fn ClientsTableModel
  \param parent
 */
         SH_ClientsTableModel(QObject *parent = 0);
@@ -32,7 +32,7 @@ class SH_ClientsTableModel : public SH_ExtendedProxyModel
         /*!
         \brief \~french 
 
-         \fn SH_fillModel
+         \fn fillModel
         */
         void fillModel();
 };
