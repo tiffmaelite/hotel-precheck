@@ -216,7 +216,7 @@ int main(int argc, char **argv)
         QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
         QObject::connect(appManager, SIGNAL(displayFileDialog()), commonPage, SLOT(displayFileDialog()), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(displayChoiceList(QVariantList)), commonPage, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
 
         window->show();

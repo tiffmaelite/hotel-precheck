@@ -43,14 +43,13 @@ Debug:DEFINES*=DEBUG
 #VERSION
 
 include(PreCheck.pri)
-#include(../../libs/QsLog_2.0.b1/QsLog.pri)
-include(../../libs/tgrinwis-QsLog/QsLog/QsLog.pri)
+#include(../../libs/tgrinwis-QsLog/QsLog/QsLog.pri)
 include(../../libs/razvanpetruQs/QsLog/QsLog.pri)
 include(../../libs/QtSignalsTools.pri)
 include(../../libs/QsTools.pri)
 include(../../libs/QsWidgets.pri)
 include(../../libs/QtSignalGuard.pri)
-include(../../libs/QtTestUtils.pri)
+#include(../../libs/QtTestUtils.pri)
 
 
 OTHER_FILES *= \

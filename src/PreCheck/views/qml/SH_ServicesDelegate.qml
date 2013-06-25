@@ -9,8 +9,10 @@ import PreCheck 1.0
   @class
   */
 SH_DataDelegate {
+    id: service
     value: ID
     text: SERVICENAME
-    /*visible: (ISAVAILABLE == 1)*/
-    /*enabled: (ROOMNEEDED == 1)*/
+    visible: (ISAVAILABLE == 1)
+    property bool enableRoomNeeded: (App.billOpened() > 0)
+    enabled: ((ROOMNEEDED == 0) || service.enableRoomNeeded)
 }

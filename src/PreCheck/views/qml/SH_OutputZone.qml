@@ -25,6 +25,15 @@ Rectangle {
     signal displayNew(string text, bool editable)
     signal replace(string text)
     signal selected(string selectedItem)
+    signal selectedForDetail(var sqlDatas)
+
+    onSelectedForDetail: {
+        if(output.lastVisibleRow < 0) {
+            output.lastVisibleRow = 0;
+        }
+        rep.itemAt(output.lastVisibleRow).model = sqlDatas;
+        rep.itemAt(output.lastVisibleRow).state="detail";
+    }
 
     onReplace: {
         if(output.lastVisibleRow > -1) {
@@ -94,32 +103,25 @@ Rectangle {
       @fn
       @param
       @return
-
       @brief
       @details
       */
     function displayCalendar() {
+        if(output.lastVisibleRow < 0) {
+            output.lastVisibleRow = 0;
+        }
         /*TODO*/
     }
 
-    signal displaySqlDatas(var sqlData);
+    signal displaySqlDatas(variant sqlData);
     onDisplaySqlDatas: {
+        if(output.lastVisibleRow < 0) {
+            output.lastVisibleRow = 0;
+        }
         rep.itemAt(output.lastVisibleRow).model = sqlData;
         rep.itemAt(output.lastVisibleRow).state="choices";
     }
-    /**
-      @fn
-      @param
-      @return
 
-      @brief
-      @details
-      */
-    function displaySqlDetail(sqlData) {
-        rep.itemAt(output.lastVisibleRow).model = sqlData;
-        rep.itemAt(output.lastVisibleRow).state="detail";
-        /*console.log(table+" "+row);*/
-    }
 
     ColumnLayout {
         id:layout
@@ -270,7 +272,7 @@ Rectangle {
                     TextEdit {
                         id: defaultContent
                         readOnly:  !row.editable
-                        wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere;
+                        wrapMode: TextEdit.Wrap;
                         Layout.fillHeight: true
                         Layout.fillWidth: true
                         font.pointSize: 12
@@ -282,7 +284,7 @@ Rectangle {
                         Layout.fillHeight: true
                         Layout.fillWidth: true
                     }
-                    SH_SqlTableView {
+                    TableView {
                         id: detailedContent
                         model: 0
                         Layout.fillHeight: true

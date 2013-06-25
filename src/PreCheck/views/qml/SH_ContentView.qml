@@ -20,6 +20,10 @@ GridLayout {
     property alias sectionIndex : repeater.sectionIndex
     property alias model: repeater.model
     signal selected(string selectedItem)
+    Component.onCompleted: {
+        dataView.model.fetch();
+    }
+
     /**
       @fn
       @param

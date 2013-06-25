@@ -25,7 +25,7 @@ CREATE SEQUENCE SEQ_USERS_ID;
  begin
  if ((new.ID is null) or (new.ID = 0)) then
  begin
- new.id = gen_id(SEQ_USERS_ID,1);
+ new.id = NEXT VALUE FOR SEQ_USERS_ID;
  end
  end!!
  SET TERM ; !!

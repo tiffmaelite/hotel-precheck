@@ -22,7 +22,7 @@ AS
 BEGIN
 IF ((new.ID IS NULL) OR (new.ID = 0)) THEN
 BEGIN
-new.id = gen_id(SEQ_BILLS_ID,1);
+new.id = NEXT VALUE FOR SEQ_BILLS_ID;
 END
 END!!
 SET TERM ; !!

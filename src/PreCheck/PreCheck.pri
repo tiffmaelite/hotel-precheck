@@ -63,7 +63,6 @@ SOURCES *= \
 	models/SH_BillsTableModel.cpp \
 	models/SH_BookingsTableModel.cpp \
 	models/SH_ClientsTableModel.cpp \
-	models/SH_ExtendedProxyModel.cpp \
 	models/SH_Company.cpp \
 	models/SH_RoomsTableModel.cpp \
 	models/SH_GroupsTableModel.cpp \
@@ -95,7 +94,8 @@ SOURCES *= \
 	logic/SH_StatementState.cpp \
 	logic/SH_ValidationState.cpp \
 	logic/SH_GenericDebugableStateMachine.cpp \
-    models/SH_VATTableModel.cpp
+    models/SH_VATTableModel.cpp \
+    models/SH_ExtendedSqlProxyModel.cpp
 
 # QML-files as a ressource
 RESOURCES *= \

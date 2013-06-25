@@ -15,12 +15,12 @@
 class SH_ExtendedProxyModel : public QSortFilterProxyModel
 {
 
-	Q_OBJECT
-	Q_PROPERTY(QString table READ tableName)
-	Q_PROPERTY(QString fieldsList READ fields)
-	Q_PROPERTY(QString lastError READ lastError)
-	Q_PROPERTY(int sortKeyColumn READ currentSortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged)
-	Q_PROPERTY(bool empty READ isEmpty)
+    Q_OBJECT
+    Q_PROPERTY(QString table READ tableName)
+    Q_PROPERTY(QString fieldsList READ fields)
+    Q_PROPERTY(QString lastError READ lastError)
+    Q_PROPERTY(int sortKeyColumn READ currentSortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged)
+    Q_PROPERTY(bool empty READ isEmpty)
 
 public:
 /*!
@@ -29,291 +29,291 @@ public:
  \fn CheckableSortFilterProxyModel
  \param parent
 */
-	SH_ExtendedProxyModel(QObject *parent = 0);
+    SH_ExtendedProxyModel(QObject *parent = 0);
 
-	
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn currentSortKeyColumn
-	\return const int
-	*/
-	int currentSortKeyColumn() const {return this->sortIndex;}
-	
+    \fn currentSortKeyColumn
+    \return const int
+    */
+    int currentSortKeyColumn() const {return this->sortIndex;}
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn tableName
-	\return const QString
-	*/
-	const QString tableName() const { return this->model->tableName(); }
-	
+    \fn tableName
+    \return const QString
+    */
+    const QString tableName() const { return this->model->tableName(); }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn fields
-	\return const QString
-	*/
-	const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
-	
+    \fn fields
+    \return const QString
+    */
+    const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn lastError
-	\return const QString
-	*/
-	const QString lastError() const { return this->model->lastError(); }
-	
+    \fn lastError
+    \return const QString
+    */
+    const QString lastError() const { return this->model->lastError(); }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn isEmpty
-	\return const bool
-	*/
-	bool isEmpty() const { return this->model->isEmpty(); }
-	
+    \fn isEmpty
+    \return const bool
+    */
+    bool isEmpty() const { return this->model->isEmpty(); }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setSortKeyColumn
-	\param column
-	*/
-	void setSortKeyColumn(int column);
+    \fn setSortKeyColumn
+    \param column
+    */
+    void setSortKeyColumn(int column);
 
-	
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn field
-	\param i
-	\return SqlDataFields
-	*/
-	Q_INVOKABLE SH_SqlDataFields *field(int i) const { return this->model->field(i); }
-	
+    \fn field
+    \param i
+    \return SqlDataFields
+    */
+    Q_INVOKABLE SH_SqlDataFields *field(int i) const { return this->model->field(i); }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn fieldsCount
-	\return int
-	*/
-	Q_INVOKABLE int fieldsCount() const { return this->model->fieldsCount(); }
-	
+    \fn fieldsCount
+    \return int
+    */
+    Q_INVOKABLE int fieldsCount() const { return this->model->fieldsCount(); }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn fetch
-	\param tableName
-	\param filter
-	\param sort
-	\param fields
-	\return bool
-	*/
-	Q_INVOKABLE bool fetch(QString tableName = "", QString filter = "", QString sort = "", QStringList fields = QStringList());
-	
+    \fn fetch
+    \param tableName
+    \param filter
+    \param sort
+    \param fields
+    \return bool
+    */
+    Q_INVOKABLE bool fetch(QString tableName = "", QString filter = "", QString sort = "", QStringList fields = QStringList());
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn sort
-	\param column
-	\param newOrder
-	*/
-	Q_INVOKABLE void sort(int column, Qt::SortOrder newOrder = Qt::AscendingOrder);
-	
+    \fn sort
+    \param column
+    \param newOrder
+    */
+    Q_INVOKABLE void sort(int column, Qt::SortOrder newOrder = Qt::AscendingOrder);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn addFilterKeyColumn
-	\param column
-	*/
-	Q_INVOKABLE void addFilterKeyColumn(int column);
-	
+    \fn addFilterKeyColumn
+    \param column
+    */
+    Q_INVOKABLE void addFilterKeyColumn(int column);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn removeFilterKeyColumn
-	\param column
-	*/
-	Q_INVOKABLE void removeFilterKeyColumn(int column);
-	
+    \fn removeFilterKeyColumn
+    \param column
+    */
+    Q_INVOKABLE void removeFilterKeyColumn(int column);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn containsFilterKeyColumn
-	\param column
-	\return bool
-	*/
-	Q_INVOKABLE bool containsFilterKeyColumn(int column);
-	
+    \fn containsFilterKeyColumn
+    \param column
+    \return bool
+    */
+    Q_INVOKABLE bool containsFilterKeyColumn(int column);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn data
-	\param row
-	\param column
-	\return QVariant
-	*/
-	Q_INVOKABLE QVariant data(int row, int column) const;
-	
+    \fn data
+    \param row
+    \param column
+    \return QVariant
+    */
+    Q_INVOKABLE QVariant data(int row, int column = -1) const;
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn data
-	\param index
-	\param role
-	\return QVariant
-	*/
-	Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-	
+    \fn data
+    \param index
+    \param role
+    \return QVariant
+    */
+    Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setData
-	\param index
-	\param value
-	\param role
-	\return bool
-	*/
-	Q_INVOKABLE bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
-	
+    \fn setData
+    \param index
+    \param value
+    \param role
+    \return bool
+    */
+    Q_INVOKABLE bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn roleNames
-	\return QHash<int, QByteArray>
-	*/
-	Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->model->roleNames(); }
-	
+    \fn roleNames
+    \return QHash<int, QByteArray>
+    */
+    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->model->roleNames(); }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn flags
-	\param index
-	\return Qt::ItemFlags
-	*/
-	Q_INVOKABLE Qt::ItemFlags flags(const QModelIndex &index) const;
+    \fn flags
+    \param index
+    \return Qt::ItemFlags
+    */
+    Q_INVOKABLE Qt::ItemFlags flags(const QModelIndex &index) const;
 
-	
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn invalidateFilter
-	*/
-	void invalidateFilter();
-	
+    \fn invalidateFilter
+    */
+    void invalidateFilter();
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setBooleanColumns
-	\param boolCols
-	*/
-	void setBooleanColumns(QList<int> boolCols);
-	
+    \fn setBooleanColumns
+    \param boolCols
+    */
+    void setBooleanColumns(QList<int> boolCols);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setReadOnlyColumns
-	\param readonlyCols
-	*/
-	void setReadOnlyColumns(QList<int> readonlyCols);
-	
+    \fn setReadOnlyColumns
+    \param readonlyCols
+    */
+    void setReadOnlyColumns(QList<int> readonlyCols);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setPasswordColumns
-	\param passwordCols
-	*/
-	void setPasswordColumns(QList<int> passwordCols);
-	
+    \fn setPasswordColumns
+    \param passwordCols
+    */
+    void setPasswordColumns(QList<int> passwordCols);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setNullColumns
-	\param nullCols
-	*/
-	void setNullColumns(QList<int> nullCols);
-	
+    \fn setNullColumns
+    \param nullCols
+    */
+    void setNullColumns(QList<int> nullCols);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setNotNullColumns
-	\param notNullCols
-	*/
-	void setNotNullColumns(QList<int> notNullCols);
+    \fn setNotNullColumns
+    \param notNullCols
+    */
+    void setNotNullColumns(QList<int> notNullCols);
 
 signals:
-	
-/*!
-	\brief \~french
 
-	\fn sortChanged
-	*/
-	void sortChanged();
+/*!
+    \brief \~french
+
+    \fn sortChanged
+    */
+    void sortChanged();
 
 protected:
-	
-/*!
-	\brief \~french
 
-	\fn fillModel
-	*/
-	virtual void fillModel() = 0;
-	
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn filterAcceptsRow
-	\param source_row
-	\param source_parent
-	\return bool
-	*/
-	bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
-	SH_SqlDataModel *model;
+    \fn fillModel
+    */
+    virtual void fillModel() = 0;
+
+/*!
+    \brief \~french
+
+    \fn filterAcceptsRow
+    \param source_row
+    \param source_parent
+    \return bool
+    */
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+    SH_SqlDataModel *model;
 
 private:
-	
-/*!
-	\brief \~french
 
-	\fn replaceSet
-	\param originalSet
-	\param newSet
-	*/
-	void replaceSet(QList<int>& originalSet, QList<int> newSet);
-	
 /*!
-	*\brief \~french booleanSet
-	*/
-	QList<int> booleanSet;
-	
+    \brief \~french
+
+    \fn replaceSet
+    \param originalSet
+    \param newSet
+    */
+    void replaceSet(QList<int>& originalSet, QList<int> newSet);
+
 /*!
-	*\brief \~french passwordSet
-	*/
-	QList<int> passwordSet;
-	
+    *\brief \~french booleanSet
+    */
+    QList<int> booleanSet;
+
 /*!
-	*\brief \~french readonlySet
-	*/
-	QList<int> readonlySet;
-	
+    *\brief \~french passwordSet
+    */
+    QList<int> passwordSet;
+
 /*!
-	*\brief \~french notNullSet
-	*/
-	QList<int> notNullSet;
-	
+    *\brief \~french readonlySet
+    */
+    QList<int> readonlySet;
+
 /*!
-	*\brief \~french nullSet
-	*/
-	QList<int> nullSet;
-	
+    *\brief \~french notNullSet
+    */
+    QList<int> notNullSet;
+
 /*!
-	*\brief \~french filters
-	*/
-	QList<int> filters;
-	
+    *\brief \~french nullSet
+    */
+    QList<int> nullSet;
+
 /*!
-	*\brief \~french sortIndex
-	*/
-	int sortIndex;
+    *\brief \~french filters
+    */
+    QList<int> filters;
+
+/*!
+    *\brief \~french sortIndex
+    */
+    int sortIndex;
 };
 /*}*/
 #endif

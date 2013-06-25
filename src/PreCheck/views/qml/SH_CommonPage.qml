@@ -132,7 +132,7 @@ Item {
                 commonPage.keySelected(selectedItem);
             }
             onSelectedForDetail: {
-                rightOutput.displaySqlDetail(data);
+                rightOutput.selectedForDetail(datas.data(row));
             }
         }
         ColumnLayout {
@@ -147,10 +147,15 @@ Item {
                 onSelected: {
                     commonPage.keySelected(selectedItem);
                 }
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Component.onCompleted: {
+                    model.fetch();
+                }
             }
             SH_Keyboard{
                 id: keys
-                columns: 4
+                columns: 5
                 actionsList: [
                     abandonAction, cancelAction, eraseAction, replaceAction, backAction,
                     leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
@@ -160,12 +165,14 @@ Item {
                     escapeAction, enterAction, confirmAction, quitAction, helpAction
                 ]
                 enabled:true
-                Layout.alignment: Qt.AlignBottom
-                Layout.minimumWidth: main.width/2-main.columnSpacing
-                Layout.minimumHeight: main.height/2-main.rowSpacing
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
+            Layout.alignment: Qt.AlignBottom
+            Layout.minimumWidth: main.width/2-main.columnSpacing
+            Layout.minimumHeight: main.height/2-main.rowSpacing
+            Layout.fillWidth: true
+            Layout.fillHeight: true
         }
         /*la zone d'affichage remplit toute la moitié de droite*/
         SH_OutputZone {
@@ -204,7 +211,12 @@ Item {
         id: replaceAction
         text: qsTr("VENDRE")
         keyShortcut: Qt.Key_unknown
-        onTriggered: tabs.newSelling()
+        enabled: (App.currentMode == AppMode.RECEPTION)
+        onTriggered: {
+            if(App.currentMode == AppMode.RECEPTION) {
+                tabs.newSelling()
+            }
+        }
     }
     SH_ComplexAction {
         id: backAction
@@ -217,35 +229,35 @@ Item {
         id: leavingRoomAction
         text: qsTr("LIBÉRER")
         keyShortcut: Qt.Key_unknown
-
-        /*onTriggered: *//*TODO*/
+        enabled: (App.currentMode == AppMode.RECEPTION)
+        onTriggered: {
+            if(App.currentMode == AppMode.RECEPTION) {
+                /*TODO*/
+            }
+        }
     }
     SH_ComplexAction {
         id: digit7Action
         text: qsTr("7")
         keyShortcut: Qt.Key_7
-
         onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit8Action
         text: qsTr("8")
         keyShortcut: Qt.Key_8
-
         onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: digit9Action
         text: qsTr("9")
         keyShortcut: Qt.Key_9
-
         onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
         id: plusAction
         text: qsTr("+")
         keyShortcut: Qt.Key_Plus
-
         onTriggered: commonPage.keySelected(text);
     }
 
@@ -253,7 +265,12 @@ Item {
         id: arrivingAction
         text: qsTr("ARRIVÉE")
         keyShortcut: Qt.Key_unknown
-        onTriggered: tabs.newBilling();
+        enabled: (App.currentMode == AppMode.RECEPTION)
+        onTriggered: {
+            if(App.currentMode == AppMode.RECEPTION) {
+                tabs.newBilling();
+            }
+        }
     }
     SH_ComplexAction {
         id: digit4Action

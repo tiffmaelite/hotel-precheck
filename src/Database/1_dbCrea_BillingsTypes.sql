@@ -21,7 +21,7 @@ CREATE SEQUENCE SEQ_BILLINGSTYPES_ID;
  begin
  if ((new.ID is null) or (new.ID = 0)) then
  begin
- new.id = gen_id(SEQ_BILLINGSTYPES_ID,1);
+ new.id = NEXT VALUE FOR SEQ_BILLINGSTYPES_ID;
  end
  end!!
  SET TERM ; !!

@@ -32,7 +32,7 @@ CREATE SEQUENCE SEQ_BOOKINGS_ID;
  begin
  if ((new.ID is null) or (new.ID = 0)) then
  begin
- new.id = gen_id(SEQ_BOOKINGS_ID,1);
+ new.id = NEXT VALUE FOR SEQ_BOOKINGS_ID;
  end
  end!!
  SET TERM ; !!

@@ -12,6 +12,7 @@ TableView {
     id: table
     model: 0
     signal selected(string selectedItem)
+    signal selectedRow(int selectedData)
     Component.onCompleted:{
         if(table.model !== 0) {
             table.model.fetch();
@@ -26,19 +27,70 @@ TableView {
         }
     }
 
+    headerDelegate:
+        Rectangle {
+        color: "white"
+        //border.color: "black"
+        border.width: 0
+        gradient: Gradient {
+            GradientStop {
+                position: 0.00;
+                color: "white";
+            }
+            GradientStop {
+                position: 0.8;
+                color: "lightgray";
+            }
+            GradientStop {
+                position: 1;
+                color: "darkgray";
+            }
+        }
+        width: headerText.width
+        height: 1.5*headerText.height
+        Label {
+            id:headerText
+            text: styleData.value !== undefined ? styleData.value : ""
+            font.bold: true
+            font.pointSize: 10
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            maximumLineCount: 2
+            anchors.centerIn: parent
+            style: Text.Sunken
+            styleColor: "gray"
+            renderType: Text.NativeRendering
+            wrapMode: Text.Wrap
+        }
+    }
 
     itemDelegate:
         Item {
-
+        id: cellDelegate
+        height: Math.max(16, label.implicitHeight)
+        property int implicitWidth: sizehint.paintedWidth + 16
         Text {
+            id: label
+            height: contentHeight
+            visible: !styleData.selected
             width: parent.width
-            anchors.margins: 4
+            anchors.leftMargin: 8
+            maximumLineCount: 3
             anchors.left: parent.left
+            anchors.right: parent.right
+            horizontalAlignment: styleData.textAlignment
             anchors.verticalCenter: parent.verticalCenter
             elide: styleData.elideMode
+            wrapMode: Text.Wrap
             text: styleData.value !== undefined ? styleData.value : ""
             color: styleData.textColor
-            visible: !styleData.selected
+            renderType: Text.NativeRendering
+        }
+        Text {
+            id: sizehint
+            font: label.font
+            text: styleData.value ? styleData.value : ""
+            visible: false
         }
         Loader { /* Initialize text input lazily to improve performance*/
             id: loaderEditor
@@ -47,8 +99,9 @@ TableView {
             Connections {
                 target: loaderEditor.item
                 onAccepted: {
-                    /*if (typeof styleData.value === 'number')*/
-                    table.selected(styleData.row);
+                    /*if (typeof styleData.value === 'NUMBER')*/
+                    table.selected(styleData.value);
+                    table.selectedRow(styleData.row)
                     model.setData(styleData.row, styleData.role, styleData.value);
                 }
             }
@@ -57,8 +110,9 @@ TableView {
                 id: editor
                 TextInput {
                     id: textinput
+                    wrapMode: Text.Wrap
+                    text: styleData.value !== undefined ? styleData.value : ""
                     color: styleData.textColor
-                    text: styleData.value
                     MouseArea {
                         id: mouseArea
                         anchors.fill: parent
@@ -72,7 +126,6 @@ TableView {
                             textinput.accepted();
                         }
                     }
-
                 }
             }
         }

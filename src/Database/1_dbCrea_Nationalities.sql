@@ -23,7 +23,7 @@ CREATE SEQUENCE SEQ_NATIONALITIES_ID;
  begin
  if ((new.ID is null) or (new.ID = 0)) then
  begin
- new.id = gen_id(SEQ_NATIONALITIES_ID,1);
+ new.id = NEXT VALUE FOR SEQ_NATIONALITIES_ID;
  end
  end!!
  SET TERM ; !!

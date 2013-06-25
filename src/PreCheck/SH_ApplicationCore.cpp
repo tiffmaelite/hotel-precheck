@@ -191,10 +191,19 @@ bool SH_ApplicationCore::launchStateMachine()
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayChoiceList, this, &SH_ApplicationCore::displayChoiceList, Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list) {this->displayChoiceList(QVariant(list));});
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayFileDialog, this, &SH_ApplicationCore::displayFileDialog, Qt::DirectConnection);
     emit clearAll();
     this->m_currentFSM->start();
     return this->m_currentFSM->isRunning();
 }
+
+int SH_ApplicationCore::billOpened() {
+    SH_ServiceCharging* smachine = qobject_cast<SH_ServiceCharging*>(this->m_currentFSM);
+    if(smachine) {
+        return smachine->getContentValue("ID").toInt();
+    }
+    return -1;
+}
+
 /*}*/

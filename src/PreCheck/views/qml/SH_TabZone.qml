@@ -12,7 +12,7 @@ TabView {
     id: tabView
     currentIndex: 0
     signal selected(string selectedItem)
-    signal selectedForDetail(var data)
+    signal selectedForDetail(var datas, int row)
     property var stdKeyboard: []
     signal reload()
     signal newBilling()
@@ -30,7 +30,6 @@ TabView {
         tabView.currentIndex = tabIndex;
     }
     onNewBilling: {
-        console.log("launch new billings thread ?");
         App.launchBillingCreation();
     }
     onNewBooking: {
@@ -73,17 +72,17 @@ TabView {
             tabView.addTab(qsTr("Prestations"), servicesTab);
             tabView.addTab(qsTr("Chambres"), roomsTab);
             tabView.addTab(qsTr("Facturations"), billingsTab);
-            tabView.addTab(qsTr("Réservations"), bookingsTab);
+            /*tabView.addTab(qsTr("Réservations"), bookingsTab);*/
             /*tabView.addTab(qsTr("Offres"), offersTab);*/
             break;
         case AppMode.MANAGEMENT_Z:
             /*tabView.addTab(qsTr("Clôtures"), accountsTab);*/
         case AppMode.MANAGEMENT_X:
-            /*tabView.addTab(qsTr("Prestations"), servicesEditTab);*/
+            tabView.addTab(qsTr("Prestations"), servicesEditTab);
             tabView.addTab(qsTr("Chambres"), roomsEditTab);
-            /*tabView.addTab(qsTr("Clients privés"), clientsEditTab);*/
-            /*tabView.addTab(qsTr("Groupes"), groupsEditTab);*/
-            /*tabView.addTab(qsTr("Rapports"), reportsTab);*/
+            tabView.addTab(qsTr("Clients privés"), clientsEditTab);
+            tabView.addTab(qsTr("Groupes"), groupsEditTab);
+            tabView.addTab(qsTr("Rapports"), reportsTab);
             break;
         case AppMode.ADMINISTRATION :
             /*tabView.addTab(qsTr("Paramètres"), settingsTab);*/
@@ -137,6 +136,7 @@ TabView {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     enabled: tabView.enabled
+                    columns: 6
                     filtersTitle: qsTr("Tri des prestations")
                     sqlModel: SH_ServicesModel { }
                     itemDelegate: "SH_ServicesDelegate.qml"
@@ -145,6 +145,16 @@ TabView {
                     onSelected: {
                         tabView.selected(selectedItem);
                     }
+                }
+            }
+        },
+        Component {
+            id: servicesEditTab
+            SH_SqlTableView {
+                id: servicesEditView
+                model: SH_ServicesModel { }
+                onSelectedRow: {
+                    tabView.selectedForDetail(servicesEditView.model, selectedData);
                 }
             }
         },
@@ -166,8 +176,8 @@ TabView {
             SH_SqlTableView {
                 id: roomsEditView
                 model: SH_RoomsModel { }
-                onSelected: {
-                    tabView.selectedForDetail(roomsEditView.model.table, selectedItem);
+                onSelectedRow: {
+                    tabView.selectedForDetail(roomsEditView.model, selectedData);
                 }
             }
         },
@@ -202,7 +212,39 @@ TabView {
                     tabView.newBooking();
                 }
             }
-        }
+        },
+        Component {
+            id: groupsEditTab
+            SH_SqlTableView {
+                id: groupsEditView
+                model: SH_GroupsModel { }
+                onSelectedRow: {
+                    tabView.selectedForDetail(groupsEditView.model, selectedData);
+                }
+            }
+        },
+        Component {
+            id: clientsEditTab
+            SH_SqlTableView {
+                id: clientsEditView
+                model: SH_ClientsModel { }
+                onSelectedRow: {
+                    tabView.selectedForDetail(clientsEditView.model, selectedData);
+                }
+            }
+        },
+        Component {
+            id: reportsTab
+            Rectangle {
 
+            }
+            /*SH_SqlTableView {
+                id: reportsEditView
+                model: SH_ServicesModel { }
+                onSelectedRow: {
+                    tabView.selectedForDetail(reportsEditView.model, selectedData);
+                }
+            }*/
+        }
     ]
 }

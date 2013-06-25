@@ -97,6 +97,7 @@ public:
     * \param mode Le nouveau mode de l'application
     */
     void setMode(AppMode mode);
+    int billOpened();
 public slots:
 
     /*!
@@ -237,7 +238,7 @@ signals:
     */
     void displayCalendar();
 
-    void displayChoiceList(QVariantList choices);
+    void displayChoiceList(QVariant choices);
 
     /*!
         * \brief \~french
