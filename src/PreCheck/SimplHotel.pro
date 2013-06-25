@@ -44,7 +44,7 @@ Debug:DEFINES*=DEBUG
 
 include(PreCheck.pri)
 include(../../libs/QsLog_2.0.b1/QsLog.pri)
-include(../../libs/qt-signal-tools/QtSignalsTools.pri)
+include(../../libs/QtSignalsTools.pri)
 
 
 OTHER_FILES *= \

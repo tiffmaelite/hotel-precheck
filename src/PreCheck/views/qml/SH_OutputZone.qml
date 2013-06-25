@@ -55,7 +55,14 @@ Rectangle {
       */
     function clear(row) {
         if(row <= output.lastVisibleRow) {
-            rep.itemAt(row).model = "";
+            if(rep.itemAt(row).model !== "") {
+                rep.itemAt(row).model = "";
+            } else {
+                if(row === output.lastVisibleRow) {
+                    output.lastVisibleRow = -1;
+                }
+                clear(row-1);
+            }
         }
     }
     /**
