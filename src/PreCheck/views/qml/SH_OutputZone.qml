@@ -14,6 +14,12 @@ Rectangle {
     color: "lightgrey"
     property int lastVisibleRow: -1
 
+    /*onLastVisibleRowChanged: {
+        if(output.lastVisibleRow < -1) {
+            output.lastVisibleRow = -1;
+        }
+    }*/
+
     signal display(string text)
     signal displayNewFixed(string text)
     signal displayNew(string text, bool editable)
@@ -21,19 +27,23 @@ Rectangle {
     signal selected(string selectedItem)
 
     onReplace: {
-        if(output.lastVisibleRow >= 0) {
+        if(output.lastVisibleRow > -1) {
             if(rep.itemAt(output.lastVisibleRow).model === "") {
                 output.lastVisibleRow = Math.max(0, output.lastVisibleRow-1);
             }
-
-            layout.changeTextDisplay(output.lastVisibleRow,text, rep.itemAt(output.lastVisibleRow).editable);
+            console.log(text);
+            if(text!=="") {
+                layout.changeTextDisplay(output.lastVisibleRow,text, rep.itemAt(output.lastVisibleRow).editable);
+            } else {
+                display(text);
+            }
         } else {
-            display(text);
+            displayNewFixed(text);
         }
     }
     onDisplay: layout.continueTextDisplay(output.lastVisibleRow,text);
     onDisplayNew: layout.changeTextDisplay(output.lastVisibleRow+1,text, editable);
-    onDisplayNewFixed: layout.changeTextDisplay(output.lastVisibleRow+1,text, false);
+    onDisplayNewFixed: output.displayNew(text, false);
 
     /**
       @fn
@@ -84,15 +94,9 @@ Rectangle {
     function displayCalendar() {
         /*TODO*/
     }
-    /**
-      @fn
-      @param
-      @return
 
-      @brief
-      @details
-      */
-    function displaySqlDatas(sqlData, sqlDelegate) {
+    signal displaySqlDatas(var sqlData);
+    onDisplaySqlDatas: {
         rep.itemAt(output.lastVisibleRow).model = sqlData;
         rep.itemAt(output.lastVisibleRow).state="choices";
     }
@@ -125,12 +129,19 @@ Rectangle {
           @details
           */
         function changeTextDisplay(row, text, editable) {
-            if(row < rep.count) {
-                if(row > output.lastVisibleRow) {
-                    output.lastVisibleRow=row;
+            if(text!=="") {
+                console.log("change text at "+row+" with "+text);
+                if(row < rep.count) {
+                    /*if(rep.itemAt(row-1).model === "") {
+                    row--;
+                }*/
+                    if(row > output.lastVisibleRow) {
+                        //output.lastVisibleRow = Math.max(0, row);
+                        output.lastVisibleRow = row;
+                    }
+                    rep.itemAt(row).editable = editable;
+                    rep.itemAt(row).model = text;
                 }
-                rep.itemAt(row).editable = editable;
-                rep.itemAt(row).model = text;
             }
         }
         /**
@@ -142,25 +153,28 @@ Rectangle {
           @details
           */
         function continueTextDisplay(row, text) {
-            console.log("continue display");
-            console.log(row)
-            console.log(text);
+            console.log("continue text at "+row+" with "+text);
             if(output.lastVisibleRow<0) {
                 output.lastVisibleRow=0;
             }
 
             if(row < 0) {
-                console.log("row > 0");
+                console.log("row < 0");
                 layout.changeTextDisplay(row+1, text, false);
-            } else if(row > output.lastVisibleRow) {
-                console.log("row > "+output.lastVisibleRow);
-                layout.changeTextDisplay(output.lastVisibleRow, text, false);
             } else {
-                console.log("row <= 0");
-                if(row >= rep.count) {
-                    row = rep.count-1;
+                /*if(rep.itemAt(row-1).model === "") {
+                    row--;
+                }*/
+                if(row > output.lastVisibleRow) {
+                    console.log("row > "+output.lastVisibleRow);
+                    layout.changeTextDisplay(output.lastVisibleRow, text, false);
+                } else {
+                    console.log("row <= 0");
+                    if(row >= rep.count) {
+                        row = rep.count-1;
+                    }
+                    rep.itemAt(row).model = rep.itemAt(row).model+text;
                 }
-                rep.itemAt(row).model = rep.itemAt(row).model+text;
             }
         }
 

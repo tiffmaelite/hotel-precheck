@@ -2,21 +2,22 @@
 #include <QDebug>
 #include "SH_ExtendedSqlProxyModel.h"
 #include "SH_MessageManager.h"
-
-
+/*namespace SimplHotel
+{*/
 /*!
  \details \~french
 
  \fn SH_CheckableSortFilterProxyModel::CheckableSortFilterProxyModel
 */
 SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
-    QSortFilterProxyModel(parent)
+	QSortFilterProxyModel(parent)
 {
-    this->setDynamicSortFilter(false);
-    this->model = new SH_SqlDataModel(parent);
-    this->setSourceModel(this->model);
-    this->sortIndex = 0;
-    /*connect(this->model, tableChanged(), tableName());*/
+	this->setDynamicSortFilter(false);
+	this->model = new SH_SqlDataModel(parent);
+	this->setSourceModel(this->model);
+	this->sortIndex = 0;
+	
+/*connect(this->model, tableChanged(), tableName());*/
 }
 
 /*!
@@ -25,12 +26,12 @@ SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
  \fn SH_CheckableSortFilterProxyModel::replaceSet
 */
 void SH_ExtendedProxyModel::replaceSet(QList<int>& originalSet, QList<int> newSet) {
-    originalSet.clear();
-    foreach(int col, newSet) {
-        if(!originalSet.contains(col)) {
-            originalSet.append(col);
-        }
-    }
+	originalSet.clear();
+	foreach(int col, newSet) {
+	if(!originalSet.contains(col)) {
+	originalSet.append(col);
+	}
+	}
 }
 
 /*!
@@ -39,7 +40,7 @@ void SH_ExtendedProxyModel::replaceSet(QList<int>& originalSet, QList<int> newSe
  \fn SH_CheckableSortFilterProxyModel::setBooleanColumns
 */
 void SH_ExtendedProxyModel::setBooleanColumns(QList<int> boolCols) {
-    replaceSet(this->booleanSet, boolCols);
+	replaceSet(this->booleanSet, boolCols);
 }
 
 /*!
@@ -48,7 +49,7 @@ void SH_ExtendedProxyModel::setBooleanColumns(QList<int> boolCols) {
  \fn SH_CheckableSortFilterProxyModel::setReadOnlyColumns
 */
 void SH_ExtendedProxyModel::setReadOnlyColumns(QList<int> readonlyCols) {
-    replaceSet(this->readonlySet, readonlyCols);
+	replaceSet(this->readonlySet, readonlyCols);
 }
 
 /*!
@@ -57,7 +58,7 @@ void SH_ExtendedProxyModel::setReadOnlyColumns(QList<int> readonlyCols) {
  \fn SH_CheckableSortFilterProxyModel::setPasswordColumns
 */
 void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
-    replaceSet(this->passwordSet, passwordCols);
+	replaceSet(this->passwordSet, passwordCols);
 }
 
 /*!
@@ -66,9 +67,9 @@ void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
  \fn SH_CheckableSortFilterProxyModel::setNullColumns
 */
 void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
-    if (sourceModel()->inherits("QSqlQueryModel")) {
-        replaceSet(this->nullSet, nullCols);
-    }
+	if (sourceModel()->inherits("QSqlQueryModel")) {
+	replaceSet(this->nullSet, nullCols);
+	}
 }
 
 /*!
@@ -78,9 +79,9 @@ void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
  \param notNullCols
 */
 void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
-    if (sourceModel()->inherits("QSqlQueryModel")) {
-        replaceSet(this->notNullSet, notNullCols);
-    }
+	if (sourceModel()->inherits("QSqlQueryModel")) {
+	replaceSet(this->notNullSet, notNullCols);
+	}
 }
 
 
@@ -91,32 +92,32 @@ void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
 */
 bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    Q_UNUSED(source_parent);
+	Q_UNUSED(source_parent);
 
-    if (!this->notNullSet.isEmpty())
-    {
-        QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
-        foreach(int column, this->notNullSet)
-        {
-            if (m->record(source_row).isNull(column))
-            {
-                return false;
-            }
-        }
-    }
+	if (!this->notNullSet.isEmpty())
+	{
+	QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
+	foreach(int column, this->notNullSet)
+	{
+	if (m->record(source_row).isNull(column))
+	{
+	return false;
+	}
+	}
+	}
 
-    if (!this->nullSet.isEmpty())
-    {
-        QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
-        foreach(int column, this->nullSet)
-        {
-            if (!m->record(source_row).isNull(column))
-            {
-                return false;
-            }
-        }
-    }
-    return true;
+	if (!this->nullSet.isEmpty())
+	{
+	QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
+	foreach(int column, this->nullSet)
+	{
+	if (!m->record(source_row).isNull(column))
+	{
+	return false;
+	}
+	}
+	}
+	return true;
 }
 
 /*!
@@ -126,25 +127,25 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 */
 QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role) const
 {
-    if (index.isValid())
-    {
-        if (this->booleanSet.contains(role))
-        {
-            return index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
-        }
-        else if (this->passwordSet.contains(role))
-        {
-            return QVariant("***");
-        }
-        else if(!this->filters.contains(role))
-        {
-            QModelIndex source_index = QSortFilterProxyModel::mapToSource(index);
-            if (source_index.isValid()) {
-                return this->model->data(source_index, role);
-            }
-        }
-    }
-    return QVariant();
+	if (index.isValid())
+	{
+	if (this->booleanSet.contains(role))
+	{
+	return index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
+	}
+	else if (this->passwordSet.contains(role))
+	{
+	return QVariant("***");
+	}
+	else if(!this->filters.contains(role))
+	{
+	QModelIndex source_index = QSortFilterProxyModel::mapToSource(index);
+	if (source_index.isValid()) {
+	return this->model->data(source_index, role);
+	}
+	}
+	}
+	return QVariant();
 }
 
 
@@ -155,18 +156,18 @@ QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role) const
 */
 bool SH_ExtendedProxyModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (!index.isValid())
-        return false;
+	if (!index.isValid())
+	return false;
 
-    if (this->booleanSet.contains(role))
-    {
-        QVariant data = (value.toInt() == Qt::Checked) ? QVariant(1) : QVariant(0);
-        return QSortFilterProxyModel::setData(index, data, role);
-    }
-    else
-    {
-        return QSortFilterProxyModel::setData(index, value, role);
-    }
+	if (this->booleanSet.contains(role))
+	{
+	QVariant data = (value.toInt() == Qt::Checked) ? QVariant(1) : QVariant(0);
+	return QSortFilterProxyModel::setData(index, data, role);
+	}
+	else
+	{
+	return QSortFilterProxyModel::setData(index, value, role);
+	}
 
 }
 
@@ -178,22 +179,22 @@ bool SH_ExtendedProxyModel::setData(const QModelIndex &index, const QVariant &va
 */
 Qt::ItemFlags SH_ExtendedProxyModel::flags(const QModelIndex &index) const
 {
-    if (!index.isValid())
-    {
-        return Qt::ItemIsEnabled;
-    }
-    if (!this->booleanSet.isEmpty())
-    {
-        return Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
-    }
-    else if (!this->readonlySet.isEmpty())
-    {
-        return Qt::ItemIsSelectable;
-    }
-    else
-    {
-        return QSortFilterProxyModel::flags(index);
-    }
+	if (!index.isValid())
+	{
+	return Qt::ItemIsEnabled;
+	}
+	if (!this->booleanSet.isEmpty())
+	{
+	return Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+	}
+	else if (!this->readonlySet.isEmpty())
+	{
+	return Qt::ItemIsSelectable;
+	}
+	else
+	{
+	return QSortFilterProxyModel::flags(index);
+	}
 
 }
 
@@ -204,7 +205,7 @@ Qt::ItemFlags SH_ExtendedProxyModel::flags(const QModelIndex &index) const
 */
 void SH_ExtendedProxyModel::invalidateFilter()
 {
-    this->filters.clear();
+	this->filters.clear();
 }
 
 /*!
@@ -214,7 +215,7 @@ void SH_ExtendedProxyModel::invalidateFilter()
 */
 void SH_ExtendedProxyModel::removeFilterKeyColumn(int column)
 {
-    this->filters.removeAt(this->filters.indexOf(column));
+	this->filters.removeAt(this->filters.indexOf(column));
 }
 
 /*!
@@ -224,7 +225,7 @@ void SH_ExtendedProxyModel::removeFilterKeyColumn(int column)
 */
 bool SH_ExtendedProxyModel::containsFilterKeyColumn(int column)
 {
-    return this->filters.contains(column);
+	return this->filters.contains(column);
 }
 
 /*!
@@ -234,8 +235,8 @@ bool SH_ExtendedProxyModel::containsFilterKeyColumn(int column)
 */
 void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 {
-    this->model->field(column)->setSortOrder(newOrder);
-    SH_ExtendedProxyModel::setSortKeyColumn(column);
+	this->model->field(column)->setSortOrder(newOrder);
+	SH_ExtendedProxyModel::setSortKeyColumn(column);
 }
 
 /*!
@@ -245,10 +246,10 @@ void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 */
 void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 {
-    this->sortIndex = column;
-    QSortFilterProxyModel::setSortRole(this->model->roleForField(column));
-    QSortFilterProxyModel::sort(0, this->model->field(column)->sortOrder());
-    emit sortChanged();
+	this->sortIndex = column;
+	QSortFilterProxyModel::setSortRole(this->model->roleForField(column));
+	QSortFilterProxyModel::sort(0, this->model->field(column)->sortOrder());
+	emit sortChanged();
 }
 
 /*!
@@ -258,7 +259,7 @@ void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 */
 void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 {
-    this->filters.append(column);
+	this->filters.append(column);
 }
 
 /*!
@@ -268,8 +269,8 @@ void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 */
 QVariant SH_ExtendedProxyModel::data(int row, int column) const
 {
-    QModelIndex modelIndex = this->index(row, 0);
-    return this->data(modelIndex, this->model->roleForField(column));
+	QModelIndex modelIndex = this->index(row, 0);
+	return this->data(modelIndex, this->model->roleForField(column));
 }
 
 /*!
@@ -279,14 +280,12 @@ QVariant SH_ExtendedProxyModel::data(int row, int column) const
 */
 bool SH_ExtendedProxyModel::fetch(QString tableName, QString filter, QString sort, QStringList fields)
 {
-    bool fetched = this->model->fetch(tableName, filter, sort, fields);
-    if (fetched)
-    {
-        this->fillModel();
-    }
-    this->setSourceModel(this->model);
-    return fetched;
+	bool fetched = this->model->fetch(tableName, filter, sort, fields);
+	if (fetched)
+	{
+	this->fillModel();
+	}
+	this->setSourceModel(this->model);
+	return fetched;
 }
-
-
-
+/*}*/

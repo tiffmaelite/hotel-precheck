@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
 /**
-  @class
+  @class SH_RoomsDelegate
   */
 SH_DataDelegate {
     id: btn
@@ -22,9 +22,7 @@ SH_DataDelegate {
                 border.left: 1
                 border.right: 1
                 anchors.bottomMargin: -1
-                /*property color color:(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' || AVAILABILITY === 1) ? "green" : "orange")*/
-                property string color:(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' || AVAILABILITY === 1) ? "green" : "orange")
-                /*source: btn.pressed ? "../img/button"+color.toString().toUpperCase()+"down.png" : "../img/button"+color.toString().toUpperCase()+"up.png"*/
+                property string color: "green"//(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' || AVAILABILITY === 1) ? "green" : "orange")
                 source: btn.pressed ? "../img/button"+color.toUpperCase()+"down.png" : "../img/button"+color.toUpperCase()+"up.png"
             }
         }

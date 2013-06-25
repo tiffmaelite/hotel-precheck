@@ -1,23 +1,23 @@
 #include "SH_BillsTableModel.h"
 
-
+/*namespace SimplHotel
+{*/
 /*!
- \details \~french
-
- \fn SH_BillsTableModel::BillsTableModel
+ * \details \~french
+ * \fn SH_BillsTableModel::BillsTableModel
 */
 SH_BillsTableModel::SH_BillsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+	SH_ExtendedProxyModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTable("BILLS");
+	SH_ExtendedProxyModel::model->setTable("BILLS");
 }
 
 
 /*!
- \details \~french
-
- \fn SH_BillsTableModel::fillModel
+ * \details \~french
+ * \fn SH_BillsTableModel::fillModel
 */
 void SH_BillsTableModel::fillModel()
 {
 }
+/*}*/

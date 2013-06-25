@@ -5,9 +5,10 @@
 #include "SH_DecimalQuestionState.h"
 #include "SH_DatabaseManager.h"
 #include <QtSql>
-
+/*namespace SimplHotel
+{*/
 /*!
- * \details \~french SH_ServiceCharging::SH_ServiceCharging
+ * * \details \~french SH_ServiceCharging::SH_ServiceCharging
  */
 SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     SH_LoopingInOutStateMachine("CHARGEDSERVICES",name, 0, parent), m_priceMin(0.0)
@@ -20,8 +21,6 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     SH_DecimalQuestionState* quantity = new SH_DecimalQuestionState("", "quantity in service charging",1);
     SH_DatabaseContentQuestionState* vat = new SH_DatabaseContentQuestionState("", "vat in service charging","TAXES","PERCENTAGE","ENABLED='1'");
     QFinalState* final = new QFinalState();
-
-
     connect(service, &SH_QuestionState::answerInvalid, [=]() {
         int in = service->rawInput().toInt();
         if(in == -1 || in == 0) {
@@ -69,15 +68,13 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
             vat->setInput(m_vat);
         });
     });
-
-
     this->addState(final);
-    this->addIOState(service, "");
-    this->addIOState(serviceId, "SERVICE_ID");
-    this->addIOState(serviceName, "PRINTEDNAME");
-    this->addIOState(price, "CHARGEDUNITPRICE");
-    this->addIOState(quantity, "QUANTITY");
-    this->addIOState(vat, "CHARGEDVAT");
+    this->addState(service, "");
+    this->addState(serviceId, "SERVICE_ID");
+    this->addState(serviceName, "PRINTEDNAME");
+    this->addState(price, "CHARGEDUNITPRICE");
+    this->addState(quantity, "QUANTITY");
+    this->addState(vat, "CHARGEDVAT");
     this->addChildrenNextTransition(service, serviceId);
     this->addChildrenNextTransition(serviceId, serviceName);
     this->addChildrenNextTransition(serviceName, quantity);
@@ -87,3 +84,4 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     this->setInitialState(service);
     connect(this, &SH_InOutStateMachine::validateInput, this, &SH_LoopingInOutStateMachine::stopLooping);
 }
+/*}*/

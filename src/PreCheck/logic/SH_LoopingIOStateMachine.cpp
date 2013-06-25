@@ -1,86 +1,66 @@
 #include "SH_LoopingIOStateMachine.h"
 #include "SH_AdaptDatabaseState.h"
-
+/*namespace SimplHotel
+{*/
 /*!
- \details \~french
-
- \fn SH_LoopingStateMachine::LoopingStateMachine
-
+ * \details \~french
+ * \fn SH_LoopingStateMachine::LoopingStateMachine
 */
 SH_LoopingInOutStateMachine::SH_LoopingInOutStateMachine(QString tableName, QString name, int limit, QObject *parent) :
     SH_InOutStateMachine(tableName, name, parent), m_limit(limit), m_current(-1)
 {
-
 }
-
-
 /*!
- \details \~french
-
- \fn SH_LoopingStateMachine::current
-
+ * \details \~french
+ * \fn SH_LoopingStateMachine::current
 */
 int SH_LoopingInOutStateMachine::current() const
 {
     return m_current;
 }
-
 /*!
- \details \~french
-
- \fn SH_LoopingStateMachine::setCurrent
-
+ * \details \~french
+ * \fn SH_LoopingStateMachine::setCurrent
 */
 void SH_LoopingInOutStateMachine::setCurrent(int current)
 {
     m_current = current;
 }
-
 void SH_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QString field)
 {
     m_persistentContent.insert(field, value);
 }
-
 /*!
- \details \~french
-
- \fn SH_LoopingStateMachine::limit
-
+ * \details \~french
+ * \fn SH_LoopingStateMachine::limit
 */
 int SH_LoopingInOutStateMachine::limit() const
 {
     return m_limit;
 }
-
 /*!
- \details \~french
-
- \fn SH_LoopingStateMachine::setLimit
-
+ * \details \~french
+ * \fn SH_LoopingStateMachine::setLimit
 */
 void SH_LoopingInOutStateMachine::setLimit(int limit)
 {
     m_limit = limit;
     emit limitChanged();
 }
-
-
 /*!
- \details \~french
- \fn SH_LoopingIOStateMachine::stopLooping
+ * \details \~french
+ * \fn SH_LoopingIOStateMachine::stopLooping
 */
 void SH_LoopingInOutStateMachine::stopLooping() {
-    if(m_limit = 0) {
+    if(m_limit == 0) {
         m_limit = m_current + 1;
     } else {
         m_current = m_limit - 1;
     }
 }
-
 /*!
- \details \~french
- \fn SH_IOStateMachine::addChildrenNextTransition
-
+ * \details \~french
+ * \fn SH_IOStateMachine::addChildrenNextTransition
 */
 void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState)
 {
@@ -88,6 +68,7 @@ void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *prev
     SH_InOutStateMachine* fsmPreviousState = qobject_cast<SH_InOutStateMachine*>(previousState);
     QFinalState* final = qobject_cast<QFinalState*>(nextState);
     if(final) {
+
         /*à faire au moment de l'entrée dans l'état previousState*/
         connect(previousState, &QAbstractState::entered, [=]() {
             m_current++;
@@ -130,12 +111,15 @@ void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *prev
         });
     }
     if(genPreviousState) {
+
         /*à faire au moment de l'entrée dans l'état previousState*/
         connect(genPreviousState, &QAbstractState::entered, [=]() {
             connect(this, &SH_InOutStateMachine::replaceInput, [=](QString field) {
+
                 /*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel puis on retourne à l'historique de l'état désiré; celui-ci fini, on passe à l'état qui aurait du suivre celui pendant lequel on a demandé à revenir sur un état précédent*/
                 QHistoryState* hState = historyValue(field);
-                if(hState) { /*si l'historique existe (on a déjà quitté l'état voulu)*/
+                if(hState) {
+                    /*si l'historique existe (on a déjà quitté l'état voulu)*/
                     hState->parentState()->addTransition(hState->parentState(), SIGNAL(next()), nextState);
                     genPreviousState->addTransition(genPreviousState, SIGNAL(next()), hState);
                 }
@@ -145,3 +129,4 @@ void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *prev
     SH_InOutStateMachine::addChildrenReplaceTransition(previousState, nextState);
     SH_GenericStateMachine::addChildrenNextTransition(previousState, nextState);
 }
+/*}*/

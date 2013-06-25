@@ -3,37 +3,36 @@
 #include <QtSql/QSqlRelationalTableModel>
 #include "SH_ExtendedSqlProxyModel.h"
 
-
-
+/*namespace SimplHotel
+{*/
 /*!
-\brief \~french 
-
- \class SH_BillingsTableModel billings_table_model.h "models/billings_table_model.h"
+ * \brief \~french
+ * \class SH_BillingsTableModel billings_table_model.h "models/billings_table_model.h"
 */
 class SH_BillingsTableModel : public SH_ExtendedProxyModel
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
 
 
-    /*!
-\brief \~french 
-
- \fn BillingsTableModel
- \param parent
+	
+/*!
+ * \brief \~french
+ * \fn BillingsTableModel
+ * \param parent
 */
-    SH_BillingsTableModel(QObject *parent = 0);
+	SH_BillingsTableModel(QObject *parent = 0);
 
 protected:
 
 
-    /*!
-        \brief \~french 
-
-         \fn fillModel
-        */
-    void fillModel();
+	
+/*!
+	* \brief \~french
+ * \fn fillModel
+	*/
+	void fillModel();
 
 };
-
+/*}*/
 #endif /* RENT_H*/

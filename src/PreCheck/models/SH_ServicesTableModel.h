@@ -3,36 +3,39 @@
 #define SERVICE_H
 
 #include "SH_ExtendedSqlProxyModel.h"
-
+/*namespace SimplHotel
+{*/
 /*!
-\brief \~french 
+\brief \~french
 
  \class SH_ServicesTableModel
 \headerfile services_table_model.h "models/services_table_model.h"
 */
 class SH_ServicesTableModel : public SH_ExtendedProxyModel
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
 
 
-    /*!
-\brief \~french 
+	
+/*!
+\brief \~french
 
  \fn ServicesTableModel
  \param parent
 */
-    SH_ServicesTableModel(QObject *parent = 0);
+	SH_ServicesTableModel(QObject *parent = 0);
 
 
 protected:
 
-    /*!
-        \brief \~french 
+	
+/*!
+	\brief \~french
 
-         \fn fillModel
-        */
-    void fillModel();
+	\fn fillModel
+	*/
+	void fillModel();
 };
-
+/*}*/
 #endif /* SERVICE_H*/

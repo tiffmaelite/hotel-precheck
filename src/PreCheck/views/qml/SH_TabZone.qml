@@ -19,8 +19,8 @@ TabView {
     signal newSelling()
     signal newBooking()
     /**
-      @fn
-      @param
+      @fn openTab
+      @param \type int tabIndex
       @return
 
       @brief
@@ -31,13 +31,13 @@ TabView {
     }
     onNewBilling: {
         console.log("launch new billings thread ?");
-        App.launchBillingsThread();
+        App.launchBillingCreation();
     }
     onNewBooking: {
-        App.launchBookingsThread();
+        App.launchBookingCreation();
     }
     onNewSelling: {
-        App.launchBillThread();
+        App.launchServiceCharging();
     }
 
 

@@ -1,45 +1,38 @@
 #include "SH_ApplicationCore.h"
 #include <QDebug>
+#include "SH_MessageManager.h"
 #include "SH_DatabaseManager.h"
 #include "logic/SH_ServiceCharging.h"
 #include "logic/SH_BillingCreation.h"
-
-
+/*namespace SimplHotel
+{*/
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::RestrictiveApplication
+ * \details \~french
+ * \fn SH_ApplicationCore::RestrictiveApplication
 */
-
 SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
     QObject(parent)
 {
     init();
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::mode
+ * \details \~french
+ * \fn SH_ApplicationCore::mode
 */
 SH_ApplicationCore::AppMode SH_ApplicationCore::mode() const
 {
     return m_mode;
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::init
+ * \details \~french
+ * \fn SH_ApplicationCore::init
 */
 void SH_ApplicationCore::init() {
     this->m_currentUser = new SH_User();
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::setMode
+ * \details \~french
+ * \fn SH_ApplicationCore::setMode
 */
 void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 {
@@ -56,32 +49,26 @@ void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
         }
     }
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::user
+ * \details \~french
+ * \fn SH_ApplicationCore::user
 */
 SH_User *SH_ApplicationCore::user() const
 {
     return this->m_currentUser;
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::userLogOut
+ * \details \~french
+ * \fn SH_ApplicationCore::userLogOut
 */
 bool SH_ApplicationCore::userLogOut()
 {
     this->m_currentUser = new SH_User();
     return !this->m_currentUser->isValid();
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::setUser
+ * \details \~french
+ * \fn SH_ApplicationCore::setUser
 */
 bool SH_ApplicationCore::setUser(QString login, QString pass)
 {
@@ -92,169 +79,122 @@ bool SH_ApplicationCore::setUser(QString login, QString pass)
     }
     return false;
 }
-
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::userExists
+ * \details \~french
+ * \fn SH_ApplicationCore::userExists
 */
 bool SH_ApplicationCore::userExists(QString login)
 {
     return SH_User::exists(login).toBool();
 }
-
-
 /*!
- \details \~french
- \fn SH_ApplicationCore::balanceLogRoutine
+ * \details \~french
+ * \fn SH_ApplicationCore::balanceLogRoutine
 */
 bool SH_ApplicationCore::balanceLogRoutine() {
+
     /*SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
     SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");
     SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");
     SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");
     SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/
+    return true;
 }
-
-
 /*!
- \details \~french
- \fn SH_ApplicationCore::receiveInput
+ * \details \~french
+ * \fn SH_ApplicationCore::receiveInput
 */
 void SH_ApplicationCore::receiveInput(QString in)
 {
-    qDebug() << "input received "<<in;
+    SH_MessageManager::infoMessage("input received "+in);
     emit this->m_currentFSM->receiveInput(in);
-
 }
-
 /*!
- \details \~french
- \fn SH_ApplicationCore::receiveValidation
+ * \details \~french
+ * \fn SH_ApplicationCore::receiveValidation
 */
 void SH_ApplicationCore::receiveValidation()
 {
-
     emit this->m_currentFSM->validateInput();
-
 }
-
 /*!
- \details \~french
- \fn SH_ApplicationCore::receiveConfirmation
+ * \details \~french
+ * \fn SH_ApplicationCore::receiveConfirmation
 */
 void SH_ApplicationCore::receiveConfirmation()
 {
-
     emit this->m_currentFSM->confirmInput();
-
 }
-
 /*!
- \details \~french
- \fn SH_ApplicationCore::replaceInput
+ * \details \~french
+ * \fn SH_ApplicationCore::replaceInput
 */
 void SH_ApplicationCore::replaceInput(QString inputName)
 {
-
     emit this->m_currentFSM->replaceInput(inputName);
-
 }
-
 /*!
- \details \~french
- \fn SH_ApplicationCore::cancelReplacement
+ * \details \~french
+ * \fn SH_ApplicationCore::cancelReplacement
 */
 void SH_ApplicationCore::cancelReplacement()
 {
-    if(this->m_currentFSM) {
-        emit this->m_currentFSM->cancelReplacement();
-    }
+    emit this->m_currentFSM->cancelReplacement();
 }
-
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::launchBillingsThread
+ * \details \~french
+ * \fn SH_ApplicationCore::launchBillingCreation
 */
-bool SH_ApplicationCore::launchBillingsThread()
+bool SH_ApplicationCore::launchBillingCreation()
 {
-    qDebug() << "Hallo !";
-    /*if(this->m_currentFSM) {
-        return false;
-    }*/
-    qDebug() << "Hallo !";
     this->m_currentFSM= new SH_BillingCreationStateMachine("création facturation");
-    this->m_currentFSM->start();
-    qDebug() << this->m_currentFSM->toString() << " " << this->m_currentFSM->initialState();
-    return this->connectRunningThread();
-
+    return this->launchStateMachine();
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::launchBookingsThread
+ * \details \~french
+ * \fn SH_ApplicationCore::launchBookingCreation
 */
-bool SH_ApplicationCore::launchBookingsThread()
+bool SH_ApplicationCore::launchBookingCreation()
 {
-    /*if(this->m_currentFSM) {
-        return false;
-    }*/
     /*this->m_currentFSM= new BookingCreationStateMachine("création facturation");*/
-    /*this->m_currentFSM->start();*/
-    return this->connectRunningThread();
+    return this->launchStateMachine();
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::launchBillThread
+ * \details \~french
+ * \fn SH_ApplicationCore::launchServiceCharging
 */
-bool SH_ApplicationCore::launchBillThread()
+bool SH_ApplicationCore::launchServiceCharging()
 {
-    /*if(this->m_currentFSM) {
-        return false;
-    }*/
     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
     this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->id()), "BILL_ID");
-    this->m_currentFSM->start();
-    return this->connectRunningThread();
+    return this->launchStateMachine();
 }
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::cancelRunningThread
+ * \details \~french
+ * \fn SH_ApplicationCore::stopRunningStateMachine
 */
-bool SH_ApplicationCore::cancelRunningThread()
+bool SH_ApplicationCore::stopRunningStateMachine()
 {
-    /*if(!this->m_currentFSM) {
-        return true;
-    }*/
     this->m_currentFSM->stop();
     bool ok = !this->m_currentFSM->isRunning();
     this->m_currentFSM = NULL;
     return ok;
 }
-
-
 /*!
- \details \~french
-
- \fn SH_ApplicationCore::connectRunningThread
+ * \details \~french
+ * \fn SH_ApplicationCore::launchStateMachine
 */
-bool SH_ApplicationCore::connectRunningThread()
+bool SH_ApplicationCore::launchStateMachine()
 {
-    /*if(!this->m_currentFSM) {
-        return false;
-    }*/
-    qDebug() << "coucou";
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, this, &SH_ApplicationCore::sendText, Qt::DirectConnection);
-        QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
-        QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
+    /*QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, [=](QString text, bool editable) { SH_MessageManager::infoMessage(text,"reçu de la machine"); emit this->sendText(text, editable);});*/
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayChoiceList, this, &SH_ApplicationCore::displayChoiceList, Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayFileDialog, this, &SH_ApplicationCore::displayFileDialog, Qt::DirectConnection);
+    emit clearAll();
+    this->m_currentFSM->start();
     return this->m_currentFSM->isRunning();
 }
+/*}*/

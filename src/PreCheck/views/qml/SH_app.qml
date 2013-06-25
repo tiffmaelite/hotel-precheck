@@ -32,7 +32,6 @@ ApplicationWindow {
     Component.onCompleted: {
         window.reload();
     }
-
     StackView {
         id: stack
         signal cycle(Item c)

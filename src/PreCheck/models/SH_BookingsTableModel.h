@@ -3,38 +3,36 @@
 #define BOOKING_H
 
 #include "SH_ExtendedSqlProxyModel.h"
-
-
-
+/*namespace SimplHotel
+{*/
 /*!
-\brief \~french 
-
- \class SH_BookingsTableModel bookings_table_model.h "models/bookings_table_model.h"
+ * \brief \~french
+ * \class SH_BookingsTableModel
+ * \headerfile bookings_table_model.h "models/bookings_table_model.h"
 */
 class SH_BookingsTableModel : public SH_ExtendedProxyModel
 {
-    Q_OBJECT
-    public:
+	Q_OBJECT
+	public:
 
 
 /*!
-\brief \~french 
-
- \fn BookingsTableModel
- \param parent
+ * \brief \~french
+ * \fn BookingsTableModel
+ * \param parent
 */
-        SH_BookingsTableModel(QObject *parent = 0);
+	SH_BookingsTableModel(QObject *parent = 0);
 
 
-    protected:
+	protected:
 
 
-        /*!
-        \brief \~french 
-
-         \fn fillModel
-        */
-        void fillModel();
+	
+/*!
+	* \brief \~french
+ * \fn fillModel
+	*/
+	void fillModel();
 };
-
+/*}*/
 #endif /* BOOKING_H*/

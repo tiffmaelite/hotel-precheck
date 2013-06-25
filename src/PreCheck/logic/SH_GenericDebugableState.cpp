@@ -1,105 +1,86 @@
 #include "SH_GenericDebugableState.h"
 #include "SH_IOStateMachine.h"
+#include "SH_MessageManager.h"
+#include <QSignalTransition>
+#include <QSignalSpy>
 
+/*namespace SimplHotel
+{*/
 /*!
- \details \~french
-
- \fn SH_GenericState::GenericState
-
+ * \details \~french
+ * \fn SH_GenericState::GenericState
 */
 SH_GenericState::SH_GenericState(QString name, QState *parent) :
     QState(parent), SH_NamedObject(name), m_isRunning(false)
 {
+    this->setObjectName(name);
     connect(this, &SH_GenericState::goNext, this, &SH_GenericState::emitGoNext);
     this->blockSignals(!m_isRunning);
 }
-
 /*!
- \details \~french
- \fn SH_GenericState::toString
-
+ * \details \~french
+ * \fn SH_GenericState::toString
 */
 QString SH_GenericState::toString()
 {
     QStateMachine* machine = this->machine();
-    SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
+    SH_GenericState* mach = qobject_cast<SH_GenericState *>(machine);
     if(mach) {
         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
     } else {
         return SH_NamedObject::toString();
     }
 }
-
 void SH_GenericState::emitGoNext()
 {
     if(this->isRunning()) {
         emit next();
     }
 }
-
-
-
 /*!
- \details \~french
- \fn SH_GenericState::onTransitionTriggered
+ * \details \~french
+ * \fn SH_GenericState::onTransitionTriggered
 */
 void SH_GenericState::onTransitionTriggered()
 {
     QAbstractTransition* tr = qobject_cast<QAbstractTransition*>(sender());
     if (tr == 00) return;
+    QSignalTransition *str = qobject_cast<QSignalTransition*>(tr);
+    QString signal = "";
+    if(str) {
+        signal = QString(str->signal());
+    }
     SH_GenericState* sourceState = qobject_cast<SH_GenericState*>(tr->sourceState());
     SH_GenericState* targetState = qobject_cast<SH_GenericState*>(tr->targetState());
-
-    QString log;
-    QTextStream logStream(&log);
-    logStream << machine()->objectName() << " transition from ";
-    if (sourceState) logStream << sourceState->name();
-    else logStream << tr->sourceState();
-    logStream << " to ";
-    if (targetState) logStream << targetState->name();
-    else logStream << tr->targetState();
-    logStream.flush();
-    qDebug() << "Machine: " << log;
+    SH_MessageManager::debugMessage(QString("transition triggered in %1 from %2 to %3 with thanks to event %4").arg(machine()->objectName()).arg(sourceState->objectName()).arg(targetState->objectName()).arg(signal));
 }
-
-
 /*!
- \details \~french
- \fn SH_GenericState::onEntry
-
+ * \details \~french
+ * \fn SH_GenericState::onEntry
 */
 void SH_GenericState::onEntry(QEvent *event)
 {
     Q_UNUSED(event);
+    foreach (QAbstractTransition* tr, transitions()) {
+        connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
+    }
     m_isRunning = true;
     this->blockSignals(!m_isRunning);
-    qDebug() << "Machine: " << machine()->objectName() << " entered " << name();
+    SH_MessageManager::debugMessage(QString("Machine: %1, entered state %2").arg(machine()->objectName()).arg(name()));
 }
-
 /*!
- \details \~french
- \fn SH_GenericState::onExit
-
+ * \details \~french
+ * \fn SH_GenericState::onExit
 */
 void SH_GenericState::onExit(QEvent *event)
 {
     Q_UNUSED(event);
     m_isRunning = false;
     this->blockSignals(!m_isRunning);
-    qDebug() << "Machine: " << machine()->objectName() << " exited  " << name();
+    SH_MessageManager::debugMessage(QString("Machine: %1, exited state %2").arg(machine()->objectName()).arg(name()));
 }
-
 bool SH_GenericState::isRunning()
 {
     return m_isRunning;
 }
-
-/*!
- \details \~french
- \fn SH_GenericState::onMachineStarted
-*/
-void SH_GenericState::onMachineStarted()
-{
-    foreach (QAbstractTransition* tr, transitions())
-        connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
-}
+/*}*/

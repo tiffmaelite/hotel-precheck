@@ -1,5 +1,7 @@
 #include "SH_Trainee.h"
 
+/*namespace SimplHotel
+{*/
 /*!
  \details \~french
 
@@ -10,5 +12,4 @@ SH_Trainee::SH_Trainee(QString name, int id, QObject *parent) : SH_User(name, id
 {
 
 }
-
-
+/*}*/

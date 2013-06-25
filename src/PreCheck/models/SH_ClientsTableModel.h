@@ -4,37 +4,34 @@
 
 #include "SH_ExtendedSqlProxyModel.h"
 
-
-
+/*namespace SimplHotel
+{*/
 /*!
-\brief \~french 
-
- \class SH_ClientsTableModel clients_table_model.h "models/clients_table_model.h"
+* \brief \~french
+* \class SH_ClientsTableModel clients_table_model.h "models/clients_table_model.h"
 */
 class SH_ClientsTableModel : public SH_ExtendedProxyModel
 {
-    Q_OBJECT
-    public:
+Q_OBJECT
+public:
 
 
 /*!
-\brief \~french 
-
- \fn ClientsTableModel
- \param parent
+* \brief \~french
+* \fn ClientsTableModel
+* \parcél parent
 */
-        SH_ClientsTableModel(QObject *parent = 0);
+SH_ClientsTableModel(QObject *parent = 0);
 
 
-    protected:
+protected:
 
 
-        /*!
-        \brief \~french 
-
-         \fn fillModel
-        */
-        void fillModel();
+/*!
+* \brief \~french
+* \fn fillModel
+*/
+void fillModel();
 };
-
+/*}*/
 #endif /* CLIENT_H*/

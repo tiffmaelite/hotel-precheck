@@ -1,38 +1,32 @@
 #include "SH_StatementState.h"
-
+#include "SH_MessageManager.h"
+/*namespace SimplHotel
+{*/
 /*!
- \details \~french
-
- \fn SH_StatementState::StatementState
-
+ * \details \~french
+ * \fn SH_StatementState::StatementState
 */
 SH_StatementState::SH_StatementState(QString output, QString name, QState *parent) :
     SH_InOutState(output, name, parent)
 {
-    qDebug() << "salut ! "<< output;
 }
-
 /*!
- \details \~french
-
- \fn SH_StatementState::setInput
-
+ * \details \~french
+ * \fn SH_StatementState::setInput
 */
 void SH_StatementState::setInput(const QVariant &input)
 {
     Q_UNUSED(input);
     /*DO NOTHING*/
 }
-
 /*!
- \details \~french
-
- \fn SH_StatementState::onEntry
-
+ * \details \~french
+ * \fn SH_StatementState::onEntry
 */
 void SH_StatementState::onEntry(QEvent *event)
 {
     SH_GenericState::onEntry(event);
-    display(true);
+    //display(true);
     emit goNext();
 }
+/*}*/

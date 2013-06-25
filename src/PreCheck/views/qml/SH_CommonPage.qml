@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.0
 import PreCheck 1.0
 
 /**
@@ -24,6 +25,7 @@ Item {
         id: buff
         property string content: ""
         property bool upperCase: false
+        property bool cleared: true
         signal buffer(string text)
         signal eraseLastChar()
         signal clearBuffer()
@@ -36,14 +38,20 @@ Item {
                 buff.content += value;
                 rightOutput.display(value);
             }
+            buff.cleared = false;
         }
         onEraseLastChar: {
-            buff.content = buff.content.slice(0,-1);
-            rightOutput.replace(buff.content);
+            if(buff.content!=="") {
+                buff.content = buff.content.slice(0,-1);
+                rightOutput.replace(buff.content);
+            }
         }
         onClearBuffer: {
-            commonPage.selected(buff.content);
+            if(!buff.cleared){
+                commonPage.selected(buff.content);
+            }
             buff.content = "";
+            buff.cleared = true;
         }
     }
     onReload: {
@@ -54,7 +62,7 @@ Item {
         App.receiveInput(selectedItem);
     }
     onCancelProcess: {
-        App.cancelRunningThread();
+        App.stopRunningStateMachine();
         console.log("processus interrompu");
     }
     onValidate: {
@@ -72,6 +80,24 @@ Item {
 
     onKeySelected: {
         commonPage.streamBuffer.buffer(selectedKey);
+    }
+    function displayFileDialog() {
+        fileDialog.open();
+    }
+
+    FileDialog {
+        id: fileDialog
+        title: "Veuillez choisir un fichier"
+        selectMultiple: false
+        selectFolder: false
+        onAccepted: {
+            if(fileDialog.filePath !== "") {
+                commonPage.selected(fileDialog.filePath);
+            }
+        }
+        onRejected: {
+            fileDialog.close();
+        }
     }
     GridLayout {
         id:main
@@ -103,32 +129,44 @@ Item {
             ]
 
             onSelected: {
-               commonPage.keySelected(selectedItem);
+                commonPage.keySelected(selectedItem);
             }
             onSelectedForDetail: {
                 rightOutput.displaySqlDetail(data);
             }
         }
-        /*la partie inférieure du panel de gauche contient le clavier*/
-        SH_Keyboard{
-            id: keys
-            columns: 5
-            actionsList: [
-                abandonAction, cancelAction, eraseAction, replaceAction, backAction,
-                leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
-                arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
-                departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
-                vatAction, doubleNullAction, nullAction, decimalAction, minusAction,
-                escapeAction, enterAction, confirmAction, quitAction, helpAction
-            ]
-            enabled:true
-            Layout.alignment: Qt.AlignBottom
-            Layout.minimumWidth: main.width/2-main.columnSpacing
-            Layout.minimumHeight: main.height/2-main.rowSpacing
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+        ColumnLayout {
+            /*la partie inférieure du panel de gauche contient le clavier*/
+            SH_ContentView {
+                model: SH_VATModel { }
+                columns: 1
+                sectionIndex: 0
+                dataDelegate: "SH_VATDelegate.qml"
+                emptyDelegate: "SH_DataDelegate.qml"
+                sectionDelegate: "SH_DataDelegate.qml"
+                onSelected: {
+                    commonPage.keySelected(selectedItem);
+                }
+            }
+            SH_Keyboard{
+                id: keys
+                columns: 4
+                actionsList: [
+                    abandonAction, cancelAction, eraseAction, replaceAction, backAction,
+                    leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
+                    arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
+                    departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
+                    vatAction, doubleNullAction, nullAction, decimalAction, minusAction,
+                    escapeAction, enterAction, confirmAction, quitAction, helpAction
+                ]
+                enabled:true
+                Layout.alignment: Qt.AlignBottom
+                Layout.minimumWidth: main.width/2-main.columnSpacing
+                Layout.minimumHeight: main.height/2-main.rowSpacing
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
         }
-
         /*la zone d'affichage remplit toute la moitié de droite*/
         SH_OutputZone {
             id: rightOutput
@@ -282,7 +320,7 @@ Item {
     }
     SH_ComplexAction {
         id: vatAction
-        text: qsTr("TVA")
+        text: qsTr("???")
         keyShortcut: Qt.Key_unknown
 
         /*onTriggered: */ /*TODO*/

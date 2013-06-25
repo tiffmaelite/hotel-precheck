@@ -6,35 +6,38 @@
 #include <QtQml>
 #include <QtQuick>
 
-
+/*namespace SimplHotel
+{*/
 /*!
-\brief \~french 
+\brief \~french
 
  \class SH_RoomsTableModel
 \headerfile rooms_table_model.h "models/rooms_table_model.h"
 */
 class SH_RoomsTableModel : public SH_ExtendedProxyModel
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
 
-    /*!
-\brief \~french 
+	
+/*!
+\brief \~french
 
  \fn RoomsTableModel
  \param parent
 */
-    SH_RoomsTableModel(QObject *parent = 0);
+	SH_RoomsTableModel(QObject *parent = 0);
 
 protected:
-    /*!
-        \brief \~french 
+	
+/*!
+	\brief \~french
 
-         \fn fillModel
-        */
-    virtual void fillModel();
+	\fn fillModel
+	*/
+	virtual void fillModel();
 private:
 
 };
-
+/*}*/
 #endif /* ROOM_H*/

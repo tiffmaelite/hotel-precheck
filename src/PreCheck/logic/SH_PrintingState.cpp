@@ -1,12 +1,12 @@
 #include "SH_PrintingState.h"
-
+/*namespace SimplHotel
+{*/
 /*!
- \details \~french
-
- \fn SH_PrintingState::PrintingState
-
+ * \details \~french
+ * \fn SH_PrintingState::PrintingState
 */
 SH_PrintingState::SH_PrintingState(QString name, QState *parent) :
-    SH_GenericState(name, parent)
+    SH_GenericState(name, parent), m_nbPrintedLines(0), m_currentLineNb(-1)
 {
 }
+/*}*/
