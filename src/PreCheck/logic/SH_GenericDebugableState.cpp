@@ -2,7 +2,6 @@
 #include "SH_IOStateMachine.h"
 #include "SH_MessageManager.h"
 #include <QSignalTransition>
-#include <QSignalSpy>
 
 /*namespace SimplHotel
 {*/

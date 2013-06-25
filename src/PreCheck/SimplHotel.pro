@@ -19,7 +19,7 @@ QMAKE_CXX = ccache g++
 TEMPLATE = app
 
 # General project configuration options
-CONFIG *= qt qtestlib console thread exceptions c++11
+CONFIG *= qt testlib console thread exceptions c++11
 
 # Qt-specific configuration options : required modules
 QT *= core gui quick qml sql widgets printsupport concurrent
@@ -43,8 +43,14 @@ Debug:DEFINES*=DEBUG
 #VERSION
 
 include(PreCheck.pri)
-include(../../libs/QsLog_2.0.b1/QsLog.pri)
+#include(../../libs/QsLog_2.0.b1/QsLog.pri)
+include(../../libs/tgrinwis-QsLog/QsLog/QsLog.pri)
+include(../../libs/razvanpetruQs/QsLog/QsLog.pri)
 include(../../libs/QtSignalsTools.pri)
+include(../../libs/QsTools.pri)
+include(../../libs/QsWidgets.pri)
+include(../../libs/QtSignalGuard.pri)
+include(../../libs/QtTestUtils.pri)
 
 
 OTHER_FILES *= \
