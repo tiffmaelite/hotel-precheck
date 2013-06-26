@@ -88,3 +88,4 @@ OTHER_FILES *= \
 	../Database/install_script.sh \
 	../Database/PreCheckCreaError.log \
 	../Database/PreCheckCrea.log
+

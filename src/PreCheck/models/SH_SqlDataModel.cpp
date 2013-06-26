@@ -174,12 +174,11 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
             SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +mFilter + " " + mSort);
             mSqlQuery = SH_DatabaseManager::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
             bool next = mSqlQuery.next();
-            SH_MessageManager::infoMessage(mSqlQuery.executedQuery());
-            if(next) {
+            //SH_MessageManager::infoMessage(mSqlQuery.executedQuery());
+            /*if(next) {
                 SH_MessageManager::debugMessage("next ok");
-            }
+            }*/
             while (next)
-                /* && mSqlQuery.isActive())*/
             {
                 QSqlRecord record = mSqlQuery.record();
 
@@ -189,12 +188,13 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
                 {
                     beginInsertRows(QModelIndex(), 0, 0);
                     mRecords.append(record);
-
-                    /*int nbFields = record.count();
+//#ifdef DEBUG
+                    int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {
                         SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
-                    }*/
+                    }
+//#endif
                     if (mDataFields.empty())
                     {
                         int nbFields = record.count();
@@ -202,7 +202,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
                         {
                             SH_SqlDataFields *field = new SH_SqlDataFields();
                             field->setName(record.fieldName(i));
-                            //SH_MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
+                            //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
                             mDataFields.append(field);
                         }
                         this->applyRoles();

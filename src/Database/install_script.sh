@@ -1,6 +1,5 @@
 #!/bin/sh
 
-export PATH=/opt/firebird/bin:$PATH
 
 #gsec -user SYSDBA -password masterkey -add precheck -pw hotel;
 #alias isql='isql-fb';
@@ -27,10 +26,10 @@ do
 		isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
 done;
 
-#for filename in $PWD/4_*.sql
-#do
-#        isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
-#done;
+for filename in $PWD/4_*.sql
+do
+		isql -i $filename -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
+done;
 
 isql -i "dbInitScript.sql" -e  2>> "PreCheckCreaError.log" 1>>"PreCheckCrea.log";
 

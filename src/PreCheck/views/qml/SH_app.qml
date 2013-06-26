@@ -16,7 +16,8 @@ ApplicationWindow {
     /*maximumWidth: 800*/
     height: maximumHeight
     width: maximumWidth
-    title: "Réception"
+    title: qsTr("Réception")
+    color: App.readSetting("backgroundColor","global GUI").toString()
     property alias pages: stack
     signal reload()
     statusBar: StatusBar {

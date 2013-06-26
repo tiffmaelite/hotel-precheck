@@ -262,7 +262,7 @@ void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 }
 
 /*inspired by: http://www.qtcentre.org/threads/52850-How-to-get-data-from-TableView-QML-Desktop-Components*/
- /*QVariantMap SH_ExtendedProxyModel::get(int idx) const {
+/*QVariantMap SH_ExtendedProxyModel::get(int idx) const {
     QVariantMap map;
     foreach(int k, roleNames().keys()) {
         map[roleNames().value(k)] = data(index(idx, 0), k);
@@ -301,6 +301,13 @@ bool SH_ExtendedProxyModel::fetch(QString tableName, QString filter, QString sor
     if (fetched)
     {
         this->fillModel();
+        QStringList fieldList = this->model->fieldsList();
+        foreach(QString field, fieldList) {
+            int fieldIndex = fieldList.indexOf(field);
+            if(this->headerData(fieldIndex, Qt::Horizontal).toString() == field) {
+                this->addFilterKeyColumn(fieldIndex);
+            }
+        }
     }
     this->setSourceModel(this->model);
     return fetched;

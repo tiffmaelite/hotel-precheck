@@ -10,7 +10,7 @@ import PreCheck 1.0
   */
 GridLayout {
     id: dataView
-    columns: 5
+    columns: 7
     columnSpacing: 1
     rowSpacing: 1
     property string dataDelegate
@@ -20,9 +20,11 @@ GridLayout {
     property alias sectionIndex : repeater.sectionIndex
     property alias model: repeater.model
     signal selected(string selectedItem)
-    Component.onCompleted: {
-        dataView.model.fetch();
-    }
+    /*Component.onCompleted: {
+        if(dataView.model !== 0) {
+            dataView.model.fetch();
+        }
+    }*/
 
     /**
       @fn
@@ -276,7 +278,13 @@ GridLayout {
                 }
 
                 console.log("ligne "+next)
-                return next;
+                if(next < 0) {
+                    return 0;
+                } else if(dataView.rows > 0 && next > dataView.rows) {
+                    return dataView.rows;
+                } else {
+                    return next;
+                }
             }
             /**
               @fn
@@ -328,7 +336,13 @@ GridLayout {
                 }
 
                 console.log("colonne "+next)
-                return next;
+                if(next < 0) {
+                    return 0;
+                } else if(dataView.columns > 0 && next > dataView.columns) {
+                    return dataView.columns;
+                } else {
+                    return next;
+                }
             }
 
             Loader {

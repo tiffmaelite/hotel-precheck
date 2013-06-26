@@ -7,9 +7,9 @@
  \fn SH_ServicesTableModel::ServicesTableModel
 */
 SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
-	SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyModel(parent)
 {
-	SH_ExtendedProxyModel::model->setTable("SERVICESINFOS");
+    SH_ExtendedProxyModel::model->setTable("SERVICESINFOS");
 }
 
 
@@ -20,6 +20,7 @@ SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
 */
 void SH_ServicesTableModel::fillModel()
 {
-	SH_ExtendedProxyModel::sort(1,Qt::AscendingOrder);
+    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    SH_ExtendedProxyModel::sort(fields.indexOf("SERVICETYPE"),Qt::AscendingOrder);
 }
 /*}*/

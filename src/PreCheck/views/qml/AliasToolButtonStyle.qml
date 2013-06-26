@@ -64,8 +64,8 @@ Style {
             anchors.fill: parent
             visible: control.pressed
             gradient: Gradient{
-                GradientStop{color: control.pressed ? "lightgray" : "white" ; position: 0}
-                GradientStop{color: control.pressed ? "lightgray" : "lightgray" ; position: 1}
+                GradientStop{color: control.pressed ? "lemonchiffon" : "white" ; position: 0}
+                GradientStop{color: control.pressed ? "lemonchiffon" : "lemonchiffon" ; position: 1}
             }
             radius:4
             border.color: "#aaa"

@@ -14,18 +14,18 @@
 */
 class SH_User : public QObject
 {
-	Q_OBJECT
-	Q_PROPERTY(int id READ id)
-	Q_PROPERTY(QString name READ name NOTIFY nameChanged)
-	Q_PROPERTY(bool receptionist READ isReceptionist NOTIFY rolesChanged)
-	Q_PROPERTY(bool managerX READ isManagerX NOTIFY rolesChanged)
-	Q_PROPERTY(bool managerZ READ isManagerZ NOTIFY rolesChanged)
-	Q_PROPERTY(bool administrator READ isAdministrator NOTIFY rolesChanged)
-	Q_PROPERTY(int roles READ roles NOTIFY rolesChanged)
-	Q_PROPERTY(bool valid READ isValid NOTIFY validityChanged)
+    Q_OBJECT
+    Q_PROPERTY(int id READ id)
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(bool receptionist READ isReceptionist NOTIFY rolesChanged)
+    Q_PROPERTY(bool managerX READ isManagerX NOTIFY rolesChanged)
+    Q_PROPERTY(bool managerZ READ isManagerZ NOTIFY rolesChanged)
+    Q_PROPERTY(bool administrator READ isAdministrator NOTIFY rolesChanged)
+    Q_PROPERTY(int roles READ roles NOTIFY rolesChanged)
+    Q_PROPERTY(bool valid READ isValid NOTIFY validityChanged)
 
 public:
-	
+
 /*!
 \brief \~french
 
@@ -38,182 +38,184 @@ public:
  \param isAdministrator
  \param parent
 */
-	SH_User(QString name = "", int id = 0, bool isReceptionist = false, bool isManagerX = false, bool isManagerZ = false, bool isAdministrator = false, QObject *parent = 0);
-	
+    SH_User(QString name = "", int id = 0, bool isReceptionist = false, bool isManagerX = false, bool isManagerZ = false, bool isAdministrator = false, QObject *parent = 0);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn name
-	\return QString
-	*/
-	QString name() const;
-	
+    \fn name
+    \return QString
+    */
+    QString name() const;
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn id
-	\return int
-	*/
-	int id() const { return this->m_id; }
-	
+    \fn id
+    \return int
+    */
+    int id() const { return this->m_id; }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn isReceptionist
-	\return bool
-	*/
-	bool isReceptionist() const;
-	
+    \fn isReceptionist
+    \return bool
+    */
+    bool isReceptionist() const;
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn isManagerX
-	\return bool
-	*/
-	bool isManagerX() const { return this->m_managerX; }
-	
+    \fn isManagerX
+    \return bool
+    */
+    bool isManagerX() const { return this->m_managerX; }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn isManagerZ
-	\return bool
-	*/
-	bool isManagerZ() const { return this->m_managerZ; }
-	
+    \fn isManagerZ
+    \return bool
+    */
+    bool isManagerZ() const { return this->m_managerZ; }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn isAdministrator
-	\return bool
-	*/
-	bool isAdministrator() const { return this->m_administrator; }
-	
+    \fn isAdministrator
+    \return bool
+    */
+    bool isAdministrator() const { return this->m_administrator; }
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn roles
-	\return int
-	*/
-	int roles() const;
-	
+    \fn roles
+    \return int
+    */
+    int roles() const;
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn isValid
-	\return bool
-	*/
-	bool isValid() const;
+    \fn isValid
+    \return bool
+    */
+    bool isValid() const;
 
-	
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn logIn
-	\param login
-	\param pass
-	\return User
-	*/
-	static SH_User *logIn(QString login, QString pass);
-	
+    \fn logIn
+    \param login
+    \param pass
+    \return User
+    */
+    static SH_User *logIn(QString login, QString pass);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn traineeExists
-	\param login
-	\return bool
-	*/
-	static bool traineeExists(QString login);
-	
+    \fn traineeExists
+    \param login
+    \return bool
+    */
+    static bool traineeExists(QString login);
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn userExists
-	\param login
-	\return bool
-	*/
-	static bool userExists(QString login);
+    \fn userExists
+    \param login
+    \return bool
+    */
+    static bool userExists(QString login);
 
+    bool setNewPassword(QString newPass);
+    virtual bool save(QString password);
 public slots:
-	
-/*!
-	\brief \~french
 
-	\fn exists
-	\param login
-	\return QVariant
-	*/
-	static QVariant exists(QVariant login) {return QVariant(SH_User::userExists(login.toString()) || SH_User::traineeExists(login.toString()));}
+/*!
+    \brief \~french
+
+    \fn exists
+    \param login
+    \return QVariant
+    */
+    static QVariant exists(QVariant login) {return QVariant(SH_User::userExists(login.toString()) || SH_User::traineeExists(login.toString()));}
 signals:
-	
-/*!
-	\brief \~french
 
-	\fn nameChanged
-	*/
-	void nameChanged();
-	
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn rolesChanged
-	*/
-	void rolesChanged();
-	
+    \fn nameChanged
+    */
+    void nameChanged();
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn validityChanged
-	*/
-	void validityChanged();
+    \fn rolesChanged
+    */
+    void rolesChanged();
+
+/*!
+    \brief \~french
+
+    \fn validityChanged
+    */
+    void validityChanged();
 
 private:
-	
-/*!
-	\brief \~french
 
-	\fn setName
-	\param name
-	*/
-	void setName(QString name);
-	
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn setID
-	\param id
-	*/
-	void setID(int id);
+    \fn setName
+    \param name
+    */
+    void setName(QString name);
 
-	
 /*!
-	*\brief \~french m_name
-	*/
-	QString m_name;
-	
+    \brief \~french
+
+    \fn setID
+    \param id
+    */
+    void setID(int id);
+
+
 /*!
-	*\brief \~french m_receptionist
-	*/
-	bool m_receptionist;
-	
+    *\brief \~french m_name
+    */
+    QString m_name;
+
 /*!
-	*\brief \~french m_managerX
-	*/
-	bool m_managerX;
-	
+    *\brief \~french m_receptionist
+    */
+    bool m_receptionist;
+
 /*!
-	*\brief \~french m_managerZ
-	*/
-	bool m_managerZ;
-	
+    *\brief \~french m_managerX
+    */
+    bool m_managerX;
+
 /*!
-	*\brief \~french m_administrator
-	*/
-	bool m_administrator;
-	
+    *\brief \~french m_managerZ
+    */
+    bool m_managerZ;
+
 /*!
-	*\brief \~french m_id
-	*/
-	int m_id;
+    *\brief \~french m_administrator
+    */
+    bool m_administrator;
+
+/*!
+    *\brief \~french m_id
+    */
+    int m_id;
 };
 /*}*/
 #endif /* USER_H*/

@@ -2,6 +2,7 @@
 #define RESTRICTIVEAPPLICATION_H
 #include "models/SH_User.h"
 #include <QApplication>
+#include <QSettings>
 #include "logic/SH_IOStateMachine.h"
 /*namespace SimplHotel
 {*/
@@ -97,7 +98,18 @@ public:
     * \param mode Le nouveau mode de l'application
     */
     void setMode(AppMode mode);
-    int billOpened();
+
+    Q_INVOKABLE int billOpened();
+
+    void setSettings(QSettings::Scope scope, QString devName, QString appName);
+
+    Q_INVOKABLE QVariant readSetting(QString key, QString group="");
+
+    Q_INVOKABLE void writeSetting(QString key, QVariant value, QString group);
+
+
+    Q_INVOKABLE qreal totalBalance();
+    Q_INVOKABLE qreal todayBalance();
 public slots:
 
     /*!
@@ -123,6 +135,8 @@ public slots:
     * \return bool Retourne \a true si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; \a false sinon
     */
     bool setUser(QString login, QString pass);
+
+       bool saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin);
 
     /*!
     * \brief \~french "Déconnecte" l'utilisateur actuel, et le remplace par un utilisateur invalide
@@ -274,11 +288,17 @@ private:
     */
     SH_ApplicationCore::AppMode m_mode;
 
+    bool m_currentFSMNotNull;
+
     /*!
     * \brief \~french
     * \var m_currentFSM
     */
     SH_InOutStateMachine* m_currentFSM;
+
+    QSettings m_settings;
+
+
 };
 /*}*/
 #endif /* RESTRICTIVEAPPLICATION_H*/

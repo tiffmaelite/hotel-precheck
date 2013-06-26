@@ -21,7 +21,7 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
     QVariantList fieldsValues = results.values(m_field);
     for(int i = 0; i < idValues.length(); i++) {
         SH_MessageManager::debugMessage(QString("new choice %1: %2").arg(idValues.at(i).toString()).arg(fieldsValues.at(i).toString()));
-        m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
+        //m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
     }
 }
 /*!

@@ -4,6 +4,7 @@
 #include "SH_DatabaseManager.h"
 #include "logic/SH_ServiceCharging.h"
 #include "logic/SH_BillingCreation.h"
+#include "models/SH_Trainee.h"
 /*namespace SimplHotel
 {*/
 /*!
@@ -11,7 +12,7 @@
  * \fn SH_ApplicationCore::RestrictiveApplication
 */
 SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
-    QObject(parent)
+    QObject(parent), m_currentFSMNotNull(false), m_currentFSM(NULL)
 {
     init();
 }
@@ -79,6 +80,17 @@ bool SH_ApplicationCore::setUser(QString login, QString pass)
     }
     return false;
 }
+
+bool SH_ApplicationCore::saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin)
+{
+    if(!isTrainee) {
+        SH_User* newUser = new SH_User(login, 0, isReceptionist, isManX, isManZ,isAdmin);
+        return newUser->save(pass);
+    } else {
+        SH_Trainee* newTrainee = new SH_Trainee(login);
+        return newTrainee->save(pass);
+    }
+}
 /*!
  * \details \~french
  * \fn SH_ApplicationCore::userExists
@@ -100,14 +112,29 @@ bool SH_ApplicationCore::balanceLogRoutine() {
     SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/
     return true;
 }
+
+qreal SH_ApplicationCore::todayBalance() {
+    QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery("DAYLYBALCOUNT", QStringList("BALANCE"), "TIMESTAMP = (SELECT MAX(TIMESTAMP) FROM YEARLYLOGBALCOUNT)");
+    result.next();
+    return result.value("BALANCE").toReal();
+}
+
+qreal SH_ApplicationCore::totalBalance() {
+    QSqlQuery result =  SH_DatabaseManager::getInstance()->execSelectQuery("YEARLYLOGBALCOUNT", QStringList("BALANCE"), "TIMESTAMP = (SELECT MAX(TIMESTAMP) FROM YEARLYLOGBALCOUNT)");
+    result.next();
+    return result.value("BALANCE").toReal();
+}
+
 /*!
  * \details \~french
  * \fn SH_ApplicationCore::receiveInput
 */
 void SH_ApplicationCore::receiveInput(QString in)
 {
-    SH_MessageManager::infoMessage("input received "+in);
-    emit this->m_currentFSM->receiveInput(in);
+    if(m_currentFSMNotNull) {
+        SH_MessageManager::infoMessage("input received "+in);
+        emit this->m_currentFSM->receiveInput(in);
+    }
 }
 /*!
  * \details \~french
@@ -115,7 +142,9 @@ void SH_ApplicationCore::receiveInput(QString in)
 */
 void SH_ApplicationCore::receiveValidation()
 {
-    emit this->m_currentFSM->validateInput();
+    if(m_currentFSMNotNull) {
+        emit this->m_currentFSM->validateInput();
+    }
 }
 /*!
  * \details \~french
@@ -123,7 +152,9 @@ void SH_ApplicationCore::receiveValidation()
 */
 void SH_ApplicationCore::receiveConfirmation()
 {
-    emit this->m_currentFSM->confirmInput();
+    if(m_currentFSMNotNull) {
+        emit this->m_currentFSM->confirmInput();
+    }
 }
 /*!
  * \details \~french
@@ -131,7 +162,9 @@ void SH_ApplicationCore::receiveConfirmation()
 */
 void SH_ApplicationCore::replaceInput(QString inputName)
 {
-    emit this->m_currentFSM->replaceInput(inputName);
+    if(m_currentFSMNotNull) {
+        emit this->m_currentFSM->replaceInput(inputName);
+    }
 }
 /*!
  * \details \~french
@@ -139,7 +172,9 @@ void SH_ApplicationCore::replaceInput(QString inputName)
 */
 void SH_ApplicationCore::cancelReplacement()
 {
-    emit this->m_currentFSM->cancelReplacement();
+    if(m_currentFSMNotNull) {
+        emit this->m_currentFSM->cancelReplacement();
+    }
 }
 /*!
  * \details \~french
@@ -148,6 +183,7 @@ void SH_ApplicationCore::cancelReplacement()
 bool SH_ApplicationCore::launchBillingCreation()
 {
     this->m_currentFSM= new SH_BillingCreationStateMachine("création facturation");
+    m_currentFSMNotNull = true;
     return this->launchStateMachine();
 }
 /*!
@@ -156,7 +192,8 @@ bool SH_ApplicationCore::launchBillingCreation()
 */
 bool SH_ApplicationCore::launchBookingCreation()
 {
-    /*this->m_currentFSM= new BookingCreationStateMachine("création facturation");*/
+    /*this->m_currentFSM= new BookingCreationStateMachine("création facturation");
+    this->m_currentFSMNotNull = true;*/
     return this->launchStateMachine();
 }
 /*!
@@ -166,6 +203,7 @@ bool SH_ApplicationCore::launchBookingCreation()
 bool SH_ApplicationCore::launchServiceCharging()
 {
     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
+    m_currentFSMNotNull = true;
     this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->id()), "BILL_ID");
     return this->launchStateMachine();
 }
@@ -175,10 +213,13 @@ bool SH_ApplicationCore::launchServiceCharging()
 */
 bool SH_ApplicationCore::stopRunningStateMachine()
 {
-    this->m_currentFSM->stop();
-    bool ok = !this->m_currentFSM->isRunning();
-    this->m_currentFSM = NULL;
-    return ok;
+    if(m_currentFSMNotNull) {
+        this->m_currentFSM->stop();
+        bool ok = !this->m_currentFSM->isRunning();
+        this->m_currentFSM = NULL;
+        return ok;
+    }
+    return false;
 }
 /*!
  * \details \~french
@@ -199,11 +240,41 @@ bool SH_ApplicationCore::launchStateMachine()
 }
 
 int SH_ApplicationCore::billOpened() {
-    SH_ServiceCharging* smachine = qobject_cast<SH_ServiceCharging*>(this->m_currentFSM);
-    if(smachine) {
-        return smachine->getContentValue("ID").toInt();
+    if(m_currentFSMNotNull) {
+        SH_ServiceCharging* smachine = qobject_cast<SH_ServiceCharging*>(this->m_currentFSM);
+        if(smachine) {
+            return smachine->getContentValue("ID").toInt();
+        }
     }
     return -1;
+}
+
+void SH_ApplicationCore::setSettings(QSettings::Scope scope, QString devName, QString appName)
+{
+    QSettings m_settings(scope, devName, appName);
+}
+
+QVariant SH_ApplicationCore::readSetting(QString key, QString group)
+{
+    if(group != "") {
+        m_settings.beginGroup(group);
+    }
+    QVariant value = m_settings.value(key);
+    if(group != "") {
+        m_settings.endGroup();
+    }
+    return value;
+}
+
+void SH_ApplicationCore::writeSetting(QString key, QVariant value, QString group)
+{
+    if(group != "") {
+        m_settings.beginGroup(group);
+    }
+    m_settings.setValue(key,value);
+    if(group != "") {
+        m_settings.endGroup();
+    }
 }
 
 /*}*/

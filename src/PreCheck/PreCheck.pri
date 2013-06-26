@@ -51,7 +51,9 @@ HEADERS *= \
 	logic/SH_AddressCreation.h \
 	logic/SH_AdaptDatabaseState.h \
 	logic/SH_GenericDebugableStateMachine.h \
-    models/SH_VATTableModel.h
+	models/SH_VATTableModel.h \
+	models/SH_UsersTableModel.h \
+    models/SH_TraineesTableModel.h
 
 SOURCES *= \
 	main.cpp \
@@ -94,8 +96,10 @@ SOURCES *= \
 	logic/SH_StatementState.cpp \
 	logic/SH_ValidationState.cpp \
 	logic/SH_GenericDebugableStateMachine.cpp \
-    models/SH_VATTableModel.cpp \
-    models/SH_ExtendedSqlProxyModel.cpp
+	models/SH_VATTableModel.cpp \
+	models/SH_ExtendedSqlProxyModel.cpp \
+	models/SH_UsersTableModel.cpp \
+    models/SH_TraineesTableModel.cpp
 
 # QML-files as a ressource
 RESOURCES *= \
@@ -125,4 +129,4 @@ OTHER_FILES *= \
 	views/qml/SH_app.qml \
 	../../../gh-pages/DoxygenConfigFile \
 	../../../gh-pages/DoxyAssistConfigFile.xml \
-    views/qml/SH_VATDelegate.qml
+	views/qml/SH_VATDelegate.qml

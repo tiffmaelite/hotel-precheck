@@ -102,7 +102,7 @@ Item {
     GridLayout {
         id:main
         columnSpacing: 2
-        rowSpacing: 2
+        rowSpacing: 4
         width: parent.width
         height: parent.height
         anchors.fill: parent
@@ -115,7 +115,7 @@ Item {
             objectName: "TabView"
             Layout.alignment: Qt.AlignTop
             Layout.minimumWidth: main.width/2-main.columnSpacing
-            Layout.minimumHeight: main.height/2-main.rowSpacing
+            Layout.minimumHeight: 7*main.height/12-main.rowSpacing
             Layout.fillWidth: true
             Layout.fillHeight: true
             enabled:true
@@ -135,23 +135,30 @@ Item {
                 rightOutput.selectedForDetail(datas.data(row));
             }
         }
-        ColumnLayout {
-            /*la partie inférieure du panel de gauche contient le clavier*/
+        RowLayout {
+            Layout.alignment: Qt.AlignBottom
+            Layout.minimumWidth: main.width/2-main.columnSpacing
+            Layout.minimumHeight: 5*main.height/12-main.rowSpacing
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            /*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche en mode RECEPTION*/
             SH_ContentView {
-                model: SH_VATModel { }
-                columns: 1
+                id: vatSidePanel
+                model: 0 //SH_VATModel { }
+                //columns: 1
                 sectionIndex: 0
                 dataDelegate: "SH_VATDelegate.qml"
-                emptyDelegate: "SH_DataDelegate.qml"
-                sectionDelegate: "SH_DataDelegate.qml"
                 onSelected: {
                     commonPage.keySelected(selectedItem);
                 }
-                Layout.fillWidth: true
-                Layout.fillHeight: true
                 Component.onCompleted: {
-                    model.fetch();
+                    if(model !== 0) {
+                        model.fetch();
+                    }
                 }
+                Layout.minimumWidth: parent.width/10;
+                Layout.fillHeight: true
+                Layout.alignment: Qt.AlignTop
             }
             SH_Keyboard{
                 id: keys
@@ -168,11 +175,6 @@ Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
-            Layout.alignment: Qt.AlignBottom
-            Layout.minimumWidth: main.width/2-main.columnSpacing
-            Layout.minimumHeight: main.height/2-main.rowSpacing
-            Layout.fillWidth: true
-            Layout.fillHeight: true
         }
         /*la zone d'affichage remplit toute la moitié de droite*/
         SH_OutputZone {
@@ -186,6 +188,41 @@ Item {
                 commonPage.keySelected(selectedItem);
             }
         }
+    }
+
+    Binding {
+        target: vatSidePanel
+        property: "visible"
+        value: true
+        when: (App.currentMode === AppMode.RECEPTION)
+    }
+
+
+    Binding {
+        target: leavingRoomAction
+        property: "enabled"
+        value: true
+        when: (App.currentMode === AppMode.RECEPTION)
+    }
+
+    Binding {
+        target: replaceAction
+        property: "enabled"
+        value: true
+        when: (App.currentMode === AppMode.RECEPTION)
+    }
+
+    Binding {
+        target: arrivingAction
+        property: "enabled"
+        value: true
+        when: (App.currentMode === AppMode.RECEPTION)
+    }
+    Binding {
+        target: departureAction
+        property: "enabled"
+        value: true
+        when: (App.currentMode === AppMode.RECEPTION)
     }
 
 
@@ -211,9 +248,8 @@ Item {
         id: replaceAction
         text: qsTr("VENDRE")
         keyShortcut: Qt.Key_unknown
-        enabled: (App.currentMode == AppMode.RECEPTION)
         onTriggered: {
-            if(App.currentMode == AppMode.RECEPTION) {
+            if(replaceAction.enabled) {
                 tabs.newSelling()
             }
         }
@@ -229,9 +265,8 @@ Item {
         id: leavingRoomAction
         text: qsTr("LIBÉRER")
         keyShortcut: Qt.Key_unknown
-        enabled: (App.currentMode == AppMode.RECEPTION)
         onTriggered: {
-            if(App.currentMode == AppMode.RECEPTION) {
+            if(leavingRoomAction.enabled) {
                 /*TODO*/
             }
         }
@@ -265,9 +300,8 @@ Item {
         id: arrivingAction
         text: qsTr("ARRIVÉE")
         keyShortcut: Qt.Key_unknown
-        enabled: (App.currentMode == AppMode.RECEPTION)
         onTriggered: {
-            if(App.currentMode == AppMode.RECEPTION) {
+            if(arrivingAction.enabled) {
                 tabs.newBilling();
             }
         }
@@ -393,7 +427,7 @@ Item {
     }
     SH_ComplexAction {
         id: quitAction
-        text: qsTr("QUITTER")
+        text: qsTr("MENU")
         keyShortcut: Qt.Key_unknown
         onTriggered: {
             commonPage.cancelProcess();

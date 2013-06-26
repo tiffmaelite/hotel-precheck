@@ -15,7 +15,7 @@ Rectangle {
     property string itemDelegate
     property string emptyDelegate : "SH_DataDelegate.qml"
     property string sectionDelegate : "SH_DataDelegate.qml"
-    property alias columns: dataView.columns
+    //property alias columns: dataView.columns
     /** type: bool
       visibilité des cases à cocher permettant le tri du modèle
     */

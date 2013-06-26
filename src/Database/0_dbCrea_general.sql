@@ -1,8 +1,8 @@
---CONNECT "PreCheckDB.fdb" USER 'precheck' PASSWORD 'hotel';
+CONNECT "PreCheckDB.fdb" USER 'precheck' PASSWORD 'hotel';
 
---DROP DATABASE;
+DROP DATABASE;
 
---COMMIT;
+COMMIT;
 
 CREATE DATABASE "PreCheckDB.fdb" USER 'precheck' PASSWORD 'hotel';
 

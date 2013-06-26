@@ -11,7 +11,7 @@ import PreCheck 1.0
 Rectangle {
     id: output
     visible: true
-    color: "lightgrey"
+    color: "snow"
     property int lastVisibleRow: -1
 
     /*onLastVisibleRowChanged: {
@@ -276,7 +276,7 @@ Rectangle {
                         Layout.fillHeight: true
                         Layout.fillWidth: true
                         font.pointSize: 12
-                        color: defaultContent.readOnly ? "grey" : "darkgrey"
+                        color: defaultContent.readOnly ? "gray" : "dimgray"
                     }
                     SH_ContentView {
                         id: choiceContent

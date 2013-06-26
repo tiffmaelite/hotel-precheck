@@ -39,11 +39,11 @@ TableView {
             }
             GradientStop {
                 position: 0.8;
-                color: "lightgray";
+                color: "lemonchiffon";
             }
             GradientStop {
                 position: 1;
-                color: "darkgray";
+                color: "wheat";
             }
         }
         width: headerText.width
@@ -57,8 +57,7 @@ TableView {
             verticalAlignment: Text.AlignVCenter
             maximumLineCount: 2
             anchors.centerIn: parent
-            style: Text.Sunken
-            styleColor: "gray"
+            styleColor: "tan"
             renderType: Text.NativeRendering
             wrapMode: Text.Wrap
         }

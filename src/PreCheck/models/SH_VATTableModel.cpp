@@ -13,7 +13,7 @@ SH_VATTableModel::SH_VATTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
 {
     SH_ExtendedProxyModel::model->setTable("TAXES");
-    SH_ExtendedProxyModel::model->setFilterCondition("STARTDATE <= CURRENT_DATE && (ENDDATE IS NULL || ENDDATE >= CURRENT_DATE)");
+    SH_ExtendedProxyModel::model->setFilterCondition("((STARTDATE IS NULL OR STARTDATE <= CURRENT_DATE) AND (ENDDATE IS NULL OR ENDDATE >= CURRENT_DATE))");
     SH_ExtendedProxyModel::model->setOrderBy("PERCENTAGE ASC");
 }
 
@@ -24,9 +24,10 @@ SH_VATTableModel::SH_VATTableModel(QObject *parent):
 */
 void SH_VATTableModel::fillModel()
 {
-    SH_ExtendedProxyModel::addFilterKeyColumn(0);
-    //SH_ExtendedProxyModel::addFilterKeyColumn(2);
-    SH_ExtendedProxyModel::addFilterKeyColumn(3);
-    SH_ExtendedProxyModel::addFilterKeyColumn(4);
+    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("Code"));
+    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("PERCENTAGE"), Qt::Horizontal, QObject::tr("\%"));
+    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("LABEL"), Qt::Horizontal, QObject::tr("Libellé"));
+    SH_ExtendedProxyModel::addFilterKeyColumn(fields.indexOf("PERCENTAGE"));
 }
 /*}*/

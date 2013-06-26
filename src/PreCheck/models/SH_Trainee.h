@@ -14,7 +14,7 @@
 */
 class SH_Trainee : public SH_User
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 /*!
 \brief \~french
@@ -24,7 +24,8 @@ public:
  \param id
  \param parent
 */
-	SH_Trainee(QString name, int id, QObject *parent = 0);
+    SH_Trainee(QString name, int id = 0, QObject *parent = 0);
+    bool save(QString password);
 };
 /*}*/
 #endif /* TRAINEE_H*/

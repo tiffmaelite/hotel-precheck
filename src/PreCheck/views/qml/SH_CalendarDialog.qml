@@ -219,7 +219,7 @@ Rectangle {
                                                                   )
                         color: (index < 7) ? "white" :
                                              (dayIndexInMonth <= 0 || dayIndexInMonth > currentMonthLength) ? /* en dehors du mois ?*/
-                                                                                                              "lightgrey" :
+                                                                                                              "wheat" :
                                                                                                               ((cell.dayIndexInMonth === calendarBase.currentDay) ? "blue" : "lightsteelblue")
                         border.width: 1
                         border.color: "darkblue"

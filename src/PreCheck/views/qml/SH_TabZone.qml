@@ -46,13 +46,13 @@ TabView {
             anchors.fill: parent
             height: tabView.height-style.frameOverlap
             width: tabView.width
-            color: "#dcdcdc"
-            border.color: "#aaa"
+            color: "whitesmoke"
+            border.color: "silver"
 
             Rectangle {
                 anchors.fill: parent
                 color: "transparent"
-                border.color: "#66ffffff"
+                border.color: "silver"
                 anchors.margins: 2
             }
         }
@@ -64,8 +64,8 @@ TabView {
     }
     onReload: {
         var nbTabs = tabView.count;
-        for(var i = 1; i < nbTabs; i++) {
-            tabView.removeTab(i)
+        for(var i = nbTabs-1; i > 0; i--) {
+            tabView.removeTab(i);
         }
         switch(App.currentMode) {
         case AppMode.RECEPTION:
@@ -86,7 +86,7 @@ TabView {
             break;
         case AppMode.ADMINISTRATION :
             /*tabView.addTab(qsTr("Paramètres"), settingsTab);*/
-            /*tabView.addTab(qsTr("Utilisateurs"), usersTab);*/
+            tabView.addTab(qsTr("Utilisateurs"), usersTab);
             /*tabView.addTab(qsTr("Design"), skinTab);*/
             break;
         }
@@ -106,7 +106,7 @@ TabView {
         },
         Component {
             id: servicesTab
-            ColumnLayout {
+            /*ColumnLayout {
                 Rectangle {
                     color:"transparent"
                     Layout.fillWidth: true
@@ -131,22 +131,22 @@ TabView {
                             }
                         }
                     }
-                }
-                SH_SqlDataView {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    enabled: tabView.enabled
-                    columns: 6
-                    filtersTitle: qsTr("Tri des prestations")
-                    sqlModel: SH_ServicesModel { }
-                    itemDelegate: "SH_ServicesDelegate.qml"
-                    emptyDelegate: "SH_DataDelegate.qml"
-                    sectionDelegate: "SH_DataDelegate.qml"
-                    onSelected: {
-                        tabView.selected(selectedItem);
-                    }
+                }*/
+            SH_SqlDataView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                enabled: tabView.enabled
+                //columns: 5 //6
+                filtersTitle: qsTr("Tri des prestations")
+                sqlModel: SH_ServicesModel { }
+                itemDelegate: "SH_ServicesDelegate.qml"
+                emptyDelegate: "SH_DataDelegate.qml"
+                sectionDelegate: "SH_DataDelegate.qml"
+                onSelected: {
+                    tabView.selected(selectedItem);
                 }
             }
+            /*}*/
         },
         Component {
             id: servicesEditTab
@@ -236,15 +236,127 @@ TabView {
         Component {
             id: reportsTab
             Rectangle {
+                GridLayout {
+                    anchors.centerIn: parent
+                    width: parent.width
+                    height: parent.height
+                    columns: 2
+                    rows: 2
+                    Label {
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        text: "compteur journalier"
+                    }
+                    Label {
+                        text: App.todayBalance()
+                    }
 
-            }
-            /*SH_SqlTableView {
-                id: reportsEditView
-                model: SH_ServicesModel { }
-                onSelectedRow: {
-                    tabView.selectedForDetail(reportsEditView.model, selectedData);
+                    Label {
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        text: "compteurs totaux"
+                    }
+                    Label {
+                        text: App.totalBalance()
+                    }
                 }
-            }*/
+            }
+        },
+        Component {
+            id: usersTab
+            Rectangle {
+                ColumnLayout {
+                    GroupBox {
+                        title: "Nouvel utilisateur"
+                        RowLayout {
+                            anchors.centerIn: parent
+                            width: parent.width
+                            height: parent.height
+                            Label {
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                                text: "Nom d'utilisateur"
+                            }
+                            TextEdit {
+                                id: loginEdit
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                            }
+                            Label {
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                                text: "Mot de passe"
+                            }
+                            TextEdit {
+                                id: passEdit
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                            }
+                        }
+                        RowLayout {
+                            Label {
+                                text : "Droits/Accès"
+                            }
+
+                            CheckBox {
+                                id: traineeCbx
+                                text: "Formation (pas encore fonctionnel)"
+                                checked: false
+                            }
+                            CheckBox {
+                                id: receptionistCbx
+                                text: "Réception"
+                                checked: true
+                            }
+                            CheckBox {
+                                id: managerXCbx
+                                text: "Responsable avec droits X"
+                                checked: false
+                            }
+                            CheckBox {
+                                id: managerZCbx
+                                text: "Responsable avec droits Z"
+                                checked: false
+                            }
+                            CheckBox {
+                                id:administratorCbx
+                                text: "Administrateur"
+                                checked: false
+                            }
+                            Button {
+                                text: "Enregistrer"
+                                onClicked: {
+                                    App.saveUser(loginEdit.text,passEdit.text,traineeCbx.checked, receptionistCbx.checked,  managerXCbx.checked, managerZCbx.checked, administratorCbx.checked);
+                                }
+                            }
+                        }
+                    }
+                    GroupBox {
+                        title: "Utilisateurs existants"
+                        ColumnLayout {
+                            SH_SqlTableView {
+                                id: usersList
+                                model: SH_UsersListModel { }
+                                onSelectedRow: {
+                                    tabView.selectedForDetail(usersList.model, selectedData);
+                                }
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                            }
+
+                            SH_SqlTableView {
+                                id: traineesList
+                                model: SH_TraineesListModel { }
+                                onSelectedRow: {
+                                    tabView.selectedForDetail(traineesList.model, selectedData);
+                                }
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                            }
+                        }
+                    }
+                }
+            }
         }
     ]
 }

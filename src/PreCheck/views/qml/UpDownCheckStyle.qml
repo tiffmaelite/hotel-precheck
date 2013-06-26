@@ -51,8 +51,8 @@ Style {
         width: 20
         antialiasing: true
         gradient: Gradient {
-            GradientStop{color: control.pressed ? "lightgray" : "white" ; position: 0}
-            GradientStop{color: control.pressed ? "lightgray" : "lightgray" ; position: 1}
+            GradientStop{color: control.pressed ? "lemonchiffon" : "white" ; position: 0}
+            GradientStop{color: control.pressed ? "lemonchiffon" : "lemonchiffon" ; position: 1}
         }
         radius: 2
         border.color: "#aaa"

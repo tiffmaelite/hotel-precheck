@@ -16,6 +16,8 @@
 #include "models/SH_ServicesTableModel.h"
 #include "models/SH_GroupsTableModel.h"
 #include "models/SH_User.h"
+#include "models/SH_UsersTableModel.h"
+#include "models/SH_TraineesTableModel.h"
 #include "views/SH_ExtendedQQmlAction.h"
 #include "../../libs/QsLog_2.0.b1/QsLog.h"
 #include "../../libs/QsLog_2.0.b1/QsLogDest.h"
@@ -126,6 +128,14 @@ void spin(int &iteration)
     qDebug() << "iteration" << iteration << "in thread" << QThread::currentThreadId();
 }
 
+void initSettings(QSettings::Scope scope, QString devName,QString appName) {
+    QSettings settings(scope, devName, appName);
+    settings.beginGroup("global GUI");
+    settings.setValue("backgroundColor","whitesmoke");
+    //TODO: continuer avec toutes les valeurs configurables pour le premier lancement (installation)
+    settings.endGroup();
+}
+
 /*!
  * \details \~french
  * \fn SH_main
@@ -145,16 +155,22 @@ int main(int argc, char **argv)
         const QString sLogPath(QDir::cleanPath(app.applicationDirPath()+"/../../../src/PreCheck/debugLog.txt"));
         enableLogging(sLogPath);
 
-        QString appName = QString(QObject::tr("precheck"));
+        QString appName = QString(QObject::tr("PreCheck"));
+        QString devName = QString("SimplHotel");
+        QCoreApplication::setOrganizationName(devName);
+        QCoreApplication::setApplicationName(appName);
+
+initSettings(QSettings::SystemScope, devName,appName);
+
         QString locale = QLocale::system().name();
         QTranslator translator;
-        if (!QFile::exists(appName + "_" + locale + ".qm"))
+        if (!QFile::exists(appName.toLower() + "_" + locale + ".qm"))
         {
             locale = locale.section('_', 0, 0);
         }
-        if (QFile::exists(appName + "_" + locale + ".qm"))
+        if (QFile::exists(appName.toLower() + "_" + locale + ".qm"))
         {
-            translator.load(appName + "_" + locale);
+            translator.load(appName.toLower() + "_" + locale);
             app.installTranslator(&translator);
         }
 
@@ -166,9 +182,16 @@ int main(int argc, char **argv)
         SimplHotel::SH_ApplicationCore* appManager = new SimplHotel::SH_ApplicationCore();*/
         qmlRegisterUncreatableType<SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
         qmlRegisterType<SH_User>("PreCheck", 1, 0, "User");
+
+
         SH_ApplicationCore* appManager = new SH_ApplicationCore();
+        appManager->setSettings(QSettings::SystemScope, devName,appName); // system-wide location for the application
         engine.rootContext()->setContextProperty("App", appManager);
 
+
+        qmlRegisterType<SH_VATTableModel>("PreCheck", 1, 0, "SH_VATModel");
+        qmlRegisterType<SH_UsersTableModel>("PreCheck", 1, 0, "SH_UsersListModel");
+        qmlRegisterType<SH_TraineesTableModel>("PreCheck", 1, 0, "SH_TraineesListModel");
 
         /*qmlRegisterType<SimplHotel::SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
         qmlRegisterType<SimplHotel::SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
@@ -179,7 +202,6 @@ int main(int argc, char **argv)
         qmlRegisterType<SimplHotel::SH_GroupsTableModel>("PreCheck", 1, 0, "SH_GroupsModel");
         qmlRegisterType<SimplHotel::SH_SqlDataFields>("PreCheck", 1, 0, "SH_SqlDataField");
         qmlRegisterType<SimplHotel::SH_ExtendedQQmlAction>("PreCheck", 1, 0, "SH_ComplexAction");*/
-        qmlRegisterType<SH_VATTableModel>("PreCheck", 1, 0, "SH_VATModel");
         qmlRegisterType<SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
         qmlRegisterType<SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
         qmlRegisterType<SH_BillsTableModel>("PreCheck", 1, 0, "SH_BillsModel");
@@ -204,8 +226,8 @@ int main(int argc, char **argv)
             qWarning("Error: Your root item has to be a Window.");
             return -1;
         }
-        QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
 
+        //window->setColor(appManager->readSetting("backgroundColor","global GUI").value<QColor>());
 
         QObject * commonPage = window->findChild<QObject *>("Common");
         QObject * tabsZone = commonPage->findChild<QObject *>("TabView");
@@ -219,8 +241,11 @@ int main(int argc, char **argv)
         QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
 
-        window->show();
+        QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
+
+
         QLOG_INFO() << "Program built with Qt" << QT_VERSION_STR << "running on" << qVersion();
+        window->show();
         return app.exec();
 
     }
