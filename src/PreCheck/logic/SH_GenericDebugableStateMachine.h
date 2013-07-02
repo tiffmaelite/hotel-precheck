@@ -22,7 +22,7 @@ public:
     * \param previousState
     * \param nextState
     */
-    virtual void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
+    virtual void setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState);
 
     virtual void addState(QAbstractState *state);
 

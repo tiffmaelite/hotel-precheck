@@ -5,9 +5,9 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-/**
-  @class
-fenêtre principale de l'application qui contient tous les éléments de design de l'application
+/*!
+  \class SH_app
+  \brief \~french fenêtre principale de l'application qui contient tous les éléments de design de l'application
 */
 ApplicationWindow {
     id: window
@@ -48,13 +48,13 @@ ApplicationWindow {
             stack.push({item: stack.get(c.Stack.index)});
         }
         delegate: StackViewDelegate {
-            /**
-              @fn
-              @param
-              @return
+            /*!
+              \fn
+              \param
+              \return
 
-              @brief
-              @details
+              \brief
+              \details
               */
             function getTransition(properties)
             {

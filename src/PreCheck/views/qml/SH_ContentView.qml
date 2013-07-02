@@ -5,91 +5,26 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-/**
-  @class
+/*!
+  \class  SH_ContentView
   */
 GridLayout {
     id: dataView
-    columns: 7
+    //columns: (repeater.count < dataView.maxColumns) ? repeater.count : dataView.maxColumns
+    columns: 5
     columnSpacing: 1
     rowSpacing: 1
     property string dataDelegate
     property string emptyDelegate
     property string sectionDelegate
-    property variant activeFilterIndicatorIndexes
+    property int maxColumns: 7
     property alias sectionIndex : repeater.sectionIndex
     property alias model: repeater.model
+    readonly property bool horizontalDisposition: dataView.rows <=0 && dataView.columns > 0
+    readonly property bool verticalDisposition: dataView.columns <=0 && dataView.rows > 0
     signal selected(string selectedItem)
-    /*Component.onCompleted: {
-        if(dataView.model !== 0) {
-            dataView.model.fetch();
-        }
-    }*/
-
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function removeFilterIndex(index) {
-        if(!dataView.activeFilterIndicatorIndexes) {
-            dataView.activeFilterIndicatorIndexes = [];
-        }
-        var tmp = dataView.activeFilterIndicatorIndexes
-        var pos = tmp.indexOf(index);
-        tmp.splice(pos, 1);
-        return tmp;
-    }
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function addFilterIndex(index) {
-        if(!dataView.activeFilterIndicatorIndexes) {
-            dataView.activeFilterIndicatorIndexes = [];
-        }
-        var tmp = dataView.activeFilterIndicatorIndexes
-        tmp.push(index);
-        return tmp;
-    }
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function sort(index) {
-        repeater.model.setSortKeyKolumn(index);
-    }
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function filter(index, remove) {
-        if(remove) {
-            dataView.activeFilterIndicatorIndexes = dataView.addFilterIndex(index);
-            repeater.model.setFilterKeyColumn(index);
-        } else {
-            dataView.activeFilterIndicatorIndexes = dataView.removeFilterIndex(index);
-            var nbFilters = dataView.activeFilterIndicatorIndexes.length;
-            repeater.model.invalidateFilter(index);
-            for(var i = 0; i < nbFilters; i++) {
-                repeater.model.setFilterKeyColumn(dataView.activeFilterIndicatorIndexes.at(i));
-            }
-        }
+    Component.onCompleted: {
+        //dataView.columns =  (repeater.count < dataView.maxColumns) ? repeater.count : dataView.maxColumns;
     }
 
     Repeater {
@@ -224,125 +159,98 @@ GridLayout {
             id: contentContainer
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.maximumHeight: (dataView.rows > 0) ? (Math.floor(dataView.height / dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)
-            Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
-            Layout.row: computeRow()
-            Layout.column: computeColumn()
-            /**
-              @fn
-              @param
-              @return
-
-              @brief
-              @details
+            property double maxHeight: dataView.verticalDisposition ? Math.floor(dataView.height / dataView.rows) : (Math.floor(dataView.height * (dataView.columns) / repeater.count))
+            property double maxWidth: dataView.horizontalDisposition ? Math.floor(dataView.width / dataView.columns) : (Math.floor(dataView.width * (dataView.rows / repeater.count)))
+            Layout.maximumHeight: maxHeight - dataView.rowSpacing
+            Layout.maximumWidth: maxWidth - dataView.columnSpacing
+            Layout.row: computeCoord(true)
+            Layout.column: computeCoord(false)
+            /*!
+              \fn computeRow
+              \param \type bool isCoordRow Indique si l'on calcule un indice de ligne ou pas (un indice de colonne dans le cas contraire)
+              \return int l'indice de la ligne désirée (0 étant la première ligne)
+              \brief \~french Calcule la ligne à laquelle insérer un élément donné
+              \details Prend en compte le tri des éléments et va à la ligne pour toute nouvelle section (définie par le changement de valeur du critère de tri)
               */
-            function computeRow() {
+            function computeCoord(isCoordRow) {
+                var startShift = 0;
                 var next = 0;
+                //on n'a besoin de calculer que pour des éléments ultérieurs au premier
                 if(index > 0){
+                    var currentSection = repeater.model.data(index, repeater.sectionIndex);
+                    var previousSection = repeater.model.data(index-1, repeater.sectionIndex);
                     var previousRow = repeater.itemAt(index-1).Layout.row;
                     var previousColumn = repeater.itemAt(index-1).Layout.column;
-                    console.log("\ncompute row pour l'item  d'id " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
-                    if(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
-                        console.log("nouvelle section "+repeater.model.data(index, repeater.sectionIndex)+" remplaçant "+repeater.model.data(index-1, repeater.sectionIndex));
-                        if(dataView.columns > 0) {
-                            console.log("layout horizontal de "+dataView.columns+" colonnes non complétées par la section\non va à la ligne");
-                            next=previousRow+1;
-                        } else {
-                            console.log("layout vertical de "+dataView.rows+" lignes\non retourne en première ligne");
-                            next = 1;
-                        }
-                    } else if(repeater.sectioning){
-                        console.log("même section");
-                        if(dataView.columns > 0) {
-                            console.log("layout horizontal de "+dataView.columns+" colonnes");
-                            if((previousColumn % dataView.columns) == 0) { /*dernière colonne*/
-                                console.log("on passe à la ligne suivante");
-                                next = previousRow + 1;
-                            } else {
-                                console.log("on ne change pas de ligne");
-                                next = previousRow;
-                            }
-                        } else{
-                            console.log("layout vertical de "+dataView.rows+" lignes\non passe à la ligne suivante (ou on boucle)");
-                            next = previousRow % dataView.rows + 1;
-                        }
+                    var previousSameCoord = 0;
+                    var previousOtherCoord = 0;
+                    var totalSameCoord = 0;
+                    var totalOtherCoord = 0;
+                    var isAlongDisposition = true;
+                    if(isCoordRow) {
+                        console.log("\n\ncalcul de l'indice de ligne");
+                        previousSameCoord = previousRow;
+                        previousOtherCoord = previousColumn;
+                        totalOtherCoord = dataView.columns;
+                        totalSameCoord = dataView.rows;
+                        isAlongDisposition = dataView.horizontalDisposition && !dataView.verticalDisposition;
                     } else {
-                        if(dataView.rows > 0) {
-                            next = index % dataView.rows + 1;
-                        } else {
-                            next = Math.floor(index / dataView.columns) + 1;
+                        console.log("\n\ncalcul de l'indice de colonne");
+                        previousSameCoord = previousColumn;
+                        previousOtherCoord = previousRow;
+                        totalOtherCoord = dataView.rows;
+                        totalSameCoord = dataView.columns;
+                        isAlongDisposition = dataView.verticalDisposition && !dataView.horizontalDisposition;
+                    }
+                    if(isAlongDisposition) {
+                        console.log("le calcul se fait dans le sens non limité");
+                    }
+                    console.log("élément d'ID " + (repeater.model.data(index, 0)) +", successeur de [" + previousRow + ", " + previousColumn+"]");
+                    console.log("indice prédécent selon la même coordonnée : "+previousSameCoord+"/"+totalSameCoord);
+                    console.log("indice prédécent selon l'autre coordonnée : "+previousOtherCoord+"/"+totalOtherCoord);
+
+                    if(repeater.sectioning) {
+                        if(previousSection !== currentSection) {
+                            console.log("nouvelle section ["+repeater.model.field(repeater.sectionIndex).text+"] : "+currentSection);
+                        } else{
+                            console.log("même section ["+repeater.model.field(repeater.sectionIndex).text+"] : "+currentSection);
                         }
                     }
-                } else {
-                    next = 1;
-                }
 
-                console.log("ligne "+next)
-                if(next < 0) {
-                    return 0;
-                } else if(dataView.rows > 0 && next > dataView.rows) {
-                    return dataView.rows;
-                } else {
-                    return next;
-                }
-            }
-            /**
-              @fn
-              @param
-              @return
-
-              @brief
-              @details
-              */
-            function computeColumn() {
-                var next = 0;
-                if(index > 0){
-                    var previousRow = repeater.itemAt(index-1).Layout.row;
-                    var previousColumn = repeater.itemAt(index-1).Layout.column;
-                    console.log("\ncompute column pour l'item d'id " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
-                    if(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
-                        console.log("nouvelle section "+repeater.model.data(index, repeater.sectionIndex)+" remplaçant "+repeater.model.data(index-1, repeater.sectionIndex));
-                        if(dataView.columns > 0) {
-                            console.log("layout horizontal de "+dataView.columns+" colonnes\non retourne à la première colonne");
-                            next = 1;
+                    //dans le cas où la ligne/colonne de l'élément précédent avait atteint la limite, ou qu'il s'agit d'une nouvelle section
+                    if((repeater.sectioning && (previousSection !== currentSection)) || (totalOtherCoord > 0 && ((previousOtherCoord - startShift % totalOtherCoord) + startShift == 0))) {
+                        if(isAlongDisposition) {
+                            console.log("nouvelle ligne/colonne dans le sens non limité");
+                            next = previousSameCoord + 1;
                         } else {
-                            console.log("layout vertical de "+dataView.rows+" lignes non complétées par la section\non va à la colonne suivante");
-                            next = previousColumn+1;
+                            console.log("retour au début dans le sens non limité")
+                            next = startShift;
                         }
-                    } else if(repeater.sectioning){
-                        console.log("même section");
-                        if(dataView.rows > 0) {
-                            console.log("layout vertical de "+dataView.rows+" lignes");
-                            if((previousRow % dataView.rows) == 0) { /*dernière ligne*/
-                                console.log("on passe à la colonne suivante");
-                                next = previousColumn + 1;
-                            } else {
-                                console.log("on ne change pas de colonne");
-                                next = previousColumn;
-                            }
-                        } else{
-                            console.log("layout horizontal de "+dataView.columns+" colonnes\non passe à la colonne suivante (ou on boucle) ");
-                            next = previousColumn % dataView.columns + 1;
-                        }
+                        //dans le cas où on continue normalement
                     } else {
-                        if(dataView.columns > 0) {
-                            next= index % dataView.columns + 1;
+                        if(isAlongDisposition) {
+                            console.log("même ligne/colonne");
+                            next = previousSameCoord;
                         } else {
-                            next= Math.floor(index / dataView.rows) + 1;
+                            console.log("ligne/colonne suivante");
+                            next = previousOtherCoord + 1;
                         }
                     }
-                } else {
-                    next = 1;
+                }
+                //on corrige les cas de dépassements étranges
+                if(!isAlongDisposition) {
+                    next = next % totalSameCoord + startShift;
+                }
+                if(next < startShift) {
+                    next = startShift;
                 }
 
-                console.log("colonne "+next)
-                if(next < 0) {
-                    return 0;
-                } else if(dataView.columns > 0 && next > dataView.columns) {
-                    return dataView.columns;
+                if(isCoordRow) {
+                    console.log("ligne finale "+next);
                 } else {
-                    return next;
+                    console.log("colonne finale "+next);
                 }
+
+                return next;
             }
 
             Loader {

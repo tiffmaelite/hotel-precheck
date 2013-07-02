@@ -67,19 +67,21 @@ void SH_InOutStateMachine::setContentValue(QVariant content, QString field)
 
 void SH_InOutStateMachine::addState(QAbstractState *state)
 {
+    SH_MessageManager::debugMessage("chalut");
     SH_GenericStateMachine::addState(state);
 }
 
-void SH_InOutStateMachine::addIOState(SH_InOutState *state, QString field)
+void SH_InOutStateMachine::addState(SH_InOutState *state, QString field)
 {
-    SH_InOutStateMachine::addState(state, field);
+    SH_MessageManager::debugMessage("salioute state");
+    SH_InOutStateMachine::addIOState(state, field);
 }
 
 /*!
  * \details \~french
  * \fn SH_InOutStateMachine::addState
 */
-void SH_InOutStateMachine::addState(SH_InOutState *astate, QString field)
+void SH_InOutStateMachine::addIOState(SH_InOutState *astate, QString field)
 {
     SH_InOutState* state = qobject_cast<SH_InOutState *>(astate);
     if(state) {
@@ -96,29 +98,32 @@ void SH_InOutStateMachine::addState(SH_InOutState *astate, QString field)
                 SH_MessageManager::infoMessage(in.toString(),"envoyé par l'état");
                 emit this->resendText(in.toString(), true);
             }});
-
-        SH_ValidationState *validationState = qobject_cast<SH_ValidationState*>(state);
+        SH_MessageManager::debugMessage("salioute");
+        SH_ValidationState *validationState = qobject_cast<SH_ValidationState*>(astate);
         if(validationState) {
             connect(this, &SH_InOutStateMachine::validateInput, validationState, &SH_ValidationState::confirmInput, Qt::QueuedConnection);
         }
 
-        SH_ConfirmationState *confirmationState = qobject_cast<SH_ConfirmationState*>(state);
+        SH_ConfirmationState *confirmationState = qobject_cast<SH_ConfirmationState*>(astate);
         if(confirmationState) {
             connect(this, &SH_InOutStateMachine::validateInput, confirmationState, &SH_ConfirmationState::confirmInput, Qt::QueuedConnection);
         }
 
-        SH_DateQuestionState *dateState = qobject_cast<SH_DateQuestionState*>(state);
+        SH_DateQuestionState *dateState = qobject_cast<SH_DateQuestionState*>(astate);
         if(dateState) {
             emit this->displayCalendar();
         }
 
-        SH_DatabaseContentQuestionState *choiceState = qobject_cast<SH_DatabaseContentQuestionState*>(state);
+        SH_DatabaseContentQuestionState *choiceState = qobject_cast<SH_DatabaseContentQuestionState*>(astate);
+        if(choiceState) {
             connect(this, &SH_InOutStateMachine::displayChoiceList, choiceState, &SH_DatabaseContentQuestionState::displayChoiceList, Qt::QueuedConnection);
+        }
 
-        SH_FileSelectionState *fileState = qobject_cast<SH_FileSelectionState*>(state);
+        SH_FileSelectionState *fileState = qobject_cast<SH_FileSelectionState*>(astate);
         if(fileState) {
             emit this->displayFileDialog();
         }
+        SH_MessageManager::debugMessage("salioute bis");
         /*});*/
         connect(state, &QAbstractState::exited, [=]() {
             if(!field.isEmpty()) {
@@ -133,6 +138,7 @@ void SH_InOutStateMachine::addState(SH_InOutState *astate, QString field)
         });
         /*});*/
     }
+    SH_MessageManager::debugMessage("salioute bis bis");
     QAbstractState* abstate = qobject_cast<QAbstractState *>(astate);
     if(abstate) {
         SH_InOutStateMachine::addState(abstate);
@@ -141,19 +147,20 @@ void SH_InOutStateMachine::addState(SH_InOutState *astate, QString field)
 
 /*!
  * \details \~french
- * \fn SH_InOutStateMachine::addStateMachine
+ * \fn SH_InOutStateMachine::addState
 */
-void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *fsm, QString table)
+void SH_InOutStateMachine::addState(SH_InOutStateMachine *fsm, QString table)
 {
-    if(!table.isEmpty()) {
-        fsm->setTableName(table);
-    }
-    SH_InOutStateMachine::addState(fsm);
+    SH_InOutStateMachine::addStateMachine(fsm, table);
 }
 
-void SH_InOutStateMachine::addState(SH_InOutStateMachine *astate) {
+void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *astate, QString table) {
+    SH_MessageManager::debugMessage("salioute machine");
     SH_InOutStateMachine* fsm = qobject_cast<SH_InOutStateMachine *>(astate);
     if(fsm) {
+        if(!table.isEmpty()) {
+            fsm->setTableName(table);
+        }
         /*connect(this, &SH_InOutStateMachine::entered, [=]() {*/
         /*à faire au moment de l'entrée dans la machine d'état fsm*/
         /*connect(fsm, &SH_InOutStateMachine::entered, [=]() {*/
@@ -241,7 +248,7 @@ void SH_InOutStateMachine::addChildrenReplaceTransition(QAbstractState *previous
  * \details \~french
  * \fn SH_InOutStateMachine::addChildrenNextTransition
 */
-void SH_InOutStateMachine::addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState)
+void SH_InOutStateMachine::setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState)
 {
     SH_GenericStateMachine* fsmPreviousState = qobject_cast<SH_GenericStateMachine*>(previousState);
     SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
@@ -250,10 +257,6 @@ void SH_InOutStateMachine::addChildrenNextTransition(QAbstractState *previousSta
         SH_AdaptDatabaseState* saveState = new SH_AdaptDatabaseState("enregistrement de la machine "+toString());
         if(genPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
-            /*à faire au moment de l'entrée dans l'état genPreviousState*/
-            /*connect(genPreviousState, &QAbstractState::entered, [=]() {*/
-            genPreviousState->addTransition(genPreviousState, SIGNAL(next()), saveState);
-            /*});*/
             connect(genPreviousState, &QAbstractState::exited, [=]() {
                 emit this->sendText("Merci !");
                 setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
@@ -262,10 +265,6 @@ void SH_InOutStateMachine::addChildrenNextTransition(QAbstractState *previousSta
         }
         if(fsmPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
-            /*à faire au moment de l'entrée dans l'état genPreviousState*/
-            /*connect(genPreviousState, &QAbstractState::entered, [=]() {*/
-            fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), saveState);
-            /*});*/
             connect(genPreviousState, &QAbstractState::exited, [=]() {
                 emit this->sendText("Merci !");
                 setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
@@ -274,15 +273,15 @@ void SH_InOutStateMachine::addChildrenNextTransition(QAbstractState *previousSta
         }
         if(genPreviousState || fsmPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
-            connect(saveState, &QAbstractState::entered, [=]() {
-                saveState->addTransition(saveState, SIGNAL(next()),final);
-            });
             connect(saveState, &QAbstractState::exited, [=]() {
                 emit this->clearAll();
             });
             /*});*/
         }
+        SH_GenericStateMachine::setStatesNextTransition(previousState, saveState);
+        SH_GenericStateMachine::setStatesNextTransition(saveState, final);
+    } else {
+        SH_GenericStateMachine::setStatesNextTransition(previousState, nextState);
     }
-    SH_GenericStateMachine::addChildrenNextTransition(previousState, nextState);
 }
 /*}*/

@@ -1,0 +1,1868 @@
+## type=import ####
+import QtQuick 2.1
+## type=import ####
+import QtQuick.Window 2.1
+## type=import ####
+import QtQuick.Controls 1.0
+## type=import ####
+import QtQuick.Controls.Styles 1.0
+## type=import ####
+import QtQuick.Layouts 1.0
+## type=import ####
+import PreCheck 1.0
+## type=comment ####
+/**
+  @class SH_OutputZone
+  */
+## type=element ####
+Rectangle
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+output
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+color
+## type=char ####
+:
+## type=string ####
+"snow"
+## type=keyword ####
+property
+## type=element ####
+int
+## type=element ####
+lastVisibleRow
+## type=char ####
+:
+## type=char ####
+-
+## type=element ####
+1
+## type=comment ####
+/*onLastVisibleRowChanged: {
+        if(output.lastVisibleRow < -1) {
+            output.lastVisibleRow = -1;
+        }
+    }*/
+## type=keyword ####
+signal
+## type=element ####
+display
+## type=char ####
+(
+## type=element ####
+string
+## type=element ####
+text
+## type=char ####
+)
+## type=keyword ####
+signal
+## type=element ####
+displayNewFixed
+## type=char ####
+(
+## type=element ####
+string
+## type=element ####
+text
+## type=char ####
+)
+## type=keyword ####
+signal
+## type=element ####
+displayNew
+## type=char ####
+(
+## type=element ####
+string
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+bool
+## type=element ####
+editable
+## type=char ####
+)
+## type=keyword ####
+signal
+## type=element ####
+replace
+## type=char ####
+(
+## type=element ####
+string
+## type=element ####
+text
+## type=char ####
+)
+## type=keyword ####
+signal
+## type=element ####
+selected
+## type=char ####
+(
+## type=element ####
+string
+## type=element ####
+selectedItem
+## type=char ####
+)
+## type=keyword ####
+signal
+## type=element ####
+selectedForDetail
+## type=char ####
+(
+## type=element ####
+var
+## type=element ####
+sqlDatas
+## type=char ####
+)
+## type=element ####
+onSelectedForDetail
+## type=char ####
+:
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+<
+## type=element ####
+0
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=element ####
+0
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+=
+## type=element ####
+sqlDatas
+## type=char ####
+;
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+state
+## type=char ####
+=
+## type=string ####
+"detail"
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+onReplace
+## type=char ####
+:
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+>
+## type=char ####
+-
+## type=element ####
+1
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+=
+## type=char ####
+=
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=element ####
+Math.max
+## type=char ####
+(
+## type=element ####
+0
+## type=char ####
+,
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+-
+## type=element ####
+1
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+console.log
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+!
+## type=char ####
+=
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+layout.changeTextDisplay
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+editable
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+else
+## type=block_start ####
+{
+## type=element ####
+display
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=element ####
+else
+## type=block_start ####
+{
+## type=element ####
+displayNewFixed
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=element ####
+onDisplay
+## type=char ####
+:
+## type=element ####
+layout.continueTextDisplay
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+onDisplayNew
+## type=char ####
+:
+## type=element ####
+layout.changeTextDisplay
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
++
+## type=element ####
+1
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+editable
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+onDisplayNewFixed
+## type=char ####
+:
+## type=element ####
+output.displayNew
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+false
+## type=char ####
+)
+## type=char ####
+;
+## type=comment ####
+/**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
+## type=keyword ####
+function
+## type=element ####
+clear
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+<
+## type=char ####
+=
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+!
+## type=char ####
+=
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+else
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+=
+## type=char ####
+=
+## type=char ####
+=
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=char ####
+-
+## type=element ####
+1
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+clear
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+-
+## type=element ####
+1
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=comment ####
+/**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
+## type=keyword ####
+function
+## type=element ####
+clearAll
+## type=char ####
+(
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+for
+## type=char ####
+(
+## type=element ####
+var
+## type=element ####
+currentRow
+## type=char ####
+=
+## type=element ####
+0
+## type=char ####
+;
+## type=element ####
+currentRow<rep.count
+## type=char ####
+;
+## type=element ####
+currentRow
+## type=char ####
++
+## type=char ####
++
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.clear
+## type=char ####
+(
+## type=element ####
+currentRow
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=char ####
+-
+## type=element ####
+1
+## type=char ####
+;
+## type=block_end ####
+}
+## type=comment ####
+/**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
+## type=keyword ####
+function
+## type=element ####
+displayText
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+layout.changeTextDisplay
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
++
+## type=element ####
+1
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+false
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=comment ####
+/**
+      @fn
+      @param
+      @return
+      @brief
+      @details
+      */
+## type=keyword ####
+function
+## type=element ####
+displayCalendar
+## type=char ####
+(
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+<
+## type=element ####
+0
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=element ####
+0
+## type=char ####
+;
+## type=block_end ####
+}
+## type=comment ####
+/*TODO*/
+## type=block_end ####
+}
+## type=keyword ####
+signal
+## type=element ####
+displaySqlDatas
+## type=char ####
+(
+## type=element ####
+variant
+## type=element ####
+sqlData
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+onDisplaySqlDatas
+## type=char ####
+:
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+<
+## type=element ####
+0
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=element ####
+0
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+=
+## type=element ####
+sqlData
+## type=char ####
+;
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+state
+## type=char ####
+=
+## type=string ####
+"choices"
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+ColumnLayout
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+layout
+## type=element ####
+anchors.margins
+## type=char ####
+:
+## type=element ####
+5
+## type=element ####
+anchors.fill
+## type=char ####
+:
+## type=element ####
+output
+## type=element ####
+height
+## type=char ####
+:
+## type=element ####
+output.height
+## type=element ####
+width
+## type=char ####
+:
+## type=element ####
+output.width
+## type=comment ####
+/**
+          @fn
+          @param
+          @return
+
+          @brief
+          @details
+          */
+## type=keyword ####
+function
+## type=element ####
+changeTextDisplay
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+editable
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+text
+## type=char ####
+!
+## type=char ####
+=
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+console.log
+## type=char ####
+(
+## type=string ####
+"change text at "
+## type=char ####
++
+## type=element ####
+row
+## type=char ####
++
+## type=string ####
+" with "
+## type=char ####
++
+## type=element ####
+text
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+<
+## type=element ####
+rep.count
+## type=char ####
+)
+## type=block_start ####
+{
+## type=comment ####
+/*if(rep.itemAt(row-1).model === "") {
+                    row--;
+                }*/
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+>
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=block_start ####
+{
+## type=comment ####
+//output.lastVisibleRow = Math.max(0, row);
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=element ####
+row
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+editable
+## type=char ####
+=
+## type=element ####
+editable
+## type=char ####
+;
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+=
+## type=element ####
+text
+## type=char ####
+;
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=comment ####
+/**
+          @fn
+          @param
+          @return
+
+          @brief
+          @details
+          */
+## type=keyword ####
+function
+## type=element ####
+continueTextDisplay
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+console.log
+## type=char ####
+(
+## type=string ####
+"continue text at "
+## type=char ####
++
+## type=element ####
+row
+## type=char ####
++
+## type=string ####
+" with "
+## type=char ####
++
+## type=element ####
+text
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow<0
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+=
+## type=element ####
+0
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+<
+## type=element ####
+0
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+console.log
+## type=char ####
+(
+## type=string ####
+"row < 0"
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+layout.changeTextDisplay
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
++
+## type=element ####
+1
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+false
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+else
+## type=block_start ####
+{
+## type=comment ####
+/*if(rep.itemAt(row-1).model === "") {
+                    row--;
+                }*/
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+>
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+console.log
+## type=char ####
+(
+## type=string ####
+"row > "
+## type=char ####
++
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+layout.changeTextDisplay
+## type=char ####
+(
+## type=element ####
+output.lastVisibleRow
+## type=char ####
+,
+## type=element ####
+text
+## type=char ####
+,
+## type=element ####
+false
+## type=char ####
+)
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+else
+## type=block_start ####
+{
+## type=element ####
+console.log
+## type=char ####
+(
+## type=string ####
+"row <= 0"
+## type=char ####
+)
+## type=char ####
+;
+## type=element ####
+if
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+>
+## type=char ####
+=
+## type=element ####
+rep.count
+## type=char ####
+)
+## type=block_start ####
+{
+## type=element ####
+row
+## type=char ####
+=
+## type=element ####
+rep.count
+## type=char ####
+-
+## type=element ####
+1
+## type=char ####
+;
+## type=block_end ####
+}
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
+=
+## type=element ####
+rep.itemAt
+## type=char ####
+(
+## type=element ####
+row
+## type=char ####
+)
+## type=char ####
+.
+## type=element ####
+model
+## type=char ####
++
+## type=element ####
+text
+## type=char ####
+;
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=element ####
+Repeater
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+rep
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+25
+## type=element ####
+delegate
+## type=char ####
+:
+## type=element ####
+RowLayout
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+row
+## type=keyword ####
+property
+## type=element ####
+var
+## type=element ####
+model
+## type=char ####
+:
+## type=string ####
+""
+## type=keyword ####
+property
+## type=element ####
+bool
+## type=element ####
+editable
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+Layout.minimumHeight
+## type=char ####
+:
+## type=element ####
+layout.height
+## type=char ####
+/
+## type=element ####
+rep.model
+## type=char ####
+-
+## type=element ####
+layout.spacing
+## type=char ####
+-
+## type=element ####
+layout.anchors.margins
+## type=element ####
+Layout.minimumWidth
+## type=char ####
+:
+## type=element ####
+layout.width
+## type=char ####
+-
+## type=element ####
+layout.anchors.margins
+## type=element ####
+Layout.fillWidth
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+Layout.fillHeight
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+state
+## type=char ####
+:
+## type=string ####
+"text"
+## type=element ####
+states
+## type=char ####
+:
+## type=char ####
+[
+## type=element ####
+State
+## type=block_start ####
+{
+## type=element ####
+name
+## type=char ####
+:
+## type=string ####
+"text"
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+defaultContent
+## type=element ####
+text
+## type=char ####
+:
+## type=element ####
+row.model
+## type=element ####
+readOnly
+## type=char ####
+:
+## type=char ####
+!
+## type=element ####
+row.editable
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+true
+## type=block_end ####
+}
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+choiceContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+0
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+false
+## type=block_end ####
+}
+## type=comment ####
+/*PropertyChanges {
+                            target: calendarContent
+                            visible: false
+                        }*/
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+detailedContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+0
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+false
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=char ####
+,
+## type=element ####
+State
+## type=block_start ####
+{
+## type=element ####
+name
+## type=char ####
+:
+## type=string ####
+"choices"
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+defaultContent
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+false
+## type=block_end ####
+}
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+choiceContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+row.model
+## type=char ####
+=
+## type=char ####
+=
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+?
+## type=element ####
+0
+## type=char ####
+:
+## type=element ####
+row.model
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+true
+## type=block_end ####
+}
+## type=comment ####
+/*PropertyChanges {
+                            target: calendarContent
+                            visible: false
+                        }*/
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+detailedContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+0
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+false
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=char ####
+,
+## type=element ####
+State
+## type=block_start ####
+{
+## type=element ####
+name
+## type=char ####
+:
+## type=string ####
+"choices"
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+defaultContent
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+false
+## type=block_end ####
+}
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+detailedContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+row.model
+## type=char ####
+=
+## type=char ####
+=
+## type=char ####
+=
+## type=string ####
+""
+## type=char ####
+?
+## type=element ####
+0
+## type=char ####
+:
+## type=element ####
+row.model
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+true
+## type=block_end ####
+}
+## type=comment ####
+/*PropertyChanges {
+                            target: calendarContent
+                            visible: false
+                        }*/
+## type=element ####
+PropertyChanges
+## type=block_start ####
+{
+## type=element ####
+target
+## type=char ####
+:
+## type=element ####
+choiceContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+0
+## type=element ####
+visible
+## type=char ####
+:
+## type=element ####
+false
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=char ####
+]
+## type=element ####
+Column
+## type=block_start ####
+{
+## type=element ####
+TextEdit
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+defaultContent
+## type=element ####
+readOnly
+## type=char ####
+:
+## type=char ####
+!
+## type=element ####
+row.editable
+## type=element ####
+wrapMode
+## type=char ####
+:
+## type=element ####
+TextEdit.Wrap
+## type=char ####
+;
+## type=element ####
+Layout.fillHeight
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+Layout.fillWidth
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+font.pointSize
+## type=char ####
+:
+## type=element ####
+12
+## type=element ####
+color
+## type=char ####
+:
+## type=element ####
+defaultContent.readOnly
+## type=char ####
+?
+## type=string ####
+"gray"
+## type=char ####
+:
+## type=string ####
+"dimgray"
+## type=block_end ####
+}
+## type=element ####
+SH_ContentView
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+choiceContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+0
+## type=element ####
+Layout.fillHeight
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+Layout.fillWidth
+## type=char ####
+:
+## type=element ####
+true
+## type=block_end ####
+}
+## type=element ####
+TableView
+## type=block_start ####
+{
+## type=element ####
+id
+## type=char ####
+:
+## type=element ####
+detailedContent
+## type=element ####
+model
+## type=char ####
+:
+## type=element ####
+0
+## type=element ####
+Layout.fillHeight
+## type=char ####
+:
+## type=element ####
+true
+## type=element ####
+Layout.fillWidth
+## type=char ####
+:
+## type=element ####
+true
+## type=block_end ####
+}
+## type=comment ####
+/*SH_CalendarDialog {
+                        id: calendarContent
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }*/
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=block_end ####
+}
+## type=block_end ####
+}
+/**
+  @class SH_OutputZone
+  */
+class SH_OutputZone : public Rectangle {
+public:
+
+Q_PROPERTY(int lastVisibleRow)
+/**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
+void clear(row);
+/**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
+void clearAll();
+/**
+      @fn
+      @param
+      @return
+
+      @brief
+      @details
+      */
+void displayText(text);
+/**
+      @fn
+      @param
+      @return
+      @brief
+      @details
+      */
+void displayCalendar();
+Q_SIGNALS:
+/*onLastVisibleRowChanged: {
+        if(output.lastVisibleRow < -1) {
+            output.lastVisibleRow = -1;
+        }
+    }*/
+void display(string text);
+
+void displayNewFixed(string text);
+
+void displayNew(string text, bool editable);
+
+void replace(string text);
+
+void selected(string selectedItem);
+
+void selectedForDetail(var sqlDatas);
+
+void displaySqlDatas(variant sqlData);
+};

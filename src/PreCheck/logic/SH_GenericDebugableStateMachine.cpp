@@ -1,6 +1,7 @@
 #include "SH_GenericDebugableStateMachine.h"
 #include "SH_GenericDebugableState.h"
 #include "QFinalState"
+#include <QSignalTransition>
 #include <QDebug>
 #include "SH_MessageManager.h"
 /*namespace SimplHotel
@@ -92,35 +93,45 @@ void SH_GenericStateMachine::onExit(QEvent *event)
  * \details \~french
  * \fn SH_GenericStateMachine::addChildrenNextTransition
 */
-void SH_GenericStateMachine::addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState)
+void SH_GenericStateMachine::setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState)
 {
-    SH_GenericStateMachine* fsmPreviousState = qobject_cast<SH_GenericStateMachine*>(previousState);
-    SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
-    QFinalState* final = qobject_cast<QFinalState*>(nextState);
-    if(!final) {
+    QState* pState = qobject_cast<QState*>(previousState);
+    if(pState) {
+        QList<QAbstractTransition*> transitions = pState->transitions();
+        foreach(QAbstractTransition* tran, transitions) {
+            QSignalTransition* signalTransition = qobject_cast<QSignalTransition*>(tran);
+            if(signalTransition) {
+                //SH_MessageManager::infoMessage(QString(signalTransition->signal()));
+                if(signalTransition->signal().contains("next()")) {
+                    pState->removeTransition(signalTransition);
+                }
+            }
+        }
+
+        SH_GenericStateMachine* fsmPreviousState = qobject_cast<SH_GenericStateMachine*>(previousState);
+        SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
         if(genPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {
                 connect(genPreviousState, &SH_GenericState::entered, [=]() {*/
             //SH_MessageManager::debugMessage(QString("next transition between %1 and %2").arg(genPreviousState->toString()).arg(nextState->objectName()));
             genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
-            /*});
+            /*});*/
 
-                connect(genPreviousState, &SH_GenericState::exited, [=]() {
-                    genPreviousState->disconnect(this);
-                });
-            });*/
+            connect(genPreviousState, &SH_GenericState::exited, [=]() {
+                genPreviousState->disconnect(this);
+            });
+            /*});*/
         }
         if(fsmPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {
                 connect(fsmPreviousState, &SH_GenericStateMachine::entered, [=]() {*/
             //SH_MessageManager::debugMessage(QString("next transition between %1 and %2").arg(fsmPreviousState->toString()).arg(nextState->objectName()));
             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
-            /*});
-
-                connect(fsmPreviousState, &SH_GenericStateMachine::exited, [=]() {
-                    fsmPreviousState->disconnect(this);
-                });
-            });*/
+            /*});*/
+            connect(fsmPreviousState, &SH_GenericStateMachine::exited, [=]() {
+                fsmPreviousState->disconnect(this);
+            });
+            /*});*/
         }
     }
 }

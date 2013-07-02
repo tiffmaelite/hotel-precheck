@@ -21,6 +21,6 @@ SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
 void SH_ServicesTableModel::fillModel()
 {
     QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
-    SH_ExtendedProxyModel::sort(fields.indexOf("SERVICETYPE"),Qt::AscendingOrder);
+    this->sort(fields.indexOf("SERVICETYPE"),Qt::AscendingOrder);
 }
 /*}*/

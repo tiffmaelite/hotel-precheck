@@ -5,8 +5,8 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-/**
-  @class SH_RoomsDelegate
+/*!
+  \class SH_RoomsDelegate
   */
 SH_DataDelegate {
     id: btn

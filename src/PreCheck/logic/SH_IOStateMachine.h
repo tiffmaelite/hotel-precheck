@@ -157,7 +157,7 @@ public slots:
     */
     void setContentValue(QVariant content, QString field);
 
-    void addState(QAbstractState *state);
+    virtual void addState(QAbstractState *state);
 
     /*!
     * \brief \~french
@@ -166,7 +166,7 @@ public slots:
     * \param field
     * \overrides
     */
-    void addState(SH_InOutState *astate, QString field="");
+    virtual void addState(SH_InOutState *astate, QString field="");
     /*!
         * \brief \~french
         * \fn addIOState
@@ -174,9 +174,9 @@ public slots:
         * \param field
         * \overrides
         */
-    void addIOState(SH_InOutState *state, QString field);
+    void addIOState(SH_InOutState *state, QString field="");
 
-    void addState(SH_InOutStateMachine *astate);
+    virtual void addState(SH_InOutStateMachine *astate, QString table="");
     /*!
     * \brief \~french
     * \fn addStateMachine
@@ -190,7 +190,7 @@ public slots:
     * \param previousState
     * \param nextState
     */
-    virtual void addChildrenNextTransition(QAbstractState* previousState, QAbstractState *nextState);
+    virtual void setStatesNextTransition(QAbstractState* previousState, QAbstractState *nextState);
 
     /*!
     * \brief

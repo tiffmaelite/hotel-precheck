@@ -29,8 +29,8 @@ SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObje
     //connect(address, &SH_InOutStateMachine::exited, [=]() {setContentValue(address->getContentValue("ID"),"HOMEADDRESS_ID");});
     //this->addChildrenNextTransition(IDscan, address);
     //this->addChildrenNextTransition(address, phone);
-    this->addChildrenNextTransition(phone, email);
-    this->addChildrenNextTransition(email, final);
+    this->setStatesNextTransition(phone, email);
+    this->setStatesNextTransition(email, final);
     //this->addChildrenNextTransition(email, nationality);
     //this->addChildrenNextTransition(nationality, final);
     //this->setInitialState(IDscan);

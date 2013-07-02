@@ -21,10 +21,10 @@ SH_BillingsTableModel::SH_BillingsTableModel(QObject *parent):
 void SH_BillingsTableModel::fillModel()
 {
     QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("NAME"), Qt::Horizontal, QObject::tr("Nom client"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("ROOM"), Qt::Horizontal, QObject::tr("Chambre"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("ARRIVINGDATE"), Qt::Horizontal, QObject::tr("Date arrivée"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("EXPECTEDDEPARTUREDATE"), Qt::Horizontal, QObject::tr("Date départ prévue"));
-    SH_ExtendedProxyModel::model->field(4)->setSortOrder(Qt::AscendingOrder);
+    this->setHeaderData(fields.indexOf("NAME"), Qt::Horizontal, QObject::tr("Nom client"));
+    this->setHeaderData(fields.indexOf("ROOM"), Qt::Horizontal, QObject::tr("Chambre"));
+    this->setHeaderData(fields.indexOf("ARRIVINGDATE"), Qt::Horizontal, QObject::tr("Date arrivée"));
+    this->setHeaderData(fields.indexOf("EXPECTEDDEPARTUREDATE"), Qt::Horizontal, QObject::tr("Date départ prévue"));
+    this->sort(fields.indexOf("ARRIVINGDATE"),Qt::AscendingOrder);
 }
 /*}*/

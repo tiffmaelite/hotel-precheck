@@ -125,7 +125,7 @@ public:
     \fn addFilterKeyColumn
     \param column
     */
-    Q_INVOKABLE void addFilterKeyColumn(int column);
+    Q_INVOKABLE void addHiddenColumn(int column);
 
 /*!
     \brief \~french
@@ -133,7 +133,7 @@ public:
     \fn removeFilterKeyColumn
     \param column
     */
-    Q_INVOKABLE void removeFilterKeyColumn(int column);
+    Q_INVOKABLE void showHiddenColumn(int column);
 
 /*!
     \brief \~french
@@ -142,7 +142,7 @@ public:
     \param column
     \return bool
     */
-    Q_INVOKABLE bool containsFilterKeyColumn(int column);
+    Q_INVOKABLE bool isHidingColumn(int column);
 
 /*!
     \brief \~french
@@ -240,6 +240,11 @@ public:
     */
     void setNotNullColumns(QList<int> notNullCols);
 
+    void resetColumnsList();
+    void removeFilterKeyColumn(int column);
+    void addFilterKeyColumn(int column);
+    bool containsFilterKeyColumn(int column);
+    void setFilterKeyColumn(int column);
 signals:
 
 /*!
@@ -308,7 +313,7 @@ private:
 /*!
     *\brief \~french filters
     */
-    QList<int> filters;
+    QList<int> hiddenSet;
 
 /*!
     *\brief \~french sortIndex

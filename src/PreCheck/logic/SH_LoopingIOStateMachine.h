@@ -64,7 +64,7 @@ public:
 	* \param previousState
 	* \param nextState
 	*/
-	void addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState);
+	void setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState);
 	
 /*!
 	* \brief \~french

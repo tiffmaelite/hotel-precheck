@@ -5,8 +5,8 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-/**
-  @class
+/*!
+  \class  SH_OutputZone
   */
 Rectangle {
     id: output
@@ -54,13 +54,13 @@ Rectangle {
     onDisplayNew: layout.changeTextDisplay(output.lastVisibleRow+1,text, editable);
     onDisplayNewFixed: output.displayNew(text, false);
 
-    /**
-      @fn
-      @param
-      @return
+    /*!
+      \fn
+      \param
+      \return
 
-      @brief
-      @details
+      \brief
+      \details
       */
     function clear(row) {
         if(row <= output.lastVisibleRow) {
@@ -74,13 +74,13 @@ Rectangle {
             }
         }
     }
-    /**
-      @fn
-      @param
-      @return
+    /*!
+      \fn
+      \param
+      \return
 
-      @brief
-      @details
+      \brief
+      \details
       */
     function clearAll() {
         for(var currentRow = 0; currentRow<rep.count; currentRow++) {
@@ -88,23 +88,23 @@ Rectangle {
         }
         output.lastVisibleRow = -1;
     }
-    /**
-      @fn
-      @param
-      @return
+    /*!
+      \fn
+      \param
+      \return
 
-      @brief
-      @details
+      \brief
+      \details
       */
     function displayText(text) {
         layout.changeTextDisplay(output.lastVisibleRow+1,text, false);
     }
-    /**
-      @fn
-      @param
-      @return
-      @brief
-      @details
+    /*!
+      \fn
+      \param
+      \return
+      \brief
+      \details
       */
     function displayCalendar() {
         if(output.lastVisibleRow < 0) {
@@ -129,13 +129,13 @@ Rectangle {
         anchors.fill: output
         height: output.height
         width: output.width
-        /**
-          @fn
-          @param
-          @return
+        /*!
+          \fn
+          \param
+          \return
 
-          @brief
-          @details
+          \brief
+          \details
           */
         function changeTextDisplay(row, text, editable) {
             if(text!=="") {
@@ -153,13 +153,13 @@ Rectangle {
                 }
             }
         }
-        /**
-          @fn
-          @param
-          @return
+        /*!
+          \fn
+          \param
+          \return
 
-          @brief
-          @details
+          \brief
+          \details
           */
         function continueTextDisplay(row, text) {
             console.log("continue text at "+row+" with "+text);
@@ -280,6 +280,7 @@ Rectangle {
                     }
                     SH_ContentView {
                         id: choiceContent
+                        maxColumns: 7 //4
                         model: 0
                         Layout.fillHeight: true
                         Layout.fillWidth: true

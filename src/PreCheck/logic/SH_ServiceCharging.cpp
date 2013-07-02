@@ -75,12 +75,12 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     this->addState(price, "CHARGEDUNITPRICE");
     this->addState(quantity, "QUANTITY");
     this->addState(vat, "CHARGEDVAT");
-    this->addChildrenNextTransition(service, serviceId);
-    this->addChildrenNextTransition(serviceId, serviceName);
-    this->addChildrenNextTransition(serviceName, quantity);
-    this->addChildrenNextTransition(quantity, price);
-    this->addChildrenNextTransition(price, vat);
-    this->addChildrenNextTransition(vat, final);
+    this->setStatesNextTransition(service, serviceId);
+    this->setStatesNextTransition(serviceId, serviceName);
+    this->setStatesNextTransition(serviceName, quantity);
+    this->setStatesNextTransition(quantity, price);
+    this->setStatesNextTransition(price, vat);
+    this->setStatesNextTransition(vat, final);
     this->setInitialState(service);
     connect(this, &SH_InOutStateMachine::validateInput, this, &SH_LoopingInOutStateMachine::stopLooping);
 }

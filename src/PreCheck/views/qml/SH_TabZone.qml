@@ -5,8 +5,8 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-/**
-  @class
+/*!
+  \class  SH_TabZone
   */
 TabView {
     id: tabView
@@ -18,13 +18,13 @@ TabView {
     signal newBilling()
     signal newSelling()
     signal newBooking()
-    /**
-      @fn openTab
-      @param \type int tabIndex
-      @return
+    /*!
+      \fn openTab
+      \param \type int tabIndex
+      \return
 
-      @brief
-      @details
+      \brief
+      \details
       */
     function openTab(tabIndex) {
         tabView.currentIndex = tabIndex;

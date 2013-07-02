@@ -5,19 +5,19 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import PreCheck 1.0
 
-/**
-  @class
+/*!
+  \class  SH_SqlDataView
   */
 Rectangle {
     id:display
-    /*/ le modèle*/
+    /* le modèle*/
     property var sqlModel: []
     property string itemDelegate
     property string emptyDelegate : "SH_DataDelegate.qml"
     property string sectionDelegate : "SH_DataDelegate.qml"
     //property alias columns: dataView.columns
-    /** type: bool
-      visibilité des cases à cocher permettant le tri du modèle
+    /*! \type: bool
+      \brief \~french visibilité des cases à cocher permettant le tri du modèle
     */
     property bool filterIndicatorsVisibles: true
     property string filtersTitle
@@ -81,6 +81,7 @@ Rectangle {
         }*/
         SH_ContentView {
             id:dataView
+            maxColumns: 7
             model: (display.isEmpty) ? 0 : display.sqlModel
             Layout.fillHeight: true
             Layout.fillWidth: true

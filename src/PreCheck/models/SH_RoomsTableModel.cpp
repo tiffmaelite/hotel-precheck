@@ -24,15 +24,15 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
 void SH_RoomsTableModel::fillModel()
 {
     QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("ID"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("LABEL"), Qt::Horizontal, QObject::tr("Type de chambre"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("DESCRIPTION"), Qt::Horizontal, QObject::tr("Détail"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimum"));
-    SH_ExtendedProxyModel::model->setHeaderData(fields.indexOf("PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximum"));
-    SH_ExtendedProxyModel::sort(fields.indexOf("FLOOR"),Qt::AscendingOrder);
-    SH_ExtendedProxyModel::addFilterKeyColumn(fields.indexOf("ID"));
-    SH_ExtendedProxyModel::addFilterKeyColumn(fields.indexOf("PRICEMAX"));
+    this->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("ID"));
+    this->setHeaderData(fields.indexOf("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
+    this->setHeaderData(fields.indexOf("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));
+    this->setHeaderData(fields.indexOf("LABEL"), Qt::Horizontal, QObject::tr("Type de chambre"));
+    this->setHeaderData(fields.indexOf("DESCRIPTION"), Qt::Horizontal, QObject::tr("Détail"));
+    this->setHeaderData(fields.indexOf("PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimum"));
+    this->setHeaderData(fields.indexOf("PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximum"));
+    this->sort(fields.indexOf("FLOOR"),Qt::AscendingOrder);
+    this->addHiddenColumn(fields.indexOf("ID"));
+    this->addHiddenColumn(fields.indexOf("PRICEMAX"));
 }
 /*}*/

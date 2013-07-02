@@ -62,7 +62,7 @@ void SH_LoopingInOutStateMachine::stopLooping() {
  * \details \~french
  * \fn SH_IOStateMachine::addChildrenNextTransition
 */
-void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *previousState, QAbstractState *nextState)
+void SH_LoopingInOutStateMachine::setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState)
 {
     SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
     SH_InOutStateMachine* fsmPreviousState = qobject_cast<SH_InOutStateMachine*>(previousState);
@@ -127,6 +127,6 @@ void SH_LoopingInOutStateMachine::addChildrenNextTransition(QAbstractState *prev
         });
     }
     SH_InOutStateMachine::addChildrenReplaceTransition(previousState, nextState);
-    SH_GenericStateMachine::addChildrenNextTransition(previousState, nextState);
+    SH_GenericStateMachine::setStatesNextTransition(previousState, nextState);
 }
 /*}*/
