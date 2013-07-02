@@ -1,4 +1,4 @@
-.TH "SH_GenericStateMachine" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_GenericStateMachine" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -29,10 +29,10 @@ Dérivée par \fBSH_InOutStateMachine\fP\&.
 .RI "\fBSH_GenericStateMachine\fP (QString \fBname\fP='', \fBQObject\fP *parent=0)"
 .br
 .ti -1c
-.RI "virtual void \fBaddChildrenNextTransition\fP (QAbstractState *previousState, QAbstractState *nextState)"
+.RI "virtual void \fBaddState\fP (QAbstractState *state)"
 .br
 .ti -1c
-.RI "bool \fBisRunning\fP ()"
+.RI "virtual void \fBsetStatesNextTransition\fP (QAbstractState *previousState, QAbstractState *nextState)"
 .br
 .ti -1c
 .RI "QString \fBtoString\fP ()"
@@ -72,15 +72,15 @@ Dérivée par \fBSH_InOutStateMachine\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBQState\fP * \fBm_errorState\fP"
+.RI "QAbstractState * \fBm_currentState\fP"
 .br
 .ti -1c
-.RI "bool \fBm_isRunning\fP"
+.RI "\fBQState\fP * \fBm_errorState\fP"
 .br
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 7 du fichier SH_GenericDebugableStateMachine\&.h\&.
+Définition à la ligne 6 du fichier SH_GenericDebugableStateMachine\&.h\&.
 .SH "Documentation des constructeurs et destructeur"
 .PP 
 .SS "SH_GenericStateMachine::SH_GenericStateMachine (QStringname = \fC''\fP, \fBQObject\fP *parent = \fC0\fP)"
@@ -95,101 +95,74 @@ Définition à la ligne 7 du fichier SH_GenericDebugableStateMachine\&.h\&.
 .PP
 
 .PP
-Définition à la ligne 13 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+Définition à la ligne 15 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
 .PP
-Références emitGoNext(), goNext(), m_errorState, m_isRunning, et toString()\&.
+Références addState(), emitGoNext(), SH_MessageManager::errorMessage(), goNext(), m_errorState, et toString()\&.
 .PP
 .nf
-13                                                                             :
-14     QStateMachine(parent), SH_NamedObject(name), m_isRunning(false)
-15 {
-16     connect(this, &SH_GenericStateMachine::goNext, this, &SH_GenericStateMachine::emitGoNext);
-17     this->blockSignals(!m_isRunning);
-18     m_errorState = new SH_GenericState("error state", this);
-19     this->setErrorState(m_errorState);
-20     connect(m_errorState, &QState::entered, [=]() { qDebug() << "Error in machine " << this->toString() << ": " << this->errorString(); });
-21 }
+15                                                                             :
+16     QStateMachine(parent), SH_NamedObject(name), m_currentState(NULL)
+17 {
+18     this->setObjectName(name);
+19     connect(this, &SH_GenericStateMachine::goNext, this, &SH_GenericStateMachine::emitGoNext);
+20     m_errorState = new SH_GenericState("error state");
+21     this->addState(m_errorState);
+22     this->setErrorState(m_errorState);
+23     /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
+24     connect(m_errorState, &QState::entered, [=]() {
+25         SH_MessageManager::errorMessage("Error in machine " +this->toString() + ": " + this->errorString());
+26     });
+27     connect(m_errorState, &QState::exited, [=]() {
+28         m_errorState->disconnect(this);
+29     });
+30     /*});*/
+31 }
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
-.SS "SH_GenericStateMachine::addChildrenNextTransition (QAbstractState *previousState, QAbstractState *nextState)\fC [virtual]\fP"
+.SS "void SH_GenericStateMachine::addState (QAbstractState *state)\fC [virtual]\fP"
 
 .PP
-\fBParamètres:\fP
-.RS 4
-\fIpreviousState\fP 
-.br
-\fInextState\fP 
-.RE
+Définition à la ligne 59 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
 .PP
-
+Références m_currentState\&.
 .PP
-Réimplémentée dans \fBSH_LoopingInOutStateMachine\fP\&.
-.PP
-Définition à la ligne 99 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
-.PP
-Références next(), toString(), et SH_GenericState::toString()\&.
-.PP
-Référencé par SH_LoopingInOutStateMachine::addChildrenNextTransition(), et SH_InOutStateMachine::addChildrenNextTransition()\&.
+Référencé par SH_InOutStateMachine::addState(), et SH_GenericStateMachine()\&.
 .PP
 .nf
-100 {
-101     SH_GenericStateMachine* fsmPreviousState = qobject_cast<SH_GenericStateMachine*>(previousState);
-102     SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
-103     QFinalState* final = qobject_cast<QFinalState*>(nextState);
-104     if(!final) {
-105         if(genPreviousState) {
-106             qDebug() << "next transition between " << genPreviousState->toString() << " and " << nextState;
-107             genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
-108         }
-109         if(fsmPreviousState) {
-110             qDebug() << "next transition between " << fsmPreviousState->toString() << " and " << nextState;
-111             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
-112         }
-113     }
-114 }
+59                                                            {
+60     /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
+61     connect(state, &QAbstractState::entered, [=]() {
+62         this->m_currentState = state;
+63     });
+64     connect(state, &QAbstractState::exited, [=]() {
+65         this->m_currentState = NULL;
+66         state->disconnect(this);
+67     });
+68     /*});*/
+69     QStateMachine::addState(state);
+70 }
 .fi
 .SS "void SH_GenericStateMachine::emitGoNext ()\fC [protected]\fP, \fC [slot]\fP"
 
 .PP
-Définition à la ligne 58 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+Définition à la ligne 52 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
 .PP
-Références isRunning(), et next()\&.
+Références next()\&.
 .PP
 Référencé par SH_GenericStateMachine()\&.
 .PP
 .nf
-59 {
-60     if(isRunning()) {
-61         emit next();
-62     }
-63 }
+53 {
+54     if(isRunning()) {
+55         emit next();
+56     }
+57 }
 .fi
 .SS "SH_GenericStateMachine::goNext ()\fC [signal]\fP"
 
 .PP
 Référencé par SH_AddressCreationStateMachine::SH_AddressCreationStateMachine(), et SH_GenericStateMachine()\&.
-.SS "SH_GenericStateMachine::isRunning ()"
-
-.PP
-\fBRenvoie:\fP
-.RS 4
-bool 
-.RE
-.PP
-
-.PP
-Définition à la ligne 47 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
-.PP
-Références m_isRunning\&.
-.PP
-Référencé par SH_ApplicationCore::cancelRunningThread(), SH_ApplicationCore::connectRunningThread(), et emitGoNext()\&.
-.PP
-.nf
-48 {
-49     return m_isRunning;
-50 }
-.fi
 .SS "SH_NamedObject::name () const\fC [virtual]\fP, \fC [inherited]\fP"
 
 .PP
@@ -200,21 +173,21 @@ QString
 .PP
 
 .PP
-Définition à la ligne 32 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 26 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références SH_NamedObject::m_name\&.
 .PP
-Référencé par onEntry(), SH_GenericState::onEntry(), onExit(), SH_GenericState::onExit(), SH_GenericState::onTransitionTriggered(), SH_NamedObject::setName(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+Référencé par onEntry(), SH_GenericState::onEntry(), onExit(), SH_GenericState::onExit(), SH_NamedObject::setName(), et SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-33 {
-34     return m_name;
-35 }
+27 {
+28     return m_name;
+29 }
 .fi
 .SS "SH_GenericStateMachine::next ()\fC [signal]\fP"
 
 .PP
-Référencé par addChildrenNextTransition(), SH_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenReplaceTransition(), emitGoNext(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+Référencé par SH_InOutStateMachine::addChildrenReplaceTransition(), emitGoNext(), setStatesNextTransition(), et SH_LoopingInOutStateMachine::setStatesNextTransition()\&.
 .SS "SH_GenericStateMachine::onEntry (QEvent *event)\fC [protected]\fP"
 
 .PP
@@ -225,16 +198,15 @@ Référencé par addChildrenNextTransition(), SH_LoopingInOutStateMachine::addCh
 .PP
 
 .PP
-Définition à la ligne 72 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+Définition à la ligne 77 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
 .PP
-Références m_isRunning, et SH_NamedObject::name()\&.
+Références SH_MessageManager::debugMessage(), et SH_NamedObject::name()\&.
 .PP
 .nf
-73 {
-74     m_isRunning = true;
-75     this->blockSignals(!m_isRunning);
-76     qDebug() << "Machine: " << machine()->objectName() << " entered " << this->name();
-77 }
+78 {
+79     Q_UNUSED(event);
+80     SH_MessageManager::debugMessage(this->name() + " entered");
+81 }
 .fi
 .SS "SH_GenericStateMachine::onExit (QEvent *event)\fC [protected]\fP"
 
@@ -246,16 +218,15 @@ Références m_isRunning, et SH_NamedObject::name()\&.
 .PP
 
 .PP
-Définition à la ligne 85 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+Définition à la ligne 87 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
 .PP
-Références m_isRunning, et SH_NamedObject::name()\&.
+Références SH_MessageManager::debugMessage(), et SH_NamedObject::name()\&.
 .PP
 .nf
-86 {
-87     m_isRunning = false;
-88     this->blockSignals(!m_isRunning);
-89     qDebug() << "Machine: " << machine()->objectName() << " exited  " << name();
-90 }
+88 {
+89     Q_UNUSED(event);
+90     SH_MessageManager::debugMessage(this->name() + " exited");
+91 }
 .fi
 .SS "SH_NamedObject::ptraddress () const\fC [inherited]\fP"
 
@@ -267,14 +238,14 @@ QString
 .PP
 
 .PP
-Définition à la ligne 54 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 42 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références SH_NamedObject::m_ptraddress\&.
 .PP
 .nf
-55 {
-56     return m_ptraddress;
-57 }
+43 {
+44     return m_ptraddress;
+45 }
 .fi
 .SS "SH_NamedObject::setName (const QString &name)\fC [virtual]\fP, \fC [inherited]\fP"
 
@@ -286,14 +257,68 @@ Références SH_NamedObject::m_ptraddress\&.
 .PP
 
 .PP
-Définition à la ligne 43 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 34 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références SH_NamedObject::m_name, et SH_NamedObject::name()\&.
 .PP
 .nf
-44 {
-45     m_name = name;
-46 }
+35 {
+36     m_name = name;
+37 }
+.fi
+.SS "void SH_GenericStateMachine::setStatesNextTransition (QAbstractState *previousState, QAbstractState *nextState)\fC [virtual]\fP"
+
+.PP
+Réimplémentée dans \fBSH_LoopingInOutStateMachine\fP\&.
+.PP
+Définition à la ligne 96 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références next()\&.
+.PP
+Référencé par SH_LoopingInOutStateMachine::setStatesNextTransition(), et SH_InOutStateMachine::setStatesNextTransition()\&.
+.PP
+.nf
+97 {
+98     QState* pState = qobject_cast<QState*>(previousState);
+99     if(pState) {
+100         QList<QAbstractTransition*> transitions = pState->transitions();
+101         foreach(QAbstractTransition* tran, transitions) {
+102             QSignalTransition* signalTransition = qobject_cast<QSignalTransition*>(tran);
+103             if(signalTransition) {
+104                 //SH_MessageManager::infoMessage(QString(signalTransition->signal()));
+105                 if(signalTransition->signal()\&.contains("next()")) {
+106                     pState->removeTransition(signalTransition);
+107                 }
+108             }
+109         }
+110 
+111         SH_GenericStateMachine* fsmPreviousState = qobject_cast<SH_GenericStateMachine*>(previousState);
+112         SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
+113         if(genPreviousState) {
+114             /*connect(this, &SH_GenericStateMachine::entered, [=]() {
+115                 connect(genPreviousState, &SH_GenericState::entered, [=]() {*/
+116             //SH_MessageManager::debugMessage(QString("next transition between %1 and %2")\&.arg(genPreviousState->toString())\&.arg(nextState->objectName()));
+117             genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
+118             /*});*/
+119 
+120             connect(genPreviousState, &SH_GenericState::exited, [=]() {
+121                 genPreviousState->disconnect(this);
+122             });
+123             /*});*/
+124         }
+125         if(fsmPreviousState) {
+126             /*connect(this, &SH_GenericStateMachine::entered, [=]() {
+127                 connect(fsmPreviousState, &SH_GenericStateMachine::entered, [=]() {*/
+128             //SH_MessageManager::debugMessage(QString("next transition between %1 and %2")\&.arg(fsmPreviousState->toString())\&.arg(nextState->objectName()));
+129             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
+130             /*});*/
+131             connect(fsmPreviousState, &SH_GenericStateMachine::exited, [=]() {
+132                 fsmPreviousState->disconnect(this);
+133             });
+134             /*});*/
+135         }
+136     }
+137 }
 .fi
 .SS "SH_GenericStateMachine::toString ()\fC [virtual]\fP"
 
@@ -307,37 +332,37 @@ QString
 .PP
 Réimplémentée à partir de \fBSH_NamedObject\fP\&.
 .PP
-Définition à la ligne 30 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+Définition à la ligne 37 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
 .PP
 Références SH_NamedObject::toString(), et SH_GenericState::toString()\&.
 .PP
-Référencé par addChildrenNextTransition(), SH_LoopingInOutStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addChildrenNextTransition(), SH_ApplicationCore::launchBillingsThread(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericStateMachine(), et SH_GenericState::toString()\&.
+Référencé par SH_LoopingInOutStateMachine::setStatesNextTransition(), SH_InOutStateMachine::setStatesNextTransition(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_GenericStateMachine()\&.
 .PP
 .nf
-31 {
-32     QObject* parent = this->parent();
-33     SH_GenericState* par = qobject_cast<SH_GenericState *>(parent);
-34     if(par) {
-35         return SH_NamedObject::toString()+ " [descending from "+par->toString()+"] ";
-36     } else {
-37         return SH_NamedObject::toString();
-38     }
-39 }
+38 {
+39     QObject* parent = this->parent();
+40     SH_GenericState* par = qobject_cast<SH_GenericState *>(parent);
+41     if(par) {
+42         return SH_NamedObject::toString()+ " [descending from "+par->toString()+"] ";
+43     } else {
+44         return SH_NamedObject::toString();
+45     }
+46 }
 .fi
 .SH "Documentation des données membres"
 .PP 
+.SS "QAbstractState* SH_GenericStateMachine::m_currentState\fC [private]\fP"
+
+.PP
+Définition à la ligne 71 du fichier SH_GenericDebugableStateMachine\&.h\&.
+.PP
+Référencé par addState()\&.
 .SS "SH_GenericStateMachine::m_errorState\fC [private]\fP"
 
 .PP
-Définition à la ligne 83 du fichier SH_GenericDebugableStateMachine\&.h\&.
+Définition à la ligne 70 du fichier SH_GenericDebugableStateMachine\&.h\&.
 .PP
 Référencé par SH_GenericStateMachine()\&.
-.SS "SH_GenericStateMachine::m_isRunning\fC [private]\fP"
-
-.PP
-Définition à la ligne 77 du fichier SH_GenericDebugableStateMachine\&.h\&.
-.PP
-Référencé par isRunning(), onEntry(), onExit(), et SH_GenericStateMachine()\&.
 
 .SH "Auteur"
 .PP 

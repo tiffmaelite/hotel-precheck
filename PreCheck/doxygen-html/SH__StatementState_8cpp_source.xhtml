@@ -110,33 +110,33 @@ $(document).ready(function(){initNavTree('SH__StatementState_8cpp_source.xhtml',
 </div><!--header-->
 <div class="contents">
 <a href="SH__StatementState_8cpp.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__StatementState_8h.xhtml">SH_StatementState.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__MessageManager_8h.xhtml">SH_MessageManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/*namespace SimplHotel</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">{*/</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classSH__StatementState.xhtml#acc888fc333049b693f05ff760e363f27">    9</a></span>&#160;<a class="code" href="classSH__StatementState.xhtml#acc888fc333049b693f05ff760e363f27">SH_StatementState::SH_StatementState</a>(QString output, QString name, <a class="code" href="classQState.xhtml">QState</a> *parent) :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classSH__InOutState.xhtml">SH_InOutState</a>(output, name, parent)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;salut ! &quot;</span>&lt;&lt; <a class="code" href="classSH__InOutState.xhtml#a17ed7eaf5e3ed5af80a4f9fe65d5bfd9">output</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classSH__StatementState.xhtml#ac9d6483521908224e4cb3765d680d113">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.xhtml#ac9d6483521908224e4cb3765d680d113">SH_StatementState::setInput</a>(<span class="keyword">const</span> QVariant &amp;input)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Q_UNUSED(input);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/*DO NOTHING*/</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">SH_StatementState::onEntry</a>(QEvent *event)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb">SH_GenericState::onEntry</a>(event);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classSH__InOutState.xhtml#a616f88b20478b81b2927a9ddc2b4f521">display</a>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    emit <a class="code" href="classSH__GenericState.xhtml#a34c1bebc765cc3a62d66c94c37d4f0c3">goNext</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classSH__StatementState.xhtml#ac9d6483521908224e4cb3765d680d113">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.xhtml#ac9d6483521908224e4cb3765d680d113">SH_StatementState::setInput</a>(<span class="keyword">const</span> QVariant &amp;input)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Q_UNUSED(input);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">/*DO NOTHING*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">SH_StatementState::onEntry</a>(QEvent *event)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb">SH_GenericState::onEntry</a>(event);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">//display(true);</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    emit <a class="code" href="classSH__GenericState.xhtml#a34c1bebc765cc3a62d66c94c37d4f0c3">goNext</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*}*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__StatementState_8cpp.xhtml">SH_StatementState.cpp</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_13c294c896149c6e7ad839bf15bc2a5b.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__StatementState_8cpp.xhtml">SH_StatementState.cpp</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

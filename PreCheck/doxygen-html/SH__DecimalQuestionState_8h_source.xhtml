@@ -112,38 +112,41 @@ $(document).ready(function(){initNavTree('SH__DecimalQuestionState_8h_source.xht
 <a href="SH__DecimalQuestionState_8h.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DECIMALQUESTIONSTATE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DECIMALQUESTIONSTATE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="SH__QuestionState_8h.xhtml">SH_QuestionState.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*namespace SimplHotel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">{*/</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classSH__DecimalQuestionState.xhtml">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__DecimalQuestionState.xhtml">SH_DecimalQuestionState</a> : <span class="keyword">public</span> <a class="code" href="classSH__QuestionState.xhtml">SH_QuestionState</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classSH__DecimalQuestionState.xhtml#ae327306d90b2a30152f5b64cb75d8a5d">SH_DecimalQuestionState</a>(QString question, QString <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>, qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#ac909214eeb0e370c16718cb698bfec2c">min</a>=0, qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a17bd2b3f5766c5379d7f057d7d4aa178">max</a>=-1, <a class="code" href="classQState.xhtml">QState</a> *parent = 0);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__DecimalQuestionState.xhtml#a99f815a5101340867400f093e89f2210">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__QuestionState.xhtml#a29cdea8bc55e39e3ed02d24743c30f8c">givenAnswer</a>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#ac909214eeb0e370c16718cb698bfec2c">min</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DecimalQuestionState.xhtml#a2b0fa48a8e0609bb2db7776ce1240a86">setMin</a>(<span class="keyword">const</span> qreal &amp;min);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a17bd2b3f5766c5379d7f057d7d4aa178">max</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DecimalQuestionState.xhtml#a5b7b0e27a5a89424c36e1bef77fdd062">setMax</a>(<span class="keyword">const</span> qreal &amp;max);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;signals:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classSH__DecimalQuestionState.xhtml#a997b3644b15e2f221e5d68e2ce14a882">   72</a></span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a997b3644b15e2f221e5d68e2ce14a882" title="m_min ">m_min</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classSH__DecimalQuestionState.xhtml#a9f5763fb66d1c8c2fcdf6b5403d51579">   76</a></span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a9f5763fb66d1c8c2fcdf6b5403d51579" title="m_max ">m_max</a>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DECIMALQUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classSH__DecimalQuestionState.xhtml#ae327306d90b2a30152f5b64cb75d8a5d">SH_DecimalQuestionState</a>(QString question, QString <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>, qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#ac909214eeb0e370c16718cb698bfec2c">min</a>=0, qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a17bd2b3f5766c5379d7f057d7d4aa178">max</a>=-1, <a class="code" href="classQState.xhtml">QState</a> *parent = 0);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__DecimalQuestionState.xhtml#a99f815a5101340867400f093e89f2210">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__QuestionState.xhtml#a29cdea8bc55e39e3ed02d24743c30f8c">givenAnswer</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#ac909214eeb0e370c16718cb698bfec2c">min</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DecimalQuestionState.xhtml#a2b0fa48a8e0609bb2db7776ce1240a86">setMin</a>(<span class="keyword">const</span> qreal &amp;min);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a17bd2b3f5766c5379d7f057d7d4aa178">max</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DecimalQuestionState.xhtml#a5b7b0e27a5a89424c36e1bef77fdd062">setMax</a>(<span class="keyword">const</span> qreal &amp;max);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;signals:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classSH__DecimalQuestionState.xhtml#a997b3644b15e2f221e5d68e2ce14a882">   67</a></span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a997b3644b15e2f221e5d68e2ce14a882" title="m_min ">m_min</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classSH__DecimalQuestionState.xhtml#a9f5763fb66d1c8c2fcdf6b5403d51579">   72</a></span>&#160;    qreal <a class="code" href="classSH__DecimalQuestionState.xhtml#a9f5763fb66d1c8c2fcdf6b5403d51579" title="m_max ">m_max</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/*}*/</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DECIMALQUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DecimalQuestionState_8h.xhtml">SH_DecimalQuestionState.h</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_13c294c896149c6e7ad839bf15bc2a5b.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DecimalQuestionState_8h.xhtml">SH_DecimalQuestionState.h</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

@@ -1,4 +1,4 @@
-.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/views/SH_ExtendedQQmlAction.cpp" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/views/SH_ExtendedQQmlAction.cpp" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -29,30 +29,29 @@
 .SS "bool qShortcutContextMatcher (\fBQObject\fP *o, Qt::ShortcutContextcontext)"
 
 .PP
-Définition à la ligne 50 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 42 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 .nf
-51 {
-52     switch (context) {
-53     case Qt::ApplicationShortcut:
-54         return true;
-55     case Qt::WindowShortcut: {
-56         QObject *w = o;
-57         while (w && !w->isWindowType()) {
-58             w = w->parent();
-59             if (QQuickItem * item = qobject_cast<QQuickItem*>(w))
-60                 w = item->window();
-61         }
-62         if (w && w == QGuiApplication::focusWindow())
-63             return true;
-64     }
-65     case Qt::WidgetShortcut:
-66     case Qt::WidgetWithChildrenShortcut:
-67         break;
-68     }
-69 
-70     return false;
-71 }
+43 {
+44     switch (context) {
+45     case Qt::ApplicationShortcut:
+46     return true;
+47     case Qt::WindowShortcut: {
+48     QObject *w = o;
+49     while (w && !w->isWindowType()) {
+50     w = w->parent();
+51     if (QQuickItem * item = qobject_cast<QQuickItem*>(w))
+52     w = item->window();
+53     }
+54     if (w && w == QGuiApplication::focusWindow())
+55     return true;
+56     }
+57     case Qt::WidgetShortcut:
+58     case Qt::WidgetWithChildrenShortcut:
+59     break;
+60     }
+61     return false;
+62 }
 .fi
 .SH "Auteur"
 .PP 

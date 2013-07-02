@@ -1,0 +1,172 @@
+.TH "SimpleHotel::SH_MessageManager" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_MessageManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_MessageManager\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Types publics"
+
+.in +1c
+.ti -1c
+.RI "enum \fBErrorMode\fP { \fBERROR\fP, \fBTEST\fP, \fBDEBUG\fP, \fBDEBUG_VERBOSE\fP, \fBRELEASE\fP }"
+.br
+.in -1c
+.SS "Fonctions membres publiques statiques"
+
+.in +1c
+.ti -1c
+.RI "static void \fBdebugMessage\fP (QString message, QString title='Trace')"
+.br
+.ti -1c
+.RI "static void \fBerrorMessage\fP (QString message, QString title='Erreur')"
+.br
+.ti -1c
+.RI "static void \fBinfoMessage\fP (QString message, QString title='Info')"
+.br
+.ti -1c
+.RI "static void \fBsuccessMessage\fP (QString message, QString title='Réussite')"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 15 du fichier SH_MessageManager\&.h\&.
+.SH "Documentation des énumérations membres"
+.PP 
+.SS "enum \fBSimpleHotel::SH_MessageManager::ErrorMode\fP"
+
+.PP
+\fBValeurs énumérées\fP
+.in +1c
+.TP
+\fB\fIERROR \fP\fP
+.TP
+\fB\fITEST \fP\fP
+.TP
+\fB\fIDEBUG \fP\fP
+.TP
+\fB\fIDEBUG_VERBOSE \fP\fP
+.TP
+\fB\fIRELEASE \fP\fP
+.PP
+Définition à la ligne 27 du fichier SH_MessageManager\&.h\&.
+.PP
+.nf
+27 { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_MessageManager::debugMessage (QStringmessage, QStringtitle = \fC'Trace'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 34 du fichier SH_MessageManager\&.cpp\&.
+.PP
+Référencé par SimpleHotel::SH_GenericStateMachine::addChildrenNextTransition(), SimpleHotel::SH_InOutStateMachine::addIOState(), SimpleHotel::SH_ConfirmationState::confirmInput(), SimpleHotel::SH_SqlDataModel::datas(), SimpleHotel::SH_SqlDataModel::fetch(), SimpleHotel::SH_DateQuestionState::isAnswerValid(), SimpleHotel::SH_NumericQuestionState::isAnswerValid(), SimpleHotel::SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SimpleHotel::SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState()\&.
+.PP
+.nf
+35 {
+36     if(!message\&.isEmpty()) {
+37 //#ifdef DEBUG
+38         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+39 //#endif
+40     }
+41 }
+.fi
+.SS "SimpleHotel::SH_MessageManager::errorMessage (QStringmessage, QStringtitle = \fC'Erreur'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 18 du fichier SH_MessageManager\&.cpp\&.
+.PP
+Référencé par SimpleHotel::SH_SqlDataModel::data(), SimpleHotel::SH_DatabaseManager::dbConnect(), SimpleHotel::SH_SqlDataModel::fetch(), main(), SimpleHotel::SH_DatabaseManager::SH_DatabaseManager(), et SimpleHotel::SH_GenericStateMachine::SH_GenericStateMachine()\&.
+.PP
+.nf
+19 {
+20     if(!message\&.isEmpty()) {
+21 #ifdef DEBUG
+22         qWarning() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+23 #else
+24         QMessageBox::critical(0,QObject::tr("%L1")\&.arg(title),QObject::tr("%L2")\&.arg(message));
+25 #endif
+26     }
+27 }
+.fi
+.SS "SimpleHotel::SH_MessageManager::infoMessage (QStringmessage, QStringtitle = \fC'Info'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 65 du fichier SH_MessageManager\&.cpp\&.
+.PP
+Référencé par SimpleHotel::SH_QuestionState::checkValidity(), SimpleHotel::SH_SqlDataModel::data(), SimpleHotel::SH_GenericStateMachine::onEntry(), SimpleHotel::SH_GenericState::onEntry(), SimpleHotel::SH_GenericStateMachine::onExit(), SimpleHotel::SH_GenericState::onExit(), SimpleHotel::SH_GenericState::onTransitionTriggered(), et SimpleHotel::SH_ApplicationCore::receiveInput()\&.
+.PP
+.nf
+66 {
+67     if(!message\&.isEmpty()) {
+68 #ifdef DEBUG
+69         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+70 #else
+71          QMessageBox::warning(0, QObject::tr("%L1")\&.arg(title), QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message));
+72 #endif
+73     }
+74 }
+.fi
+.SS "SimpleHotel::SH_MessageManager::successMessage (QStringmessage, QStringtitle = \fC'Réussite'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 49 du fichier SH_MessageManager\&.cpp\&.
+.PP
+.nf
+50 {
+51     if(!message\&.isEmpty()) {
+52 #ifdef DEBUG
+53         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+54 #else
+55         QMessageBox::information(0,QObject::tr("%L1")\&.arg(title),QObject::tr("%L2")\&.arg(message));
+56 #endif
+57     }
+58 }
+.fi
+
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

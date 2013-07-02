@@ -4,7 +4,7 @@ var classSH__ExtendedProxyModel =
     [ "addFilterKeyColumn", "classSH__ExtendedProxyModel.xhtml#a7b432fac5c42bf84a005f2942896ca32", null ],
     [ "containsFilterKeyColumn", "classSH__ExtendedProxyModel.xhtml#a81c40d3ce9710029cae19cc65bf5419d", null ],
     [ "currentSortKeyColumn", "classSH__ExtendedProxyModel.xhtml#adbbc1e62c72991f4ed14537cf1ba9c8f", null ],
-    [ "data", "classSH__ExtendedProxyModel.xhtml#aca6cc510f740e847e0cfc06e0adb5771", null ],
+    [ "data", "classSH__ExtendedProxyModel.xhtml#a9fd2e16750c7c8c4cbd8f357b00ed008", null ],
     [ "data", "classSH__ExtendedProxyModel.xhtml#afbc947efbe1107fc5bf8926c52902a1c", null ],
     [ "fetch", "classSH__ExtendedProxyModel.xhtml#a1df5323af8d29e81f22a7118227eeeb8", null ],
     [ "field", "classSH__ExtendedProxyModel.xhtml#a75081819198741a532eefd5875a90678", null ],

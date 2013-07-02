@@ -1,0 +1,841 @@
+.TH "SimpleHotel::SH_ExtendedQQmlAction" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_ExtendedQQmlAction \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_ExtendedQQmlAction\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Connecteurs publics"
+
+.in +1c
+.ti -1c
+.RI "void \fBtrigger\fP ()"
+.br
+.in -1c
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBenabledChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBiconChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBiconNameChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBiconSourceChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBkeyShortcutChanged\fP (Qt::Key \fBkeyShortcut\fP)"
+.br
+.ti -1c
+.RI "void \fBshortcutChanged\fP (QString \fBshortcut\fP)"
+.br
+.ti -1c
+.RI "void \fBtextChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoggled\fP (bool checked)"
+.br
+.ti -1c
+.RI "void \fBtooltipChanged\fP (QString arg)"
+.br
+.ti -1c
+.RI "void \fBtriggered\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_ExtendedQQmlAction\fP (\fBQObject\fP *parent=0)"
+.br
+.ti -1c
+.RI "\fB~SH_ExtendedQQmlAction\fP ()"
+.br
+.ti -1c
+.RI "bool \fBevent\fP (QEvent *e)"
+.br
+.ti -1c
+.RI "QIcon \fBicon\fP () const "
+.br
+.ti -1c
+.RI "QString \fBiconName\fP () const "
+.br
+.ti -1c
+.RI "QUrl \fBiconSource\fP () const "
+.br
+.ti -1c
+.RI "QVariant \fBiconVariant\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisEnabled\fP () const "
+.br
+.ti -1c
+.RI "QKeySequence \fBkeyShortcut\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetEnabled\fP (bool e)"
+.br
+.ti -1c
+.RI "void \fBsetIcon\fP (QIcon \fBicon\fP)"
+.br
+.ti -1c
+.RI "void \fBsetIconName\fP (const QString &\fBiconName\fP)"
+.br
+.ti -1c
+.RI "void \fBsetIconSource\fP (const QUrl &\fBiconSource\fP)"
+.br
+.ti -1c
+.RI "void \fBsetKeyShortcut\fP (const Qt::Key &\fBshortcut\fP)"
+.br
+.ti -1c
+.RI "void \fBsetMnemonicFromText\fP (const QString &mnemonic)"
+.br
+.ti -1c
+.RI "void \fBsetShortcut\fP (const QString &\fBshortcut\fP)"
+.br
+.ti -1c
+.RI "void \fBsetText\fP (const QString &\fBtext\fP)"
+.br
+.ti -1c
+.RI "void \fBsetTooltip\fP (const QString &\fBtooltip\fP)"
+.br
+.ti -1c
+.RI "QString \fBshortcut\fP () const "
+.br
+.ti -1c
+.RI "QString \fBtext\fP () const "
+.br
+.ti -1c
+.RI "QString \fBtooltip\fP () const "
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetKeySequence\fP (const QKeySequence &sequence)"
+.br
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "QVariant \fB__icon\fP"
+.br
+.ti -1c
+.RI "bool \fBenabled\fP"
+.br
+.ti -1c
+.RI "QString \fBiconName\fP"
+.br
+.ti -1c
+.RI "QUrl \fBiconSource\fP"
+.br
+.ti -1c
+.RI "Qt::Key \fBkeyShortcut\fP"
+.br
+.ti -1c
+.RI "QString \fBshortcut\fP"
+.br
+.ti -1c
+.RI "QString \fBtext\fP"
+.br
+.ti -1c
+.RI "QString \fBtooltip\fP"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "bool \fBm_enabled\fP"
+.br
+.RI "\fIm_enabled \fP"
+.ti -1c
+.RI "QIcon \fBm_icon\fP"
+.br
+.RI "\fIm_icon \fP"
+.ti -1c
+.RI "QString \fBm_iconName\fP"
+.br
+.RI "\fIm_iconName \fP"
+.ti -1c
+.RI "QUrl \fBm_iconSource\fP"
+.br
+.RI "\fIm_iconSource \fP"
+.ti -1c
+.RI "QKeySequence \fBm_mnemonic\fP"
+.br
+.RI "\fIm_mnemonic \fP"
+.ti -1c
+.RI "QKeySequence \fBm_shortcut\fP"
+.br
+.RI "\fIm_shortcut \fP"
+.ti -1c
+.RI "QString \fBm_text\fP"
+.br
+.RI "\fIm_text \fP"
+.ti -1c
+.RI "QString \fBm_tooltip\fP"
+.br
+.RI "\fIm_tooltip \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 18 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_ExtendedQQmlAction::SH_ExtendedQQmlAction (\fBQObject\fP *parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Définition à la ligne 16 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+.nf
+17     : QObject(parent)
+18     , m_enabled(true)
+19 {
+20 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::~SH_ExtendedQQmlAction ()"
+
+.PP
+Définition à la ligne 27 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références setKeyShortcut(), et setMnemonicFromText()\&.
+.PP
+.nf
+28 {
+29     setKeyShortcut(Qt::Key_unknown);
+30     setMnemonicFromText(QString());
+31 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_ExtendedQQmlAction::enabledChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setEnabled()\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::event (QEvent *e)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIe\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 230 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références m_enabled, m_mnemonic, m_shortcut, et trigger()\&.
+.PP
+.nf
+231 {
+232     if (!m_enabled)
+233         return false;
+234 
+235     if (e->type() != QEvent::Shortcut)
+236         return false;
+237 
+238     QShortcutEvent *se = static_cast<QShortcutEvent *>(e);
+239 
+240     Q_ASSERT_X(se->key() == m_shortcut || se->key() == m_mnemonic,
+241                "QQQuickAction::event",
+242                "Received shortcut event from incorrect shortcut");
+243     if (se->isAmbiguous()) {
+244         qWarning("QQQuickAction::event: Ambiguous shortcut overload: %s", se->key()\&.toString(QKeySequence::NativeText)\&.toLatin1()\&.constData());
+245         return false;
+246     }
+247 
+248     trigger();
+249 
+250     return true;
+251 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::icon () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QIcon 
+.RE
+.PP
+
+.PP
+Définition à la ligne 168 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_icon\&.
+.PP
+Référencé par setIcon()\&.
+.PP
+.nf
+168 { return m_icon; }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::iconChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setIcon(), setIconName(), et setIconSource()\&.
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::iconName () const"
+
+.PP
+Référencé par setIconName()\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::iconNameChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setIconName()\&.
+.SS "QUrl SimpleHotel::SH_ExtendedQQmlAction::iconSource () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 123 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_iconSource\&.
+.PP
+Référencé par setIconSource()\&.
+.PP
+.nf
+123 { return m_iconSource; }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::iconSourceChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setIconSource()\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::iconVariant () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Définition à la ligne 175 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_icon\&.
+.PP
+.nf
+175 { return QVariant(m_icon); }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::isEnabled () const\fC [inline]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 153 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_enabled\&.
+.PP
+.nf
+153 { return m_enabled; }
+.fi
+.SS "QKeySequence SimpleHotel::SH_ExtendedQQmlAction::keyShortcut () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 85 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_shortcut\&.
+.PP
+.nf
+85 { return m_shortcut; }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::keyShortcutChanged (Qt::KeykeyShortcut)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIkeyShortcut\fP 
+.RE
+.PP
+
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setEnabled (boole)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIe\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 214 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références enabledChanged(), et m_enabled\&.
+.PP
+.nf
+215 {
+216     if (e == m_enabled)
+217         return;
+218     m_enabled = e;
+219     emit enabledChanged();
+220 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setIcon (QIconicon)\fC [inline]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIicon\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 182 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références icon(), iconChanged(), et m_icon\&.
+.PP
+.nf
+182 { m_icon = icon; emit iconChanged(); }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setIconName (const QString &iconName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIiconName\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 186 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références iconChanged(), iconName(), iconNameChanged(), m_icon, m_iconName, et m_iconSource\&.
+.PP
+.nf
+187 {
+188     if (iconName == m_iconName)
+189         return;
+190     m_iconName = iconName;
+191     m_icon = QIcon::fromTheme(m_iconName, QIcon(QQmlFile::urlToLocalFileOrQrc(m_iconSource)));
+192     emit iconNameChanged();
+193     emit iconChanged();
+194 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setIconSource (const QUrl &iconSource)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIiconSource\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 156 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références iconChanged(), iconSource(), iconSourceChanged(), m_icon, m_iconName, et m_iconSource\&.
+.PP
+.nf
+157 {
+158     if (iconSource == m_iconSource)
+159         return;
+160 
+161     m_iconSource = iconSource;
+162     if (m_iconName\&.isEmpty() || m_icon\&.isNull()) {
+163         QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
+164         m_icon = QIcon(fileString);
+165 
+166         emit iconChanged();
+167     }
+168     emit iconSourceChanged();
+169 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setKeySequence (const QKeySequence &sequence)\fC [protected]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsequence\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 80 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références m_shortcut, shortcut(), et shortcutChanged()\&.
+.PP
+Référencé par setKeyShortcut(), et setShortcut()\&.
+.PP
+.nf
+80                                                                        {
+81     if (sequence == m_shortcut)
+82         return;
+83 
+84     /*if (!m_shortcut\&.isEmpty())
+85         QGuiApplicationPrivate::instance()->shortcutMap\&.removeShortcut(0, this, m_shortcut);
+86     */
+87     m_shortcut = sequence;
+88 
+89     /*if (!m_shortcut\&.isEmpty()) {
+90         Qt::ShortcutContext context = Qt::WindowShortcut;
+91         QGuiApplicationPrivate::instance()->shortcutMap\&.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);
+92     }*/
+93     emit shortcutChanged(shortcut());
+94 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setKeyShortcut (const Qt::Key &shortcut)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIshortcut\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 101 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références setKeySequence()\&.
+.PP
+Référencé par ~SH_ExtendedQQmlAction()\&.
+.PP
+.nf
+102 {
+103     setKeySequence(QKeySequence(shortcut));
+104 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setMnemonicFromText (const QString &mnemonic)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImnemonic\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 134 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références m_mnemonic\&.
+.PP
+Référencé par setText(), et ~SH_ExtendedQQmlAction()\&.
+.PP
+.nf
+135 {
+136     QKeySequence sequence = QKeySequence::mnemonic(text);
+137     if (m_mnemonic == sequence)
+138         return;
+139 
+140     /*if (!m_mnemonic\&.isEmpty())
+141         QGuiApplicationPrivate::instance()->shortcutMap\&.removeShortcut(0, this, m_mnemonic);
+142     */
+143     m_mnemonic = sequence;
+144 
+145     /*if (!m_mnemonic\&.isEmpty()) {
+146         Qt::ShortcutContext context = Qt::WindowShortcut;
+147         QGuiApplicationPrivate::instance()->shortcutMap\&.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);
+148     }*/
+149 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setShortcut (const QString &shortcut)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIshortcut\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 121 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références setKeySequence(), et shortcut()\&.
+.PP
+.nf
+122 {
+123     if(shortcut() == arg)
+124         return;
+125 
+126     setKeySequence(QKeySequence::fromString(arg));
+127 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setText (const QString &text)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItext\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 38 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références m_text, setMnemonicFromText(), text(), et textChanged()\&.
+.PP
+.nf
+39 {
+40     if (text == m_text)
+41         return;
+42     m_text = text;
+43     setMnemonicFromText(m_text);
+44     emit textChanged();
+45 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::setTooltip (const QString &tooltip)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItooltip\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 201 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références m_tooltip, et tooltipChanged()\&.
+.PP
+.nf
+202 {
+203     if (m_tooltip != arg) {
+204         m_tooltip = arg;
+205         emit tooltipChanged(arg);
+206     }
+207 }
+.fi
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::shortcut () const"
+
+.PP
+Référencé par setKeySequence(), et setShortcut()\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::shortcutChanged (QStringshortcut)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIshortcut\fP 
+.RE
+.PP
+
+.PP
+Référencé par setKeySequence()\&.
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::text () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 55 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_text\&.
+.PP
+Référencé par setText()\&.
+.PP
+.nf
+55 { return m_text; }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::textChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setText()\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::toggled (boolchecked)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIchecked\fP 
+.RE
+.PP
+
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::tooltip () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 138 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Références m_tooltip\&.
+.PP
+.nf
+138 { return m_tooltip; }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::tooltipChanged (QStringarg)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIarg\fP 
+.RE
+.PP
+
+.PP
+Référencé par setTooltip()\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::trigger ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 258 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+Références m_enabled, et triggered()\&.
+.PP
+Référencé par event()\&.
+.PP
+.nf
+259 {
+260     if (!m_enabled)
+261         return;
+262     emit triggered();
+263 }
+.fi
+.SS "SimpleHotel::SH_ExtendedQQmlAction::triggered ()\fC [signal]\fP"
+
+.PP
+Référencé par trigger()\&.
+.SH "Documentation des données membres"
+.PP 
+.SS "bool SimpleHotel::SH_ExtendedQQmlAction::m_enabled\fC [private]\fP"
+
+.PP
+m_enabled 
+.PP
+Définition à la ligne 299 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par event(), isEnabled(), setEnabled(), et trigger()\&.
+.SS "QIcon SimpleHotel::SH_ExtendedQQmlAction::m_icon\fC [private]\fP"
+
+.PP
+m_icon 
+.PP
+Définition à la ligne 295 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par icon(), iconVariant(), setIcon(), setIconName(), et setIconSource()\&.
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::m_iconName\fC [private]\fP"
+
+.PP
+m_iconName 
+.PP
+Définition à la ligne 291 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par setIconName(), et setIconSource()\&.
+.SS "QUrl SimpleHotel::SH_ExtendedQQmlAction::m_iconSource\fC [private]\fP"
+
+.PP
+m_iconSource 
+.PP
+Définition à la ligne 287 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par iconSource(), setIconName(), et setIconSource()\&.
+.SS "QKeySequence SimpleHotel::SH_ExtendedQQmlAction::m_mnemonic\fC [private]\fP"
+
+.PP
+m_mnemonic 
+.PP
+Définition à la ligne 307 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par event(), et setMnemonicFromText()\&.
+.SS "QKeySequence SimpleHotel::SH_ExtendedQQmlAction::m_shortcut\fC [private]\fP"
+
+.PP
+m_shortcut 
+.PP
+Définition à la ligne 303 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par event(), keyShortcut(), et setKeySequence()\&.
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::m_text\fC [private]\fP"
+
+.PP
+m_text 
+.PP
+Définition à la ligne 283 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par setText(), et text()\&.
+.SS "QString SimpleHotel::SH_ExtendedQQmlAction::m_tooltip\fC [private]\fP"
+
+.PP
+m_tooltip 
+.PP
+Définition à la ligne 311 du fichier SH_ExtendedQQmlAction\&.h\&.
+.PP
+Référencé par setTooltip(), et tooltip()\&.
+.SH "Documentation des propriétés"
+.PP 
+.SS "QVariant SimpleHotel::SH_ExtendedQQmlAction::__icon\fC [read]\fP"
+
+.PP
+Définition à la ligne 25 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "bool SimpleHotel::SH_ExtendedQQmlAction::enabled\fC [read]\fP, \fC [write]\fP"
+
+.PP
+Définition à la ligne 27 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::iconName\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 24 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::iconSource\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QUrl 
+.RE
+.PP
+
+.PP
+Définition à la ligne 23 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::keyShortcut\fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QKeySequence 
+.RE
+.PP
+
+.PP
+Définition à la ligne 31 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::shortcut\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 30 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::text\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 22 du fichier SH_ExtendedQQmlAction\&.h\&.
+.SS "SimpleHotel::SH_ExtendedQQmlAction::tooltip\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 26 du fichier SH_ExtendedQQmlAction\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

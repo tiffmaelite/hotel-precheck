@@ -1,6 +1,6 @@
 var classSH__Trainee =
 [
-    [ "SH_Trainee", "classSH__Trainee.xhtml#a2715e0da8758c1f9674bfe86951a35c5", null ],
+    [ "SH_Trainee", "classSH__Trainee.xhtml#a4317a6d68ef014c66082943c63404a31", null ],
     [ "exists", "classSH__Trainee.xhtml#aeefcf386df717163d07e17c48205814b", null ],
     [ "id", "classSH__Trainee.xhtml#addf3cb1d491eea2df592dee5c9081d32", null ],
     [ "isAdministrator", "classSH__Trainee.xhtml#a2a9cbd9e27e5047ec108d4f373884de5", null ],
@@ -13,6 +13,8 @@ var classSH__Trainee =
     [ "nameChanged", "classSH__Trainee.xhtml#a02445292383053e7413df52ad89dad21", null ],
     [ "roles", "classSH__Trainee.xhtml#a4b58db36176601136130aa91e87548ee", null ],
     [ "rolesChanged", "classSH__Trainee.xhtml#aa6c441f9147186a7af987cd600c3ac33", null ],
+    [ "save", "classSH__Trainee.xhtml#ac118976aaa960a727127370e625a3bb9", null ],
+    [ "setNewPassword", "classSH__Trainee.xhtml#ada3160c3abf1b200646cb6f4fe5ccd72", null ],
     [ "traineeExists", "classSH__Trainee.xhtml#adfc35c967cb405f4a14886676612fbb7", null ],
     [ "userExists", "classSH__Trainee.xhtml#a64161b35866b1c635d5f4214095a2b1e", null ],
     [ "validityChanged", "classSH__Trainee.xhtml#a2b36efbf2a2127f7c6ab98c112d49dc0", null ],

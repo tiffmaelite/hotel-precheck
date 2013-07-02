@@ -35,7 +35,8 @@
 00033                 border.left: 3
 00034                 border.right: 3
 00035                 anchors.bottomMargin: -1
-00036                 source: btn.pressed ? \textcolor{stringliteral}{"../img/buttondown.png"} : \textcolor{stringliteral}{"../img/buttonup.png"}
+00036                 source: btn.enabled ? (btn.pressed ? \textcolor{stringliteral}{"../img/buttondown.png"} : \textcolor{stringliteral}{"../img/buttonup.png"}) : \textcolor{stringliteral}{"
+      ../img/buttonblocked.png"}
 00037             \}
 00038         \}
 00039     \}

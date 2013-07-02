@@ -1,0 +1,35 @@
+\hypertarget{SH__VATTableModel_8cpp}{\section{S\-H\-\_\-\-V\-A\-T\-Table\-Model.\-cpp}
+\label{SH__VATTableModel_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-V\-A\-T\-Table\-Model.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-V\-A\-T\-Table\-Model.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__VATTableModel_8h}{SH\_VATTableModel.h}"}
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseManager_8h}{SH\_DatabaseManager.h}"}
+00003 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00004 
+00005 \textcolor{comment}{/*namespace SimplHotel}
+00006 \textcolor{comment}{\{*/}
+\hypertarget{SH__VATTableModel_8cpp_source_l00012}{}\hyperlink{classSH__VATTableModel_a64afdd54a316c5c4dbf7f700de3f5708}{00012} \hyperlink{classSH__VATTableModel_a64afdd54a316c5c4dbf7f700de3f5708}{SH\_VATTableModel::SH\_VATTableModel}(\hyperlink{classQObject}{QObject} *parent):
+00013     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
+00014 \{
+00015     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\textcolor{stringliteral}{"TAXES"});
+00016     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{setFilterCondition}(\textcolor{stringliteral}{"
+      ((STARTDATE IS NULL OR STARTDATE <= CURRENT\_DATE) AND (ENDDATE IS NULL OR ENDDATE >= CURRENT\_DATE))"});
+00017     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{setOrderBy}(\textcolor{stringliteral}{"PERCENTAGE ASC"});
+00018 \}
+00019 
+\hypertarget{SH__VATTableModel_8cpp_source_l00025}{}\hyperlink{classSH__VATTableModel_a88ae41a95c657e74498bd3bbc1adcb6e}{00025} \textcolor{keywordtype}{void} \hyperlink{classSH__VATTableModel_a88ae41a95c657e74498bd3bbc1adcb6e}{SH\_VATTableModel::fillModel}()
+00026 \{
+00027     QStringList \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields} = \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->
+      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}();
+00028     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"ID
+      "}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Code"}));
+00029     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      PERCENTAGE"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"\(\backslash\)%"}));
+00030     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      LABEL"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Libellé"}));
+00031     \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(fields.indexOf(\textcolor{stringliteral}{"
+      PERCENTAGE"}));
+00032 \}
+00033 \textcolor{comment}{/*\}*/}
+\end{DoxyCode}

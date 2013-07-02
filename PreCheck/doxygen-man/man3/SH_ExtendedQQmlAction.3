@@ -1,4 +1,4 @@
-.TH "SH_ExtendedQQmlAction" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_ExtendedQQmlAction" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -191,32 +191,32 @@ Est dérivée de \fBQObject\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 16 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 15 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SH "Documentation des constructeurs et destructeur"
 .PP 
 .SS "SH_ExtendedQQmlAction::SH_ExtendedQQmlAction (\fBQObject\fP *parent = \fC0\fP)\fC [explicit]\fP"
 
 .PP
-Définition à la ligne 14 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 12 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 .nf
-15     : QObject(parent)
-16     , m_enabled(true)
-17 {
-18 }
+13     : QObject(parent)
+14     , m_enabled(true)
+15 {
+16 }
 .fi
 .SS "SH_ExtendedQQmlAction::~SH_ExtendedQQmlAction ()"
 
 .PP
-Définition à la ligne 25 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 21 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références setKeyShortcut(), et setMnemonicFromText()\&.
 .PP
 .nf
-26 {
-27     setKeyShortcut(Qt::Key_unknown);
-28     setMnemonicFromText(QString());
-29 }
+22 {
+23     setKeyShortcut(Qt::Key_unknown);
+24     setMnemonicFromText(QString());
+25 }
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
@@ -239,32 +239,27 @@ bool
 .PP
 
 .PP
-Définition à la ligne 228 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 192 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références m_enabled, m_mnemonic, m_shortcut, et trigger()\&.
 .PP
 .nf
-229 {
-230     if (!m_enabled)
-231         return false;
-232 
-233     if (e->type() != QEvent::Shortcut)
-234         return false;
-235 
-236     QShortcutEvent *se = static_cast<QShortcutEvent *>(e);
-237 
-238     Q_ASSERT_X(se->key() == m_shortcut || se->key() == m_mnemonic,
-239                "QQQuickAction::event",
-240                "Received shortcut event from incorrect shortcut");
-241     if (se->isAmbiguous()) {
-242         qWarning("QQQuickAction::event: Ambiguous shortcut overload: %s", se->key()\&.toString(QKeySequence::NativeText)\&.toLatin1()\&.constData());
-243         return false;
-244     }
-245 
-246     trigger();
-247 
-248     return true;
-249 }
+193 {
+194     if (!m_enabled)
+195     return false;
+196     if (e->type() != QEvent::Shortcut)
+197     return false;
+198     QShortcutEvent *se = static_cast<QShortcutEvent *>(e);
+199     Q_ASSERT_X(se->key() == m_shortcut || se->key() == m_mnemonic,
+200     "QQQuickAction::event",
+201     "Received shortcut event from incorrect shortcut");
+202     if (se->isAmbiguous()) {
+203     qWarning("QQQuickAction::event: Ambiguous shortcut overload: %s", se->key()\&.toString(QKeySequence::NativeText)\&.toLatin1()\&.constData());
+204     return false;
+205     }
+206     trigger();
+207     return true;
+208 }
 .fi
 .SS "SH_ExtendedQQmlAction::icon () const\fC [inline]\fP"
 
@@ -276,14 +271,14 @@ QIcon
 .PP
 
 .PP
-Définition à la ligne 166 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 153 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_icon\&.
 .PP
 Référencé par setIcon()\&.
 .PP
 .nf
-166 { return m_icon; }
+153 { return m_icon; }
 .fi
 .SS "SH_ExtendedQQmlAction::iconChanged ()\fC [signal]\fP"
 
@@ -300,14 +295,14 @@ Référencé par setIconName()\&.
 .SS "QUrl SH_ExtendedQQmlAction::iconSource () const\fC [inline]\fP"
 
 .PP
-Définition à la ligne 121 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 111 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_iconSource\&.
 .PP
 Référencé par setIconSource()\&.
 .PP
 .nf
-121 { return m_iconSource; }
+111 { return m_iconSource; }
 .fi
 .SS "SH_ExtendedQQmlAction::iconSourceChanged ()\fC [signal]\fP"
 
@@ -323,12 +318,12 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 173 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 160 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_icon\&.
 .PP
 .nf
-173 { return QVariant(m_icon); }
+160 { return QVariant(m_icon); }
 .fi
 .SS "SH_ExtendedQQmlAction::isEnabled () const\fC [inline]\fP"
 
@@ -340,22 +335,22 @@ bool
 .PP
 
 .PP
-Définition à la ligne 151 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 139 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_enabled\&.
 .PP
 .nf
-151 { return m_enabled; }
+139 { return m_enabled; }
 .fi
 .SS "QKeySequence SH_ExtendedQQmlAction::keyShortcut () const\fC [inline]\fP"
 
 .PP
-Définition à la ligne 83 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 76 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_shortcut\&.
 .PP
 .nf
-83 { return m_shortcut; }
+76 { return m_shortcut; }
 .fi
 .SS "SH_ExtendedQQmlAction::keyShortcutChanged (Qt::KeykeyShortcut)\fC [signal]\fP"
 
@@ -376,17 +371,17 @@ Références m_shortcut\&.
 .PP
 
 .PP
-Définition à la ligne 212 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 180 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références enabledChanged(), et m_enabled\&.
 .PP
 .nf
-213 {
-214     if (e == m_enabled)
-215         return;
-216     m_enabled = e;
-217     emit enabledChanged();
-218 }
+181 {
+182     if (e == m_enabled)
+183     return;
+184     m_enabled = e;
+185     emit enabledChanged();
+186 }
 .fi
 .SS "SH_ExtendedQQmlAction::setIcon (QIconicon)\fC [inline]\fP"
 
@@ -398,12 +393,12 @@ Références enabledChanged(), et m_enabled\&.
 .PP
 
 .PP
-Définition à la ligne 180 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 167 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références icon(), iconChanged(), et m_icon\&.
 .PP
 .nf
-180 { m_icon = icon; emit iconChanged(); }
+167 { m_icon = icon; emit iconChanged(); }
 .fi
 .SS "SH_ExtendedQQmlAction::setIconName (const QString &iconName)"
 
@@ -415,19 +410,19 @@ Références icon(), iconChanged(), et m_icon\&.
 .PP
 
 .PP
-Définition à la ligne 184 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 156 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références iconChanged(), iconName(), iconNameChanged(), m_icon, m_iconName, et m_iconSource\&.
 .PP
 .nf
-185 {
-186     if (iconName == m_iconName)
-187         return;
-188     m_iconName = iconName;
-189     m_icon = QIcon::fromTheme(m_iconName, QIcon(QQmlFile::urlToLocalFileOrQrc(m_iconSource)));
-190     emit iconNameChanged();
-191     emit iconChanged();
-192 }
+157 {
+158     if (iconName == m_iconName)
+159     return;
+160     m_iconName = iconName;
+161     m_icon = QIcon::fromTheme(m_iconName, QIcon(QQmlFile::urlToLocalFileOrQrc(m_iconSource)));
+162     emit iconNameChanged();
+163     emit iconChanged();
+164 }
 .fi
 .SS "SH_ExtendedQQmlAction::setIconSource (const QUrl &iconSource)"
 
@@ -439,24 +434,22 @@ Références iconChanged(), iconName(), iconNameChanged(), m_icon, m_iconName, e
 .PP
 
 .PP
-Définition à la ligne 154 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 132 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références iconChanged(), iconSource(), iconSourceChanged(), m_icon, m_iconName, et m_iconSource\&.
 .PP
 .nf
-155 {
-156     if (iconSource == m_iconSource)
-157         return;
-158 
-159     m_iconSource = iconSource;
-160     if (m_iconName\&.isEmpty() || m_icon\&.isNull()) {
-161         QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
-162         m_icon = QIcon(fileString);
-163 
-164         emit iconChanged();
-165     }
-166     emit iconSourceChanged();
-167 }
+133 {
+134     if (iconSource == m_iconSource)
+135     return;
+136     m_iconSource = iconSource;
+137     if (m_iconName\&.isEmpty() || m_icon\&.isNull()) {
+138     QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
+139     m_icon = QIcon(fileString);
+140     emit iconChanged();
+141     }
+142     emit iconSourceChanged();
+143 }
 .fi
 .SS "SH_ExtendedQQmlAction::setKeySequence (const QKeySequence &sequence)\fC [protected]\fP"
 
@@ -468,28 +461,28 @@ Références iconChanged(), iconSource(), iconSourceChanged(), m_icon, m_iconNam
 .PP
 
 .PP
-Définition à la ligne 78 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 67 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références m_shortcut, shortcut(), et shortcutChanged()\&.
 .PP
 Référencé par setKeyShortcut(), et setShortcut()\&.
 .PP
 .nf
-78                                                                        {
-79     if (sequence == m_shortcut)
-80         return;
-81 
-82     /*if (!m_shortcut\&.isEmpty())
-83         QGuiApplicationPrivate::instance()->shortcutMap\&.removeShortcut(0, this, m_shortcut);
-84     */
-85     m_shortcut = sequence;
-86 
-87     if (!m_shortcut\&.isEmpty()) {
-88         Qt::ShortcutContext context = Qt::WindowShortcut;
-89         /*QGuiApplicationPrivate::instance()->shortcutMap\&.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);*/
-90     }
-91     emit shortcutChanged(shortcut());
-92 }
+67                                                                        {
+68     if (sequence == m_shortcut)
+69     return;
+70     
+71 /*if (!m_shortcut\&.isEmpty())
+72     QGuiApplicationPrivate::instance()->shortcutMap\&.removeShortcut(0, this, m_shortcut);
+73     */
+74     m_shortcut = sequence;
+75     
+76 /*if (!m_shortcut\&.isEmpty()) {
+77     Qt::ShortcutContext context = Qt::WindowShortcut;
+78     QGuiApplicationPrivate::instance()->shortcutMap\&.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);
+79     }*/
+80     emit shortcutChanged(shortcut());
+81 }
 .fi
 .SS "SH_ExtendedQQmlAction::setKeyShortcut (const Qt::Key &shortcut)"
 
@@ -501,16 +494,16 @@ Référencé par setKeyShortcut(), et setShortcut()\&.
 .PP
 
 .PP
-Définition à la ligne 99 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 86 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références setKeySequence()\&.
 .PP
 Référencé par ~SH_ExtendedQQmlAction()\&.
 .PP
 .nf
-100 {
-101     setKeySequence(QKeySequence(shortcut));
-102 }
+87 {
+88     setKeySequence(QKeySequence(shortcut));
+89 }
 .fi
 .SS "SH_ExtendedQQmlAction::setMnemonicFromText (const QString &mnemonic)"
 
@@ -522,28 +515,28 @@ Référencé par ~SH_ExtendedQQmlAction()\&.
 .PP
 
 .PP
-Définition à la ligne 132 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 112 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références m_mnemonic\&.
 .PP
 Référencé par setText(), et ~SH_ExtendedQQmlAction()\&.
 .PP
 .nf
-133 {
-134     QKeySequence sequence = QKeySequence::mnemonic(text);
-135     if (m_mnemonic == sequence)
-136         return;
-137 
-138     /*if (!m_mnemonic\&.isEmpty())
-139         QGuiApplicationPrivate::instance()->shortcutMap\&.removeShortcut(0, this, m_mnemonic);
-140     */
-141     m_mnemonic = sequence;
-142 
-143     if (!m_mnemonic\&.isEmpty()) {
-144         Qt::ShortcutContext context = Qt::WindowShortcut;
-145         /*QGuiApplicationPrivate::instance()->shortcutMap\&.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);*/
-146     }
-147 }
+113 {
+114     QKeySequence sequence = QKeySequence::mnemonic(text);
+115     if (m_mnemonic == sequence)
+116     return;
+117     
+118 /*if (!m_mnemonic\&.isEmpty())
+119     QGuiApplicationPrivate::instance()->shortcutMap\&.removeShortcut(0, this, m_mnemonic);
+120     */
+121     m_mnemonic = sequence;
+122     
+123 /*if (!m_mnemonic\&.isEmpty()) {
+124     Qt::ShortcutContext context = Qt::WindowShortcut;
+125     QGuiApplicationPrivate::instance()->shortcutMap\&.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);
+126     }*/
+127 }
 .fi
 .SS "SH_ExtendedQQmlAction::setShortcut (const QString &shortcut)"
 
@@ -555,17 +548,16 @@ Référencé par setText(), et ~SH_ExtendedQQmlAction()\&.
 .PP
 
 .PP
-Définition à la ligne 119 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 102 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références setKeySequence(), et shortcut()\&.
 .PP
 .nf
-120 {
-121     if(shortcut() == arg)
-122         return;
-123 
-124     setKeySequence(QKeySequence::fromString(arg));
-125 }
+103 {
+104     if(shortcut() == arg)
+105     return;
+106     setKeySequence(QKeySequence::fromString(arg));
+107 }
 .fi
 .SS "SH_ExtendedQQmlAction::setText (const QString &text)"
 
@@ -577,18 +569,18 @@ Références setKeySequence(), et shortcut()\&.
 .PP
 
 .PP
-Définition à la ligne 36 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 30 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références m_text, setMnemonicFromText(), text(), et textChanged()\&.
 .PP
 .nf
-37 {
-38     if (text == m_text)
-39         return;
-40     m_text = text;
-41     setMnemonicFromText(m_text);
-42     emit textChanged();
-43 }
+31 {
+32     if (text == m_text)
+33     return;
+34     m_text = text;
+35     setMnemonicFromText(m_text);
+36     emit textChanged();
+37 }
 .fi
 .SS "SH_ExtendedQQmlAction::setTooltip (const QString &tooltip)"
 
@@ -600,17 +592,17 @@ Références m_text, setMnemonicFromText(), text(), et textChanged()\&.
 .PP
 
 .PP
-Définition à la ligne 199 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 169 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références m_tooltip, et tooltipChanged()\&.
 .PP
 .nf
-200 {
-201     if (m_tooltip != arg) {
-202         m_tooltip = arg;
-203         emit tooltipChanged(arg);
-204     }
-205 }
+170 {
+171     if (m_tooltip != arg) {
+172     m_tooltip = arg;
+173     emit tooltipChanged(arg);
+174     }
+175 }
 .fi
 .SS "QString SH_ExtendedQQmlAction::shortcut () const"
 
@@ -630,14 +622,14 @@ Référencé par setKeySequence()\&.
 .SS "QString SH_ExtendedQQmlAction::text () const\fC [inline]\fP"
 
 .PP
-Définition à la ligne 53 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 48 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_text\&.
 .PP
 Référencé par setText()\&.
 .PP
 .nf
-53 { return m_text; }
+48 { return m_text; }
 .fi
 .SS "SH_ExtendedQQmlAction::textChanged ()\fC [signal]\fP"
 
@@ -655,12 +647,12 @@ Référencé par setText()\&.
 .SS "QString SH_ExtendedQQmlAction::tooltip () const\fC [inline]\fP"
 
 .PP
-Définition à la ligne 136 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 125 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Références m_tooltip\&.
 .PP
 .nf
-136 { return m_tooltip; }
+125 { return m_tooltip; }
 .fi
 .SS "SH_ExtendedQQmlAction::tooltipChanged (QStringarg)\fC [signal]\fP"
 
@@ -676,18 +668,18 @@ Référencé par setTooltip()\&.
 .SS "SH_ExtendedQQmlAction::trigger ()\fC [slot]\fP"
 
 .PP
-Définition à la ligne 256 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+Définition à la ligne 213 du fichier SH_ExtendedQQmlAction\&.cpp\&.
 .PP
 Références m_enabled, et triggered()\&.
 .PP
 Référencé par event()\&.
 .PP
 .nf
-257 {
-258     if (!m_enabled)
-259         return;
-260     emit triggered();
-261 }
+214 {
+215     if (!m_enabled)
+216     return;
+217     emit triggered();
+218 }
 .fi
 .SS "SH_ExtendedQQmlAction::triggered ()\fC [signal]\fP"
 
@@ -700,7 +692,7 @@ Référencé par trigger()\&.
 .PP
 m_enabled 
 .PP
-Définition à la ligne 297 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 281 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par event(), isEnabled(), setEnabled(), et trigger()\&.
 .SS "QIcon SH_ExtendedQQmlAction::m_icon\fC [private]\fP"
@@ -708,7 +700,7 @@ Référencé par event(), isEnabled(), setEnabled(), et trigger()\&.
 .PP
 m_icon 
 .PP
-Définition à la ligne 293 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 276 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par icon(), iconVariant(), setIcon(), setIconName(), et setIconSource()\&.
 .SS "QString SH_ExtendedQQmlAction::m_iconName\fC [private]\fP"
@@ -716,7 +708,7 @@ Référencé par icon(), iconVariant(), setIcon(), setIconName(), et setIconSour
 .PP
 m_iconName 
 .PP
-Définition à la ligne 289 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 271 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par setIconName(), et setIconSource()\&.
 .SS "QUrl SH_ExtendedQQmlAction::m_iconSource\fC [private]\fP"
@@ -724,7 +716,7 @@ Référencé par setIconName(), et setIconSource()\&.
 .PP
 m_iconSource 
 .PP
-Définition à la ligne 285 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 266 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par iconSource(), setIconName(), et setIconSource()\&.
 .SS "QKeySequence SH_ExtendedQQmlAction::m_mnemonic\fC [private]\fP"
@@ -732,7 +724,7 @@ Référencé par iconSource(), setIconName(), et setIconSource()\&.
 .PP
 m_mnemonic 
 .PP
-Définition à la ligne 305 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 291 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par event(), et setMnemonicFromText()\&.
 .SS "QKeySequence SH_ExtendedQQmlAction::m_shortcut\fC [private]\fP"
@@ -740,7 +732,7 @@ Référencé par event(), et setMnemonicFromText()\&.
 .PP
 m_shortcut 
 .PP
-Définition à la ligne 301 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 286 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par event(), keyShortcut(), et setKeySequence()\&.
 .SS "QString SH_ExtendedQQmlAction::m_text\fC [private]\fP"
@@ -748,7 +740,7 @@ Référencé par event(), keyShortcut(), et setKeySequence()\&.
 .PP
 m_text 
 .PP
-Définition à la ligne 281 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 261 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par setText(), et text()\&.
 .SS "QString SH_ExtendedQQmlAction::m_tooltip\fC [private]\fP"
@@ -756,7 +748,7 @@ Référencé par setText(), et text()\&.
 .PP
 m_tooltip 
 .PP
-Définition à la ligne 309 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 296 du fichier SH_ExtendedQQmlAction\&.h\&.
 .PP
 Référencé par setTooltip(), et tooltip()\&.
 .SH "Documentation des propriétés"
@@ -764,11 +756,11 @@ Référencé par setTooltip(), et tooltip()\&.
 .SS "QVariant SH_ExtendedQQmlAction::__icon\fC [read]\fP"
 
 .PP
-Définition à la ligne 23 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 21 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "bool SH_ExtendedQQmlAction::enabled\fC [read]\fP, \fC [write]\fP"
 
 .PP
-Définition à la ligne 25 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 23 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "SH_ExtendedQQmlAction::iconName\fC [read]\fP, \fC [write]\fP"
 
 .PP
@@ -779,7 +771,7 @@ QString
 .PP
 
 .PP
-Définition à la ligne 22 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 20 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "SH_ExtendedQQmlAction::iconSource\fC [read]\fP, \fC [write]\fP"
 
 .PP
@@ -790,7 +782,7 @@ QUrl
 .PP
 
 .PP
-Définition à la ligne 21 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 19 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "SH_ExtendedQQmlAction::keyShortcut\fC [write]\fP"
 
 .PP
@@ -801,7 +793,7 @@ QKeySequence
 .PP
 
 .PP
-Définition à la ligne 29 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 26 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "SH_ExtendedQQmlAction::shortcut\fC [read]\fP, \fC [write]\fP"
 
 .PP
@@ -812,7 +804,7 @@ QString
 .PP
 
 .PP
-Définition à la ligne 28 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 25 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "SH_ExtendedQQmlAction::text\fC [read]\fP, \fC [write]\fP"
 
 .PP
@@ -823,7 +815,7 @@ QString
 .PP
 
 .PP
-Définition à la ligne 20 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 18 du fichier SH_ExtendedQQmlAction\&.h\&.
 .SS "SH_ExtendedQQmlAction::tooltip\fC [read]\fP, \fC [write]\fP"
 
 .PP
@@ -834,7 +826,7 @@ QString
 .PP
 
 .PP
-Définition à la ligne 24 du fichier SH_ExtendedQQmlAction\&.h\&.
+Définition à la ligne 22 du fichier SH_ExtendedQQmlAction\&.h\&.
 
 .SH "Auteur"
 .PP 

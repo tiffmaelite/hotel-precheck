@@ -74,9 +74,13 @@ var annotated =
     [ "SH_StringQuestionState", "classSH__StringQuestionState.xhtml", "classSH__StringQuestionState" ],
     [ "SH_TabZone", "classSH__TabZone.xhtml", "classSH__TabZone" ],
     [ "SH_Trainee", "classSH__Trainee.xhtml", "classSH__Trainee" ],
+    [ "SH_TraineesTableModel", "classSH__TraineesTableModel.xhtml", "classSH__TraineesTableModel" ],
     [ "SH_TriStateCheckImage", "classSH__TriStateCheckImage.xhtml", "classSH__TriStateCheckImage" ],
     [ "SH_User", "classSH__User.xhtml", "classSH__User" ],
+    [ "SH_UsersTableModel", "classSH__UsersTableModel.xhtml", "classSH__UsersTableModel" ],
     [ "SH_ValidationState", "classSH__ValidationState.xhtml", "classSH__ValidationState" ],
+    [ "SH_VATDelegate", "classSH__VATDelegate.xhtml", "classSH__VATDelegate" ],
+    [ "SH_VATTableModel", "classSH__VATTableModel.xhtml", "classSH__VATTableModel" ],
     [ "SH_WelcomePage", "classSH__WelcomePage.xhtml", "classSH__WelcomePage" ],
     [ "TableView", "classTableView.xhtml", null ],
     [ "TabView", "classTabView.xhtml", null ]

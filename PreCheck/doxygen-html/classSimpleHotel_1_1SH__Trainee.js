@@ -1,0 +1,27 @@
+var classSimpleHotel_1_1SH__Trainee =
+[
+    [ "SH_Trainee", "classSimpleHotel_1_1SH__Trainee.xhtml#a16a65241a3da26717990b86b500bfd0f", null ],
+    [ "exists", "classSimpleHotel_1_1SH__Trainee.xhtml#a5b620469cfd767611c8be0cea77842ee", null ],
+    [ "id", "classSimpleHotel_1_1SH__Trainee.xhtml#ad0e5342ff3c71bde3443c4379e25031c", null ],
+    [ "isAdministrator", "classSimpleHotel_1_1SH__Trainee.xhtml#aad4b9071828b2aedac8ad964c9b4e987", null ],
+    [ "isManagerX", "classSimpleHotel_1_1SH__Trainee.xhtml#a98ea0f274591c094f62063c5d03c313f", null ],
+    [ "isManagerZ", "classSimpleHotel_1_1SH__Trainee.xhtml#a0f69fcf69b750b59aef25f95e44fd789", null ],
+    [ "isReceptionist", "classSimpleHotel_1_1SH__Trainee.xhtml#ad8921664946cd0301f4abdba71d9293e", null ],
+    [ "isValid", "classSimpleHotel_1_1SH__Trainee.xhtml#a8b60e67bc474ee97367f36d0278721ca", null ],
+    [ "logIn", "classSimpleHotel_1_1SH__Trainee.xhtml#a5576062913b7f5a7e22e933585471738", null ],
+    [ "name", "classSimpleHotel_1_1SH__Trainee.xhtml#a3300bbcf846b116897325efd0a1fa3e8", null ],
+    [ "nameChanged", "classSimpleHotel_1_1SH__Trainee.xhtml#af3b558a0626d2fe726f73b65c27299ce", null ],
+    [ "roles", "classSimpleHotel_1_1SH__Trainee.xhtml#a873714cda3de3a9405e900db62de8010", null ],
+    [ "rolesChanged", "classSimpleHotel_1_1SH__Trainee.xhtml#a3b8e95cc9b6e660e2b879658f923265a", null ],
+    [ "traineeExists", "classSimpleHotel_1_1SH__Trainee.xhtml#a502467b4e5fbe99a7bb0b07f4eb1cee0", null ],
+    [ "userExists", "classSimpleHotel_1_1SH__Trainee.xhtml#ade0c6b106701dd94e78a0cbf116c926d", null ],
+    [ "validityChanged", "classSimpleHotel_1_1SH__Trainee.xhtml#a5355f39889901f52c975292df91728cf", null ],
+    [ "administrator", "classSimpleHotel_1_1SH__Trainee.xhtml#a199a037f0c83fff157190e0460e2d917", null ],
+    [ "id", "classSimpleHotel_1_1SH__Trainee.xhtml#a492697af8401a2d22b0ecefab4d78da5", null ],
+    [ "managerX", "classSimpleHotel_1_1SH__Trainee.xhtml#ac9a48dc5b684b5f4a700a7c4991e759d", null ],
+    [ "managerZ", "classSimpleHotel_1_1SH__Trainee.xhtml#addccc353716a6f4cf15f08ad1a06d2dc", null ],
+    [ "name", "classSimpleHotel_1_1SH__Trainee.xhtml#a060aa57674e4cabf6a650b015563da77", null ],
+    [ "receptionist", "classSimpleHotel_1_1SH__Trainee.xhtml#a44c4e3922422c460cabfc7b7011d9bcb", null ],
+    [ "roles", "classSimpleHotel_1_1SH__Trainee.xhtml#ad13699562fa07547a504d1310a9a942b", null ],
+    [ "valid", "classSimpleHotel_1_1SH__Trainee.xhtml#ae1973ccbefacafb374919b5689109bf2", null ]
+];

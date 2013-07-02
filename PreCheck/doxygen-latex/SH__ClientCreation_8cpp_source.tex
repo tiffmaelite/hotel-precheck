@@ -10,42 +10,45 @@
 00005 \textcolor{preprocessor}{#include "\hyperlink{SH__FileSelectionState_8h}{SH\_FileSelectionState.h}"}
 00006 \textcolor{preprocessor}{#include "\hyperlink{SH__RegExpQuestionState_8h}{SH\_RegExpQuestionState.h}"}
 00007 \textcolor{preprocessor}{#include "\hyperlink{SH__AddressCreation_8h}{SH\_AddressCreation.h}"}
-00008 
-\hypertarget{SH__ClientCreation_8cpp_source_l00013}{}\hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{00013} \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{SH\_ClientCreationStateMachine::SH\_ClientCreationStateMachine}
+00008 \textcolor{comment}{/*namespace SimplHotel}
+00009 \textcolor{comment}{\{*/}
+\hypertarget{SH__ClientCreation_8cpp_source_l00014}{}\hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{00014} \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{SH\_ClientCreationStateMachine::SH\_ClientCreationStateMachine}
       (QString name, \hyperlink{classQObject}{QObject} *parent) :
-00014     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}(\textcolor{stringliteral}{"CLIENTS"},name, parent)
-00015 \{
-00016     \hyperlink{classSH__AddressCreationStateMachine}{SH\_AddressCreationStateMachine}* address = \textcolor{keyword}{new} 
-      \hyperlink{classSH__AddressCreationStateMachine}{SH\_AddressCreationStateMachine}(\textcolor{stringliteral}{"address in client creation"});
-00017     \hyperlink{classSH__DatabaseContentQuestionState}{SH\_DatabaseContentQuestionState}* nationality = \textcolor{keyword}{new} 
-      \hyperlink{classSH__DatabaseContentQuestionState}{SH\_DatabaseContentQuestionState}(\textcolor{stringliteral}{"Veuillez entrer le code de nationalité du
-       client"}, \textcolor{stringliteral}{"nationality in client creation"}, \textcolor{stringliteral}{"NATIONALITIES"},\textcolor{stringliteral}{"CODE"});
-00018     \hyperlink{classSH__FileSelectionState}{SH\_FileSelectionState}* IDscan = \textcolor{keyword}{new} 
-      \hyperlink{classSH__FileSelectionState}{SH\_FileSelectionState}(\textcolor{stringliteral}{"Veuillez sélectionner l'image scannée des papiers d'identité du
-       client"},\textcolor{stringliteral}{"ID image in client creation"});
-00019     \hyperlink{classSH__RegExpQuestionState}{SH\_RegExpQuestionState}* phone = \textcolor{keyword}{new} 
+00015     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}(\textcolor{stringliteral}{"CLIENTS"},name, parent)
+00016 \{
+00017     \textcolor{comment}{//SH\_AddressCreationStateMachine* address = new SH\_AddressCreationStateMachine("address in client
+       creation");}
+00018     \textcolor{comment}{//SH\_DatabaseContentQuestionState* nationality = new SH\_DatabaseContentQuestionState("Veuillez entrer
+       le code de nationalité du client", "nationality in client creation", "NATIONALITIES","CODE");}
+00019     \textcolor{comment}{//SH\_FileSelectionState* IDscan = new SH\_FileSelectionState("Veuillez sélectionner l'image scannée des
+       papiers d'identité du client","ID image in client creation");}
+00020     \hyperlink{classSH__RegExpQuestionState}{SH\_RegExpQuestionState}* phone = \textcolor{keyword}{new} 
       \hyperlink{classSH__RegExpQuestionState}{SH\_RegExpQuestionState}(\textcolor{stringliteral}{"Veuillez entrer le numéro de téléphone du client avec le
        préfixe international"},\textcolor{stringliteral}{"phone client creation"},QRegularExpression(\textcolor{stringliteral}{"[[\(\backslash\)+|00][[1-9]]\{3\}\(\backslash\)\(\backslash\)d\{8\}]?"}));
-00020     \hyperlink{classSH__RegExpQuestionState}{SH\_RegExpQuestionState}* email = \textcolor{keyword}{new} 
+00021     \hyperlink{classSH__RegExpQuestionState}{SH\_RegExpQuestionState}* email = \textcolor{keyword}{new} 
       \hyperlink{classSH__RegExpQuestionState}{SH\_RegExpQuestionState}(\textcolor{stringliteral}{"Veuillez entrer l'adresse email du client"},\textcolor{stringliteral}{"email client
        creation"},QRegularExpression(\textcolor{stringliteral}{"[[\(\backslash\)\(\backslash\)d\(\backslash\)\(\backslash\)w\(\backslash\).\_%\(\backslash\)+\(\backslash\)-]+@[\(\backslash\)\(\backslash\)d\(\backslash\)\(\backslash\)w\(\backslash\).-]+\(\backslash\).[\(\backslash\)\(\backslash\)w]+]?"}));
-00021     QFinalState* \textcolor{keyword}{final} = \textcolor{keyword}{new} QFinalState();
-00022 
-00023     this->addState(\textcolor{keyword}{final});
-00024     this->\hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{addIOState}(IDscan, \textcolor{stringliteral}{"IDSCAN"});
-00025     this->\hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{addIOState}(nationality, \textcolor{stringliteral}{"NATIONALITY\_CODE"});
-00026     this->\hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{addIOState}(phone, \textcolor{stringliteral}{"PHONE"});
-00027     this->\hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{addIOState}(email, \textcolor{stringliteral}{"EMAIL"});
-00028     connect(address, &SH\_InOutStateMachine::exited, [=]() \{\hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(address->
-      \hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{getContentValue}(\textcolor{stringliteral}{"ID"}),\textcolor{stringliteral}{"HOMEADDRESS\_ID"});\});
-00029     this->\hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{addChildrenNextTransition}(IDscan, address);
-00030     this->\hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{addChildrenNextTransition}(address, phone);
-00031     this->\hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{addChildrenNextTransition}(phone, email);
-00032     this->\hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{addChildrenNextTransition}(email, nationality);
-00033     this->setInitialState(IDscan);
-00034 
-00035     \textcolor{comment}{/*connect(IDscan,&QState::entered, [=]() \{}
-00036 \textcolor{comment}{        connect(this, &IOStateMachine::confirmInput, IDscan, &GenericState::next);}
-00037 \textcolor{comment}{    \});*/}
-00038 \}
+00022     QFinalState* \textcolor{keyword}{final} = \textcolor{keyword}{new} QFinalState();
+00023     this->\hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{addState}(\textcolor{keyword}{final});
+00024     \textcolor{comment}{//this->addState(IDscan, "IDSCAN");}
+00025     \textcolor{comment}{//this->addState(nationality, "NATIONALITY\_CODE");}
+00026     \textcolor{comment}{//this->addState(address);}
+00027     this->\hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{addState}(phone, \textcolor{stringliteral}{"PHONE"});
+00028     this->\hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{addState}(email, \textcolor{stringliteral}{"EMAIL"});
+00029     \textcolor{comment}{//connect(address, &SH\_InOutStateMachine::exited, [=]()
+       \{setContentValue(address->getContentValue("ID"),"HOMEADDRESS\_ID");\});}
+00030     \textcolor{comment}{//this->addChildrenNextTransition(IDscan, address);}
+00031     \textcolor{comment}{//this->addChildrenNextTransition(address, phone);}
+00032     this->\hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{setStatesNextTransition}(phone, email);
+00033     this->\hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{setStatesNextTransition}(email, \textcolor{keyword}{final});
+00034     \textcolor{comment}{//this->addChildrenNextTransition(email, nationality);}
+00035     \textcolor{comment}{//this->addChildrenNextTransition(nationality, final);}
+00036     \textcolor{comment}{//this->setInitialState(IDscan);}
+00037     this->setInitialState(phone);
+00038 
+00039     \textcolor{comment}{/*connect(IDscan,&QState::entered, [=]() \{}
+00040 \textcolor{comment}{    connect(this, &IOStateMachine::confirmInput, IDscan, &GenericState::next);}
+00041 \textcolor{comment}{    \});*/}
+00042 \}
+00043 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

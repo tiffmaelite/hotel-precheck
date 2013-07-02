@@ -17,24 +17,24 @@
 00016     \textcolor{comment}{/*maximumWidth: 800*/}
 00017     height: maximumHeight
 00018     width: maximumWidth
-00019     title: \textcolor{stringliteral}{"Réception"}
-00020     \textcolor{keyword}{property} alias pages: stack
-00021     signal reload()
-00022     statusBar: StatusBar \{
-00023         Label \{
-00024             \textcolor{keywordtype}{id}: status
-00025             text: \textcolor{stringliteral}{""}
-00026             anchors.centerIn: parent
-00027         \}
-00028     \}
-00029     onReload: \{
-00030         status.text = Qt.binding(\textcolor{keyword}{function}() \{\textcolor{keywordflow}{return} ((App.currentMode === AppMode.CONNEXION) ? qsTr(\textcolor{stringliteral}{"
+00019     title: qsTr(\textcolor{stringliteral}{"Réception"})
+00020     color: App.readSetting(\textcolor{stringliteral}{"backgroundColor"},\textcolor{stringliteral}{"global GUI"}).toString()
+00021     \textcolor{keyword}{property} alias pages: stack
+00022     signal reload()
+00023     statusBar: StatusBar \{
+00024         Label \{
+00025             \textcolor{keywordtype}{id}: status
+00026             text: \textcolor{stringliteral}{""}
+00027             anchors.centerIn: parent
+00028         \}
+00029     \}
+00030     onReload: \{
+00031         status.text = Qt.binding(\textcolor{keyword}{function}() \{\textcolor{keywordflow}{return} ((App.currentMode === AppMode.CONNEXION) ? qsTr(\textcolor{stringliteral}{"
       Connexion"}) : (App.currentUser.valid ? App.currentUser.name : \textcolor{stringliteral}{""}));\});
-00031     \}
-00032     Component.onCompleted: \{
-00033         window.reload();
-00034     \}
-00035 
+00032     \}
+00033     Component.onCompleted: \{
+00034         window.reload();
+00035     \}
 00036     StackView \{
 00037         \textcolor{keywordtype}{id}: stack
 00038         signal cycle(\hyperlink{classItem}{Item} c)

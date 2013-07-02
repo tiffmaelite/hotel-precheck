@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "PreCheck", "index.xhtml", [
+    [ "Qt Signal Tools", "md__home_tiff_Stage-IUT_app_simplhotel_hotel-precheck_libs_qt-signal-tools_README.xhtml", null ],
     [ "hotel-precheck", "md__home_tiff_Stage-IUT_app_simplhotel_hotel-precheck_README.xhtml", null ],
     [ "Classes", null, [
       [ "Liste des classes", "annotated.xhtml", "annotated" ],
@@ -29,12 +30,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "README.xhtml",
-"classSH__AddressCreationStateMachine.xhtml#a9fa5db44086de2576c812f631aa4f60a",
-"classSH__ClientCreationStateMachine.xhtml#adfd82f2532595ed7c4bcf21f03cbb951",
-"classSH__ExtendedQQmlAction.xhtml#a2db5d52edf0a362a13971ebc04b870c1",
-"classSH__NamedObject.xhtml",
-"classSH__SqlDataFields.xhtml#a67b20d296535d6b9dda6c85f75427ad1",
-"functions_0x76.xhtml"
+"classSH__AddressCreationStateMachine.xhtml",
+"classSH__CalendarDialog.xhtml#a98760601bdd0a916ee33f4ed7ff185aa",
+"classSH__ExtendedProxyModel.xhtml#a0a3818c6f8e4b73d1b5b47b2914cb56d",
+"classSH__LoopingInOutStateMachine.xhtml#a0814df2e3f2b776ba210f98cd05be70d",
+"classSH__ServiceCharging.xhtml#aa1a3bd3c0ea8a59b9bc916dc718eb9ca",
+"classSH__TraineesTableModel.xhtml#ab935cb0865fd2010ab35f1743adb8633"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

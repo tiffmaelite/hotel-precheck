@@ -1,0 +1,29 @@
+\hypertarget{SH__TraineesTableModel_8cpp}{\section{S\-H\-\_\-\-Trainees\-Table\-Model.\-cpp}
+\label{SH__TraineesTableModel_8cpp}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-Trainees\-Table\-Model.\-cpp@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/models/\-S\-H\-\_\-\-Trainees\-Table\-Model.\-cpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{SH__TraineesTableModel_8h}{SH\_TraineesTableModel.h}"}
+00002 
+00003 \textcolor{comment}{/*namespace SimplHotel}
+00004 \textcolor{comment}{\{*/}
+\hypertarget{SH__TraineesTableModel_8cpp_source_l00010}{}\hyperlink{classSH__TraineesTableModel_aa28ee863afaf81efdc5c6979060321e3}{00010} \hyperlink{classSH__TraineesTableModel_aa28ee863afaf81efdc5c6979060321e3}{SH\_TraineesTableModel::SH\_TraineesTableModel}(
+      \hyperlink{classQObject}{QObject} *parent):
+00011     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
+00012 \{
+00013     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\textcolor{stringliteral}{"TRAINEES"});
+00014 \}
+00015 
+\hypertarget{SH__TraineesTableModel_8cpp_source_l00021}{}\hyperlink{classSH__TraineesTableModel_a5610a2065e5679a9268816b208b5acb3}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__TraineesTableModel_a5610a2065e5679a9268816b208b5acb3}{SH\_TraineesTableModel::fillModel}()
+00022 \{
+00023     QStringList \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields} = \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->
+      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}();
+00024     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"ID
+      "}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"ID"}));
+00025     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      LOGIN"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Nom d'utilisateur"}));
+00026     \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(fields.indexOf(\textcolor{stringliteral}{"
+      LOGIN"}));
+00027 \}
+00028 \textcolor{comment}{/*\}*/}
+\end{DoxyCode}

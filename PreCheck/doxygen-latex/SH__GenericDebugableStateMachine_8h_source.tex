@@ -5,43 +5,41 @@
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#ifndef SH\_GENERICDEBUGABLESTATEMACHINE\_H}
 00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SH\_GENERICDEBUGABLESTATEMACHINE\_H}
-00003 \textcolor{preprocessor}{}
-00004 \textcolor{preprocessor}{#include <QStateMachine>}
-00005 \textcolor{preprocessor}{#include "\hyperlink{SH__NamedObject_8h}{SH\_NamedObject.h}"}
-00006 
-\hypertarget{SH__GenericDebugableStateMachine_8h_source_l00007}{}\hyperlink{classSH__GenericStateMachine}{00007} \textcolor{keyword}{class }\hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine} : \textcolor{keyword}{public} \hyperlink{classQStateMachine}{QStateMachine},
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <QStateMachine>}
+00004 \textcolor{preprocessor}{#include "\hyperlink{SH__NamedObject_8h}{SH\_NamedObject.h}"}
+00005 \textcolor{comment}{/*namespace SimplHotel}
+\hypertarget{SH__GenericDebugableStateMachine_8h_source_l00006}{}\hyperlink{classSH__GenericStateMachine}{00006} \textcolor{comment}{\{*/}\textcolor{keyword}{class }\hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine} : \textcolor{keyword}{public} \hyperlink{classQStateMachine}{QStateMachine},
       \hyperlink{classSH__NamedObject}{SH\_NamedObject}
-00008 \{
-00009     Q\_OBJECT
-00010 \textcolor{keyword}{public}:
-00011     \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{SH\_GenericStateMachine}(QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}=\textcolor{stringliteral}{""},\hyperlink{classQObject}{QObject} *parent = 0);
-00012 
-00018     QString \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}();
-00019 
-00025     \textcolor{keywordtype}{bool} \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}();
-00026 
-00034     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{addChildrenNextTransition}(QAbstractState *previousState, 
+00007 \{
+00008     Q\_OBJECT
+00009 \textcolor{keyword}{public}:
+00010     \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{SH\_GenericStateMachine}(QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}=\textcolor{stringliteral}{""},\hyperlink{classQObject}{QObject} *parent = 0);
+00011 
+00017     QString \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}();
+00018 
+00025     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{setStatesNextTransition}(QAbstractState *previousState, 
       QAbstractState *nextState);
-00035 
-00036 \textcolor{keyword}{protected} slots:
-00042     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{emitGoNext}();
+00026 
+00027     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_af4402993e916573a589c9d28158b28d8}{addState}(QAbstractState *state);
+00028 
+00029 \textcolor{keyword}{protected} slots:
+00030 
+00035     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{emitGoNext}();
+00036 signals:
+00037 
+00042     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}();
 00043 
-00044 signals:
-00049     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}();
+00048     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{goNext}();
+00049 \textcolor{keyword}{protected}:
 00050 
-00055     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{goNext}();
-00056 
-00057 \textcolor{keyword}{protected}:
-00063     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf21f03cbb951}{onEntry}(QEvent *event);
-00064 
-00070     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_a4b36d60fa1876908493d3d07f191a30f}{onExit}(QEvent *event);
-00071 
-00072 \textcolor{keyword}{private}:
-\hypertarget{SH__GenericDebugableStateMachine_8h_source_l00077}{}\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{00077}     \textcolor{keywordtype}{bool} \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning};
-00078 
-\hypertarget{SH__GenericDebugableStateMachine_8h_source_l00083}{}\hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{00083}     \hyperlink{classQState}{QState}* \hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\_errorState};
-00084 
-00085 \};
-00086 
-00087 \textcolor{preprocessor}{#endif // SH\_GENERICDEBUGABLESTATEMACHINE\_H}
+00056     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf21f03cbb951}{onEntry}(QEvent *event);
+00057 
+00063     \textcolor{keywordtype}{void} \hyperlink{classSH__GenericStateMachine_a4b36d60fa1876908493d3d07f191a30f}{onExit}(QEvent *event);
+00064 \textcolor{keyword}{private}:
+00065 
+\hypertarget{SH__GenericDebugableStateMachine_8h_source_l00070}{}\hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{00070}     \hyperlink{classQState}{QState}* \hyperlink{classSH__GenericStateMachine_acdf020d8c235f727096da9e613d7e4d7}{m\_errorState};
+\hypertarget{SH__GenericDebugableStateMachine_8h_source_l00071}{}\hyperlink{classSH__GenericStateMachine_a67b2e327c47acb0e3149b99e4ea1311e}{00071}     QAbstractState* \hyperlink{classSH__GenericStateMachine_a67b2e327c47acb0e3149b99e4ea1311e}{m\_currentState};
+00072 \};
+00073 \textcolor{comment}{/*\}*/}
+00074 \textcolor{preprocessor}{#endif // SH\_GENERICDEBUGABLESTATEMACHINE\_H}
 \end{DoxyCode}

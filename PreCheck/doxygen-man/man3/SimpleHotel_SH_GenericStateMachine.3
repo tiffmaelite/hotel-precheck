@@ -1,0 +1,347 @@
+.TH "SimpleHotel::SH_GenericStateMachine" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_GenericStateMachine \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_GenericDebugableStateMachine\&.h>\fP
+.PP
+Est dérivée de \fBQStateMachine\fP, et \fBSimpleHotel::SH_NamedObject\fP\&.
+.PP
+Dérivée par \fBSimpleHotel::SH_InOutStateMachine\fP\&.
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBgoNext\fP ()"
+.br
+.ti -1c
+.RI "void \fBnext\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_GenericStateMachine\fP (QString \fBname\fP='', \fBQObject\fP *parent=0)"
+.br
+.ti -1c
+.RI "virtual void \fBaddChildrenNextTransition\fP (QAbstractState *previousState, QAbstractState *nextState)"
+.br
+.ti -1c
+.RI "bool \fBisRunning\fP ()"
+.br
+.ti -1c
+.RI "QString \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Connecteurs protégés"
+
+.in +1c
+.ti -1c
+.RI "void \fBemitGoNext\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "void \fBonEntry\fP (QEvent *event)"
+.br
+.ti -1c
+.RI "void \fBonExit\fP (QEvent *event)"
+.br
+.in -1c
+.SS "Fonctions membres privées"
+
+.in +1c
+.ti -1c
+.RI "virtual QString \fBname\fP () const "
+.br
+.ti -1c
+.RI "QString \fBptraddress\fP () const "
+.br
+.ti -1c
+.RI "virtual void \fBsetName\fP (const QString &\fBname\fP)"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "\fBQState\fP * \fBm_errorState\fP"
+.br
+.ti -1c
+.RI "bool \fBm_isRunning\fP"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 9 du fichier SH_GenericDebugableStateMachine\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_GenericStateMachine::SH_GenericStateMachine (QStringname = \fC''\fP, \fBQObject\fP *parent = \fC0\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 16 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références emitGoNext(), SimpleHotel::SH_MessageManager::errorMessage(), goNext(), m_errorState, m_isRunning, et toString()\&.
+.PP
+.nf
+16                                                                             :
+17     QStateMachine(parent), SH_NamedObject(name), m_isRunning(false)
+18 {
+19     this->setObjectName(name);
+20     connect(this, &SH_GenericStateMachine::goNext, this, &SH_GenericStateMachine::emitGoNext);
+21     this->blockSignals(!m_isRunning);
+22     m_errorState = new SH_GenericState("error state", this);
+23     this->setErrorState(m_errorState);
+24     connect(m_errorState, &QState::entered, [=]() { SH_MessageManager::errorMessage("Error in machine " +this->toString() + ": " + this->errorString()); });
+25 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_GenericStateMachine::addChildrenNextTransition (QAbstractState *previousState, QAbstractState *nextState)\fC [virtual]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIpreviousState\fP 
+.br
+\fInextState\fP 
+.RE
+.PP
+
+.PP
+Réimplémentée dans \fBSimpleHotel::SH_LoopingInOutStateMachine\fP\&.
+.PP
+Définition à la ligne 105 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::debugMessage(), next(), et toString()\&.
+.PP
+Référencé par SimpleHotel::SH_LoopingInOutStateMachine::addChildrenNextTransition(), et SimpleHotel::SH_InOutStateMachine::addChildrenNextTransition()\&.
+.PP
+.nf
+106 {
+107     SH_GenericStateMachine* fsmPreviousState = qobject_cast<SH_GenericStateMachine*>(previousState);
+108     SH_GenericState* genPreviousState = qobject_cast<SH_GenericState*>(previousState);
+109     QFinalState* final = qobject_cast<QFinalState*>(nextState);
+110     if(!final) {
+111         if(genPreviousState) {
+112             SH_MessageManager::debugMessage(QString("next transition between %1 and %2")\&.arg(genPreviousState->toString())\&.arg(nextState->objectName()));
+113             genPreviousState->addTransition(genPreviousState, SIGNAL(next()), nextState);
+114         }
+115         if(fsmPreviousState) {
+116                         SH_MessageManager::debugMessage(QString("next transition between %1 and %2")\&.arg(fsmPreviousState->toString())\&.arg(nextState->objectName()));
+117             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextState);
+118         }
+119     }
+120 }
+.fi
+.SS "void SimpleHotel::SH_GenericStateMachine::emitGoNext ()\fC [protected]\fP, \fC [slot]\fP"
+
+.PP
+Définition à la ligne 62 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références isRunning(), et next()\&.
+.PP
+Référencé par SH_GenericStateMachine()\&.
+.PP
+.nf
+63 {
+64     if(isRunning()) {
+65         emit next();
+66     }
+67 }
+.fi
+.SS "SimpleHotel::SH_GenericStateMachine::goNext ()\fC [signal]\fP"
+
+.PP
+Référencé par SimpleHotel::SH_AddressCreationStateMachine::SH_AddressCreationStateMachine(), et SH_GenericStateMachine()\&.
+.SS "SimpleHotel::SH_GenericStateMachine::isRunning ()"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 51 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références m_isRunning\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::cancelRunningThread(), SimpleHotel::SH_ApplicationCore::connectRunningThread(), et emitGoNext()\&.
+.PP
+.nf
+52 {
+53     return m_isRunning;
+54 }
+.fi
+.SS "SimpleHotel::SH_NamedObject::name () const\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 34 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références SimpleHotel::SH_NamedObject::m_name\&.
+.PP
+Référencé par onEntry(), SimpleHotel::SH_GenericState::onEntry(), onExit(), SimpleHotel::SH_GenericState::onExit(), SimpleHotel::SH_NamedObject::setName(), et SimpleHotel::SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+35 {
+36     return m_name;
+37 }
+.fi
+.SS "SimpleHotel::SH_GenericStateMachine::next ()\fC [signal]\fP"
+
+.PP
+Référencé par addChildrenNextTransition(), SimpleHotel::SH_LoopingInOutStateMachine::addChildrenNextTransition(), SimpleHotel::SH_InOutStateMachine::addChildrenNextTransition(), SimpleHotel::SH_InOutStateMachine::addChildrenReplaceTransition(), emitGoNext(), et SimpleHotel::SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+.SS "SimpleHotel::SH_GenericStateMachine::onEntry (QEvent *event)\fC [protected]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIevent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 76 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::infoMessage(), m_isRunning, et SimpleHotel::SH_NamedObject::name()\&.
+.PP
+.nf
+77 {
+78     Q_UNUSED(event);
+79     m_isRunning = true;
+80     this->blockSignals(!m_isRunning);
+81     SH_MessageManager::infoMessage(this->name() + " entered");
+82 }
+.fi
+.SS "SimpleHotel::SH_GenericStateMachine::onExit (QEvent *event)\fC [protected]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIevent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 90 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::infoMessage(), m_isRunning, et SimpleHotel::SH_NamedObject::name()\&.
+.PP
+.nf
+91 {
+92     Q_UNUSED(event);
+93     m_isRunning = false;
+94     this->blockSignals(!m_isRunning);
+95 SH_MessageManager::infoMessage(this->name() + " exited");
+96 }
+.fi
+.SS "SimpleHotel::SH_NamedObject::ptraddress () const\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 56 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références SimpleHotel::SH_NamedObject::m_ptraddress\&.
+.PP
+.nf
+57 {
+58     return m_ptraddress;
+59 }
+.fi
+.SS "SimpleHotel::SH_NamedObject::setName (const QString &name)\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 45 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références SimpleHotel::SH_NamedObject::m_name, et SimpleHotel::SH_NamedObject::name()\&.
+.PP
+.nf
+46 {
+47     m_name = name;
+48 }
+.fi
+.SS "SimpleHotel::SH_GenericStateMachine::toString ()\fC [virtual]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Réimplémentée à partir de \fBSimpleHotel::SH_NamedObject\fP\&.
+.PP
+Définition à la ligne 34 du fichier SH_GenericDebugableStateMachine\&.cpp\&.
+.PP
+Références SimpleHotel::SH_NamedObject::toString(), et SimpleHotel::SH_GenericState::toString()\&.
+.PP
+Référencé par addChildrenNextTransition(), SimpleHotel::SH_LoopingInOutStateMachine::addChildrenNextTransition(), SimpleHotel::SH_InOutStateMachine::addChildrenNextTransition(), SimpleHotel::SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericStateMachine(), et SimpleHotel::SH_GenericState::toString()\&.
+.PP
+.nf
+35 {
+36     QObject* parent = this->parent();
+37     SH_GenericState* par = qobject_cast<SH_GenericState *>(parent);
+38     if(par) {
+39         return SH_NamedObject::toString()+ " [descending from "+par->toString()+"] ";
+40     } else {
+41         return SH_NamedObject::toString();
+42     }
+43 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "SimpleHotel::SH_GenericStateMachine::m_errorState\fC [private]\fP"
+
+.PP
+Définition à la ligne 85 du fichier SH_GenericDebugableStateMachine\&.h\&.
+.PP
+Référencé par SH_GenericStateMachine()\&.
+.SS "SimpleHotel::SH_GenericStateMachine::m_isRunning\fC [private]\fP"
+
+.PP
+Définition à la ligne 79 du fichier SH_GenericDebugableStateMachine\&.h\&.
+.PP
+Référencé par isRunning(), onEntry(), onExit(), et SH_GenericStateMachine()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,4 +1,4 @@
-.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/main.cpp" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/PreCheck/main.cpp" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -22,6 +22,8 @@
 .br
 \fC#include 'models/SH_RoomsTableModel\&.h'\fP
 .br
+\fC#include 'models/SH_VATTableModel\&.h'\fP
+.br
 \fC#include 'models/SH_SqlDataField\&.h'\fP
 .br
 \fC#include 'models/SH_BillingsTableModel\&.h'\fP
@@ -38,11 +40,15 @@
 .br
 \fC#include 'models/SH_User\&.h'\fP
 .br
+\fC#include 'models/SH_UsersTableModel\&.h'\fP
+.br
+\fC#include 'models/SH_TraineesTableModel\&.h'\fP
+.br
 \fC#include 'views/SH_ExtendedQQmlAction\&.h'\fP
 .br
-\fC#include 'logging/QsLog\&.h'\fP
+\fC#include '\&.\&./\&.\&./libs/QsLog_2\&.0\&.b1/QsLog\&.h'\fP
 .br
-\fC#include 'logging/QsLogDest\&.h'\fP
+\fC#include '\&.\&./\&.\&./libs/QsLog_2\&.0\&.b1/QsLogDest\&.h'\fP
 .br
 
 .SS "Fonctions"
@@ -53,6 +59,9 @@
 .br
 .ti -1c
 .RI "void \fBexportlog\fP (QtMsgType type, const QMessageLogContext &context, const QString &msg)"
+.br
+.ti -1c
+.RI "void \fBinitSettings\fP (QSettings::Scope scope, QString devName, QString appName)"
 .br
 .ti -1c
 .RI "int \fBmain\fP (int argc, char **argv)"
@@ -74,6 +83,8 @@
 .SH "Documentation des fonctions"
 .PP 
 .SS "void enableLogging (const QStringsLogPath)"
+
+.IP "\(bu" 2
 enableLogging 
 .PP
 \fBParamètres:\fP
@@ -83,185 +94,244 @@ enableLogging
 .PP
 
 .PP
-Définition à la ligne 71 du fichier main\&.cpp\&.
+
+.PP
+Définition à la ligne 80 du fichier main\&.cpp\&.
 .PP
 Référencé par main()\&.
 .PP
 .nf
-72 {
-73     /* init the logging mechanism*/
-74     QsLogging::Logger& logger = QsLogging::Logger::instance();
-75     logger\&.setLoggingLevel(QsLogging::TraceLevel);
-76 
-77     QsLogging::DestinationPtr fileDestination(
-78                 QsLogging::DestinationFactory::MakeFileDestination(sLogPath, true, 512, 2) );
-79     QsLogging::DestinationPtr debugDestination(
-80                 QsLogging::DestinationFactory::MakeDebugOutputDestination() );
-81     logger\&.addDestination(debugDestination);
-82     logger\&.addDestination(fileDestination);
-83 
-84     logger\&.setLoggingLevel(QsLogging::OffLevel); /*truning logging off*/
-85 
+81 {
+82 
+83     /* init the logging mechanism*/
+84     QsLogging::Logger& logger = QsLogging::Logger::instance();
+85     logger\&.setLoggingLevel(QsLogging::TraceLevel);
 86 
-87     /*qInstallMessageHandler(exportlog);*/
-88 
-89     /* QLOG_INFO() << "Here is some information";
-90 
-91         QLOG_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";
-92         QLOG_DEBUG() << "Here's a" << static_cast<int>(QsLogging::DebugLevel) << "message";
-93         QLOG_WARN()  << "Uh-oh!";
-94         qDebug() << "This message won't be picked up by the logger";
-95         QLOG_ERROR() << "An example error has occurred";
-96         qWarning() << "Neither will this one";
-97         QLOG_FATAL() << "Fatal error example!";*/
-98 }
+87     QsLogging::DestinationPtr fileDestination(
+88                 QsLogging::DestinationFactory::MakeFileDestination(sLogPath, true, 512, 2) );
+89     QsLogging::DestinationPtr debugDestination(
+90                 QsLogging::DestinationFactory::MakeDebugOutputDestination() );
+91     logger\&.addDestination(debugDestination);
+92     logger\&.addDestination(fileDestination);
+93 
+94     logger\&.setLoggingLevel(QsLogging::OffLevel);
+95     /*turning logging off*/
+96 
+97 
+98 
+99     /*qInstallMessageHandler(exportlog);*/
+100 
+101 
+102     /* QLOG_INFO() << "Here is some information";
+103 
+104     QLOG_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";
+105     QLOG_DEBUG() << "Here's a" << static_cast<int>(QsLogging::DebugLevel) << "message";
+106     QLOG_WARN() << "Uh-oh!";
+107     qDebug() << "This message won't be picked up by the logger";
+108     QLOG_ERROR() << "An example error has occurred";
+109     qWarning() << "Neither will this one";
+110     QLOG_FATAL() << "Fatal error example!";*/
+111 }
 .fi
 .SS "void exportlog (QtMsgTypetype, const QMessageLogContext &context, const QString &msg)"
 
 .PP
-Définition à la ligne 46 du fichier main\&.cpp\&.
+Définition à la ligne 51 du fichier main\&.cpp\&.
 .PP
 .nf
-46                                                                                       {
-47     QFile file(QApplication::applicationDirPath()+"/"+qAppName()+"\&.log");
-48     file\&.open(QIODevice::WriteOnly | QIODevice::Append);
-49     file\&.write(QString("[")\&.toUtf8()+QDateTime::currentDateTime()\&.toString()\&.toUtf8()+QString("] ")\&.toUtf8());
-50     QString typeName;
-51     switch (type) {
-52     case QtDebugMsg:
-53         typeName = QObject::tr("Debug");
-54         break;
-55     case QtWarningMsg:
-56         typeName = QObject::tr("Warning");
-57         break;
-58     }
-59     file\&.write(QObject::tr("%1: %2\r\n")\&.arg(typeName)\&.arg(msg)\&.toUtf8());
-60 }
+51                                                                                       {
+52     Q_UNUSED(context);
+53     QFile file(QApplication::applicationDirPath()+"/"+qAppName()+"\&.log");
+54     file\&.open(QIODevice::WriteOnly | QIODevice::Append);
+55     file\&.write(QString("[")\&.toUtf8()+QDateTime::currentDateTime()\&.toString()\&.toUtf8()+QString("] ")\&.toUtf8());
+56     QString typeName;
+57     switch (type) {
+58     case QtDebugMsg:
+59         typeName = QObject::tr("Debug");
+60         break;
+61     case QtWarningMsg:
+62         typeName = QObject::tr("Warning");
+63         break;
+64     case QtFatalMsg:
+65     case QtCriticalMsg:
+66         break;
+67     }
+68     file\&.write(QObject::tr("%1: %2\r\n")\&.arg(typeName)\&.arg(msg)\&.toUtf8());
+69 }
+.fi
+.SS "void initSettings (QSettings::Scopescope, QStringdevName, QStringappName)"
+
+.PP
+Définition à la ligne 131 du fichier main\&.cpp\&.
+.PP
+Référencé par main()\&.
+.PP
+.nf
+131                                                                          {
+132     QSettings settings(scope, devName, appName);
+133     settings\&.beginGroup("global GUI");
+134     settings\&.setValue("backgroundColor","whitesmoke");
+135     //TODO: continuer avec toutes les valeurs configurables pour le premier lancement (installation)
+136     settings\&.endGroup();
+137 }
 .fi
 .SS "int main (intargc, char **argv)"
 
 .PP
-Définition à la ligne 125 du fichier main\&.cpp\&.
+Définition à la ligne 146 du fichier main\&.cpp\&.
 .PP
-Références enableLogging(), et SH_MessageManager::errorMessage()\&.
+Références enableLogging(), SH_MessageManager::errorMessage(), et initSettings()\&.
 .PP
 .nf
-126 {
-127     try
-128     {
-129         qDebug();  /* Un simple retour à la ligne pour un affichage propre dans la console*/
-130 
-131         QApplication app(argc, argv);
-132 
-133         const QString sLogPath(QDir::cleanPath(app\&.applicationDirPath()+"/\&.\&./\&.\&./\&.\&./src/PreCheck/debugLog\&.txt"));
-134         qDebug() << app\&.applicationDirPath();
-135         qDebug() << QDir::cleanPath(app\&.applicationDirPath()+"/\&.\&./\&.\&./\&.\&./src/PreCheck/debugLog\&.txt");
-136         enableLogging(sLogPath);
-137 
-138         QString appName = QString(QObject::tr("precheck"));
-139         QString locale = QLocale::system()\&.name();
-140         QTranslator translator;
-141         if (!QFile::exists(appName + "_" + locale + "\&.qm"))
-142         {
-143             locale = locale\&.section('_', 0, 0);
-144         }
-145         if (QFile::exists(appName + "_" + locale + "\&.qm"))
-146         {
-147             translator\&.load(appName + "_" + locale);
-148             app\&.installTranslator(&translator);
-149         }
-150 
-151         QQmlEngine engine;
+147 {
+148     try
+149     {
+150         qDebug();
+151         /* Un simple retour à la ligne pour un affichage propre dans la console*/
 152 
-153         qmlRegisterUncreatableType<SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
-154         qmlRegisterType<SH_User>("PreCheck", 1, 0, "User");
-155         SH_ApplicationCore* appManager = new SH_ApplicationCore();
-156         engine\&.rootContext()->setContextProperty("App", appManager);
+153         QApplication app(argc, argv);
+154 
+155         const QString sLogPath(QDir::cleanPath(app\&.applicationDirPath()+"/\&.\&./\&.\&./\&.\&./src/PreCheck/debugLog\&.txt"));
+156         enableLogging(sLogPath);
 157 
-158         qmlRegisterType<SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
-159         qmlRegisterType<SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
-160         qmlRegisterType<SH_BillsTableModel>("PreCheck", 1, 0, "SH_BillsModel");
-161         qmlRegisterType<SH_BookingsTableModel>("PreCheck", 1, 0, "SH_BookingsModel");
-162         qmlRegisterType<SH_ServicesTableModel>("PreCheck", 1, 0, "SH_ServicesModel");
-163         qmlRegisterType<SH_ClientsTableModel>("PreCheck", 1, 0, "SH_ClientsModel");
-164         qmlRegisterType<SH_GroupsTableModel>("PreCheck", 1, 0, "SH_GroupsModel");
-165         qmlRegisterType<SH_SqlDataFields>("PreCheck", 1, 0, "SH_SqlDataField");
-166         qmlRegisterType<SH_ExtendedQQmlAction>("PreCheck", 1, 0, "SH_ComplexAction");
-167 
-168         QQmlComponent component(&engine);
-169         component\&.loadUrl(QUrl("qrc:/qml/SH_app\&.qml"));
-170         if (!component\&.isReady())
-171         {
-172             qWarning("%s", qPrintable(component\&.errorString()));
-173             return -1;
-174         }
-175         QObject *topLevel = component\&.create();
-176         QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
-177         if (!window)
-178         {
-179             qWarning("Error: Your root item has to be a Window\&.");
-180             return -1;
-181         }
-182         QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
-183 
-184 
-185         QObject * commonPage = window->findChild<QObject *>("Common");
-186         QObject * tabsZone = commonPage->findChild<QObject *>("TabView");
-187         QObject * displayZone = commonPage->findChild<QObject *>("RightOutput");
-188 
-189         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
-190         QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayNewFixed(QString)), Qt::DirectConnection);
-191         QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
-192         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
-193         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
-194 
-195         window->show();
-196         QLOG_INFO() << "Program built with Qt" << QT_VERSION_STR << "running on" << qVersion();
-197         return app\&.exec();
-198 
-199     }
-200     catch (const std::exception &e)
-201     {
-202         SH_MessageManager::errorMessage(e\&.what());
-203     }
-204 }
+158         QString appName = QString(QObject::tr("PreCheck"));
+159         QString devName = QString("SimplHotel");
+160         QCoreApplication::setOrganizationName(devName);
+161         QCoreApplication::setApplicationName(appName);
+162 
+163 initSettings(QSettings::SystemScope, devName,appName);
+164 
+165         QString locale = QLocale::system()\&.name();
+166         QTranslator translator;
+167         if (!QFile::exists(appName\&.toLower() + "_" + locale + "\&.qm"))
+168         {
+169             locale = locale\&.section('_', 0, 0);
+170         }
+171         if (QFile::exists(appName\&.toLower() + "_" + locale + "\&.qm"))
+172         {
+173             translator\&.load(appName\&.toLower() + "_" + locale);
+174             app\&.installTranslator(&translator);
+175         }
+176 
+177         QQmlEngine engine;
+178 
+179 
+180         /*qmlRegisterUncreatableType<SimplHotel::SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
+181         qmlRegisterType<SimplHotel::SH_User>("PreCheck", 1, 0, "User");
+182         SimplHotel::SH_ApplicationCore* appManager = new SimplHotel::SH_ApplicationCore();*/
+183         qmlRegisterUncreatableType<SH_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum AppMode");
+184         qmlRegisterType<SH_User>("PreCheck", 1, 0, "User");
+185 
+186 
+187         SH_ApplicationCore* appManager = new SH_ApplicationCore();
+188         appManager->setSettings(QSettings::SystemScope, devName,appName); // system-wide location for the application
+189         engine\&.rootContext()->setContextProperty("App", appManager);
+190 
+191 
+192         qmlRegisterType<SH_VATTableModel>("PreCheck", 1, 0, "SH_VATModel");
+193         qmlRegisterType<SH_UsersTableModel>("PreCheck", 1, 0, "SH_UsersListModel");
+194         qmlRegisterType<SH_TraineesTableModel>("PreCheck", 1, 0, "SH_TraineesListModel");
+195 
+196         /*qmlRegisterType<SimplHotel::SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
+197         qmlRegisterType<SimplHotel::SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
+198         qmlRegisterType<SimplHotel::SH_BillsTableModel>("PreCheck", 1, 0, "SH_BillsModel");
+199         qmlRegisterType<SimplHotel::SH_BookingsTableModel>("PreCheck", 1, 0, "SH_BookingsModel");
+200         qmlRegisterType<SimplHotel::SH_ServicesTableModel>("PreCheck", 1, 0, "SH_ServicesModel");
+201         qmlRegisterType<SimplHotel::SH_ClientsTableModel>("PreCheck", 1, 0, "SH_ClientsModel");
+202         qmlRegisterType<SimplHotel::SH_GroupsTableModel>("PreCheck", 1, 0, "SH_GroupsModel");
+203         qmlRegisterType<SimplHotel::SH_SqlDataFields>("PreCheck", 1, 0, "SH_SqlDataField");
+204         qmlRegisterType<SimplHotel::SH_ExtendedQQmlAction>("PreCheck", 1, 0, "SH_ComplexAction");*/
+205         qmlRegisterType<SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
+206         qmlRegisterType<SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
+207         qmlRegisterType<SH_BillsTableModel>("PreCheck", 1, 0, "SH_BillsModel");
+208         qmlRegisterType<SH_BookingsTableModel>("PreCheck", 1, 0, "SH_BookingsModel");
+209         qmlRegisterType<SH_ServicesTableModel>("PreCheck", 1, 0, "SH_ServicesModel");
+210         qmlRegisterType<SH_ClientsTableModel>("PreCheck", 1, 0, "SH_ClientsModel");
+211         qmlRegisterType<SH_GroupsTableModel>("PreCheck", 1, 0, "SH_GroupsModel");
+212         qmlRegisterType<SH_SqlDataFields>("PreCheck", 1, 0, "SH_SqlDataField");
+213         qmlRegisterType<SH_ExtendedQQmlAction>("PreCheck", 1, 0, "SH_ComplexAction");
+214 
+215         QQmlComponent component(&engine);
+216         component\&.loadUrl(QUrl("qrc:/qml/SH_app\&.qml"));
+217         if (!component\&.isReady())
+218         {
+219             qWarning("%s", qPrintable(component\&.errorString()));
+220             return -1;
+221         }
+222         QObject *topLevel = component\&.create();
+223         QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
+224         if (!window)
+225         {
+226             qWarning("Error: Your root item has to be a Window\&.");
+227             return -1;
+228         }
+229 
+230         //window->setColor(appManager->readSetting("backgroundColor","global GUI")\&.value<QColor>());
+231 
+232         QObject * commonPage = window->findChild<QObject *>("Common");
+233         QObject * tabsZone = commonPage->findChild<QObject *>("TabView");
+234         QObject * displayZone = commonPage->findChild<QObject *>("RightOutput");
+235 
+236         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
+237         QObject::connect(appManager, SIGNAL(sendText(QString, bool)), displayZone, SIGNAL(displayNew(QString, bool)), Qt::DirectConnection);
+238         QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
+239         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
+240         QObject::connect(appManager, SIGNAL(displayFileDialog()), commonPage, SLOT(displayFileDialog()), Qt::DirectConnection);
+241         QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
+242         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
+243 
+244         QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
+245 
+246 
+247         QLOG_INFO() << "Program built with Qt" << QT_VERSION_STR << "running on" << qVersion();
+248         window->show();
+249         return app\&.exec();
+250 
+251     }
+252     catch (const std::exception &e)
+253     {
+254 
+255         /*SimplHotel::SH_MessageManager::errorMessage(e\&.what());*/
+256         SH_MessageManager::errorMessage(e\&.what());
+257     }
+258 }
 .fi
 .SS "void spin (int &iteration)"
 
 .PP
-Définition à la ligne 108 du fichier main\&.cpp\&.
+Définition à la ligne 121 du fichier main\&.cpp\&.
 .PP
 .nf
-109 {
-110     const int work = 1000 * 1000 * 40;
-111     volatile int v = 0;
-112     for (int j = 0; j < work; ++j)
-113         ++v;
-114 
-115     qDebug() << "iteration" << iteration << "in thread" << QThread::currentThreadId();
-116 }
+122 {
+123     const int work = 1000 * 1000 * 40;
+124     volatile int v = 0;
+125     for (int j = 0; j < work; ++j)
+126         ++v;
+127 
+128     qDebug() << "iteration" << iteration << "in thread" << QThread::currentThreadId();
+129 }
 .fi
 .SS "void statusChanged (QQmlComponent *component, QQmlComponent::Statusstatus)"
 
 .PP
-Définition à la ligne 31 du fichier main\&.cpp\&.
+Définition à la ligne 36 du fichier main\&.cpp\&.
 .PP
 .nf
-31                                                                          {
-32     if (status == QQmlComponent::Error) {
-33         foreach (const QQmlError &error, component->errors()) {
-34             const QByteArray file = error\&.url()\&.toEncoded();
-35             QMessageLogger(file\&.constData(), error\&.line(), 0)\&.debug() << error\&.description();
-36         }
-37     }
-38 }
+36                                                                          {
+37     if (status == QQmlComponent::Error) {
+38         foreach (const QQmlError &error, component->errors()) {
+39             const QByteArray file = error\&.url()\&.toEncoded();
+40             QMessageLogger(file\&.constData(), error\&.line(), 0)\&.debug() << error\&.description();
+41         }
+42     }
+43 }
 .fi
 .SH "Documentation des variables"
 .PP 
 .SS "const int iterations = 20"
 
 .PP
-Définition à la ligne 23 du fichier main\&.cpp\&.
+Définition à la ligne 29 du fichier main\&.cpp\&.
 .SH "Auteur"
 .PP 
 Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,4 +1,4 @@
-.TH "SH_OutputZone" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_OutputZone" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,10 +21,16 @@ Est dérivée de \fBRectangle\fP\&.
 .RI "void \fBdisplayNewFixed\fP (string text)"
 .br
 .ti -1c
+.RI "void \fBdisplaySqlDatas\fP (variant sqlData)"
+.br
+.ti -1c
 .RI "void \fBreplace\fP (string text)"
 .br
 .ti -1c
 .RI "void \fBselected\fP (string selectedItem)"
+.br
+.ti -1c
+.RI "void \fBselectedForDetail\fP (var sqlDatas)"
 .br
 .in -1c
 .SS "Fonctions membres publiques"
@@ -38,12 +44,6 @@ Est dérivée de \fBRectangle\fP\&.
 .br
 .ti -1c
 .RI "void \fBdisplayCalendar\fP ()"
-.br
-.ti -1c
-.RI "void \fBdisplaySqlDatas\fP (sqlData, sqlDelegate)"
-.br
-.ti -1c
-.RI "void \fBdisplaySqlDetail\fP (sqlData)"
 .br
 .ti -1c
 .RI "void \fBdisplayText\fP (text)"
@@ -73,15 +73,15 @@ Définition à la ligne 4 du fichier SH_OutputZone\&.qml\&.
 
 .SS "void SH_OutputZone::displayNewFixed (stringtext)\fC [signal]\fP"
 
-.SS "void SH_OutputZone::displaySqlDatas (sqlData, sqlDelegate)"
-
-.SS "void SH_OutputZone::displaySqlDetail (sqlData)"
+.SS "void SH_OutputZone::displaySqlDatas (variantsqlData)\fC [signal]\fP"
 
 .SS "void SH_OutputZone::displayText (text)"
 
 .SS "void SH_OutputZone::replace (stringtext)\fC [signal]\fP"
 
 .SS "void SH_OutputZone::selected (stringselectedItem)\fC [signal]\fP"
+
+.SS "void SH_OutputZone::selectedForDetail (varsqlDatas)\fC [signal]\fP"
 
 .SH "Documentation des propriétés"
 .PP 

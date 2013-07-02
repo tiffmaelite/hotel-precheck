@@ -4,45 +4,40 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__StringQuestionState_8h}{SH\_StringQuestionState.h}"}
-00002 
-00003 
-\hypertarget{SH__StringQuestionState_8cpp_source_l00010}{}\hyperlink{classSH__StringQuestionState_a83431733b36f67df8691b46cc93a1ea6}{00010} \hyperlink{classSH__StringQuestionState_a83431733b36f67df8691b46cc93a1ea6}{SH\_StringQuestionState::SH\_StringQuestionState}(QString 
+00002 \textcolor{comment}{/*namespace SimplHotel}
+00003 \textcolor{comment}{\{*/}
+\hypertarget{SH__StringQuestionState_8cpp_source_l00008}{}\hyperlink{classSH__StringQuestionState_a83431733b36f67df8691b46cc93a1ea6}{00008} \hyperlink{classSH__StringQuestionState_a83431733b36f67df8691b46cc93a1ea6}{SH\_StringQuestionState::SH\_StringQuestionState}(QString 
       question, QString name, \textcolor{keywordtype}{int} minLength, \textcolor{keywordtype}{int} maxLength, \hyperlink{classQState}{QState} *parent) :
-00011     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question, name, parent), m\_minLen(minLength), m\_maxLen(maxLength)
-00012 \{
-00013 
-00014 \}
-00015 
-\hypertarget{SH__StringQuestionState_8cpp_source_l00022}{}\hyperlink{classSH__StringQuestionState_a51448b87ffdb9279eaa5e7cc3ff73ce9}{00022} \textcolor{keywordtype}{bool} \hyperlink{classSH__StringQuestionState_a51448b87ffdb9279eaa5e7cc3ff73ce9}{SH\_StringQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer
+00009     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question, name, parent), m\_minLen(minLength), m\_maxLen(maxLength)
+00010 \{
+00011 \}
+\hypertarget{SH__StringQuestionState_8cpp_source_l00016}{}\hyperlink{classSH__StringQuestionState_a51448b87ffdb9279eaa5e7cc3ff73ce9}{00016} \textcolor{keywordtype}{bool} \hyperlink{classSH__StringQuestionState_a51448b87ffdb9279eaa5e7cc3ff73ce9}{SH\_StringQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer
       )
-00023 \{
-00024     QString answer = givenAnswer.toString();
-00025     \textcolor{keywordflow}{if}(!answer.isEmpty()) \{
-00026         \textcolor{keywordtype}{int} answerLength= answer.length();
-00027         \textcolor{keywordflow}{return} ((\hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen} <= \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen} || answerLength <= 
+00017 \{
+00018     QString answer = givenAnswer.toString();
+00019     \textcolor{keywordflow}{if}(!answer.isEmpty()) \{
+00020         \textcolor{keywordtype}{int} answerLength= answer.length();
+00021         \textcolor{keywordflow}{return} ((\hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen} <= \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen} || answerLength <= 
       \hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen}) && answerLength >= \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen});
-00028     \} \textcolor{keywordflow}{else} \{
-00029         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00030     \}
-00031 \}
-00032 
-\hypertarget{SH__StringQuestionState_8cpp_source_l00039}{}\hyperlink{classSH__StringQuestionState_a6dce486c3484c28406b234b5f2f91288}{00039} \textcolor{keywordtype}{int} \hyperlink{classSH__StringQuestionState_a6dce486c3484c28406b234b5f2f91288}{SH\_StringQuestionState::maxLen}()\textcolor{keyword}{ const}
-00040 \textcolor{keyword}{}\{
-00041     \textcolor{keywordflow}{return} \hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen};
-00042 \}
-00043 
-\hypertarget{SH__StringQuestionState_8cpp_source_l00050}{}\hyperlink{classSH__StringQuestionState_a7b8ca17302c0953e0ce4a5412f3b96b5}{00050} \textcolor{keywordtype}{void} \hyperlink{classSH__StringQuestionState_a7b8ca17302c0953e0ce4a5412f3b96b5}{SH\_StringQuestionState::setMaxLen}(\textcolor{keywordtype}{int} maxLen)
-00051 \{
-00052     \hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen} = \hyperlink{classSH__StringQuestionState_a6dce486c3484c28406b234b5f2f91288}{maxLen};
-00053 \}
-00054 
-\hypertarget{SH__StringQuestionState_8cpp_source_l00061}{}\hyperlink{classSH__StringQuestionState_a24a95c3ce141e5e26f789720c59d2d3e}{00061} \textcolor{keywordtype}{int} \hyperlink{classSH__StringQuestionState_a24a95c3ce141e5e26f789720c59d2d3e}{SH\_StringQuestionState::minLen}()\textcolor{keyword}{ const}
-00062 \textcolor{keyword}{}\{
-00063     \textcolor{keywordflow}{return} \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen};
-00064 \}
-00065 
-\hypertarget{SH__StringQuestionState_8cpp_source_l00072}{}\hyperlink{classSH__StringQuestionState_adf29a14672e2913642f75e61bfed5818}{00072} \textcolor{keywordtype}{void} \hyperlink{classSH__StringQuestionState_adf29a14672e2913642f75e61bfed5818}{SH\_StringQuestionState::setMinLen}(\textcolor{keywordtype}{int} minLen)
-00073 \{
-00074     \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen} = \hyperlink{classSH__StringQuestionState_a24a95c3ce141e5e26f789720c59d2d3e}{minLen};
-00075 \}
+00022     \} \textcolor{keywordflow}{else} \{
+00023         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00024     \}
+00025 \}
+\hypertarget{SH__StringQuestionState_8cpp_source_l00030}{}\hyperlink{classSH__StringQuestionState_a6dce486c3484c28406b234b5f2f91288}{00030} \textcolor{keywordtype}{int} \hyperlink{classSH__StringQuestionState_a6dce486c3484c28406b234b5f2f91288}{SH\_StringQuestionState::maxLen}()\textcolor{keyword}{ const}
+00031 \textcolor{keyword}{}\{
+00032     \textcolor{keywordflow}{return} \hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen};
+00033 \}
+\hypertarget{SH__StringQuestionState_8cpp_source_l00038}{}\hyperlink{classSH__StringQuestionState_a7b8ca17302c0953e0ce4a5412f3b96b5}{00038} \textcolor{keywordtype}{void} \hyperlink{classSH__StringQuestionState_a7b8ca17302c0953e0ce4a5412f3b96b5}{SH\_StringQuestionState::setMaxLen}(\textcolor{keywordtype}{int} maxLen)
+00039 \{
+00040     \hyperlink{classSH__StringQuestionState_ac001a12ae5939116282ec21920a8e7d1}{m\_maxLen} = \hyperlink{classSH__StringQuestionState_a6dce486c3484c28406b234b5f2f91288}{maxLen};
+00041 \}
+\hypertarget{SH__StringQuestionState_8cpp_source_l00046}{}\hyperlink{classSH__StringQuestionState_a24a95c3ce141e5e26f789720c59d2d3e}{00046} \textcolor{keywordtype}{int} \hyperlink{classSH__StringQuestionState_a24a95c3ce141e5e26f789720c59d2d3e}{SH\_StringQuestionState::minLen}()\textcolor{keyword}{ const}
+00047 \textcolor{keyword}{}\{
+00048     \textcolor{keywordflow}{return} \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen};
+00049 \}
+\hypertarget{SH__StringQuestionState_8cpp_source_l00054}{}\hyperlink{classSH__StringQuestionState_adf29a14672e2913642f75e61bfed5818}{00054} \textcolor{keywordtype}{void} \hyperlink{classSH__StringQuestionState_adf29a14672e2913642f75e61bfed5818}{SH\_StringQuestionState::setMinLen}(\textcolor{keywordtype}{int} minLen)
+00055 \{
+00056     \hyperlink{classSH__StringQuestionState_a0efb97212b868551f4d46487fa3b0464}{m\_minLen} = \hyperlink{classSH__StringQuestionState_a24a95c3ce141e5e26f789720c59d2d3e}{minLen};
+00057 \}
+00058 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

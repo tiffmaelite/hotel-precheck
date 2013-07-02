@@ -4,46 +4,42 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__NumericQuestionState_8h}{SH\_NumericQuestionState.h}"}
-00002 
-00003 
-\hypertarget{SH__NumericQuestionState_8cpp_source_l00010}{}\hyperlink{classSH__NumericQuestionState_a848096e00f892bb8c7310943980a6c61}{00010} \hyperlink{classSH__NumericQuestionState_a848096e00f892bb8c7310943980a6c61}{SH\_NumericQuestionState::SH\_NumericQuestionState}(QString 
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00003 \textcolor{comment}{/*namespace SimplHotel}
+00004 \textcolor{comment}{\{*/}
+\hypertarget{SH__NumericQuestionState_8cpp_source_l00009}{}\hyperlink{classSH__NumericQuestionState_a848096e00f892bb8c7310943980a6c61}{00009} \hyperlink{classSH__NumericQuestionState_a848096e00f892bb8c7310943980a6c61}{SH\_NumericQuestionState::SH\_NumericQuestionState}(QString 
       question, QString name, \textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max, \hyperlink{classQState}{QState} *parent) :
-00011     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question, name, parent), m\_min(min), m\_max(max)
-00012 \{
-00013 
-00014 \}
-00015 
-\hypertarget{SH__NumericQuestionState_8cpp_source_l00022}{}\hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{00022} \textcolor{keywordtype}{bool} \hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{SH\_NumericQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &
+00010     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question, name, parent), m\_min(min), m\_max(max)
+00011 \{
+00012 \}
+\hypertarget{SH__NumericQuestionState_8cpp_source_l00017}{}\hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{00017} \textcolor{keywordtype}{bool} \hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{SH\_NumericQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &
       givenAnswer)
-00023 \{
-00024     qDebug() << \textcolor{stringliteral}{"is answer valid"};
-00025     \textcolor{keywordtype}{bool} ok;
-00026     \textcolor{keywordtype}{int} answer = givenAnswer.toInt(&ok);
-00027     \textcolor{keywordflow}{if}(ok) \{
-00028         \textcolor{keywordflow}{return} ((\hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max} <= \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min} || answer <= \hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max}) && answer >= 
+00018 \{
+00019     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"is answer valid ?"});
+00020     \textcolor{keywordtype}{bool} ok;
+00021     \textcolor{keywordtype}{int} answer = givenAnswer.toInt(&ok);
+00022     \textcolor{keywordflow}{if}(ok) \{
+00023     \textcolor{keywordflow}{return} ((\hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max} <= \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min} || answer <= \hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max}) && answer >= 
       \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min});
-00029     \} \textcolor{keywordflow}{else} \{
-00030         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00031     \}
-00032 \}
-00033 
-\hypertarget{SH__NumericQuestionState_8cpp_source_l00040}{}\hyperlink{classSH__NumericQuestionState_a0009413f1bd199864ad0ac5d4d7c4527}{00040} \textcolor{keywordtype}{int} \hyperlink{classSH__NumericQuestionState_a0009413f1bd199864ad0ac5d4d7c4527}{SH\_NumericQuestionState::min}()\textcolor{keyword}{ const}
-00041 \textcolor{keyword}{}\{
-00042     \textcolor{keywordflow}{return} \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min};
+00024     \} \textcolor{keywordflow}{else} \{
+00025     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00026     \}
+00027 \}
+\hypertarget{SH__NumericQuestionState_8cpp_source_l00032}{}\hyperlink{classSH__NumericQuestionState_a0009413f1bd199864ad0ac5d4d7c4527}{00032} \textcolor{keywordtype}{int} \hyperlink{classSH__NumericQuestionState_a0009413f1bd199864ad0ac5d4d7c4527}{SH\_NumericQuestionState::min}()\textcolor{keyword}{ const}
+00033 \textcolor{keyword}{}\{
+00034     \textcolor{keywordflow}{return} \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min};
+00035 \}
+\hypertarget{SH__NumericQuestionState_8cpp_source_l00040}{}\hyperlink{classSH__NumericQuestionState_a8bd47f1f69fde0e4ac2ff8e90feb65a3}{00040} \textcolor{keywordtype}{void} \hyperlink{classSH__NumericQuestionState_a8bd47f1f69fde0e4ac2ff8e90feb65a3}{SH\_NumericQuestionState::setMin}(\textcolor{keywordtype}{int} min)
+00041 \{
+00042     \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min} = \hyperlink{classSH__NumericQuestionState_a0009413f1bd199864ad0ac5d4d7c4527}{min};
 00043 \}
-00044 
-\hypertarget{SH__NumericQuestionState_8cpp_source_l00050}{}\hyperlink{classSH__NumericQuestionState_a8bd47f1f69fde0e4ac2ff8e90feb65a3}{00050} \textcolor{keywordtype}{void} \hyperlink{classSH__NumericQuestionState_a8bd47f1f69fde0e4ac2ff8e90feb65a3}{SH\_NumericQuestionState::setMin}(\textcolor{keywordtype}{int} min)
-00051 \{
-00052     \hyperlink{classSH__NumericQuestionState_a4e5fe957a054249989acc1efbb79c6d8}{m\_min} = \hyperlink{classSH__NumericQuestionState_a0009413f1bd199864ad0ac5d4d7c4527}{min};
-00053 \}
-00054 
-\hypertarget{SH__NumericQuestionState_8cpp_source_l00061}{}\hyperlink{classSH__NumericQuestionState_ad728f30d51b325d362968e0bbd50e4f2}{00061} \textcolor{keywordtype}{int} \hyperlink{classSH__NumericQuestionState_ad728f30d51b325d362968e0bbd50e4f2}{SH\_NumericQuestionState::max}()\textcolor{keyword}{ const}
-00062 \textcolor{keyword}{}\{
-00063     \textcolor{keywordflow}{return} \hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max};
-00064 \}
-00065 
-\hypertarget{SH__NumericQuestionState_8cpp_source_l00072}{}\hyperlink{classSH__NumericQuestionState_a0d87ada43daef76cc5a005e277c8eea0}{00072} \textcolor{keywordtype}{void} \hyperlink{classSH__NumericQuestionState_a0d87ada43daef76cc5a005e277c8eea0}{SH\_NumericQuestionState::setMax}(\textcolor{keywordtype}{int} max)
-00073 \{
-00074     \hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max} = \hyperlink{classSH__NumericQuestionState_ad728f30d51b325d362968e0bbd50e4f2}{max};
-00075 \}
+\hypertarget{SH__NumericQuestionState_8cpp_source_l00048}{}\hyperlink{classSH__NumericQuestionState_ad728f30d51b325d362968e0bbd50e4f2}{00048} \textcolor{keywordtype}{int} \hyperlink{classSH__NumericQuestionState_ad728f30d51b325d362968e0bbd50e4f2}{SH\_NumericQuestionState::max}()\textcolor{keyword}{ const}
+00049 \textcolor{keyword}{}\{
+00050     \textcolor{keywordflow}{return} \hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max};
+00051 \}
+\hypertarget{SH__NumericQuestionState_8cpp_source_l00056}{}\hyperlink{classSH__NumericQuestionState_a0d87ada43daef76cc5a005e277c8eea0}{00056} \textcolor{keywordtype}{void} \hyperlink{classSH__NumericQuestionState_a0d87ada43daef76cc5a005e277c8eea0}{SH\_NumericQuestionState::setMax}(\textcolor{keywordtype}{int} max)
+00057 \{
+00058     \hyperlink{classSH__NumericQuestionState_a7c30cee8a2ff7807e9c9af7916a0ec24}{m\_max} = \hyperlink{classSH__NumericQuestionState_ad728f30d51b325d362968e0bbd50e4f2}{max};
+00059 \}
+00060 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

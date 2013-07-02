@@ -7,33 +7,40 @@
 00002 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseManager_8h}{SH\_DatabaseManager.h}"}
 00003 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
 00004 
-\hypertarget{SH__RoomsTableModel_8cpp_source_l00010}{}\hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{00010} \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{SH\_RoomsTableModel::SH\_RoomsTableModel}(
+00005 \textcolor{comment}{/*namespace SimplHotel}
+00006 \textcolor{comment}{\{*/}
+\hypertarget{SH__RoomsTableModel_8cpp_source_l00012}{}\hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{00012} \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{SH\_RoomsTableModel::SH\_RoomsTableModel}(
       \hyperlink{classQObject}{QObject} *parent):
-00011     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
-00012 \{
-00013     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\textcolor{stringliteral}{"ROOMSINFOS"});
-00014     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{setOrderBy}(\textcolor{stringliteral}{"FLOOR ASC, NUMBER ASC"})
+00013     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
+00014 \{
+00015     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\textcolor{stringliteral}{"ROOMSINFOS"});
+00016     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{setOrderBy}(\textcolor{stringliteral}{"FLOOR ASC, NUMBER ASC"})
       ;
-00015 \}
-00016 
-\hypertarget{SH__RoomsTableModel_8cpp_source_l00022}{}\hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{00022} \textcolor{keywordtype}{void} \hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{SH\_RoomsTableModel::fillModel}()
-00023 \{
-00024     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(0, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"ID"}));
-00025     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(1, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"Numéro de chambre"}));
-00026     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(2, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"Étage"}));
-00027     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(3, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"Type de chambre"}));
-00028     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(4, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"Détail"}));
-00029     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(5, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"Prix minimum"}));
-00030     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(6, Qt::Horizontal,
-       QObject::tr(\textcolor{stringliteral}{"Prix maximum"}));
-00031     \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{SH\_ExtendedProxyModel::sort}(2,Qt::AscendingOrder);
-00032     \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(0);
-00033     \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(7);
-00034 \}
+00017 \}
+00018 
+\hypertarget{SH__RoomsTableModel_8cpp_source_l00024}{}\hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{00024} \textcolor{keywordtype}{void} \hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{SH\_RoomsTableModel::fillModel}()
+00025 \{
+00026     QStringList \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields} = \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->
+      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}();
+00027     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"ID
+      "}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"ID"}));
+00028     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      NUMBER"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Numéro de chambre"}));
+00029     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      FLOOR"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Étage"}));
+00030     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      LABEL"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Type de chambre"}));
+00031     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      DESCRIPTION"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Détail"}));
+00032     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      PRICEMIN"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Prix minimum"}));
+00033     \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->\hyperlink{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{setHeaderData}(fields.indexOf(\textcolor{stringliteral}{"
+      PRICEMAX"}), Qt::Horizontal, QObject::tr(\textcolor{stringliteral}{"Prix maximum"}));
+00034     \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{SH\_ExtendedProxyModel::sort}(fields.indexOf(\textcolor{stringliteral}{"FLOOR"}),Qt::AscendingOrder);
+00035     \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(fields.indexOf(\textcolor{stringliteral}{"ID"})
+      );
+00036     \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(fields.indexOf(\textcolor{stringliteral}{"
+      PRICEMAX"}));
+00037 \}
+00038 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

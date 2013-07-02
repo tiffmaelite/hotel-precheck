@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['rawinput',['rawInput',['../classSH__DatabaseContentQuestionState.xhtml#aed9d5e4205ca37d32653475ac13fe097',1,'SH_DatabaseContentQuestionState::rawInput()'],['../classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892',1,'SH_DateQuestionState::rawInput()'],['../classSH__InOutState.xhtml#a4c674a54f41d2e6ef951b22393dcd89f',1,'SH_InOutState::rawInput()']]],
+  ['rawinput',['rawInput',['../classSH__DatabaseContentQuestionState.xhtml#a344d9109e15509506b1b998d28392cac',1,'SH_DatabaseContentQuestionState::rawInput()'],['../classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892',1,'SH_DateQuestionState::rawInput()'],['../classSH__InOutState.xhtml#a4c674a54f41d2e6ef951b22393dcd89f',1,'SH_InOutState::rawInput()']]],
+  ['readsetting',['readSetting',['../classSH__ApplicationCore.xhtml#a9feb9d83185f8ba1f99125b06f381436',1,'SH_ApplicationCore']]],
   ['receiveconfirmation',['receiveConfirmation',['../classSH__ApplicationCore.xhtml#a15cce25dbf982bc8fc391ddfb4d1fd24',1,'SH_ApplicationCore']]],
   ['receiveinput',['receiveInput',['../classSH__InOutStateMachine.xhtml#a037ed5e13ecfae2123a8d4940292e410',1,'SH_InOutStateMachine::receiveInput()'],['../classSH__ApplicationCore.xhtml#a2191031eaee203587c1897791ddefbc4',1,'SH_ApplicationCore::receiveInput()']]],
   ['receivevalidation',['receiveValidation',['../classSH__ApplicationCore.xhtml#a6d40bb4cca2fe9e091dd369518d08ce0',1,'SH_ApplicationCore']]],

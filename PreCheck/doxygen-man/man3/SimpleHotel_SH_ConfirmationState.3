@@ -1,0 +1,432 @@
+.TH "SimpleHotel::SH_ConfirmationState" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_ConfirmationState \- 
+.PP
+La class ConfirmationState représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_ConfirmationState\&.h>\fP
+.PP
+Est dérivée de \fBSimpleHotel::SH_StatementState\fP\&.
+.PP
+Dérivée par \fBSimpleHotel::SH_ValidationState\fP\&.
+.SS "Connecteurs publics"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfirmInput\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBsetOutput\fP (const QString &\fBoutput\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetVisibility\fP (bool isVisible)"
+.br
+.in -1c
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBgoNext\fP ()"
+.br
+.ti -1c
+.RI "void \fBnext\fP ()"
+.br
+.ti -1c
+.RI "void \fBresendInput\fP (QVariant \fBinput\fP)"
+.br
+.ti -1c
+.RI "void \fBsendOutput\fP (QVariant \fBoutput\fP)"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_ConfirmationState\fP (QString \fBoutput\fP, QString \fBname\fP, \fBQState\fP *parent=0)"
+.br
+.ti -1c
+.RI "void \fBdisplay\fP (bool canDisplay)"
+.br
+.ti -1c
+.RI "virtual QVariant \fBinput\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisRunning\fP ()"
+.br
+.ti -1c
+.RI "void \fBonEntry\fP (QEvent *event)"
+.br
+.ti -1c
+.RI "void \fBonExit\fP (QEvent *event)"
+.br
+.ti -1c
+.RI "virtual QString \fBoutput\fP () const "
+.br
+.ti -1c
+.RI "virtual QVariant \fBrawInput\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetInput\fP (const QVariant &\fBinput\fP)"
+.br
+.ti -1c
+.RI "QString \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "bool \fBvisibility\fP ()"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+La class ConfirmationState représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation\&. 
+
+L'état ConfirmationState correspond à un état de quasi-déclaration où la seule entrée acceptée de l'utilisateur est une confirmation\&. 
+.PP
+Définition à la ligne 15 du fichier SH_ConfirmationState\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_ConfirmationState::SH_ConfirmationState (QStringoutput, QStringname, \fBQState\fP *parent = \fC0\fP)"
+
+.PP
+Définition à la ligne 12 du fichier SH_ConfirmationState\&.cpp\&.
+.PP
+.nf
+12                                                                                        :
+13     SH_StatementState(output, name, parent)
+14 {
+15 
+16 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_ConfirmationState::confirmInput ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 23 du fichier SH_ConfirmationState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::debugMessage(), et SimpleHotel::SH_GenericState::goNext()\&.
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState()\&.
+.PP
+.nf
+24 {
+25      SH_MessageManager::debugMessage("confirmatiooooon !");
+26     emit goNext();
+27 }
+.fi
+.SS "SimpleHotel::SH_InOutState::display (boolcanDisplay)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIcanDisplay\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 104 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_GenericState::isRunning(), SimpleHotel::SH_InOutState::m_display, SimpleHotel::SH_InOutState::m_isVisible, SimpleHotel::SH_InOutState::m_output, et SimpleHotel::SH_InOutState::sendOutput()\&.
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState(), et SimpleHotel::SH_StatementState::onEntry()\&.
+.PP
+.nf
+105 {
+106     if(isRunning()) {
+107         m_display=canDisplay;
+108         if(m_display && !m_output\&.isEmpty() && m_isVisible) {
+109             emit sendOutput(QVariant(m_output));
+110         }
+111     }
+112 }
+.fi
+.SS "SimpleHotel::SH_GenericState::goNext ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SimpleHotel::SH_QuestionState::checkValidity(), confirmInput(), SimpleHotel::SH_AdaptDatabaseState::insertUpdate(), SimpleHotel::SH_StatementState::onEntry(), SimpleHotel::SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SimpleHotel::SH_GenericState::SH_GenericState(), et SimpleHotel::SH_ServiceCharging::SH_ServiceCharging()\&.
+.SS "SimpleHotel::SH_InOutState::input () const\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Définition à la ligne 23 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutState::m_input\&.
+.PP
+Référencé par SimpleHotel::SH_InOutState::rawInput(), SimpleHotel::SH_DateQuestionState::rawInput(), et SimpleHotel::SH_InOutState::setInput()\&.
+.PP
+.nf
+24 {
+25     return m_input;
+26 }
+.fi
+.SS "SimpleHotel::SH_GenericState::isRunning ()\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 95 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_GenericState::m_isRunning\&.
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addChildrenReplaceTransition(), SimpleHotel::SH_InOutState::display(), SimpleHotel::SH_GenericState::emitGoNext(), SimpleHotel::SH_InOutState::setInput(), SimpleHotel::SH_InOutState::setOutput(), et SimpleHotel::SH_InOutState::setVisibility()\&.
+.PP
+.nf
+96 {
+97     return m_isRunning;
+98 }
+.fi
+.SS "SimpleHotel::SH_GenericState::next ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+Référencé par SimpleHotel::SH_GenericState::emitGoNext()\&.
+.SS "SimpleHotel::SH_StatementState::onEntry (QEvent *event)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIevent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 35 du fichier SH_StatementState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutState::display(), SimpleHotel::SH_GenericState::goNext(), et SimpleHotel::SH_GenericState::onEntry()\&.
+.PP
+.nf
+36 {
+37     SH_GenericState::onEntry(event);
+38     display(true);
+39     emit goNext();
+40 }
+.fi
+.SS "SimpleHotel::SH_InOutState::onExit (QEvent *event)\fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIevent\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 120 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutState::m_input, SimpleHotel::SH_InOutState::m_isVisible, SimpleHotel::SH_GenericState::onExit(), et SimpleHotel::SH_InOutState::resendInput()\&.
+.PP
+.nf
+121 {
+122     if(m_isVisible) {
+123         emit resendInput(m_input);
+124     }
+125     SH_GenericState::onExit(event);
+126 }
+.fi
+.SS "SimpleHotel::SH_InOutState::output () const\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 61 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutState::m_output\&.
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState(), et SimpleHotel::SH_InOutState::setOutput()\&.
+.PP
+.nf
+62 {
+63     return m_output;
+64 }
+.fi
+.SS "SimpleHotel::SH_InOutState::rawInput () const\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Réimplémentée dans \fBSimpleHotel::SH_DateQuestionState\fP, et \fBSimpleHotel::SH_DatabaseContentQuestionState\fP\&.
+.PP
+Définition à la ligne 33 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutState::input()\&.
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState()\&.
+.PP
+.nf
+34 {
+35     return input();
+36 }
+.fi
+.SS "SimpleHotel::SH_InOutState::resendInput (QVariantinput)\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIinput\fP 
+.RE
+.PP
+
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState(), SimpleHotel::SH_InOutState::onExit(), et SimpleHotel::SH_InOutState::setInput()\&.
+.SS "SimpleHotel::SH_InOutState::sendOutput (QVariantoutput)\fC [signal]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIoutput\fP 
+.RE
+.PP
+
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState(), SimpleHotel::SH_InOutState::display(), et SimpleHotel::SH_InOutState::setOutput()\&.
+.SS "SimpleHotel::SH_StatementState::setInput (const QVariant &input)\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIinput\fP 
+.RE
+.PP
+
+.PP
+Réimplémentée à partir de \fBSimpleHotel::SH_InOutState\fP\&.
+.PP
+Définition à la ligne 23 du fichier SH_StatementState\&.cpp\&.
+.PP
+.nf
+24 {
+25     Q_UNUSED(input);
+26     /*DO NOTHING*/
+27 }
+.fi
+.SS "SimpleHotel::SH_InOutState::setOutput (const QString &output)\fC [virtual]\fP, \fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIoutput\fP 
+.RE
+.PP
+
+.PP
+Réimplémentée dans \fBSimpleHotel::SH_DatabaseContentQuestionState\fP\&.
+.PP
+Définition à la ligne 73 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_GenericState::isRunning(), SimpleHotel::SH_InOutState::m_isVisible, SimpleHotel::SH_InOutState::m_output, SimpleHotel::SH_InOutState::output(), et SimpleHotel::SH_InOutState::sendOutput()\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseContentQuestionState::setOutput(), et SimpleHotel::SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+74 {
+75     if(isRunning()) {
+76         m_output = output;
+77         if(m_isVisible) {
+78             emit sendOutput(QVariant(m_output));
+79         }
+80     }
+81 }
+.fi
+.SS "SimpleHotel::SH_InOutState::setVisibility (boolisVisible)\fC [virtual]\fP, \fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIisVisible\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 88 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_GenericState::isRunning(), et SimpleHotel::SH_InOutState::m_isVisible\&.
+.PP
+Référencé par SimpleHotel::SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+89 {
+90     if(isRunning()) {
+91         m_isVisible = isVisible;
+92     }
+93 }
+.fi
+.SS "SimpleHotel::SH_GenericState::toString ()\fC [virtual]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Réimplémentée à partir de \fBSimpleHotel::SH_NamedObject\fP\&.
+.PP
+Définition à la ligne 27 du fichier SH_GenericDebugableState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_GenericStateMachine::toString(), et SimpleHotel::SH_NamedObject::toString()\&.
+.PP
+Référencé par SimpleHotel::SH_QuestionState::checkValidity(), SimpleHotel::SH_DateQuestionState::rawInput(), et SimpleHotel::SH_GenericStateMachine::toString()\&.
+.PP
+.nf
+28 {
+29     QStateMachine* machine = this->machine();
+30     SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
+31     if(mach) {
+32         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
+33     } else {
+34         return SH_NamedObject::toString();
+35     }
+36 }
+.fi
+.SS "SimpleHotel::SH_InOutState::visibility ()\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 100 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutState::m_isVisible\&.
+.PP
+Référencé par SimpleHotel::SH_InOutStateMachine::addIOState()\&.
+.PP
+.nf
+100                                {
+101     return m_isVisible;
+102 }
+.fi
+
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

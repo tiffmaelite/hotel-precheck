@@ -6,20 +6,24 @@
 00001 \textcolor{preprocessor}{#ifndef PRINTINGSTATE\_H}
 00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PRINTINGSTATE\_H}
 00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__GenericDebugableState_8h}{SH\_GenericDebugableState.h}"}
-00004 
+00004 \textcolor{comment}{/*namespace SimplHotel}
+00005 \textcolor{comment}{\{*/}
 \hypertarget{SH__PrintingState_8h_source_l00010}{}\hyperlink{classSH__PrintingState}{00010} \textcolor{keyword}{class }\hyperlink{classSH__PrintingState}{SH\_PrintingState} : \textcolor{keyword}{public} \hyperlink{classSH__GenericState}{SH\_GenericState}
 00011 \{
 00012     Q\_OBJECT
 00013 \textcolor{keyword}{public}:
-00021     \hyperlink{classSH__PrintingState_a7de0648d781bf21f03769d975fff0c38}{SH\_PrintingState}(QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}, \hyperlink{classQState}{QState} *parent = 0);
+00020     \hyperlink{classSH__PrintingState_a7de0648d781bf21f03769d975fff0c38}{SH\_PrintingState}(QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}, \hyperlink{classQState}{QState} *parent = 0);
+00021 signals:
 00022 
-00023 signals:
-00029     \textcolor{keywordtype}{void} \hyperlink{classSH__PrintingState_a59679f51ced1c4a956e752999526d7fe}{printStarted}();
-00035     \textcolor{keywordtype}{void} \hyperlink{classSH__PrintingState_a2d3819c50a51e825ca27b2d320af4828}{printFinished}();
-00036 
-00037 \textcolor{keyword}{public} slots:
-00038 
+00027     \textcolor{keywordtype}{void} \hyperlink{classSH__PrintingState_a59679f51ced1c4a956e752999526d7fe}{printStarted}();
+00028 
+00033     \textcolor{keywordtype}{void} \hyperlink{classSH__PrintingState_a2d3819c50a51e825ca27b2d320af4828}{printFinished}();
+00034 \textcolor{keyword}{public} slots:
+00035 
+00036 \textcolor{keyword}{private}:
+\hypertarget{SH__PrintingState_8h_source_l00037}{}\hyperlink{classSH__PrintingState_ad90a15a7d50f0c67777d593ae10a8881}{00037}     \textcolor{keywordtype}{int} \hyperlink{classSH__PrintingState_ad90a15a7d50f0c67777d593ae10a8881}{m\_nbPrintedLines};
+\hypertarget{SH__PrintingState_8h_source_l00038}{}\hyperlink{classSH__PrintingState_ac458fdbc8cea191ab7b6da82761e50e0}{00038}     \textcolor{keywordtype}{int} \hyperlink{classSH__PrintingState_ac458fdbc8cea191ab7b6da82761e50e0}{m\_currentLineNb};
 00039 \};
-00040 
+00040 \textcolor{comment}{/*\}*/}
 00041 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* PRINTINGSTATE\_H*/}\textcolor{preprocessor}{}
 \end{DoxyCode}

@@ -8,235 +8,240 @@
 00003 \textcolor{preprocessor}{#include <QDebug>}
 00004 \textcolor{preprocessor}{#include <QtSql>}
 00005 
-00006 \hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{SH\_DatabaseManager::\_instance} = 0;
-00007 
+00006 \textcolor{comment}{/*namespace SimplHotel}
+00007 \textcolor{comment}{\{*/}\hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{SH\_DatabaseManager::\_instance} = 0;
+00008 
 \hypertarget{SH__DatabaseManager_8cpp_source_l00013}{}\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{00013} \hyperlink{classSH__DatabaseManager}{SH\_DatabaseManager} *\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()
 00014 \{
 00015     \textcolor{keywordflow}{if} (\hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance} == 0)
 00016     \{
 00017         \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance} = \textcolor{keyword}{new} \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{SH\_DatabaseManager};
 00018     \}
-00019     qDebug() << \hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{dbFilePathStr};
-00020     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance};
-00021 \}
+00019     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a8ca37d0cafa6a181582d60e045a8d5ab}{\_instance};
+00020 \}
+00021 
 00022 
-00023 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00029}{}\hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{00029} \hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{SH\_DatabaseManager::~SH\_DatabaseManager}()
-00030 \{
-00031     \hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{dbDisconnect}();
-00032 \}
-00033 
-00034 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00040}{}\hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{00040} \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{SH\_DatabaseManager::SH\_DatabaseManager}()
-00041 \{
-00042     \textcolor{comment}{/*}
-00043 \textcolor{comment}{     *Check the existence of the database driver.}
-00044 \textcolor{comment}{     */}
-00045     \textcolor{keywordflow}{if} (!QSqlDatabase::isDriverAvailable(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr}))
-00046     \{
-00047         \textcolor{comment}{/*}
-00048 \textcolor{comment}{        *Gui message that informs that the driver does not exist}
-00049 \textcolor{comment}{        */}
-00050         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(
+\hypertarget{SH__DatabaseManager_8cpp_source_l00027}{}\hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{00027} \hyperlink{classSH__DatabaseManager_ad899140e4638301b6a6ed68a3289b34b}{SH\_DatabaseManager::~SH\_DatabaseManager}()
+00028 \{
+00029     \hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{dbDisconnect}();
+00030 \}
+00031 
+00032 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00037}{}\hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{00037} \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{SH\_DatabaseManager::SH\_DatabaseManager}()
+00038 \{
+00039 
+00040     \textcolor{comment}{/*Check the existence of the database driver.}
+00041 \textcolor{comment}{    */}
+00042     \textcolor{keywordflow}{if} (!QSqlDatabase::isDriverAvailable(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr}))
+00043     \{
+00044 
+00045         \textcolor{comment}{/*Gui message that informs that the driver does not exist}
+00046 \textcolor{comment}{    */}
+00047         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(
       \hyperlink{SH__DatabaseManager_8h_adeeb3449586b533bdd3cd5938d501807}{dbDriverNotExistStr});
-00051         qDebug() << \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.lastError();
-00052         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.drivers().count(); i++)
-00053         \{
-00054             qDebug() << \textcolor{stringliteral}{"AVAILABLE DRIVERS : "} << \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.drivers()[i] << endl;
-00055         \}
-00056         exit(1);
-00057     \}
-00058 
-00059     \textcolor{comment}{/*}
-00060 \textcolor{comment}{    *Connect to the database with the following driver.}
-00061 \textcolor{comment}{    */}
-00062     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection} = QSqlDatabase::addDatabase(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr});
-00063     \textcolor{keywordflow}{if} (\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr} == \textcolor{stringliteral}{"QIBASE"})
-00064     \{
-00065         \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setDatabaseName(\hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{dbFilePathStr});
-00066     \} \textcolor{keywordflow}{else} \{
-00067         \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setDatabaseName(\hyperlink{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{dbFileNameStr});
-00068     \}
+00048         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(
+      \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.lastError().text());
+00049         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(\textcolor{stringliteral}{"AVAILABLE DRIVERS: "}+
+      \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.drivers().join(\textcolor{stringliteral}{", "}));
+00050         exit(1);
+00051     \}
+00052 
+00053 
+00054     \textcolor{comment}{/*Connect to the database with the following driver.}
+00055 \textcolor{comment}{    */}
+00056     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection} = QSqlDatabase::addDatabase(\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr});
+00057     \textcolor{keywordflow}{if} (\hyperlink{SH__DatabaseManager_8h_a867ada6d1926e2ded0e68678e02a19c7}{dbDriverStr} == \textcolor{stringliteral}{"QIBASE"})
+00058     \{
+00059         \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setDatabaseName(\hyperlink{SH__DatabaseManager_8h_acee79beb6e5aec996fd46b84264d072a}{dbFilePathStr});
+00060     \} \textcolor{keywordflow}{else} \{
+00061         \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setDatabaseName(\hyperlink{SH__DatabaseManager_8h_a6c6a636455d1d86d7215a52de4bc6828}{dbFileNameStr});
+00062     \}
+00063 
+00064     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setUserName(\hyperlink{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}{dbUsernameStr});
+00065     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setPassword(\hyperlink{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}{dbPasswordStr});
+00066     \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{dbConnect}();
+00067 
+00068 \}
 00069 
-00070     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setUserName(\hyperlink{SH__DatabaseManager_8h_a15964752bd7d7c2075f3bafca2218411}{dbUsernameStr});
-00071     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.setPassword(\hyperlink{SH__DatabaseManager_8h_a5dbd4602b69f5a87243d49f9c873ac64}{dbPasswordStr});
-00072     \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{dbConnect}();
-00073 
-00074 \}
-00075 
-00076 \textcolor{comment}{/*}
-00077 \textcolor{comment}{         *connect to database}
-00078 \textcolor{comment}{         */}
+00070 \textcolor{comment}{/*connect to database}
+00071 \textcolor{comment}{    */}
+00072 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00077}{}\hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{00077} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{SH\_DatabaseManager::dbConnect}()
+00078 \{
 00079 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00085}{}\hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{00085} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{SH\_DatabaseManager::dbConnect}()
-00086 \{
-00087     \textcolor{comment}{/*}
-00088 \textcolor{comment}{            *Open database, if the database cannot open for}
-00089 \textcolor{comment}{            *any reason print a warning.}
-00090 \textcolor{comment}{            */}
-00091     \textcolor{keywordflow}{if} (!\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.open())
-00092     \{
-00093         \textcolor{comment}{/*}
-00094 \textcolor{comment}{                 *Gui message that informs that the database cannot open}
-00095 \textcolor{comment}{                 */}
-00096         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(
+00080     \textcolor{comment}{/*Open database, if the database cannot open for}
+00081 \textcolor{comment}{    *any reason print a warning.}
+00082 \textcolor{comment}{    */}
+00083     \textcolor{keywordflow}{if} (!\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.open())
+00084     \{
+00085 
+00086         \textcolor{comment}{/*Gui message that informs that the database cannot open}
+00087 \textcolor{comment}{    */}
+00088         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(
       \hyperlink{SH__DatabaseManager_8h_a19d48066a97c8a9a81827ccf23fd736f}{dbCannotOpenStr});
-00097         qDebug() << \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.lastError();
-00098 
-00099         \textcolor{comment}{/*}
-00100 \textcolor{comment}{                 *@return false if database connection failed.}
-00101 \textcolor{comment}{                 */}
-00102         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00103     \}
-00104 
-00105     \textcolor{comment}{/*}
-00106 \textcolor{comment}{             *@return true if database connection successed}
-00107 \textcolor{comment}{             */}
-00108     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen();
-00109 \}
-00110 
-00111 \textcolor{comment}{/*}
-00112 \textcolor{comment}{         *disconnects from a database}
-00113 \textcolor{comment}{         */}
-00114 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00120}{}\hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{00120} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{SH\_DatabaseManager::dbDisconnect}()
-00121 \{
-00122     \textcolor{comment}{/*}
-00123 \textcolor{comment}{             *close database}
-00124 \textcolor{comment}{             */}
-00125     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.close();
-00126     \textcolor{keywordflow}{return} (!\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen());
+00089         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(
+      \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.lastError().text());
+00090 
+00091 
+00092         \textcolor{comment}{/*@return false if database connection failed.}
+00093 \textcolor{comment}{    */}
+00094         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00095     \}
+00096 
+00097 
+00098     \textcolor{comment}{/*@return true if database connection successed}
+00099 \textcolor{comment}{    */}
+00100     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen();
+00101 \}
+00102 
+00103 \textcolor{comment}{/*disconnects from a database}
+00104 \textcolor{comment}{    */}
+00105 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00110}{}\hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{00110} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a096c26457bbb03f92283c5d104401e90}{SH\_DatabaseManager::dbDisconnect}()
+00111 \{
+00112 
+00113     \textcolor{comment}{/*close database}
+00114 \textcolor{comment}{    */}
+00115     \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.close();
+00116     \textcolor{keywordflow}{return} (!\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen());
+00117 \}
+00118 
+00119 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00124}{}\hyperlink{classSH__DatabaseManager_aba5832c8be2fe4894781c9bf34be5b8b}{00124} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_aba5832c8be2fe4894781c9bf34be5b8b}{SH\_DatabaseManager::isConnected}()
+00125 \{
+00126     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen();
 00127 \}
 00128 
 00129 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00135}{}\hyperlink{classSH__DatabaseManager_aba5832c8be2fe4894781c9bf34be5b8b}{00135} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_aba5832c8be2fe4894781c9bf34be5b8b}{SH\_DatabaseManager::isConnected}()
-00136 \{
-00137     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.isOpen();
-00138 \}
-00139 
-00140 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00146}{}\hyperlink{classSH__DatabaseManager_a0ce86f671946975c2e7b4ad50c9a92a2}{00146} QSqlDatabase \hyperlink{classSH__DatabaseManager_a0ce86f671946975c2e7b4ad50c9a92a2}{SH\_DatabaseManager::getDbConnection}()
-00147 \{
-00148     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection};
-00149 \}
-00150 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00156}{}\hyperlink{classSH__DatabaseManager_ac18f4ee3abd86cb0db25b3cb593e28b8}{00156} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ac18f4ee3abd86cb0db25b3cb593e28b8}{SH\_DatabaseManager::tableExists}(QString tableName)
-00157 \{
-00158     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00134}{}\hyperlink{classSH__DatabaseManager_a0ce86f671946975c2e7b4ad50c9a92a2}{00134} QSqlDatabase \hyperlink{classSH__DatabaseManager_a0ce86f671946975c2e7b4ad50c9a92a2}{SH\_DatabaseManager::getDbConnection}()
+00135 \{
+00136     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection};
+00137 \}
+00138 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00143}{}\hyperlink{classSH__DatabaseManager_ac18f4ee3abd86cb0db25b3cb593e28b8}{00143} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_ac18f4ee3abd86cb0db25b3cb593e28b8}{SH\_DatabaseManager::tableExists}(QString tableName)
+00144 \{
+00145     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) 
       || \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.tables(QSql::Tables).contains(tableName.toUpper(), Qt::CaseInsensitive);
-00159 \}
-00160 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00166}{}\hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{00166} \textcolor{keywordtype}{int} \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{SH\_DatabaseManager::dataCount}(QString tableName, QString filter) \{
-00167     \textcolor{keywordflow}{if}(!tableName.isEmpty() && !filter.isEmpty()) \{
-00168         QSqlQuery result = \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(tableName, QStringList(\textcolor{stringliteral}{"COUNT(*) AS MATCH"}), 
+00146 \}
+00147 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00152}{}\hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{00152} \textcolor{keywordtype}{int} \hyperlink{classSH__DatabaseManager_ad3e372d89b60b43e3f3bae649be6d7fb}{SH\_DatabaseManager::dataCount}(QString tableName, QString filter) \{
+00153     \textcolor{keywordflow}{if}(!tableName.isEmpty() && !filter.isEmpty()) \{
+00154         QSqlQuery result = \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(tableName, QStringList(\textcolor{stringliteral}{"COUNT(*) AS MATCH"}), 
       filter);
-00169         \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driver()->hasFeature(QSqlDriver::QuerySize)) \{
-00170             \textcolor{keywordflow}{return} result.size();
-00171         \} \textcolor{keywordflow}{else} \{
-00172             \textcolor{keywordflow}{if}(result.next()) \{
-00173                 QSqlRecord rec = result.record();
-00174                 \textcolor{keywordflow}{if}(!rec.isEmpty()  && result.isValid()) \{
-00175                     \textcolor{keywordflow}{return} rec.value(rec.indexOf(\textcolor{stringliteral}{"MATCH"})).toInt();
-00176                 \}
-00177             \}
-00178         \}
-00179     \}
-00180     \textcolor{keywordflow}{return} 0;
-00181 \}
-00182 
-00183 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00189}{}\hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{00189} QSqlQuery \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{SH\_DatabaseManager::execSelectQuery}(QString tableName, 
+00155         \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driver()->hasFeature(QSqlDriver::QuerySize)) \{
+00156             \textcolor{keywordflow}{return} result.size();
+00157         \} \textcolor{keywordflow}{else} \{
+00158             \textcolor{keywordflow}{if}(result.next()) \{
+00159                 QSqlRecord rec = result.record();
+00160                 \textcolor{keywordflow}{if}(!rec.isEmpty() && result.isValid()) \{
+00161                     \textcolor{keywordflow}{return} rec.value(rec.indexOf(\textcolor{stringliteral}{"MATCH"})).toInt();
+00162                 \}
+00163             \}
+00164         \}
+00165     \}
+00166     \textcolor{keywordflow}{return} 0;
+00167 \}
+00168 
+00169 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00174}{}\hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{00174} QSqlQuery \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{SH\_DatabaseManager::execSelectQuery}(QString tableName, 
       QStringList fields, QString condition, QString ordering) \{
-00190     \textcolor{keywordflow}{if}(fields.isEmpty()) \{
-00191         fields.append(\textcolor{stringliteral}{"*"});
-00192     \}
-00193 
-00194     QString query;
-00195     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
-00196         query = QString(\textcolor{stringliteral}{"SELECT %1 FROM %2"}).arg(fields.join(\textcolor{stringliteral}{", "})).arg(tableName);
-00197         \textcolor{keywordflow}{if}(!condition.isEmpty()) \{
-00198             query = QString(\textcolor{stringliteral}{"%1 WHERE %2"}).arg(query).arg(condition);
-00199         \}
-00200         \textcolor{keywordflow}{if}(!ordering.isEmpty()) \{
-00201             query = QString(\textcolor{stringliteral}{"%1 ORDER BY %2"}).arg(query).arg(ordering);
-00202         \}
-00203     \}
-00204     qDebug() << query;
-00205     QSqlQuery result;
-00206     result.exec(query);
-00207     qDebug() << result.executedQuery() << \textcolor{stringliteral}{" > "} << result.isValid() <<\textcolor{stringliteral}{" "}<< result.isActive();
-00208     \textcolor{keywordflow}{return} result;
-00209 \}
-00210 
-00211 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00216}{}\hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{00216} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{SH\_DatabaseManager::execReplaceQuery}(QString tableName, 
+00175     \textcolor{keywordflow}{if}(fields.isEmpty()) \{
+00176         fields.append(\textcolor{stringliteral}{"*"});
+00177     \}
+00178 
+00179     QString query;
+00180     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00181         query = QString(\textcolor{stringliteral}{"SELECT %1 FROM %2"}).arg(fields.join(\textcolor{stringliteral}{", "})).arg(tableName);
+00182         \textcolor{keywordflow}{if}(!condition.isEmpty()) \{
+00183             query = QString(\textcolor{stringliteral}{"%1 WHERE %2"}).arg(query).arg(condition);
+00184         \}
+00185         \textcolor{keywordflow}{if}(!ordering.isEmpty()) \{
+00186             query = QString(\textcolor{stringliteral}{"%1 ORDER BY %2"}).arg(query).arg(ordering);
+00187         \}
+00188     \}
+00189     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(query);
+00190     QSqlQuery result;
+00191     result.exec(query);
+00192     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"query %1: valid ? %2 active ?
+       %3"}).arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
+00193     \textcolor{keywordflow}{return} result;
+00194 \}
+00195 
+00196 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00201}{}\hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{00201} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{SH\_DatabaseManager::execReplaceQuery}(QString tableName, 
       QVariantMap values) \{
-00217     QString fields;
-00218     QString vals;
-00219     \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{divideQVariantMap}(values, fields, vals);
-00220     QString query;
-00221     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
-00222         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)"}).arg(tableName).arg(fields).
+00202     QString fields;
+00203     QString vals;
+00204     \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{divideQVariantMap}(values, fields, vals);
+00205     QString query;
+00206     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00207         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)"}).arg(tableName).arg(fields).
       arg(vals);
-00223     \}
-00224     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.exec(query);
-00225     qDebug() << result.executedQuery() << \textcolor{stringliteral}{" > "} << result.isValid() <<\textcolor{stringliteral}{" "}<< result.isActive();
-00226     \textcolor{keywordflow}{return} (result.numRowsAffected() > 0);
-00227 \}
-00228 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00233}{}\hyperlink{classSH__DatabaseManager_a55268fae16792142072af49238f7bb94}{00233} QVariant \hyperlink{classSH__DatabaseManager_a55268fae16792142072af49238f7bb94}{SH\_DatabaseManager::execInsertReturningQuery}(QString 
+00208     \}
+00209     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.exec(query);
+00210     \textcolor{comment}{//SH\_MessageManager::debugMessage(QString("query %1: valid ? %2 active ?
+       %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));}
+00211     \textcolor{keywordflow}{return} (result.numRowsAffected() > 0);
+00212 \}
+00213 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00218}{}\hyperlink{classSH__DatabaseManager_a55268fae16792142072af49238f7bb94}{00218} QVariant \hyperlink{classSH__DatabaseManager_a55268fae16792142072af49238f7bb94}{SH\_DatabaseManager::execInsertReturningQuery}(QString 
       tableName, QVariantMap values, QString returningField) \{
-00234     QString fields;
-00235     QString vals;
-00236     \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{divideQVariantMap}(values, fields, vals);
-00237     QString query;
-00238     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
-00239         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4"}).arg(tableName)
+00219     QString fields;
+00220     QString vals;
+00221     \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{divideQVariantMap}(values, fields, vals);
+00222     QString query;
+00223     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00224         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4"}).arg(tableName)
       .arg(fields).arg(vals).arg(returningField);
-00240     \}
-00241     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.exec(query);
-00242     qDebug() << result.executedQuery() << \textcolor{stringliteral}{" > "} << result.isValid() <<\textcolor{stringliteral}{" "}<< result.isActive();
-00243     \textcolor{keywordflow}{if}(result.next()) \{
-00244         QSqlRecord rec = result.record();
-00245         \textcolor{keywordflow}{if}(!rec.isEmpty()  && result.isValid()) \{
-00246             \textcolor{keywordflow}{return} rec.value(rec.indexOf(returningField));
-00247         \}
-00248     \}
-00249     \textcolor{keywordflow}{return} QVariant();
-00250 \}
-00251 
-\hypertarget{SH__DatabaseManager_8cpp_source_l00256}{}\hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{00256} \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{SH\_DatabaseManager::divideQVariantMap}(QVariantMap values, QString
+00225     \}
+00226     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a9291f61c3abbba2c4f1567b1d8325f0e}{dbConnection}.exec(query);
+00227     \textcolor{comment}{//SH\_MessageManager::debugMessage(QString("query %1: valid ? %2 active ?
+       %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));}
+00228     \textcolor{keywordflow}{if}(result.next()) \{
+00229         QSqlRecord rec = result.record();
+00230         \textcolor{keywordflow}{if}(!rec.isEmpty() && result.isValid()) \{
+00231             \textcolor{keywordflow}{return} rec.value(rec.indexOf(returningField));
+00232         \}
+00233     \}
+00234     \textcolor{keywordflow}{return} QVariant();
+00235 \}
+00236 
+\hypertarget{SH__DatabaseManager_8cpp_source_l00241}{}\hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{00241} \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseManager_a4562e0c0027c0adbba645edc433f7fd1}{SH\_DatabaseManager::divideQVariantMap}(QVariantMap values, QString
       & fields, QString& vals) \{
-00257     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} field : values.keys())
-00258     \{
-00259         fields += field+\textcolor{stringliteral}{","};
-00260         QVariant val = values.value(field);
-00261         \textcolor{keywordtype}{bool} ok;
-00262         \textcolor{keywordtype}{int} intVal = val.toInt(&ok);
-00263         \textcolor{keywordflow}{if}(ok) \{
-00264             vals += QString::number(intVal)+\textcolor{stringliteral}{","};
-00265         \}
-00266         \textcolor{keywordtype}{double} dbVal = val.toDouble(&ok);
-00267         \textcolor{keywordflow}{if}(ok) \{
-00268             vals += QString::number(dbVal)+\textcolor{stringliteral}{","};
+00242     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} field : values.keys())
+00243     \{
+00244         fields += field+\textcolor{stringliteral}{","};
+00245         QVariant val = values.value(field);
+00246         \textcolor{keywordtype}{bool} ok;
+00247         \textcolor{keywordtype}{int} intVal = val.toInt(&ok);
+00248         \textcolor{keywordflow}{if}(ok) \{
+00249             vals += QString::number(intVal)+\textcolor{stringliteral}{","};
+00250         \}
+00251         \textcolor{keywordtype}{double} dbVal = val.toDouble(&ok);
+00252         \textcolor{keywordflow}{if}(ok) \{
+00253             vals += QString::number(dbVal)+\textcolor{stringliteral}{","};
+00254         \}
+00255 
+00256         \textcolor{comment}{/*bool boolVal = val.toBool();}
+00257 \textcolor{comment}{    if(boolVal) \{}
+00258 \textcolor{comment}{    &vals += "'"+1+"'',";}
+00259 \textcolor{comment}{    \}*/}
+00260         QDate dateVal = val.toDate();
+00261         \textcolor{keywordflow}{if}(dateVal.isValid()) \{
+00262             vals += \textcolor{stringliteral}{"'"}+dateVal.toString()+\textcolor{stringliteral}{"'',"};
+00263             \textcolor{comment}{/*FIXME adapt date format*/}
+00264         \}
+00265         QDateTime dateTimeVal = val.toDateTime();
+00266         \textcolor{keywordflow}{if}(dateTimeVal.isValid()) \{
+00267             vals += \textcolor{stringliteral}{"'"}+dateTimeVal.toString()+\textcolor{stringliteral}{"'',"};
+00268             \textcolor{comment}{/*FIXME adapt datetime format*/}
 00269         \}
-00270         \textcolor{comment}{/*bool boolVal = val.toBool();}
-00271 \textcolor{comment}{                if(boolVal) \{}
-00272 \textcolor{comment}{                    &vals += "'"+1+"'',";}
-00273 \textcolor{comment}{                \}*/}
-00274         QDate dateVal = val.toDate();
-00275         \textcolor{keywordflow}{if}(dateVal.isValid()) \{
-00276             vals += \textcolor{stringliteral}{"'"}+dateVal.toString()+\textcolor{stringliteral}{"'',"}; \textcolor{comment}{/*FIXME adapt date format*/}
-00277         \}
-00278         QDateTime dateTimeVal = val.toDateTime();
-00279         \textcolor{keywordflow}{if}(dateTimeVal.isValid()) \{
-00280             vals += \textcolor{stringliteral}{"'"}+dateTimeVal.toString()+\textcolor{stringliteral}{"'',"}; \textcolor{comment}{/*FIXME adapt datetime format*/}
-00281         \}
-00282         QString stringVal = val.toString();
-00283         vals += \textcolor{stringliteral}{"'"}+stringVal+\textcolor{stringliteral}{"'',"};
-00284     \}
-00285     fields = fields.left(fields.lastIndexOf(\textcolor{charliteral}{','})-1);
-00286     vals = vals.left(vals.lastIndexOf(\textcolor{charliteral}{','})-1);
-00287 \}
-00288 
+00270         QString stringVal = val.toString();
+00271         vals += \textcolor{stringliteral}{"'"}+stringVal+\textcolor{stringliteral}{"'',"};
+00272     \}
+00273     fields = fields.left(fields.lastIndexOf(\textcolor{charliteral}{','})-1);
+00274     vals = vals.left(vals.lastIndexOf(\textcolor{charliteral}{','})-1);
+00275 \}
+00276 
+00277 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

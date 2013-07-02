@@ -115,21 +115,23 @@ $(document).ready(function(){initNavTree('SH__ServicesDelegate_8qml_source.xhtml
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="classSH__ServicesDelegate.xhtml">    4</a></span>&#160;import QtQuick.Controls.Styles 1.0</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;import QtQuick.Layouts 1.0</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;import PreCheck 1.0</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="classSH__ServicesDelegate.xhtml#a8567cacba7b48a3c1f71e6fa6dfb9f74">    7</a></span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;SH_DataDelegate {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    value: ID</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    text: SERVICENAME</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">/*visible: (ISAVAILABLE == 1)*/</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">/*enabled: (ROOMNEEDED == 1)*/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">id</span>: service</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    value: ID</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    text: SERVICENAME</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    visible: (ISAVAILABLE == 1)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    property <span class="keywordtype">bool</span> enableRoomNeeded: (App.billOpened() &gt; 0)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    enabled: ((ROOMNEEDED == 0) || service.enableRoomNeeded)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_c6b67c5d790d73d5f77581c2751c7958.xhtml">views</a></li><li class="navelem"><a class="el" href="dir_2d0df5ce6a012e960077ac659b7557ab.xhtml">qml</a></li><li class="navelem"><a class="el" href="SH__ServicesDelegate_8qml.xhtml">SH_ServicesDelegate.qml</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_44cba02192501e33694092d42d632c2e.xhtml">views</a></li><li class="navelem"><a class="el" href="dir_8e4eb9f416969c62a44275974efa3393.xhtml">qml</a></li><li class="navelem"><a class="el" href="SH__ServicesDelegate_8qml.xhtml">SH_ServicesDelegate.qml</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

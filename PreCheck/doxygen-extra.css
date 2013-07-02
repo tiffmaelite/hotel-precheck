@@ -3,7 +3,8 @@
 margin: 0px;
 padding: 0px;
 }
-body, table, div, p, dl {
+
+body, table, td, th, div, p, li, dt, dl, span, .title {
 font-family: "PT Sans", "PT Narrow", "Linux Libertine O", Geneva, Verdana, 'Lucida Grande', Helvetica, Arial, sans-serif;
 font-size: 98%;
 line-height: 1.5em;
@@ -178,11 +179,12 @@ margin: 0 0 10px 0;
 /* Footer. */
 
 .footer {
-padding-top: 2em;
+font-size: small;
+padding-top: 0.2em;
+padding-bottom: 0.5em;
 text-align:center
 }
 div.footer div {
-padding-top: 0.5em;
 border-top: 2px solid #000000;
 }
 div.footer div p {
@@ -302,8 +304,7 @@ margin-top: 1.0em;
 
 
 div.memitem div.memproto {
-/*background-color: #E3E4E5;*/
-padding: 0.25em 0.5em;
+padding: 0.1em;
 -webkit-border-top-left-radius: 0.5em;
 -webkit-border-top-right-radius: 0.5em;
 -moz-border-radius-topleft: 0.5em;
@@ -410,29 +411,28 @@ font-family: monospace;
 .memproto, dl.reflist dt {
 /* opera specific markup */
 box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+border-radius: 0px;
 border-top-right-radius: 8px;
 border-top-left-radius: 8px;
 
 /* firefox specific markup */
 -moz-box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
+-moz-border-radius: 0px;
 -moz-border-radius-topright: 8px;
 -moz-border-radius-topleft: 8px;
 
 /* webkit specific markup */
 -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+-webkit-border-radius: 0px;
 -webkit-border-top-right-radius: 8px;
 -webkit-border-top-left-radius: 8px;
 
 
-background-image:url('nav_f.png');
 background-repeat:repeat-x;
-/*background-color: #E2E8F2;
-border-color: #E6E6E6;*/
+/*background-color: #E2E8F2;*/
+border-color: #E6E6E6;
 border-width: 1px;
 border-style: solid;
--moz-border-radius: 7px 7px 7px 7px;
--webkit-border-radius: 7px 7px 7px 7px;
-border-radius: 7px 7px 7px 7px;
 }
 
 .memdoc, dl.reflist dd {
@@ -518,7 +518,7 @@ vertical-align: top;
 	/* Link to reference (classes etc). */
 	a.el {
 	font-family: monospace;
-	font-weight: bold;
+	font-weight: 550;
 	}
 
 	/** Use normal font on the index page. */
@@ -527,14 +527,17 @@ vertical-align: top;
 	}
 
 	a.elRef {
+	font-family: fixed;
+	font-weight: 650;
 	}
 
 	/* Links in code section. */
 	a.code {
 	font-weight: bold;
 	}
+	
 	a.codeRef {
-	/*color: #4665A2;*/
+	color: #4665A2;
 	}
 
 
@@ -842,20 +845,14 @@ vertical-align: top;
 
 
 	table, pre, .fragment{
-	-moz-border-radius: 7px 7px 7px 7px;
-	-webkit-border-radius: 7px 7px 7px 7px;
-	border-radius: 7px 7px 7px 7px;
-	/*background-color: #F6F6F6;*/
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	
 	border: 1px solid #E6E6E6;
 	border-collapse: separate;
-	font-size: 12px;
-	line-height: 1.2;
-	margin-bottom: 25px;
-	margin-left: 15px;
-	font-size: 12px;
-	line-height: 1.2;
-	margin-bottom: 25px;
-	margin-left: 15px;
+	line-height: 1em;
+	margin:7px;
 	}
 
 
@@ -868,23 +865,10 @@ vertical-align: top;
 	padding: 3px 15px 3px 20px;
 	border-bottom:#CCC dotted 1px;
 	}
-	table p { margin:0px;}
-
-	table tr.even {
-	background-color: white;
-	color: #66666E;
-	}
-
-	table tr.odd {
-	/*background-color: #F6F6F6;
-	color: #66666E;*/
-	}
-
-
+	
 	table thead {
 	text-align:left;
 	padding-left:20px;
-	/*background-color:#e1e0e0;*/
 	border-left:none;
 	border-right:none;
 	}
@@ -923,17 +907,28 @@ vertical-align: top;
 	list-style:decimal;
 	}
 
+	tr.heading td {
+		background-image: url('doxygen-html/nav_f.png');
+	}
+
 	table h2 {
-	border-top: 1px solid #999999;
+	border-top: 1px solid #7B5F43;
 	border-bottom: none;
 	padding: 0.2em 8px;
 	margin: 0;
-	background: #181E29;
-	/*color: #FFFFFF;*/
-	text-shadow: 0px 0px 2px #000000;
-	background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#181E29), to(#868CA8));
-	background: -moz-linear-gradient(left, #181E29, #868CA8);
+	color: #FFFFFF;
+	text-shadow: 0px 0px 2px #7B5F43;
+	background: rgba(248,245,242,0.3);
+	line-height: 1em;
 	}
+
+span.mlabel {
+	border: none;
+}
+
+table.mlabels {
+	border: none;
+}
 
 	td.indexkey, td.indexvalue {
 	/*background-color: #F0F1F2;*/
@@ -1102,10 +1097,6 @@ vertical-align: top;
 	}
 
 	.fieldtable th {
-	background-image:url('nav_f.png');
-	background-repeat:repeat-x;
-	/*background-color: #E2E8F2;
-	color: #253555;*/
 	font-size: 90%;
 	padding-bottom: 4px;
 	padding-top: 5px;
@@ -1195,7 +1186,6 @@ vertical-align: top;
 
 	div.header
 	{
-	background-image:url('nav_h.png');
 	background-repeat:repeat-x;
 	/*background-color: #F9FAFC;*/
 	margin-top:  10px;
@@ -1284,3 +1274,4 @@ vertical-align: top;
 	word-wrap: break-word; /* IE 5.5+ */
 	}
 }
+

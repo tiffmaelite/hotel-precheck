@@ -12,7 +12,7 @@
 \hypertarget{SH__ContentView_8qml_source_l00007}{}\hyperlink{classSH__ContentView_a4587c7cc61cefdb55d96e2f3b05e02b4}{00007} 
 \hypertarget{SH__ContentView_8qml_source_l00011}{}\hyperlink{classSH__ContentView_a5a5fa8f42e23b857494f2c88b39d1177}{00011} GridLayout \{
 00012     \textcolor{keywordtype}{id}: dataView
-\hypertarget{SH__ContentView_8qml_source_l00013}{}\hyperlink{classSH__ContentView_a7ea5cf24986d3fb77ebcdfc9c3a3822a}{00013}     columns: 5
+\hypertarget{SH__ContentView_8qml_source_l00013}{}\hyperlink{classSH__ContentView_a7ea5cf24986d3fb77ebcdfc9c3a3822a}{00013}     columns: 7
 00014     columnSpacing: 1
 \hypertarget{SH__ContentView_8qml_source_l00015}{}\hyperlink{classSH__ContentView_a554c2eaf9b48986c87fa8fb0178c0d1d}{00015}     rowSpacing: 1
 00016     \textcolor{keyword}{property} \textcolor{keywordtype}{string} dataDelegate
@@ -22,312 +22,331 @@
 00020     \textcolor{keyword}{property} alias sectionIndex : repeater.sectionIndex
 00021     \textcolor{keyword}{property} alias model: repeater.model
 00022     signal selected(\textcolor{keywordtype}{string} selectedItem)
-00031     \textcolor{keyword}{function} removeFilterIndex(index) \{
-00032         \textcolor{keywordflow}{if}(!dataView.activeFilterIndicatorIndexes) \{
-00033             dataView.activeFilterIndicatorIndexes = [];
-00034         \}
-00035         var tmp = dataView.activeFilterIndicatorIndexes
-00036         var pos = tmp.indexOf(index);
-00037         tmp.splice(pos, 1);
-00038         \textcolor{keywordflow}{return} tmp;
-00039     \}
-00048     \textcolor{keyword}{function} addFilterIndex(index) \{
-00049         \textcolor{keywordflow}{if}(!dataView.activeFilterIndicatorIndexes) \{
-00050             dataView.activeFilterIndicatorIndexes = [];
-00051         \}
-00052         var tmp = dataView.activeFilterIndicatorIndexes
-00053         tmp.push(index);
-00054         \textcolor{keywordflow}{return} tmp;
-00055     \}
-00064     \textcolor{keyword}{function} sort(index) \{
-00065         repeater.model.setSortKeyKolumn(index);
-00066     \}
-00075     \textcolor{keyword}{function} filter(index, \textcolor{keyword}{remove}) \{
-00076         \textcolor{keywordflow}{if}(\textcolor{keyword}{remove}) \{
-00077             dataView.activeFilterIndicatorIndexes = dataView.addFilterIndex(index);
-00078             repeater.model.setFilterKeyColumn(index);
-00079         \} \textcolor{keywordflow}{else} \{
-00080             dataView.activeFilterIndicatorIndexes = dataView.removeFilterIndex(index);
-00081             var nbFilters = dataView.activeFilterIndicatorIndexes.length;
-00082             repeater.model.invalidateFilter(index);
-00083             \textcolor{keywordflow}{for}(var i = 0; i < nbFilters; i++) \{
-00084                 repeater.model.setFilterKeyColumn(dataView.activeFilterIndicatorIndexes.at(i));
-00085             \}
-00086         \}
-00087     \}
-00088 
-00089     Repeater \{
-00090         \textcolor{keywordtype}{id}: repeater
-00091         \textcolor{keyword}{property} \textcolor{keywordtype}{bool} sectioning: (sectionIndex != 0)
-00092         property \textcolor{keywordtype}{int} sectionIndex : repeater.model===0 ? 0: repeater.model.sortKeyColumn
-00093         \textcolor{comment}{/*property int currentIndex: 0}
-00094 \textcolor{comment}{        property int currentSectionSize: 0}
-00095 \textcolor{comment}{        property int previousSectionSize: 0}
-00096 \textcolor{comment}{        delegate:}
-00097 \textcolor{comment}{            Item \{}
-00098 \textcolor{comment}{            Binding \{}
-00099 \textcolor{comment}{                target: repeater}
-00100 \textcolor{comment}{                property: "currentIndex"}
-00101 \textcolor{comment}{                value: index}
-00102 \textcolor{comment}{            \}}
+00023     \textcolor{comment}{/*Component.onCompleted: \{}
+00024 \textcolor{comment}{        if(dataView.model !== 0) \{}
+00025 \textcolor{comment}{            dataView.model.fetch();}
+00026 \textcolor{comment}{        \}}
+00027 \textcolor{comment}{    \}*/}
+00028 
+00029     
+00037     \textcolor{keyword}{function} removeFilterIndex(index) \{
+00038         \textcolor{keywordflow}{if}(!dataView.activeFilterIndicatorIndexes) \{
+00039             dataView.activeFilterIndicatorIndexes = [];
+00040         \}
+00041         var tmp = dataView.activeFilterIndicatorIndexes
+00042         var pos = tmp.indexOf(index);
+00043         tmp.splice(pos, 1);
+00044         \textcolor{keywordflow}{return} tmp;
+00045     \}
+00054     \textcolor{keyword}{function} addFilterIndex(index) \{
+00055         \textcolor{keywordflow}{if}(!dataView.activeFilterIndicatorIndexes) \{
+00056             dataView.activeFilterIndicatorIndexes = [];
+00057         \}
+00058         var tmp = dataView.activeFilterIndicatorIndexes
+00059         tmp.push(index);
+00060         \textcolor{keywordflow}{return} tmp;
+00061     \}
+00070     \textcolor{keyword}{function} sort(index) \{
+00071         repeater.model.setSortKeyKolumn(index);
+00072     \}
+00081     \textcolor{keyword}{function} filter(index, \textcolor{keyword}{remove}) \{
+00082         \textcolor{keywordflow}{if}(\textcolor{keyword}{remove}) \{
+00083             dataView.activeFilterIndicatorIndexes = dataView.addFilterIndex(index);
+00084             repeater.model.setFilterKeyColumn(index);
+00085         \} \textcolor{keywordflow}{else} \{
+00086             dataView.activeFilterIndicatorIndexes = dataView.removeFilterIndex(index);
+00087             var nbFilters = dataView.activeFilterIndicatorIndexes.length;
+00088             repeater.model.invalidateFilter(index);
+00089             \textcolor{keywordflow}{for}(var i = 0; i < nbFilters; i++) \{
+00090                 repeater.model.setFilterKeyColumn(dataView.activeFilterIndicatorIndexes.at(i));
+00091             \}
+00092         \}
+00093     \}
+00094 
+00095     Repeater \{
+00096         \textcolor{keywordtype}{id}: repeater
+00097         \textcolor{keyword}{property} \textcolor{keywordtype}{bool} sectioning: (sectionIndex != 0)
+00098         property \textcolor{keywordtype}{int} sectionIndex : repeater.model===0 ? 0: repeater.model.sortKeyColumn
+00099         \textcolor{comment}{/*property int currentIndex: 0}
+00100 \textcolor{comment}{        property int currentSectionSize: 0}
+00101 \textcolor{comment}{        property int previousSectionSize: 0}
+00102 \textcolor{comment}{        delegate:}
 00103 \textcolor{comment}{            Item \{}
-00104 \textcolor{comment}{                id: filler}
-00105 \textcolor{comment}{                visible: false}
-00106 \textcolor{comment}{                state: (repeater.currentIndex > 0 && repeater.model.data(repeater.currentIndex-1,
+00104 \textcolor{comment}{            Binding \{}
+00105 \textcolor{comment}{                target: repeater}
+00106 \textcolor{comment}{                property: "currentIndex"}
+00107 \textcolor{comment}{                value: index}
+00108 \textcolor{comment}{            \}}
+00109 \textcolor{comment}{            Item \{}
+00110 \textcolor{comment}{                id: filler}
+00111 \textcolor{comment}{                visible: false}
+00112 \textcolor{comment}{                state: (repeater.currentIndex > 0 && repeater.model.data(repeater.currentIndex-1,
        repeater.sectionIndex) === repeater.model.data(repeater.currentIndex, repeater.sectionIndex)) ? "sameSection":
        "newSection"}
-00107 \textcolor{comment}{                states: [}
-00108 \textcolor{comment}{                    State \{}
-00109 \textcolor{comment}{                        name:"newSection"}
-00110 \textcolor{comment}{                        PropertyChanges \{}
-00111 \textcolor{comment}{                            target: filler}
-00112 \textcolor{comment}{                            visible: true}
-00113 \textcolor{comment}{                        \}}
-00114 \textcolor{comment}{                    \},}
-00115 \textcolor{comment}{                    State \{}
-00116 \textcolor{comment}{                        name:"sameSection"}
-00117 \textcolor{comment}{                        PropertyChanges \{}
-00118 \textcolor{comment}{                            target: filler}
-00119 \textcolor{comment}{                            visible: false}
-00120 \textcolor{comment}{                        \}}
-00121 \textcolor{comment}{                    \}}
-00122 \textcolor{comment}{                ]}
-00123 \textcolor{comment}{                onStateChanged: \{}
-00124 \textcolor{comment}{                    console.log("\(\backslash\)n"+filler.state)}
-00125 \textcolor{comment}{                    if(filler.state == "sameSection") \{}
-00126 \textcolor{comment}{                        var previousSize = repeater.currentSectionSize;}
-00127 \textcolor{comment}{                        filler.cols = 0;}
-00128 \textcolor{comment}{                        repeater.currentSectionSize = previousSize+1;}
-00129 \textcolor{comment}{                        repeater.previousSectionSize = previousSize;}
-00130 \textcolor{comment}{                    \} else if(filler.state == "newSection") \{}
-00131 \textcolor{comment}{                        repeater.previousSectionSize = repeater.currentSectionSize;}
-00132 \textcolor{comment}{                        repeater.currentSectionSize = 1;}
-00133 \textcolor{comment}{                        filler.cols = ((dataView.columns-(repeater.previousSectionSize % dataView.columns))
+00113 \textcolor{comment}{                states: [}
+00114 \textcolor{comment}{                    State \{}
+00115 \textcolor{comment}{                        name:"newSection"}
+00116 \textcolor{comment}{                        PropertyChanges \{}
+00117 \textcolor{comment}{                            target: filler}
+00118 \textcolor{comment}{                            visible: true}
+00119 \textcolor{comment}{                        \}}
+00120 \textcolor{comment}{                    \},}
+00121 \textcolor{comment}{                    State \{}
+00122 \textcolor{comment}{                        name:"sameSection"}
+00123 \textcolor{comment}{                        PropertyChanges \{}
+00124 \textcolor{comment}{                            target: filler}
+00125 \textcolor{comment}{                            visible: false}
+00126 \textcolor{comment}{                        \}}
+00127 \textcolor{comment}{                    \}}
+00128 \textcolor{comment}{                ]}
+00129 \textcolor{comment}{                onStateChanged: \{}
+00130 \textcolor{comment}{                    console.log("\(\backslash\)n"+filler.state)}
+00131 \textcolor{comment}{                    if(filler.state == "sameSection") \{}
+00132 \textcolor{comment}{                        var previousSize = repeater.currentSectionSize;}
+00133 \textcolor{comment}{                        filler.cols = 0;}
+00134 \textcolor{comment}{                        repeater.currentSectionSize = previousSize+1;}
+00135 \textcolor{comment}{                        repeater.previousSectionSize = previousSize;}
+00136 \textcolor{comment}{                    \} else if(filler.state == "newSection") \{}
+00137 \textcolor{comment}{                        repeater.previousSectionSize = repeater.currentSectionSize;}
+00138 \textcolor{comment}{                        repeater.currentSectionSize = 1;}
+00139 \textcolor{comment}{                        filler.cols = ((dataView.columns-(repeater.previousSectionSize % dataView.columns))
        % dataView.columns);}
-00134 \textcolor{comment}{}
-00135 \textcolor{comment}{                        console.log("nouvelle section '" + repeater.model.data(repeater.currentIndex,
+00140 \textcolor{comment}{}
+00141 \textcolor{comment}{                        console.log("nouvelle section '" + repeater.model.data(repeater.currentIndex,
        repeater.sectionIndex)+"'");}
-00136 \textcolor{comment}{                        console.log(filler.cols + "/" + dataView.columns + " colonnes à remplir");}
-00137 \textcolor{comment}{                    \}}
-00138 \textcolor{comment}{                    console.log("previous section size: "+repeater.previousSectionSize);}
-00139 \textcolor{comment}{                    console.log("next section size: " +repeater.currentSectionSize);}
-00140 \textcolor{comment}{                \}}
-00141 \textcolor{comment}{}
-00142 \textcolor{comment}{                Component.onCompleted: \{}
-00143 \textcolor{comment}{                    console.log("index : "+repeater.currentIndex);}
-00144 \textcolor{comment}{                    console.log("index in section : "+repeater.currentSectionSize);}
-00145 \textcolor{comment}{                \}}
-00146 \textcolor{comment}{                property int cols: 0}
-00147 \textcolor{comment}{                Layout.fillHeight: true}
-00148 \textcolor{comment}{                Layout.fillWidth: true}
-00149 \textcolor{comment}{                Layout.minimumWidth: cols*(dataView.width / dataView.columns  - dataView.columnSpacing)}
-00150 \textcolor{comment}{                Layout.rowSpan: cols}
-00151 \textcolor{comment}{                ColumnLayout \{}
-00152 \textcolor{comment}{                    anchors.fill: parent}
-00153 \textcolor{comment}{                    Repeater \{}
-00154 \textcolor{comment}{                        model: (filler.cols > 0) ? filler.cols : 0}
-00155 \textcolor{comment}{                        delegate:}
-00156 \textcolor{comment}{                            Rectangle \{}
-00157 \textcolor{comment}{                            id: emptyContainer}
-00158 \textcolor{comment}{                            Layout.fillHeight: true}
-00159 \textcolor{comment}{                            Layout.fillWidth: true}
-00160 \textcolor{comment}{                            Layout.preferredHeight: (dataView.rows > 0) ? (Math.floor(dataView.height /
+00142 \textcolor{comment}{                        console.log(filler.cols + "/" + dataView.columns + " colonnes à remplir");}
+00143 \textcolor{comment}{                    \}}
+00144 \textcolor{comment}{                    console.log("previous section size: "+repeater.previousSectionSize);}
+00145 \textcolor{comment}{                    console.log("next section size: " +repeater.currentSectionSize);}
+00146 \textcolor{comment}{                \}}
+00147 \textcolor{comment}{}
+00148 \textcolor{comment}{                Component.onCompleted: \{}
+00149 \textcolor{comment}{                    console.log("index : "+repeater.currentIndex);}
+00150 \textcolor{comment}{                    console.log("index in section : "+repeater.currentSectionSize);}
+00151 \textcolor{comment}{                \}}
+00152 \textcolor{comment}{                property int cols: 0}
+00153 \textcolor{comment}{                Layout.fillHeight: true}
+00154 \textcolor{comment}{                Layout.fillWidth: true}
+00155 \textcolor{comment}{                Layout.minimumWidth: cols*(dataView.width / dataView.columns  - dataView.columnSpacing)}
+00156 \textcolor{comment}{                Layout.rowSpan: cols}
+00157 \textcolor{comment}{                ColumnLayout \{}
+00158 \textcolor{comment}{                    anchors.fill: parent}
+00159 \textcolor{comment}{                    Repeater \{}
+00160 \textcolor{comment}{                        model: (filler.cols > 0) ? filler.cols : 0}
+00161 \textcolor{comment}{                        delegate:}
+00162 \textcolor{comment}{                            Rectangle \{}
+00163 \textcolor{comment}{                            id: emptyContainer}
+00164 \textcolor{comment}{                            Layout.fillHeight: true}
+00165 \textcolor{comment}{                            Layout.fillWidth: true}
+00166 \textcolor{comment}{                            Layout.preferredHeight: (dataView.rows > 0) ? (Math.floor(dataView.height /
        dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) -
        dataView.rowSpacing)}
-00161 \textcolor{comment}{                            Layout.preferredWidth: (dataView.columns > 0) ? (Math.floor(dataView.width /
+00167 \textcolor{comment}{                            Layout.preferredWidth: (dataView.columns > 0) ? (Math.floor(dataView.width /
        dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) -
        dataView.columnSpacing)}
-00162 \textcolor{comment}{                            Loader \{}
-00163 \textcolor{comment}{                                id: emptyLoader}
-00164 \textcolor{comment}{                                source: dataView.emptyDelegate}
-00165 \textcolor{comment}{                                Binding \{}
-00166 \textcolor{comment}{                                    target: emptyLoader.item}
-00167 \textcolor{comment}{                                    property: "anchors.centerIn"}
-00168 \textcolor{comment}{                                    value: emptyContainer}
-00169 \textcolor{comment}{                                \}}
-00170 \textcolor{comment}{                                Binding \{}
-00171 \textcolor{comment}{                                    target: emptyLoader.item}
-00172 \textcolor{comment}{                                    property: "width"}
-00173 \textcolor{comment}{                                    value: emptyContainer.width - 1}
-00174 \textcolor{comment}{                                \}}
-00175 \textcolor{comment}{                                Binding \{}
-00176 \textcolor{comment}{                                    target: emptyLoader.item}
-00177 \textcolor{comment}{                                    property: "height"}
-00178 \textcolor{comment}{                                    value: emptyContainer.height - 1}
-00179 \textcolor{comment}{                                \}}
-00180 \textcolor{comment}{                                Binding \{}
-00181 \textcolor{comment}{                                    target: emptyLoader.item}
-00182 \textcolor{comment}{                                    property: "enabled"}
-00183 \textcolor{comment}{                                    value: false}
-00184 \textcolor{comment}{                                \}}
-00185 \textcolor{comment}{                                Binding \{}
-00186 \textcolor{comment}{                                    target: emptyLoader.item}
-00187 \textcolor{comment}{                                    property: "visible"}
-00188 \textcolor{comment}{                                    value: true}
-00189 \textcolor{comment}{                                \}}
-00190 \textcolor{comment}{                            \}}
-00191 \textcolor{comment}{                        \}}
-00192 \textcolor{comment}{                    \}}
-00193 \textcolor{comment}{                \}}
-00194 \textcolor{comment}{                Item \{}
-00195 \textcolor{comment}{                    id: section}
-00196 \textcolor{comment}{                    Layout.fillHeight: true}
-00197 \textcolor{comment}{                    Layout.fillWidth: true}
-00198 \textcolor{comment}{                    Layout.minimumWidth: dataView.width}
-00199 \textcolor{comment}{                    Layout.columnSpan: dataView.columns}
-00200 \textcolor{comment}{                    RowLayout \{}
-00201 \textcolor{comment}{                        Rectangle \{}
-00202 \textcolor{comment}{                            Layout.minimumHeight: dataView.rowSpacing}
-00203 \textcolor{comment}{                            Layout.maximumHeight: 3*dataView.rowSpacing}
-00204 \textcolor{comment}{                        \}}
-00205 \textcolor{comment}{                        Loader \{}
-00206 \textcolor{comment}{                            id: sectionLoader}
-00207 \textcolor{comment}{                            source: dataView.sectionDelegate}
-00208 \textcolor{comment}{                            Binding \{}
-00209 \textcolor{comment}{                                target: sectionLoader.item}
-00210 \textcolor{comment}{                                property: "value"}
-00211 \textcolor{comment}{                                value: repeater.model.data(repeater.currentIndex, repeater.sectionIndex)}
-00212 \textcolor{comment}{                            \}}
-00213 \textcolor{comment}{                        \}}
-00214 \textcolor{comment}{                    \}}
-00215 \textcolor{comment}{                \}}
-00216 \textcolor{comment}{            \}*/}
-00217         \hyperlink{classRectangle}{Rectangle} \{
-00218             \textcolor{keywordtype}{id}: contentContainer
-00219             Layout.fillHeight: \textcolor{keyword}{true}
-00220             Layout.fillWidth: \textcolor{keyword}{true}
-00221             Layout.maximumHeight: (dataView.rows > 0) ? (Math.floor(dataView.height / dataView.rows) - 
+00168 \textcolor{comment}{                            Loader \{}
+00169 \textcolor{comment}{                                id: emptyLoader}
+00170 \textcolor{comment}{                                source: dataView.emptyDelegate}
+00171 \textcolor{comment}{                                Binding \{}
+00172 \textcolor{comment}{                                    target: emptyLoader.item}
+00173 \textcolor{comment}{                                    property: "anchors.centerIn"}
+00174 \textcolor{comment}{                                    value: emptyContainer}
+00175 \textcolor{comment}{                                \}}
+00176 \textcolor{comment}{                                Binding \{}
+00177 \textcolor{comment}{                                    target: emptyLoader.item}
+00178 \textcolor{comment}{                                    property: "width"}
+00179 \textcolor{comment}{                                    value: emptyContainer.width - 1}
+00180 \textcolor{comment}{                                \}}
+00181 \textcolor{comment}{                                Binding \{}
+00182 \textcolor{comment}{                                    target: emptyLoader.item}
+00183 \textcolor{comment}{                                    property: "height"}
+00184 \textcolor{comment}{                                    value: emptyContainer.height - 1}
+00185 \textcolor{comment}{                                \}}
+00186 \textcolor{comment}{                                Binding \{}
+00187 \textcolor{comment}{                                    target: emptyLoader.item}
+00188 \textcolor{comment}{                                    property: "enabled"}
+00189 \textcolor{comment}{                                    value: false}
+00190 \textcolor{comment}{                                \}}
+00191 \textcolor{comment}{                                Binding \{}
+00192 \textcolor{comment}{                                    target: emptyLoader.item}
+00193 \textcolor{comment}{                                    property: "visible"}
+00194 \textcolor{comment}{                                    value: true}
+00195 \textcolor{comment}{                                \}}
+00196 \textcolor{comment}{                            \}}
+00197 \textcolor{comment}{                        \}}
+00198 \textcolor{comment}{                    \}}
+00199 \textcolor{comment}{                \}}
+00200 \textcolor{comment}{                Item \{}
+00201 \textcolor{comment}{                    id: section}
+00202 \textcolor{comment}{                    Layout.fillHeight: true}
+00203 \textcolor{comment}{                    Layout.fillWidth: true}
+00204 \textcolor{comment}{                    Layout.minimumWidth: dataView.width}
+00205 \textcolor{comment}{                    Layout.columnSpan: dataView.columns}
+00206 \textcolor{comment}{                    RowLayout \{}
+00207 \textcolor{comment}{                        Rectangle \{}
+00208 \textcolor{comment}{                            Layout.minimumHeight: dataView.rowSpacing}
+00209 \textcolor{comment}{                            Layout.maximumHeight: 3*dataView.rowSpacing}
+00210 \textcolor{comment}{                        \}}
+00211 \textcolor{comment}{                        Loader \{}
+00212 \textcolor{comment}{                            id: sectionLoader}
+00213 \textcolor{comment}{                            source: dataView.sectionDelegate}
+00214 \textcolor{comment}{                            Binding \{}
+00215 \textcolor{comment}{                                target: sectionLoader.item}
+00216 \textcolor{comment}{                                property: "value"}
+00217 \textcolor{comment}{                                value: repeater.model.data(repeater.currentIndex, repeater.sectionIndex)}
+00218 \textcolor{comment}{                            \}}
+00219 \textcolor{comment}{                        \}}
+00220 \textcolor{comment}{                    \}}
+00221 \textcolor{comment}{                \}}
+00222 \textcolor{comment}{            \}*/}
+00223         \hyperlink{classRectangle}{Rectangle} \{
+00224             \textcolor{keywordtype}{id}: contentContainer
+00225             Layout.fillHeight: \textcolor{keyword}{true}
+00226             Layout.fillWidth: \textcolor{keyword}{true}
+00227             Layout.maximumHeight: (dataView.rows > 0) ? (Math.floor(dataView.height / dataView.rows) - 
       dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)
-00222             Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - 
+00228             Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - 
       dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.
       columnSpacing)
-00223             Layout.row: computeRow()
-00224             Layout.column: computeColumn()
-00233             function computeRow() \{
-00234                 var next = 0;
-00235                 \textcolor{keywordflow}{if}(index > 0)\{
-00236                     var previousRow = repeater.itemAt(index-1).Layout.row;
-00237                     var previousColumn = repeater.itemAt(index-1).Layout.column;
-00238                     console.log(\textcolor{stringliteral}{"\(\backslash\)ncompute row pour l'item  d'id "} + (index+1) + \textcolor{stringliteral}{" successeur de ["} + 
+00229             Layout.row: computeRow()
+00230             Layout.column: computeColumn()
+00239             function computeRow() \{
+00240                 var next = 0;
+00241                 \textcolor{keywordflow}{if}(index > 0)\{
+00242                     var previousRow = repeater.itemAt(index-1).Layout.row;
+00243                     var previousColumn = repeater.itemAt(index-1).Layout.column;
+00244                     console.log(\textcolor{stringliteral}{"\(\backslash\)ncompute row pour l'item  d'id "} + (index+1) + \textcolor{stringliteral}{" successeur de ["} + 
       previousRow + \textcolor{stringliteral}{", "} + previousColumn+\textcolor{stringliteral}{"]"});
-00239                     \textcolor{keywordflow}{if}(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== 
+00245                     \textcolor{keywordflow}{if}(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== 
       repeater.model.data(index, repeater.sectionIndex))) \{
-00240                         console.log(\textcolor{stringliteral}{"nouvelle section "}+repeater.model.data(index, repeater.sectionIndex)+\textcolor{stringliteral}{"
+00246                         console.log(\textcolor{stringliteral}{"nouvelle section "}+repeater.model.data(index, repeater.sectionIndex)+\textcolor{stringliteral}{"
        remplaçant "}+repeater.model.data(index-1, repeater.sectionIndex));
-00241                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
-00242                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes non complétées
+00247                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
+00248                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes non complétées
        par la section\(\backslash\)non va à la ligne"});
-00243                             next=previousRow+1;
-00244                         \} \textcolor{keywordflow}{else} \{
-00245                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes\(\backslash\)non retourne en
+00249                             next=previousRow+1;
+00250                         \} \textcolor{keywordflow}{else} \{
+00251                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes\(\backslash\)non retourne en
        première ligne"});
-00246                             next = 1;
-00247                         \}
-00248                     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(repeater.sectioning)\{
-00249                         console.log(\textcolor{stringliteral}{"même section"});
-00250                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
-00251                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes"});
-00252                             \textcolor{keywordflow}{if}((previousColumn % dataView.columns) == 0) \{ \textcolor{comment}{/*dernière colonne*/}
-00253                                 console.log(\textcolor{stringliteral}{"on passe à la ligne suivante"});
-00254                                 next = previousRow + 1;
-00255                             \} \textcolor{keywordflow}{else} \{
-00256                                 console.log(\textcolor{stringliteral}{"on ne change pas de ligne"});
-00257                                 next = previousRow;
-00258                             \}
-00259                         \} \textcolor{keywordflow}{else}\{
-00260                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes\(\backslash\)non passe à la ligne
+00252                             next = 1;
+00253                         \}
+00254                     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(repeater.sectioning)\{
+00255                         console.log(\textcolor{stringliteral}{"même section"});
+00256                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
+00257                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes"});
+00258                             \textcolor{keywordflow}{if}((previousColumn % dataView.columns) == 0) \{ \textcolor{comment}{/*dernière colonne*/}
+00259                                 console.log(\textcolor{stringliteral}{"on passe à la ligne suivante"});
+00260                                 next = previousRow + 1;
+00261                             \} \textcolor{keywordflow}{else} \{
+00262                                 console.log(\textcolor{stringliteral}{"on ne change pas de ligne"});
+00263                                 next = previousRow;
+00264                             \}
+00265                         \} \textcolor{keywordflow}{else}\{
+00266                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes\(\backslash\)non passe à la ligne
        suivante (ou on boucle)"});
-00261                             next = previousRow % dataView.rows + 1;
-00262                         \}
-00263                     \} \textcolor{keywordflow}{else} \{
-00264                         \textcolor{keywordflow}{if}(dataView.rows > 0) \{
-00265                             next = index % dataView.rows + 1;
-00266                         \} \textcolor{keywordflow}{else} \{
-00267                             next = Math.floor(index / dataView.columns) + 1;
+00267                             next = previousRow % dataView.rows + 1;
 00268                         \}
-00269                     \}
-00270                 \} \textcolor{keywordflow}{else} \{
-00271                     next = 1;
-00272                 \}
-00273 
-00274                 console.log(\textcolor{stringliteral}{"ligne "}+next)
-00275                 \textcolor{keywordflow}{return} next;
-00276             \}
-00285             \textcolor{keyword}{function} computeColumn() \{
-00286                 var next = 0;
-00287                 \textcolor{keywordflow}{if}(index > 0)\{
-00288                     var previousRow = repeater.itemAt(index-1).Layout.row;
-00289                     var previousColumn = repeater.itemAt(index-1).Layout.column;
-00290                     console.log(\textcolor{stringliteral}{"\(\backslash\)ncompute column pour l'item d'id "} + (index+1) + \textcolor{stringliteral}{" successeur de ["} + 
+00269                     \} \textcolor{keywordflow}{else} \{
+00270                         \textcolor{keywordflow}{if}(dataView.rows > 0) \{
+00271                             next = index % dataView.rows + 1;
+00272                         \} \textcolor{keywordflow}{else} \{
+00273                             next = Math.floor(index / dataView.columns) + 1;
+00274                         \}
+00275                     \}
+00276                 \} \textcolor{keywordflow}{else} \{
+00277                     next = 1;
+00278                 \}
+00279 
+00280                 console.log(\textcolor{stringliteral}{"ligne "}+next)
+00281                 \textcolor{keywordflow}{if}(next < 0) \{
+00282                     \textcolor{keywordflow}{return} 0;
+00283                 \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(dataView.rows > 0 && next > dataView.rows) \{
+00284                     \textcolor{keywordflow}{return} dataView.rows;
+00285                 \} \textcolor{keywordflow}{else} \{
+00286                     \textcolor{keywordflow}{return} next;
+00287                 \}
+00288             \}
+00297             \textcolor{keyword}{function} computeColumn() \{
+00298                 var next = 0;
+00299                 \textcolor{keywordflow}{if}(index > 0)\{
+00300                     var previousRow = repeater.itemAt(index-1).Layout.row;
+00301                     var previousColumn = repeater.itemAt(index-1).Layout.column;
+00302                     console.log(\textcolor{stringliteral}{"\(\backslash\)ncompute column pour l'item d'id "} + (index+1) + \textcolor{stringliteral}{" successeur de ["} + 
       previousRow + \textcolor{stringliteral}{", "} + previousColumn+\textcolor{stringliteral}{"]"});
-00291                     \textcolor{keywordflow}{if}(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== 
+00303                     \textcolor{keywordflow}{if}(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== 
       repeater.model.data(index, repeater.sectionIndex))) \{
-00292                         console.log(\textcolor{stringliteral}{"nouvelle section "}+repeater.model.data(index, repeater.sectionIndex)+\textcolor{stringliteral}{"
+00304                         console.log(\textcolor{stringliteral}{"nouvelle section "}+repeater.model.data(index, repeater.sectionIndex)+\textcolor{stringliteral}{"
        remplaçant "}+repeater.model.data(index-1, repeater.sectionIndex));
-00293                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
-00294                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes\(\backslash\)non retourne à
+00305                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
+00306                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes\(\backslash\)non retourne à
        la première colonne"});
-00295                             next = 1;
-00296                         \} \textcolor{keywordflow}{else} \{
-00297                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes non complétées par la
+00307                             next = 1;
+00308                         \} \textcolor{keywordflow}{else} \{
+00309                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes non complétées par la
        section\(\backslash\)non va à la colonne suivante"});
-00298                             next = previousColumn+1;
-00299                         \}
-00300                     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(repeater.sectioning)\{
-00301                         console.log(\textcolor{stringliteral}{"même section"});
-00302                         \textcolor{keywordflow}{if}(dataView.rows > 0) \{
-00303                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes"});
-00304                             \textcolor{keywordflow}{if}((previousRow % dataView.rows) == 0) \{ \textcolor{comment}{/*dernière ligne*/}
-00305                                 console.log(\textcolor{stringliteral}{"on passe à la colonne suivante"});
-00306                                 next = previousColumn + 1;
-00307                             \} \textcolor{keywordflow}{else} \{
-00308                                 console.log(\textcolor{stringliteral}{"on ne change pas de colonne"});
-00309                                 next = previousColumn;
-00310                             \}
-00311                         \} \textcolor{keywordflow}{else}\{
-00312                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes\(\backslash\)non passe à la
+00310                             next = previousColumn+1;
+00311                         \}
+00312                     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(repeater.sectioning)\{
+00313                         console.log(\textcolor{stringliteral}{"même section"});
+00314                         \textcolor{keywordflow}{if}(dataView.rows > 0) \{
+00315                             console.log(\textcolor{stringliteral}{"layout vertical de "}+dataView.rows+\textcolor{stringliteral}{" lignes"});
+00316                             \textcolor{keywordflow}{if}((previousRow % dataView.rows) == 0) \{ \textcolor{comment}{/*dernière ligne*/}
+00317                                 console.log(\textcolor{stringliteral}{"on passe à la colonne suivante"});
+00318                                 next = previousColumn + 1;
+00319                             \} \textcolor{keywordflow}{else} \{
+00320                                 console.log(\textcolor{stringliteral}{"on ne change pas de colonne"});
+00321                                 next = previousColumn;
+00322                             \}
+00323                         \} \textcolor{keywordflow}{else}\{
+00324                             console.log(\textcolor{stringliteral}{"layout horizontal de "}+dataView.columns+\textcolor{stringliteral}{" colonnes\(\backslash\)non passe à la
        colonne suivante (ou on boucle) "});
-00313                             next = previousColumn % dataView.columns + 1;
-00314                         \}
-00315                     \} \textcolor{keywordflow}{else} \{
-00316                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
-00317                             next= index % dataView.columns + 1;
-00318                         \} \textcolor{keywordflow}{else} \{
-00319                             next= Math.floor(index / dataView.rows) + 1;
-00320                         \}
-00321                     \}
-00322                 \} \textcolor{keywordflow}{else} \{
-00323                     next = 1;
-00324                 \}
-00325 
-00326                 console.log(\textcolor{stringliteral}{"colonne "}+next)
-00327                 \textcolor{keywordflow}{return} next;
-00328             \}
-00329 
-00330             Loader \{
-00331                 \textcolor{keywordtype}{id}:contentLoader
-00332                 source: dataView.dataDelegate
-00333                 Binding \{
-00334                     target: contentLoader.item
-00335                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"width"}
-00336                     value: contentContainer.width - 1
-00337                 \}
-00338                 Binding \{
-00339                     target: contentLoader.item
-00340                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"height"}
-00341                     value: contentContainer.height - 2
-00342                 \}
-00343                 Connections \{
-00344                     target: contentLoader.item
-00345                     onClicked: \{
-00346                         \textcolor{keywordflow}{if}(dataView.enabled) \{
-00347                             dataView.selected(contentLoader.item.value);
-00348                         \}
-00349                     \}
-00350                 \}
-00351             \}
-00352         \}
-00353         \textcolor{comment}{/*\}*/}
-00354     \}
-00355 \}
+00325                             next = previousColumn % dataView.columns + 1;
+00326                         \}
+00327                     \} \textcolor{keywordflow}{else} \{
+00328                         \textcolor{keywordflow}{if}(dataView.columns > 0) \{
+00329                             next= index % dataView.columns + 1;
+00330                         \} \textcolor{keywordflow}{else} \{
+00331                             next= Math.floor(index / dataView.rows) + 1;
+00332                         \}
+00333                     \}
+00334                 \} \textcolor{keywordflow}{else} \{
+00335                     next = 1;
+00336                 \}
+00337 
+00338                 console.log(\textcolor{stringliteral}{"colonne "}+next)
+00339                 \textcolor{keywordflow}{if}(next < 0) \{
+00340                     \textcolor{keywordflow}{return} 0;
+00341                 \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(dataView.columns > 0 && next > dataView.columns) \{
+00342                     \textcolor{keywordflow}{return} dataView.columns;
+00343                 \} \textcolor{keywordflow}{else} \{
+00344                     \textcolor{keywordflow}{return} next;
+00345                 \}
+00346             \}
+00347 
+00348             Loader \{
+00349                 \textcolor{keywordtype}{id}:contentLoader
+00350                 source: dataView.dataDelegate
+00351                 Binding \{
+00352                     target: contentLoader.item
+00353                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"width"}
+00354                     value: contentContainer.width - 1
+00355                 \}
+00356                 Binding \{
+00357                     target: contentLoader.item
+00358                     \textcolor{keyword}{property}: \textcolor{stringliteral}{"height"}
+00359                     value: contentContainer.height - 2
+00360                 \}
+00361                 Connections \{
+00362                     target: contentLoader.item
+00363                     onClicked: \{
+00364                         \textcolor{keywordflow}{if}(dataView.enabled) \{
+00365                             dataView.selected(contentLoader.item.value);
+00366                         \}
+00367                     \}
+00368                 \}
+00369             \}
+00370         \}
+00371         \textcolor{comment}{/*\}*/}
+00372     \}
+00373 \}
 \end{DoxyCode}

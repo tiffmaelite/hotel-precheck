@@ -26,6 +26,8 @@ enum \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4ee}{Error
 \subsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
 \item 
+static void \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{debug\-Message} (Q\-String message, Q\-String title=\char`\"{}Trace\char`\"{})
+\item 
 static void \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{error\-Message} (Q\-String message, Q\-String title=\char`\"{}Erreur\char`\"{})
 \item 
 static void \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{info\-Message} (Q\-String message, Q\-String title=\char`\"{}Info\char`\"{})
@@ -37,7 +39,7 @@ static void \hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720
 \subsection{Description détaillée}
 
 
-Définition à la ligne \hyperlink{SH__MessageManager_8h_source_l00012}{12} du fichier \hyperlink{SH__MessageManager_8h_source}{S\-H\-\_\-\-Message\-Manager.\-h}.
+Définition à la ligne \hyperlink{SH__MessageManager_8h_source_l00015}{15} du fichier \hyperlink{SH__MessageManager_8h_source}{S\-H\-\_\-\-Message\-Manager.\-h}.
 
 
 
@@ -62,15 +64,48 @@ Définition à la ligne \hyperlink{SH__MessageManager_8h_source_l00012}{12} du f
 \end{Desc}
 
 
-Définition à la ligne \hyperlink{SH__MessageManager_8h_source_l00024}{24} du fichier \hyperlink{SH__MessageManager_8h_source}{S\-H\-\_\-\-Message\-Manager.\-h}.
+Définition à la ligne \hyperlink{SH__MessageManager_8h_source_l00027}{27} du fichier \hyperlink{SH__MessageManager_8h_source}{S\-H\-\_\-\-Message\-Manager.\-h}.
 
 
 \begin{DoxyCode}
-00024 \{ \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeaed8e377759e5f203a417dbd267cbc33a}{ERROR}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea20e4a860505461ef78ebb902cac1bbc7}{TEST}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeac1f651f46ed4faeccbb6ce75f31c6123}{DEBUG}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea10b19d57d9a8572101d39b51cdca79d0}{DEBUG\_VERBOSE}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea81df11b9abe47d3c95d300a3ff71227e}{RELEASE} \};
+00027 \{ \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeaed8e377759e5f203a417dbd267cbc33a}{ERROR}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea20e4a860505461ef78ebb902cac1bbc7}{TEST}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeac1f651f46ed4faeccbb6ce75f31c6123}{DEBUG}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea10b19d57d9a8572101d39b51cdca79d0}{DEBUG\_VERBOSE}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea81df11b9abe47d3c95d300a3ff71227e}{RELEASE} \};
 \end{DoxyCode}
 
 
 \subsection{Documentation des fonctions membres}
+\hypertarget{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{\index{S\-H\-\_\-\-Message\-Manager@{S\-H\-\_\-\-Message\-Manager}!debug\-Message@{debug\-Message}}
+\index{debug\-Message@{debug\-Message}!SH_MessageManager@{S\-H\-\_\-\-Message\-Manager}}
+\subsubsection[{debug\-Message}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Message\-Manager\-::debug\-Message (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{message, }
+\item[{Q\-String}]{title = {\ttfamily \char`\"{}Trace\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}
+
+\begin{DoxyParams}{Paramètres}
+{\em message} & \\
+\hline
+{\em title} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00032}{32} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
+
+
+
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{S\-H\-\_\-\-Sql\-Data\-Model\-::data()}, \hyperlink{classSH__SqlDataModel_a24db284b370930b57e2261a7a72e2da8}{S\-H\-\_\-\-Sql\-Data\-Model\-::datas()}, \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query()}, \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{S\-H\-\_\-\-Numeric\-Question\-State\-::is\-Answer\-Valid()}, \hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{S\-H\-\_\-\-Date\-Question\-State\-::is\-Answer\-Valid()}, \hyperlink{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf21f03cbb951}{S\-H\-\_\-\-Generic\-State\-Machine\-::on\-Entry()}, \hyperlink{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{S\-H\-\_\-\-Generic\-State\-::on\-Entry()}, \hyperlink{classSH__GenericStateMachine_a4b36d60fa1876908493d3d07f191a30f}{S\-H\-\_\-\-Generic\-State\-Machine\-::on\-Exit()}, \hyperlink{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{S\-H\-\_\-\-Generic\-State\-::on\-Exit()}, \hyperlink{classSH__GenericState_aad4259cc1e6a51681d6a92e995486380}{S\-H\-\_\-\-Generic\-State\-::on\-Transition\-Triggered()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__DatabaseContentQuestionState_ab26490ea519262a8f9ca72c000bf7313}{S\-H\-\_\-\-Database\-Content\-Question\-State\-::\-S\-H\-\_\-\-Database\-Content\-Question\-State()}.
+
+
+\begin{DoxyCode}
+00033 \{
+00034     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00035 \textcolor{comment}{//#ifdef DEBUG}
+00036     qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00037 \textcolor{comment}{//#endif}
+00038     \}
+00039 \}
+\end{DoxyCode}
 \hypertarget{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{\index{S\-H\-\_\-\-Message\-Manager@{S\-H\-\_\-\-Message\-Manager}!error\-Message@{error\-Message}}
 \index{error\-Message@{error\-Message}!SH_MessageManager@{S\-H\-\_\-\-Message\-Manager}}
 \subsubsection[{error\-Message}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Message\-Manager\-::error\-Message (
@@ -88,23 +123,23 @@ Définition à la ligne \hyperlink{SH__MessageManager_8h_source_l00024}{24} du f
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00016}{16} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
+Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00017}{17} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{S\-H\-\_\-\-Sql\-Data\-Model\-::data()}, \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{S\-H\-\_\-\-Database\-Manager\-::db\-Connect()}, \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}, et \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}.
+Référencé par \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{S\-H\-\_\-\-Sql\-Data\-Model\-::data()}, \hyperlink{classSH__DatabaseManager_ab634ce39ef483e7ad2fe08d4b8ba74f7}{S\-H\-\_\-\-Database\-Manager\-::db\-Connect()}, \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}, \hyperlink{classSH__DatabaseManager_a7b5d0e372c153eb59cdab98588994904}{S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager()}, et \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine\-::\-S\-H\-\_\-\-Generic\-State\-Machine()}.
 
 
 \begin{DoxyCode}
-00017 \{
-00018     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
-00019 \textcolor{preprocessor}{#ifdef DEBUG}
-00020 \textcolor{preprocessor}{}        qWarning() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
-00021 \textcolor{preprocessor}{#else}
-00022 \textcolor{preprocessor}{}        QMessageBox::critical(0,QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title),QObject::tr(\textcolor{stringliteral}{"%L2"}).arg(message));
-00023 \textcolor{preprocessor}{#endif}
-00024 \textcolor{preprocessor}{}    \}
-00025 \}
+00018 \{
+00019     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00020 \textcolor{preprocessor}{#ifdef DEBUG}
+00021 \textcolor{preprocessor}{}    qWarning() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00022 \textcolor{preprocessor}{#else}
+00023 \textcolor{preprocessor}{}    QMessageBox::critical(0,QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title),QObject::tr(\textcolor{stringliteral}{"%L2"}).arg(message));
+00024 \textcolor{preprocessor}{#endif}
+00025 \textcolor{preprocessor}{}    \}
+00026 \}
 \end{DoxyCode}
 \hypertarget{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{\index{S\-H\-\_\-\-Message\-Manager@{S\-H\-\_\-\-Message\-Manager}!info\-Message@{info\-Message}}
 \index{info\-Message@{info\-Message}!SH_MessageManager@{S\-H\-\_\-\-Message\-Manager}}
@@ -123,28 +158,24 @@ Référencé par \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00054}{54} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
+Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00061}{61} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{S\-H\-\_\-\-Sql\-Data\-Model\-::data()}, et \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{S\-H\-\_\-\-Question\-State\-::check\-Validity()}, et \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{S\-H\-\_\-\-Application\-Core\-::receive\-Input()}.
 
 
 \begin{DoxyCode}
-00055 \{
-00056     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
-00057         \textcolor{comment}{/*switch(errorMode) \{}
-00058 \textcolor{comment}{    case DEBUG:*/}
-00059         qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
-00060         \textcolor{comment}{/*break;}
-00061 \textcolor{comment}{    case TEST:}
-00062 \textcolor{comment}{    case RELEASE:}
-00063 \textcolor{comment}{        QMessageBox::information(0,QObject::tr("%L1).arg(title),QObject::tr("%L2).arg(message));}
-00064 \textcolor{comment}{    default:}
-00065 \textcolor{comment}{        console.log(title+" : " + message);}
-00066 \textcolor{comment}{    \}*/}
-00067     \}
-00068 \}
+00062 \{
+00063     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00064 \textcolor{preprocessor}{#ifdef DEBUG}
+00065 \textcolor{preprocessor}{}    qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00066 \textcolor{preprocessor}{#else}
+00067 \textcolor{preprocessor}{}    QMessageBox::warning(0, QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title), QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message)
+      );
+00068 \textcolor{preprocessor}{#endif}
+00069 \textcolor{preprocessor}{}    \}
+00070 \}
 \end{DoxyCode}
 \hypertarget{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{\index{S\-H\-\_\-\-Message\-Manager@{S\-H\-\_\-\-Message\-Manager}!success\-Message@{success\-Message}}
 \index{success\-Message@{success\-Message}!SH_MessageManager@{S\-H\-\_\-\-Message\-Manager}}
@@ -163,24 +194,19 @@ Référencé par \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00033}{33} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
+Définition à la ligne \hyperlink{SH__MessageManager_8cpp_source_l00046}{46} du fichier \hyperlink{SH__MessageManager_8cpp_source}{S\-H\-\_\-\-Message\-Manager.\-cpp}.
 
 
 \begin{DoxyCode}
-00034 \{
-00035     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
-00036         \textcolor{comment}{/*switch(errorMode) \{}
-00037 \textcolor{comment}{    case DEBUG:*/}
-00038         qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
-00039         \textcolor{comment}{/*break;}
-00040 \textcolor{comment}{    case TEST:}
-00041 \textcolor{comment}{    case RELEASE:}
-00042 \textcolor{comment}{        QMessageBox::information(0,QObject::tr("%L1).arg(title),QObject::tr("%L2).arg(message));}
-00043 \textcolor{comment}{    default:}
-00044 \textcolor{comment}{        console.log(title+" : " + message);}
-00045 \textcolor{comment}{    \}*/}
-00046     \}
-00047 \}
+00047 \{
+00048     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00049 \textcolor{preprocessor}{#ifdef DEBUG}
+00050 \textcolor{preprocessor}{}    qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00051 \textcolor{preprocessor}{#else}
+00052 \textcolor{preprocessor}{}    QMessageBox::information(0,QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title),QObject::tr(\textcolor{stringliteral}{"%L2"}).arg(message));
+00053 \textcolor{preprocessor}{#endif}
+00054 \textcolor{preprocessor}{}    \}
+00055 \}
 \end{DoxyCode}
 
 

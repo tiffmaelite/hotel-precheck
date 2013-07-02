@@ -1,4 +1,4 @@
-.TH "SH_TabZone" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_TabZone" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,7 +27,7 @@ Est dérivée de \fBTabView\fP\&.
 .RI "void \fBselected\fP (string selectedItem)"
 .br
 .ti -1c
-.RI "void \fBselectedForDetail\fP (var data)"
+.RI "void \fBselectedForDetail\fP (var datas, int row)"
 .br
 .in -1c
 .SS "Fonctions membres publiques"
@@ -55,13 +55,24 @@ Définition à la ligne 4 du fichier SH_TabZone\&.qml\&.
 
 .SS "void SH_TabZone::newSelling ()\fC [signal]\fP"
 
-.SS "void SH_TabZone::openTab (tabIndex)"
+.SS "SH_TabZone::openTab (tabIndex)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fI\\type\fP int tabIndex 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+.RE
+.PP
 
 .SS "void SH_TabZone::reload ()\fC [signal]\fP"
 
 .SS "void SH_TabZone::selected (stringselectedItem)\fC [signal]\fP"
 
-.SS "void SH_TabZone::selectedForDetail (vardata)\fC [signal]\fP"
+.SS "void SH_TabZone::selectedForDetail (vardatas, introw)\fC [signal]\fP"
 
 .SH "Documentation des propriétés"
 .PP 

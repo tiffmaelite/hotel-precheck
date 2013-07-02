@@ -8,7 +8,8 @@ var hierarchy =
         [ "SH_BillingsDelegate", "classSH__BillingsDelegate.xhtml", null ],
         [ "SH_BookingsDelegate", "classSH__BookingsDelegate.xhtml", null ],
         [ "SH_RoomsDelegate", "classSH__RoomsDelegate.xhtml", null ],
-        [ "SH_ServicesDelegate", "classSH__ServicesDelegate.xhtml", null ]
+        [ "SH_ServicesDelegate", "classSH__ServicesDelegate.xhtml", null ],
+        [ "SH_VATDelegate", "classSH__VATDelegate.xhtml", null ]
       ] ]
     ] ],
     [ "FocusScope", "classFocusScope.xhtml", [
@@ -48,7 +49,10 @@ var hierarchy =
         [ "SH_ClientsTableModel", "classSH__ClientsTableModel.xhtml", null ],
         [ "SH_GroupsTableModel", "classSH__GroupsTableModel.xhtml", null ],
         [ "SH_RoomsTableModel", "classSH__RoomsTableModel.xhtml", null ],
-        [ "SH_ServicesTableModel", "classSH__ServicesTableModel.xhtml", null ]
+        [ "SH_ServicesTableModel", "classSH__ServicesTableModel.xhtml", null ],
+        [ "SH_TraineesTableModel", "classSH__TraineesTableModel.xhtml", null ],
+        [ "SH_UsersTableModel", "classSH__UsersTableModel.xhtml", null ],
+        [ "SH_VATTableModel", "classSH__VATTableModel.xhtml", null ]
       ] ]
     ] ],
     [ "QState", "classQState.xhtml", [

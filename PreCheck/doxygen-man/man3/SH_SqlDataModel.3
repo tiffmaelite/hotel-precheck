@@ -1,4 +1,4 @@
-.TH "SH_SqlDataModel" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_SqlDataModel" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -63,10 +63,10 @@ Est dérivée de \fBQAbstractListModel\fP\&.
 .RI "bool \fBisEmpty\fP () const "
 .br
 .ti -1c
-.RI "const QString & \fBlastError\fP ()"
+.RI "const QString \fBlastError\fP ()"
 .br
 .ti -1c
-.RI "const QString & \fBquery\fP () const "
+.RI "const QString \fBquery\fP () const "
 .br
 .ti -1c
 .RI "void \fBresetFieldsToAll\fP ()"
@@ -157,42 +157,41 @@ Est dérivée de \fBQAbstractListModel\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 14 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 12 du fichier SH_SqlDataModel\&.h\&.
 .SH "Documentation des constructeurs et destructeur"
 .PP 
 .SS "SH_SqlDataModel::SH_SqlDataModel (\fBQObject\fP *parent = \fC0\fP)\fC [explicit]\fP"
 
 .PP
-Définition à la ligne 16 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 14 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 .nf
-16                                                 :
-17     QAbstractListModel(parent)
-18 {
-19 }
+14                                                 :
+15     QAbstractListModel(parent)
+16 {
+17 }
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
 .SS "SH_SqlDataModel::applyRoles ()\fC [protected]\fP"
 
 .PP
-Définition à la ligne 339 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 292 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mDataFields, mRoles, roleForField(), et rolesChanged()\&.
 .PP
 Référencé par fetch(), resetFieldsToAll(), et setFields()\&.
 .PP
 .nf
-340 {
-341     this->mRoles\&.clear();
-342     int nbFields = this->mDataFields\&.count();
-343     for (int i = 0; i < nbFields; i++)
-344     {
-345         /*MessageManager::infoMessage(QString("nouveau rôle : %1")\&.arg(QString(this->mDataFields\&.at(i)->role())));*/
-346         this->mRoles\&.insert(this->roleForField(i), this->mDataFields\&.at(i)->role());
-347     }
-348     emit rolesChanged();
-349 }
+293 {
+294     this->mRoles\&.clear();
+295     int nbFields = this->mDataFields\&.count();
+296     for (int i = 0; i < nbFields; i++)
+297     {
+298         this->mRoles\&.insert(this->roleForField(i), this->mDataFields\&.at(i)->role());
+299     }
+300     emit rolesChanged();
+301 }
 .fi
 .SS "SH_SqlDataModel::data (const QModelIndex &index, introle) const"
 
@@ -211,29 +210,29 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 39 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 31 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
-Références SH_MessageManager::errorMessage(), fieldFromRole(), SH_MessageManager::infoMessage(), mDataFields, mRecords, et mRoles\&.
+Références SH_MessageManager::debugMessage(), SH_MessageManager::errorMessage(), fieldFromRole(), mDataFields, mRecords, et mRoles\&.
 .PP
 Référencé par SH_ExtendedProxyModel::data()\&.
 .PP
 .nf
-40 {
-41     if (this->mRecords\&.count() > 0)
-42     {
-43         int row = index\&.row();
-44         int column = this->fieldFromRole(role);
-45         int nbCols = this->mRoles\&.count();
-46         if(column >= 0 && column < nbCols) {
-47             SH_MessageManager::infoMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n")\&.arg(index\&.row())\&.arg(index\&.column())\&.arg(column)\&.arg(QString(this->mDataFields\&.at(column)->role()))\&.arg(this->mRecords\&.at(row)\&.value(column)\&.toString()));
-48             return this->mRecords\&.at(row)\&.value(column);
-49         } else{
-50             SH_MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)")\&.arg(index\&.row())\&.arg(index\&.column())\&.arg(role)\&.arg(column)\&.arg(nbCols));
-51         }
-52     }
-53     SH_MessageManager::errorMessage("modèle vide");
-54     return QVariant();
-55 }
+32 {
+33     if (this->mRecords\&.count() > 0)
+34     {
+35         int row = index\&.row();
+36         int column = this->fieldFromRole(role);
+37         int nbCols = this->mRoles\&.count();
+38         if(column >= 0 && column < nbCols) {
+39             SH_MessageManager::debugMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n")\&.arg(index\&.row())\&.arg(index\&.column())\&.arg(column)\&.arg(QString(this->mDataFields\&.at(column)->role()))\&.arg(this->mRecords\&.at(row)\&.value(column)\&.toString()));
+40             return this->mRecords\&.at(row)\&.value(column);
+41         } else{
+42             SH_MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)")\&.arg(index\&.row())\&.arg(index\&.column())\&.arg(role)\&.arg(column)\&.arg(nbCols));
+43         }
+44     }
+45     SH_MessageManager::errorMessage("modèle vide");
+46     return QVariant();
+47 }
 .fi
 .SS "SH_SqlDataModel::datas () const"
 
@@ -252,28 +251,27 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 62 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 53 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
-Références mRecords, et mRoles\&.
+Références SH_MessageManager::debugMessage(), mRecords, et mRoles\&.
 .PP
 Référencé par SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState()\&.
 .PP
 .nf
-63 {
-64     qDebug() << "datas";
-65     QVariantMap result;
-66     if (this->mRecords\&.count() > 0)
-67     {
-68         qDebug() << "datas ok";
-69         for(int column = 0; column < this->mRoles\&.count(); column++) {
-70             for(int row = 0; row < this->mRecords\&.count();row++) {
-71                 qDebug() << "data inserted";
-72                 result\&.insertMulti(this->mRoles\&.value(column),this->mRecords\&.at(row)\&.value(column));
-73             }
-74         }
-75     }
-76     return result;
-77 }
+54 {
+55     SH_MessageManager::debugMessage("datas");
+56     QVariantMap result;
+57     if (this->mRecords\&.count() > 0)
+58     {
+59         for(int column = 0; column < this->mRoles\&.count(); column++) {
+60             for(int row = 0; row < this->mRecords\&.count();row++) {
+61                 SH_MessageManager::debugMessage( "data inserted");
+62                 result\&.insertMulti(this->mRoles\&.value(column),this->mRecords\&.at(row)\&.value(column));
+63             }
+64         }
+65     }
+66     return result;
+67 }
 .fi
 .SS "SH_SqlDataModel::fetch (QStringtableName = \fC''\fP, QStringfilter = \fC''\fP, QStringsort = \fC''\fP, QStringListfields = \fCQStringList()\fP)"
 
@@ -296,82 +294,84 @@ bool
 .PP
 
 .PP
-Définition à la ligne 194 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 159 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
-Références applyRoles(), SH_MessageManager::errorMessage(), SH_DatabaseManager::execSelectQuery(), field(), fieldsChanged(), fieldsList(), SH_DatabaseManager::getInstance(), SH_MessageManager::infoMessage(), isEmpty(), lastError(), mDataFields, mFilter, mRecords, mSort, mSqlQuery, mTable, SH_SqlDataFields::name, setFields(), setFilterCondition(), SH_SqlDataFields::setName(), setOrderBy(), et setTable()\&.
+Références applyRoles(), SH_MessageManager::debugMessage(), SH_MessageManager::errorMessage(), SH_DatabaseManager::execSelectQuery(), field(), fieldsChanged(), fieldsList(), SH_DatabaseManager::getInstance(), isEmpty(), lastError(), mDataFields, mFilter, mRecords, mSort, mSqlQuery, mTable, setFields(), setFilterCondition(), SH_SqlDataFields::setName(), setOrderBy(), et setTable()\&.
 .PP
 Référencé par SH_ExtendedProxyModel::fetch(), et SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState()\&.
 .PP
 .nf
-195 {
-196     if(!mTable\&.isEmpty() || !tableName\&.isEmpty()) {
-197         SH_MessageManager::infoMessage("Bienvenue dans fetch");
-198         qDebug() << mTable << " " << this->fieldsList()\&.join(", ") << " " << mFilter << " " << mSort;
-199         this->setFields(fieldsList);
-200         this->setTable(tableName);
-201         this->setFilterCondition(filter);
-202         this->setOrderBy(sort);
-203         qDebug() << tableName << " " << filter << " " << sort << " " << fieldsList\&.join(", ");
-204         try
-205         {
-206             beginResetModel();
-207             mRecords\&.clear();
-208             endResetModel();
-209             qDebug() << mTable << " " << this->fieldsList() << " " << mFilter << " " << mSort;
-210             mSqlQuery = SH_DatabaseManager::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
-211             qDebug() << mSqlQuery\&.executedQuery();
-212             bool next = mSqlQuery\&.next();
-213             if(next) {
-214                 qDebug() << "next ok";
-215             }
-216             while (next) /* && mSqlQuery\&.isActive())*/
-217             {
-218                 QSqlRecord record = mSqlQuery\&.record();
-219                 qDebug() << "\n\n";
-220                 SH_MessageManager::infoMessage("Nouvelle ligne récupérée");
-221                 SH_MessageManager::infoMessage(QString("%1 champs")\&.arg(record\&.count()));
-222                 if (mSqlQuery\&.isValid() && (!record\&.isEmpty()) && (record\&.count() > 0))
-223                 {
-224                     beginInsertRows(QModelIndex(), 0, 0);
-225                     mRecords\&.append(record);
-226                     int nbFields = record\&.count();
-227                     for (int i = 0; i < nbFields; i++)
-228                     {
-229                         SH_MessageManager::infoMessage(QString("%1 : %2")\&.arg(record\&.fieldName(i))\&.arg(record\&.value(i)\&.toString()));
-230                     }
-231                     if (mDataFields\&.empty())
-232                     {
-233                         int nbFields = record\&.count();
-234                         for (int i = 0; i < nbFields; i++)
-235                         {
-236                             SH_SqlDataFields *field = new SH_SqlDataFields();
-237                             field->setName(record\&.fieldName(i));
-238                             SH_MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2")\&.arg(i)\&.arg(field->name()));
-239                             mDataFields\&.append(field);
-240                         }
-241                         this->applyRoles();
-242                         emit fieldsChanged();
-243                     }
-244                     endInsertRows();
-245                 }
-246                 next = mSqlQuery\&.next();
-247             }
-248         }
-249         catch (const std::exception &e)
-250         {
-251             SH_MessageManager::errorMessage(e\&.what(), "exception");
-252             if (this->lastError()\&.isEmpty())
-253             {
-254                 SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
-255             }
-256         }
-257         if (this->lastError()\&.isEmpty())
-258         {
-259             SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
-260         }
-261     }
-262     return (!this->isEmpty());
-263 }
+160 {
+161     if(!mTable\&.isEmpty() || !tableName\&.isEmpty()) {
+162         SH_MessageManager::debugMessage("Bienvenue dans fetch");
+163         SH_MessageManager::debugMessage(mTable + " " + this->fieldsList()\&.join(", ") + " " +mFilter + " " + mSort);
+164         this->setFields(fieldsList);
+165         this->setTable(tableName);
+166         this->setFilterCondition(filter);
+167         this->setOrderBy(sort);
+168         SH_MessageManager::debugMessage(mTable + " " + this->fieldsList()\&.join(", ") + " " +filter + " " + sort);
+169         try
+170         {
+171             beginResetModel();
+172             mRecords\&.clear();
+173             endResetModel();
+174             SH_MessageManager::debugMessage(mTable + " " + this->fieldsList()\&.join(", ") + " " +mFilter + " " + mSort);
+175             mSqlQuery = SH_DatabaseManager::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
+176             bool next = mSqlQuery\&.next();
+177             //SH_MessageManager::infoMessage(mSqlQuery\&.executedQuery());
+178             /*if(next) {
+179                 SH_MessageManager::debugMessage("next ok");
+180             }*/
+181             while (next)
+182             {
+183                 QSqlRecord record = mSqlQuery\&.record();
+184 
+185                 SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
+186                 SH_MessageManager::debugMessage(QString("%1 champs")\&.arg(record\&.count()));
+187                 if (mSqlQuery\&.isValid() && (!record\&.isEmpty()) && (record\&.count() > 0))
+188                 {
+189                     beginInsertRows(QModelIndex(), 0, 0);
+190                     mRecords\&.append(record);
+191 //#ifdef DEBUG
+192                     int nbFields = record\&.count();
+193                     for (int i = 0; i < nbFields; i++)
+194                     {
+195                         SH_MessageManager::debugMessage(QString("%1 : %2")\&.arg(record\&.fieldName(i))\&.arg(record\&.value(i)\&.toString()));
+196                     }
+197 //#endif
+198                     if (mDataFields\&.empty())
+199                     {
+200                         int nbFields = record\&.count();
+201                         for (int i = 0; i < nbFields; i++)
+202                         {
+203                             SH_SqlDataFields *field = new SH_SqlDataFields();
+204                             field->setName(record\&.fieldName(i));
+205                             //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2")\&.arg(i)\&.arg(field->name()));
+206                             mDataFields\&.append(field);
+207                         }
+208                         this->applyRoles();
+209                         emit fieldsChanged();
+210                     }
+211                     endInsertRows();
+212                 }
+213                 next = mSqlQuery\&.next();
+214             }
+215         }
+216         catch (const std::exception &e)
+217         {
+218             SH_MessageManager::errorMessage(e\&.what(), "exception");
+219             if (this->lastError()\&.isEmpty())
+220             {
+221                 SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
+222             }
+223         }
+224         if (this->lastError()\&.isEmpty())
+225         {
+226             SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
+227         }
+228     }
+229     return (!this->isEmpty());
+230 }
 .fi
 .SS "SH_SqlDataModel::field (inti) const"
 
@@ -388,18 +388,18 @@ SqlDataFields
 .PP
 
 .PP
-Définition à la ligne 271 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 235 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références fieldsCount(), et mDataFields\&.
 .PP
 Référencé par fetch(), SH_ExtendedProxyModel::field(), SH_BillingsTableModel::fillModel(), SH_BookingsTableModel::fillModel(), setFields(), SH_ExtendedProxyModel::setSortKeyColumn(), et SH_ExtendedProxyModel::sort()\&.
 .PP
 .nf
-272 {
-273     i = qMin(i, this->fieldsCount()-1);
-274     i = qMax(i, 0);
-275     return this->mDataFields\&.at(i);
-276 }
+236 {
+237     i = qMin(i, this->fieldsCount()-1);
+238     i = qMax(i, 0);
+239     return this->mDataFields\&.at(i);
+240 }
 .fi
 .SS "SH_SqlDataModel::fieldFromRole (introle) const\fC [inline]\fP"
 
@@ -416,12 +416,12 @@ int
 .PP
 
 .PP
-Définition à la ligne 81 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 78 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par data()\&.
 .PP
 .nf
-81 { return role - Qt::UserRole; }
+78 { return role - Qt::UserRole; }
 .fi
 .SS "SH_SqlDataModel::fieldsChanged ()\fC [signal]\fP"
 
@@ -437,16 +437,16 @@ int
 .PP
 
 .PP
-Définition à la ligne 358 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 306 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mDataFields\&.
 .PP
 Référencé par field(), et SH_ExtendedProxyModel::fieldsCount()\&.
 .PP
 .nf
-359 {
-360     return mDataFields\&.count();
-361 }
+307 {
+308     return mDataFields\&.count();
+309 }
 .fi
 .SS "SH_SqlDataModel::fieldsList () const"
 
@@ -458,24 +458,24 @@ const QString
 .PP
 
 .PP
-Définition à la ligne 134 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 110 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mDataFields\&.
 .PP
-Référencé par fetch(), et SH_ExtendedProxyModel::fields()\&.
+Référencé par SH_ExtendedProxyModel::data(), SH_ExtendedProxyModel::fetch(), fetch(), SH_ExtendedProxyModel::fields(), SH_BillingsTableModel::fillModel(), SH_VATTableModel::fillModel(), SH_RoomsTableModel::fillModel(), SH_TraineesTableModel::fillModel(), SH_ServicesTableModel::fillModel(), et SH_UsersTableModel::fillModel()\&.
 .PP
 .nf
-135 {
-136     QStringList fields;
-137     if(!this->mDataFields\&.isEmpty()) {
-138         int c = mDataFields\&.count();
-139         for (int i = 0; i < c; i++)
-140         {
-141             fields \&.append(this->mDataFields\&.at(i)->name());
-142         }
-143     }
-144     return fields;
-145 }
+111 {
+112     QStringList fields;
+113     if(!this->mDataFields\&.isEmpty()) {
+114         int c = mDataFields\&.count();
+115         for (int i = 0; i < c; i++)
+116         {
+117             fields \&.append(this->mDataFields\&.at(i)->name());
+118         }
+119     }
+120     return fields;
+121 }
 .fi
 .SS "const QString& SH_SqlDataModel::filter () const"
 
@@ -495,18 +495,18 @@ bool
 .PP
 
 .PP
-Définition à la ligne 380 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 322 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mRecords\&.
 .PP
 Référencé par fetch(), et SH_ExtendedProxyModel::isEmpty()\&.
 .PP
 .nf
-381 {
-382     return mRecords\&.empty();
-383 }
+323 {
+324     return mRecords\&.empty();
+325 }
 .fi
-.SS "const QString& SH_SqlDataModel::lastError ()"
+.SS "const QString SH_SqlDataModel::lastError ()"
 
 .PP
 Référencé par fetch()\&.
@@ -522,41 +522,41 @@ const QString
 .PP
 
 .PP
-Définition à la ligne 101 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 86 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mSqlQuery\&.
 .PP
 .nf
-102 {
-103     return mSqlQuery\&.lastQuery();
-104 }
+87 {
+88     return mSqlQuery\&.lastQuery();
+89 }
 .fi
 .SS "SH_SqlDataModel::resetFieldsToAll ()"
 
 .PP
-Définition à la ligne 306 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 265 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références applyRoles(), fieldsChanged(), et mDataFields\&.
 .PP
 .nf
-307 {
-308     mDataFields\&.clear();
-309     this->applyRoles();
-310     emit fieldsChanged();
-311 }
+266 {
+267     mDataFields\&.clear();
+268     this->applyRoles();
+269     emit fieldsChanged();
+270 }
 .fi
 .SS "SH_SqlDataModel::resetFilterCondition ()"
 
 .PP
-Définition à la ligne 182 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 150 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références filterChanged(), et mFilter\&.
 .PP
 .nf
-183 {
-184     mFilter = "";
-185     emit filterChanged();
-186 }
+151 {
+152     mFilter = "";
+153     emit filterChanged();
+154 }
 .fi
 .SS "SH_SqlDataModel::roleForField (intfieldIndex) const\fC [inline]\fP"
 
@@ -573,12 +573,12 @@ int
 .PP
 
 .PP
-Définition à la ligne 73 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 70 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par applyRoles(), SH_ExtendedProxyModel::data(), et SH_ExtendedProxyModel::setSortKeyColumn()\&.
 .PP
 .nf
-73 { return Qt::UserRole + fieldIndex;}
+70 { return Qt::UserRole + fieldIndex;}
 .fi
 .SS "SH_SqlDataModel::roleNames () const\fC [inline]\fP, \fC [virtual]\fP"
 
@@ -592,14 +592,14 @@ QHash<int, QByteArray>
 .PP
 
 .PP
-Définition à la ligne 179 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 175 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Références mRoles\&.
 .PP
 Référencé par SH_ExtendedProxyModel::roleNames()\&.
 .PP
 .nf
-179 { return this->mRoles; }
+175 { return this->mRoles; }
 .fi
 .SS "SH_SqlDataModel::rolesChanged ()\fC [signal]\fP"
 
@@ -620,14 +620,15 @@ int
 .PP
 
 .PP
-Définition à la ligne 27 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 22 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mRecords\&.
 .PP
 .nf
-28 {
-29     return mRecords\&.count();
-30 }
+23 {
+24     Q_UNUSED(parent);
+25     return mRecords\&.count();
+26 }
 .fi
 .SS "SH_SqlDataModel::setFields (QStringListfieldList)"
 
@@ -639,28 +640,28 @@ Références mRecords\&.
 .PP
 
 .PP
-Définition à la ligne 284 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 245 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références applyRoles(), field(), fieldsChanged(), mDataFields, et SH_SqlDataFields::setName()\&.
 .PP
 Référencé par fetch()\&.
 .PP
 .nf
-285 {
-286     fields\&.removeDuplicates();
-287     int nbFields = fields\&.count();
-288     if (nbFields > 0)
-289     {
-290         for (int i = 0; i < nbFields; i++)
-291         {
-292             SH_SqlDataFields *field = new SH_SqlDataFields();
-293             field->setName(fields\&.at(i));
-294             mDataFields\&.append(field);
-295         }
-296         this->applyRoles();
-297         emit fieldsChanged();
-298     }
-299 }
+246 {
+247     fields\&.removeDuplicates();
+248     int nbFields = fields\&.count();
+249     if (nbFields > 0)
+250     {
+251         for (int i = 0; i < nbFields; i++)
+252         {
+253             SH_SqlDataFields *field = new SH_SqlDataFields();
+254             field->setName(fields\&.at(i));
+255             mDataFields\&.append(field);
+256         }
+257         this->applyRoles();
+258         emit fieldsChanged();
+259     }
+260 }
 .fi
 .SS "SH_SqlDataModel::setFilterCondition (const QString &filter)"
 
@@ -672,20 +673,20 @@ Référencé par fetch()\&.
 .PP
 
 .PP
-Définition à la ligne 168 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 138 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références filter(), filterChanged(), et mFilter\&.
 .PP
-Référencé par fetch(), et SH_BookingsTableModel::SH_BookingsTableModel()\&.
+Référencé par fetch(), SH_BookingsTableModel::SH_BookingsTableModel(), et SH_VATTableModel::SH_VATTableModel()\&.
 .PP
 .nf
-169 {
-170     if (mFilter != filter && filter != "")
-171     {
-172         mFilter = filter;
-173         emit filterChanged();
-174     }
-175 }
+139 {
+140     if (mFilter != filter && filter != "")
+141     {
+142         mFilter = filter;
+143         emit filterChanged();
+144     }
+145 }
 .fi
 .SS "SH_SqlDataModel::setHeaderData (intsection, Qt::Orientationorientation, const QVariant &value, introle = \fCQt::EditRole\fP)"
 
@@ -708,22 +709,22 @@ bool
 .PP
 
 .PP
-Définition à la ligne 85 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 72 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mDataFields\&.
 .PP
-Référencé par SH_BillingsTableModel::fillModel(), SH_RoomsTableModel::fillModel(), et SH_BookingsTableModel::fillModel()\&.
+Référencé par SH_BillingsTableModel::fillModel(), SH_BookingsTableModel::fillModel(), SH_VATTableModel::fillModel(), SH_TraineesTableModel::fillModel(), SH_RoomsTableModel::fillModel(), et SH_UsersTableModel::fillModel()\&.
 .PP
 .nf
-86 {
-87     Q_UNUSED(role);
-88     if (orientation == Qt::Horizontal)
-89     {
-90         this->mDataFields\&.at(section)->setText(value\&.toString());
-91         return (this->mDataFields\&.at(section)->text() == value\&.toString());
-92     }
-93     return false;
-94 }
+73 {
+74     Q_UNUSED(role);
+75     if (orientation == Qt::Horizontal)
+76     {
+77         this->mDataFields\&.at(section)->setText(value\&.toString());
+78         return (this->mDataFields\&.at(section)->text() == value\&.toString());
+79     }
+80     return false;
+81 }
 .fi
 .SS "SH_SqlDataModel::setOrderBy (QStringsort)"
 
@@ -735,16 +736,16 @@ Référencé par SH_BillingsTableModel::fillModel(), SH_RoomsTableModel::fillMod
 .PP
 
 .PP
-Définition à la ligne 369 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 314 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mSort\&.
 .PP
-Référencé par fetch(), et SH_RoomsTableModel::SH_RoomsTableModel()\&.
+Référencé par fetch(), SH_RoomsTableModel::SH_RoomsTableModel(), et SH_VATTableModel::SH_VATTableModel()\&.
 .PP
 .nf
-370 {
-371     this->mSort = sort;
-372 }
+315 {
+316     this->mSort = sort;
+317 }
 .fi
 .SS "SH_SqlDataModel::setTable (const QString &tableName)"
 
@@ -756,20 +757,20 @@ Référencé par fetch(), et SH_RoomsTableModel::SH_RoomsTableModel()\&.
 .PP
 
 .PP
-Définition à la ligne 153 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 126 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mTable, et tableChanged()\&.
 .PP
-Référencé par fetch(), SH_BillingsTableModel::SH_BillingsTableModel(), SH_BillsTableModel::SH_BillsTableModel(), SH_BookingsTableModel::SH_BookingsTableModel(), SH_ClientsTableModel::SH_ClientsTableModel(), SH_GroupsTableModel::SH_GroupsTableModel(), SH_RoomsTableModel::SH_RoomsTableModel(), et SH_ServicesTableModel::SH_ServicesTableModel()\&.
+Référencé par fetch(), SH_BillingsTableModel::SH_BillingsTableModel(), SH_BillsTableModel::SH_BillsTableModel(), SH_BookingsTableModel::SH_BookingsTableModel(), SH_ClientsTableModel::SH_ClientsTableModel(), SH_GroupsTableModel::SH_GroupsTableModel(), SH_RoomsTableModel::SH_RoomsTableModel(), SH_ServicesTableModel::SH_ServicesTableModel(), SH_TraineesTableModel::SH_TraineesTableModel(), SH_UsersTableModel::SH_UsersTableModel(), et SH_VATTableModel::SH_VATTableModel()\&.
 .PP
 .nf
-154 {
-155     if (mTable\&.toUpper() != tableName\&.toUpper() && tableName != "")
-156     {
-157         mTable = tableName\&.toUpper();
-158         emit tableChanged();
-159     }
-160 }
+127 {
+128     if (mTable\&.toUpper() != tableName\&.toUpper() && tableName != "")
+129     {
+130         mTable = tableName\&.toUpper();
+131         emit tableChanged();
+132     }
+133 }
 .fi
 .SS "SH_SqlDataModel::tableChanged ()\fC [signal]\fP"
 
@@ -785,16 +786,16 @@ const QString
 .PP
 
 .PP
-Définition à la ligne 112 du fichier SH_SqlDataModel\&.cpp\&.
+Définition à la ligne 94 du fichier SH_SqlDataModel\&.cpp\&.
 .PP
 Références mTable\&.
 .PP
 Référencé par SH_ExtendedProxyModel::tableName()\&.
 .PP
 .nf
-113 {
-114     return mTable;
-115 }
+95 {
+96     return mTable;
+97 }
 .fi
 .SH "Documentation des données membres"
 .PP 
@@ -803,7 +804,7 @@ Référencé par SH_ExtendedProxyModel::tableName()\&.
 .PP
 mDataFields 
 .PP
-Définition à la ligne 258 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 256 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par applyRoles(), data(), fetch(), field(), fieldsCount(), fieldsList(), resetFieldsToAll(), setFields(), et setHeaderData()\&.
 .SS "QString SH_SqlDataModel::mFilter\fC [private]\fP"
@@ -811,7 +812,7 @@ Référencé par applyRoles(), data(), fetch(), field(), fieldsCount(), fieldsLi
 .PP
 mFilter 
 .PP
-Définition à la ligne 250 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 246 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par fetch(), resetFilterCondition(), et setFilterCondition()\&.
 .SS "QList<QSqlRecord> SH_SqlDataModel::mRecords\fC [private]\fP"
@@ -819,7 +820,7 @@ Référencé par fetch(), resetFilterCondition(), et setFilterCondition()\&.
 .PP
 mRecords 
 .PP
-Définition à la ligne 270 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 271 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par data(), datas(), fetch(), isEmpty(), et rowCount()\&.
 .SS "QHash<int, QByteArray> SH_SqlDataModel::mRoles\fC [private]\fP"
@@ -827,7 +828,7 @@ Référencé par data(), datas(), fetch(), isEmpty(), et rowCount()\&.
 .PP
 mRoles 
 .PP
-Définition à la ligne 262 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 261 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par applyRoles(), data(), datas(), et roleNames()\&.
 .SS "QString SH_SqlDataModel::mSort\fC [private]\fP"
@@ -835,7 +836,7 @@ Référencé par applyRoles(), data(), datas(), et roleNames()\&.
 .PP
 mSort 
 .PP
-Définition à la ligne 254 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 251 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par fetch(), et setOrderBy()\&.
 .SS "QSqlQuery SH_SqlDataModel::mSqlQuery\fC [private]\fP"
@@ -851,7 +852,7 @@ Référencé par fetch(), et query()\&.
 .PP
 mTable 
 .PP
-Définition à la ligne 246 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 241 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par fetch(), setTable(), et tableName()\&.
 .SH "Documentation des propriétés"
@@ -866,7 +867,7 @@ const QString
 .PP
 
 .PP
-Définition à la ligne 18 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 16 du fichier SH_SqlDataModel\&.h\&.
 .SS "SH_SqlDataModel::lastError\fC [read]\fP"
 
 .PP
@@ -877,13 +878,13 @@ const QString
 .PP
 
 .PP
-Définition à la ligne 19 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 17 du fichier SH_SqlDataModel\&.h\&.
 .PP
 Référencé par SH_ExtendedProxyModel::lastError()\&.
 .SS "QString SH_SqlDataModel::table\fC [read]\fP, \fC [write]\fP"
 
 .PP
-Définition à la ligne 17 du fichier SH_SqlDataModel\&.h\&.
+Définition à la ligne 15 du fichier SH_SqlDataModel\&.h\&.
 
 .SH "Auteur"
 .PP 

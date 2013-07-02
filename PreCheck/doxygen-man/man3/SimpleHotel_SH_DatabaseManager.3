@@ -1,0 +1,504 @@
+.TH "SimpleHotel::SH_DatabaseManager" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_DatabaseManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_DatabaseManager\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fB~SH_DatabaseManager\fP ()"
+.br
+.ti -1c
+.RI "int \fBdataCount\fP (QString tableName, QString filter)"
+.br
+.ti -1c
+.RI "bool \fBdbConnect\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdbDisconnect\fP ()"
+.br
+.ti -1c
+.RI "QVariant \fBexecInsertReturningQuery\fP (QString tableName, QVariantMap values, QString returningField)"
+.br
+.ti -1c
+.RI "bool \fBexecReplaceQuery\fP (QString tableName, QVariantMap values)"
+.br
+.ti -1c
+.RI "QSqlQuery \fBexecSelectQuery\fP (QString tableName, QStringList fields=QStringList('*'), QString condition='', QString ordering='')"
+.br
+.ti -1c
+.RI "QSqlDatabase \fBgetDbConnection\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisConnected\fP ()"
+.br
+.ti -1c
+.RI "bool \fBtableExists\fP (QString tableName)"
+.br
+.in -1c
+.SS "Fonctions membres publiques statiques"
+
+.in +1c
+.ti -1c
+.RI "static \fBSH_DatabaseManager\fP * \fBgetInstance\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_DatabaseManager\fP ()"
+.br
+.in -1c
+.SS "Attributs protégés"
+
+.in +1c
+.ti -1c
+.RI "QSqlDatabase \fBdbConnection\fP"
+.br
+.RI "\fIdbConnection \fP"
+.in -1c
+.SS "Fonctions membres privées"
+
+.in +1c
+.ti -1c
+.RI "void \fBdivideQVariantMap\fP (QVariantMap values, QString &fields, QString &vals)"
+.br
+.in -1c
+.SS "Attributs privés statiques"
+
+.in +1c
+.ti -1c
+.RI "static \fBSH_DatabaseManager\fP * \fB_instance\fP = 0"
+.br
+.RI "\fI_instance \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 64 du fichier SH_DatabaseManager\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_DatabaseManager::SH_DatabaseManager ()\fC [protected]\fP"
+
+.PP
+Définition à la ligne 41 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnect(), dbConnection, SimpleHotel::dbDriverNotExistStr, SimpleHotel::dbDriverStr, SimpleHotel::dbFileNameStr, SimpleHotel::dbFilePathStr, SimpleHotel::dbPasswordStr, SimpleHotel::dbUsernameStr, et SimpleHotel::SH_MessageManager::errorMessage()\&.
+.PP
+Référencé par getInstance()\&.
+.PP
+.nf
+42 {
+43     /*
+44      *Check the existence of the database driver\&.
+45      */
+46     if (!QSqlDatabase::isDriverAvailable(dbDriverStr))
+47     {
+48         /*
+49         *Gui message that informs that the driver does not exist
+50         */
+51         SH_MessageManager::errorMessage(dbDriverNotExistStr);
+52         SH_MessageManager::errorMessage(dbConnection\&.lastError()\&.text());
+53         SH_MessageManager::errorMessage("AVAILABLE DRIVERS: "+dbConnection\&.drivers()\&.join(", "));
+54         exit(1);
+55     }
+56 
+57     /*
+58     *Connect to the database with the following driver\&.
+59     */
+60     dbConnection = QSqlDatabase::addDatabase(dbDriverStr);
+61     if (dbDriverStr == "QIBASE")
+62     {
+63         dbConnection\&.setDatabaseName(dbFilePathStr);
+64     } else {
+65         dbConnection\&.setDatabaseName(dbFileNameStr);
+66     }
+67 
+68     dbConnection\&.setUserName(dbUsernameStr);
+69     dbConnection\&.setPassword(dbPasswordStr);
+70     dbConnect();
+71 
+72 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::~SH_DatabaseManager ()"
+
+.PP
+Définition à la ligne 30 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbDisconnect()\&.
+.PP
+.nf
+31 {
+32     dbDisconnect();
+33 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "int SimpleHotel::SH_DatabaseManager::dataCount (QStringtableName, QStringfilter)"
+
+.PP
+Définition à la ligne 164 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection, et execSelectQuery()\&.
+.PP
+.nf
+164                                                                    {
+165     if(!tableName\&.isEmpty() && !filter\&.isEmpty()) {
+166         QSqlQuery result = execSelectQuery(tableName, QStringList("COUNT(*) AS MATCH"), filter);
+167         if(dbConnection\&.driver()->hasFeature(QSqlDriver::QuerySize)) {
+168             return result\&.size();
+169         } else {
+170             if(result\&.next()) {
+171                 QSqlRecord rec = result\&.record();
+172                 if(!rec\&.isEmpty()  && result\&.isValid()) {
+173                     return rec\&.value(rec\&.indexOf("MATCH"))\&.toInt();
+174                 }
+175             }
+176         }
+177     }
+178     return 0;
+179 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::dbConnect ()"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 83 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références SimpleHotel::dbCannotOpenStr, dbConnection, et SimpleHotel::SH_MessageManager::errorMessage()\&.
+.PP
+Référencé par SH_DatabaseManager()\&.
+.PP
+.nf
+84 {
+85     /*
+86             *Open database, if the database cannot open for
+87             *any reason print a warning\&.
+88             */
+89     if (!dbConnection\&.open())
+90     {
+91         /*
+92                  *Gui message that informs that the database cannot open
+93                  */
+94         SH_MessageManager::errorMessage(dbCannotOpenStr);
+95         SH_MessageManager::errorMessage(dbConnection\&.lastError()\&.text());
+96 
+97         /*
+98                  *@return false if database connection failed\&.
+99                  */
+100         return false;
+101     }
+102 
+103     /*
+104              *@return true if database connection successed
+105              */
+106     return dbConnection\&.isOpen();
+107 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::dbDisconnect ()"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 118 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+Référencé par ~SH_DatabaseManager()\&.
+.PP
+.nf
+119 {
+120     /*
+121              *close database
+122              */
+123     dbConnection\&.close();
+124     return (!dbConnection\&.isOpen());
+125 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::divideQVariantMap (QVariantMapvalues, QString &fields, QString &vals)\fC [private]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIvalues\fP 
+.br
+\fIou]\fP fields 
+.br
+\fIou]\fP vals 
+.RE
+.PP
+
+.PP
+Définition à la ligne 253 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Référencé par execInsertReturningQuery(), et execReplaceQuery()\&.
+.PP
+.nf
+253                                                                                              {
+254     for(auto field : values\&.keys())
+255     {
+256         fields += field+",";
+257         QVariant val = values\&.value(field);
+258         bool ok;
+259         int intVal = val\&.toInt(&ok);
+260         if(ok) {
+261             vals += QString::number(intVal)+",";
+262         }
+263         double dbVal = val\&.toDouble(&ok);
+264         if(ok) {
+265             vals += QString::number(dbVal)+",";
+266         }
+267         /*bool boolVal = val\&.toBool();
+268                 if(boolVal) {
+269                     &vals += "'"+1+"'',";
+270                 }*/
+271         QDate dateVal = val\&.toDate();
+272         if(dateVal\&.isValid()) {
+273             vals += "'"+dateVal\&.toString()+"'',"; /*FIXME adapt date format*/
+274         }
+275         QDateTime dateTimeVal = val\&.toDateTime();
+276         if(dateTimeVal\&.isValid()) {
+277             vals += "'"+dateTimeVal\&.toString()+"'',"; /*FIXME adapt datetime format*/
+278         }
+279         QString stringVal = val\&.toString();
+280         vals += "'"+stringVal+"'',";
+281     }
+282     fields = fields\&.left(fields\&.lastIndexOf(',')-1);
+283     vals = vals\&.left(vals\&.lastIndexOf(',')-1);
+284 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::execInsertReturningQuery (QStringtableName, QVariantMapvalues, QStringreturningField)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIquery\fP 
+.br
+\fIreturningField\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Définition à la ligne 230 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection, et divideQVariantMap()\&.
+.PP
+Référencé par SimpleHotel::SH_AdaptDatabaseState::insertUpdate()\&.
+.PP
+.nf
+230                                                                                                                    {
+231     QString fields;
+232     QString vals;
+233     divideQVariantMap(values, fields, vals);
+234     QString query;
+235     if(dbConnection\&.driverName() == "QIBASE") {
+236         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4")\&.arg(tableName)\&.arg(fields)\&.arg(vals)\&.arg(returningField);
+237     }
+238     QSqlQuery result = dbConnection\&.exec(query);
+239     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3")\&.arg(result\&.executedQuery())\&.arg(result\&.isValid())\&.arg(result\&.isActive()));
+240     if(result\&.next()) {
+241         QSqlRecord rec = result\&.record();
+242         if(!rec\&.isEmpty()  && result\&.isValid()) {
+243             return rec\&.value(rec\&.indexOf(returningField));
+244         }
+245     }
+246     return QVariant();
+247 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::execReplaceQuery (QStringtableName, QVariantMapvalues)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIquery\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 213 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection, et divideQVariantMap()\&.
+.PP
+.nf
+213                                                                                {
+214     QString fields;
+215     QString vals;
+216     divideQVariantMap(values, fields, vals);
+217     QString query;
+218     if(dbConnection\&.driverName() == "QIBASE") {
+219         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)")\&.arg(tableName)\&.arg(fields)\&.arg(vals);
+220     }
+221     QSqlQuery result = dbConnection\&.exec(query);
+222     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3")\&.arg(result\&.executedQuery())\&.arg(result\&.isValid())\&.arg(result\&.isActive()));
+223     return (result\&.numRowsAffected() > 0);
+224 }
+.fi
+.SS "QSqlQuery SimpleHotel::SH_DatabaseManager::execSelectQuery (QStringtableName, QStringListfields = \fCQStringList('*')\fP, QStringcondition = \fC''\fP, QStringordering = \fC''\fP)"
+
+.PP
+Définition à la ligne 187 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+Référencé par dataCount(), SimpleHotel::SH_SqlDataModel::fetch(), SimpleHotel::SH_User::logIn(), et SimpleHotel::SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+187                                                                                                                         {
+188     if(fields\&.isEmpty()) {
+189         fields\&.append("*");
+190     }
+191 
+192     QString query;
+193     if(dbConnection\&.driverName() == "QIBASE") {
+194         query = QString("SELECT %1 FROM %2")\&.arg(fields\&.join(", "))\&.arg(tableName);
+195         if(!condition\&.isEmpty()) {
+196             query = QString("%1 WHERE %2")\&.arg(query)\&.arg(condition);
+197         }
+198         if(!ordering\&.isEmpty()) {
+199             query = QString("%1 ORDER BY %2")\&.arg(query)\&.arg(ordering);
+200         }
+201     }
+202     QSqlQuery result;
+203     result\&.exec(query);
+204     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3")\&.arg(result\&.executedQuery())\&.arg(result\&.isValid())\&.arg(result\&.isActive()));
+205     return result;
+206 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::getDbConnection ()"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QSqlDatabase 
+.RE
+.PP
+
+.PP
+Définition à la ligne 144 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+.nf
+145 {
+146     return dbConnection;
+147 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::getInstance ()\fC [static]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+\fBSH_DatabaseManager\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 15 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références _instance, et SH_DatabaseManager()\&.
+.PP
+Référencé par SimpleHotel::SH_SqlDataModel::fetch(), SimpleHotel::SH_AdaptDatabaseState::insertUpdate(), SimpleHotel::SH_User::logIn(), SimpleHotel::SH_ServiceCharging::SH_ServiceCharging(), SimpleHotel::SH_User::traineeExists(), et SimpleHotel::SH_User::userExists()\&.
+.PP
+.nf
+16 {
+17     if (_instance == 0)
+18     {
+19         _instance = new SH_DatabaseManager;
+20     }
+21     return _instance;
+22 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::isConnected ()"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 133 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+.nf
+134 {
+135     return dbConnection\&.isOpen();
+136 }
+.fi
+.SS "SimpleHotel::SH_DatabaseManager::tableExists (QStringtableName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItableName\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 154 du fichier SH_DatabaseManager\&.cpp\&.
+.PP
+Références dbConnection\&.
+.PP
+.nf
+155 {
+156     return dbConnection\&.tables(QSql::Views)\&.contains(tableName\&.toUpper(), Qt::CaseInsensitive) || dbConnection\&.tables(QSql::Tables)\&.contains(tableName\&.toUpper(), Qt::CaseInsensitive);
+157 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "\fBSH_DatabaseManager\fP * SimpleHotel::SH_DatabaseManager::_instance = 0\fC [static]\fP, \fC [private]\fP"
+
+.PP
+_instance 
+.PP
+Définition à la ligne 71 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par getInstance()\&.
+.SS "QSqlDatabase SimpleHotel::SH_DatabaseManager::dbConnection\fC [protected]\fP"
+
+.PP
+dbConnection 
+.PP
+Définition à la ligne 92 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par dataCount(), dbConnect(), dbDisconnect(), execInsertReturningQuery(), execReplaceQuery(), execSelectQuery(), getDbConnection(), isConnected(), SH_DatabaseManager(), et tableExists()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

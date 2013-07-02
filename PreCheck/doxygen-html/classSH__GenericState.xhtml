@@ -175,8 +175,6 @@ Fonctions membres protégées</h2></td></tr>
 Connecteurs privés</h2></td></tr>
 <tr class="memitem:a66d4d4d94ef4fac3eb8d137848290582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582">emitGoNext</a> ()</td></tr>
 <tr class="separator:a66d4d4d94ef4fac3eb8d137848290582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bf70be0a8f92cd7d6dacd953df90f52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSH__GenericState.xhtml#a4bf70be0a8f92cd7d6dacd953df90f52">onMachineStarted</a> ()</td></tr>
-<tr class="separator:a4bf70be0a8f92cd7d6dacd953df90f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4259cc1e6a51681d6a92e995486380"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380">onTransitionTriggered</a> ()</td></tr>
 <tr class="separator:aad4259cc1e6a51681d6a92e995486380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -196,7 +194,7 @@ Attributs privés</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock">
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8h_source.xhtml#l00013">13</a> du fichier <a class="el" href="SH__GenericDebugableState_8h_source.xhtml">SH_GenericDebugableState.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8h_source.xhtml#l00012">12</a> du fichier <a class="el" href="SH__GenericDebugableState_8h_source.xhtml">SH_GenericDebugableState.h</a>.</p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="a3cc3cb1491b812dfdd032fc6438dfd4e"></a>
 <div class="memitem">
@@ -222,15 +220,16 @@ Attributs privés</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00010">10</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00012">12</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
 
 <p>Références <a class="el" href="classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582">emitGoNext()</a>, <a class="el" href="classSH__GenericState.xhtml#a34c1bebc765cc3a62d66c94c37d4f0c3">goNext()</a>, et <a class="el" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                                                             :</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classQState.xhtml">QState</a>(parent), <a class="code" href="classSH__NamedObject.xhtml#a6ceff219e80ad3f5c36db5f4258e74fd">SH_NamedObject</a>(<a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>), <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>(<span class="keyword">false</span>)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__GenericState.xhtml#a34c1bebc765cc3a62d66c94c37d4f0c3">SH_GenericState::goNext</a>, <span class="keyword">this</span>, &amp;<a class="code" href="classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582">SH_GenericState::emitGoNext</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    this-&gt;blockSignals(!<a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                                             :</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classQState.xhtml">QState</a>(parent), <a class="code" href="classSH__NamedObject.xhtml#a6ceff219e80ad3f5c36db5f4258e74fd">SH_NamedObject</a>(<a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>), <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;setObjectName(<a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    connect(<span class="keyword">this</span>, &amp;<a class="code" href="classSH__GenericState.xhtml#a34c1bebc765cc3a62d66c94c37d4f0c3">SH_GenericState::goNext</a>, <span class="keyword">this</span>, &amp;<a class="code" href="classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582">SH_GenericState::emitGoNext</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;blockSignals(!<a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -290,7 +289,7 @@ Attributs privés</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Référencé par <a class="el" href="classSH__QuestionState.xhtml#a902be003650c33d954d707b2d3ee0bb9">SH_QuestionState::checkValidity()</a>, <a class="el" href="classSH__ConfirmationState.xhtml#a039267260de5d102ac7511e6a5fae87f">SH_ConfirmationState::confirmInput()</a>, <a class="el" href="classSH__AdaptDatabaseState.xhtml#a037db544ea05f42d21fcbdda758839fe">SH_AdaptDatabaseState::insertUpdate()</a>, <a class="el" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">SH_StatementState::onEntry()</a>, <a class="el" href="classSH__BillingCreationStateMachine.xhtml#ad62b77fa4aeafe200056ff3974562f83">SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()</a>, <a class="el" href="classSH__GenericState.xhtml#a3cc3cb1491b812dfdd032fc6438dfd4e">SH_GenericState()</a>, et <a class="el" href="classSH__ServiceCharging.xhtml#afa5273d046049b1c2b020a6a19a8290b">SH_ServiceCharging::SH_ServiceCharging()</a>.</p>
+<p>Référencé par <a class="el" href="classSH__QuestionState.xhtml#a902be003650c33d954d707b2d3ee0bb9">SH_QuestionState::checkValidity()</a>, <a class="el" href="classSH__ConfirmationState.xhtml#a039267260de5d102ac7511e6a5fae87f">SH_ConfirmationState::confirmInput()</a>, <a class="el" href="classSH__AdaptDatabaseState.xhtml#a037db544ea05f42d21fcbdda758839fe">SH_AdaptDatabaseState::insertUpdate()</a>, <a class="el" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">SH_StatementState::onEntry()</a>, <a class="el" href="classSH__BillingCreationStateMachine.xhtml#ad62b77fa4aeafe200056ff3974562f83">SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()</a>, <a class="el" href="classSH__GenericState.xhtml#a3cc3cb1491b812dfdd032fc6438dfd4e">SH_GenericState()</a>, <a class="el" href="classSH__InOutState.xhtml#a5fa88487103a8e197a8453c991bb056b">SH_InOutState::SH_InOutState()</a>, et <a class="el" href="classSH__ServiceCharging.xhtml#afa5273d046049b1c2b020a6a19a8290b">SH_ServiceCharging::SH_ServiceCharging()</a>.</p>
 
 </div>
 </div>
@@ -308,14 +307,14 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Renvoie</dt><dd>bool </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00092">92</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00081">81</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
 
 <p>Références <a class="el" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>.</p>
 
-<p>Référencé par <a class="el" href="classSH__InOutStateMachine.xhtml#ae0f3b4622d2c70884bb224dee86e95c0">SH_InOutStateMachine::addChildrenReplaceTransition()</a>, <a class="el" href="classSH__InOutState.xhtml#a616f88b20478b81b2927a9ddc2b4f521">SH_InOutState::display()</a>, <a class="el" href="classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582">emitGoNext()</a>, <a class="el" href="classSH__InOutState.xhtml#aaec9c2b5ef7c406bff7469461352d47c">SH_InOutState::setInput()</a>, <a class="el" href="classSH__InOutState.xhtml#af611c84134e262739cd834797b315c80">SH_InOutState::setOutput()</a>, et <a class="el" href="classSH__InOutState.xhtml#a7fdfaa6f600f0ac4a96f238a038ba9ad">SH_InOutState::setVisibility()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<p>Référencé par <a class="el" href="classSH__QuestionState.xhtml#a902be003650c33d954d707b2d3ee0bb9">SH_QuestionState::checkValidity()</a>, <a class="el" href="classSH__ConfirmationState.xhtml#a039267260de5d102ac7511e6a5fae87f">SH_ConfirmationState::confirmInput()</a>, <a class="el" href="classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582">emitGoNext()</a>, <a class="el" href="classSH__InOutState.xhtml#ad1695493d39c5194e5b7c6372754ddd7">SH_InOutState::emitResendInput()</a>, <a class="el" href="classSH__InOutState.xhtml#a40995f4a8201f21d26b7e78b7e7b652e">SH_InOutState::emitSendOutput()</a>, <a class="el" href="classSH__InOutState.xhtml#aaec9c2b5ef7c406bff7469461352d47c">SH_InOutState::setInput()</a>, <a class="el" href="classSH__InOutState.xhtml#af611c84134e262739cd834797b315c80">SH_InOutState::setOutput()</a>, et <a class="el" href="classSH__InOutState.xhtml#a7fdfaa6f600f0ac4a96f238a038ba9ad">SH_InOutState::setVisibility()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -341,14 +340,14 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Renvoie</dt><dd>QString </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="SH__NamedObject_8cpp_source.xhtml#l00032">32</a> du fichier <a class="el" href="SH__NamedObject_8cpp_source.xhtml">SH_NamedObject.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__NamedObject_8cpp_source.xhtml#l00026">26</a> du fichier <a class="el" href="SH__NamedObject_8cpp_source.xhtml">SH_NamedObject.cpp</a>.</p>
 
 <p>Références <a class="el" href="classSH__NamedObject.xhtml#a7f8e3346256986c337a792339ea5a015">SH_NamedObject::m_name</a>.</p>
 
-<p>Référencé par <a class="el" href="classSH__GenericStateMachine.xhtml#adfd82f2532595ed7c4bcf21f03cbb951">SH_GenericStateMachine::onEntry()</a>, <a class="el" href="classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb">onEntry()</a>, <a class="el" href="classSH__GenericStateMachine.xhtml#a4b36d60fa1876908493d3d07f191a30f">SH_GenericStateMachine::onExit()</a>, <a class="el" href="classSH__GenericState.xhtml#a7f7863859318c70c9b734be5bf5510b0">onExit()</a>, <a class="el" href="classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380">onTransitionTriggered()</a>, <a class="el" href="classSH__NamedObject.xhtml#a6bc164e6fa10ae190770529af75d1775">SH_NamedObject::setName()</a>, et <a class="el" href="classSH__ServiceCharging.xhtml#afa5273d046049b1c2b020a6a19a8290b">SH_ServiceCharging::SH_ServiceCharging()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<p>Référencé par <a class="el" href="classSH__GenericStateMachine.xhtml#adfd82f2532595ed7c4bcf21f03cbb951">SH_GenericStateMachine::onEntry()</a>, <a class="el" href="classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb">onEntry()</a>, <a class="el" href="classSH__GenericStateMachine.xhtml#a4b36d60fa1876908493d3d07f191a30f">SH_GenericStateMachine::onExit()</a>, <a class="el" href="classSH__GenericState.xhtml#a7f7863859318c70c9b734be5bf5510b0">onExit()</a>, <a class="el" href="classSH__NamedObject.xhtml#a6bc164e6fa10ae190770529af75d1775">SH_NamedObject::setName()</a>, et <a class="el" href="classSH__ServiceCharging.xhtml#afa5273d046049b1c2b020a6a19a8290b">SH_ServiceCharging::SH_ServiceCharging()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -405,17 +404,20 @@ Attributs privés</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00071">71</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00060">60</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
 
-<p>Références <a class="el" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>, et <a class="el" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">SH_NamedObject::name()</a>.</p>
+<p>Références <a class="el" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage()</a>, <a class="el" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>, <a class="el" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">SH_NamedObject::name()</a>, et <a class="el" href="classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380">onTransitionTriggered()</a>.</p>
 
 <p>Référencé par <a class="el" href="classSH__StatementState.xhtml#ab866a023213fe1bd1857705bf98a8f65">SH_StatementState::onEntry()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    Q_UNUSED(event);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    this-&gt;blockSignals(!<a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;Machine: &quot;</span> &lt;&lt; machine()-&gt;objectName() &lt;&lt; <span class="stringliteral">&quot; entered &quot;</span> &lt;&lt; <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">foreach</span> (QAbstractTransition* tr, transitions()) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        connect(tr, SIGNAL(triggered()), <span class="keyword">this</span>, SLOT(<a class="code" href="classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380">onTransitionTriggered</a>()));</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    this-&gt;blockSignals(!<a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;Machine: %1, entered state %2&quot;</span>).arg(machine()-&gt;objectName()).arg(<a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>()));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -447,48 +449,15 @@ Attributs privés</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00084">84</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00074">74</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
 
-<p>Références <a class="el" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>, et <a class="el" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">SH_NamedObject::name()</a>.</p>
-
-<p>Référencé par <a class="el" href="classSH__InOutState.xhtml#afc0433d63375063a43e39adca641e330">SH_InOutState::onExit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Q_UNUSED(event);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    this-&gt;blockSignals(!<a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;Machine: &quot;</span> &lt;&lt; machine()-&gt;objectName() &lt;&lt; <span class="stringliteral">&quot; exited  &quot;</span> &lt;&lt; <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="a4bf70be0a8f92cd7d6dacd953df90f52"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">SH_GenericState::onMachineStarted </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00101">101</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
-
-<p>Références <a class="el" href="classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380">onTransitionTriggered()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">foreach</span> (QAbstractTransition* tr, transitions())</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        connect(tr, SIGNAL(triggered()), <span class="keyword">this</span>, SLOT(<a class="code" href="classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380">onTransitionTriggered</a>()));</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<p>Références <a class="el" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage()</a>, <a class="el" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>, et <a class="el" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">SH_NamedObject::name()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    this-&gt;blockSignals(!<a class="code" href="classSH__GenericState.xhtml#a72ddc905cfbffbed48bb2f2474d5297a">m_isRunning</a>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;Machine: %1, exited state %2&quot;</span>).arg(machine()-&gt;objectName()).arg(<a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>()));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -513,28 +482,23 @@ Attributs privés</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00046">46</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00043">43</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
 
-<p>Références <a class="el" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">SH_NamedObject::name()</a>.</p>
+<p>Références <a class="el" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage()</a>.</p>
 
-<p>Référencé par <a class="el" href="classSH__GenericState.xhtml#a4bf70be0a8f92cd7d6dacd953df90f52">onMachineStarted()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QAbstractTransition* tr = qobject_cast&lt;QAbstractTransition*&gt;(sender());</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (tr == 00) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* sourceState = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>*&gt;(tr-&gt;sourceState());</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* targetState = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>*&gt;(tr-&gt;targetState());</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QString log;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QTextStream logStream(&amp;log);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    logStream &lt;&lt; machine()-&gt;objectName() &lt;&lt; <span class="stringliteral">&quot; transition from &quot;</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (sourceState) logStream &lt;&lt; sourceState-&gt;<a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">else</span> logStream &lt;&lt; tr-&gt;sourceState();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    logStream &lt;&lt; <span class="stringliteral">&quot; to &quot;</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (targetState) logStream &lt;&lt; targetState-&gt;name();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">else</span> logStream &lt;&lt; tr-&gt;targetState();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    logStream.flush();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;Machine: &quot;</span> &lt;&lt; log;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<p>Référencé par <a class="el" href="classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb">onEntry()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QAbstractTransition* tr = qobject_cast&lt;QAbstractTransition*&gt;(sender());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (tr == 00) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QSignalTransition *str = qobject_cast&lt;QSignalTransition*&gt;(tr);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QString signal = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>(str) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        signal = QString(str-&gt;signal());</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* sourceState = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>*&gt;(tr-&gt;sourceState());</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* targetState = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>*&gt;(tr-&gt;targetState());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;transition triggered in %1 from %2 to %3 with thanks to event %4&quot;</span>).arg(machine()-&gt;objectName()).arg(sourceState-&gt;objectName()).arg(targetState-&gt;objectName()).arg(signal));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -560,12 +524,12 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Renvoie</dt><dd>QString </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="SH__NamedObject_8cpp_source.xhtml#l00054">54</a> du fichier <a class="el" href="SH__NamedObject_8cpp_source.xhtml">SH_NamedObject.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__NamedObject_8cpp_source.xhtml#l00042">42</a> du fichier <a class="el" href="SH__NamedObject_8cpp_source.xhtml">SH_NamedObject.cpp</a>.</p>
 
 <p>Références <a class="el" href="classSH__NamedObject.xhtml#acfc489299f90750082785bf9ac42f4ff">SH_NamedObject::m_ptraddress</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#acfc489299f90750082785bf9ac42f4ff" title="m_ptraddress ">m_ptraddress</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#acfc489299f90750082785bf9ac42f4ff" title="m_ptraddress ">m_ptraddress</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -597,12 +561,12 @@ Attributs privés</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="SH__NamedObject_8cpp_source.xhtml#l00043">43</a> du fichier <a class="el" href="SH__NamedObject_8cpp_source.xhtml">SH_NamedObject.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__NamedObject_8cpp_source.xhtml#l00034">34</a> du fichier <a class="el" href="SH__NamedObject_8cpp_source.xhtml">SH_NamedObject.cpp</a>.</p>
 
 <p>Références <a class="el" href="classSH__NamedObject.xhtml#a7f8e3346256986c337a792339ea5a015">SH_NamedObject::m_name</a>, et <a class="el" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">SH_NamedObject::name()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classSH__NamedObject.xhtml#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a> = <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classSH__NamedObject.xhtml#a7f8e3346256986c337a792339ea5a015" title="m_name ">m_name</a> = <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -630,20 +594,20 @@ Attributs privés</h2></td></tr>
 
 <p>Réimplémentée à partir de <a class="el" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00022">22</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml#l00023">23</a> du fichier <a class="el" href="SH__GenericDebugableState_8cpp_source.xhtml">SH_GenericDebugableState.cpp</a>.</p>
 
-<p>Références <a class="el" href="classSH__GenericStateMachine.xhtml#a85c0c1c9d258ae991f84667412fa47cd">SH_GenericStateMachine::toString()</a>, et <a class="el" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject::toString()</a>.</p>
+<p>Références <a class="el" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject::toString()</a>, et <a class="el" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString()</a>.</p>
 
-<p>Référencé par <a class="el" href="classSH__GenericStateMachine.xhtml#a22433f8df2f41120a05bfa4bbfa9e0ae">SH_GenericStateMachine::addChildrenNextTransition()</a>, <a class="el" href="classSH__InOutStateMachine.xhtml#a2528cffddbe6f98c32ebef41423c0118">SH_InOutStateMachine::addIOState()</a>, <a class="el" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">SH_DateQuestionState::rawInput()</a>, et <a class="el" href="classSH__GenericStateMachine.xhtml#a85c0c1c9d258ae991f84667412fa47cd">SH_GenericStateMachine::toString()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classQStateMachine.xhtml">QStateMachine</a>* machine = this-&gt;machine();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classSH__InOutStateMachine.xhtml">SH_InOutStateMachine</a>* mach = qobject_cast&lt;<a class="code" href="classSH__InOutStateMachine.xhtml">SH_InOutStateMachine</a> *&gt;(machine);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(mach) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject::toString</a>()+ <span class="stringliteral">&quot; [in &quot;</span>+mach-&gt;<a class="code" href="classSH__GenericStateMachine.xhtml#a85c0c1c9d258ae991f84667412fa47cd">toString</a>()+<span class="stringliteral">&quot;] &quot;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject::toString</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<p>Référencé par <a class="el" href="classSH__QuestionState.xhtml#a902be003650c33d954d707b2d3ee0bb9">SH_QuestionState::checkValidity()</a>, <a class="el" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">SH_DateQuestionState::rawInput()</a>, <a class="el" href="classSH__GenericStateMachine.xhtml#a85c0c1c9d258ae991f84667412fa47cd">SH_GenericStateMachine::toString()</a>, et <a class="el" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classQStateMachine.xhtml">QStateMachine</a>* machine = this-&gt;machine();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a>* mach = qobject_cast&lt;<a class="code" href="classSH__GenericState.xhtml">SH_GenericState</a> *&gt;(machine);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(mach) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject::toString</a>()+ <span class="stringliteral">&quot; [in &quot;</span>+mach-&gt;<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>()+<span class="stringliteral">&quot;] &quot;</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classSH__NamedObject.xhtml#a9f4b19df6a96a17daaf1060b3019ef47">SH_NamedObject::toString</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -666,7 +630,7 @@ Attributs privés</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8h_source.xhtml#l00092">92</a> du fichier <a class="el" href="SH__GenericDebugableState_8h_source.xhtml">SH_GenericDebugableState.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="SH__GenericDebugableState_8h_source.xhtml#l00086">86</a> du fichier <a class="el" href="SH__GenericDebugableState_8h_source.xhtml">SH_GenericDebugableState.h</a>.</p>
 
 <p>Référencé par <a class="el" href="classSH__GenericState.xhtml#a5f731810dad0cacd28828ccbf1539e4e">isRunning()</a>, <a class="el" href="classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb">onEntry()</a>, <a class="el" href="classSH__GenericState.xhtml#a7f7863859318c70c9b734be5bf5510b0">onExit()</a>, et <a class="el" href="classSH__GenericState.xhtml#a3cc3cb1491b812dfdd032fc6438dfd4e">SH_GenericState()</a>.</p>
 
@@ -683,7 +647,7 @@ Attributs privés</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classSH__GenericState.xhtml">SH_GenericState</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:36 pour PreCheck par
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:31 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

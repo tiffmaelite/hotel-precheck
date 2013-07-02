@@ -1,0 +1,317 @@
+.TH "SimpleHotel::SH_SqlDataFields" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_SqlDataFields \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_SqlDataField\&.h>\fP
+.PP
+Est dérivée de \fBQQuickItem\fP\&.
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBnameChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBroleChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBsortOrderChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBtextChanged\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_SqlDataFields\fP (\fBQQuickItem\fP *parent=0)"
+.br
+.ti -1c
+.RI "QString \fBname\fP () const "
+.br
+.ti -1c
+.RI "QByteArray \fBrole\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetName\fP (QString newName)"
+.br
+.ti -1c
+.RI "void \fBsetSortOrder\fP (Qt::SortOrder newSortOrder)"
+.br
+.ti -1c
+.RI "void \fBsetText\fP (QString newText)"
+.br
+.ti -1c
+.RI "Qt::SortOrder \fBsortOrder\fP () const "
+.br
+.ti -1c
+.RI "QString \fBtext\fP () const "
+.br
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "QString \fBname\fP"
+.br
+.ti -1c
+.RI "QByteArray \fBrole\fP"
+.br
+.ti -1c
+.RI "Qt::SortOrder \fBsortOrder\fP"
+.br
+.ti -1c
+.RI "QString \fBtext\fP"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "QString \fBm_name\fP"
+.br
+.RI "\fIm_name \fP"
+.ti -1c
+.RI "Qt::SortOrder \fBm_sortOrder\fP"
+.br
+.RI "\fIm_sortOrder \fP"
+.ti -1c
+.RI "QString \fBm_text\fP"
+.br
+.RI "\fIm_text \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 13 du fichier SH_SqlDataField\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_SqlDataFields::SH_SqlDataFields (\fBQQuickItem\fP *parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Définition à la ligne 9 du fichier SH_SqlDataField\&.cpp\&.
+.PP
+.nf
+9                                                      :
+10     QQuickItem(parent)
+11 {
+12     this->setHeight(15);
+13 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "QString SimpleHotel::SH_SqlDataFields::name () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 43 du fichier SH_SqlDataField\&.h\&.
+.PP
+Références m_name\&.
+.PP
+.nf
+43 { return m_name; }
+.fi
+.SS "SimpleHotel::SH_SqlDataFields::nameChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setName()\&.
+.SS "QByteArray SimpleHotel::SH_SqlDataFields::role () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 50 du fichier SH_SqlDataField\&.h\&.
+.PP
+Références m_name\&.
+.PP
+.nf
+50 { return QByteArray(m_name\&.toUpper()\&.toStdString()\&.c_str()); }
+.fi
+.SS "SimpleHotel::SH_SqlDataFields::roleChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setName()\&.
+.SS "SimpleHotel::SH_SqlDataFields::setName (QStringnewName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInewName\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 36 du fichier SH_SqlDataField\&.cpp\&.
+.PP
+Références m_name, m_text, nameChanged(), roleChanged(), setSortOrder(), et setText()\&.
+.PP
+Référencé par SimpleHotel::SH_SqlDataModel::fetch(), SimpleHotel::SH_SqlDataModel::setFields(), et setText()\&.
+.PP
+.nf
+37 {
+38     m_name = newName;
+39     this->setSortOrder(Qt::AscendingOrder);
+40     if (m_text == "")
+41     {
+42         this->setText(m_name);
+43     }
+44     emit nameChanged();
+45     emit roleChanged();
+46 }
+.fi
+.SS "SimpleHotel::SH_SqlDataFields::setSortOrder (Qt::SortOrdernewSortOrder)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInewSortOrder\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 55 du fichier SH_SqlDataField\&.cpp\&.
+.PP
+Références m_sortOrder, et sortOrderChanged()\&.
+.PP
+Référencé par SimpleHotel::SH_BillingsTableModel::fillModel(), SimpleHotel::SH_BookingsTableModel::fillModel(), setName(), et SimpleHotel::SH_ExtendedProxyModel::sort()\&.
+.PP
+.nf
+56 {
+57     m_sortOrder = newSortOrder;
+58     emit sortOrderChanged();
+59 }
+.fi
+.SS "SimpleHotel::SH_SqlDataFields::setText (QStringnewText)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fInewText\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 20 du fichier SH_SqlDataField\&.cpp\&.
+.PP
+Références m_name, m_text, setName(), et textChanged()\&.
+.PP
+Référencé par setName()\&.
+.PP
+.nf
+21 {
+22     m_text = newText;
+23     if (m_name == "")
+24     {
+25         this->setName(m_text\&.toUpper());
+26     }
+27     emit textChanged();
+28 }
+.fi
+.SS "Qt::SortOrder SimpleHotel::SH_SqlDataFields::sortOrder () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 57 du fichier SH_SqlDataField\&.h\&.
+.PP
+Références m_sortOrder\&.
+.PP
+.nf
+57 { return m_sortOrder; }
+.fi
+.SS "SimpleHotel::SH_SqlDataFields::sortOrderChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setSortOrder()\&.
+.SS "QString SimpleHotel::SH_SqlDataFields::text () const\fC [inline]\fP"
+
+.PP
+Définition à la ligne 36 du fichier SH_SqlDataField\&.h\&.
+.PP
+Références m_text\&.
+.PP
+.nf
+36 { return m_text; }
+.fi
+.SS "SimpleHotel::SH_SqlDataFields::textChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setText()\&.
+.SH "Documentation des données membres"
+.PP 
+.SS "QString SimpleHotel::SH_SqlDataFields::m_name\fC [private]\fP"
+
+.PP
+m_name 
+.PP
+Définition à la ligne 89 du fichier SH_SqlDataField\&.h\&.
+.PP
+Référencé par name(), role(), setName(), et setText()\&.
+.SS "Qt::SortOrder SimpleHotel::SH_SqlDataFields::m_sortOrder\fC [private]\fP"
+
+.PP
+m_sortOrder 
+.PP
+Définition à la ligne 93 du fichier SH_SqlDataField\&.h\&.
+.PP
+Référencé par setSortOrder(), et sortOrder()\&.
+.SS "QString SimpleHotel::SH_SqlDataFields::m_text\fC [private]\fP"
+
+.PP
+m_text 
+.PP
+Définition à la ligne 85 du fichier SH_SqlDataField\&.h\&.
+.PP
+Référencé par setName(), setText(), et text()\&.
+.SH "Documentation des propriétés"
+.PP 
+.SS "SimpleHotel::SH_SqlDataFields::name\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 16 du fichier SH_SqlDataField\&.h\&.
+.SS "SimpleHotel::SH_SqlDataFields::role\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QByteArray 
+.RE
+.PP
+
+.PP
+Définition à la ligne 18 du fichier SH_SqlDataField\&.h\&.
+.SS "SimpleHotel::SH_SqlDataFields::sortOrder\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+Qt::SortOrder 
+.RE
+.PP
+
+.PP
+Définition à la ligne 19 du fichier SH_SqlDataField\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_ExtendedProxyModel::setSortKeyColumn()\&.
+.SS "SimpleHotel::SH_SqlDataFields::text\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 17 du fichier SH_SqlDataField\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

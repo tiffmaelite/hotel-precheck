@@ -1,0 +1,446 @@
+.TH "SimpleHotel::SH_Trainee" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_Trainee \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_Trainee\&.h>\fP
+.PP
+Est dérivée de \fBSimpleHotel::SH_User\fP\&.
+.SS "Connecteurs publics"
+
+.in +1c
+.ti -1c
+.RI "static QVariant \fBexists\fP (QVariant login)"
+.br
+.in -1c
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBnameChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBrolesChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBvalidityChanged\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_Trainee\fP (QString \fBname\fP, int \fBid\fP, \fBQObject\fP *parent=0)"
+.br
+.ti -1c
+.RI "int \fBid\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisAdministrator\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisManagerX\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisManagerZ\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisReceptionist\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisValid\fP () const "
+.br
+.ti -1c
+.RI "QString \fBname\fP () const "
+.br
+.ti -1c
+.RI "int \fBroles\fP () const "
+.br
+.in -1c
+.SS "Fonctions membres publiques statiques"
+
+.in +1c
+.ti -1c
+.RI "static \fBSH_User\fP * \fBlogIn\fP (QString login, QString pass)"
+.br
+.ti -1c
+.RI "static bool \fBtraineeExists\fP (QString login)"
+.br
+.ti -1c
+.RI "static bool \fBuserExists\fP (QString login)"
+.br
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "bool \fBadministrator\fP"
+.br
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "bool \fBmanagerX\fP"
+.br
+.ti -1c
+.RI "bool \fBmanagerZ\fP"
+.br
+.ti -1c
+.RI "QString \fBname\fP"
+.br
+.ti -1c
+.RI "bool \fBreceptionist\fP"
+.br
+.ti -1c
+.RI "int \fBroles\fP"
+.br
+.ti -1c
+.RI "bool \fBvalid\fP"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 15 du fichier SH_Trainee\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_Trainee::SH_Trainee (QStringname, intid, \fBQObject\fP *parent = \fC0\fP)"
+
+.PP
+Définition à la ligne 11 du fichier SH_Trainee\&.cpp\&.
+.PP
+.nf
+11                                                             : SH_User(name, id, true, false, false, false, parent)
+12 {
+13 
+14 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_User::exists (QVariantlogin)\fC [inline]\fP, \fC [static]\fP, \fC [slot]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Définition à la ligne 133 du fichier SH_User\&.h\&.
+.PP
+Références SimpleHotel::SH_User::traineeExists(), et SimpleHotel::SH_User::userExists()\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setMode(), et SimpleHotel::SH_ApplicationCore::userExists()\&.
+.PP
+.nf
+133 {return QVariant(SH_User::userExists(login\&.toString()) || SH_User::traineeExists(login\&.toString()));}
+.fi
+.SS "int SimpleHotel::SH_User::id () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 55 du fichier SH_User\&.h\&.
+.PP
+Références SimpleHotel::SH_User::m_id\&.
+.PP
+Référencé par SimpleHotel::SH_User::setID()\&.
+.PP
+.nf
+55 { return this->m_id; }
+.fi
+.SS "SimpleHotel::SH_User::isAdministrator () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 83 du fichier SH_User\&.h\&.
+.PP
+Références SimpleHotel::SH_User::m_administrator\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setMode(), et SimpleHotel::SH_User::SH_User()\&.
+.PP
+.nf
+83 { return this->m_administrator; }
+.fi
+.SS "SimpleHotel::SH_User::isManagerX () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 69 du fichier SH_User\&.h\&.
+.PP
+Références SimpleHotel::SH_User::m_managerX\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setMode(), et SimpleHotel::SH_User::SH_User()\&.
+.PP
+.nf
+69 { return this->m_managerX; }
+.fi
+.SS "SimpleHotel::SH_User::isManagerZ () const\fC [inline]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 76 du fichier SH_User\&.h\&.
+.PP
+Références SimpleHotel::SH_User::m_managerZ\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setMode(), et SimpleHotel::SH_User::SH_User()\&.
+.PP
+.nf
+76 { return this->m_managerZ; }
+.fi
+.SS "SimpleHotel::SH_User::isReceptionist () const\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 67 du fichier SH_User\&.cpp\&.
+.PP
+Références SimpleHotel::SH_User::m_receptionist\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setMode(), et SimpleHotel::SH_User::SH_User()\&.
+.PP
+.nf
+68 {
+69     return this->m_receptionist;
+70 }
+.fi
+.SS "SimpleHotel::SH_User::isValid () const\fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 35 du fichier SH_User\&.cpp\&.
+.PP
+Références SimpleHotel::SH_User::m_id, et SimpleHotel::SH_User::m_name\&.
+.PP
+Référencé par SimpleHotel::SH_User::logIn(), SimpleHotel::SH_ApplicationCore::setUser(), et SimpleHotel::SH_ApplicationCore::userLogOut()\&.
+.PP
+.nf
+35                             {
+36     return ((!this->m_name\&.isEmpty()) && (this->m_id != 0));
+37 }
+.fi
+.SS "SimpleHotel::SH_User::logIn (QStringlogin, QStringpass)\fC [static]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.br
+\fIpass\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+User 
+.RE
+.PP
+
+.PP
+Définition à la ligne 135 du fichier SH_User\&.cpp\&.
+.PP
+Références SimpleHotel::SH_DatabaseManager::execSelectQuery(), SimpleHotel::SH_DatabaseManager::getInstance(), SimpleHotel::SH_User::isValid(), SimpleHotel::SH_User::SH_User(), SimpleHotel::SH_User::traineeExists(), et SimpleHotel::SH_User::userExists()\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setUser()\&.
+.PP
+.nf
+136 {
+137    //SH_MessageManager::debugMessage("log in");
+138     bool isValid = false;
+139     QCryptographicHash encPass(QCryptographicHash::Sha512);
+140     encPass\&.addData(pass\&.toUtf8());
+141     bool trainee=false;
+142     QStringList fields;
+143     QString table;
+144     if(userExists(login)) {
+145         fields << "ID" << "LOGIN" << "ISRECEPTIONIST" << "ISMANAGERX" << "ISMANAGERZ" << "ISADMINISTRATOR";
+146         table ="USERS";
+147     } else if(traineeExists(login)) {
+148         fields << "ID" << "LOGIN";
+149         table ="TRAINEES";
+150         trainee=true;
+151     }
+152     QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery(table,fields,"LOGIN='"+login+"' AND ENCRYPTEDPASS='"+QString::fromLatin1(encPass\&.result()\&.toHex())\&.toUpper()+"'");
+153     if(result\&.next()) {
+154         QSqlRecord rec = result\&.record();
+155         if(rec\&.isEmpty() || !result\&.isValid()) {
+156             isValid = false;
+157         } else {
+158             isValid = (rec\&.value(rec\&.indexOf("LOGIN"))\&.toString() == login);
+159         }
+160 
+161         if(isValid) {
+162             if(trainee) {
+163                 return new SH_Trainee(rec\&.value(rec\&.indexOf("LOGIN"))\&.toString(),rec\&.value(rec\&.indexOf("ID"))\&.toInt());
+164             } else {
+165                 return new SH_User(rec\&.value(rec\&.indexOf("LOGIN"))\&.toString(),rec\&.value(rec\&.indexOf("ID"))\&.toInt(),(rec\&.value(rec\&.indexOf("ISRECEPTIONIST"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISMANAGERX"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISMANAGERZ"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISADMINISTRATOR"))\&.toString()=="1"));
+166             }
+167         }
+168     }
+169     return new SH_User();
+170 }
+.fi
+.SS "QString SimpleHotel::SH_User::name () const\fC [inherited]\fP"
+
+.PP
+Référencé par SimpleHotel::SH_User::setName()\&.
+.SS "SimpleHotel::SH_User::nameChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.SS "int SimpleHotel::SH_User::roles () const\fC [inherited]\fP"
+
+.SS "SimpleHotel::SH_User::rolesChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.SS "SimpleHotel::SH_User::traineeExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 124 du fichier SH_User\&.cpp\&.
+.PP
+Références SimpleHotel::SH_DatabaseManager::getInstance()\&.
+.PP
+Référencé par SimpleHotel::SH_User::exists(), et SimpleHotel::SH_User::logIn()\&.
+.PP
+.nf
+124                                          {
+125     //SH_MessageManager::debugMessage("trainee exists");
+126     return (SH_DatabaseManager::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
+127 }
+.fi
+.SS "SimpleHotel::SH_User::userExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 113 du fichier SH_User\&.cpp\&.
+.PP
+Références SimpleHotel::SH_DatabaseManager::getInstance()\&.
+.PP
+Référencé par SimpleHotel::SH_User::exists(), et SimpleHotel::SH_User::logIn()\&.
+.PP
+.nf
+113                                       {
+114     //SH_MessageManager::debugMessage("user exists");
+115     return (SH_DatabaseManager::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
+116 }
+.fi
+.SS "SimpleHotel::SH_User::validityChanged ()\fC [signal]\fP, \fC [inherited]\fP"
+
+.SH "Documentation des propriétés"
+.PP 
+.SS "bool SimpleHotel::SH_User::administrator\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 24 du fichier SH_User\&.h\&.
+.SS "SimpleHotel::SH_User::id\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Définition à la ligne 19 du fichier SH_User\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::launchBillThread()\&.
+.SS "bool SimpleHotel::SH_User::managerX\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 22 du fichier SH_User\&.h\&.
+.SS "bool SimpleHotel::SH_User::managerZ\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 23 du fichier SH_User\&.h\&.
+.SS "SimpleHotel::SH_User::name\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 20 du fichier SH_User\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_ApplicationCore::setMode(), et SimpleHotel::SH_ApplicationCore::setUser()\&.
+.SS "bool SimpleHotel::SH_User::receptionist\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 21 du fichier SH_User\&.h\&.
+.SS "SimpleHotel::SH_User::roles\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Définition à la ligne 25 du fichier SH_User\&.h\&.
+.SS "bool SimpleHotel::SH_User::valid\fC [read]\fP, \fC [inherited]\fP"
+
+.PP
+Définition à la ligne 26 du fichier SH_User\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

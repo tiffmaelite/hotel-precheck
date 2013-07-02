@@ -1,0 +1,889 @@
+.TH "SimpleHotel::SH_SqlDataModel" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_SqlDataModel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_SqlDataModel\&.h>\fP
+.PP
+Est dérivée de \fBQAbstractListModel\fP\&.
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBfieldsChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBfilterChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBlastErrorChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBrolesChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBtableChanged\fP ()"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_SqlDataModel\fP (\fBQObject\fP *parent=0)"
+.br
+.ti -1c
+.RI "QVariant \fBdata\fP (const QModelIndex &index, int role) const "
+.br
+.ti -1c
+.RI "QVariantMap \fBdatas\fP () const "
+.br
+.ti -1c
+.RI "bool \fBfetch\fP (QString \fBtableName\fP='', QString \fBfilter\fP='', QString sort='', QStringList fields=QStringList())"
+.br
+.ti -1c
+.RI "\fBSH_SqlDataFields\fP * \fBfield\fP (int i) const "
+.br
+.ti -1c
+.RI "int \fBfieldFromRole\fP (int role) const "
+.br
+.ti -1c
+.RI "int \fBfieldsCount\fP () const "
+.br
+.ti -1c
+.RI "const QStringList \fBfieldsList\fP () const "
+.br
+.ti -1c
+.RI "const QString & \fBfilter\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.ti -1c
+.RI "const QString \fBlastError\fP ()"
+.br
+.ti -1c
+.RI "const QString \fBquery\fP () const "
+.br
+.ti -1c
+.RI "void \fBresetFieldsToAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetFilterCondition\fP ()"
+.br
+.ti -1c
+.RI "int \fBroleForField\fP (int fieldIndex) const "
+.br
+.ti -1c
+.RI "virtual QHash< int, QByteArray > \fBroleNames\fP () const "
+.br
+.RI "\fIThis function allows mapping of role identifiers to role property names in scripting languages\&. \fP"
+.ti -1c
+.RI "int \fBrowCount\fP (const QModelIndex &parent) const "
+.br
+.ti -1c
+.RI "void \fBsetFields\fP (QStringList fieldList)"
+.br
+.ti -1c
+.RI "void \fBsetFilterCondition\fP (const QString &\fBfilter\fP)"
+.br
+.ti -1c
+.RI "bool \fBsetHeaderData\fP (int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole)"
+.br
+.ti -1c
+.RI "void \fBsetOrderBy\fP (QString sort)"
+.br
+.ti -1c
+.RI "void \fBsetTable\fP (const QString &\fBtableName\fP)"
+.br
+.ti -1c
+.RI "const QString & \fBtableName\fP () const "
+.br
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "void \fBapplyRoles\fP ()"
+.br
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "QString \fBfilter\fP"
+.br
+.ti -1c
+.RI "QString \fBlastError\fP"
+.br
+.ti -1c
+.RI "QString \fBtable\fP"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "QList< \fBSH_SqlDataFields\fP * > \fBmDataFields\fP"
+.br
+.RI "\fImDataFields \fP"
+.ti -1c
+.RI "QString \fBmFilter\fP"
+.br
+.RI "\fImFilter \fP"
+.ti -1c
+.RI "QList< QSqlRecord > \fBmRecords\fP"
+.br
+.RI "\fImRecords \fP"
+.ti -1c
+.RI "QHash< int, QByteArray > \fBmRoles\fP"
+.br
+.RI "\fImRoles \fP"
+.ti -1c
+.RI "QString \fBmSort\fP"
+.br
+.RI "\fImSort \fP"
+.ti -1c
+.RI "QSqlQuery \fBmSqlQuery\fP"
+.br
+.RI "\fImSqlQuery \fP"
+.ti -1c
+.RI "QString \fBmTable\fP"
+.br
+.RI "\fImTable \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 15 du fichier SH_SqlDataModel\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_SqlDataModel::SH_SqlDataModel (\fBQObject\fP *parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Définition à la ligne 17 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+.nf
+17                                                 :
+18     QAbstractListModel(parent)
+19 {
+20 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_SqlDataModel::applyRoles ()\fC [protected]\fP"
+
+.PP
+Définition à la ligne 339 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mDataFields, mRoles, roleForField(), et rolesChanged()\&.
+.PP
+Référencé par fetch(), resetFieldsToAll(), et setFields()\&.
+.PP
+.nf
+340 {
+341     this->mRoles\&.clear();
+342     int nbFields = this->mDataFields\&.count();
+343     for (int i = 0; i < nbFields; i++)
+344     {
+345         /*MessageManager::infoMessage(QString("nouveau rôle : %1")\&.arg(QString(this->mDataFields\&.at(i)->role())));*/
+346         this->mRoles\&.insert(this->roleForField(i), this->mDataFields\&.at(i)->role());
+347     }
+348     emit rolesChanged();
+349 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::data (const QModelIndex &index, introle) const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIindex\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Définition à la ligne 41 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::errorMessage(), fieldFromRole(), SimpleHotel::SH_MessageManager::infoMessage(), mDataFields, mRecords, et mRoles\&.
+.PP
+Référencé par SimpleHotel::SH_ExtendedProxyModel::data()\&.
+.PP
+.nf
+42 {
+43     if (this->mRecords\&.count() > 0)
+44     {
+45         int row = index\&.row();
+46         int column = this->fieldFromRole(role);
+47         int nbCols = this->mRoles\&.count();
+48         if(column >= 0 && column < nbCols) {
+49             SH_MessageManager::infoMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n")\&.arg(index\&.row())\&.arg(index\&.column())\&.arg(column)\&.arg(QString(this->mDataFields\&.at(column)->role()))\&.arg(this->mRecords\&.at(row)\&.value(column)\&.toString()));
+50             return this->mRecords\&.at(row)\&.value(column);
+51         } else{
+52             SH_MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)")\&.arg(index\&.row())\&.arg(index\&.column())\&.arg(role)\&.arg(column)\&.arg(nbCols));
+53         }
+54     }
+55     SH_MessageManager::errorMessage("modèle vide");
+56     return QVariant();
+57 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::datas () const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIindex\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+QVariant 
+.RE
+.PP
+
+.PP
+Définition à la ligne 64 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::debugMessage(), mRecords, et mRoles\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState()\&.
+.PP
+.nf
+65 {
+66     SH_MessageManager::debugMessage("datas");
+67     QVariantMap result;
+68     if (this->mRecords\&.count() > 0)
+69     {
+70         for(int column = 0; column < this->mRoles\&.count(); column++) {
+71             for(int row = 0; row < this->mRecords\&.count();row++) {
+72                 //SH_MessageManager::debugMessage( "data inserted");
+73                 result\&.insertMulti(this->mRoles\&.value(column),this->mRecords\&.at(row)\&.value(column));
+74             }
+75         }
+76     }
+77     return result;
+78 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::fetch (QStringtableName = \fC''\fP, QStringfilter = \fC''\fP, QStringsort = \fC''\fP, QStringListfields = \fCQStringList()\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItableName\fP 
+.br
+\fIfilter\fP 
+.br
+\fIsort\fP 
+.br
+\fIfields\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 195 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références applyRoles(), SimpleHotel::SH_MessageManager::debugMessage(), SimpleHotel::SH_MessageManager::errorMessage(), SimpleHotel::SH_DatabaseManager::execSelectQuery(), field(), fieldsChanged(), fieldsList(), SimpleHotel::SH_DatabaseManager::getInstance(), isEmpty(), lastError(), mDataFields, mFilter, mRecords, mSort, mSqlQuery, mTable, setFields(), setFilterCondition(), SimpleHotel::SH_SqlDataFields::setName(), setOrderBy(), et setTable()\&.
+.PP
+Référencé par SimpleHotel::SH_ExtendedProxyModel::fetch(), et SimpleHotel::SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState()\&.
+.PP
+.nf
+196 {
+197     if(!mTable\&.isEmpty() || !tableName\&.isEmpty()) {
+198         SH_MessageManager::debugMessage("Bienvenue dans fetch");
+199         SH_MessageManager::debugMessage(mTable + " " + this->fieldsList()\&.join(", ") + " " +mFilter + " " + mSort);
+200         this->setFields(fieldsList);
+201         this->setTable(tableName);
+202         this->setFilterCondition(filter);
+203         this->setOrderBy(sort);
+204         SH_MessageManager::debugMessage(mTable + " " + this->fieldsList()\&.join(", ") + " " +filter + " " + sort);
+205         try
+206         {
+207             beginResetModel();
+208             mRecords\&.clear();
+209             endResetModel();
+210             SH_MessageManager::debugMessage(mTable + " " + this->fieldsList()\&.join(", ") + " " +mFilter + " " + mSort);
+211             mSqlQuery = SH_DatabaseManager::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
+212             //SH_MessageManager::infoMessage(mSqlQuery\&.executedQuery());
+213             bool next = mSqlQuery\&.next();
+214             if(next) {
+215                 SH_MessageManager::debugMessage("next ok");
+216             }
+217             while (next) /* && mSqlQuery\&.isActive())*/
+218             {
+219                 QSqlRecord record = mSqlQuery\&.record();
+220                 /*SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
+221                 SH_MessageManager::debugMessage(QString("%1 champs")\&.arg(record\&.count()));*/
+222                 if (mSqlQuery\&.isValid() && (!record\&.isEmpty()) && (record\&.count() > 0))
+223                 {
+224                     beginInsertRows(QModelIndex(), 0, 0);
+225                     mRecords\&.append(record);
+226                     /*int nbFields = record\&.count();
+227                     for (int i = 0; i < nbFields; i++)
+228                     {
+229                         SH_MessageManager::infoMessage(QString("%1 : %2")\&.arg(record\&.fieldName(i))\&.arg(record\&.value(i)\&.toString()));
+230                     }*/
+231                     if (mDataFields\&.empty())
+232                     {
+233                         int nbFields = record\&.count();
+234                         for (int i = 0; i < nbFields; i++)
+235                         {
+236                             SH_SqlDataFields *field = new SH_SqlDataFields();
+237                             field->setName(record\&.fieldName(i));
+238                             //SH_MessageManager::infoMessage(QString("nouveau champ (le n°%1): %2")\&.arg(i)\&.arg(field->name()));
+239                             mDataFields\&.append(field);
+240                         }
+241                         this->applyRoles();
+242                         emit fieldsChanged();
+243                     }
+244                     endInsertRows();
+245                 }
+246                 next = mSqlQuery\&.next();
+247             }
+248         }
+249         catch (const std::exception &e)
+250         {
+251             SH_MessageManager::errorMessage(e\&.what(), "exception");
+252             if (this->lastError()\&.isEmpty())
+253             {
+254                 SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
+255             }
+256         }
+257         if (this->lastError()\&.isEmpty())
+258         {
+259             SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
+260         }
+261     }
+262     return (!this->isEmpty());
+263 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::field (inti) const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIi\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+SqlDataFields 
+.RE
+.PP
+
+.PP
+Définition à la ligne 271 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références fieldsCount(), et mDataFields\&.
+.PP
+Référencé par fetch(), SimpleHotel::SH_ExtendedProxyModel::field(), SimpleHotel::SH_BillingsTableModel::fillModel(), SimpleHotel::SH_BookingsTableModel::fillModel(), setFields(), SimpleHotel::SH_ExtendedProxyModel::setSortKeyColumn(), et SimpleHotel::SH_ExtendedProxyModel::sort()\&.
+.PP
+.nf
+272 {
+273     i = qMin(i, this->fieldsCount()-1);
+274     i = qMax(i, 0);
+275     return this->mDataFields\&.at(i);
+276 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::fieldFromRole (introle) const\fC [inline]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Définition à la ligne 82 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par data()\&.
+.PP
+.nf
+82 { return role - Qt::UserRole; }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::fieldsChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par fetch(), resetFieldsToAll(), et setFields()\&.
+.SS "SimpleHotel::SH_SqlDataModel::fieldsCount () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Définition à la ligne 358 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mDataFields\&.
+.PP
+Référencé par field(), et SimpleHotel::SH_ExtendedProxyModel::fieldsCount()\&.
+.PP
+.nf
+359 {
+360     return mDataFields\&.count();
+361 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::fieldsList () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 135 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mDataFields\&.
+.PP
+Référencé par fetch(), et SimpleHotel::SH_ExtendedProxyModel::fields()\&.
+.PP
+.nf
+136 {
+137     QStringList fields;
+138     if(!this->mDataFields\&.isEmpty()) {
+139         int c = mDataFields\&.count();
+140         for (int i = 0; i < c; i++)
+141         {
+142             fields \&.append(this->mDataFields\&.at(i)->name());
+143         }
+144     }
+145     return fields;
+146 }
+.fi
+.SS "const QString& SimpleHotel::SH_SqlDataModel::filter () const"
+
+.PP
+Référencé par setFilterCondition()\&.
+.SS "SimpleHotel::SH_SqlDataModel::filterChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par resetFilterCondition(), et setFilterCondition()\&.
+.SS "SimpleHotel::SH_SqlDataModel::isEmpty () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 380 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mRecords\&.
+.PP
+Référencé par fetch(), et SimpleHotel::SH_ExtendedProxyModel::isEmpty()\&.
+.PP
+.nf
+381 {
+382     return mRecords\&.empty();
+383 }
+.fi
+.SS "const QString SimpleHotel::SH_SqlDataModel::lastError ()"
+
+.PP
+Référencé par fetch()\&.
+.SS "SimpleHotel::SH_SqlDataModel::lastErrorChanged ()\fC [signal]\fP"
+
+.SS "SimpleHotel::SH_SqlDataModel::query () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 102 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mSqlQuery\&.
+.PP
+.nf
+103 {
+104     return mSqlQuery\&.lastQuery();
+105 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::resetFieldsToAll ()"
+
+.PP
+Définition à la ligne 306 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références applyRoles(), fieldsChanged(), et mDataFields\&.
+.PP
+.nf
+307 {
+308     mDataFields\&.clear();
+309     this->applyRoles();
+310     emit fieldsChanged();
+311 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::resetFilterCondition ()"
+
+.PP
+Définition à la ligne 183 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références filterChanged(), et mFilter\&.
+.PP
+.nf
+184 {
+185     mFilter = "";
+186     emit filterChanged();
+187 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::roleForField (intfieldIndex) const\fC [inline]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIfieldIndex\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Définition à la ligne 74 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par applyRoles(), SimpleHotel::SH_ExtendedProxyModel::data(), et SimpleHotel::SH_ExtendedProxyModel::setSortKeyColumn()\&.
+.PP
+.nf
+74 { return Qt::UserRole + fieldIndex;}
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::roleNames () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+This function allows mapping of role identifiers to role property names in scripting languages\&. !
+.PP
+\fBRenvoie:\fP
+.RS 4
+QHash<int, QByteArray> 
+.RE
+.PP
+
+.PP
+Définition à la ligne 180 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Références mRoles\&.
+.PP
+Référencé par SimpleHotel::SH_ExtendedProxyModel::roleNames()\&.
+.PP
+.nf
+180 { return this->mRoles; }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::rolesChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par applyRoles()\&.
+.SS "SimpleHotel::SH_SqlDataModel::rowCount (const QModelIndex &parent) const"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIparent\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Définition à la ligne 28 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mRecords\&.
+.PP
+.nf
+29 {
+30     Q_UNUSED(parent);
+31     return mRecords\&.count();
+32 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::setFields (QStringListfieldList)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIfieldList\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 284 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références applyRoles(), field(), fieldsChanged(), mDataFields, et SimpleHotel::SH_SqlDataFields::setName()\&.
+.PP
+Référencé par fetch()\&.
+.PP
+.nf
+285 {
+286     fields\&.removeDuplicates();
+287     int nbFields = fields\&.count();
+288     if (nbFields > 0)
+289     {
+290         for (int i = 0; i < nbFields; i++)
+291         {
+292             SH_SqlDataFields *field = new SH_SqlDataFields();
+293             field->setName(fields\&.at(i));
+294             mDataFields\&.append(field);
+295         }
+296         this->applyRoles();
+297         emit fieldsChanged();
+298     }
+299 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::setFilterCondition (const QString &filter)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIfilter\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 169 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références filter(), filterChanged(), et mFilter\&.
+.PP
+Référencé par fetch(), et SimpleHotel::SH_BookingsTableModel::SH_BookingsTableModel()\&.
+.PP
+.nf
+170 {
+171     if (mFilter != filter && filter != "")
+172     {
+173         mFilter = filter;
+174         emit filterChanged();
+175     }
+176 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::setHeaderData (intsection, Qt::Orientationorientation, const QVariant &value, introle = \fCQt::EditRole\fP)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsection\fP 
+.br
+\fIorientation\fP 
+.br
+\fIvalue\fP 
+.br
+\fIrole\fP 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 86 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mDataFields\&.
+.PP
+Référencé par SimpleHotel::SH_BillingsTableModel::fillModel(), SimpleHotel::SH_RoomsTableModel::fillModel(), et SimpleHotel::SH_BookingsTableModel::fillModel()\&.
+.PP
+.nf
+87 {
+88     Q_UNUSED(role);
+89     if (orientation == Qt::Horizontal)
+90     {
+91         this->mDataFields\&.at(section)->setText(value\&.toString());
+92         return (this->mDataFields\&.at(section)->text() == value\&.toString());
+93     }
+94     return false;
+95 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::setOrderBy (QStringsort)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIsort\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 369 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mSort\&.
+.PP
+Référencé par fetch(), et SimpleHotel::SH_RoomsTableModel::SH_RoomsTableModel()\&.
+.PP
+.nf
+370 {
+371     this->mSort = sort;
+372 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::setTable (const QString &tableName)"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItableName\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 154 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mTable, et tableChanged()\&.
+.PP
+Référencé par fetch(), SimpleHotel::SH_BillingsTableModel::SH_BillingsTableModel(), SimpleHotel::SH_BillsTableModel::SH_BillsTableModel(), SimpleHotel::SH_BookingsTableModel::SH_BookingsTableModel(), SimpleHotel::SH_ClientsTableModel::SH_ClientsTableModel(), SimpleHotel::SH_GroupsTableModel::SH_GroupsTableModel(), SimpleHotel::SH_RoomsTableModel::SH_RoomsTableModel(), et SimpleHotel::SH_ServicesTableModel::SH_ServicesTableModel()\&.
+.PP
+.nf
+155 {
+156     if (mTable\&.toUpper() != tableName\&.toUpper() && tableName != "")
+157     {
+158         mTable = tableName\&.toUpper();
+159         emit tableChanged();
+160     }
+161 }
+.fi
+.SS "SimpleHotel::SH_SqlDataModel::tableChanged ()\fC [signal]\fP"
+
+.PP
+Référencé par setTable()\&.
+.SS "SimpleHotel::SH_SqlDataModel::tableName () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 113 du fichier SH_SqlDataModel\&.cpp\&.
+.PP
+Références mTable\&.
+.PP
+Référencé par SimpleHotel::SH_ExtendedProxyModel::tableName()\&.
+.PP
+.nf
+114 {
+115     return mTable;
+116 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "QList<\fBSH_SqlDataFields\fP *> SimpleHotel::SH_SqlDataModel::mDataFields\fC [private]\fP"
+
+.PP
+mDataFields 
+.PP
+Définition à la ligne 259 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par applyRoles(), data(), fetch(), field(), fieldsCount(), fieldsList(), resetFieldsToAll(), setFields(), et setHeaderData()\&.
+.SS "QString SimpleHotel::SH_SqlDataModel::mFilter\fC [private]\fP"
+
+.PP
+mFilter 
+.PP
+Définition à la ligne 251 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par fetch(), resetFilterCondition(), et setFilterCondition()\&.
+.SS "QList<QSqlRecord> SimpleHotel::SH_SqlDataModel::mRecords\fC [private]\fP"
+
+.PP
+mRecords 
+.PP
+Définition à la ligne 271 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par data(), datas(), fetch(), isEmpty(), et rowCount()\&.
+.SS "QHash<int, QByteArray> SimpleHotel::SH_SqlDataModel::mRoles\fC [private]\fP"
+
+.PP
+mRoles 
+.PP
+Définition à la ligne 263 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par applyRoles(), data(), datas(), et roleNames()\&.
+.SS "QString SimpleHotel::SH_SqlDataModel::mSort\fC [private]\fP"
+
+.PP
+mSort 
+.PP
+Définition à la ligne 255 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par fetch(), et setOrderBy()\&.
+.SS "QSqlQuery SimpleHotel::SH_SqlDataModel::mSqlQuery\fC [private]\fP"
+
+.PP
+mSqlQuery 
+.PP
+Définition à la ligne 267 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par fetch(), et query()\&.
+.SS "QString SimpleHotel::SH_SqlDataModel::mTable\fC [private]\fP"
+
+.PP
+mTable 
+.PP
+Définition à la ligne 247 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par fetch(), setTable(), et tableName()\&.
+.SH "Documentation des propriétés"
+.PP 
+.SS "SimpleHotel::SH_SqlDataModel::filter\fC [read]\fP, \fC [write]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 19 du fichier SH_SqlDataModel\&.h\&.
+.SS "SimpleHotel::SH_SqlDataModel::lastError\fC [read]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+const QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 20 du fichier SH_SqlDataModel\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_ExtendedProxyModel::lastError()\&.
+.SS "QString SimpleHotel::SH_SqlDataModel::table\fC [read]\fP, \fC [write]\fP"
+
+.PP
+Définition à la ligne 18 du fichier SH_SqlDataModel\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

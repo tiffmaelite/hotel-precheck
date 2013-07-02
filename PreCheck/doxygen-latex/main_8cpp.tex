@@ -9,6 +9,7 @@
 {\ttfamily \#include \char`\"{}S\-H\-\_\-\-Application\-Core.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Extended\-Sql\-Proxy\-Model.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Rooms\-Table\-Model.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-V\-A\-T\-Table\-Model.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Sql\-Data\-Field.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Billings\-Table\-Model.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Bills\-Table\-Model.\-h\char`\"{}}\\*
@@ -17,15 +18,19 @@
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Services\-Table\-Model.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Groups\-Table\-Model.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-User.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Users\-Table\-Model.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}models/\-S\-H\-\_\-\-Trainees\-Table\-Model.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}views/\-S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}logging/\-Qs\-Log.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}logging/\-Qs\-Log\-Dest.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../libs/\-Qs\-Log\-\_\-2.\-0.\-b1/\-Qs\-Log.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../libs/\-Qs\-Log\-\_\-2.\-0.\-b1/\-Qs\-Log\-Dest.\-h\char`\"{}}\\*
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}{enable\-Logging} (const Q\-String s\-Log\-Path)
 \item 
 void \hyperlink{main_8cpp_a5e94203dceafb66df570cbbc79cb52bc}{exportlog} (Qt\-Msg\-Type type, const Q\-Message\-Log\-Context \&context, const Q\-String \&msg)
+\item 
+void \hyperlink{main_8cpp_ab2eb0cb44a3cc4d8aab3ba47699b5090}{init\-Settings} (Q\-Settings\-::\-Scope scope, Q\-String dev\-Name, Q\-String app\-Name)
 \item 
 int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
 \item 
@@ -48,14 +53,17 @@ const int \hyperlink{main_8cpp_aab83ac6564fd72e82c62b21733ca0e1b}{iterations} = 
 \item[{const Q\-String}]{s\-Log\-Path}
 \end{DoxyParamCaption}
 )}}\label{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}
-enable\-Logging 
+
+\begin{DoxyItemize}
+\item enable\-Logging 
 \begin{DoxyParams}{Paramètres}
 {\em s\-Log\-Path} & \\
 \hline
 \end{DoxyParams}
 
+\end{DoxyItemize}
 
-Définition à la ligne \hyperlink{main_8cpp_source_l00071}{71} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+Définition à la ligne \hyperlink{main_8cpp_source_l00080}{80} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
 
 
 
@@ -63,33 +71,37 @@ Référencé par \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}
 
 
 \begin{DoxyCode}
-00072 \{
-00073     \textcolor{comment}{/* init the logging mechanism*/}
-00074     QsLogging::Logger& logger = QsLogging::Logger::instance();
-00075     logger.setLoggingLevel(QsLogging::TraceLevel);
-00076 
-00077     QsLogging::DestinationPtr fileDestination(
-00078                 QsLogging::DestinationFactory::MakeFileDestination(sLogPath, \textcolor{keyword}{true}, 512, 2) );
-00079     QsLogging::DestinationPtr debugDestination(
-00080                 QsLogging::DestinationFactory::MakeDebugOutputDestination() );
-00081     logger.addDestination(debugDestination);
-00082     logger.addDestination(fileDestination);
-00083 
-00084     logger.setLoggingLevel(QsLogging::OffLevel); \textcolor{comment}{/*truning logging off*/}
-00085 
+00081 \{
+00082 
+00083     \textcolor{comment}{/* init the logging mechanism*/}
+00084     QsLogging::Logger& logger = QsLogging::Logger::instance();
+00085     logger.setLoggingLevel(QsLogging::TraceLevel);
 00086 
-00087     \textcolor{comment}{/*qInstallMessageHandler(exportlog);*/}
-00088 
-00089     \textcolor{comment}{/* QLOG\_INFO() << "Here is some information";}
-00090 \textcolor{comment}{}
-00091 \textcolor{comment}{        QLOG\_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";}
-00092 \textcolor{comment}{        QLOG\_DEBUG() << "Here's a" << static\_cast<int>(QsLogging::DebugLevel) << "message";}
-00093 \textcolor{comment}{        QLOG\_WARN()  << "Uh-oh!";}
-00094 \textcolor{comment}{        qDebug() << "This message won't be picked up by the logger";}
-00095 \textcolor{comment}{        QLOG\_ERROR() << "An example error has occurred";}
-00096 \textcolor{comment}{        qWarning() << "Neither will this one";}
-00097 \textcolor{comment}{        QLOG\_FATAL() << "Fatal error example!";*/}
-00098 \}
+00087     QsLogging::DestinationPtr fileDestination(
+00088                 QsLogging::DestinationFactory::MakeFileDestination(sLogPath, \textcolor{keyword}{true}, 512, 2) );
+00089     QsLogging::DestinationPtr debugDestination(
+00090                 QsLogging::DestinationFactory::MakeDebugOutputDestination() );
+00091     logger.addDestination(debugDestination);
+00092     logger.addDestination(fileDestination);
+00093 
+00094     logger.setLoggingLevel(QsLogging::OffLevel);
+00095     \textcolor{comment}{/*turning logging off*/}
+00096 
+00097 
+00098 
+00099     \textcolor{comment}{/*qInstallMessageHandler(exportlog);*/}
+00100 
+00101 
+00102     \textcolor{comment}{/* QLOG\_INFO() << "Here is some information";}
+00103 \textcolor{comment}{}
+00104 \textcolor{comment}{    QLOG\_TRACE() << "Here's a" << QString::fromUtf8("trace") << "message";}
+00105 \textcolor{comment}{    QLOG\_DEBUG() << "Here's a" << static\_cast<int>(QsLogging::DebugLevel) << "message";}
+00106 \textcolor{comment}{    QLOG\_WARN() << "Uh-oh!";}
+00107 \textcolor{comment}{    qDebug() << "This message won't be picked up by the logger";}
+00108 \textcolor{comment}{    QLOG\_ERROR() << "An example error has occurred";}
+00109 \textcolor{comment}{    qWarning() << "Neither will this one";}
+00110 \textcolor{comment}{    QLOG\_FATAL() << "Fatal error example!";*/}
+00111 \}
 \end{DoxyCode}
 \hypertarget{main_8cpp_a5e94203dceafb66df570cbbc79cb52bc}{\index{main.\-cpp@{main.\-cpp}!exportlog@{exportlog}}
 \index{exportlog@{exportlog}!main.cpp@{main.\-cpp}}
@@ -102,26 +114,57 @@ Référencé par \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}
 )}}\label{main_8cpp_a5e94203dceafb66df570cbbc79cb52bc}
 
 
-Définition à la ligne \hyperlink{main_8cpp_source_l00046}{46} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+Définition à la ligne \hyperlink{main_8cpp_source_l00051}{51} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
 
 
 \begin{DoxyCode}
-00046                                                                                       \{
-00047     QFile file(QApplication::applicationDirPath()+\textcolor{stringliteral}{"/"}+qAppName()+\textcolor{stringliteral}{".log"});
-00048     file.open(QIODevice::WriteOnly | QIODevice::Append);
-00049     file.write(QString(\textcolor{stringliteral}{"["}).toUtf8()+QDateTime::currentDateTime().toString().toUtf8()+QString(\textcolor{stringliteral}{"] "}).toUtf8(
+00051                                                                                       \{
+00052     Q\_UNUSED(context);
+00053     QFile file(QApplication::applicationDirPath()+\textcolor{stringliteral}{"/"}+qAppName()+\textcolor{stringliteral}{".log"});
+00054     file.open(QIODevice::WriteOnly | QIODevice::Append);
+00055     file.write(QString(\textcolor{stringliteral}{"["}).toUtf8()+QDateTime::currentDateTime().toString().toUtf8()+QString(\textcolor{stringliteral}{"] "}).toUtf8(
       ));
-00050     QString typeName;
-00051     \textcolor{keywordflow}{switch} (type) \{
-00052     \textcolor{keywordflow}{case} QtDebugMsg:
-00053         typeName = QObject::tr(\textcolor{stringliteral}{"Debug"});
-00054         \textcolor{keywordflow}{break};
-00055     \textcolor{keywordflow}{case} QtWarningMsg:
-00056         typeName = QObject::tr(\textcolor{stringliteral}{"Warning"});
-00057         \textcolor{keywordflow}{break};
-00058     \}
-00059     file.write(QObject::tr(\textcolor{stringliteral}{"%1: %2\(\backslash\)r\(\backslash\)n"}).arg(typeName).arg(msg).toUtf8());
-00060 \}
+00056     QString typeName;
+00057     \textcolor{keywordflow}{switch} (type) \{
+00058     \textcolor{keywordflow}{case} QtDebugMsg:
+00059         typeName = QObject::tr(\textcolor{stringliteral}{"Debug"});
+00060         \textcolor{keywordflow}{break};
+00061     \textcolor{keywordflow}{case} QtWarningMsg:
+00062         typeName = QObject::tr(\textcolor{stringliteral}{"Warning"});
+00063         \textcolor{keywordflow}{break};
+00064     \textcolor{keywordflow}{case} QtFatalMsg:
+00065     \textcolor{keywordflow}{case} QtCriticalMsg:
+00066         \textcolor{keywordflow}{break};
+00067     \}
+00068     file.write(QObject::tr(\textcolor{stringliteral}{"%1: %2\(\backslash\)r\(\backslash\)n"}).arg(typeName).arg(msg).toUtf8());
+00069 \}
+\end{DoxyCode}
+\hypertarget{main_8cpp_ab2eb0cb44a3cc4d8aab3ba47699b5090}{\index{main.\-cpp@{main.\-cpp}!init\-Settings@{init\-Settings}}
+\index{init\-Settings@{init\-Settings}!main.cpp@{main.\-cpp}}
+\subsubsection[{init\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Settings (
+\begin{DoxyParamCaption}
+\item[{Q\-Settings\-::\-Scope}]{scope, }
+\item[{Q\-String}]{dev\-Name, }
+\item[{Q\-String}]{app\-Name}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_ab2eb0cb44a3cc4d8aab3ba47699b5090}
+
+
+Définition à la ligne \hyperlink{main_8cpp_source_l00131}{131} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+
+
+
+Référencé par \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}.
+
+
+\begin{DoxyCode}
+00131                                                                          \{
+00132     QSettings settings(scope, devName, appName);
+00133     settings.beginGroup(\textcolor{stringliteral}{"global GUI"});
+00134     settings.setValue(\textcolor{stringliteral}{"backgroundColor"},\textcolor{stringliteral}{"whitesmoke"});
+00135     \textcolor{comment}{//TODO: continuer avec toutes les valeurs configurables pour le premier lancement (installation)}
+00136     settings.endGroup();
+00137 \}
 \end{DoxyCode}
 \hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{main.\-cpp@{main.\-cpp}!main@{main}}
 \index{main@{main}!main.cpp@{main.\-cpp}}
@@ -133,100 +176,137 @@ Définition à la ligne \hyperlink{main_8cpp_source_l00046}{46} du fichier \hype
 )}}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
 
 
-Définition à la ligne \hyperlink{main_8cpp_source_l00125}{125} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+Définition à la ligne \hyperlink{main_8cpp_source_l00146}{146} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
 
 
 
-Références \hyperlink{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}{enable\-Logging()}, et \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}.
+Références \hyperlink{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}{enable\-Logging()}, \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}, et \hyperlink{main_8cpp_ab2eb0cb44a3cc4d8aab3ba47699b5090}{init\-Settings()}.
 
 
 \begin{DoxyCode}
-00126 \{
-00127     \textcolor{keywordflow}{try}
-00128     \{
-00129         qDebug();  \textcolor{comment}{/* Un simple retour à la ligne pour un affichage propre dans la console*/}
-00130 
-00131         QApplication app(argc, argv);
-00132 
-00133         \textcolor{keyword}{const} QString sLogPath(QDir::cleanPath(app.applicationDirPath()+\textcolor{stringliteral}{"
-      /../../../src/PreCheck/debugLog.txt"}));
-00134         qDebug() << app.applicationDirPath();
-00135         qDebug() << QDir::cleanPath(app.applicationDirPath()+\textcolor{stringliteral}{"/../../../src/PreCheck/debugLog.txt"});
-00136         \hyperlink{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}{enableLogging}(sLogPath);
-00137 
-00138         QString appName = QString(QObject::tr(\textcolor{stringliteral}{"precheck"}));
-00139         QString locale = QLocale::system().name();
-00140         QTranslator translator;
-00141         \textcolor{keywordflow}{if} (!QFile::exists(appName + \textcolor{stringliteral}{"\_"} + locale + \textcolor{stringliteral}{".qm"}))
-00142         \{
-00143             locale = locale.section(\textcolor{charliteral}{'\_'}, 0, 0);
-00144         \}
-00145         \textcolor{keywordflow}{if} (QFile::exists(appName + \textcolor{stringliteral}{"\_"} + locale + \textcolor{stringliteral}{".qm"}))
-00146         \{
-00147             translator.load(appName + \textcolor{stringliteral}{"\_"} + locale);
-00148             app.installTranslator(&translator);
-00149         \}
-00150 
-00151         QQmlEngine engine;
+00147 \{
+00148     \textcolor{keywordflow}{try}
+00149     \{
+00150         qDebug();
+00151         \textcolor{comment}{/* Un simple retour à la ligne pour un affichage propre dans la console*/}
 00152 
-00153         qmlRegisterUncreatableType<SH\_ApplicationCore>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"AppMode"},\textcolor{stringliteral}{"pour enum AppMode"});
-00154         qmlRegisterType<SH\_User>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"User"});
-00155         \hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore}* appManager = \textcolor{keyword}{new} 
-      \hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore}();
-00156         engine.rootContext()->setContextProperty(\textcolor{stringliteral}{"App"}, appManager);
+00153         QApplication app(argc, argv);
+00154 
+00155         \textcolor{keyword}{const} QString sLogPath(QDir::cleanPath(app.applicationDirPath()+\textcolor{stringliteral}{"
+      /../../../src/PreCheck/debugLog.txt"}));
+00156         \hyperlink{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}{enableLogging}(sLogPath);
 00157 
-00158         qmlRegisterType<SH\_RoomsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_RoomsModel"});
-00159         qmlRegisterType<SH\_BillingsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BillingsModel"});
-00160         qmlRegisterType<SH\_BillsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BillsModel"});
-00161         qmlRegisterType<SH\_BookingsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BookingsModel"});
-00162         qmlRegisterType<SH\_ServicesTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_ServicesModel"});
-00163         qmlRegisterType<SH\_ClientsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_ClientsModel"});
-00164         qmlRegisterType<SH\_GroupsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_GroupsModel"});
-00165         qmlRegisterType<SH\_SqlDataFields>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_SqlDataField"});
-00166         qmlRegisterType<SH\_ExtendedQQmlAction>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_ComplexAction"});
-00167 
-00168         QQmlComponent component(&engine);
-00169         component.loadUrl(QUrl(\textcolor{stringliteral}{"qrc:/qml/SH\_app.qml"}));
-00170         \textcolor{keywordflow}{if} (!component.isReady())
-00171         \{
-00172             qWarning(\textcolor{stringliteral}{"%s"}, qPrintable(component.errorString()));
-00173             \textcolor{keywordflow}{return} -1;
-00174         \}
-00175         \hyperlink{classQObject}{QObject} *topLevel = component.create();
-00176         QQuickWindow *window = qobject\_cast<QQuickWindow *>(topLevel);
-00177         \textcolor{keywordflow}{if} (!window)
-00178         \{
-00179             qWarning(\textcolor{stringliteral}{"Error: Your root item has to be a Window."});
-00180             \textcolor{keywordflow}{return} -1;
-00181         \}
-00182         QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
-00183 
-00184 
-00185         \hyperlink{classQObject}{QObject} * commonPage = window->findChild<\hyperlink{classQObject}{QObject} *>(\textcolor{stringliteral}{"Common"});
-00186         \hyperlink{classQObject}{QObject} * tabsZone = commonPage->findChild<\hyperlink{classQObject}{QObject} *>(\textcolor{stringliteral}{"TabView"});
-00187         \hyperlink{classQObject}{QObject} * displayZone = commonPage->findChild<\hyperlink{classQObject}{QObject} *>(\textcolor{stringliteral}{"RightOutput"});
-00188 
-00189         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), 
+00158         QString appName = QString(QObject::tr(\textcolor{stringliteral}{"PreCheck"}));
+00159         QString devName = QString(\textcolor{stringliteral}{"SimplHotel"});
+00160         QCoreApplication::setOrganizationName(devName);
+00161         QCoreApplication::setApplicationName(appName);
+00162 
+00163 \hyperlink{main_8cpp_ab2eb0cb44a3cc4d8aab3ba47699b5090}{initSettings}(QSettings::SystemScope, devName,appName);
+00164 
+00165         QString locale = QLocale::system().name();
+00166         QTranslator translator;
+00167         \textcolor{keywordflow}{if} (!QFile::exists(appName.toLower() + \textcolor{stringliteral}{"\_"} + locale + \textcolor{stringliteral}{".qm"}))
+00168         \{
+00169             locale = locale.section(\textcolor{charliteral}{'\_'}, 0, 0);
+00170         \}
+00171         \textcolor{keywordflow}{if} (QFile::exists(appName.toLower() + \textcolor{stringliteral}{"\_"} + locale + \textcolor{stringliteral}{".qm"}))
+00172         \{
+00173             translator.load(appName.toLower() + \textcolor{stringliteral}{"\_"} + locale);
+00174             app.installTranslator(&translator);
+00175         \}
+00176 
+00177         QQmlEngine engine;
+00178 
+00179 
+00180         \textcolor{comment}{/*qmlRegisterUncreatableType<SimplHotel::SH\_ApplicationCore>("PreCheck", 1, 0, "AppMode","pour enum
+       AppMode");}
+00181 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_User>("PreCheck", 1, 0, "User");}
+00182 \textcolor{comment}{        SimplHotel::SH\_ApplicationCore* appManager = new SimplHotel::SH\_ApplicationCore();*/}
+00183         qmlRegisterUncreatableType<SH\_ApplicationCore>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"AppMode"},\textcolor{stringliteral}{"pour enum AppMode"});
+00184         qmlRegisterType<SH\_User>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"User"});
+00185 
+00186 
+00187         \hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore}* appManager = \textcolor{keyword}{new} 
+      \hyperlink{classSH__ApplicationCore}{SH\_ApplicationCore}();
+00188         appManager->setSettings(QSettings::SystemScope, devName,appName); \textcolor{comment}{// system-wide location for the
+       application}
+00189         engine.rootContext()->setContextProperty(\textcolor{stringliteral}{"App"}, appManager);
+00190 
+00191 
+00192         qmlRegisterType<SH\_VATTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_VATModel"});
+00193         qmlRegisterType<SH\_UsersTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_UsersListModel"});
+00194         qmlRegisterType<SH\_TraineesTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_TraineesListModel"});
+00195 
+00196         \textcolor{comment}{/*qmlRegisterType<SimplHotel::SH\_RoomsTableModel>("PreCheck", 1, 0, "SH\_RoomsModel");}
+00197 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_BillingsTableModel>("PreCheck", 1, 0, "SH\_BillingsModel");}
+00198 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_BillsTableModel>("PreCheck", 1, 0, "SH\_BillsModel");}
+00199 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_BookingsTableModel>("PreCheck", 1, 0, "SH\_BookingsModel");}
+00200 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_ServicesTableModel>("PreCheck", 1, 0, "SH\_ServicesModel");}
+00201 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_ClientsTableModel>("PreCheck", 1, 0, "SH\_ClientsModel");}
+00202 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_GroupsTableModel>("PreCheck", 1, 0, "SH\_GroupsModel");}
+00203 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_SqlDataFields>("PreCheck", 1, 0, "SH\_SqlDataField");}
+00204 \textcolor{comment}{        qmlRegisterType<SimplHotel::SH\_ExtendedQQmlAction>("PreCheck", 1, 0, "SH\_ComplexAction");*/}
+00205         qmlRegisterType<SH\_RoomsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_RoomsModel"});
+00206         qmlRegisterType<SH\_BillingsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BillingsModel"});
+00207         qmlRegisterType<SH\_BillsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BillsModel"});
+00208         qmlRegisterType<SH\_BookingsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_BookingsModel"});
+00209         qmlRegisterType<SH\_ServicesTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_ServicesModel"});
+00210         qmlRegisterType<SH\_ClientsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_ClientsModel"});
+00211         qmlRegisterType<SH\_GroupsTableModel>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_GroupsModel"});
+00212         qmlRegisterType<SH\_SqlDataFields>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_SqlDataField"});
+00213         qmlRegisterType<SH\_ExtendedQQmlAction>(\textcolor{stringliteral}{"PreCheck"}, 1, 0, \textcolor{stringliteral}{"SH\_ComplexAction"});
+00214 
+00215         QQmlComponent component(&engine);
+00216         component.loadUrl(QUrl(\textcolor{stringliteral}{"qrc:/qml/SH\_app.qml"}));
+00217         \textcolor{keywordflow}{if} (!component.isReady())
+00218         \{
+00219             qWarning(\textcolor{stringliteral}{"%s"}, qPrintable(component.errorString()));
+00220             \textcolor{keywordflow}{return} -1;
+00221         \}
+00222         \hyperlink{classQObject}{QObject} *topLevel = component.create();
+00223         QQuickWindow *window = qobject\_cast<QQuickWindow *>(topLevel);
+00224         \textcolor{keywordflow}{if} (!window)
+00225         \{
+00226             qWarning(\textcolor{stringliteral}{"Error: Your root item has to be a Window."});
+00227             \textcolor{keywordflow}{return} -1;
+00228         \}
+00229 
+00230         \textcolor{comment}{//window->setColor(appManager->readSetting("backgroundColor","global GUI").value<QColor>());}
+00231 
+00232         \hyperlink{classQObject}{QObject} * commonPage = window->findChild<\hyperlink{classQObject}{QObject} *>(\textcolor{stringliteral}{"Common"});
+00233         \hyperlink{classQObject}{QObject} * tabsZone = commonPage->findChild<\hyperlink{classQObject}{QObject} *>(\textcolor{stringliteral}{"TabView"});
+00234         \hyperlink{classQObject}{QObject} * displayZone = commonPage->findChild<\hyperlink{classQObject}{QObject} *>(\textcolor{stringliteral}{"RightOutput"});
+00235 
+00236         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), 
       Qt::DirectConnection);
-00190         QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayNewFixed(QString
-      )), Qt::DirectConnection);
-00191         QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(replace(QString)), 
+00237         QObject::connect(appManager, SIGNAL(sendText(QString, \textcolor{keywordtype}{bool})), displayZone, SIGNAL(displayNew(
+      QString, \textcolor{keywordtype}{bool})), Qt::DirectConnection);
+00238         QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replace(QString)), 
       Qt::DirectConnection);
-00192         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), 
+00239         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), 
       Qt::QueuedConnection);
-00193         \textcolor{comment}{/*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()),
+00240         QObject::connect(appManager, SIGNAL(displayFileDialog()), commonPage, SLOT(displayFileDialog()), 
+      Qt::DirectConnection);
+00241         QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(
+      displaySqlDatas(QVariant)), Qt::DirectConnection);
+00242         \textcolor{comment}{/*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()),
        Qt::DirectConnection);*/}
-00194 
-00195         window->show();
-00196         QLOG\_INFO() << \textcolor{stringliteral}{"Program built with Qt"} << QT\_VERSION\_STR << \textcolor{stringliteral}{"running on"} << qVersion();
-00197         \textcolor{keywordflow}{return} app.exec();
-00198 
-00199     \}
-00200     \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception &e)
-00201     \{
-00202         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(e.what());
-00203     \}
-00204 \}
+00243 
+00244         QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
+00245 
+00246 
+00247         QLOG\_INFO() << \textcolor{stringliteral}{"Program built with Qt"} << QT\_VERSION\_STR << \textcolor{stringliteral}{"running on"} << qVersion();
+00248         window->show();
+00249         \textcolor{keywordflow}{return} app.exec();
+00250 
+00251     \}
+00252     \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception &e)
+00253     \{
+00254 
+00255         \textcolor{comment}{/*SimplHotel::SH\_MessageManager::errorMessage(e.what());*/}
+00256         \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(e.what());
+00257     \}
+00258 \}
 \end{DoxyCode}
 \hypertarget{main_8cpp_ae410a0b90b40ede93034f3ec13d27b8e}{\index{main.\-cpp@{main.\-cpp}!spin@{spin}}
 \index{spin@{spin}!main.cpp@{main.\-cpp}}
@@ -237,18 +317,18 @@ Références \hyperlink{main_8cpp_ac3c79e35c4fc5c50939ae90485e1483f}{enable\-Log
 )}}\label{main_8cpp_ae410a0b90b40ede93034f3ec13d27b8e}
 
 
-Définition à la ligne \hyperlink{main_8cpp_source_l00108}{108} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+Définition à la ligne \hyperlink{main_8cpp_source_l00121}{121} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
 
 
 \begin{DoxyCode}
-00109 \{
-00110     \textcolor{keyword}{const} \textcolor{keywordtype}{int} work = 1000 * 1000 * 40;
-00111     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} v = 0;
-00112     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < work; ++j)
-00113         ++v;
-00114 
-00115     qDebug() << \textcolor{stringliteral}{"iteration"} << iteration << \textcolor{stringliteral}{"in thread"} << QThread::currentThreadId();
-00116 \}
+00122 \{
+00123     \textcolor{keyword}{const} \textcolor{keywordtype}{int} work = 1000 * 1000 * 40;
+00124     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} v = 0;
+00125     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < work; ++j)
+00126         ++v;
+00127 
+00128     qDebug() << \textcolor{stringliteral}{"iteration"} << iteration << \textcolor{stringliteral}{"in thread"} << QThread::currentThreadId();
+00129 \}
 \end{DoxyCode}
 \hypertarget{main_8cpp_aaf7c4666a49fc2890c12b6ae393b8deb}{\index{main.\-cpp@{main.\-cpp}!status\-Changed@{status\-Changed}}
 \index{status\-Changed@{status\-Changed}!main.cpp@{main.\-cpp}}
@@ -260,18 +340,18 @@ Définition à la ligne \hyperlink{main_8cpp_source_l00108}{108} du fichier \hyp
 )}}\label{main_8cpp_aaf7c4666a49fc2890c12b6ae393b8deb}
 
 
-Définition à la ligne \hyperlink{main_8cpp_source_l00031}{31} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+Définition à la ligne \hyperlink{main_8cpp_source_l00036}{36} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
 
 
 \begin{DoxyCode}
-00031                                                                          \{
-00032     \textcolor{keywordflow}{if} (status == QQmlComponent::Error) \{
-00033         \textcolor{keywordflow}{foreach} (\textcolor{keyword}{const} QQmlError &error, component->errors()) \{
-00034             \textcolor{keyword}{const} QByteArray file = error.url().toEncoded();
-00035             QMessageLogger(file.constData(), error.line(), 0).debug() << error.description();
-00036         \}
-00037     \}
-00038 \}
+00036                                                                          \{
+00037     \textcolor{keywordflow}{if} (status == QQmlComponent::Error) \{
+00038         \textcolor{keywordflow}{foreach} (\textcolor{keyword}{const} QQmlError &error, component->errors()) \{
+00039             \textcolor{keyword}{const} QByteArray file = error.url().toEncoded();
+00040             QMessageLogger(file.constData(), error.line(), 0).debug() << error.description();
+00041         \}
+00042     \}
+00043 \}
 \end{DoxyCode}
 
 
@@ -281,5 +361,5 @@ Définition à la ligne \hyperlink{main_8cpp_source_l00031}{31} du fichier \hype
 \subsubsection[{iterations}]{\setlength{\rightskip}{0pt plus 5cm}const int iterations = 20}}\label{main_8cpp_aab83ac6564fd72e82c62b21733ca0e1b}
 
 
-Définition à la ligne \hyperlink{main_8cpp_source_l00023}{23} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
+Définition à la ligne \hyperlink{main_8cpp_source_l00029}{29} du fichier \hyperlink{main_8cpp_source}{main.\-cpp}.
 

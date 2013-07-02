@@ -6,30 +6,33 @@
 00001 \textcolor{preprocessor}{#ifndef QUESTIONSTATE\_H}
 00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QUESTIONSTATE\_H}
 00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__IOState_8h}{SH\_IOState.h}"}
-00004 
+00004 \textcolor{comment}{/*namespace SimplHotel}
+00005 \textcolor{comment}{\{*/}
 \hypertarget{SH__QuestionState_8h_source_l00011}{}\hyperlink{classSH__QuestionState}{00011} \textcolor{keyword}{class }\hyperlink{classSH__QuestionState}{SH\_QuestionState} : \textcolor{keyword}{public} \hyperlink{classSH__InOutState}{SH\_InOutState}
 00012 \{
 00013     Q\_OBJECT
 00014 \textcolor{keyword}{public}:
-00023     \hyperlink{classSH__QuestionState_ad7ea575ec284d1dc89da5df9f31cd751}{SH\_QuestionState}(QString question, QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}, \hyperlink{classQState}{QState} *parent = 0);
-00030     \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{checkValidity}();
-00031 
-00038     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}() \textcolor{keyword}{const};
-00045     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{setGivenAnswer}(\textcolor{keyword}{const} QVariant &givenAnswer);
-00052     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{setInput}(\textcolor{keyword}{const} QVariant &\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input});
-00053 
-00061     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer) = 0;
-00062 
-00063 signals:
-00067     \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
-00071     \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
+00022     \hyperlink{classSH__QuestionState_ad7ea575ec284d1dc89da5df9f31cd751}{SH\_QuestionState}(QString question, QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}, \hyperlink{classQState}{QState} *parent = 0);
+00023 
+00029     \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{checkValidity}();
+00030 
+00036     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}() \textcolor{keyword}{const};
+00037 
+00043     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{setGivenAnswer}(\textcolor{keyword}{const} QVariant &givenAnswer);
+00044 
+00050     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{setInput}(\textcolor{keyword}{const} QVariant &\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input});
+00051 
+00058     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer) = 0;
+00059 signals:
+00060 
+00064     \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
+00065 
+00069     \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
+00070 \textcolor{keyword}{public} slots:
+00071 \textcolor{keyword}{private}:
 00072 
-00073 \textcolor{keyword}{public} slots:
-00074 
-00075 
-00076 \textcolor{keyword}{private}:
-\hypertarget{SH__QuestionState_8h_source_l00080}{}\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{00080}     QVariant \hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
-00081 \};
-00082 
-00083 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* QUESTIONSTATE\_H*/}\textcolor{preprocessor}{}
+\hypertarget{SH__QuestionState_8h_source_l00076}{}\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{00076}     QVariant \hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
+00077 \};
+00078 \textcolor{comment}{/*\}*/}
+00079 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* QUESTIONSTATE\_H*/}\textcolor{preprocessor}{}
 \end{DoxyCode}

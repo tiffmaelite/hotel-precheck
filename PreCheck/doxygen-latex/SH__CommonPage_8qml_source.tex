@@ -8,810 +8,862 @@
 00003 import QtQuick.Controls 1.0
 \hypertarget{SH__CommonPage_8qml_source_l00004}{}\hyperlink{classSH__CommonPage}{00004} import QtQuick.Controls.Styles 1.0
 00005 import QtQuick.Layouts 1.0
-00006 import PreCheck 1.0
-\hypertarget{SH__CommonPage_8qml_source_l00007}{}\hyperlink{classSH__CommonPage_af59ae18e73706e3622c000c2005d9550}{00007} 
-00011 Item \{
-00012     \textcolor{keywordtype}{id}: commonPage
-00013     signal quit();
-00014     signal selected(\textcolor{keywordtype}{string} selectedItem)
-00015     signal keySelected(\textcolor{keywordtype}{string} selectedKey)
-00016     signal cancelProcess()
-00017     signal confirm()
-00018     signal validate()
-00019     signal replace(\textcolor{keywordtype}{string} field)
-00020     signal cancelReplace()
-00021     signal reload()
-00022     \textcolor{keyword}{property} QtObject streamBuffer: buff
-00023     QtObject \{
-00024         \textcolor{keywordtype}{id}: buff
-00025         \textcolor{keyword}{property} \textcolor{keywordtype}{string} content: \textcolor{stringliteral}{""}
-00026         \textcolor{keyword}{property} \textcolor{keywordtype}{bool} upperCase: \textcolor{keyword}{false}
-00027         signal buffer(\textcolor{keywordtype}{string} text)
-00028         signal eraseLastChar()
-00029         signal clearBuffer()
-00030         onBuffer: \{
-00031             var value = (buff.upperCase) ? text.toLocaleUpperCase() : text.toLocaleLowerCase();
-00032             \textcolor{keywordflow}{if}(buff.content===\textcolor{stringliteral}{""}) \{
-00033                 buff.content = value;
-00034                 rightOutput.displayNew(value, (value.length === 1));
-00035             \} \textcolor{keywordflow}{else} \{
-00036                 buff.content += value;
-00037                 rightOutput.display(value);
-00038             \}
-00039         \}
-00040         onEraseLastChar: \{
-00041             buff.content = buff.content.slice(0,-1);
-00042             rightOutput.replace(buff.content);
-00043         \}
-00044         onClearBuffer: \{
-00045             commonPage.selected(buff.content);
-00046             buff.content = \textcolor{stringliteral}{""};
-00047         \}
-00048     \}
-00049     onReload: \{
-00050         tabs.reload();
-00051     \}
-00052     onSelected: \{
-00053         console.log(\textcolor{stringliteral}{"selection: "}+selectedItem);
-00054         App.receiveInput(selectedItem);
-00055     \}
-00056     onCancelProcess: \{
-00057         App.cancelRunningThread();
-00058         console.log(\textcolor{stringliteral}{"processus interrompu"});
+00006 import QtQuick.Dialogs 1.0
+\hypertarget{SH__CommonPage_8qml_source_l00007}{}\hyperlink{classSH__CommonPage_af59ae18e73706e3622c000c2005d9550}{00007} import PreCheck 1.0
+00008 
+00012 Item \{
+00013     \textcolor{keywordtype}{id}: commonPage
+00014     signal quit();
+00015     signal selected(\textcolor{keywordtype}{string} selectedItem)
+00016     signal keySelected(\textcolor{keywordtype}{string} selectedKey)
+00017     signal cancelProcess()
+00018     signal confirm()
+00019     signal validate()
+00020     signal replace(\textcolor{keywordtype}{string} field)
+00021     signal cancelReplace()
+00022     signal reload()
+00023     \textcolor{keyword}{property} QtObject streamBuffer: buff
+00024     QtObject \{
+00025         \textcolor{keywordtype}{id}: buff
+00026         \textcolor{keyword}{property} \textcolor{keywordtype}{string} content: \textcolor{stringliteral}{""}
+00027         \textcolor{keyword}{property} \textcolor{keywordtype}{bool} upperCase: \textcolor{keyword}{false}
+00028         \textcolor{keyword}{property} \textcolor{keywordtype}{bool} cleared: \textcolor{keyword}{true}
+00029         signal buffer(\textcolor{keywordtype}{string} text)
+00030         signal eraseLastChar()
+00031         signal clearBuffer()
+00032         onBuffer: \{
+00033             var value = (buff.upperCase) ? text.toLocaleUpperCase() : text;
+00034             \textcolor{keywordflow}{if}(buff.content===\textcolor{stringliteral}{""}) \{
+00035                 buff.content = value;
+00036                 rightOutput.displayNew(value, (value.length === 1));
+00037             \} \textcolor{keywordflow}{else} \{
+00038                 buff.content += value;
+00039                 rightOutput.display(value);
+00040             \}
+00041             buff.cleared = \textcolor{keyword}{false};
+00042         \}
+00043         onEraseLastChar: \{
+00044             \textcolor{keywordflow}{if}(buff.content!==\textcolor{stringliteral}{""}) \{
+00045                 buff.content = buff.content.slice(0,-1);
+00046                 rightOutput.replace(buff.content);
+00047             \}
+00048         \}
+00049         onClearBuffer: \{
+00050             \textcolor{keywordflow}{if}(!buff.cleared)\{
+00051                 commonPage.selected(buff.content);
+00052             \}
+00053             buff.content = \textcolor{stringliteral}{""};
+00054             buff.cleared = \textcolor{keyword}{true};
+00055         \}
+00056     \}
+00057     onReload: \{
+00058         tabs.reload();
 00059     \}
-00060     onValidate: \{
-00061         App.receiveValidation();
-00062     \}
-00063     onConfirm: \{
-00064         App.receiveConfirmation();
-00065     \}
-00066     onReplace: \{
-00067         App.replaceInput(field);
-00068     \}
-00069     onCancelReplace: \{
-00070         App.cancelReplacement();
-00071     \}
-00072 
-00073     onKeySelected: \{
-00074         commonPage.streamBuffer.buffer(selectedKey);
-00075     \}
-00076     \hyperlink{classGridLayout}{GridLayout} \{
-00077         \textcolor{keywordtype}{id}:\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}
-00078         columnSpacing: 2
-00079         rowSpacing: 2
-00080         width: parent.width
-00081         height: parent.height
-00082         anchors.fill: parent
-00083         flow: \hyperlink{classGridLayout}{GridLayout}.TopToBottom
-00084         rows: 2
-00085         columns: 2
-00086         \textcolor{comment}{/*la partie supérieure du panel de gauche est remplie par des onglets et leur contenu*/}
-00087         \hyperlink{classSH__TabZone}{SH\_TabZone} \{
-00088             \textcolor{keywordtype}{id}: tabs
-00089             objectName: \textcolor{stringliteral}{"TabView"}
-00090             Layout.alignment: Qt.AlignTop
-00091             Layout.minimumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.columnSpacing
-00092             Layout.minimumHeight: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.height/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.rowSpacing
-00093             Layout.fillWidth: \textcolor{keyword}{true}
-00094             Layout.fillHeight: \textcolor{keyword}{true}
-00095             enabled:\textcolor{keyword}{true}
-00096             stdKeyboard: [
-00097                 char10Action, char11Action, char12Action, char13Action, char14Action, char15Action, 
+00060     onSelected: \{
+00061         console.log(\textcolor{stringliteral}{"selection: "}+selectedItem);
+00062         App.receiveInput(selectedItem);
+00063     \}
+00064     onCancelProcess: \{
+00065         App.stopRunningStateMachine();
+00066         console.log(\textcolor{stringliteral}{"processus interrompu"});
+00067     \}
+00068     onValidate: \{
+00069         App.receiveValidation();
+00070     \}
+00071     onConfirm: \{
+00072         App.receiveConfirmation();
+00073     \}
+00074     onReplace: \{
+00075         App.replaceInput(field);
+00076     \}
+00077     onCancelReplace: \{
+00078         App.cancelReplacement();
+00079     \}
+00080 
+00081     onKeySelected: \{
+00082         commonPage.streamBuffer.buffer(selectedKey);
+00083     \}
+00084     \textcolor{keyword}{function} displayFileDialog() \{
+00085         fileDialog.open();
+00086     \}
+00087 
+00088     FileDialog \{
+00089         \textcolor{keywordtype}{id}: fileDialog
+00090         title: \textcolor{stringliteral}{"Veuillez choisir un fichier"}
+00091         selectMultiple: \textcolor{keyword}{false}
+00092         selectFolder: \textcolor{keyword}{false}
+00093         onAccepted: \{
+00094             \textcolor{keywordflow}{if}(fileDialog.filePath !== \textcolor{stringliteral}{""}) \{
+00095                 commonPage.selected(fileDialog.filePath);
+00096             \}
+00097         \}
+00098         onRejected: \{
+00099             fileDialog.close();
+00100         \}
+00101     \}
+00102     \hyperlink{classGridLayout}{GridLayout} \{
+00103         \textcolor{keywordtype}{id}:\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}
+00104         columnSpacing: 2
+00105         rowSpacing: 4
+00106         width: parent.width
+00107         height: parent.height
+00108         anchors.fill: parent
+00109         flow: \hyperlink{classGridLayout}{GridLayout}.TopToBottom
+00110         rows: 2
+00111         columns: 2
+00112         \textcolor{comment}{/*la partie supérieure du panel de gauche est remplie par des onglets et leur contenu*/}
+00113         \hyperlink{classSH__TabZone}{SH\_TabZone} \{
+00114             \textcolor{keywordtype}{id}: tabs
+00115             objectName: \textcolor{stringliteral}{"TabView"}
+00116             Layout.alignment: Qt.AlignTop
+00117             Layout.minimumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.columnSpacing
+00118             Layout.minimumHeight: 7*\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.height/12-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.rowSpacing
+00119             Layout.fillWidth: \textcolor{keyword}{true}
+00120             Layout.fillHeight: \textcolor{keyword}{true}
+00121             enabled:\textcolor{keyword}{true}
+00122             stdKeyboard: [
+00123                 char10Action, char11Action, char12Action, char13Action, char14Action, char15Action, 
       char16Action, char17Action, char18Action, char19Action, capsAction,
-00098                 char20Action, char21Action, char22Action, char23Action, char24Action, char25Action, 
+00124                 char20Action, char21Action, char22Action, char23Action, char24Action, char25Action, 
       char26Action, char27Action, char28Action, char29Action, dotAction,
-00099                 char30Action, char31Action, char32Action, char33Action, char34Action, char35Action, 
+00125                 char30Action, char31Action, char32Action, char33Action, char34Action, char35Action, 
       char36Action, char37Action, char38Action, char39Action, spaceAction,
-00100                 char40Action, char41Action, char42Action, char43Action, char44Action, char45Action, 
+00126                 char40Action, char41Action, char42Action, char43Action, char44Action, char45Action, 
       char46Action, char47Action, char48Action, char49Action, commaAction,
-00101                 char50Action, char51Action, char52Action, char53Action, char54Action, char55Action, 
+00127                 char50Action, char51Action, char52Action, char53Action, char54Action, char55Action, 
       char56Action, char57Action, char58Action, char59Action, quoteAction,
-00102                 char60Action, char61Action, char62Action, char63Action, char64Action, char65Action, 
+00128                 char60Action, char61Action, char62Action, char63Action, char64Action, char65Action, 
       char66Action, char67Action, char68Action, char69Action, quote2Action
-00103             ]
-00104 
-00105             onSelected: \{
-00106                commonPage.keySelected(selectedItem);
-00107             \}
-00108             onSelectedForDetail: \{
-00109                 rightOutput.displaySqlDetail(data);
-00110             \}
-00111         \}
-00112         \textcolor{comment}{/*la partie inférieure du panel de gauche contient le clavier*/}
-00113         \hyperlink{classSH__Keyboard}{SH\_Keyboard}\{
-00114             \textcolor{keywordtype}{id}: keys
-00115             columns: 5
-00116             actionsList: [
-00117                 abandonAction, cancelAction, eraseAction, replaceAction, backAction,
-00118                 leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
-00119                 arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
-00120                 departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
-00121                 vatAction, doubleNullAction, nullAction, decimalAction, minusAction,
-00122                 escapeAction, enterAction, confirmAction, quitAction, helpAction
-00123             ]
-00124             enabled:\textcolor{keyword}{true}
-00125             Layout.alignment: Qt.AlignBottom
-00126             Layout.minimumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.columnSpacing
-00127             Layout.minimumHeight: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.height/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.rowSpacing
-00128             Layout.fillWidth: \textcolor{keyword}{true}
-00129             Layout.fillHeight: \textcolor{keyword}{true}
-00130         \}
-00131 
-00132         \textcolor{comment}{/*la zone d'affichage remplit toute la moitié de droite*/}
-00133         \hyperlink{classSH__OutputZone}{SH\_OutputZone} \{
-00134             \textcolor{keywordtype}{id}: rightOutput
-00135             objectName: \textcolor{stringliteral}{"RightOutput"}
-00136             Layout.rowSpan: 2
-00137             Layout.minimumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.columnSpacing
-00138             Layout.maximumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2
-00139             Layout.fillHeight: \textcolor{keyword}{true}
-00140             onSelected: \{
-00141                 commonPage.keySelected(selectedItem);
-00142             \}
-00143         \}
-00144     \}
-00145 
-00146 
-00147     SH\_ComplexAction \{
-00148         \textcolor{keywordtype}{id}: abandonAction
-00149         text: qsTr(\textcolor{stringliteral}{"VALIDER"})
-00150         keyShortcut: Qt.Key\_unknown
-00151         onTriggered: commonPage.validate()
-00152     \}
-00153     SH\_ComplexAction \{
-00154         \textcolor{keywordtype}{id}: cancelAction
-00155         text: qsTr(\textcolor{stringliteral}{"ANNULER"})
-00156         keyShortcut: Qt.Key\_Cancel
-00157         \textcolor{comment}{/*onTriggered: */}\textcolor{comment}{/*TODO*/}
-00158     \}
-00159     SH\_ComplexAction \{
-00160         \textcolor{keywordtype}{id}: eraseAction
-00161         text: qsTr(\textcolor{stringliteral}{"EFFACER"})
-00162         keyShortcut: Qt.Key\_Delete
-00163         \textcolor{comment}{/*onTriggered: */}\textcolor{comment}{/*TODO*/}
-00164     \}
-00165     SH\_ComplexAction \{
-00166         \textcolor{keywordtype}{id}: replaceAction
-00167         text: qsTr(\textcolor{stringliteral}{"VENDRE"})
-00168         keyShortcut: Qt.Key\_unknown
-00169         onTriggered: tabs.newSelling()
-00170     \}
-00171     SH\_ComplexAction \{
-00172         \textcolor{keywordtype}{id}: backAction
-00173         text: qsTr(\textcolor{stringliteral}{"RETOUR"})
-00174         keyShortcut: Qt.Key\_Backspace
-00175         onTriggered: commonPage.streamBuffer.eraseLastChar();
-00176     \}
-00177 
-00178     SH\_ComplexAction \{
-00179         \textcolor{keywordtype}{id}: leavingRoomAction
-00180         text: qsTr(\textcolor{stringliteral}{"LIBÉRER"})
-00181         keyShortcut: Qt.Key\_unknown
-00182 
-00183         \textcolor{comment}{/*onTriggered: */}\textcolor{comment}{/*TODO*/}
-00184     \}
-00185     SH\_ComplexAction \{
-00186         \textcolor{keywordtype}{id}: digit7Action
-00187         text: qsTr(\textcolor{stringliteral}{"7"})
-00188         keyShortcut: Qt.Key\_7
-00189 
-00190         onTriggered: commonPage.keySelected(text);
+00129             ]
+00130 
+00131             onSelected: \{
+00132                 commonPage.keySelected(selectedItem);
+00133             \}
+00134             onSelectedForDetail: \{
+00135                 rightOutput.selectedForDetail(datas.data(row));
+00136             \}
+00137         \}
+00138         RowLayout \{
+00139             Layout.alignment: Qt.AlignBottom
+00140             Layout.minimumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.columnSpacing
+00141             Layout.minimumHeight: 5*\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.height/12-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.rowSpacing
+00142             Layout.fillWidth: \textcolor{keyword}{true}
+00143             Layout.fillHeight: \textcolor{keyword}{true}
+00144             \textcolor{comment}{/*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche
+       en mode RECEPTION*/}
+00145             \hyperlink{classSH__ContentView}{SH\_ContentView} \{
+00146                 \textcolor{keywordtype}{id}: vatSidePanel
+00147                 model: SH\_VATModel \{ \}
+00148                 \textcolor{comment}{//columns: 1}
+00149                 sectionIndex: 0
+00150                 dataDelegate: \textcolor{stringliteral}{"SH\_VATDelegate.qml"}
+00151                 onSelected: \{
+00152                     commonPage.keySelected(selectedItem);
+00153                 \}
+00154                 Component.onCompleted: \{
+00155                     \textcolor{keywordflow}{if}(model !== 0) \{
+00156                         model.fetch();
+00157                     \}
+00158                 \}
+00159                 Layout.minimumWidth: parent.width/10;
+00160                 Layout.fillHeight: \textcolor{keyword}{true}
+00161                 Layout.alignment: Qt.AlignTop
+00162             \}
+00163             \hyperlink{classSH__Keyboard}{SH\_Keyboard}\{
+00164                 \textcolor{keywordtype}{id}: keys
+00165                 columns: 5
+00166                 actionsList: [
+00167                     abandonAction, cancelAction, eraseAction, replaceAction, backAction,
+00168                     leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
+00169                     arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
+00170                     departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
+00171                     vatAction, doubleNullAction, nullAction, decimalAction, minusAction,
+00172                     escapeAction, enterAction, confirmAction, quitAction, helpAction
+00173                 ]
+00174                 enabled:\textcolor{keyword}{true}
+00175                 Layout.fillWidth: \textcolor{keyword}{true}
+00176                 Layout.fillHeight: \textcolor{keyword}{true}
+00177             \}
+00178         \}
+00179         \textcolor{comment}{/*la zone d'affichage remplit toute la moitié de droite*/}
+00180         \hyperlink{classSH__OutputZone}{SH\_OutputZone} \{
+00181             \textcolor{keywordtype}{id}: rightOutput
+00182             objectName: \textcolor{stringliteral}{"RightOutput"}
+00183             Layout.rowSpan: 2
+00184             Layout.minimumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2-\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.columnSpacing
+00185             Layout.maximumWidth: \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}.width/2
+00186             Layout.fillHeight: \textcolor{keyword}{true}
+00187             onSelected: \{
+00188                 commonPage.keySelected(selectedItem);
+00189             \}
+00190         \}
 00191     \}
-00192     SH\_ComplexAction \{
-00193         \textcolor{keywordtype}{id}: digit8Action
-00194         text: qsTr(\textcolor{stringliteral}{"8"})
-00195         keyShortcut: Qt.Key\_8
-00196 
-00197         onTriggered: commonPage.keySelected(text);
+00192 
+00193     Binding \{
+00194         target: vatSidePanel
+00195         \textcolor{keyword}{property}: \textcolor{stringliteral}{"visible"}
+00196         value: \textcolor{keyword}{true}
+00197         when: (App.currentMode === AppMode.RECEPTION)
 00198     \}
-00199     SH\_ComplexAction \{
-00200         \textcolor{keywordtype}{id}: digit9Action
-00201         text: qsTr(\textcolor{stringliteral}{"9"})
-00202         keyShortcut: Qt.Key\_9
-00203 
-00204         onTriggered: commonPage.keySelected(text);
-00205     \}
-00206     SH\_ComplexAction \{
-00207         \textcolor{keywordtype}{id}: plusAction
-00208         text: qsTr(\textcolor{stringliteral}{"+"})
-00209         keyShortcut: Qt.Key\_Plus
-00210 
-00211         onTriggered: commonPage.keySelected(text);
-00212     \}
-00213 
-00214     SH\_ComplexAction \{
-00215         \textcolor{keywordtype}{id}: arrivingAction
-00216         text: qsTr(\textcolor{stringliteral}{"ARRIVÉE"})
-00217         keyShortcut: Qt.Key\_unknown
-00218         onTriggered: tabs.newBilling();
-00219     \}
-00220     SH\_ComplexAction \{
-00221         \textcolor{keywordtype}{id}: digit4Action
-00222         text: qsTr(\textcolor{stringliteral}{"4"})
-00223         keyShortcut: Qt.Key\_4
-00224 
-00225         onTriggered: commonPage.keySelected(text);
+00199 
+00200 
+00201     Binding \{
+00202         target: leavingRoomAction
+00203         \textcolor{keyword}{property}: \textcolor{stringliteral}{"enabled"}
+00204         value: \textcolor{keyword}{true}
+00205         when: (App.currentMode === AppMode.RECEPTION)
+00206     \}
+00207 
+00208     Binding \{
+00209         target: replaceAction
+00210         \textcolor{keyword}{property}: \textcolor{stringliteral}{"enabled"}
+00211         value: \textcolor{keyword}{true}
+00212         when: (App.currentMode === AppMode.RECEPTION)
+00213     \}
+00214 
+00215     Binding \{
+00216         target: arrivingAction
+00217         \textcolor{keyword}{property}: \textcolor{stringliteral}{"enabled"}
+00218         value: \textcolor{keyword}{true}
+00219         when: (App.currentMode === AppMode.RECEPTION)
+00220     \}
+00221     Binding \{
+00222         target: departureAction
+00223         \textcolor{keyword}{property}: \textcolor{stringliteral}{"enabled"}
+00224         value: \textcolor{keyword}{true}
+00225         when: (App.currentMode === AppMode.RECEPTION)
 00226     \}
-00227     SH\_ComplexAction \{
-00228         \textcolor{keywordtype}{id}: digit5Action
-00229         text: qsTr(\textcolor{stringliteral}{"5"})
-00230         keyShortcut: Qt.Key\_5
-00231 
-00232         onTriggered: commonPage.keySelected(text);
-00233     \}
-00234     SH\_ComplexAction \{
-00235         \textcolor{keywordtype}{id}: digit6Action
-00236         text: qsTr(\textcolor{stringliteral}{"6"})
-00237         keyShortcut: Qt.Key\_6
-00238 
-00239         onTriggered: commonPage.keySelected(text);
+00227 
+00228 
+00229     SH\_ComplexAction \{
+00230         \textcolor{keywordtype}{id}: abandonAction
+00231         text: qsTr(\textcolor{stringliteral}{"VALIDER"})
+00232         keyShortcut: Qt.Key\_unknown
+00233         onTriggered: commonPage.validate()
+00234     \}
+00235     SH\_ComplexAction \{
+00236         \textcolor{keywordtype}{id}: cancelAction
+00237         text: qsTr(\textcolor{stringliteral}{"ANNULER"})
+00238         keyShortcut: Qt.Key\_Cancel
+00239         \textcolor{comment}{/*onTriggered: */}\textcolor{comment}{/*TODO*/}
 00240     \}
 00241     SH\_ComplexAction \{
-00242         \textcolor{keywordtype}{id}: timesAction
-00243         text: qsTr(\textcolor{stringliteral}{"*"})
-00244         keyShortcut: Qt.Key\_multiply
-00245 
-00246         onTriggered: commonPage.keySelected(text);
-00247     \}
-00248 
-00249     SH\_ComplexAction \{
-00250         \textcolor{keywordtype}{id}: departureAction
-00251         text: qsTr(\textcolor{stringliteral}{"DÉPART"})
-00252         keyShortcut: Qt.Key\_unknown
-00253         \textcolor{comment}{/*onTriggered: */} \textcolor{comment}{/*TODO*/}
-00254     \}
-00255     SH\_ComplexAction \{
-00256         \textcolor{keywordtype}{id}: digit1Action
-00257         text: qsTr(\textcolor{stringliteral}{"1"})
-00258         keyShortcut: Qt.Key\_1
-00259 
-00260         onTriggered: commonPage.keySelected(text);
-00261     \}
-00262     SH\_ComplexAction \{
-00263         \textcolor{keywordtype}{id}: digit2Action
-00264         text: qsTr(\textcolor{stringliteral}{"2"})
-00265         keyShortcut: Qt.Key\_2
-00266 
-00267         onTriggered: commonPage.keySelected(text);
-00268     \}
-00269     SH\_ComplexAction \{
-00270         \textcolor{keywordtype}{id}: digit3Action
-00271         text: qsTr(\textcolor{stringliteral}{"3"})
-00272         keyShortcut: Qt.Key\_3
-00273 
-00274         onTriggered: commonPage.keySelected(text);
-00275     \}
-00276     SH\_ComplexAction \{
-00277         \textcolor{keywordtype}{id}: dividesAction
-00278         text: qsTr(\textcolor{stringliteral}{"/"})
-00279         keyShortcut: Qt.Key\_division
-00280 
-00281         onTriggered: commonPage.keySelected(text);
-00282     \}
-00283     SH\_ComplexAction \{
-00284         \textcolor{keywordtype}{id}: vatAction
-00285         text: qsTr(\textcolor{stringliteral}{"TVA"})
-00286         keyShortcut: Qt.Key\_unknown
-00287 
-00288         \textcolor{comment}{/*onTriggered: */} \textcolor{comment}{/*TODO*/}
-00289     \}
-00290     SH\_ComplexAction \{
-00291         \textcolor{keywordtype}{id}: doubleNullAction
-00292         text: qsTr(\textcolor{stringliteral}{"00"})
-00293         keyShortcut: Qt.Key\_unknown
-00294 
-00295         onTriggered: commonPage.keySelected(text);
-00296     \}
-00297     SH\_ComplexAction \{
-00298         \textcolor{keywordtype}{id}: nullAction
-00299         text: qsTr(\textcolor{stringliteral}{"0"})
-00300         keyShortcut: Qt.Key\_0
-00301 
-00302         onTriggered: commonPage.keySelected(text);
-00303     \}
-00304     SH\_ComplexAction \{
-00305         \textcolor{keywordtype}{id}: decimalAction
-00306         text: qsTr(\textcolor{stringliteral}{","})
-00307         keyShortcut: Qt.Key\_Period
-00308 
-00309         onTriggered: commonPage.keySelected(text);
-00310     \}
-00311     SH\_ComplexAction \{
-00312         \textcolor{keywordtype}{id}: minusAction
-00313         text: qsTr(\textcolor{stringliteral}{"-"})
-00314         keyShortcut: Qt.Key\_Minus
-00315 
-00316         onTriggered: commonPage.keySelected(text);
-00317     \}
-00318 
-00319     SH\_ComplexAction \{
-00320         \textcolor{keywordtype}{id}: escapeAction
-00321         text: qsTr(\textcolor{stringliteral}{"ÉCHAP"})
-00322         keyShortcut: Qt.Key\_Escape
-00323         onTriggered: commonPage.cancelProcess()
-00324     \}
-00325     SH\_ComplexAction \{
-00326         \textcolor{keywordtype}{id}: enterAction
-00327         text: qsTr(\textcolor{stringliteral}{"ENTRÉE"})
-00328         keyShortcut: Qt.Key\_Enter
-00329         onTriggered: commonPage.streamBuffer.clearBuffer();
-00330     \}
-00331     SH\_ComplexAction \{
-00332         \textcolor{keywordtype}{id}: confirmAction
-00333         text: qsTr(\textcolor{stringliteral}{"CONFIRMER"})
-00334         keyShortcut: Qt.Key\_Return
-00335         onTriggered: \{
-00336             commonPage.confirm();
-00337         \}
-00338     \}
-00339     SH\_ComplexAction \{
-00340         \textcolor{keywordtype}{id}: quitAction
-00341         text: qsTr(\textcolor{stringliteral}{"QUITTER"})
-00342         keyShortcut: Qt.Key\_unknown
-00343         onTriggered: \{
-00344             commonPage.cancelProcess();
-00345             commonPage.quit();
-00346         \}
-00347     \}
-00348     SH\_ComplexAction \{
-00349         \textcolor{keywordtype}{id}: helpAction
-00350         text: qsTr(\textcolor{stringliteral}{"AIDE"})
-00351         keyShortcut: Qt.Key\_unknown
-00352         \textcolor{comment}{/*onTriggered: */} \textcolor{comment}{/*TODO*/}
-00353     \}
-00354 
+00242         \textcolor{keywordtype}{id}: eraseAction
+00243         text: qsTr(\textcolor{stringliteral}{"EFFACER"})
+00244         keyShortcut: Qt.Key\_Delete
+00245         \textcolor{comment}{/*onTriggered: */}\textcolor{comment}{/*TODO*/}
+00246     \}
+00247     SH\_ComplexAction \{
+00248         \textcolor{keywordtype}{id}: replaceAction
+00249         text: qsTr(\textcolor{stringliteral}{"VENDRE"})
+00250         keyShortcut: Qt.Key\_unknown
+00251         onTriggered: \{
+00252             \textcolor{keywordflow}{if}(replaceAction.enabled) \{
+00253                 tabs.newSelling()
+00254             \}
+00255         \}
+00256     \}
+00257     SH\_ComplexAction \{
+00258         \textcolor{keywordtype}{id}: backAction
+00259         text: qsTr(\textcolor{stringliteral}{"RETOUR"})
+00260         keyShortcut: Qt.Key\_Backspace
+00261         onTriggered: commonPage.streamBuffer.eraseLastChar();
+00262     \}
+00263 
+00264     SH\_ComplexAction \{
+00265         \textcolor{keywordtype}{id}: leavingRoomAction
+00266         text: qsTr(\textcolor{stringliteral}{"LIBÉRER"})
+00267         keyShortcut: Qt.Key\_unknown
+00268         onTriggered: \{
+00269             \textcolor{keywordflow}{if}(leavingRoomAction.enabled) \{
+00270                 \textcolor{comment}{/*TODO*/}
+00271             \}
+00272         \}
+00273     \}
+00274     SH\_ComplexAction \{
+00275         \textcolor{keywordtype}{id}: digit7Action
+00276         text: qsTr(\textcolor{stringliteral}{"7"})
+00277         keyShortcut: Qt.Key\_7
+00278         onTriggered: commonPage.keySelected(text);
+00279     \}
+00280     SH\_ComplexAction \{
+00281         \textcolor{keywordtype}{id}: digit8Action
+00282         text: qsTr(\textcolor{stringliteral}{"8"})
+00283         keyShortcut: Qt.Key\_8
+00284         onTriggered: commonPage.keySelected(text);
+00285     \}
+00286     SH\_ComplexAction \{
+00287         \textcolor{keywordtype}{id}: digit9Action
+00288         text: qsTr(\textcolor{stringliteral}{"9"})
+00289         keyShortcut: Qt.Key\_9
+00290         onTriggered: commonPage.keySelected(text);
+00291     \}
+00292     SH\_ComplexAction \{
+00293         \textcolor{keywordtype}{id}: plusAction
+00294         text: qsTr(\textcolor{stringliteral}{"+"})
+00295         keyShortcut: Qt.Key\_Plus
+00296         onTriggered: commonPage.keySelected(text);
+00297     \}
+00298 
+00299     SH\_ComplexAction \{
+00300         \textcolor{keywordtype}{id}: arrivingAction
+00301         text: qsTr(\textcolor{stringliteral}{"ARRIVÉE"})
+00302         keyShortcut: Qt.Key\_unknown
+00303         onTriggered: \{
+00304             \textcolor{keywordflow}{if}(arrivingAction.enabled) \{
+00305                 tabs.newBilling();
+00306             \}
+00307         \}
+00308     \}
+00309     SH\_ComplexAction \{
+00310         \textcolor{keywordtype}{id}: digit4Action
+00311         text: qsTr(\textcolor{stringliteral}{"4"})
+00312         keyShortcut: Qt.Key\_4
+00313 
+00314         onTriggered: commonPage.keySelected(text);
+00315     \}
+00316     SH\_ComplexAction \{
+00317         \textcolor{keywordtype}{id}: digit5Action
+00318         text: qsTr(\textcolor{stringliteral}{"5"})
+00319         keyShortcut: Qt.Key\_5
+00320 
+00321         onTriggered: commonPage.keySelected(text);
+00322     \}
+00323     SH\_ComplexAction \{
+00324         \textcolor{keywordtype}{id}: digit6Action
+00325         text: qsTr(\textcolor{stringliteral}{"6"})
+00326         keyShortcut: Qt.Key\_6
+00327 
+00328         onTriggered: commonPage.keySelected(text);
+00329     \}
+00330     SH\_ComplexAction \{
+00331         \textcolor{keywordtype}{id}: timesAction
+00332         text: qsTr(\textcolor{stringliteral}{"*"})
+00333         keyShortcut: Qt.Key\_multiply
+00334 
+00335         onTriggered: commonPage.keySelected(text);
+00336     \}
+00337 
+00338     SH\_ComplexAction \{
+00339         \textcolor{keywordtype}{id}: departureAction
+00340         text: qsTr(\textcolor{stringliteral}{"DÉPART"})
+00341         keyShortcut: Qt.Key\_unknown
+00342         \textcolor{comment}{/*onTriggered: */} \textcolor{comment}{/*TODO*/}
+00343     \}
+00344     SH\_ComplexAction \{
+00345         \textcolor{keywordtype}{id}: digit1Action
+00346         text: qsTr(\textcolor{stringliteral}{"1"})
+00347         keyShortcut: Qt.Key\_1
+00348 
+00349         onTriggered: commonPage.keySelected(text);
+00350     \}
+00351     SH\_ComplexAction \{
+00352         \textcolor{keywordtype}{id}: digit2Action
+00353         text: qsTr(\textcolor{stringliteral}{"2"})
+00354         keyShortcut: Qt.Key\_2
 00355 
-00356     SH\_ComplexAction \{
-00357         \textcolor{keywordtype}{id}: char10Action
-00358         text: qsTr(\textcolor{stringliteral}{"Q"})
-00359         keyShortcut: Qt.Key\_Q
-00360 
-00361         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00362     \}
-00363     SH\_ComplexAction \{
-00364         \textcolor{keywordtype}{id}: char11Action
-00365         text: qsTr(\textcolor{stringliteral}{"W"})
-00366         keyShortcut: Qt.Key\_W
-00367 
-00368         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00369     \}
-00370     SH\_ComplexAction \{
-00371         \textcolor{keywordtype}{id}: char12Action
-00372         text: qsTr(\textcolor{stringliteral}{"E"})
-00373         keyShortcut: Qt.Key\_E
-00374 
-00375         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00376     \}
-00377     SH\_ComplexAction \{
-00378         \textcolor{keywordtype}{id}: char13Action
-00379         text: qsTr(\textcolor{stringliteral}{"R"})
-00380         keyShortcut: Qt.Key\_R
-00381 
-00382         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00383     \}
-00384     SH\_ComplexAction \{
-00385         \textcolor{keywordtype}{id}: char14Action
-00386         text: qsTr(\textcolor{stringliteral}{"T"})
-00387         keyShortcut: Qt.Key\_T
-00388 
-00389         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00390     \}
-00391     SH\_ComplexAction \{
-00392         \textcolor{keywordtype}{id}: char15Action
-00393         text: qsTr(\textcolor{stringliteral}{"Z"})
-00394         keyShortcut: Qt.Key\_Z
-00395 
-00396         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00397     \}
-00398     SH\_ComplexAction \{
-00399         \textcolor{keywordtype}{id}: char16Action
-00400         text: qsTr(\textcolor{stringliteral}{"U"})
-00401         keyShortcut: Qt.Key\_U
-00402 
-00403         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00404     \}
-00405     SH\_ComplexAction \{
-00406         \textcolor{keywordtype}{id}: char17Action
-00407         text: qsTr(\textcolor{stringliteral}{"I"})
-00408         keyShortcut: Qt.Key\_I
-00409 
-00410         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00411     \}
-00412     SH\_ComplexAction \{
-00413         \textcolor{keywordtype}{id}: char18Action
-00414         text: qsTr(\textcolor{stringliteral}{"O"})
-00415         keyShortcut: Qt.Key\_O
-00416 
-00417         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00418     \}
-00419     SH\_ComplexAction \{
-00420         \textcolor{keywordtype}{id}: char19Action
-00421         text: qsTr(\textcolor{stringliteral}{"P"})
-00422         keyShortcut: Qt.Key\_P
-00423 
-00424         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00425     \}
-00426 
-00427     SH\_ComplexAction \{
-00428         \textcolor{keywordtype}{id}: char20Action
-00429         text: qsTr(\textcolor{stringliteral}{"É"})
-00430         keyShortcut: Qt.Key\_Eacute
-00431 
-00432         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00433     \}
-00434     SH\_ComplexAction \{
-00435         \textcolor{keywordtype}{id}: char21Action
-00436         text: qsTr(\textcolor{stringliteral}{"È"})
-00437         keyShortcut: Qt.Key\_Egrave
-00438 
-00439         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00440     \}
-00441     SH\_ComplexAction \{
-00442         \textcolor{keywordtype}{id}: char22Action
-00443         text: qsTr(\textcolor{stringliteral}{"Ê"})
-00444         keyShortcut: Qt.Key\_Ecircumflex
-00445 
-00446         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00447     \}
-00448     SH\_ComplexAction \{
-00449         \textcolor{keywordtype}{id}: char23Action
-00450         text: qsTr(\textcolor{stringliteral}{"Ë"})
-00451         keyShortcut: Qt.Key\_Ediaeresis
-00452 
-00453         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00454     \}
-00455     SH\_ComplexAction \{
-00456         \textcolor{keywordtype}{id}: char24Action
-00457         text: qsTr(\textcolor{stringliteral}{"À"})
-00458         keyShortcut: Qt.Key\_Agrave
-00459 
-00460         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00461     \}
-00462     SH\_ComplexAction \{
-00463         \textcolor{keywordtype}{id}: char25Action
-00464         text: qsTr(\textcolor{stringliteral}{"Â"})
-00465         keyShortcut: Qt.Key\_Acircumflex
-00466 
-00467         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+00356         onTriggered: commonPage.keySelected(text);
+00357     \}
+00358     SH\_ComplexAction \{
+00359         \textcolor{keywordtype}{id}: digit3Action
+00360         text: qsTr(\textcolor{stringliteral}{"3"})
+00361         keyShortcut: Qt.Key\_3
+00362 
+00363         onTriggered: commonPage.keySelected(text);
+00364     \}
+00365     SH\_ComplexAction \{
+00366         \textcolor{keywordtype}{id}: dividesAction
+00367         text: qsTr(\textcolor{stringliteral}{"/"})
+00368         keyShortcut: Qt.Key\_division
+00369 
+00370         onTriggered: commonPage.keySelected(text);
+00371     \}
+00372     SH\_ComplexAction \{
+00373         \textcolor{keywordtype}{id}: vatAction
+00374         text: qsTr(\textcolor{stringliteral}{"???"})
+00375         keyShortcut: Qt.Key\_unknown
+00376 
+00377         \textcolor{comment}{/*onTriggered: */} \textcolor{comment}{/*TODO*/}
+00378     \}
+00379     SH\_ComplexAction \{
+00380         \textcolor{keywordtype}{id}: doubleNullAction
+00381         text: qsTr(\textcolor{stringliteral}{"00"})
+00382         keyShortcut: Qt.Key\_unknown
+00383 
+00384         onTriggered: commonPage.keySelected(text);
+00385     \}
+00386     SH\_ComplexAction \{
+00387         \textcolor{keywordtype}{id}: nullAction
+00388         text: qsTr(\textcolor{stringliteral}{"0"})
+00389         keyShortcut: Qt.Key\_0
+00390 
+00391         onTriggered: commonPage.keySelected(text);
+00392     \}
+00393     SH\_ComplexAction \{
+00394         \textcolor{keywordtype}{id}: decimalAction
+00395         text: qsTr(\textcolor{stringliteral}{","})
+00396         keyShortcut: Qt.Key\_Period
+00397 
+00398         onTriggered: commonPage.keySelected(text);
+00399     \}
+00400     SH\_ComplexAction \{
+00401         \textcolor{keywordtype}{id}: minusAction
+00402         text: qsTr(\textcolor{stringliteral}{"-"})
+00403         keyShortcut: Qt.Key\_Minus
+00404 
+00405         onTriggered: commonPage.keySelected(text);
+00406     \}
+00407 
+00408     SH\_ComplexAction \{
+00409         \textcolor{keywordtype}{id}: escapeAction
+00410         text: qsTr(\textcolor{stringliteral}{"ÉCHAP"})
+00411         keyShortcut: Qt.Key\_Escape
+00412         onTriggered: commonPage.cancelProcess()
+00413     \}
+00414     SH\_ComplexAction \{
+00415         \textcolor{keywordtype}{id}: enterAction
+00416         text: qsTr(\textcolor{stringliteral}{"ENTRÉE"})
+00417         keyShortcut: Qt.Key\_Enter
+00418         onTriggered: commonPage.streamBuffer.clearBuffer();
+00419     \}
+00420     SH\_ComplexAction \{
+00421         \textcolor{keywordtype}{id}: confirmAction
+00422         text: qsTr(\textcolor{stringliteral}{"CONFIRMER"})
+00423         keyShortcut: Qt.Key\_Return
+00424         onTriggered: \{
+00425             commonPage.confirm();
+00426         \}
+00427     \}
+00428     SH\_ComplexAction \{
+00429         \textcolor{keywordtype}{id}: quitAction
+00430         text: qsTr(\textcolor{stringliteral}{"MENU"})
+00431         keyShortcut: Qt.Key\_unknown
+00432         onTriggered: \{
+00433             commonPage.cancelProcess();
+00434             commonPage.quit();
+00435         \}
+00436     \}
+00437     SH\_ComplexAction \{
+00438         \textcolor{keywordtype}{id}: helpAction
+00439         text: qsTr(\textcolor{stringliteral}{"AIDE"})
+00440         keyShortcut: Qt.Key\_unknown
+00441         \textcolor{comment}{/*onTriggered: */} \textcolor{comment}{/*TODO*/}
+00442     \}
+00443 
+00444 
+00445     SH\_ComplexAction \{
+00446         \textcolor{keywordtype}{id}: char10Action
+00447         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Q"}) : qsTr(\textcolor{stringliteral}{"q"})
+00448         keyShortcut: Qt.Key\_Q
+00449         onTriggered: commonPage.keySelected(text);
+00450     \}
+00451     SH\_ComplexAction \{
+00452         \textcolor{keywordtype}{id}: char11Action
+00453         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"W"}) : qsTr(\textcolor{stringliteral}{"w"})
+00454         keyShortcut: Qt.Key\_W
+00455         onTriggered: commonPage.keySelected(text);
+00456     \}
+00457     SH\_ComplexAction \{
+00458         \textcolor{keywordtype}{id}: char12Action
+00459         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"E"}) : qsTr(\textcolor{stringliteral}{"e"})
+00460         keyShortcut: Qt.Key\_E
+00461         onTriggered: commonPage.keySelected(text);
+00462     \}
+00463     SH\_ComplexAction \{
+00464         \textcolor{keywordtype}{id}: char13Action
+00465         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"R"}) : qsTr(\textcolor{stringliteral}{"r"})
+00466         keyShortcut: Qt.Key\_R
+00467         onTriggered: commonPage.keySelected(text);
 00468     \}
 00469     SH\_ComplexAction \{
-00470         \textcolor{keywordtype}{id}: char26Action
-00471         text: qsTr(\textcolor{stringliteral}{"Ä"})
-00472         keyShortcut: Qt.Key\_Adiaeresis
-00473 
-00474         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00475     \}
-00476     SH\_ComplexAction \{
-00477         \textcolor{keywordtype}{id}: char27Action
-00478         text: qsTr(\textcolor{stringliteral}{"Ï"})
-00479         keyShortcut: Qt.Key\_Idiaeresis
-00480 
-00481         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00482     \}
-00483     SH\_ComplexAction \{
-00484         \textcolor{keywordtype}{id}: char28Action
-00485         text: qsTr(\textcolor{stringliteral}{"Ù"})
-00486         keyShortcut: Qt.Key\_Ugrave
-00487 
-00488         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00489     \}
-00490     SH\_ComplexAction \{
-00491         \textcolor{keywordtype}{id}: char29Action
-00492         text: qsTr(\textcolor{stringliteral}{"Û"})
-00493         keyShortcut: Qt.Key\_Ucircumflex
-00494 
-00495         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00496     \}
-00497 
-00498     SH\_ComplexAction \{
-00499         \textcolor{keywordtype}{id}: char30Action
-00500         text: qsTr(\textcolor{stringliteral}{"A"})
-00501         keyShortcut: Qt.Key\_A
-00502 
-00503         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+00470         \textcolor{keywordtype}{id}: char14Action
+00471         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"T"}) : qsTr(\textcolor{stringliteral}{"t"})
+00472         keyShortcut: Qt.Key\_T
+00473         onTriggered: commonPage.keySelected(text);
+00474     \}
+00475     SH\_ComplexAction \{
+00476         \textcolor{keywordtype}{id}: char15Action
+00477         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Z"}) : qsTr(\textcolor{stringliteral}{"z"})
+00478         keyShortcut: Qt.Key\_Z
+00479         onTriggered: commonPage.keySelected(text);
+00480     \}
+00481     SH\_ComplexAction \{
+00482         \textcolor{keywordtype}{id}: char16Action
+00483         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"U"}) : qsTr(\textcolor{stringliteral}{"u"})
+00484         keyShortcut: Qt.Key\_U
+00485         onTriggered: commonPage.keySelected(text);
+00486     \}
+00487     SH\_ComplexAction \{
+00488         \textcolor{keywordtype}{id}: char17Action
+00489         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"I"}) : qsTr(\textcolor{stringliteral}{"i"})
+00490         keyShortcut: Qt.Key\_I
+00491         onTriggered: commonPage.keySelected(text);
+00492     \}
+00493     SH\_ComplexAction \{
+00494         \textcolor{keywordtype}{id}: char18Action
+00495         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"O"}) : qsTr(\textcolor{stringliteral}{"o"})
+00496         keyShortcut: Qt.Key\_O
+00497         onTriggered: commonPage.keySelected(text);
+00498     \}
+00499     SH\_ComplexAction \{
+00500         \textcolor{keywordtype}{id}: char19Action
+00501         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"P"}) : qsTr(\textcolor{stringliteral}{"p"})
+00502         keyShortcut: Qt.Key\_P
+00503         onTriggered: commonPage.keySelected(text);
 00504     \}
-00505     SH\_ComplexAction \{
-00506         \textcolor{keywordtype}{id}: char31Action
-00507         text: qsTr(\textcolor{stringliteral}{"S"})
-00508         keyShortcut: Qt.Key\_S
-00509 
-00510         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+00505 
+00506     SH\_ComplexAction \{
+00507         \textcolor{keywordtype}{id}: char20Action
+00508         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"É"}) : qsTr(\textcolor{stringliteral}{"é"})
+00509         keyShortcut: Qt.Key\_Eacute
+00510         onTriggered: commonPage.keySelected(text);
 00511     \}
 00512     SH\_ComplexAction \{
-00513         \textcolor{keywordtype}{id}: char32Action
-00514         text: qsTr(\textcolor{stringliteral}{"D"})
-00515         keyShortcut: Qt.Key\_D
-00516 
-00517         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00518     \}
-00519     SH\_ComplexAction \{
-00520         \textcolor{keywordtype}{id}: char33Action
-00521         text: qsTr(\textcolor{stringliteral}{"F"})
-00522         keyShortcut: Qt.Key\_F
-00523 
-00524         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00525     \}
-00526     SH\_ComplexAction \{
-00527         \textcolor{keywordtype}{id}: char34Action
-00528         text: qsTr(\textcolor{stringliteral}{"G"})
-00529         keyShortcut: Qt.Key\_G
-00530 
-00531         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00532     \}
-00533     SH\_ComplexAction \{
-00534         \textcolor{keywordtype}{id}: char35Action
-00535         text: qsTr(\textcolor{stringliteral}{"H"})
-00536         keyShortcut: Qt.Key\_H
-00537 
-00538         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00539     \}
-00540     SH\_ComplexAction \{
-00541         \textcolor{keywordtype}{id}: char36Action
-00542         text: qsTr(\textcolor{stringliteral}{"J"})
-00543         keyShortcut: Qt.Key\_J
-00544 
-00545         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00546     \}
-00547     SH\_ComplexAction \{
-00548         \textcolor{keywordtype}{id}: char37Action
-00549         text: qsTr(\textcolor{stringliteral}{"K"})
-00550         keyShortcut: Qt.Key\_K
-00551 
-00552         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+00513         \textcolor{keywordtype}{id}: char21Action
+00514         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ẽ"}) : qsTr(\textcolor{stringliteral}{"è"})
+00515         keyShortcut: Qt.Key\_Egrave
+00516         onTriggered: commonPage.keySelected(text);
+00517     \}
+00518     SH\_ComplexAction \{
+00519         \textcolor{keywordtype}{id}: char22Action
+00520         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ê"}) : qsTr(\textcolor{stringliteral}{"ê"})
+00521         keyShortcut: Qt.Key\_Ecircumflex
+00522         onTriggered: commonPage.keySelected(text);
+00523     \}
+00524     SH\_ComplexAction \{
+00525         \textcolor{keywordtype}{id}: char23Action
+00526         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ë"}) : qsTr(\textcolor{stringliteral}{"ë"})
+00527         keyShortcut: Qt.Key\_Ediaeresis
+00528         onTriggered: commonPage.keySelected(text);
+00529     \}
+00530     SH\_ComplexAction \{
+00531         \textcolor{keywordtype}{id}: char24Action
+00532         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"À"}) : qsTr(\textcolor{stringliteral}{"à"})
+00533         keyShortcut: Qt.Key\_Agrave
+00534         onTriggered: commonPage.keySelected(text);
+00535     \}
+00536     SH\_ComplexAction \{
+00537         \textcolor{keywordtype}{id}: char25Action
+00538         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Â"}) : qsTr(\textcolor{stringliteral}{"â"})
+00539         keyShortcut: Qt.Key\_Acircumflex
+00540         onTriggered: commonPage.keySelected(text);
+00541     \}
+00542     SH\_ComplexAction \{
+00543         \textcolor{keywordtype}{id}: char26Action
+00544         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ä"}) : qsTr(\textcolor{stringliteral}{"ä"})
+00545         keyShortcut: Qt.Key\_Adiaeresis
+00546         onTriggered: commonPage.keySelected(text);
+00547     \}
+00548     SH\_ComplexAction \{
+00549         \textcolor{keywordtype}{id}: char27Action
+00550         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ï"}) : qsTr(\textcolor{stringliteral}{"ï"})
+00551         keyShortcut: Qt.Key\_Idiaeresis
+00552         onTriggered: commonPage.keySelected(text);
 00553     \}
 00554     SH\_ComplexAction \{
-00555         \textcolor{keywordtype}{id}: char38Action
-00556         text: qsTr(\textcolor{stringliteral}{"L"})
-00557         keyShortcut: Qt.Key\_L
-00558 
-00559         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00560     \}
-00561     SH\_ComplexAction \{
-00562         \textcolor{keywordtype}{id}: char39Action
-00563         text: qsTr(\textcolor{stringliteral}{"Ö"})
-00564         keyShortcut: Qt.Key\_Odiaeresis
-00565 
-00566         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00567     \}
-00568 
-00569     SH\_ComplexAction \{
-00570         \textcolor{keywordtype}{id}: char40Action
-00571         text: qsTr(\textcolor{stringliteral}{"Y"})
-00572         keyShortcut: Qt.Key\_Y
-00573 
-00574         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00575     \}
-00576     SH\_ComplexAction \{
-00577         \textcolor{keywordtype}{id}: char41Action
-00578         text: qsTr(\textcolor{stringliteral}{"X"})
-00579         keyShortcut: Qt.Key\_X
-00580 
-00581         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00582     \}
-00583     SH\_ComplexAction \{
-00584         \textcolor{keywordtype}{id}: char42Action
-00585         text: qsTr(\textcolor{stringliteral}{"C"})
-00586         keyShortcut: Qt.Key\_C
-00587 
-00588         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00589     \}
-00590     SH\_ComplexAction \{
-00591         \textcolor{keywordtype}{id}: char43Action
-00592         text: qsTr(\textcolor{stringliteral}{"V"})
-00593         keyShortcut: Qt.Key\_V
-00594 
-00595         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+00555         \textcolor{keywordtype}{id}: char28Action
+00556         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ù"}) : qsTr(\textcolor{stringliteral}{"ù"})
+00557         keyShortcut: Qt.Key\_Ugrave
+00558         onTriggered: commonPage.keySelected(text);
+00559     \}
+00560     SH\_ComplexAction \{
+00561         \textcolor{keywordtype}{id}: char29Action
+00562         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Û"}) : qsTr(\textcolor{stringliteral}{"û"})
+00563         keyShortcut: Qt.Key\_Ucircumflex
+00564         onTriggered: commonPage.keySelected(text);
+00565     \}
+00566 
+00567     SH\_ComplexAction \{
+00568         \textcolor{keywordtype}{id}: char30Action
+00569         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"A"}) : qsTr(\textcolor{stringliteral}{"a"})
+00570         keyShortcut: Qt.Key\_A
+00571         onTriggered: commonPage.keySelected(text);
+00572     \}
+00573     SH\_ComplexAction \{
+00574         \textcolor{keywordtype}{id}: char31Action
+00575         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"S"}) : qsTr(\textcolor{stringliteral}{"s"})
+00576         keyShortcut: Qt.Key\_S
+00577         onTriggered: commonPage.keySelected(text);
+00578     \}
+00579     SH\_ComplexAction \{
+00580         \textcolor{keywordtype}{id}: char32Action
+00581         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"D"}) : qsTr(\textcolor{stringliteral}{"d"})
+00582         keyShortcut: Qt.Key\_D
+00583         onTriggered: commonPage.keySelected(text);
+00584     \}
+00585     SH\_ComplexAction \{
+00586         \textcolor{keywordtype}{id}: char33Action
+00587         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"F"}) : qsTr(\textcolor{stringliteral}{"f"})
+00588         keyShortcut: Qt.Key\_F
+00589         onTriggered: commonPage.keySelected(text);
+00590     \}
+00591     SH\_ComplexAction \{
+00592         \textcolor{keywordtype}{id}: char34Action
+00593         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"G"}) : qsTr(\textcolor{stringliteral}{"g"})
+00594         keyShortcut: Qt.Key\_G
+00595         onTriggered: commonPage.keySelected(text);
 00596     \}
 00597     SH\_ComplexAction \{
-00598         \textcolor{keywordtype}{id}: char44Action
-00599         text: qsTr(\textcolor{stringliteral}{"B"})
-00600         keyShortcut: Qt.Key\_B
-00601 
-00602         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00603     \}
-00604     SH\_ComplexAction \{
-00605         \textcolor{keywordtype}{id}: char45Action
-00606         text: qsTr(\textcolor{stringliteral}{"N"})
-00607         keyShortcut: Qt.Key\_N
-00608 
-00609         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00610     \}
-00611     SH\_ComplexAction \{
-00612         \textcolor{keywordtype}{id}: char46Action
-00613         text: qsTr(\textcolor{stringliteral}{"M"})
-00614         keyShortcut: Qt.Key\_M
-00615 
-00616         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00617     \}
-00618     SH\_ComplexAction \{
-00619         \textcolor{keywordtype}{id}: char47Action
-00620         text: qsTr(\textcolor{stringliteral}{"Î"})
-00621         keyShortcut: Qt.Key\_Icircumflex
-00622 
-00623         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00624     \}
-00625     SH\_ComplexAction \{
-00626         \textcolor{keywordtype}{id}: char48Action
-00627         text: qsTr(\textcolor{stringliteral}{"Ç"})
-00628         keyShortcut: Qt.Key\_Ccedilla
-00629 
-00630         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00631     \}
-00632     SH\_ComplexAction \{
-00633         \textcolor{keywordtype}{id}: char49Action
-00634         text: qsTr(\textcolor{stringliteral}{"Ô"})
-00635         keyShortcut: Qt.Key\_Ocircumflex
-00636 
-00637         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00638     \}
-00639 
+00598         \textcolor{keywordtype}{id}: char35Action
+00599         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"H"}) : qsTr(\textcolor{stringliteral}{"h"})
+00600         keyShortcut: Qt.Key\_H
+00601         onTriggered: commonPage.keySelected(text);
+00602     \}
+00603     SH\_ComplexAction \{
+00604         \textcolor{keywordtype}{id}: char36Action
+00605         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"J"}) : qsTr(\textcolor{stringliteral}{"j"})
+00606         keyShortcut: Qt.Key\_J
+00607         onTriggered: commonPage.keySelected(text);
+00608     \}
+00609     SH\_ComplexAction \{
+00610         \textcolor{keywordtype}{id}: char37Action
+00611         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"K"}) : qsTr(\textcolor{stringliteral}{"k"})
+00612         keyShortcut: Qt.Key\_K
+00613         onTriggered: commonPage.keySelected(text);
+00614     \}
+00615     SH\_ComplexAction \{
+00616         \textcolor{keywordtype}{id}: char38Action
+00617         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"L"}) : qsTr(\textcolor{stringliteral}{"l"})
+00618         keyShortcut: Qt.Key\_L
+00619         onTriggered: commonPage.keySelected(text);
+00620     \}
+00621     SH\_ComplexAction \{
+00622         \textcolor{keywordtype}{id}: char39Action
+00623         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ö"}) : qsTr(\textcolor{stringliteral}{"ö"})
+00624         keyShortcut: Qt.Key\_Odiaeresis
+00625         onTriggered: commonPage.keySelected(text);
+00626     \}
+00627 
+00628     SH\_ComplexAction \{
+00629         \textcolor{keywordtype}{id}: char40Action
+00630         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Y"}) : qsTr(\textcolor{stringliteral}{"y"})
+00631         keyShortcut: Qt.Key\_Y
+00632         onTriggered: commonPage.keySelected(text);
+00633     \}
+00634     SH\_ComplexAction \{
+00635         \textcolor{keywordtype}{id}: char41Action
+00636         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"X"}) : qsTr(\textcolor{stringliteral}{"x"})
+00637         keyShortcut: Qt.Key\_X
+00638         onTriggered: commonPage.keySelected(text);
+00639     \}
 00640     SH\_ComplexAction \{
-00641         \textcolor{keywordtype}{id}: char50Action
-00642         text: qsTr(\textcolor{stringliteral}{"Ñ"})
-00643         keyShortcut: Qt.Key\_Ntilde
-00644 
-00645         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00646     \}
-00647     SH\_ComplexAction \{
-00648         \textcolor{keywordtype}{id}: char51Action
-00649         text: qsTr(\textcolor{stringliteral}{"&"})
-00650         keyShortcut: Qt.Key\_Ampersand
-00651 
-00652         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00653     \}
-00654     SH\_ComplexAction \{
-00655         \textcolor{keywordtype}{id}: char52Action
-00656         text: qsTr(\textcolor{stringliteral}{"@"})
-00657         keyShortcut: Qt.Key\_At
-00658 
-00659         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00660     \}
-00661     SH\_ComplexAction \{
-00662         \textcolor{keywordtype}{id}: char53Action
-00663         text: qsTr(\textcolor{stringliteral}{"+"})
-00664         keyShortcut: Qt.Key\_Plus
-00665 
-00666         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00667     \}
-00668     SH\_ComplexAction \{
-00669         \textcolor{keywordtype}{id}: char54Action
-00670         text: qsTr(\textcolor{stringliteral}{"\_"})
-00671         keyShortcut: Qt.Key\_Underscore
-00672 
-00673         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00674     \}
-00675     SH\_ComplexAction \{
-00676         \textcolor{keywordtype}{id}: char55Action
-00677         text: qsTr(\textcolor{stringliteral}{"("})
-00678         keyShortcut: Qt.Key\_BracketLeft
-00679 
-00680         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00681     \}
-00682     SH\_ComplexAction \{
-00683         \textcolor{keywordtype}{id}: char56Action
-00684         text: qsTr(\textcolor{stringliteral}{")"})
-00685         keyShortcut: Qt.Key\_BracketRight
-00686 
-00687         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00688     \}
-00689     SH\_ComplexAction \{
-00690         \textcolor{keywordtype}{id}: char57Action
-00691         text: qsTr(\textcolor{stringliteral}{"-"})
-00692         keyShortcut: Qt.Key\_hyphen
-00693 
-00694         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00695     \}
-00696     SH\_ComplexAction \{
-00697         \textcolor{keywordtype}{id}: char58Action
-00698         text: qsTr(\textcolor{stringliteral}{"?"})
-00699         keyShortcut: Qt.Key\_Question
-00700 
-00701         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00702     \}
-00703     SH\_ComplexAction \{
-00704         \textcolor{keywordtype}{id}: char59Action
-00705         text: qsTr(\textcolor{stringliteral}{"!"})
-00706         keyShortcut: Qt.Key\_Exclam
-00707 
-00708         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00709     \}
-00710 
-00711     SH\_ComplexAction \{
-00712         \textcolor{keywordtype}{id}: char60Action
-00713         text: qsTr(\textcolor{stringliteral}{"%"})
-00714         keyShortcut: Qt.Key\_Percent
-00715         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00716     \}
-00717     SH\_ComplexAction \{
-00718         \textcolor{keywordtype}{id}: char61Action
-00719         text: qsTr(\textcolor{stringliteral}{":"})
-00720         keyShortcut: Qt.Key\_Semicolon
-00721         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00722     \}
-00723     SH\_ComplexAction \{
-00724         \textcolor{keywordtype}{id}: char62Action
-00725         text: qsTr(\textcolor{stringliteral}{"<"})
-00726         keyShortcut: Qt.Key\_Less
-00727         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00728     \}
-00729     SH\_ComplexAction \{
-00730         \textcolor{keywordtype}{id}: char63Action
-00731         text: qsTr(\textcolor{stringliteral}{">"})
-00732         keyShortcut: Qt.Key\_Greater
-00733         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00734     \}
-00735     SH\_ComplexAction \{
-00736         \textcolor{keywordtype}{id}: char64Action
-00737         text: qsTr(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"})
-00738         keyShortcut: Qt.Key\_Backslash
-00739         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00740     \}
-00741     SH\_ComplexAction \{
-00742         \textcolor{keywordtype}{id}: char65Action
-00743         text: qsTr(\textcolor{stringliteral}{"/"})
-00744         keyShortcut: Qt.Key\_Slash
-00745         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+00641         \textcolor{keywordtype}{id}: char42Action
+00642         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"C"}) : qsTr(\textcolor{stringliteral}{"c"})
+00643         keyShortcut: Qt.Key\_C
+00644         onTriggered: commonPage.keySelected(text);
+00645     \}
+00646     SH\_ComplexAction \{
+00647         \textcolor{keywordtype}{id}: char43Action
+00648         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"V"}) : qsTr(\textcolor{stringliteral}{"v"})
+00649         keyShortcut: Qt.Key\_V
+00650         onTriggered: commonPage.keySelected(text);
+00651     \}
+00652     SH\_ComplexAction \{
+00653         \textcolor{keywordtype}{id}: char44Action
+00654         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"B"}) : qsTr(\textcolor{stringliteral}{"b"})
+00655         keyShortcut: Qt.Key\_B
+00656         onTriggered: commonPage.keySelected(text);
+00657     \}
+00658     SH\_ComplexAction \{
+00659         \textcolor{keywordtype}{id}: char45Action
+00660         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"N"}) : qsTr(\textcolor{stringliteral}{"n"})
+00661         keyShortcut: Qt.Key\_N
+00662         onTriggered: commonPage.keySelected(text);
+00663     \}
+00664     SH\_ComplexAction \{
+00665         \textcolor{keywordtype}{id}: char46Action
+00666         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"M"}) : qsTr(\textcolor{stringliteral}{"m"})
+00667         keyShortcut: Qt.Key\_M
+00668         onTriggered: commonPage.keySelected(text);
+00669     \}
+00670     SH\_ComplexAction \{
+00671         \textcolor{keywordtype}{id}: char47Action
+00672         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Î"}) : qsTr(\textcolor{stringliteral}{"î"})
+00673         keyShortcut: Qt.Key\_Icircumflex
+00674         onTriggered: commonPage.keySelected(text);
+00675     \}
+00676     SH\_ComplexAction \{
+00677         \textcolor{keywordtype}{id}: char48Action
+00678         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ç"}) : qsTr(\textcolor{stringliteral}{"ç"})
+00679         keyShortcut: Qt.Key\_Ccedilla
+00680 
+00681         onTriggered: commonPage.keySelected(text);
+00682     \}
+00683     SH\_ComplexAction \{
+00684         \textcolor{keywordtype}{id}: char49Action
+00685         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ô"}) : qsTr(\textcolor{stringliteral}{"ô"})
+00686         keyShortcut: Qt.Key\_Ocircumflex
+00687 
+00688         onTriggered: commonPage.keySelected(text);
+00689     \}
+00690 
+00691     SH\_ComplexAction \{
+00692         \textcolor{keywordtype}{id}: char50Action
+00693         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"Ñ"}) : qsTr(\textcolor{stringliteral}{"ñ"})
+00694         keyShortcut: Qt.Key\_Ntilde
+00695 
+00696         onTriggered: commonPage.keySelected(text);
+00697     \}
+00698     SH\_ComplexAction \{
+00699         \textcolor{keywordtype}{id}: char51Action
+00700         text: qsTr(\textcolor{stringliteral}{"&"})
+00701         keyShortcut: Qt.Key\_Ampersand
+00702 
+00703         onTriggered: commonPage.keySelected(text);
+00704     \}
+00705     SH\_ComplexAction \{
+00706         \textcolor{keywordtype}{id}: char52Action
+00707         text: qsTr(\textcolor{stringliteral}{"@"})
+00708         keyShortcut: Qt.Key\_At
+00709 
+00710         onTriggered: commonPage.keySelected(text);
+00711     \}
+00712     SH\_ComplexAction \{
+00713         \textcolor{keywordtype}{id}: char53Action
+00714         text: qsTr(\textcolor{stringliteral}{"+"})
+00715         keyShortcut: Qt.Key\_Plus
+00716 
+00717         onTriggered: commonPage.keySelected(text);
+00718     \}
+00719     SH\_ComplexAction \{
+00720         \textcolor{keywordtype}{id}: char54Action
+00721         text: qsTr(\textcolor{stringliteral}{"\_"})
+00722         keyShortcut: Qt.Key\_Underscore
+00723 
+00724         onTriggered: commonPage.keySelected(text);
+00725     \}
+00726     SH\_ComplexAction \{
+00727         \textcolor{keywordtype}{id}: char55Action
+00728         text: qsTr(\textcolor{stringliteral}{"("})
+00729         keyShortcut: Qt.Key\_BracketLeft
+00730 
+00731         onTriggered: commonPage.keySelected(text);
+00732     \}
+00733     SH\_ComplexAction \{
+00734         \textcolor{keywordtype}{id}: char56Action
+00735         text: qsTr(\textcolor{stringliteral}{")"})
+00736         keyShortcut: Qt.Key\_BracketRight
+00737 
+00738         onTriggered: commonPage.keySelected(text);
+00739     \}
+00740     SH\_ComplexAction \{
+00741         \textcolor{keywordtype}{id}: char57Action
+00742         text: qsTr(\textcolor{stringliteral}{"-"})
+00743         keyShortcut: Qt.Key\_hyphen
+00744 
+00745         onTriggered: commonPage.keySelected(text);
 00746     \}
 00747     SH\_ComplexAction \{
-00748         \textcolor{keywordtype}{id}: char66Action
-00749         text: qsTr(\textcolor{stringliteral}{"="})
-00750         keyShortcut: Qt.Key\_Equal
-00751         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00752     \}
-00753     SH\_ComplexAction \{
-00754         \textcolor{keywordtype}{id}: char67Action
-00755         text: qsTr(\textcolor{stringliteral}{"*"})
-00756         keyShortcut: Qt.Key\_Asterisk
-00757         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00758     \}
-00759     SH\_ComplexAction \{
-00760         \textcolor{keywordtype}{id}: char68Action
-00761         text: qsTr(\textcolor{stringliteral}{"°"})
-00762         keyShortcut: Qt.Key\_degree
-00763         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00764     \}
-00765     SH\_ComplexAction \{
-00766         \textcolor{keywordtype}{id}: char69Action
-00767         text: qsTr(\textcolor{stringliteral}{";"})
-00768         keyShortcut: Qt.Key\_Colon
-00769         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00770     \}
-00771     SH\_ComplexAction \{
-00772         \textcolor{keywordtype}{id}: capsAction
-00773         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"min."}) : qsTr(\textcolor{stringliteral}{"MAJ."})
-00774         keyShortcut: Qt.Key\_CapsLock
-00775         onTriggered: commonPage.streamBuffer.upperCase = !commonPage.streamBuffer.upperCase;
-00776     \}
-00777     SH\_ComplexAction \{
-00778         \textcolor{keywordtype}{id}: dotAction
-00779         text: qsTr(\textcolor{stringliteral}{"."})
-00780         keyShortcut: Qt.Key\_Period
-00781         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00782     \}
-00783     SH\_ComplexAction \{
-00784         \textcolor{keywordtype}{id}: commaAction
-00785         text: qsTr(\textcolor{stringliteral}{","})
-00786         keyShortcut: Qt.Key\_Comma
-00787         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00788     \}
-00789     SH\_ComplexAction \{
-00790         \textcolor{keywordtype}{id}: quoteAction
-00791         text: qsTr(\textcolor{stringliteral}{"'"})
-00792         keyShortcut: Qt.Key\_Apostrophe
-00793         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00794     \}
-00795     SH\_ComplexAction \{
-00796         \textcolor{keywordtype}{id}: quote2Action
-00797         text: qsTr(\textcolor{stringliteral}{"\(\backslash\)""})
-00798         keyShortcut: Qt.Key\_QuoteDbl
-00799         onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
-00800     \}
-00801     SH\_ComplexAction \{
-00802         \textcolor{keywordtype}{id}: spaceAction
-00803         text: qsTr(\textcolor{stringliteral}{"ESPACE"})
-00804         keyShortcut: Qt.Key\_Space
-00805         onTriggered: commonPage.keySelected(\textcolor{stringliteral}{" "});
-00806     \}
-00807 \}
-00808 
+00748         \textcolor{keywordtype}{id}: char58Action
+00749         text: qsTr(\textcolor{stringliteral}{"?"})
+00750         keyShortcut: Qt.Key\_Question
+00751 
+00752         onTriggered: commonPage.keySelected(text);
+00753     \}
+00754     SH\_ComplexAction \{
+00755         \textcolor{keywordtype}{id}: char59Action
+00756         text: qsTr(\textcolor{stringliteral}{"!"})
+00757         keyShortcut: Qt.Key\_Exclam
+00758 
+00759         onTriggered: commonPage.keySelected(text);
+00760     \}
+00761 
+00762     SH\_ComplexAction \{
+00763         \textcolor{keywordtype}{id}: char60Action
+00764         text: qsTr(\textcolor{stringliteral}{"%"})
+00765         keyShortcut: Qt.Key\_Percent
+00766         onTriggered: commonPage.keySelected(text);
+00767     \}
+00768     SH\_ComplexAction \{
+00769         \textcolor{keywordtype}{id}: char61Action
+00770         text: qsTr(\textcolor{stringliteral}{":"})
+00771         keyShortcut: Qt.Key\_Semicolon
+00772         onTriggered: commonPage.keySelected(text);
+00773     \}
+00774     SH\_ComplexAction \{
+00775         \textcolor{keywordtype}{id}: char62Action
+00776         text: qsTr(\textcolor{stringliteral}{"<"})
+00777         keyShortcut: Qt.Key\_Less
+00778         onTriggered: commonPage.keySelected(text);
+00779     \}
+00780     SH\_ComplexAction \{
+00781         \textcolor{keywordtype}{id}: char63Action
+00782         text: qsTr(\textcolor{stringliteral}{">"})
+00783         keyShortcut: Qt.Key\_Greater
+00784         onTriggered: commonPage.keySelected(text);
+00785     \}
+00786     SH\_ComplexAction \{
+00787         \textcolor{keywordtype}{id}: char64Action
+00788         text: qsTr(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"})
+00789         keyShortcut: Qt.Key\_Backslash
+00790         onTriggered: commonPage.keySelected(text);
+00791     \}
+00792     SH\_ComplexAction \{
+00793         \textcolor{keywordtype}{id}: char65Action
+00794         text: qsTr(\textcolor{stringliteral}{"/"})
+00795         keyShortcut: Qt.Key\_Slash
+00796         onTriggered: commonPage.keySelected(text);
+00797     \}
+00798     SH\_ComplexAction \{
+00799         \textcolor{keywordtype}{id}: char66Action
+00800         text: qsTr(\textcolor{stringliteral}{"="})
+00801         keyShortcut: Qt.Key\_Equal
+00802         onTriggered: commonPage.keySelected(text);
+00803     \}
+00804     SH\_ComplexAction \{
+00805         \textcolor{keywordtype}{id}: char67Action
+00806         text: qsTr(\textcolor{stringliteral}{"*"})
+00807         keyShortcut: Qt.Key\_Asterisk
+00808         onTriggered: commonPage.keySelected(text);
+00809     \}
+00810     SH\_ComplexAction \{
+00811         \textcolor{keywordtype}{id}: char68Action
+00812         text: qsTr(\textcolor{stringliteral}{"°"})
+00813         keyShortcut: Qt.Key\_degree
+00814         onTriggered: commonPage.keySelected(text);
+00815     \}
+00816     SH\_ComplexAction \{
+00817         \textcolor{keywordtype}{id}: char69Action
+00818         text: qsTr(\textcolor{stringliteral}{";"})
+00819         keyShortcut: Qt.Key\_Colon
+00820         onTriggered: commonPage.keySelected(text);
+00821     \}
+00822     SH\_ComplexAction \{
+00823         \textcolor{keywordtype}{id}: capsAction
+00824         text: commonPage.streamBuffer.upperCase ? qsTr(\textcolor{stringliteral}{"min."}) : qsTr(\textcolor{stringliteral}{"MAJ."})
+00825         keyShortcut: Qt.Key\_CapsLock
+00826         onTriggered: commonPage.streamBuffer.upperCase = !commonPage.streamBuffer.upperCase;
+00827     \}
+00828     SH\_ComplexAction \{
+00829         \textcolor{keywordtype}{id}: dotAction
+00830         text: qsTr(\textcolor{stringliteral}{"."})
+00831         keyShortcut: Qt.Key\_Period
+00832         onTriggered: commonPage.keySelected(text);
+00833     \}
+00834     SH\_ComplexAction \{
+00835         \textcolor{keywordtype}{id}: commaAction
+00836         text: qsTr(\textcolor{stringliteral}{","})
+00837         keyShortcut: Qt.Key\_Comma
+00838         onTriggered: commonPage.keySelected(text);
+00839     \}
+00840     SH\_ComplexAction \{
+00841         \textcolor{keywordtype}{id}: quoteAction
+00842         text: qsTr(\textcolor{stringliteral}{"'"})
+00843         keyShortcut: Qt.Key\_Apostrophe
+00844         onTriggered: commonPage.keySelected(text);
+00845     \}
+00846     SH\_ComplexAction \{
+00847         \textcolor{keywordtype}{id}: quote2Action
+00848         text: qsTr(\textcolor{stringliteral}{"\(\backslash\)""})
+00849         keyShortcut: Qt.Key\_QuoteDbl
+00850         onTriggered: commonPage.keySelected(text);
+00851     \}
+00852     SH\_ComplexAction \{
+00853         \textcolor{keywordtype}{id}: spaceAction
+00854         text: qsTr(\textcolor{stringliteral}{"ESPACE"})
+00855         keyShortcut: Qt.Key\_Space
+00856         onTriggered: commonPage.keySelected(\textcolor{stringliteral}{" "});
+00857     \}
+00858 \}
+00859 
 \end{DoxyCode}

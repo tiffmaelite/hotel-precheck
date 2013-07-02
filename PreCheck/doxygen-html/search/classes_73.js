@@ -62,8 +62,12 @@ var searchData=
   ['sh_5fstringquestionstate',['SH_StringQuestionState',['../classSH__StringQuestionState.xhtml',1,'']]],
   ['sh_5ftabzone',['SH_TabZone',['../classSH__TabZone.xhtml',1,'']]],
   ['sh_5ftrainee',['SH_Trainee',['../classSH__Trainee.xhtml',1,'']]],
+  ['sh_5ftraineestablemodel',['SH_TraineesTableModel',['../classSH__TraineesTableModel.xhtml',1,'']]],
   ['sh_5ftristatecheckimage',['SH_TriStateCheckImage',['../classSH__TriStateCheckImage.xhtml',1,'']]],
   ['sh_5fuser',['SH_User',['../classSH__User.xhtml',1,'']]],
+  ['sh_5fuserstablemodel',['SH_UsersTableModel',['../classSH__UsersTableModel.xhtml',1,'']]],
   ['sh_5fvalidationstate',['SH_ValidationState',['../classSH__ValidationState.xhtml',1,'']]],
+  ['sh_5fvatdelegate',['SH_VATDelegate',['../classSH__VATDelegate.xhtml',1,'']]],
+  ['sh_5fvattablemodel',['SH_VATTableModel',['../classSH__VATTableModel.xhtml',1,'']]],
   ['sh_5fwelcomepage',['SH_WelcomePage',['../classSH__WelcomePage.xhtml',1,'']]]
 ];

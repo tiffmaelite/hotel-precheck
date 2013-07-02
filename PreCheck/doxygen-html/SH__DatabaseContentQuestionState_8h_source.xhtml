@@ -112,42 +112,48 @@ $(document).ready(function(){initNavTree('SH__DatabaseContentQuestionState_8h_so
 <a href="SH__DatabaseContentQuestionState_8h.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATABASECONTENTQUESTIONSTATE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATABASECONTENTQUESTIONSTATE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="SH__QuestionState_8h.xhtml">SH_QuestionState.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*namespace SimplHotel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">{*/</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__DatabaseContentQuestionState.xhtml">SH_DatabaseContentQuestionState</a> : <span class="keyword">public</span> <a class="code" href="classSH__QuestionState.xhtml">SH_QuestionState</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#ab26490ea519262a8f9ca72c000bf7313">SH_DatabaseContentQuestionState</a>(QString question, QString <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>, QString databaseTable, QString tableField, QString databaseCondition = <span class="stringliteral">&quot;&quot;</span>, <a class="code" href="classQState.xhtml">QState</a> *parent = 0);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a9bd6d20076c08d8e4085d22883ab7d14">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__QuestionState.xhtml#a29cdea8bc55e39e3ed02d24743c30f8c">givenAnswer</a>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a9262aeba84c1bb7feff540ca5edb27a7">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__QuestionState.xhtml#a29cdea8bc55e39e3ed02d24743c30f8c">givenAnswer</a>);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aaec6c7f8bc78c6beb7447fc41ffe3875">setOutput</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="classSH__InOutState.xhtml#a17ed7eaf5e3ed5af80a4f9fe65d5bfd9">output</a>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> QVariant <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aed9d5e4205ca37d32653475ac13fe097">rawInput</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QMap&lt;int, QVariant&gt; <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a14ca81b7c20c9e20e9d9e327b513f6ec">choiceList</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aff932cdd7974baeea9a477cf0abc5ace">setOutput</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="classSH__InOutState.xhtml#a17ed7eaf5e3ed5af80a4f9fe65d5bfd9">output</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> QVariant <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a344d9109e15509506b1b998d28392cac">rawInput</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QVariantList <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a9a121a43b672118d36f6a1a709dfdb50">choiceList</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;signals:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;signals:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#acc79a171c2a70d52120676329a132dc4">displayChoiceList</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#ae1e149ad7ab3d957f3c5df9ef078448b">displayChoiceList</a>(QVariantList choices);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a95d8a6ffc051cd9283314a56f7a11296">   68</a></span>&#160;    QString <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a95d8a6ffc051cd9283314a56f7a11296" title="m_table ">m_table</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a95d8a6ffc051cd9283314a56f7a11296">   67</a></span>&#160;    QString <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a95d8a6ffc051cd9283314a56f7a11296" title="m_table ">m_table</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aaffd467fccc69b6d46194f04831a1edc">   72</a></span>&#160;    QString <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aaffd467fccc69b6d46194f04831a1edc" title="m_condition ">m_condition</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a32b3f4f2cadbc4837add2556c1a926d4">   76</a></span>&#160;    QString <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a32b3f4f2cadbc4837add2556c1a926d4" title="m_field ">m_field</a>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a0bbbd0d3b22877dc9e78f81136f31618">   80</a></span>&#160;    QMap&lt;int, QVariant&gt; <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a0bbbd0d3b22877dc9e78f81136f31618" title="m_choices ">m_choices</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aff4d8f402d9299029038ec4f21271b2b">   84</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aff4d8f402d9299029038ec4f21271b2b" title="m_choicesDisplayed ">m_choicesDisplayed</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DATABASECONTENTQUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a32b3f4f2cadbc4837add2556c1a926d4">   77</a></span>&#160;    QString <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a32b3f4f2cadbc4837add2556c1a926d4" title="m_field ">m_field</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a0045a4afd3731c6f666887adc1f3b7a1">   82</a></span>&#160;    QVariantList <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#a0045a4afd3731c6f666887adc1f3b7a1" title="m_choices ">m_choices</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aff4d8f402d9299029038ec4f21271b2b">   87</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__DatabaseContentQuestionState.xhtml#aff4d8f402d9299029038ec4f21271b2b" title="m_choicesDisplayed ">m_choicesDisplayed</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/*}*/</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DATABASECONTENTQUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DatabaseContentQuestionState_8h.xhtml">SH_DatabaseContentQuestionState.h</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_13c294c896149c6e7ad839bf15bc2a5b.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DatabaseContentQuestionState_8h.xhtml">SH_DatabaseContentQuestionState.h</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

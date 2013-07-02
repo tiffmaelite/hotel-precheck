@@ -1,0 +1,623 @@
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager}{\section{Référence de la classe Simple\-Hotel\-:\-:S\-H\-\_\-\-Database\-Manager}
+\label{classSimpleHotel_1_1SH__DatabaseManager}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+}
+
+
+{\ttfamily \#include $<$S\-H\-\_\-\-Database\-Manager.\-h$>$}
+
+Graphe d'héritage de Simple\-Hotel\-:\-:S\-H\-\_\-\-Database\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSimpleHotel_1_1SH__DatabaseManager}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_aaadacafd5a57688ae489efb454d15f39}{$\sim$\-S\-H\-\_\-\-Database\-Manager} ()
+\item 
+int \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a4d230dd386411933e365a5889f0a6032}{data\-Count} (Q\-String table\-Name, Q\-String filter)
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a5706c91e422a3345bfd832f14132846c}{db\-Connect} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0bb6ce6d7001b304f7a8a94d4085d50}{db\-Disconnect} ()
+\item 
+Q\-Variant \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af6d035d5bd2f252bc94733bea3dfbc48}{exec\-Insert\-Returning\-Query} (Q\-String table\-Name, Q\-Variant\-Map values, Q\-String returning\-Field)
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a77fad7ef6701bedf21805047c986ba95}{exec\-Replace\-Query} (Q\-String table\-Name, Q\-Variant\-Map values)
+\item 
+Q\-Sql\-Query \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade052bd4f0e6aa490becef78ce4ea4d7}{exec\-Select\-Query} (Q\-String table\-Name, Q\-String\-List fields=Q\-String\-List(\char`\"{}$\ast$\char`\"{}), Q\-String condition=\char`\"{}\char`\"{}, Q\-String ordering=\char`\"{}\char`\"{})
+\item 
+Q\-Sql\-Database \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a2cfbc7151c22c7330efe938d7951ae47}{get\-Db\-Connection} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ab0efad012b5ae548359b2e9f8392d9a0}{is\-Connected} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a846c82ab4c7ce5bda375cc7348564c75}{table\-Exists} (Q\-String table\-Name)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSimpleHotel_1_1SH__DatabaseManager}{S\-H\-\_\-\-Database\-Manager} $\ast$ \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a0bcee98b94b5144e4c066000c4ae3321}{get\-Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}{S\-H\-\_\-\-Database\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+Q\-Sql\-Database \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}
+\begin{DoxyCompactList}\small\item\em db\-Connection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}{divide\-Q\-Variant\-Map} (Q\-Variant\-Map values, Q\-String \&fields, Q\-String \&vals)
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSimpleHotel_1_1SH__DatabaseManager}{S\-H\-\_\-\-Database\-Manager} $\ast$ \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}{\-\_\-instance} = 0
+\begin{DoxyCompactList}\small\item\em \-\_\-instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00064}{64} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}}
+\index{S\-H\-\_\-\-Database\-Manager@{S\-H\-\_\-\-Database\-Manager}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{S\-H\-\_\-\-Database\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::\-S\-H\-\_\-\-Database\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00041}{41} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a5706c91e422a3345bfd832f14132846c}{db\-Connect()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}, \hyperlink{namespaceSimpleHotel_a69c8ef43acac781f735932ee6026c913}{Simple\-Hotel\-::db\-Driver\-Not\-Exist\-Str}, \hyperlink{namespaceSimpleHotel_a0cb9ef00bd18f8e9d5e7087865dc1cc3}{Simple\-Hotel\-::db\-Driver\-Str}, \hyperlink{namespaceSimpleHotel_af1f81c1910383e17a678eb42e0bbcf69}{Simple\-Hotel\-::db\-File\-Name\-Str}, \hyperlink{namespaceSimpleHotel_a9d185fdd7e70bbd3e92512596899a6f8}{Simple\-Hotel\-::db\-File\-Path\-Str}, \hyperlink{namespaceSimpleHotel_aebaf9c2c494a4e88db921d6140604714}{Simple\-Hotel\-::db\-Password\-Str}, \hyperlink{namespaceSimpleHotel_a4f58c043ac3cee459febaf503463b523}{Simple\-Hotel\-::db\-Username\-Str}, et \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{Simple\-Hotel\-::\-S\-H\-\_\-\-Message\-Manager\-::error\-Message()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a0bcee98b94b5144e4c066000c4ae3321}{get\-Instance()}.
+
+
+\begin{DoxyCode}
+00042 \{
+00043     \textcolor{comment}{/*}
+00044 \textcolor{comment}{     *Check the existence of the database driver.}
+00045 \textcolor{comment}{     */}
+00046     \textcolor{keywordflow}{if} (!QSqlDatabase::isDriverAvailable(\hyperlink{namespaceSimpleHotel_a0cb9ef00bd18f8e9d5e7087865dc1cc3}{dbDriverStr}))
+00047     \{
+00048         \textcolor{comment}{/*}
+00049 \textcolor{comment}{        *Gui message that informs that the driver does not exist}
+00050 \textcolor{comment}{        */}
+00051         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{SH\_MessageManager::errorMessage}(
+      \hyperlink{namespaceSimpleHotel_a69c8ef43acac781f735932ee6026c913}{dbDriverNotExistStr});
+00052         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{SH\_MessageManager::errorMessage}(
+      \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.lastError().text());
+00053         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{SH\_MessageManager::errorMessage}(\textcolor{stringliteral}{"AVAILABLE DRIVERS: "}+
+      \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.drivers().join(\textcolor{stringliteral}{", "}));
+00054         exit(1);
+00055     \}
+00056 
+00057     \textcolor{comment}{/*}
+00058 \textcolor{comment}{    *Connect to the database with the following driver.}
+00059 \textcolor{comment}{    */}
+00060     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection} = QSqlDatabase::addDatabase(\hyperlink{namespaceSimpleHotel_a0cb9ef00bd18f8e9d5e7087865dc1cc3}{dbDriverStr});
+00061     \textcolor{keywordflow}{if} (\hyperlink{namespaceSimpleHotel_a0cb9ef00bd18f8e9d5e7087865dc1cc3}{dbDriverStr} == \textcolor{stringliteral}{"QIBASE"})
+00062     \{
+00063         \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.setDatabaseName(\hyperlink{namespaceSimpleHotel_a9d185fdd7e70bbd3e92512596899a6f8}{dbFilePathStr});
+00064     \} \textcolor{keywordflow}{else} \{
+00065         \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.setDatabaseName(\hyperlink{namespaceSimpleHotel_af1f81c1910383e17a678eb42e0bbcf69}{dbFileNameStr});
+00066     \}
+00067 
+00068     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.setUserName(\hyperlink{namespaceSimpleHotel_a4f58c043ac3cee459febaf503463b523}{dbUsernameStr});
+00069     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.setPassword(\hyperlink{namespaceSimpleHotel_aebaf9c2c494a4e88db921d6140604714}{dbPasswordStr});
+00070     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a5706c91e422a3345bfd832f14132846c}{dbConnect}();
+00071 
+00072 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_aaadacafd5a57688ae489efb454d15f39}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!$\sim$\-S\-H\-\_\-\-Database\-Manager@{$\sim$\-S\-H\-\_\-\-Database\-Manager}}
+\index{$\sim$\-S\-H\-\_\-\-Database\-Manager@{$\sim$\-S\-H\-\_\-\-Database\-Manager}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{$\sim$\-S\-H\-\_\-\-Database\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::$\sim$\-S\-H\-\_\-\-Database\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_aaadacafd5a57688ae489efb454d15f39}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00030}{30} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0bb6ce6d7001b304f7a8a94d4085d50}{db\-Disconnect()}.
+
+
+\begin{DoxyCode}
+00031 \{
+00032     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0bb6ce6d7001b304f7a8a94d4085d50}{dbDisconnect}();
+00033 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a4d230dd386411933e365a5889f0a6032}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!data\-Count@{data\-Count}}
+\index{data\-Count@{data\-Count}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{data\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::data\-Count (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-String}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_a4d230dd386411933e365a5889f0a6032}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00164}{164} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade052bd4f0e6aa490becef78ce4ea4d7}{exec\-Select\-Query()}.
+
+
+\begin{DoxyCode}
+00164                                                                    \{
+00165     \textcolor{keywordflow}{if}(!tableName.isEmpty() && !filter.isEmpty()) \{
+00166         QSqlQuery result = \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade052bd4f0e6aa490becef78ce4ea4d7}{execSelectQuery}(tableName, QStringList(\textcolor{stringliteral}{"COUNT(*) AS MATCH"}), 
+      filter);
+00167         \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.driver()->hasFeature(QSqlDriver::QuerySize)) \{
+00168             \textcolor{keywordflow}{return} result.size();
+00169         \} \textcolor{keywordflow}{else} \{
+00170             \textcolor{keywordflow}{if}(result.next()) \{
+00171                 QSqlRecord rec = result.record();
+00172                 \textcolor{keywordflow}{if}(!rec.isEmpty()  && result.isValid()) \{
+00173                     \textcolor{keywordflow}{return} rec.value(rec.indexOf(\textcolor{stringliteral}{"MATCH"})).toInt();
+00174                 \}
+00175             \}
+00176         \}
+00177     \}
+00178     \textcolor{keywordflow}{return} 0;
+00179 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a5706c91e422a3345bfd832f14132846c}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!db\-Connect@{db\-Connect}}
+\index{db\-Connect@{db\-Connect}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{db\-Connect}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::db\-Connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_a5706c91e422a3345bfd832f14132846c}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00083}{83} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{namespaceSimpleHotel_a432df3653afae1e72d3e6ce1cbbb7a63}{Simple\-Hotel\-::db\-Cannot\-Open\-Str}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}, et \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{Simple\-Hotel\-::\-S\-H\-\_\-\-Message\-Manager\-::error\-Message()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}{S\-H\-\_\-\-Database\-Manager()}.
+
+
+\begin{DoxyCode}
+00084 \{
+00085     \textcolor{comment}{/*}
+00086 \textcolor{comment}{            *Open database, if the database cannot open for}
+00087 \textcolor{comment}{            *any reason print a warning.}
+00088 \textcolor{comment}{            */}
+00089     \textcolor{keywordflow}{if} (!\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.open())
+00090     \{
+00091         \textcolor{comment}{/*}
+00092 \textcolor{comment}{                 *Gui message that informs that the database cannot open}
+00093 \textcolor{comment}{                 */}
+00094         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{SH\_MessageManager::errorMessage}(
+      \hyperlink{namespaceSimpleHotel_a432df3653afae1e72d3e6ce1cbbb7a63}{dbCannotOpenStr});
+00095         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a77bc12a66f3eaa8f3668d8197c0b8f6d}{SH\_MessageManager::errorMessage}(
+      \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.lastError().text());
+00096 
+00097         \textcolor{comment}{/*}
+00098 \textcolor{comment}{                 *@return false if database connection failed.}
+00099 \textcolor{comment}{                 */}
+00100         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00101     \}
+00102 
+00103     \textcolor{comment}{/*}
+00104 \textcolor{comment}{             *@return true if database connection successed}
+00105 \textcolor{comment}{             */}
+00106     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.isOpen();
+00107 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_af0bb6ce6d7001b304f7a8a94d4085d50}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!db\-Disconnect@{db\-Disconnect}}
+\index{db\-Disconnect@{db\-Disconnect}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{db\-Disconnect}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::db\-Disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_af0bb6ce6d7001b304f7a8a94d4085d50}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00118}{118} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_aaadacafd5a57688ae489efb454d15f39}{$\sim$\-S\-H\-\_\-\-Database\-Manager()}.
+
+
+\begin{DoxyCode}
+00119 \{
+00120     \textcolor{comment}{/*}
+00121 \textcolor{comment}{             *close database}
+00122 \textcolor{comment}{             */}
+00123     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.close();
+00124     \textcolor{keywordflow}{return} (!\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.isOpen());
+00125 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!divide\-Q\-Variant\-Map@{divide\-Q\-Variant\-Map}}
+\index{divide\-Q\-Variant\-Map@{divide\-Q\-Variant\-Map}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{divide\-Q\-Variant\-Map}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::divide\-Q\-Variant\-Map (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant\-Map}]{values, }
+\item[{Q\-String \&}]{fields, }
+\item[{Q\-String \&}]{vals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em values} & \\
+\hline
+ & {\em ou\mbox{]}} & fields \\
+\hline
+ & {\em ou\mbox{]}} & vals \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00253}{253} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af6d035d5bd2f252bc94733bea3dfbc48}{exec\-Insert\-Returning\-Query()}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a77fad7ef6701bedf21805047c986ba95}{exec\-Replace\-Query()}.
+
+
+\begin{DoxyCode}
+00253                                                                                              \{
+00254     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} field : values.keys())
+00255     \{
+00256         fields += field+\textcolor{stringliteral}{","};
+00257         QVariant val = values.value(field);
+00258         \textcolor{keywordtype}{bool} ok;
+00259         \textcolor{keywordtype}{int} intVal = val.toInt(&ok);
+00260         \textcolor{keywordflow}{if}(ok) \{
+00261             vals += QString::number(intVal)+\textcolor{stringliteral}{","};
+00262         \}
+00263         \textcolor{keywordtype}{double} dbVal = val.toDouble(&ok);
+00264         \textcolor{keywordflow}{if}(ok) \{
+00265             vals += QString::number(dbVal)+\textcolor{stringliteral}{","};
+00266         \}
+00267         \textcolor{comment}{/*bool boolVal = val.toBool();}
+00268 \textcolor{comment}{                if(boolVal) \{}
+00269 \textcolor{comment}{                    &vals += "'"+1+"'',";}
+00270 \textcolor{comment}{                \}*/}
+00271         QDate dateVal = val.toDate();
+00272         \textcolor{keywordflow}{if}(dateVal.isValid()) \{
+00273             vals += \textcolor{stringliteral}{"'"}+dateVal.toString()+\textcolor{stringliteral}{"'',"}; \textcolor{comment}{/*FIXME adapt date format*/}
+00274         \}
+00275         QDateTime dateTimeVal = val.toDateTime();
+00276         \textcolor{keywordflow}{if}(dateTimeVal.isValid()) \{
+00277             vals += \textcolor{stringliteral}{"'"}+dateTimeVal.toString()+\textcolor{stringliteral}{"'',"}; \textcolor{comment}{/*FIXME adapt datetime format*/}
+00278         \}
+00279         QString stringVal = val.toString();
+00280         vals += \textcolor{stringliteral}{"'"}+stringVal+\textcolor{stringliteral}{"'',"};
+00281     \}
+00282     fields = fields.left(fields.lastIndexOf(\textcolor{charliteral}{','})-1);
+00283     vals = vals.left(vals.lastIndexOf(\textcolor{charliteral}{','})-1);
+00284 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_af6d035d5bd2f252bc94733bea3dfbc48}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!exec\-Insert\-Returning\-Query@{exec\-Insert\-Returning\-Query}}
+\index{exec\-Insert\-Returning\-Query@{exec\-Insert\-Returning\-Query}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{exec\-Insert\-Returning\-Query}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::exec\-Insert\-Returning\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-Variant\-Map}]{values, }
+\item[{Q\-String}]{returning\-Field}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_af6d035d5bd2f252bc94733bea3dfbc48}
+
+\begin{DoxyParams}{Paramètres}
+{\em query} & \\
+\hline
+{\em returning\-Field} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Q\-Variant 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00230}{230} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}{divide\-Q\-Variant\-Map()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__AdaptDatabaseState_af125e11b83df08b8e67f90c55c69d583}{Simple\-Hotel\-::\-S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}.
+
+
+\begin{DoxyCode}
+00230                                                                                                            
+              \{
+00231     QString fields;
+00232     QString vals;
+00233     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}{divideQVariantMap}(values, fields, vals);
+00234     QString query;
+00235     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00236         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4"}).arg(tableName)
+      .arg(fields).arg(vals).arg(returningField);
+00237     \}
+00238     QSqlQuery result = \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.exec(query);
+00239     \textcolor{comment}{//SH\_MessageManager::debugMessage(QString("query %1: valid ? %2 active ?
+       %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));}
+00240     \textcolor{keywordflow}{if}(result.next()) \{
+00241         QSqlRecord rec = result.record();
+00242         \textcolor{keywordflow}{if}(!rec.isEmpty()  && result.isValid()) \{
+00243             \textcolor{keywordflow}{return} rec.value(rec.indexOf(returningField));
+00244         \}
+00245     \}
+00246     \textcolor{keywordflow}{return} QVariant();
+00247 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a77fad7ef6701bedf21805047c986ba95}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!exec\-Replace\-Query@{exec\-Replace\-Query}}
+\index{exec\-Replace\-Query@{exec\-Replace\-Query}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{exec\-Replace\-Query}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::exec\-Replace\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-Variant\-Map}]{values}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_a77fad7ef6701bedf21805047c986ba95}
+
+\begin{DoxyParams}{Paramètres}
+{\em query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00213}{213} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}{divide\-Q\-Variant\-Map()}.
+
+
+\begin{DoxyCode}
+00213                                                                                \{
+00214     QString fields;
+00215     QString vals;
+00216     \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a35a879c68dc40e386ff536e97ae2733d}{divideQVariantMap}(values, fields, vals);
+00217     QString query;
+00218     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00219         query = QString(\textcolor{stringliteral}{"UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)"}).arg(tableName).arg(fields).
+      arg(vals);
+00220     \}
+00221     QSqlQuery result = \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.exec(query);
+00222     \textcolor{comment}{//SH\_MessageManager::debugMessage(QString("query %1: valid ? %2 active ?
+       %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));}
+00223     \textcolor{keywordflow}{return} (result.numRowsAffected() > 0);
+00224 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_ade052bd4f0e6aa490becef78ce4ea4d7}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!exec\-Select\-Query@{exec\-Select\-Query}}
+\index{exec\-Select\-Query@{exec\-Select\-Query}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{exec\-Select\-Query}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Sql\-Query Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name, }
+\item[{Q\-String\-List}]{fields = {\ttfamily QStringList(\char`\"{}$\ast$\char`\"{})}, }
+\item[{Q\-String}]{condition = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{Q\-String}]{ordering = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_ade052bd4f0e6aa490becef78ce4ea4d7}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00187}{187} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a4d230dd386411933e365a5889f0a6032}{data\-Count()}, \hyperlink{classSimpleHotel_1_1SH__SqlDataModel_ab8b74a08f668025c11c5446d4e4b469b}{Simple\-Hotel\-::\-S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{classSimpleHotel_1_1SH__User_a5576062913b7f5a7e22e933585471738}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::log\-In()}, et \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+
+\begin{DoxyCode}
+00187                                                                                                            
+                   \{
+00188     \textcolor{keywordflow}{if}(fields.isEmpty()) \{
+00189         fields.append(\textcolor{stringliteral}{"*"});
+00190     \}
+00191 
+00192     QString query;
+00193     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.driverName() == \textcolor{stringliteral}{"QIBASE"}) \{
+00194         query = QString(\textcolor{stringliteral}{"SELECT %1 FROM %2"}).arg(fields.join(\textcolor{stringliteral}{", "})).arg(tableName);
+00195         \textcolor{keywordflow}{if}(!condition.isEmpty()) \{
+00196             query = QString(\textcolor{stringliteral}{"%1 WHERE %2"}).arg(query).arg(condition);
+00197         \}
+00198         \textcolor{keywordflow}{if}(!ordering.isEmpty()) \{
+00199             query = QString(\textcolor{stringliteral}{"%1 ORDER BY %2"}).arg(query).arg(ordering);
+00200         \}
+00201     \}
+00202     QSqlQuery result;
+00203     result.exec(query);
+00204     \textcolor{comment}{//SH\_MessageManager::debugMessage(QString("query %1: valid ? %2 active ?
+       %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));}
+00205     \textcolor{keywordflow}{return} result;
+00206 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a2cfbc7151c22c7330efe938d7951ae47}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!get\-Db\-Connection@{get\-Db\-Connection}}
+\index{get\-Db\-Connection@{get\-Db\-Connection}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{get\-Db\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::get\-Db\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_a2cfbc7151c22c7330efe938d7951ae47}
+\begin{DoxyReturn}{Renvoie}
+Q\-Sql\-Database 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00144}{144} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}.
+
+
+\begin{DoxyCode}
+00145 \{
+00146     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection};
+00147 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a0bcee98b94b5144e4c066000c4ae3321}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classSimpleHotel_1_1SH__DatabaseManager_a0bcee98b94b5144e4c066000c4ae3321}
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{classSimpleHotel_1_1SH__DatabaseManager}{S\-H\-\_\-\-Database\-Manager} 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00015}{15} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}{\-\_\-instance}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}{S\-H\-\_\-\-Database\-Manager()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__SqlDataModel_ab8b74a08f668025c11c5446d4e4b469b}{Simple\-Hotel\-::\-S\-H\-\_\-\-Sql\-Data\-Model\-::fetch()}, \hyperlink{classSimpleHotel_1_1SH__AdaptDatabaseState_af125e11b83df08b8e67f90c55c69d583}{Simple\-Hotel\-::\-S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSimpleHotel_1_1SH__User_a5576062913b7f5a7e22e933585471738}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::log\-In()}, \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}, \hyperlink{classSimpleHotel_1_1SH__User_a502467b4e5fbe99a7bb0b07f4eb1cee0}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::trainee\-Exists()}, et \hyperlink{classSimpleHotel_1_1SH__User_ade0c6b106701dd94e78a0cbf116c926d}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::user\-Exists()}.
+
+
+\begin{DoxyCode}
+00016 \{
+00017     \textcolor{keywordflow}{if} (\hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}{\_instance} == 0)
+00018     \{
+00019         \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}{\_instance} = \textcolor{keyword}{new} \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}{SH\_DatabaseManager};
+00020     \}
+00021     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}{\_instance};
+00022 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_ab0efad012b5ae548359b2e9f8392d9a0}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!is\-Connected@{is\-Connected}}
+\index{is\-Connected@{is\-Connected}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{is\-Connected}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::is\-Connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_ab0efad012b5ae548359b2e9f8392d9a0}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00133}{133} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}.
+
+
+\begin{DoxyCode}
+00134 \{
+00135     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.isOpen();
+00136 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a846c82ab4c7ce5bda375cc7348564c75}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!table\-Exists@{table\-Exists}}
+\index{table\-Exists@{table\-Exists}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{table\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::table\-Exists (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{table\-Name}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__DatabaseManager_a846c82ab4c7ce5bda375cc7348564c75}
+
+\begin{DoxyParams}{Paramètres}
+{\em table\-Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8cpp_source_l00154}{154} du fichier \hyperlink{SH__DatabaseManager_8cpp_source}{S\-H\-\_\-\-Database\-Manager.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{db\-Connection}.
+
+
+\begin{DoxyCode}
+00155 \{
+00156     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.tables(QSql::Views).contains(tableName.toUpper(), Qt::CaseInsensitive) 
+      || \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{dbConnection}.tables(QSql::Tables).contains(tableName.toUpper(), Qt::CaseInsensitive);
+00157 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!\-\_\-instance@{\-\_\-instance}}
+\index{\-\_\-instance@{\-\_\-instance}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{\-\_\-instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-H\-\_\-\-Database\-Manager} $\ast$ Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::\-\_\-instance = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__DatabaseManager_af0c50165131f4999f3b18f44bb143567}
+
+
+\-\_\-instance 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00071}{71} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a0bcee98b94b5144e4c066000c4ae3321}{get\-Instance()}.
+
+\hypertarget{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}!db\-Connection@{db\-Connection}}
+\index{db\-Connection@{db\-Connection}!SimpleHotel::SH_DatabaseManager@{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager}}
+\subsubsection[{db\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Sql\-Database Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Manager\-::db\-Connection\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSimpleHotel_1_1SH__DatabaseManager_a01130ad218e0a00e80f53c4894996d19}
+
+
+db\-Connection 
+
+
+
+Définition à la ligne \hyperlink{SH__DatabaseManager_8h_source_l00092}{92} du fichier \hyperlink{SH__DatabaseManager_8h_source}{S\-H\-\_\-\-Database\-Manager.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a4d230dd386411933e365a5889f0a6032}{data\-Count()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a5706c91e422a3345bfd832f14132846c}{db\-Connect()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af0bb6ce6d7001b304f7a8a94d4085d50}{db\-Disconnect()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_af6d035d5bd2f252bc94733bea3dfbc48}{exec\-Insert\-Returning\-Query()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a77fad7ef6701bedf21805047c986ba95}{exec\-Replace\-Query()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade052bd4f0e6aa490becef78ce4ea4d7}{exec\-Select\-Query()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a2cfbc7151c22c7330efe938d7951ae47}{get\-Db\-Connection()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ab0efad012b5ae548359b2e9f8392d9a0}{is\-Connected()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_ade00a085fdf7207d67476179e179d03d}{S\-H\-\_\-\-Database\-Manager()}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseManager_a846c82ab4c7ce5bda375cc7348564c75}{table\-Exists()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\hyperlink{SH__DatabaseManager_8h}{S\-H\-\_\-\-Database\-Manager.\-h}\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\hyperlink{SH__DatabaseManager_8cpp}{S\-H\-\_\-\-Database\-Manager.\-cpp}\end{DoxyCompactItemize}

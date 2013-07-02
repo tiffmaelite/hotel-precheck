@@ -24,29 +24,28 @@ bool \hyperlink{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}{q
 )}}\label{SH__ExtendedQQmlAction_8cpp_a209127c14b6e1470f87b7fec1ee04537}
 
 
-Définition à la ligne \hyperlink{SH__ExtendedQQmlAction_8cpp_source_l00050}{50} du fichier \hyperlink{SH__ExtendedQQmlAction_8cpp_source}{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}.
+Définition à la ligne \hyperlink{SH__ExtendedQQmlAction_8cpp_source_l00042}{42} du fichier \hyperlink{SH__ExtendedQQmlAction_8cpp_source}{S\-H\-\_\-\-Extended\-Q\-Qml\-Action.\-cpp}.
 
 
 \begin{DoxyCode}
-00051 \{
-00052     \textcolor{keywordflow}{switch} (context) \{
-00053     \textcolor{keywordflow}{case} Qt::ApplicationShortcut:
-00054         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-00055     \textcolor{keywordflow}{case} Qt::WindowShortcut: \{
-00056         \hyperlink{classQObject}{QObject} *w = o;
-00057         \textcolor{keywordflow}{while} (w && !w->isWindowType()) \{
-00058             w = w->parent();
-00059             \textcolor{keywordflow}{if} (\hyperlink{classQQuickItem}{QQuickItem} * item = qobject\_cast<QQuickItem*>(w))
-00060                 w = item->window();
-00061         \}
-00062         \textcolor{keywordflow}{if} (w && w == QGuiApplication::focusWindow())
-00063             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-00064     \}
-00065     \textcolor{keywordflow}{case} Qt::WidgetShortcut:
-00066     \textcolor{keywordflow}{case} Qt::WidgetWithChildrenShortcut:
-00067         \textcolor{keywordflow}{break};
-00068     \}
-00069 
-00070     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00071 \}
+00043 \{
+00044     \textcolor{keywordflow}{switch} (context) \{
+00045     \textcolor{keywordflow}{case} Qt::ApplicationShortcut:
+00046     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00047     \textcolor{keywordflow}{case} Qt::WindowShortcut: \{
+00048     \hyperlink{classQObject}{QObject} *w = o;
+00049     \textcolor{keywordflow}{while} (w && !w->isWindowType()) \{
+00050     w = w->parent();
+00051     \textcolor{keywordflow}{if} (\hyperlink{classQQuickItem}{QQuickItem} * item = qobject\_cast<QQuickItem*>(w))
+00052     w = item->window();
+00053     \}
+00054     \textcolor{keywordflow}{if} (w && w == QGuiApplication::focusWindow())
+00055     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00056     \}
+00057     \textcolor{keywordflow}{case} Qt::WidgetShortcut:
+00058     \textcolor{keywordflow}{case} Qt::WidgetWithChildrenShortcut:
+00059     \textcolor{keywordflow}{break};
+00060     \}
+00061     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00062 \}
 \end{DoxyCode}

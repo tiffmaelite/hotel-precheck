@@ -19,15 +19,21 @@ Graphe d'héritage de S\-H\-\_\-\-Address\-Creation\-State\-Machine\-:\begin{fig
 \subsection*{Connecteurs publics}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{add\-Children\-Next\-Transition} (Q\-Abstract\-State $\ast$previous\-State, Q\-Abstract\-State $\ast$next\-State)
-\item 
 virtual void \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{add\-Children\-Replace\-Transition} (Q\-Abstract\-State $\ast$previous\-State, Q\-Abstract\-State $\ast$next\-State)
 \item 
-void \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{add\-I\-O\-State} (\hyperlink{classSH__InOutState}{S\-H\-\_\-\-In\-Out\-State} $\ast$state, Q\-String field)
+void \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{add\-I\-O\-State} (\hyperlink{classSH__InOutState}{S\-H\-\_\-\-In\-Out\-State} $\ast$state, Q\-String field=\char`\"{}\char`\"{})
 \item 
-void \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{add\-I\-O\-State\-Machine} (\hyperlink{classSH__InOutStateMachine}{S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$fsm)
+virtual void \hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{add\-State} (Q\-Abstract\-State $\ast$state)
+\item 
+virtual void \hyperlink{classSH__InOutStateMachine_a52469f4988c3eb654def2ed237fd10eb}{add\-State} (\hyperlink{classSH__InOutState}{S\-H\-\_\-\-In\-Out\-State} $\ast$astate, Q\-String field=\char`\"{}\char`\"{})
+\item 
+virtual void \hyperlink{classSH__InOutStateMachine_adcd6eb72b60b2c24aa6701977b5c7c1e}{add\-State} (\hyperlink{classSH__InOutStateMachine}{S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$astate, Q\-String table=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{add\-State\-Machine} (\hyperlink{classSH__InOutStateMachine}{S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$fsm, Q\-String table=\char`\"{}\char`\"{})
 \item 
 void \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{set\-Content\-Value} (Q\-Variant content, Q\-String field)
+\item 
+virtual void \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{set\-States\-Next\-Transition} (Q\-Abstract\-State $\ast$previous\-State, Q\-Abstract\-State $\ast$next\-State)
 \end{DoxyCompactItemize}
 \subsection*{Signaux}
 \begin{DoxyCompactItemize}
@@ -39,6 +45,8 @@ void \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{cl
 void \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{confirm\-Input} ()
 \item 
 void \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{display\-Calendar} ()
+\item 
+void \hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{display\-Choice\-List} (Q\-Variant\-List choices)
 \item 
 void \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{display\-File\-Dialog} ()
 \item 
@@ -66,8 +74,6 @@ Q\-Variant \hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9
 Q\-History\-State $\ast$ \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{history\-Value} (Q\-String field)
 \item 
 Q\-Variant\-Map \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{io\-Content} () const 
-\item 
-bool \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{is\-Running} ()
 \item 
 void \hyperlink{classSH__InOutStateMachine_a8271a7ec7d5f6502449dd3b4da5f4155}{set\-I\-Ocontent} (const Q\-Variant\-Map \&\hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{io\-Content})
 \item 
@@ -109,7 +115,13 @@ Q\-String \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b600
 \subsection{Description détaillée}
 La classe \hyperlink{classSH__AddressCreationStateMachine}{S\-H\-\_\-\-Address\-Creation\-State\-Machine} fournit une machine d'états finis permettant la création d'un entité \char`\"{}adresse\char`\"{} à enregistrer dans la base de données. 
 
-Définition à la ligne \hyperlink{SH__AddressCreation_8h_source_l00010}{10} du fichier \hyperlink{SH__AddressCreation_8h_source}{S\-H\-\_\-\-Address\-Creation.\-h}.
+
+\begin{DoxyItemize}
+\item 
+\item 
+\end{DoxyItemize}
+
+Définition à la ligne \hyperlink{SH__AddressCreation_8h_source_l00011}{11} du fichier \hyperlink{SH__AddressCreation_8h_source}{S\-H\-\_\-\-Address\-Creation.\-h}.
 
 
 
@@ -135,78 +147,13 @@ Références \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc
 00008                                                                                             :
 00009     \hyperlink{classSH__InOutStateMachine_abd780037922920c674b43d80c2b50d16}{SH\_InOutStateMachine}(\textcolor{stringliteral}{"ADDRESSES"},\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}, parent)
 00010 \{
-00011 \textcolor{comment}{/*TODO: rue, numéro, code postal, ville, pays, destinataire*/}
-00012 emit \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{goNext}();
+00011     \textcolor{comment}{/*TODO: rue, numéro, code postal, ville, pays, destinataire*/}
+00012     emit \hyperlink{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{goNext}();
 00013 \}
 \end{DoxyCode}
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-Children\-Next\-Transition@{add\-Children\-Next\-Transition}}
-\index{add\-Children\-Next\-Transition@{add\-Children\-Next\-Transition}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
-\subsubsection[{add\-Children\-Next\-Transition}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition (
-\begin{DoxyParamCaption}
-\item[{Q\-Abstract\-State $\ast$}]{previous\-State, }
-\item[{Q\-Abstract\-State $\ast$}]{next\-State}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}
-
-\begin{DoxyParams}{Paramètres}
-{\em previous\-State} & \\
-\hline
-{\em next\-State} & \\
-\hline
-\end{DoxyParams}
-
-
-Réimplémentée dans \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine}.
-
-
-
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00260}{260} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
-
-
-
-Références \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::clear\-All()}, \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-io\-Content}, \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-table\-Name}, \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{S\-H\-\_\-\-Generic\-State\-Machine\-::next()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
-
-
-
-Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{S\-H\-\_\-\-Client\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Client\-Creation\-State\-Machine()}.
-
-
-\begin{DoxyCode}
-00261 \{
-00262     \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}* fsmPreviousState = qobject\_cast<
-      \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}*>(previousState);
-00263     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
-      \hyperlink{classSH__GenericState}{SH\_GenericState}*>(previousState);
-00264     QFinalState* \textcolor{keyword}{final} = qobject\_cast<QFinalState*>(nextState);
-00265     \textcolor{keywordflow}{if}(\textcolor{keyword}{final}) \{
-00266         \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}* saveState = \textcolor{keyword}{new} 
-      \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}(\textcolor{stringliteral}{"enregistrement de la machine "}+
-      \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}());
-00267         \textcolor{keywordflow}{if}(genPreviousState) \{
-00268             genPreviousState->addTransition(genPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), saveState);
-00269         \}
-00270         \textcolor{keywordflow}{if}(fsmPreviousState) \{
-00271             fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), saveState);
-00272         \}
-00273         \textcolor{keywordflow}{if}(genPreviousState || fsmPreviousState) \{
-00274             connect(previousState, &QAbstractState::exited, [=]() \{
-00275                 connect(saveState, &QAbstractState::entered, [=]() \{
-00276                     emit this->\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{sendText}(\textcolor{stringliteral}{"Merci !"});
-00277                     \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(saveState->\hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{insertUpdate}(
-      \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName}, \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}), \textcolor{stringliteral}{"ID"});
-00278                     emit this->\hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{clearAll}();
-00279                 \});
-00280             \});
-00281             saveState->addTransition(saveState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()),\textcolor{keyword}{final});
-00282         \}
-00283     \}
-00284     \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{SH\_GenericStateMachine::addChildrenNextTransition}(
-      previousState, nextState);
-00285 \}
-\end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-Children\-Replace\-Transition@{add\-Children\-Replace\-Transition}}
 \index{add\-Children\-Replace\-Transition@{add\-Children\-Replace\-Transition}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
 \subsubsection[{add\-Children\-Replace\-Transition}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition (
@@ -224,49 +171,51 @@ Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00236}{236} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00227}{227} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::history\-Value()}, \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{S\-H\-\_\-\-Generic\-State\-Machine\-::next()}, et \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}.
+Références \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::history\-Value()}, \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{S\-H\-\_\-\-Generic\-State\-Machine\-::next()}, et \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}.
 
 
 
-Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}.
+Référencé par \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}.
 
 
 \begin{DoxyCode}
-00237 \{
-00238         \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
+00228 \{
+00229     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
       \hyperlink{classSH__GenericState}{SH\_GenericState}*>(previousState);
-00239     \textcolor{keywordflow}{if}(genPreviousState) \{
-00240         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état previousState*/}
-00241         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput}, [=](QString 
+00230     \textcolor{keywordflow}{if}(genPreviousState) \{
+00231         \textcolor{comment}{/*connect(this, &SH\_GenericStateMachine::entered, [=]() \{*/}
+00232         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état previousState*/}
+00233         \textcolor{comment}{/*connect(genPreviousState, &QAbstractState::entered, [=]() \{*/}
+00234         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput}, [=](QString 
       field) \{
-00242             \textcolor{keywordflow}{if}(genPreviousState->\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
-00243                 \textcolor{comment}{/*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel
-       puis on retourne à l'historique de l'état désiré; celui-ci fini, on passe à l'état qui aurait du suivre celui
+00235             \textcolor{comment}{/*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel puis
+       on retourne à l'historique de l'état désiré; celui-ci fini, on passe à l'état qui aurait du suivre celui
        pendant lequel on a demandé à revenir sur un état précédent*/}
-00244                 QHistoryState* hState = \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{historyValue}(field);
-00245                 \textcolor{keywordflow}{if}(hState) \{ \textcolor{comment}{/*si l'historique existe (on a déjà quitté l'état voulu)*/}
-00246                     hState->parentState()->addTransition(hState->parentState(), SIGNAL(
+00236             QHistoryState* hState = \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{historyValue}(field);
+00237             \textcolor{keywordflow}{if}(hState) \{
+00238                 \textcolor{comment}{/*si l'historique existe (on a déjà quitté l'état voulu)*/}
+00239                 hState->parentState()->addTransition(hState->parentState(), SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextState);
-00247                     genPreviousState->addTransition(genPreviousState, SIGNAL(
-      \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), hState);
-00248                 \}
-00249             \}
-00250         \});
-00251     \}
-00252 \}
+00240                 genPreviousState->addTransition(genPreviousState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), hState);
+00241             \}
+00242         \});
+00243         \textcolor{comment}{/*\});*/}
+00244         \textcolor{comment}{/*\});*/}
+00245     \}
+00246 \}
 \end{DoxyCode}
-\hypertarget{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-I\-O\-State@{add\-I\-O\-State}}
+\hypertarget{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-I\-O\-State@{add\-I\-O\-State}}
 \index{add\-I\-O\-State@{add\-I\-O\-State}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
 \subsubsection[{add\-I\-O\-State}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State (
 \begin{DoxyParamCaption}
 \item[{{\bf S\-H\-\_\-\-In\-Out\-State} $\ast$}]{state, }
-\item[{Q\-String}]{field}
+\item[{Q\-String}]{field = {\ttfamily \char`\"{}\char`\"{}}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}
+)\hspace{0.3cm}{\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}
 
 \begin{DoxyParams}{Paramètres}
 {\em state} & \\
@@ -276,99 +225,176 @@ Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f27
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00094}{94} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00084}{84} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{S\-H\-\_\-\-In\-Out\-State\-::display()}, \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-File\-Dialog()}, \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{S\-H\-\_\-\-In\-Out\-State\-::output()}, \hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{S\-H\-\_\-\-In\-Out\-State\-::raw\-Input()}, \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}, \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{S\-H\-\_\-\-In\-Out\-State\-::resend\-Input()}, \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{S\-H\-\_\-\-In\-Out\-State\-::send\-Output()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}, \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, \hyperlink{classSH__InOutStateMachine_acbcce2c4300af1634d928b30e5e9be1c}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-I\-O\-State\-History()}, \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}, \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}, \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}, et \hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{S\-H\-\_\-\-In\-Out\-State\-::visibility()}.
+Références \hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State()}, \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSH__DatabaseContentQuestionState_ae1e149ad7ab3d957f3c5df9ef078448b}{S\-H\-\_\-\-Database\-Content\-Question\-State\-::display\-Choice\-List()}, \hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Choice\-List()}, \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-File\-Dialog()}, \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{S\-H\-\_\-\-In\-Out\-State\-::raw\-Input()}, \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}, \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{S\-H\-\_\-\-In\-Out\-State\-::resend\-Input()}, \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{S\-H\-\_\-\-In\-Out\-State\-::send\-Output()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}, \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, \hyperlink{classSH__InOutStateMachine_acbcce2c4300af1634d928b30e5e9be1c}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-I\-O\-State\-History()}, et \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}.
 
 
 
-Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{S\-H\-\_\-\-Client\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Client\-Creation\-State\-Machine()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_a52469f4988c3eb654def2ed237fd10eb}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State()}.
 
 
 \begin{DoxyCode}
-00095 \{
-00096     \textcolor{comment}{/*à faire au moment de l'entrée dans l'état state*/}
-00097     connect(state, &QState::entered, [=]() \{
-00098         qDebug() << state->\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}() << \textcolor{stringliteral}{"entered !"};
-00099         state->\hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{display}(\textcolor{keyword}{true});
-00100         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{SH\_InOutStateMachine::receiveInput}, state, &
-      \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{SH\_InOutState::setInput}, Qt::QueuedConnection); \textcolor{comment}{/* la réception d'une valeur
-       entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état*/}
-00101         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{SH\_InOutStateMachine::receiveInput}, [=](QString in
-      )\{ qDebug() << state->\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}() << \textcolor{stringliteral}{"hello world !"}; state->\hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{setInput}(in);\}); \textcolor{comment}{/* la réception
-       d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état*/}
-00102         connect(state, &\hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{SH\_InOutState::setOutput}, [=](QVariant out) \{qDebug() << 
-      state->\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}() << \textcolor{stringliteral}{"out !"};\});
-00103         connect(state, &\hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{SH\_InOutState::sendOutput}, [=](QVariant out) \{qDebug() << 
-      state->\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}() << \textcolor{stringliteral}{"connected !"}; emit this->\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{sendText}(out.toString(), \textcolor{keyword}{false});\});
-00104         connect(state, &\hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{SH\_InOutState::resendInput}, [=](QVariant in) \{emit this->
-      \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{resendText}(in.toString(), \textcolor{keyword}{true});\});
-00105         \textcolor{keywordflow}{if}(state->\hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{visibility}()) \{
-00106             state->\hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{sendOutput}(QVariant(state->\hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}()));
-00107         \} \textcolor{keywordflow}{else} \{
-00108             qDebug() << \textcolor{stringliteral}{"invisible"};
-00109         \}
-00110     \});
-00111     \hyperlink{classSH__ValidationState}{SH\_ValidationState} *validationState = qobject\_cast<
-      \hyperlink{classSH__ValidationState}{SH\_ValidationState}*>(state);
-00112     \textcolor{keywordflow}{if}(validationState) \{
-00113         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état state*/}
-00114         connect(validationState, &QState::entered, [=]() \{
-00115             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput}, 
+00085 \{
+00086     \hyperlink{classSH__InOutState}{SH\_InOutState}* state = qobject\_cast<\hyperlink{classSH__InOutState}{SH\_InOutState} *>(astate);
+00087     \textcolor{keywordflow}{if}(state) \{
+00088         \textcolor{comment}{/*connect(this, &SH\_GenericStateMachine::entered, [=]() \{*/}
+00089         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état state*/}
+00090         \textcolor{comment}{/*connect(state, &QAbstractState::entered, [=]() \{*/}
+00091         \textcolor{comment}{/* la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de
+       l'état*/}
+00092         connect(state, &\hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{SH\_InOutState::sendOutput}, [=](QVariant out) \{ \textcolor{keywordflow}{if}(out.
+      isValid()) \{
+00093                 \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(out.toString(),\textcolor{stringliteral}{"reçu de l'état
+      "});
+00094                 emit this->\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{sendText}(out.toString(), \textcolor{keyword}{false});
+00095             \}\});
+00096         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{SH\_InOutStateMachine::receiveInput}, state, &
+      \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{SH\_InOutState::setInput}, Qt::QueuedConnection);
+00097         connect(state, &\hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{SH\_InOutState::resendInput}, [=](QVariant in) \{  \textcolor{keywordflow}{if}(in.
+      isValid()) \{
+00098                 \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(in.toString(),\textcolor{stringliteral}{"envoyé par
+       l'état"});
+00099                 emit this->\hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{resendText}(in.toString(), \textcolor{keyword}{true});
+00100             \}\});
+00101         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"salioute"});
+00102         \hyperlink{classSH__ValidationState}{SH\_ValidationState} *validationState = qobject\_cast<
+      \hyperlink{classSH__ValidationState}{SH\_ValidationState}*>(astate);
+00103         \textcolor{keywordflow}{if}(validationState) \{
+00104             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput}, 
       validationState, &\hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{SH\_ValidationState::confirmInput}, Qt::QueuedConnection);
-00116         \});
-00117     \}
-00118     \hyperlink{classSH__ConfirmationState}{SH\_ConfirmationState} *confirmationState = qobject\_cast<
-      \hyperlink{classSH__ConfirmationState}{SH\_ConfirmationState}*>(state);
-00119     \textcolor{keywordflow}{if}(confirmationState) \{
-00120         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état state*/}
-00121         connect(confirmationState, &QState::entered, [=]() \{
-00122             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput}, 
+00105         \}
+00106 
+00107         \hyperlink{classSH__ConfirmationState}{SH\_ConfirmationState} *confirmationState = qobject\_cast<
+      \hyperlink{classSH__ConfirmationState}{SH\_ConfirmationState}*>(astate);
+00108         \textcolor{keywordflow}{if}(confirmationState) \{
+00109             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput}, 
       confirmationState, &\hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{SH\_ConfirmationState::confirmInput}, Qt::QueuedConnection);
-00123         \});
-00124     \}
-00125     \hyperlink{classSH__DateQuestionState}{SH\_DateQuestionState} *dateState = qobject\_cast<
-      \hyperlink{classSH__DateQuestionState}{SH\_DateQuestionState}*>(state);
-00126     \textcolor{keywordflow}{if}(dateState) \{
-00127         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état state*/}
-00128         connect(dateState, &QState::entered, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar}, Qt::QueuedConnection);
-00129     \}
-00130     \hyperlink{classSH__FileSelectionState}{SH\_FileSelectionState} *fileState = qobject\_cast<
-      \hyperlink{classSH__FileSelectionState}{SH\_FileSelectionState}*>(state);
-00131     \textcolor{keywordflow}{if}(fileState) \{
-00132         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état state*/}
-00133         connect(fileState, &QState::entered, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{SH\_InOutStateMachine::displayFileDialog}, Qt::QueuedConnection);
-00134     \}
-00135     \textcolor{comment}{/*à faire au moment de la sortie de l'état state*/}
-00136     connect(state, &QState::exited, [=]() \{
-00137         qDebug() << \textcolor{stringliteral}{"exited !"};
-00138         \textcolor{keywordflow}{if}(!field.isEmpty()) \{
-00139             \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(state->\hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{rawInput}(), field);
-00140             \textcolor{comment}{/*gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir quitté*/}
-00141             QHistoryState* hState = \textcolor{keyword}{new} QHistoryState(state);
-00142             \hyperlink{classSH__InOutStateMachine_acbcce2c4300af1634d928b30e5e9be1c}{setIOStateHistory}(hState, field);
-00143         \}
-00144         state->disconnect(\textcolor{keyword}{this}); \textcolor{comment}{/*plus aucune action sur l'état ne pourra être provoquée par la machine*/}
-00145     \});
-00146 
-00147 
-00148     QAbstractState* astate = qobject\_cast<QAbstractState *>(state);
-00149     \textcolor{keywordflow}{if}(astate) \{
-00150         addState(astate);
-00151     \}
-00152 \}
+00110         \}
+00111 
+00112         \hyperlink{classSH__DateQuestionState}{SH\_DateQuestionState} *dateState = qobject\_cast<
+      \hyperlink{classSH__DateQuestionState}{SH\_DateQuestionState}*>(astate);
+00113         \textcolor{keywordflow}{if}(dateState) \{
+00114             emit this->\hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{displayCalendar}();
+00115         \}
+00116 
+00117         \hyperlink{classSH__DatabaseContentQuestionState}{SH\_DatabaseContentQuestionState} *choiceState = qobject\_cast<
+      \hyperlink{classSH__DatabaseContentQuestionState}{SH\_DatabaseContentQuestionState}*>(astate);
+00118         \textcolor{keywordflow}{if}(choiceState) \{
+00119             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{SH\_InOutStateMachine::displayChoiceList}, 
+      choiceState, &\hyperlink{classSH__DatabaseContentQuestionState_ae1e149ad7ab3d957f3c5df9ef078448b}{SH\_DatabaseContentQuestionState::displayChoiceList}
+      , Qt::QueuedConnection);
+00120         \}
+00121 
+00122         \hyperlink{classSH__FileSelectionState}{SH\_FileSelectionState} *fileState = qobject\_cast<
+      \hyperlink{classSH__FileSelectionState}{SH\_FileSelectionState}*>(astate);
+00123         \textcolor{keywordflow}{if}(fileState) \{
+00124             emit this->\hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{displayFileDialog}();
+00125         \}
+00126         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"salioute bis"});
+00127         \textcolor{comment}{/*\});*/}
+00128         connect(state, &QAbstractState::exited, [=]() \{
+00129             \textcolor{keywordflow}{if}(!field.isEmpty()) \{
+00130                 \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(state->\hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{rawInput}(), field);
+00131 
+00132                 \textcolor{comment}{/*gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir
+       quitté*/}
+00133                 QHistoryState* hState = \textcolor{keyword}{new} QHistoryState(state);
+00134                 \hyperlink{classSH__InOutStateMachine_acbcce2c4300af1634d928b30e5e9be1c}{setIOStateHistory}(hState, field);
+00135             \}
+00136             \textcolor{comment}{/*plus aucune action sur l'état ne pourra être provoquée par la machine*/}
+00137             state->disconnect(\textcolor{keyword}{this});
+00138         \});
+00139         \textcolor{comment}{/*\});*/}
+00140     \}
+00141     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"salioute bis bis"});
+00142     QAbstractState* abstate = qobject\_cast<QAbstractState *>(astate);
+00143     \textcolor{keywordflow}{if}(abstate) \{
+00144         \hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{SH\_InOutStateMachine::addState}(abstate);
+00145     \}
+00146 \}
 \end{DoxyCode}
-\hypertarget{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-I\-O\-State\-Machine@{add\-I\-O\-State\-Machine}}
-\index{add\-I\-O\-State\-Machine@{add\-I\-O\-State\-Machine}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
-\subsubsection[{add\-I\-O\-State\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine (
+\hypertarget{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-State@{add\-State}}
+\index{add\-State@{add\-State}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
+\subsubsection[{add\-State}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State (
 \begin{DoxyParamCaption}
-\item[{{\bf S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$}]{fsm}
+\item[{Q\-Abstract\-State $\ast$}]{state}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}
+
+
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00068}{68} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+
+
+
+Références \hyperlink{classSH__GenericStateMachine_af4402993e916573a589c9d28158b28d8}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-State()}, et \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}.
+
+
+
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{S\-H\-\_\-\-Client\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Client\-Creation\-State\-Machine()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+
+\begin{DoxyCode}
+00069 \{
+00070     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"chalut"});
+00071     \hyperlink{classSH__GenericStateMachine_af4402993e916573a589c9d28158b28d8}{SH\_GenericStateMachine::addState}(state);
+00072 \}
+\end{DoxyCode}
+\hypertarget{classSH__InOutStateMachine_a52469f4988c3eb654def2ed237fd10eb}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-State@{add\-State}}
+\index{add\-State@{add\-State}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
+\subsubsection[{add\-State}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-H\-\_\-\-In\-Out\-State} $\ast$}]{astate, }
+\item[{Q\-String}]{field = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a52469f4988c3eb654def2ed237fd10eb}
+
+
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00074}{74} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+
+
+
+Références \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}.
+
+
+\begin{DoxyCode}
+00075 \{
+00076     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"salioute state"});
+00077     \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{SH\_InOutStateMachine::addIOState}(state, field);
+00078 \}
+\end{DoxyCode}
+\hypertarget{classSH__InOutStateMachine_adcd6eb72b60b2c24aa6701977b5c7c1e}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-State@{add\-State}}
+\index{add\-State@{add\-State}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
+\subsubsection[{add\-State}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$}]{astate, }
+\item[{Q\-String}]{table = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_adcd6eb72b60b2c24aa6701977b5c7c1e}
+
+
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00152}{152} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+
+
+
+Références \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}.
+
+
+\begin{DoxyCode}
+00153 \{
+00154     \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{SH\_InOutStateMachine::addStateMachine}(fsm, table);
+00155 \}
+\end{DoxyCode}
+\hypertarget{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!add\-State\-Machine@{add\-State\-Machine}}
+\index{add\-State\-Machine@{add\-State\-Machine}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
+\subsubsection[{add\-State\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$}]{fsm, }
+\item[{Q\-String}]{table = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}
 
 \begin{DoxyParams}{Paramètres}
 {\em fsm} & \\
@@ -376,45 +402,61 @@ Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00160}{160} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00157}{157} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::cancel\-Replacement()}, \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::confirm\-Input()}, \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}, \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}, \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, et \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}.
+Références \hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State()}, \hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::cancel\-Replacement()}, \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::confirm\-Input()}, \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Choice\-List()}, \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}, \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}, \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, \hyperlink{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc739ab08c}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Table\-Name()}, et \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}.
 
 
 
-Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_adcd6eb72b60b2c24aa6701977b5c7c1e}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State()}.
 
 
 \begin{DoxyCode}
-00161 \{
-00162     \textcolor{comment}{/*à faire au moment de l'entrée dans la machine d'état fsm*/}
-00163     connect(fsm, &QState::entered, [=]() \{
-00164         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{SH\_InOutStateMachine::receiveInput}, fsm, &
+00157                                                                                       \{
+00158     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"salioute machine"});
+00159     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* fsm = qobject\_cast<
+      \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine} *>(astate);
+00160     \textcolor{keywordflow}{if}(fsm) \{
+00161         \textcolor{keywordflow}{if}(!table.isEmpty()) \{
+00162             fsm->\hyperlink{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc739ab08c}{setTableName}(table);
+00163         \}
+00164         \textcolor{comment}{/*connect(this, &SH\_InOutStateMachine::entered, [=]() \{*/}
+00165         \textcolor{comment}{/*à faire au moment de l'entrée dans la machine d'état fsm*/}
+00166         \textcolor{comment}{/*connect(fsm, &SH\_InOutStateMachine::entered, [=]() \{*/}
+00167         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{SH\_InOutStateMachine::receiveInput}, fsm, &
       \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{SH\_InOutStateMachine::receiveInput},Qt::QueuedConnection);
-00165         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{SH\_InOutStateMachine::sendText}, fsm, &
+00168         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{SH\_InOutStateMachine::sendText}, fsm, &
       \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{SH\_InOutStateMachine::sendText},Qt::QueuedConnection);
-00166         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{SH\_InOutStateMachine::resendText}, fsm, &
+00169         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{SH\_InOutStateMachine::resendText}, fsm, &
       \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{SH\_InOutStateMachine::resendText},Qt::QueuedConnection);
-00167         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{SH\_InOutStateMachine::confirmInput}, fsm, &
+00170         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{SH\_InOutStateMachine::confirmInput}, fsm, &
       \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{SH\_InOutStateMachine::confirmInput},Qt::QueuedConnection);
-00168         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput}, fsm, &
+00171         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput}, fsm, &
       \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{SH\_InOutStateMachine::validateInput},Qt::QueuedConnection);
-00169         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput}, fsm, &
+00172         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput}, fsm, &
       \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput},Qt::QueuedConnection);
-00170         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{SH\_InOutStateMachine::cancelReplacement}, fsm,
+00173         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{SH\_InOutStateMachine::cancelReplacement}, fsm,
        &\hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{SH\_InOutStateMachine::cancelReplacement},Qt::QueuedConnection);
-00171         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar}, fsm, &
+00174         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar}, fsm, &
       \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar},Qt::QueuedConnection);
-00172     \});
-00173     \textcolor{comment}{/*à faire au moment de la sortie de la machine d'état fsm*/}
-00174     connect(fsm, &QState::exited, [=]() \{
-00175         fsm->disconnect(\textcolor{keyword}{this}); \textcolor{comment}{/*plus aucune action sur la machine d'état fille ne pourra être provoquée
-       par la machine mère*/}
-00176     \});
+00175         connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{SH\_InOutStateMachine::displayChoiceList}, fsm,
+       &\hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{SH\_InOutStateMachine::displayChoiceList},Qt::QueuedConnection);
+00176         \textcolor{comment}{/* \});*/}
 00177 
-00178 \}
+00178         \textcolor{comment}{/*à faire au moment de la sortie de la machine d'état fsm*/}
+00179         \textcolor{comment}{/*connect(fsm, &SH\_InOutStateMachine::exited, [=]() \{*/}
+00180         \textcolor{comment}{/*plus aucune action sur la machine d'état fille ne pourra être provoquée par la machine mère*/}
+00181         \textcolor{comment}{/*fsm->disconnect(this);*/}
+00182         \textcolor{comment}{/*\});*/}
+00183         \textcolor{comment}{/*\});*/}
+00184     \}
+00185     QAbstractState* abstate = qobject\_cast<QAbstractState *>(astate);
+00186     \textcolor{keywordflow}{if}(abstate) \{
+00187         \hyperlink{classSH__InOutStateMachine_a3de9dedcdfd6efab868484c047638f71}{SH\_InOutStateMachine::addState}(abstate);
+00188     \}
+00189 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!cancel\-Replacement@{cancel\-Replacement}}
 \index{cancel\-Replacement@{cancel\-Replacement}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -425,7 +467,7 @@ Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{S\-H\-\_\-\-Application\-Core\-::cancel\-Replacement()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{S\-H\-\_\-\-Application\-Core\-::cancel\-Replacement()}.
 
 \hypertarget{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!clear\-All@{clear\-All}}
 \index{clear\-All@{clear\-All}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -436,7 +478,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb69762
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, et \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine()}, et \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}.
 
 \hypertarget{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!confirm\-Input@{confirm\-Input}}
 \index{confirm\-Input@{confirm\-Input}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -447,7 +489,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{S\-H\-\_\-\-Application\-Core\-::receive\-Confirmation()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{S\-H\-\_\-\-Application\-Core\-::receive\-Confirmation()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
 
 \hypertarget{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!display\-Calendar@{display\-Calendar}}
 \index{display\-Calendar@{display\-Calendar}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -458,7 +500,18 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb69762
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine()}.
+
+\hypertarget{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!display\-Choice\-List@{display\-Choice\-List}}
+\index{display\-Choice\-List@{display\-Choice\-List}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
+\subsubsection[{display\-Choice\-List}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Choice\-List (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant\-List}]{choices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}
+
+
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine()}.
 
 \hypertarget{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!display\-File\-Dialog@{display\-File\-Dialog}}
 \index{display\-File\-Dialog@{display\-File\-Dialog}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -469,7 +522,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine()}.
 
 \hypertarget{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!emit\-Go\-Next@{emit\-Go\-Next}}
 \index{emit\-Go\-Next@{emit\-Go\-Next}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -480,11 +533,11 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00058}{58} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00052}{52} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{S\-H\-\_\-\-Generic\-State\-Machine\-::is\-Running()}, et \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{S\-H\-\_\-\-Generic\-State\-Machine\-::next()}.
+Références \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{S\-H\-\_\-\-Generic\-State\-Machine\-::next()}.
 
 
 
@@ -492,11 +545,11 @@ Référencé par \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e2770809
 
 
 \begin{DoxyCode}
-00059 \{
-00060     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}()) \{
-00061         emit \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}();
-00062     \}
-00063 \}
+00053 \{
+00054     \textcolor{keywordflow}{if}(isRunning()) \{
+00055         emit \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}();
+00056     \}
+00057 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!get\-Content\-Value@{get\-Content\-Value}}
 \index{get\-Content\-Value@{get\-Content\-Value}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -515,7 +568,7 @@ Q\-Variant
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00049}{49} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00039}{39} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -523,13 +576,13 @@ Références \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2
 
 
 
-Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{S\-H\-\_\-\-Client\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Client\-Creation\-State\-Machine()}.
+Référencé par \hyperlink{classSH__ApplicationCore_a111103d68e1a0f1fdaeef7cd85333896}{S\-H\-\_\-\-Application\-Core\-::bill\-Opened()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
 
 
 \begin{DoxyCode}
-00050 \{
-00051     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}.value(field);
-00052 \}
+00040 \{
+00041     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}.value(field);
+00042 \}
 \end{DoxyCode}
 \hypertarget{classSH__GenericStateMachine_aec37e33524182ab83bf300f1cc1a064e}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!go\-Next@{go\-Next}}
 \index{go\-Next@{go\-Next}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -559,7 +612,7 @@ Q\-History\-State
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00223}{223} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00219}{219} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -567,13 +620,13 @@ Références \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690
 
 
 
-Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, et \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, et \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}.
 
 
 \begin{DoxyCode}
-00224 \{
-00225     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory}.value(field);
-00226 \}
+00220 \{
+00221     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory}.value(field);
+00222 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!io\-Content@{io\-Content}}
 \index{io\-Content@{io\-Content}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -587,7 +640,7 @@ Q\-Variant\-Map
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00027}{27} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00023}{23} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -599,9 +652,9 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a8271a7ec7d5f6502449dd3b4
 
 
 \begin{DoxyCode}
-00028 \{
-00029     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent};
-00030 \}
+00024 \{
+00025     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent};
+00026 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_a13889998c6dcd17db984dd6ed1454e80}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!io\-States\-History@{io\-States\-History}}
 \index{io\-States\-History@{io\-States\-History}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -615,7 +668,7 @@ Q\-Map$<$\-Q\-String, Q\-History\-State $\ast$$>$
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00187}{187} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00194}{194} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -627,9 +680,9 @@ Référencé par \hyperlink{classSH__InOutStateMachine_af51f92c37d00a4eec4da4211
 
 
 \begin{DoxyCode}
-00188 \{
-00189     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory};
-00190 \}
+00195 \{
+00196     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory};
+00197 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_ae6c7448fbe267b035017108a9ffdff2e}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!is\-E\-Running@{is\-E\-Running}}
 \index{is\-E\-Running@{is\-E\-Running}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -641,34 +694,6 @@ Référencé par \hyperlink{classSH__InOutStateMachine_af51f92c37d00a4eec4da4211
 \begin{DoxyReturn}{Renvoie}
 bool 
 \end{DoxyReturn}
-\hypertarget{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!is\-Running@{is\-Running}}
-\index{is\-Running@{is\-Running}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
-\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::is\-Running (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
-
-
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00047}{47} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
-
-
-
-Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{S\-H\-\_\-\-Generic\-State\-Machine\-::m\-\_\-is\-Running}.
-
-
-
-Référencé par \hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}{S\-H\-\_\-\-Application\-Core\-::cancel\-Running\-Thread()}, \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread()}, et \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{S\-H\-\_\-\-Generic\-State\-Machine\-::emit\-Go\-Next()}.
-
-
-\begin{DoxyCode}
-00048 \{
-00049     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning};
-00050 \}
-\end{DoxyCode}
 \hypertarget{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!next@{next}}
 \index{next@{next}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
 \subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-Machine\-::next (
@@ -678,7 +703,7 @@ Référencé par \hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f3170
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}
 
 
-Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{S\-H\-\_\-\-Generic\-State\-Machine\-::emit\-Go\-Next()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__GenericStateMachine_a2e162a1da1f694d433cb9072b37ac530}{S\-H\-\_\-\-Generic\-State\-Machine\-::emit\-Go\-Next()}, \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{S\-H\-\_\-\-Generic\-State\-Machine\-::set\-States\-Next\-Transition()}, et \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}.
 
 \hypertarget{classSH__GenericStateMachine_adfd82f2532595ed7c4bcf21f03cbb951}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!on\-Entry@{on\-Entry}}
 \index{on\-Entry@{on\-Entry}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -694,20 +719,18 @@ Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00072}{72} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00077}{77} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{S\-H\-\_\-\-Generic\-State\-Machine\-::m\-\_\-is\-Running}, et \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}.
+Références \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, et \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}.
 
 
 \begin{DoxyCode}
-00073 \{
-00074     \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning} = \textcolor{keyword}{true};
-00075     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
-00076     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << this->
-      \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
-00077 \}
+00078 \{
+00079     Q\_UNUSED(event);
+00080     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(this->\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}() + \textcolor{stringliteral}{" entered"});
+00081 \}
 \end{DoxyCode}
 \hypertarget{classSH__GenericStateMachine_a4b36d60fa1876908493d3d07f191a30f}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!on\-Exit@{on\-Exit}}
 \index{on\-Exit@{on\-Exit}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -723,19 +746,18 @@ Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00085}{85} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00087}{87} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{S\-H\-\_\-\-Generic\-State\-Machine\-::m\-\_\-is\-Running}, et \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}.
+Références \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, et \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}.
 
 
 \begin{DoxyCode}
-00086 \{
-00087     \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning} = \textcolor{keyword}{false};
-00088     this->blockSignals(!\hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703bc647b}{m\_isRunning});
-00089     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" exited  "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
-00090 \}
+00088 \{
+00089     Q\_UNUSED(event);
+00090     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(this->\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}() + \textcolor{stringliteral}{" exited"});
+00091 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!receive\-Input@{receive\-Input}}
 \index{receive\-Input@{receive\-Input}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -751,7 +773,7 @@ Références \hyperlink{classSH__GenericStateMachine_ad03681101e09322e6a2ebb1703
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{S\-H\-\_\-\-Application\-Core\-::receive\-Input()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{S\-H\-\_\-\-Application\-Core\-::receive\-Input()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
 
 \hypertarget{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!replace\-Input@{replace\-Input}}
 \index{replace\-Input@{replace\-Input}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -767,7 +789,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{S\-H\-\_\-\-Application\-Core\-::replace\-Input()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{S\-H\-\_\-\-Application\-Core\-::replace\-Input()}, et \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}.
 
 \hypertarget{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!resend\-Text@{resend\-Text}}
 \index{resend\-Text@{resend\-Text}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -779,7 +801,7 @@ Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f27
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine()}.
 
 \hypertarget{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!send\-Text@{send\-Text}}
 \index{send\-Text@{send\-Text}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -798,7 +820,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, et \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine()}, et \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}.
 
 \hypertarget{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!set\-Content\-Value@{set\-Content\-Value}}
 \index{set\-Content\-Value@{set\-Content\-Value}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -817,7 +839,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00083}{83} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00063}{63} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -825,13 +847,13 @@ Références \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2
 
 
 
-Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{S\-H\-\_\-\-Application\-Core\-::launch\-Bill\-Thread()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{S\-H\-\_\-\-Client\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Client\-Creation\-State\-Machine()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{S\-H\-\_\-\-Application\-Core\-::launch\-Service\-Charging()}, \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
 
 
 \begin{DoxyCode}
-00084 \{
-00085     \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}.insert(field, content);
-00086 \}
+00064 \{
+00065     \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}.insert(field, content);
+00066 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_a8271a7ec7d5f6502449dd3b4da5f4155}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!set\-I\-Ocontent@{set\-I\-Ocontent}}
 \index{set\-I\-Ocontent@{set\-I\-Ocontent}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -847,7 +869,7 @@ Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f27
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00038}{38} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00031}{31} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -855,9 +877,9 @@ Références \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad36
 
 
 \begin{DoxyCode}
-00039 \{
-00040     \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent} = \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{ioContent};
-00041 \}
+00032 \{
+00033     \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent} = \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{ioContent};
+00034 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_acbcce2c4300af1634d928b30e5e9be1c}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!set\-I\-O\-State\-History@{set\-I\-O\-State\-History}}
 \index{set\-I\-O\-State\-History@{set\-I\-O\-State\-History}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -876,7 +898,7 @@ Références \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad36
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00211}{211} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00210}{210} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -884,13 +906,85 @@ Références \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
 
 
 \begin{DoxyCode}
-00212 \{
-00213     \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory}.insert(field, state); \textcolor{comment}{/*remplacement si plusieurs fois*/}
+00211 \{
+00212     \textcolor{comment}{/*remplacement si plusieurs fois, ajout sinon*/}
+00213     \hyperlink{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{m\_ioStatesHistory}.insert(field, state);
 00214 \}
+\end{DoxyCode}
+\hypertarget{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!set\-States\-Next\-Transition@{set\-States\-Next\-Transition}}
+\index{set\-States\-Next\-Transition@{set\-States\-Next\-Transition}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
+\subsubsection[{set\-States\-Next\-Transition}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition (
+\begin{DoxyParamCaption}
+\item[{Q\-Abstract\-State $\ast$}]{previous\-State, }
+\item[{Q\-Abstract\-State $\ast$}]{next\-State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}
+
+
+Réimplémentée dans \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine}.
+
+
+
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00251}{251} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+
+
+
+Références \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::clear\-All()}, \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-io\-Content}, \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-table\-Name}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}, \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{S\-H\-\_\-\-Generic\-State\-Machine\-::set\-States\-Next\-Transition()}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
+
+
+
+Référencé par \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__ClientCreationStateMachine_a0b406b0f404c0fd33bf35be8ce0cc811}{S\-H\-\_\-\-Client\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Client\-Creation\-State\-Machine()}.
+
+
+\begin{DoxyCode}
+00252 \{
+00253     \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}* fsmPreviousState = qobject\_cast<
+      \hyperlink{classSH__GenericStateMachine}{SH\_GenericStateMachine}*>(previousState);
+00254     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
+      \hyperlink{classSH__GenericState}{SH\_GenericState}*>(previousState);
+00255     QFinalState* \textcolor{keyword}{final} = qobject\_cast<QFinalState*>(nextState);
+00256     \textcolor{keywordflow}{if}(\textcolor{keyword}{final}) \{
+00257         \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}* saveState = \textcolor{keyword}{new} 
+      \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}(\textcolor{stringliteral}{"enregistrement de la machine "}+
+      \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}());
+00258         \textcolor{keywordflow}{if}(genPreviousState) \{
+00259             \textcolor{comment}{/*connect(this, &SH\_GenericStateMachine::entered, [=]() \{*/}
+00260             connect(genPreviousState, &QAbstractState::exited, [=]() \{
+00261                 emit this->\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{sendText}(\textcolor{stringliteral}{"Merci !"});
+00262                 \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(saveState->\hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{insertUpdate}(
+      \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName}, \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}), \textcolor{stringliteral}{"ID"});
+00263             \});
+00264             \textcolor{comment}{/*\});*/}
+00265         \}
+00266         \textcolor{keywordflow}{if}(fsmPreviousState) \{
+00267             \textcolor{comment}{/*connect(this, &SH\_GenericStateMachine::entered, [=]() \{*/}
+00268             connect(genPreviousState, &QAbstractState::exited, [=]() \{
+00269                 emit this->\hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{sendText}(\textcolor{stringliteral}{"Merci !"});
+00270                 \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(saveState->\hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{insertUpdate}(
+      \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName}, \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}), \textcolor{stringliteral}{"ID"});
+00271             \});
+00272             \textcolor{comment}{/*\});*/}
+00273         \}
+00274         \textcolor{keywordflow}{if}(genPreviousState || fsmPreviousState) \{
+00275             \textcolor{comment}{/*connect(this, &SH\_GenericStateMachine::entered, [=]() \{*/}
+00276             connect(saveState, &QAbstractState::exited, [=]() \{
+00277                 emit this->\hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{clearAll}();
+00278             \});
+00279             \textcolor{comment}{/*\});*/}
+00280         \}
+00281         \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{SH\_GenericStateMachine::setStatesNextTransition}(
+      previousState, saveState);
+00282         \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{SH\_GenericStateMachine::setStatesNextTransition}(
+      saveState, \textcolor{keyword}{final});
+00283     \} \textcolor{keywordflow}{else} \{
+00284         \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{SH\_GenericStateMachine::setStatesNextTransition}(
+      previousState, nextState);
+00285     \}
+00286 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc739ab08c}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!set\-Table\-Name@{set\-Table\-Name}}
 \index{set\-Table\-Name@{set\-Table\-Name}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -906,17 +1000,21 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00071}{71} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00055}{55} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
 Références \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-table\-Name}, et \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::table\-Name()}.
 
 
+
+Référencé par \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}.
+
+
 \begin{DoxyCode}
-00072 \{
-00073     \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName} = \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{tableName};
-00074 \}
+00056 \{
+00057     \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName} = \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{tableName};
+00058 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!table\-Name@{table\-Name}}
 \index{table\-Name@{table\-Name}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -930,7 +1028,7 @@ Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00060}{60} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8cpp_source_l00047}{47} du fichier \hyperlink{SH__IOStateMachine_8cpp_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-cpp}.
 
 
 
@@ -942,9 +1040,9 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc
 
 
 \begin{DoxyCode}
-00061 \{
-00062     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName};
-00063 \}
+00048 \{
+00049     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName};
+00050 \}
 \end{DoxyCode}
 \hypertarget{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!to\-String@{to\-String}}
 \index{to\-String@{to\-String}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -962,7 +1060,7 @@ Réimplémentée à partir de \hyperlink{classSH__NamedObject_a9f4b19df6a96a17da
 
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00030}{30} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableStateMachine_8cpp_source_l00037}{37} du fichier \hyperlink{SH__GenericDebugableStateMachine_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State\-Machine.\-cpp}.
 
 
 
@@ -970,20 +1068,20 @@ Références \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{
 
 
 
-Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{S\-H\-\_\-\-Application\-Core\-::launch\-Billings\-Thread()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine\-::\-S\-H\-\_\-\-Generic\-State\-Machine()}, et \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}.
+Référencé par \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__GenericStateMachine_ac34a1ac375e680e27708097c4f099f59}{S\-H\-\_\-\-Generic\-State\-Machine\-::\-S\-H\-\_\-\-Generic\-State\-Machine()}.
 
 
 \begin{DoxyCode}
-00031 \{
-00032     \hyperlink{classQObject}{QObject}* parent = this->parent();
-00033     \hyperlink{classSH__GenericState}{SH\_GenericState}* par = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState} *>(parent);
-00034     \textcolor{keywordflow}{if}(par) \{
-00035         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [descending from "}+par->
+00038 \{
+00039     \hyperlink{classQObject}{QObject}* parent = this->parent();
+00040     \hyperlink{classSH__GenericState}{SH\_GenericState}* par = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState} *>(parent);
+00041     \textcolor{keywordflow}{if}(par) \{
+00042         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [descending from "}+par->
       \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()+\textcolor{stringliteral}{"] "};
-00036     \} \textcolor{keywordflow}{else} \{
-00037         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
-00038     \}
-00039 \}
+00043     \} \textcolor{keywordflow}{else} \{
+00044         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
+00045     \}
+00046 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!validate\-Input@{validate\-Input}}
 \index{validate\-Input@{validate\-Input}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
@@ -994,7 +1092,7 @@ Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a6f65dff277508e650eb697628c857b19}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{S\-H\-\_\-\-Application\-Core\-::receive\-Validation()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutStateMachine_a0814df2e3f2b776ba210f98cd05be70d}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{S\-H\-\_\-\-Application\-Core\-::receive\-Validation()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
 
 
 
@@ -1004,18 +1102,18 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \subsubsection[{m\-\_\-io\-Content}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-io\-Content\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8h_source_l00216}{216} du fichier \hyperlink{SH__IOStateMachine_8h_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-h}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8h_source_l00222}{222} du fichier \hyperlink{SH__IOStateMachine_8h_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-h}.
 
 
 
-Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::get\-Content\-Value()}, \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::io\-Content()}, \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}, \hyperlink{classSH__InOutStateMachine_a8271a7ec7d5f6502449dd3b4da5f4155}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-I\-Ocontent()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::get\-Content\-Value()}, \hyperlink{classSH__InOutStateMachine_aaca105fbd5f5cc3bac115389ad3694c5}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::io\-Content()}, \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}, \hyperlink{classSH__InOutStateMachine_a8271a7ec7d5f6502449dd3b4da5f4155}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-I\-Ocontent()}, \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
 
 \hypertarget{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}{\index{S\-H\-\_\-\-Address\-Creation\-State\-Machine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}!m\-\_\-io\-States\-History@{m\-\_\-io\-States\-History}}
 \index{m\-\_\-io\-States\-History@{m\-\_\-io\-States\-History}!SH_AddressCreationStateMachine@{S\-H\-\_\-\-Address\-Creation\-State\-Machine}}
 \subsubsection[{m\-\_\-io\-States\-History}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-io\-States\-History\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_ac46ad1af230e1b2156d805275690dec3}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8h_source_l00228}{228} du fichier \hyperlink{SH__IOStateMachine_8h_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-h}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8h_source_l00234}{234} du fichier \hyperlink{SH__IOStateMachine_8h_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-h}.
 
 
 
@@ -1026,11 +1124,11 @@ Référencé par \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b5
 \subsubsection[{m\-\_\-table\-Name}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-Machine\-::m\-\_\-table\-Name\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}
 
 
-Définition à la ligne \hyperlink{SH__IOStateMachine_8h_source_l00222}{222} du fichier \hyperlink{SH__IOStateMachine_8h_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-h}.
+Définition à la ligne \hyperlink{SH__IOStateMachine_8h_source_l00228}{228} du fichier \hyperlink{SH__IOStateMachine_8h_source}{S\-H\-\_\-\-I\-O\-State\-Machine.\-h}.
 
 
 
-Référencé par \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_aa78420f8778d7777809aad77eb8473b4}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc739ab08c}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Table\-Name()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::table\-Name()}.
+Référencé par \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{S\-H\-\_\-\-Looping\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a70d6d81c0a8d4afd6aab0a7239edc237}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-States\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a95db31a7e7f31f36a8737adc739ab08c}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Table\-Name()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSH__InOutStateMachine_a4288a6c86ddf83effefff886675591c9}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::table\-Name()}.
 
 
 

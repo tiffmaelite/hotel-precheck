@@ -4,8 +4,8 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__ServicesTableModel_8h}{SH\_ServicesTableModel.h}"}
-00002 
-00003 
+00002 \textcolor{comment}{/*namespace SimplHotel}
+00003 \textcolor{comment}{\{*/}
 \hypertarget{SH__ServicesTableModel_8cpp_source_l00009}{}\hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{00009} \hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{SH\_ServicesTableModel::SH\_ServicesTableModel}(
       \hyperlink{classQObject}{QObject} *parent):
 00010     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(parent)
@@ -16,6 +16,10 @@
 00015 
 \hypertarget{SH__ServicesTableModel_8cpp_source_l00021}{}\hyperlink{classSH__ServicesTableModel_a2d18a3b167ded4e34a546e3f337c9c1a}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__ServicesTableModel_a2d18a3b167ded4e34a546e3f337c9c1a}{SH\_ServicesTableModel::fillModel}()
 00022 \{
-00023     \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{SH\_ExtendedProxyModel::sort}(1,Qt::AscendingOrder);
-00024 \}
+00023     QStringList \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields} = \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{SH\_ExtendedProxyModel::model}->
+      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}();
+00024     \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{SH\_ExtendedProxyModel::sort}(fields.indexOf(\textcolor{stringliteral}{"SERVICETYPE"}),Qt::AscendingOrder
+      );
+00025 \}
+00026 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

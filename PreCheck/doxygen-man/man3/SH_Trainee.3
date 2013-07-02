@@ -1,4 +1,4 @@
-.TH "SH_Trainee" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_Trainee" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -34,7 +34,7 @@ Est dérivée de \fBSH_User\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBSH_Trainee\fP (QString \fBname\fP, int \fBid\fP, \fBQObject\fP *parent=0)"
+.RI "\fBSH_Trainee\fP (QString \fBname\fP, int \fBid\fP=0, \fBQObject\fP *parent=0)"
 .br
 .ti -1c
 .RI "int \fBid\fP () const "
@@ -59,6 +59,12 @@ Est dérivée de \fBSH_User\fP\&.
 .br
 .ti -1c
 .RI "int \fBroles\fP () const "
+.br
+.ti -1c
+.RI "bool \fBsave\fP (QString password)"
+.br
+.ti -1c
+.RI "bool \fBsetNewPassword\fP (QString newPass)"
 .br
 .in -1c
 .SS "Fonctions membres publiques statiques"
@@ -104,19 +110,20 @@ Est dérivée de \fBSH_User\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 14 du fichier SH_Trainee\&.h\&.
+Définition à la ligne 15 du fichier SH_Trainee\&.h\&.
 .SH "Documentation des constructeurs et destructeur"
 .PP 
-.SS "SH_Trainee::SH_Trainee (QStringname, intid, \fBQObject\fP *parent = \fC0\fP)"
+.SS "SH_Trainee::SH_Trainee (QStringname, intid = \fC0\fP, \fBQObject\fP *parent = \fC0\fP)"
 
 .PP
-Définition à la ligne 9 du fichier SH_Trainee\&.cpp\&.
+Définition à la ligne 12 du fichier SH_Trainee\&.cpp\&.
 .PP
 .nf
-9                                                             : SH_User(name, id, true, false, false, false, parent)
-10 {
-11 
-12 }
+12                                                             :
+13     SH_User(name, id, true, false, false, false, parent)
+14 {
+15 
+16 }
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
@@ -135,26 +142,26 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 132 du fichier SH_User\&.h\&.
+Définition à la ligne 147 du fichier SH_User\&.h\&.
 .PP
 Références SH_User::traineeExists(), et SH_User::userExists()\&.
 .PP
 Référencé par SH_ApplicationCore::setMode(), et SH_ApplicationCore::userExists()\&.
 .PP
 .nf
-132 {return QVariant(SH_User::userExists(login\&.toString()) || SH_User::traineeExists(login\&.toString()));}
+147 {return QVariant(SH_User::userExists(login\&.toString()) || SH_User::traineeExists(login\&.toString()));}
 .fi
 .SS "int SH_User::id () const\fC [inline]\fP, \fC [inherited]\fP"
 
 .PP
-Définition à la ligne 54 du fichier SH_User\&.h\&.
+Définition à la ligne 57 du fichier SH_User\&.h\&.
 .PP
 Références SH_User::m_id\&.
 .PP
 Référencé par SH_User::setID()\&.
 .PP
 .nf
-54 { return this->m_id; }
+57 { return this->m_id; }
 .fi
 .SS "SH_User::isAdministrator () const\fC [inline]\fP, \fC [inherited]\fP"
 
@@ -166,14 +173,14 @@ bool
 .PP
 
 .PP
-Définition à la ligne 82 du fichier SH_User\&.h\&.
+Définition à la ligne 89 du fichier SH_User\&.h\&.
 .PP
 Références SH_User::m_administrator\&.
 .PP
-Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
+Référencé par SH_User::save(), SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .PP
 .nf
-82 { return this->m_administrator; }
+89 { return this->m_administrator; }
 .fi
 .SS "SH_User::isManagerX () const\fC [inline]\fP, \fC [inherited]\fP"
 
@@ -185,14 +192,14 @@ bool
 .PP
 
 .PP
-Définition à la ligne 68 du fichier SH_User\&.h\&.
+Définition à la ligne 73 du fichier SH_User\&.h\&.
 .PP
 Références SH_User::m_managerX\&.
 .PP
-Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
+Référencé par SH_User::save(), SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .PP
 .nf
-68 { return this->m_managerX; }
+73 { return this->m_managerX; }
 .fi
 .SS "SH_User::isManagerZ () const\fC [inline]\fP, \fC [inherited]\fP"
 
@@ -204,14 +211,14 @@ bool
 .PP
 
 .PP
-Définition à la ligne 75 du fichier SH_User\&.h\&.
+Définition à la ligne 81 du fichier SH_User\&.h\&.
 .PP
 Références SH_User::m_managerZ\&.
 .PP
-Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
+Référencé par SH_User::save(), SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .PP
 .nf
-75 { return this->m_managerZ; }
+81 { return this->m_managerZ; }
 .fi
 .SS "SH_User::isReceptionist () const\fC [inherited]\fP"
 
@@ -223,16 +230,16 @@ bool
 .PP
 
 .PP
-Définition à la ligne 64 du fichier SH_User\&.cpp\&.
+Définition à la ligne 67 du fichier SH_User\&.cpp\&.
 .PP
 Références SH_User::m_receptionist\&.
 .PP
-Référencé par SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
+Référencé par SH_User::save(), SH_ApplicationCore::setMode(), et SH_User::SH_User()\&.
 .PP
 .nf
-65 {
-66     return this->m_receptionist;
-67 }
+68 {
+69     return this->m_receptionist;
+70 }
 .fi
 .SS "SH_User::isValid () const\fC [inherited]\fP"
 
@@ -244,16 +251,16 @@ bool
 .PP
 
 .PP
-Définition à la ligne 32 du fichier SH_User\&.cpp\&.
+Définition à la ligne 35 du fichier SH_User\&.cpp\&.
 .PP
 Références SH_User::m_id, et SH_User::m_name\&.
 .PP
 Référencé par SH_User::logIn(), SH_ApplicationCore::setUser(), et SH_ApplicationCore::userLogOut()\&.
 .PP
 .nf
-32                             {
-33     return ((!this->m_name\&.isEmpty()) && (this->m_id != 0));
-34 }
+35                             {
+36     return ((!this->m_name\&.isEmpty()) && (this->m_id != 0));
+37 }
 .fi
 .SS "SH_User::logIn (QStringlogin, QStringpass)\fC [static]\fP, \fC [inherited]\fP"
 
@@ -272,59 +279,96 @@ User
 .PP
 
 .PP
-Définition à la ligne 132 du fichier SH_User\&.cpp\&.
+Définition à la ligne 157 du fichier SH_User\&.cpp\&.
 .PP
 Références SH_DatabaseManager::execSelectQuery(), SH_DatabaseManager::getInstance(), SH_User::isValid(), SH_User::SH_User(), SH_User::traineeExists(), et SH_User::userExists()\&.
 .PP
 Référencé par SH_ApplicationCore::setUser()\&.
 .PP
 .nf
-133 {
-134     qDebug() << "log in";
-135     bool isValid = false;
-136     QCryptographicHash encPass(QCryptographicHash::Sha512);
-137     encPass\&.addData(pass\&.toUtf8());
-138     bool trainee=false;
-139     QStringList fields;
-140     QString table;
-141     if(userExists(login)) {
-142         fields << "ID" << "LOGIN" << "ISRECEPTIONIST" << "ISMANAGERX" << "ISMANAGERZ" << "ISADMINISTRATOR";
-143         table ="USERS";
-144     } else if(traineeExists(login)) {
-145         fields << "ID" << "LOGIN";
-146         table ="TRAINEES";
-147         trainee=true;
-148     }
-149     QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery(table,fields,"LOGIN='"+login+"' AND ENCRYPTEDPASS='"+QString::fromLatin1(encPass\&.result()\&.toHex())\&.toUpper()+"'");
-150     if(result\&.next()) {
-151         QSqlRecord rec = result\&.record();
-152         if(rec\&.isEmpty() || !result\&.isValid()) {
-153             isValid = false;
-154         } else {
-155             isValid = (rec\&.value(rec\&.indexOf("LOGIN"))\&.toString() == login);
-156         }
-157 
-158         if(isValid) {
-159             if(trainee) {
-160                 return new SH_Trainee(rec\&.value(rec\&.indexOf("LOGIN"))\&.toString(),rec\&.value(rec\&.indexOf("ID"))\&.toInt());
-161             } else {
-162                 return new SH_User(rec\&.value(rec\&.indexOf("LOGIN"))\&.toString(),rec\&.value(rec\&.indexOf("ID"))\&.toInt(),(rec\&.value(rec\&.indexOf("ISRECEPTIONIST"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISMANAGERX"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISMANAGERZ"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISADMINISTRATOR"))\&.toString()=="1"));
-163             }
-164         }
-165     }
-166     return new SH_User();
-167 }
+158 {
+159     //SH_MessageManager::debugMessage("log in");
+160     bool isValid = false;
+161     QCryptographicHash encPass(QCryptographicHash::Sha512);
+162     encPass\&.addData(pass\&.toUtf8());
+163     bool trainee=false;
+164     QStringList fields;
+165     QString table;
+166     if(userExists(login)) {
+167         fields << "ID" << "LOGIN" << "ISRECEPTIONIST" << "ISMANAGERX" << "ISMANAGERZ" << "ISADMINISTRATOR";
+168         table ="USERS";
+169     } else if(traineeExists(login)) {
+170         fields << "ID" << "LOGIN";
+171         table ="TRAINEES";
+172         trainee=true;
+173     }
+174     QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery(table,fields,"LOGIN='"+login+"' AND ENCRYPTEDPASS='"+QString::fromLatin1(encPass\&.result()\&.toHex())\&.toUpper()+"'");
+175     if(result\&.next()) {
+176         QSqlRecord rec = result\&.record();
+177         if(rec\&.isEmpty() || !result\&.isValid()) {
+178             isValid = false;
+179         } else {
+180             isValid = (rec\&.value(rec\&.indexOf("LOGIN"))\&.toString() == login);
+181         }
+182 
+183         if(isValid) {
+184             if(trainee) {
+185                 return new SH_Trainee(rec\&.value(rec\&.indexOf("LOGIN"))\&.toString(),rec\&.value(rec\&.indexOf("ID"))\&.toInt());
+186             } else {
+187                 return new SH_User(rec\&.value(rec\&.indexOf("LOGIN"))\&.toString(),rec\&.value(rec\&.indexOf("ID"))\&.toInt(),(rec\&.value(rec\&.indexOf("ISRECEPTIONIST"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISMANAGERX"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISMANAGERZ"))\&.toString()=="1"),(rec\&.value(rec\&.indexOf("ISADMINISTRATOR"))\&.toString()=="1"));
+188             }
+189         }
+190     }
+191     return new SH_User();
+192 }
 .fi
 .SS "QString SH_User::name () const\fC [inherited]\fP"
 
 .PP
-Référencé par SH_User::setName()\&.
+Référencé par save(), SH_User::save(), et SH_User::setName()\&.
 .SS "SH_User::nameChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
 .SS "int SH_User::roles () const\fC [inherited]\fP"
 
 .SS "SH_User::rolesChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
+.SS "bool SH_Trainee::save (QStringpassword)\fC [virtual]\fP"
+
+.PP
+Réimplémentée à partir de \fBSH_User\fP\&.
+.PP
+Définition à la ligne 19 du fichier SH_Trainee\&.cpp\&.
+.PP
+Références SH_DatabaseManager::execReplaceQuery(), SH_DatabaseManager::getInstance(), et SH_User::name()\&.
+.PP
+Référencé par SH_ApplicationCore::saveUser()\&.
+.PP
+.nf
+19                                       {
+20     QVariantMap map;
+21     if(id() > 0) {
+22         map\&.insert("ID",QVariant(this->id()));
+23     }
+24     map\&.insert("LOGIN",QVariant(this->name()));
+25     QCryptographicHash encPass(QCryptographicHash::Sha512);
+26     encPass\&.addData(password\&.toUtf8());
+27     map\&.insert("ENCRYPTEDPASS",QVariant(QString::fromLatin1(encPass\&.result()\&.toHex())\&.toUpper()));
+28 
+29     return SH_DatabaseManager::getInstance()->execReplaceQuery("TRAINEES",map);
+30 }
+.fi
+.SS "bool SH_User::setNewPassword (QStringnewPass)\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 147 du fichier SH_User\&.cpp\&.
+.PP
+Références SH_User::save()\&.
+.PP
+.nf
+147                                             {
+148     return this->save(newPass);
+149 }
+.fi
 .SS "SH_User::traineeExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
 
 .PP
@@ -340,17 +384,17 @@ bool
 .PP
 
 .PP
-Définition à la ligne 121 du fichier SH_User\&.cpp\&.
+Définition à la ligne 124 du fichier SH_User\&.cpp\&.
 .PP
 Références SH_DatabaseManager::getInstance()\&.
 .PP
 Référencé par SH_User::exists(), et SH_User::logIn()\&.
 .PP
 .nf
-121                                          {
-122     qDebug() << "trainee exists";
-123     return (SH_DatabaseManager::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
-124 }
+124                                          {
+125     //SH_MessageManager::debugMessage("trainee exists");
+126     return (SH_DatabaseManager::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
+127 }
 .fi
 .SS "SH_User::userExists (QStringlogin)\fC [static]\fP, \fC [inherited]\fP"
 
@@ -367,17 +411,17 @@ bool
 .PP
 
 .PP
-Définition à la ligne 110 du fichier SH_User\&.cpp\&.
+Définition à la ligne 113 du fichier SH_User\&.cpp\&.
 .PP
 Références SH_DatabaseManager::getInstance()\&.
 .PP
 Référencé par SH_User::exists(), et SH_User::logIn()\&.
 .PP
 .nf
-110                                       {
-111     qDebug() << "user exists";
-112     return (SH_DatabaseManager::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
-113 }
+113                                       {
+114     //SH_MessageManager::debugMessage("user exists");
+115     return (SH_DatabaseManager::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
+116 }
 .fi
 .SS "SH_User::validityChanged ()\fC [signal]\fP, \fC [inherited]\fP"
 
@@ -399,7 +443,7 @@ int
 .PP
 Définition à la ligne 18 du fichier SH_User\&.h\&.
 .PP
-Référencé par SH_ApplicationCore::launchBillThread()\&.
+Référencé par SH_ApplicationCore::launchServiceCharging()\&.
 .SS "bool SH_User::managerX\fC [read]\fP, \fC [inherited]\fP"
 
 .PP

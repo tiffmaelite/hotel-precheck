@@ -4,48 +4,86 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__DateQuestionState_8h}{SH\_DateQuestionState.h}"}
-00002 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00009}{}\hyperlink{classSH__DateQuestionState_a9a60060ebcd5994d62f0ca5f0e6b5e98}{00009} \hyperlink{classSH__DateQuestionState_a9a60060ebcd5994d62f0ca5f0e6b5e98}{SH\_DateQuestionState::SH\_DateQuestionState}(QString question, 
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00003 
+00004 \textcolor{comment}{/*namespace SimplHotel}
+00005 \textcolor{comment}{\{*/}
+\hypertarget{SH__DateQuestionState_8cpp_source_l00010}{}\hyperlink{classSH__DateQuestionState_a9a60060ebcd5994d62f0ca5f0e6b5e98}{00010} \hyperlink{classSH__DateQuestionState_a9a60060ebcd5994d62f0ca5f0e6b5e98}{SH\_DateQuestionState::SH\_DateQuestionState}(QString question, 
       QString name, \textcolor{keywordtype}{bool} past, \textcolor{keywordtype}{bool} future, \hyperlink{classQState}{QState} *parent) :
-00010     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question+\textcolor{stringliteral}{" (au format jj-mm-aaaa)"}, name, parent), m\_past(past), 
-      m\_future(future)
-00011 \{
-00012 \}
-00013 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00020}{}\hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{00020} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{SH\_DateQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer)
-00021 \{
-00022     QDate answer = QDate::fromString(givenAnswer.toString(),QString(\textcolor{stringliteral}{"dd-MM-yyyy"}));
-00023     \textcolor{keywordflow}{if}(answer.isValid()) \{
-00024         qDebug() << \textcolor{stringliteral}{"date conforme"};
-00025         \textcolor{keywordflow}{return} ((\hyperlink{classSH__DateQuestionState_a0a1577dc70f9c1120a6d623f8eb635c8}{m\_future} && answer >= QDate::currentDate()) || (\hyperlink{classSH__DateQuestionState_afa33fd208cf539167bcc26c83e57d803}{m\_past} && answer <= 
-      QDate::currentDate()));
-00026     \} \textcolor{keywordflow}{else} \{
-00027         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00028     \}
-00029 \}
-00030 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00037}{}\hyperlink{classSH__DateQuestionState_a409a85ad6b7d2e37cfc42c3cfdca12ad}{00037} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_a409a85ad6b7d2e37cfc42c3cfdca12ad}{SH\_DateQuestionState::getPast}()\textcolor{keyword}{ const}
-00038 \textcolor{keyword}{}\{
-00039     \textcolor{keywordflow}{return} \hyperlink{classSH__DateQuestionState_afa33fd208cf539167bcc26c83e57d803}{m\_past};
-00040 \}
-00041 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00048}{}\hyperlink{classSH__DateQuestionState_a6f376c24355deb573b3132d18cf50341}{00048} \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_a6f376c24355deb573b3132d18cf50341}{SH\_DateQuestionState::setPast}(\textcolor{keywordtype}{bool} value)
-00049 \{
-00050     \hyperlink{classSH__DateQuestionState_afa33fd208cf539167bcc26c83e57d803}{m\_past} = value;
-00051 \}
-00052 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00059}{}\hyperlink{classSH__DateQuestionState_aa7b73f952558aa2aefaec2b94119abbc}{00059} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_aa7b73f952558aa2aefaec2b94119abbc}{SH\_DateQuestionState::getFuture}()\textcolor{keyword}{ const}
-00060 \textcolor{keyword}{}\{
-00061     \textcolor{keywordflow}{return} \hyperlink{classSH__DateQuestionState_a0a1577dc70f9c1120a6d623f8eb635c8}{m\_future};
-00062 \}
-00063 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00070}{}\hyperlink{classSH__DateQuestionState_acda6fa1cdc24ad7c5c012d88c948b819}{00070} \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_acda6fa1cdc24ad7c5c012d88c948b819}{SH\_DateQuestionState::setFuture}(\textcolor{keywordtype}{bool} value)
-00071 \{
-00072     \hyperlink{classSH__DateQuestionState_a0a1577dc70f9c1120a6d623f8eb635c8}{m\_future} = value;
+00011     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question+\textcolor{stringliteral}{" (au format jj-mm-aaaa)"}, name, parent), m\_maximum(QDate()),
+       m\_minimum(QDate())
+00012 \{
+00013     \hyperlink{classSH__DateQuestionState_a6f376c24355deb573b3132d18cf50341}{setPast}(past);
+00014     \hyperlink{classSH__DateQuestionState_acda6fa1cdc24ad7c5c012d88c948b819}{setFuture}(future);
+00015 \}
+00016 
+\hypertarget{SH__DateQuestionState_8cpp_source_l00017}{}\hyperlink{classSH__DateQuestionState_a28dba9f895682e7722c1a245e0aac713}{00017} \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_a28dba9f895682e7722c1a245e0aac713}{SH\_DateQuestionState::setMinimumDate}(QDate after)
+00018 \{
+00019     \hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum} = after;
+00020 \}
+00021 
+\hypertarget{SH__DateQuestionState_8cpp_source_l00022}{}\hyperlink{classSH__DateQuestionState_a43fd05c32a82342a25ea860f25917253}{00022} \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_a43fd05c32a82342a25ea860f25917253}{SH\_DateQuestionState::setMaximumDate}(QDate before)
+00023 \{
+00024     \hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum} = before;
+00025 \}
+00026 
+\hypertarget{SH__DateQuestionState_8cpp_source_l00031}{}\hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{00031} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{SH\_DateQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer)
+00032 \{
+00033     QDate answer = QDate::fromString(givenAnswer.toString(),QString(\textcolor{stringliteral}{"dd-MM-yyyy"})); \textcolor{comment}{//FIXME ajouter autres
+       formats}
+00034     \textcolor{keywordflow}{if}(answer.isValid()) \{
+00035         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"date conforme"});
+00036         \textcolor{keywordflow}{if}(\hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum}.isValid()) \{
+00037             \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"date max (%1) valide"}).
+      arg(\hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum}.toString()));
+00038             \textcolor{keywordflow}{if}(answer <= \hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum}) \{
+00039                 \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"%1 avant date max"})
+      .arg(answer.toString()));
+00040             \}
+00041         \}
+00042         \textcolor{keywordflow}{if}(\hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum}.isValid()) \{
+00043             \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"date min (%1) valide"}).
+      arg(\hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum}.toString()));
+00044             \textcolor{keywordflow}{if}(answer >= \hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum}) \{
+00045                 \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"%1 avant après min"}
+      ).arg(answer.toString()));
+00046             \}
+00047         \}
+00048     \}
+00049     \textcolor{keywordflow}{return} (
+00050                 (answer.isValid())
+00051                 && ((\hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum}.isValid() && answer <= \hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum})||(
+      \hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum}.isValid() && answer >= \hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum}))
+00052                 );
+00053 \}
+\hypertarget{SH__DateQuestionState_8cpp_source_l00058}{}\hyperlink{classSH__DateQuestionState_ad16ab3d70e9356ca17c0a05d9a2093da}{00058} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_ad16ab3d70e9356ca17c0a05d9a2093da}{SH\_DateQuestionState::isPast}()\textcolor{keyword}{ const}
+00059 \textcolor{keyword}{}\{
+00060     \textcolor{keywordflow}{return} (\hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum}.isValid() && \hyperlink{classSH__DateQuestionState_a9cb25c158f1622cf65b868c2bbab7e30}{m\_maximum} >= QDate::currentDate());
+00061 \}
+\hypertarget{SH__DateQuestionState_8cpp_source_l00066}{}\hyperlink{classSH__DateQuestionState_a6f376c24355deb573b3132d18cf50341}{00066} \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_a6f376c24355deb573b3132d18cf50341}{SH\_DateQuestionState::setPast}(\textcolor{keywordtype}{bool} value)
+00067 \{
+00068     \textcolor{keywordflow}{if}(value) \{
+00069         \hyperlink{classSH__DateQuestionState_a43fd05c32a82342a25ea860f25917253}{setMaximumDate}(QDate::currentDate());
+00070     \} \textcolor{keywordflow}{else}\{
+00071         \hyperlink{classSH__DateQuestionState_a43fd05c32a82342a25ea860f25917253}{setMaximumDate}(QDate());
+00072     \}
 00073 \}
-00074 
-\hypertarget{SH__DateQuestionState_8cpp_source_l00080}{}\hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{00080} QVariant \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{SH\_DateQuestionState::rawInput}()\textcolor{keyword}{ const}
-00081 \textcolor{keyword}{}\{
-00082     \textcolor{keywordflow}{return} QVariant(\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}().toDate().\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()); \textcolor{comment}{/*TODO set format*/}
-00083 \}
+\hypertarget{SH__DateQuestionState_8cpp_source_l00078}{}\hyperlink{classSH__DateQuestionState_a737a3f24e3bffbd367d439dd47fcc3cd}{00078} \textcolor{keywordtype}{bool} \hyperlink{classSH__DateQuestionState_a737a3f24e3bffbd367d439dd47fcc3cd}{SH\_DateQuestionState::isFuture}()\textcolor{keyword}{ const}
+00079 \textcolor{keyword}{}\{
+00080     \textcolor{keywordflow}{return} (\hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum}.isValid() && \hyperlink{classSH__DateQuestionState_a9b4c46cf566ae037d816e1d6b66c777b}{m\_minimum} <= QDate::currentDate());
+00081 \}
+\hypertarget{SH__DateQuestionState_8cpp_source_l00086}{}\hyperlink{classSH__DateQuestionState_acda6fa1cdc24ad7c5c012d88c948b819}{00086} \textcolor{keywordtype}{void} \hyperlink{classSH__DateQuestionState_acda6fa1cdc24ad7c5c012d88c948b819}{SH\_DateQuestionState::setFuture}(\textcolor{keywordtype}{bool} value)
+00087 \{
+00088     \textcolor{keywordflow}{if}(value) \{
+00089         \hyperlink{classSH__DateQuestionState_a28dba9f895682e7722c1a245e0aac713}{setMinimumDate}(QDate::currentDate());
+00090     \} \textcolor{keywordflow}{else}\{
+00091         \hyperlink{classSH__DateQuestionState_a28dba9f895682e7722c1a245e0aac713}{setMinimumDate}(QDate());
+00092     \}
+00093 \}
+\hypertarget{SH__DateQuestionState_8cpp_source_l00098}{}\hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{00098} QVariant \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{SH\_DateQuestionState::rawInput}()\textcolor{keyword}{ const}
+00099 \textcolor{keyword}{}\{
+00100     \textcolor{keywordflow}{return} QVariant(\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}().toDate().\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}());
+00101     \textcolor{comment}{/*TODO set format*/}
+00102 \}
+00103 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

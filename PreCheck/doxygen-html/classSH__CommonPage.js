@@ -3,6 +3,7 @@ var classSH__CommonPage =
     [ "cancelProcess", "classSH__CommonPage.xhtml#a500427619a33ea991ed173fa0ac3b446", null ],
     [ "cancelReplace", "classSH__CommonPage.xhtml#a5b55fbe80e82ad1a7f06099680ba6595", null ],
     [ "confirm", "classSH__CommonPage.xhtml#a66387106e42e843b3fd3ffbbcabbb8eb", null ],
+    [ "displayFileDialog", "classSH__CommonPage.xhtml#a4a067bd704f5c91d1487a8cb62f7f7b6", null ],
     [ "keySelected", "classSH__CommonPage.xhtml#a073e1151c7ac1c198931d77803d915d3", null ],
     [ "quit", "classSH__CommonPage.xhtml#a5b15093af63a454ca459407ba1283038", null ],
     [ "reload", "classSH__CommonPage.xhtml#a548ff64a01793866cbef6485d1b23f7e", null ],

@@ -4,12 +4,29 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__Trainee_8h}{SH\_Trainee.h}"}
-00002 
-\hypertarget{SH__Trainee_8cpp_source_l00009}{}\hyperlink{classSH__Trainee_a2715e0da8758c1f9674bfe86951a35c5}{00009} \hyperlink{classSH__Trainee_a2715e0da8758c1f9674bfe86951a35c5}{SH\_Trainee::SH\_Trainee}(QString name, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \hyperlink{classQObject}{QObject} *parent) : 
-      \hyperlink{classSH__User}{SH\_User}(name, id, true, false, false, false, parent)
-00010 \{
-00011 
-00012 \}
-00013 
-00014 
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseManager_8h}{SH\_DatabaseManager.h}"}
+00003 
+00004 \textcolor{comment}{/*namespace SimplHotel}
+00005 \textcolor{comment}{\{*/}
+\hypertarget{SH__Trainee_8cpp_source_l00012}{}\hyperlink{classSH__Trainee_a4317a6d68ef014c66082943c63404a31}{00012} \hyperlink{classSH__Trainee_a4317a6d68ef014c66082943c63404a31}{SH\_Trainee::SH\_Trainee}(QString name, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \hyperlink{classQObject}{QObject} *parent) :
+00013     \hyperlink{classSH__User}{SH\_User}(name, id, true, false, false, false, parent)
+00014 \{
+00015 
+00016 \}
+00017 
+00018 
+\hypertarget{SH__Trainee_8cpp_source_l00019}{}\hyperlink{classSH__Trainee_ac118976aaa960a727127370e625a3bb9}{00019} \textcolor{keywordtype}{bool} \hyperlink{classSH__Trainee_ac118976aaa960a727127370e625a3bb9}{SH\_Trainee::save}(QString password) \{
+00020     QVariantMap map;
+00021     \textcolor{keywordflow}{if}(\textcolor{keywordtype}{id}() > 0) \{
+00022         map.insert(\textcolor{stringliteral}{"ID"},QVariant(this->\textcolor{keywordtype}{id}()));
+00023     \}
+00024     map.insert(\textcolor{stringliteral}{"LOGIN"},QVariant(this->\hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{name}()));
+00025     QCryptographicHash encPass(QCryptographicHash::Sha512);
+00026     encPass.addData(password.toUtf8());
+00027     map.insert(\textcolor{stringliteral}{"ENCRYPTEDPASS"},QVariant(QString::fromLatin1(encPass.result().toHex()).toUpper()));
+00028 
+00029     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+      \hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{execReplaceQuery}(\textcolor{stringliteral}{"TRAINEES"},map);
+00030 \}
+00031 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

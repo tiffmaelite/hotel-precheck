@@ -42,6 +42,10 @@ bool \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\
 \item 
 void \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{display} (bool can\-Display)
 \item 
+void \hyperlink{classSH__InOutState_ad1695493d39c5194e5b7c6372754ddd7}{emit\-Resend\-Input} ()
+\item 
+void \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{emit\-Send\-Output} ()
+\item 
 virtual Q\-Variant \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{given\-Answer} () const 
 \item 
 virtual Q\-Variant \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input} () const 
@@ -49,8 +53,6 @@ virtual Q\-Variant \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a
 virtual bool \hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{is\-Answer\-Valid} (const Q\-Variant \&\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{given\-Answer})=0
 \item 
 bool \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{is\-Running} ()
-\item 
-void \hyperlink{classSH__InOutState_afc0433d63375063a43e39adca641e330}{on\-Exit} (Q\-Event $\ast$event)
 \item 
 virtual Q\-String \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output} () const 
 \item 
@@ -68,6 +70,8 @@ bool \hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{visibilit
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{on\-Entry} (Q\-Event $\ast$event)
+\item 
+void \hyperlink{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{on\-Exit} (Q\-Event $\ast$event)
 \end{DoxyCompactItemize}
 \subsection*{Attributs privés}
 \begin{DoxyCompactItemize}
@@ -149,11 +153,11 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00020}{20} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00017}{17} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answer\-Invalid()}, \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answer\-Valid()}, \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{given\-Answer()}, \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{S\-H\-\_\-\-Generic\-State\-::go\-Next()}, \hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{is\-Answer\-Valid()}, et \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}.
+Références \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answer\-Invalid()}, \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answer\-Valid()}, \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{given\-Answer()}, \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{S\-H\-\_\-\-Generic\-State\-::go\-Next()}, \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{is\-Answer\-Valid()}, \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{S\-H\-\_\-\-In\-Out\-State\-::output()}, \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, et \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}.
 
 
 
@@ -161,21 +165,26 @@ Référencé par \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db1716987
 
 
 \begin{DoxyCode}
-00021 \{
-00022     \textcolor{keywordtype}{bool} ok = this->\hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{isAnswerValid}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
-00023     \textcolor{keywordflow}{if}(ok) \{
-00024         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}() << \textcolor{stringliteral}{" answer valid !"};
-00025         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}();
-00026         \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{SH\_InOutState::setInput}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
-00027         emit \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
-00028         emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
-00029     \} \textcolor{keywordflow}{else} \{
-00030         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}() << \textcolor{stringliteral}{" answer invalid :-("};
-00031         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}();
-00032         emit \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
-00033     \}
-00034     \textcolor{keywordflow}{return} ok;
-00035 \}
+00018 \{
+00019     \textcolor{keywordtype}{bool} ok = \textcolor{keyword}{false};
+00020     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
+00021         ok = this->\hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{isAnswerValid}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
+00022         \textcolor{keywordflow}{if}(ok) \{
+00023             \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 is a VALID answer for
+       question '%2'!"}).arg(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}().\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()).arg(this->
+      \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}()));
+00024             \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{SH\_InOutState::setInput}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
+00025             emit \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
+00026             emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
+00027         \} \textcolor{keywordflow}{else} \{
+00028             \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 is an INvalid :-(
+       answer for question '%2'"}).arg(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}().\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()).arg(this->
+      \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}()));
+00029             emit \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
+00030         \}
+00031     \}
+00032     \textcolor{keywordflow}{return} ok;
+00033 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!display@{display}}
 \index{display@{display}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -191,7 +200,56 @@ Référencé par \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db1716987
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00101}{101} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00080}{80} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{S\-H\-\_\-\-In\-Out\-State\-::emit\-Send\-Output()}, et \hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-display}.
+
+
+\begin{DoxyCode}
+00081 \{
+00082         \hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{m\_display}=canDisplay;
+00083         \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{emitSendOutput}();
+00084 \}
+\end{DoxyCode}
+\hypertarget{classSH__InOutState_ad1695493d39c5194e5b7c6372754ddd7}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!emit\-Resend\-Input@{emit\-Resend\-Input}}
+\index{emit\-Resend\-Input@{emit\-Resend\-Input}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
+\subsubsection[{emit\-Resend\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-::emit\-Resend\-Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__InOutState_ad1695493d39c5194e5b7c6372754ddd7}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00092}{92} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-input}, \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, et \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{S\-H\-\_\-\-In\-Out\-State\-::resend\-Input()}.
+
+
+
+Référencé par \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, et \hyperlink{classSH__InOutState_a5fa88487103a8e197a8453c991bb056b}{S\-H\-\_\-\-In\-Out\-State\-::\-S\-H\-\_\-\-In\-Out\-State()}.
+
+
+\begin{DoxyCode}
+00092                                     \{
+00093     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}() && \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible}) \{
+00094         emit \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{resendInput}(\hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{m\_input});
+00095     \}
+00096 \}
+\end{DoxyCode}
+\hypertarget{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!emit\-Send\-Output@{emit\-Send\-Output}}
+\index{emit\-Send\-Output@{emit\-Send\-Output}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
+\subsubsection[{emit\-Send\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-In\-Out\-State\-::emit\-Send\-Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00086}{86} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
@@ -199,19 +257,16 @@ Références \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{S\-H\-\_\-\-Statement\-State\-::on\-Entry()}.
+Référencé par \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{S\-H\-\_\-\-In\-Out\-State\-::display()}, \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}, et \hyperlink{classSH__InOutState_a5fa88487103a8e197a8453c991bb056b}{S\-H\-\_\-\-In\-Out\-State\-::\-S\-H\-\_\-\-In\-Out\-State()}.
 
 
 \begin{DoxyCode}
-00102 \{
-00103     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
-00104         \hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{m\_display}=canDisplay;
-00105         \textcolor{keywordflow}{if}(\hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{m\_display} && !\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output}.isEmpty() && \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible}) \{
-00106             qDebug() << \textcolor{stringliteral}{"resalut !"} << QVariant(\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output});
-00107             emit \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{sendOutput}(QVariant(\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output}));
-00108         \}
-00109     \}
-00110 \}
+00086                                    \{
+00087     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}() && \hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{m\_display} && !\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output}.isEmpty() && 
+      \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible}) \{
+00088         emit \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{sendOutput}(QVariant(\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output}));
+00089     \}
+00090 \}
 \end{DoxyCode}
 \hypertarget{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!given\-Answer@{given\-Answer}}
 \index{given\-Answer@{given\-Answer}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -225,7 +280,7 @@ Q\-Variant
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00055}{55} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00048}{48} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
 
 
 
@@ -233,13 +288,13 @@ Références \hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61
 
 
 
-Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__DatabaseContentQuestionState_aed9d5e4205ca37d32653475ac13fe097}{S\-H\-\_\-\-Database\-Content\-Question\-State\-::raw\-Input()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
+Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__DatabaseContentQuestionState_a344d9109e15509506b1b998d28392cac}{S\-H\-\_\-\-Database\-Content\-Question\-State\-::raw\-Input()}, \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{set\-Given\-Answer()}, \hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{set\-Input()}, et \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
 
 
 \begin{DoxyCode}
-00056 \{
-00057     \textcolor{keywordflow}{return} this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
-00058 \}
+00049 \{
+00050     \textcolor{keywordflow}{return} this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
+00051 \}
 \end{DoxyCode}
 \hypertarget{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!go\-Next@{go\-Next}}
 \index{go\-Next@{go\-Next}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -250,7 +305,7 @@ Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee
 )\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}
 
 
-Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{S\-H\-\_\-\-Statement\-State\-::on\-Entry()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__GenericState_a3cc3cb1491b812dfdd032fc6438dfd4e}{S\-H\-\_\-\-Generic\-State\-::\-S\-H\-\_\-\-Generic\-State()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{S\-H\-\_\-\-Statement\-State\-::on\-Entry()}, \hyperlink{classSH__BillingCreationStateMachine_ad62b77fa4aeafe200056ff3974562f83}{S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSH__GenericState_a3cc3cb1491b812dfdd032fc6438dfd4e}{S\-H\-\_\-\-Generic\-State\-::\-S\-H\-\_\-\-Generic\-State()}, \hyperlink{classSH__InOutState_a5fa88487103a8e197a8453c991bb056b}{S\-H\-\_\-\-In\-Out\-State\-::\-S\-H\-\_\-\-In\-Out\-State()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
 
 \hypertarget{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!input@{input}}
 \index{input@{input}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -264,7 +319,7 @@ Q\-Variant
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00020}{20} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00019}{19} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
@@ -276,9 +331,9 @@ Référencé par \hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89
 
 
 \begin{DoxyCode}
-00021 \{
-00022     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{m\_input};
-00023 \}
+00020 \{
+00021     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{m\_input};
+00022 \}
 \end{DoxyCode}
 \hypertarget{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!is\-Answer\-Valid@{is\-Answer\-Valid}}
 \index{is\-Answer\-Valid@{is\-Answer\-Valid}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -297,7 +352,7 @@ bool
 \end{DoxyReturn}
 
 
-Implémenté dans \hyperlink{classSH__DatabaseContentQuestionState_a9bd6d20076c08d8e4085d22883ab7d14}{S\-H\-\_\-\-Database\-Content\-Question\-State}, \hyperlink{classSH__DecimalQuestionState_a99f815a5101340867400f093e89f2210}{S\-H\-\_\-\-Decimal\-Question\-State}, \hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{S\-H\-\_\-\-Date\-Question\-State}, \hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{S\-H\-\_\-\-Numeric\-Question\-State}, \hyperlink{classSH__StringQuestionState_a51448b87ffdb9279eaa5e7cc3ff73ce9}{S\-H\-\_\-\-String\-Question\-State}, et \hyperlink{classSH__RegExpQuestionState_ae0bb330572247ce10fb961d183eb5720}{S\-H\-\_\-\-Reg\-Exp\-Question\-State}.
+Implémenté dans \hyperlink{classSH__DatabaseContentQuestionState_a9262aeba84c1bb7feff540ca5edb27a7}{S\-H\-\_\-\-Database\-Content\-Question\-State}, \hyperlink{classSH__DateQuestionState_a303e9f86c37ded79fb3ad4d31d183c21}{S\-H\-\_\-\-Date\-Question\-State}, \hyperlink{classSH__DecimalQuestionState_a99f815a5101340867400f093e89f2210}{S\-H\-\_\-\-Decimal\-Question\-State}, \hyperlink{classSH__NumericQuestionState_a3676dec63a4da7cecf3fc28d8a197843}{S\-H\-\_\-\-Numeric\-Question\-State}, \hyperlink{classSH__StringQuestionState_a51448b87ffdb9279eaa5e7cc3ff73ce9}{S\-H\-\_\-\-String\-Question\-State}, et \hyperlink{classSH__RegExpQuestionState_ae0bb330572247ce10fb961d183eb5720}{S\-H\-\_\-\-Reg\-Exp\-Question\-State}.
 
 
 
@@ -315,7 +370,7 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00092}{92} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00081}{81} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
 
 
 
@@ -323,13 +378,13 @@ Références \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{S\-H\-\_\-\-In\-Out\-State\-::display()}, \hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290582}{S\-H\-\_\-\-Generic\-State\-::emit\-Go\-Next()}, \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}, et \hyperlink{classSH__InOutState_a7fdfaa6f600f0ac4a96f238a038ba9ad}{S\-H\-\_\-\-In\-Out\-State\-::set\-Visibility()}.
+Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__ConfirmationState_a039267260de5d102ac7511e6a5fae87f}{S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290582}{S\-H\-\_\-\-Generic\-State\-::emit\-Go\-Next()}, \hyperlink{classSH__InOutState_ad1695493d39c5194e5b7c6372754ddd7}{S\-H\-\_\-\-In\-Out\-State\-::emit\-Resend\-Input()}, \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{S\-H\-\_\-\-In\-Out\-State\-::emit\-Send\-Output()}, \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}, et \hyperlink{classSH__InOutState_a7fdfaa6f600f0ac4a96f238a038ba9ad}{S\-H\-\_\-\-In\-Out\-State\-::set\-Visibility()}.
 
 
 \begin{DoxyCode}
-00093 \{
-00094     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning};
-00095 \}
+00082 \{
+00083     \textcolor{keywordflow}{return} \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning};
+00084 \}
 \end{DoxyCode}
 \hypertarget{classSH__GenericState_ad5e2a1f3dc129336c8f529cf897c2eb0}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!next@{next}}
 \index{next@{next}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -356,11 +411,11 @@ Référencé par \hyperlink{classSH__GenericState_a66d4d4d94ef4fac3eb8d137848290
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00071}{71} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00060}{60} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{S\-H\-\_\-\-Generic\-State\-::m\-\_\-is\-Running}, et \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}.
+Références \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{S\-H\-\_\-\-Generic\-State\-::m\-\_\-is\-Running}, \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}, et \hyperlink{classSH__GenericState_aad4259cc1e6a51681d6a92e995486380}{S\-H\-\_\-\-Generic\-State\-::on\-Transition\-Triggered()}.
 
 
 
@@ -368,20 +423,24 @@ Référencé par \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98
 
 
 \begin{DoxyCode}
-00072 \{
-00073     Q\_UNUSED(event);
-00074     \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning} = \textcolor{keyword}{true};
-00075     this->blockSignals(!\hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning});
-00076     qDebug() << \textcolor{stringliteral}{"Machine: "} << machine()->objectName() << \textcolor{stringliteral}{" entered "} << \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}();
-00077 \}
+00061 \{
+00062     Q\_UNUSED(event);
+00063     \textcolor{keywordflow}{foreach} (QAbstractTransition* tr, transitions()) \{
+00064         connect(tr, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(\hyperlink{classSH__GenericState_aad4259cc1e6a51681d6a92e995486380}{onTransitionTriggered}()));
+00065     \}
+00066     \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning} = \textcolor{keyword}{true};
+00067     this->blockSignals(!\hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning});
+00068     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"Machine: %1, entered state %2"})
+      .arg(machine()->objectName()).arg(\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}()));
+00069 \}
 \end{DoxyCode}
-\hypertarget{classSH__InOutState_afc0433d63375063a43e39adca641e330}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!on\-Exit@{on\-Exit}}
+\hypertarget{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!on\-Exit@{on\-Exit}}
 \index{on\-Exit@{on\-Exit}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
-\subsubsection[{on\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-In\-Out\-State\-::on\-Exit (
+\subsubsection[{on\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Generic\-State\-::on\-Exit (
 \begin{DoxyParamCaption}
 \item[{Q\-Event $\ast$}]{event}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSH__InOutState_afc0433d63375063a43e39adca641e330}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}
 
 \begin{DoxyParams}{Paramètres}
 {\em event} & \\
@@ -389,20 +448,21 @@ Référencé par \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00118}{118} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00074}{74} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-input}, \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, \hyperlink{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{S\-H\-\_\-\-Generic\-State\-::on\-Exit()}, et \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{S\-H\-\_\-\-In\-Out\-State\-::resend\-Input()}.
+Références \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{S\-H\-\_\-\-Generic\-State\-::m\-\_\-is\-Running}, et \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{S\-H\-\_\-\-Named\-Object\-::name()}.
 
 
 \begin{DoxyCode}
-00119 \{
-00120     \textcolor{keywordflow}{if}(\hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible}) \{
-00121         emit \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{resendInput}(\hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{m\_input});
-00122     \}
-00123     \hyperlink{classSH__GenericState_a7f7863859318c70c9b734be5bf5510b0}{SH\_GenericState::onExit}(event);
-00124 \}
+00075 \{
+00076     Q\_UNUSED(event);
+00077     \hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning} = \textcolor{keyword}{false};
+00078     this->blockSignals(!\hyperlink{classSH__GenericState_a72ddc905cfbffbed48bb2f2474d5297a}{m\_isRunning});
+00079     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"Machine: %1, exited state %2"}).
+      arg(machine()->objectName()).arg(\hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}()));
+00080 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!output@{output}}
 \index{output@{output}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -416,7 +476,7 @@ Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00058}{58} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00047}{47} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
@@ -424,13 +484,13 @@ Références \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{S
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}, et \hyperlink{classSH__StatementState_acc888fc333049b693f05ff760e363f27}{S\-H\-\_\-\-Statement\-State\-::\-S\-H\-\_\-\-Statement\-State()}.
+Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, et \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}.
 
 
 \begin{DoxyCode}
-00059 \{
-00060     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output};
-00061 \}
+00048 \{
+00049     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output};
+00050 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!raw\-Input@{raw\-Input}}
 \index{raw\-Input@{raw\-Input}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -444,11 +504,11 @@ Q\-Variant
 \end{DoxyReturn}
 
 
-Réimplémentée dans \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{S\-H\-\_\-\-Date\-Question\-State}, et \hyperlink{classSH__DatabaseContentQuestionState_aed9d5e4205ca37d32653475ac13fe097}{S\-H\-\_\-\-Database\-Content\-Question\-State}.
+Réimplémentée dans \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{S\-H\-\_\-\-Date\-Question\-State}, et \hyperlink{classSH__DatabaseContentQuestionState_a344d9109e15509506b1b998d28392cac}{S\-H\-\_\-\-Database\-Content\-Question\-State}.
 
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00030}{30} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00027}{27} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
@@ -456,13 +516,13 @@ Références \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{S
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
 
 
 \begin{DoxyCode}
-00031 \{
-00032     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}();
-00033 \}
+00028 \{
+00029     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}();
+00030 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!resend\-Input@{resend\-Input}}
 \index{resend\-Input@{resend\-Input}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -478,7 +538,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutState_afc0433d63375063a43e39adca641e330}{S\-H\-\_\-\-In\-Out\-State\-::on\-Exit()}, et \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSH__InOutState_ad1695493d39c5194e5b7c6372754ddd7}{S\-H\-\_\-\-In\-Out\-State\-::emit\-Resend\-Input()}.
 
 \hypertarget{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!send\-Output@{send\-Output}}
 \index{send\-Output@{send\-Output}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -494,7 +554,7 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{S\-H\-\_\-\-In\-Out\-State\-::display()}, et \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}.
+Référencé par \hyperlink{classSH__InOutStateMachine_ab6e90f9e187ab70d51ed4e3e1f69f912}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{S\-H\-\_\-\-In\-Out\-State\-::emit\-Send\-Output()}.
 
 \hypertarget{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!set\-Given\-Answer@{set\-Given\-Answer}}
 \index{set\-Given\-Answer@{set\-Given\-Answer}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -510,11 +570,11 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00066}{66} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00056}{56} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, et \hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\-\_\-given\-Answer}.
+Références \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{given\-Answer()}, et \hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\-\_\-given\-Answer}.
 
 
 
@@ -522,10 +582,12 @@ Référencé par \hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2de
 
 
 \begin{DoxyCode}
-00067 \{
-00068     this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer} = givenAsnwer;
-00069     this->\hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{checkValidity}();
-00070 \}
+00057 \{
+00058     \textcolor{keywordflow}{if}(\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer} != this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}()) \{
+00059         this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer} = \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer};
+00060         this->\hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{checkValidity}();
+00061     \}
+00062 \}
 \end{DoxyCode}
 \hypertarget{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!set\-Input@{set\-Input}}
 \index{set\-Input@{set\-Input}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -545,11 +607,11 @@ Réimplémentée à partir de \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff
 
 
 
-Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00043}{43} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00038}{38} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{set\-Given\-Answer()}.
+Références \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{given\-Answer()}, et \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{set\-Given\-Answer()}.
 
 
 
@@ -557,10 +619,11 @@ Référencé par \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19
 
 
 \begin{DoxyCode}
-00044 \{
-00045     qDebug() << \textcolor{stringliteral}{"new answer "} << \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}.toString();
-00046     this->\hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{setGivenAnswer}(\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input});
-00047 \}
+00039 \{
+00040     \textcolor{keywordflow}{if}(\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input} != this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}()) \{
+00041         this->\hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{setGivenAnswer}(\hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input});
+00042     \}
+00043 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_af611c84134e262739cd834797b315c80}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!set\-Output@{set\-Output}}
 \index{set\-Output@{set\-Output}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -576,30 +639,28 @@ Référencé par \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19
 \end{DoxyParams}
 
 
-Réimplémentée dans \hyperlink{classSH__DatabaseContentQuestionState_aaec6c7f8bc78c6beb7447fc41ffe3875}{S\-H\-\_\-\-Database\-Content\-Question\-State}.
+Réimplémentée dans \hyperlink{classSH__DatabaseContentQuestionState_aff932cdd7974baeea9a477cf0abc5ace}{S\-H\-\_\-\-Database\-Content\-Question\-State}.
 
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00070}{70} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00055}{55} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-output}, \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{S\-H\-\_\-\-In\-Out\-State\-::output()}, et \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{S\-H\-\_\-\-In\-Out\-State\-::send\-Output()}.
+Références \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{S\-H\-\_\-\-In\-Out\-State\-::emit\-Send\-Output()}, \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-output}, et \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{S\-H\-\_\-\-In\-Out\-State\-::output()}.
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__DatabaseContentQuestionState_aaec6c7f8bc78c6beb7447fc41ffe3875}{S\-H\-\_\-\-Database\-Content\-Question\-State\-::set\-Output()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+Référencé par \hyperlink{classSH__DatabaseContentQuestionState_aff932cdd7974baeea9a477cf0abc5ace}{S\-H\-\_\-\-Database\-Content\-Question\-State\-::set\-Output()}, et \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19a8290b}{S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
 
 
 \begin{DoxyCode}
-00071 \{
-00072     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
-00073         \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output} = \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output};
-00074         \textcolor{keywordflow}{if}(\hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible}) \{
-00075             emit \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{sendOutput}(QVariant(\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output}));
-00076         \}
-00077     \}
-00078 \}
+00056 \{
+00057     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}() && \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output} != this->\hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}()) \{
+00058         \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output} = \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output};
+00059         \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{emitSendOutput}();
+00060     \}
+00061 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_a7fdfaa6f600f0ac4a96f238a038ba9ad}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!set\-Visibility@{set\-Visibility}}
 \index{set\-Visibility@{set\-Visibility}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -615,11 +676,11 @@ Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00085}{85} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00066}{66} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, et \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}.
+Références \hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, et \hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{S\-H\-\_\-\-In\-Out\-State\-::visibility()}.
 
 
 
@@ -627,11 +688,11 @@ Référencé par \hyperlink{classSH__ServiceCharging_afa5273d046049b1c2b020a6a19
 
 
 \begin{DoxyCode}
-00086 \{
-00087     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
-00088         \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible} = isVisible;
-00089     \}
-00090 \}
+00067 \{
+00068     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}() && isVisible!=this->\hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{visibility}()) \{
+00069         \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible} = isVisible;
+00070     \}
+00071 \}
 \end{DoxyCode}
 \hypertarget{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!to\-String@{to\-String}}
 \index{to\-String@{to\-String}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -649,29 +710,28 @@ Réimplémentée à partir de \hyperlink{classSH__NamedObject_a9f4b19df6a96a17da
 
 
 
-Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00022}{22} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00023}{23} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
 
 
 
-Références \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}, et \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{S\-H\-\_\-\-Named\-Object\-::to\-String()}.
+Références \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{S\-H\-\_\-\-Named\-Object\-::to\-String()}, et \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}.
 
 
 
-Référencé par \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{S\-H\-\_\-\-Generic\-State\-Machine\-::add\-Children\-Next\-Transition()}, \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{S\-H\-\_\-\-Date\-Question\-State\-::raw\-Input()}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
+Référencé par \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{check\-Validity()}, \hyperlink{classSH__DateQuestionState_a71917e94cb9ce692f916a848bc8c8892}{S\-H\-\_\-\-Date\-Question\-State\-::raw\-Input()}, \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}, et \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{S\-H\-\_\-\-Generic\-State\-::to\-String()}.
 
 
 \begin{DoxyCode}
-00023 \{
-00024     \hyperlink{classQStateMachine}{QStateMachine}* machine = this->machine();
-00025     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* mach = qobject\_cast<
-      \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine} *>(machine);
-00026     \textcolor{keywordflow}{if}(mach) \{
-00027         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [in "}+mach->
-      \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}()+\textcolor{stringliteral}{"] "};
-00028     \} \textcolor{keywordflow}{else} \{
-00029         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
-00030     \}
-00031 \}
+00024 \{
+00025     \hyperlink{classQStateMachine}{QStateMachine}* machine = this->machine();
+00026     \hyperlink{classSH__GenericState}{SH\_GenericState}* mach = qobject\_cast<\hyperlink{classSH__GenericState}{SH\_GenericState} *>(machine);
+00027     \textcolor{keywordflow}{if}(mach) \{
+00028         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [in "}+mach->
+      \hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()+\textcolor{stringliteral}{"] "};
+00029     \} \textcolor{keywordflow}{else} \{
+00030         \textcolor{keywordflow}{return} \hyperlink{classSH__NamedObject_a9f4b19df6a96a17daaf1060b3019ef47}{SH\_NamedObject::toString}();
+00031     \}
+00032 \}
 \end{DoxyCode}
 \hypertarget{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{\index{S\-H\-\_\-\-Question\-State@{S\-H\-\_\-\-Question\-State}!visibility@{visibility}}
 \index{visibility@{visibility}!SH_QuestionState@{S\-H\-\_\-\-Question\-State}}
@@ -685,7 +745,7 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00097}{97} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00076}{76} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
 
 
 
@@ -693,13 +753,13 @@ Références \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{S
 
 
 
-Référencé par \hyperlink{classSH__InOutStateMachine_a2528cffddbe6f98c32ebef41423c0118}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
+Référencé par \hyperlink{classSH__InOutState_a7fdfaa6f600f0ac4a96f238a038ba9ad}{S\-H\-\_\-\-In\-Out\-State\-::set\-Visibility()}.
 
 
 \begin{DoxyCode}
-00097                                \{
-00098     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible};
-00099 \}
+00076                                \{
+00077     \textcolor{keywordflow}{return} \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible};
+00078 \}
 \end{DoxyCode}
 
 
@@ -713,7 +773,7 @@ m\-\_\-given\-Answer
 
 
 
-Définition à la ligne \hyperlink{SH__QuestionState_8h_source_l00080}{80} du fichier \hyperlink{SH__QuestionState_8h_source}{S\-H\-\_\-\-Question\-State.\-h}.
+Définition à la ligne \hyperlink{SH__QuestionState_8h_source_l00076}{76} du fichier \hyperlink{SH__QuestionState_8h_source}{S\-H\-\_\-\-Question\-State.\-h}.
 
 
 

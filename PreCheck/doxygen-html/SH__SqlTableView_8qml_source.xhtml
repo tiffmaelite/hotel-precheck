@@ -120,80 +120,132 @@ $(document).ready(function(){initNavTree('SH__SqlTableView_8qml_source.xhtml',''
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">id</span>: table</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    model: 0</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    signal selected(<span class="keywordtype">string</span> selectedItem)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Component.onCompleted:{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">if</span>(table.model !== 0) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            table.model.fetch();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            var count = table.model.fieldsCount();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">for</span>(var index = 0; index &lt; count; index++) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordflow">if</span>(!table.model.containsFilterKeyColumn(index)) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                    var col = Qt.createQmlObject(<span class="stringliteral">&#39;import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field(&#39;</span>+index+<span class="stringliteral">&#39;).text; role: table.model.field(&#39;</span>+index+<span class="stringliteral">&#39;).role}&#39;</span>,table,<span class="stringliteral">&#39;column&#39;</span>+index);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                    <span class="comment">/*tmp.push(col);*/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    table.addColumn(col);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    signal selectedRow(<span class="keywordtype">int</span> selectedData)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Component.onCompleted:{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span>(table.model !== 0) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            table.model.fetch();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            var count = table.model.fieldsCount();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">for</span>(var index = 0; index &lt; count; index++) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">if</span>(!table.model.containsFilterKeyColumn(index)) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                    var col = Qt.createQmlObject(<span class="stringliteral">&#39;import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field(&#39;</span>+index+<span class="stringliteral">&#39;).text; role: table.model.field(&#39;</span>+index+<span class="stringliteral">&#39;).role}&#39;</span>,table,<span class="stringliteral">&#39;column&#39;</span>+index);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    <span class="comment">/*tmp.push(col);*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                    table.addColumn(col);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    itemDelegate:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classItem.xhtml">Item</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        Text {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            width: parent.width</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            anchors.margins: 4</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            anchors.left: parent.left</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            anchors.verticalCenter: parent.verticalCenter</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            elide: styleData.elideMode</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            text: styleData.value !== undefined ? styleData.value : <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            color: styleData.textColor</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            visible: !styleData.selected</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        Loader { <span class="comment">/* Initialize text input lazily to improve performance*/</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordtype">id</span>: loaderEditor</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            anchors.fill: parent</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            anchors.margins: 4</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            Connections {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                target: loaderEditor.item</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                onAccepted: {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="comment">/*if (typeof styleData.value === &#39;number&#39;)*/</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    table.selected(styleData.row);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    model.setData(styleData.row, styleData.role, styleData.value);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            sourceComponent: styleData.selected ? editor : null</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            Component {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordtype">id</span>: editor</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                TextInput {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <span class="keywordtype">id</span>: textinput</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    color: styleData.textColor</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    text: styleData.value</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    MouseArea {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <span class="keywordtype">id</span>: mouseArea</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        anchors.fill: parent</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        hoverEnabled: <span class="keyword">true</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        onClicked: {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                            textinput.forceActiveFocus()</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    onFocusChanged: {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="keywordflow">if</span>(styleData.value !== textinput.text) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                            textinput.accepted();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    headerDelegate:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classRectangle.xhtml">Rectangle</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        color: <span class="stringliteral">&quot;white&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//border.color: &quot;black&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        border.width: 0</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        gradient: Gradient {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            GradientStop {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                position: 0.00;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                color: <span class="stringliteral">&quot;white&quot;</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            GradientStop {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                position: 0.8;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                color: <span class="stringliteral">&quot;lemonchiffon&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            GradientStop {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                position: 1;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                color: <span class="stringliteral">&quot;wheat&quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        width: headerText.width</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        height: 1.5*headerText.height</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        Label {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordtype">id</span>:headerText</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            text: styleData.value !== undefined ? styleData.value : <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            font.bold: <span class="keyword">true</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            font.pointSize: 10</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            horizontalAlignment: Text.AlignHCenter</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            verticalAlignment: Text.AlignVCenter</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            maximumLineCount: 2</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            anchors.centerIn: parent</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            styleColor: <span class="stringliteral">&quot;tan&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            renderType: Text.NativeRendering</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            wrapMode: Text.Wrap</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    itemDelegate:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classItem.xhtml">Item</a> {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">id</span>: cellDelegate</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        height: Math.max(16, label.implicitHeight)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">property</span> <span class="keywordtype">int</span> implicitWidth: sizehint.paintedWidth + 16</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        Text {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordtype">id</span>: label</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            height: contentHeight</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            visible: !styleData.selected</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            width: parent.width</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            anchors.leftMargin: 8</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            maximumLineCount: 3</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            anchors.left: parent.left</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            anchors.right: parent.right</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            horizontalAlignment: styleData.textAlignment</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            anchors.verticalCenter: parent.verticalCenter</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            elide: styleData.elideMode</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            wrapMode: Text.Wrap</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            text: styleData.value !== undefined ? styleData.value : <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            color: styleData.textColor</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            renderType: Text.NativeRendering</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        Text {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordtype">id</span>: sizehint</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            font: label.font</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            text: styleData.value ? styleData.value : <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            visible: <span class="keyword">false</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        Loader { <span class="comment">/* Initialize text input lazily to improve performance*/</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordtype">id</span>: loaderEditor</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            anchors.fill: parent</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            anchors.margins: 4</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            Connections {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                target: loaderEditor.item</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                onAccepted: {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    <span class="comment">/*if (typeof styleData.value === &#39;NUMBER&#39;)*/</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    table.selected(styleData.value);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    table.selectedRow(styleData.row)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    model.setData(styleData.row, styleData.role, styleData.value);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            sourceComponent: styleData.selected ? editor : null</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            Component {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordtype">id</span>: editor</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                TextInput {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <span class="keywordtype">id</span>: textinput</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    wrapMode: Text.Wrap</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    text: styleData.value !== undefined ? styleData.value : <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    color: styleData.textColor</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    MouseArea {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                        <span class="keywordtype">id</span>: mouseArea</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                        anchors.fill: parent</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        hoverEnabled: <span class="keyword">true</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        onClicked: {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                            textinput.forceActiveFocus()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    onFocusChanged: {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        <span class="keywordflow">if</span>(styleData.value !== textinput.text) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                            textinput.accepted();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_c6b67c5d790d73d5f77581c2751c7958.xhtml">views</a></li><li class="navelem"><a class="el" href="dir_2d0df5ce6a012e960077ac659b7557ab.xhtml">qml</a></li><li class="navelem"><a class="el" href="SH__SqlTableView_8qml.xhtml">SH_SqlTableView.qml</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_44cba02192501e33694092d42d632c2e.xhtml">views</a></li><li class="navelem"><a class="el" href="dir_8e4eb9f416969c62a44275974efa3393.xhtml">qml</a></li><li class="navelem"><a class="el" href="SH__SqlTableView_8qml.xhtml">SH_SqlTableView.qml</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

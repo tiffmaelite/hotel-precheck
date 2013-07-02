@@ -1,0 +1,902 @@
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore}{\section{Référence de la classe Simple\-Hotel\-:\-:S\-H\-\_\-\-Application\-Core}
+\label{classSimpleHotel_1_1SH__ApplicationCore}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+}
+
+
+La classe \hyperlink{classSimpleHotel_1_1SH__ApplicationCore}{S\-H\-\_\-\-Application\-Core} est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique.  
+
+
+
+
+{\ttfamily \#include $<$S\-H\-\_\-\-Application\-Core.\-h$>$}
+
+Graphe d'héritage de Simple\-Hotel\-:\-:S\-H\-\_\-\-Application\-Core\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSimpleHotel_1_1SH__ApplicationCore}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{App\-Mode} \{ \\*
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{C\-O\-N\-N\-E\-X\-I\-O\-N}, 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}{A\-C\-C\-U\-E\-I\-L}, 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}{R\-E\-C\-E\-P\-T\-I\-O\-N}, 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X}, 
+\\*
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z}, 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N}
+ \}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{S\-H\-\_\-\-Application\-Core\-::\-C\-O\-N\-N\-E\-X\-I\-O\-N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a4b68e08dc74e6ed5a8f63d581ea5207c}{balance\-Log\-Routine} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a315a26953ece50293e7d2e50bb6429f7}{cancel\-Replacement} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a146358caa7f379dc02cd902bf7c9a674}{cancel\-Running\-Thread} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a62e16d4d7aa5bac832cb5556a7dabd4a}{launch\-Billings\-Thread} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5e72b1bc2e023f4fc5c2f5dd2ab75b2a}{launch\-Bill\-Thread} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a8ef0ab8ffaf580b63541d366e2db77fc}{launch\-Bookings\-Thread} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a0b2a0302185a40aecf01bb3e9eb17e12}{receive\-Confirmation} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ac4fc52911ea786bd99bdc8d78153a7ff}{receive\-Input} (Q\-String in)
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ae597b1ac2cc9efb4fe0a61df806bd81a}{receive\-Validation} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ae6e8bc23c61759f03dfa3412db8935f6}{replace\-Input} (Q\-String input\-Name)
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a2af3f48e113eaa6771a0fa328bd9f2e1}{set\-User} (Q\-String login, Q\-String pass)
+\begin{DoxyCompactList}\small\item\em Modifie l'utilisateur actuel. \end{DoxyCompactList}\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a3cd7ead16ca60500883f7888f4d39362}{user\-Exists} (Q\-String login)
+\begin{DoxyCompactList}\small\item\em Vérifie s'il existe un utilisateur avec le pseudo fourni. \end{DoxyCompactList}\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a6762ae5436349879687fee53d14bd117}{user\-Log\-Out} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}\-Déconnecte\char`\"{} l'utilisateur actuel, et le remplace par un utilisateur invalide \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ad2ece925fc099554e1943684206e4cec}{clear\-All} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a89131ceaccf4a82d94484a89ea11b453}{current\-F\-S\-Mchanged} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a2eeb69302b906b8e1dbcfbdbd7069f14}{display\-Calendar} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a475ef9dd466cc3431d876ac7918d190f}{mode\-Changed} (Q\-Variant \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode})
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9311fae224b8494feaa78c25d7fc657b}{open\-Tab} (Q\-Variant tab\-Pos)
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5efca063423bec2a36ae72ea506aa2d6}{resend\-Text} (Q\-String text)
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ade1b758816c051515fac381418aada14}{send\-Text} (Q\-String text)
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a7e29b9cd8e14d86b30180a60166a927f}{user\-Changed} (Q\-Variant name)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a7ef76ea628508460593d93d8b449876b}{S\-H\-\_\-\-Application\-Core} (\hyperlink{classQObject}{Q\-Object} $\ast$parent=0)
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a3c4eb72fcd01013faf53714954995478}{init} ()
+\begin{DoxyCompactList}\small\item\em Initialise l'application avec un utilisateur invalide, et le mode {\itshape C\-O\-N\-N\-E\-X\-I\-O\-N}. \end{DoxyCompactList}\item 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode} () const 
+\begin{DoxyCompactList}\small\item\em Retourne le mode actuel de l'application. \end{DoxyCompactList}\item 
+void \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a1661e9a56883ec760064066386b47bab}{set\-Mode} (\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode})
+\begin{DoxyCompactList}\small\item\em Modifie le mode dans lequel se trouve l'application. \end{DoxyCompactList}\item 
+\hyperlink{classSimpleHotel_1_1SH__User}{S\-H\-\_\-\-User} $\ast$ \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ada4d031ef3de48f7859495f57b13aad2}{user} () const 
+\begin{DoxyCompactList}\small\item\em retourne l'utilisateur actuellement connecté \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread} ()
+\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a62dd46ad070b7ad8587bc7001a93f6e9}{current\-Mode}
+\begin{DoxyCompactList}\small\item\em Le mode actuel de l'application. \end{DoxyCompactList}\item 
+\hyperlink{classSimpleHotel_1_1SH__User}{Simple\-Hotel\-::\-S\-H\-\_\-\-User} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a8404f82d10f1510c5f5259794dd3a553}{current\-User}
+\begin{DoxyCompactList}\small\item\em L'utilisateur actuellement connecté (un objet S\-H\-\_\-\-U\-Ser invalide si aucun utilisateur n'est connecté) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$ \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__User}{Simple\-Hotel\-::\-S\-H\-\_\-\-User} $\ast$ \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\-\_\-mode}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+La classe \hyperlink{classSimpleHotel_1_1SH__ApplicationCore}{S\-H\-\_\-\-Application\-Core} est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique. 
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00014}{14} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+\subsection{Documentation des énumérations membres}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!App\-Mode@{App\-Mode}}
+\index{App\-Mode@{App\-Mode}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{App\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::\-App\-Mode}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}
+
+
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{S\-H\-\_\-\-Application\-Core\-::\-C\-O\-N\-N\-E\-X\-I\-O\-N} 
+
+Énumération des modes possibles de l'application.
+
+Mode de l'application qui ne contient que le formulaire de connexion
+
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}{S\-H\-\_\-\-Application\-Core\-::\-A\-C\-C\-U\-E\-I\-L} Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès
+
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}{S\-H\-\_\-\-Application\-Core\-::\-R\-E\-C\-E\-P\-T\-I\-O\-N} Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}{S\-H\-\_\-\-Application\-Core\-::\-M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X} Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
+
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}{S\-H\-\_\-\-Application\-Core\-::\-M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z} Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable Z (lecture et modifications) du service
+
+\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddc}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}{S\-H\-\_\-\-Application\-Core\-::\-A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N} Mode de l'application qui regroupe les interfaces liées aux activités d'un technicien en charge de paramétrer l'application ou de modifier ses données (comptes utilisateurs, chambres...) \begin{Desc}
+\item[Valeurs énumérées]\par
+\begin{description}
+\index{C\-O\-N\-N\-E\-X\-I\-O\-N@{C\-O\-N\-N\-E\-X\-I\-O\-N}!Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!C\-O\-N\-N\-E\-X\-I\-O\-N@{C\-O\-N\-N\-E\-X\-I\-O\-N}}\item[{\em 
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{C\-O\-N\-N\-E\-X\-I\-O\-N}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}
+}]\index{A\-C\-C\-U\-E\-I\-L@{A\-C\-C\-U\-E\-I\-L}!Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!A\-C\-C\-U\-E\-I\-L@{A\-C\-C\-U\-E\-I\-L}}\item[{\em 
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}{A\-C\-C\-U\-E\-I\-L}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}
+}]\index{R\-E\-C\-E\-P\-T\-I\-O\-N@{R\-E\-C\-E\-P\-T\-I\-O\-N}!Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!R\-E\-C\-E\-P\-T\-I\-O\-N@{R\-E\-C\-E\-P\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}{R\-E\-C\-E\-P\-T\-I\-O\-N}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}
+}]\index{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X@{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X}!Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X@{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X}}\item[{\em 
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}
+}]\index{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z@{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z}!Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z@{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z}}\item[{\em 
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}
+}]\index{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N@{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N}!Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N@{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N}\label{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}
+}]\end{description}
+\end{Desc}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00060}{60} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+\begin{DoxyCode}
+00060 \{ \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{CONNEXION}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}{ACCUEIL}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}{RECEPTION}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}{MANAGEMENT\_X}, 
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}{MANAGEMENT\_Z}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}{ADMINISTRATION} \};
+\end{DoxyCode}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a7ef76ea628508460593d93d8b449876b}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}}
+\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{S\-H\-\_\-\-Application\-Core}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::\-S\-H\-\_\-\-Application\-Core (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\-Object} $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__ApplicationCore_a7ef76ea628508460593d93d8b449876b}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00016}{16} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a3c4eb72fcd01013faf53714954995478}{init()}.
+
+
+\begin{DoxyCode}
+00016                                                       :
+00017     \hyperlink{classQObject}{QObject}(parent)
+00018 \{
+00019     \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a3c4eb72fcd01013faf53714954995478}{init}();
+00020 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a4b68e08dc74e6ed5a8f63d581ea5207c}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!balance\-Log\-Routine@{balance\-Log\-Routine}}
+\index{balance\-Log\-Routine@{balance\-Log\-Routine}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{balance\-Log\-Routine}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::balance\-Log\-Routine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a4b68e08dc74e6ed5a8f63d581ea5207c}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00114}{114} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+\begin{DoxyCode}
+00114                                            \{
+00115     \textcolor{comment}{/*SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");}
+00116 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");}
+00117 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");}
+00118 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");}
+00119 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/}
+00120     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00121 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a315a26953ece50293e7d2e50bb6429f7}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!cancel\-Replacement@{cancel\-Replacement}}
+\index{cancel\-Replacement@{cancel\-Replacement}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{cancel\-Replacement}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::cancel\-Replacement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a315a26953ece50293e7d2e50bb6429f7}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00172}{172} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_abd6f8321716ad2f9a5e9d17cdedca275}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::cancel\-Replacement()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}.
+
+
+\begin{DoxyCode}
+00173 \{
+00174     \textcolor{keywordflow}{if}(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}) \{
+00175         emit this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_abd6f8321716ad2f9a5e9d17cdedca275}{cancelReplacement}();
+00176     \}
+00177 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a146358caa7f379dc02cd902bf7c9a674}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!cancel\-Running\-Thread@{cancel\-Running\-Thread}}
+\index{cancel\-Running\-Thread@{cancel\-Running\-Thread}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{cancel\-Running\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::cancel\-Running\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a146358caa7f379dc02cd902bf7c9a674}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00223}{223} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__GenericStateMachine_a23d9e26143a6732fa5a8f540eb827e03}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-Machine\-::is\-Running()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}.
+
+
+\begin{DoxyCode}
+00224 \{
+00225     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->stop();
+00226     \textcolor{keywordtype}{bool} ok = !this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__GenericStateMachine_a23d9e26143a6732fa5a8f540eb827e03}{isRunning}();
+00227     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM} = NULL;
+00228     \textcolor{keywordflow}{return} ok;
+00229 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_ad2ece925fc099554e1943684206e4cec}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!clear\-All@{clear\-All}}
+\index{clear\-All@{clear\-All}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{clear\-All}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::clear\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_ad2ece925fc099554e1943684206e4cec}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!connect\-Running\-Thread@{connect\-Running\-Thread}}
+\index{connect\-Running\-Thread@{connect\-Running\-Thread}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{connect\-Running\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00237}{237} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a2b6d60f624ba23c8fc3e52f73e867c86}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::clear\-All()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ad2ece925fc099554e1943684206e4cec}{clear\-All()}, \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a2801413ae1cf6e87e38e5f5366622860}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a2eeb69302b906b8e1dbcfbdbd7069f14}{display\-Calendar()}, \hyperlink{classSimpleHotel_1_1SH__GenericStateMachine_a23d9e26143a6732fa5a8f540eb827e03}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-Machine\-::is\-Running()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a5db6f59d446182ab9f10e0ccb0399915}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5efca063423bec2a36ae72ea506aa2d6}{resend\-Text()}, \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_ae81d4a51fcd3277ebfc11af978b74c0b}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ade1b758816c051515fac381418aada14}{send\-Text()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a62e16d4d7aa5bac832cb5556a7dabd4a}{launch\-Billings\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5e72b1bc2e023f4fc5c2f5dd2ab75b2a}{launch\-Bill\-Thread()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a8ef0ab8ffaf580b63541d366e2db77fc}{launch\-Bookings\-Thread()}.
+
+
+\begin{DoxyCode}
+00238 \{
+00239     QObject::connect(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}, &
+      \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_ae81d4a51fcd3277ebfc11af978b74c0b}{SH\_InOutStateMachine::sendText}, \textcolor{keyword}{this}, &
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ade1b758816c051515fac381418aada14}{SH\_ApplicationCore::sendText}, Qt::DirectConnection);
+00240     QObject::connect(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}, &
+      \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a2b6d60f624ba23c8fc3e52f73e867c86}{SH\_InOutStateMachine::clearAll}, \textcolor{keyword}{this}, &
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ad2ece925fc099554e1943684206e4cec}{SH\_ApplicationCore::clearAll}, Qt::DirectConnection);
+00241     QObject::connect(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}, &
+      \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a5db6f59d446182ab9f10e0ccb0399915}{SH\_InOutStateMachine::resendText}, \textcolor{keyword}{this}, &
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5efca063423bec2a36ae72ea506aa2d6}{SH\_ApplicationCore::resendText}, Qt::DirectConnection);
+00242     QObject::connect(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}, &
+      \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a2801413ae1cf6e87e38e5f5366622860}{SH\_InOutStateMachine::displayCalendar}, \textcolor{keyword}{this}, &
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a2eeb69302b906b8e1dbcfbdbd7069f14}{SH\_ApplicationCore::displayCalendar}, Qt::DirectConnection);
+00243     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__GenericStateMachine_a23d9e26143a6732fa5a8f540eb827e03}{isRunning}();
+00244 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a89131ceaccf4a82d94484a89ea11b453}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!current\-F\-S\-Mchanged@{current\-F\-S\-Mchanged}}
+\index{current\-F\-S\-Mchanged@{current\-F\-S\-Mchanged}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{current\-F\-S\-Mchanged}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::current\-F\-S\-Mchanged (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a89131ceaccf4a82d94484a89ea11b453}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a2eeb69302b906b8e1dbcfbdbd7069f14}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!display\-Calendar@{display\-Calendar}}
+\index{display\-Calendar@{display\-Calendar}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{display\-Calendar}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::display\-Calendar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a2eeb69302b906b8e1dbcfbdbd7069f14}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a3c4eb72fcd01013faf53714954995478}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!init@{init}}
+\index{init@{init}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__ApplicationCore_a3c4eb72fcd01013faf53714954995478}
+
+
+Initialise l'application avec un utilisateur invalide, et le mode {\itshape C\-O\-N\-N\-E\-X\-I\-O\-N}. 
+
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00037}{37} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a7ef76ea628508460593d93d8b449876b}{S\-H\-\_\-\-Application\-Core()}.
+
+
+\begin{DoxyCode}
+00037                               \{
+00038     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser} = \textcolor{keyword}{new} SH\_User();
+00039 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a62e16d4d7aa5bac832cb5556a7dabd4a}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!launch\-Billings\-Thread@{launch\-Billings\-Thread}}
+\index{launch\-Billings\-Thread@{launch\-Billings\-Thread}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-Billings\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::launch\-Billings\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a62e16d4d7aa5bac832cb5556a7dabd4a}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00185}{185} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}.
+
+
+\begin{DoxyCode}
+00186 \{
+00187     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}= \textcolor{keyword}{new} SH\_BillingCreationStateMachine(\textcolor{stringliteral}{"création facturation"});
+00188     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->start();
+00189     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connectRunningThread}();
+00190 
+00191 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5e72b1bc2e023f4fc5c2f5dd2ab75b2a}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!launch\-Bill\-Thread@{launch\-Bill\-Thread}}
+\index{launch\-Bill\-Thread@{launch\-Bill\-Thread}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-Bill\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::launch\-Bill\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a5e72b1bc2e023f4fc5c2f5dd2ab75b2a}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00210}{210} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__User_a492697af8401a2d22b0ecefab4d78da5}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::id}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}, et \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_aaf92da452f6cf7cc57aa9e60f88322e4}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}.
+
+
+\begin{DoxyCode}
+00211 \{
+00212     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}= \textcolor{keyword}{new} SH\_ServiceCharging(\textcolor{stringliteral}{"facturation prestation"});
+00213     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_aaf92da452f6cf7cc57aa9e60f88322e4}{setContentValue}(QVariant(this->
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->\hyperlink{classSimpleHotel_1_1SH__User_a492697af8401a2d22b0ecefab4d78da5}{id}()), \textcolor{stringliteral}{"BILL\_ID"});
+00214     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->start();
+00215     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connectRunningThread}();
+00216 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a8ef0ab8ffaf580b63541d366e2db77fc}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!launch\-Bookings\-Thread@{launch\-Bookings\-Thread}}
+\index{launch\-Bookings\-Thread@{launch\-Bookings\-Thread}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-Bookings\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::launch\-Bookings\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a8ef0ab8ffaf580b63541d366e2db77fc}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00198}{198} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}.
+
+
+\begin{DoxyCode}
+00199 \{
+00200     \textcolor{comment}{/*this->m\_currentFSM= new BookingCreationStateMachine("création facturation");*/}
+00201     \textcolor{comment}{/*this->m\_currentFSM->start();*/}
+00202     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connectRunningThread}();
+00203 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!mode@{mode}}
+\index{mode@{mode}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}
+
+
+Retourne le mode actuel de l'application. 
+
+\begin{DoxyReturn}{Renvoie}
+App\-Mode 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00027}{27} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\-\_\-mode}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a1661e9a56883ec760064066386b47bab}{set\-Mode()}.
+
+
+\begin{DoxyCode}
+00028 \{
+00029     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\_mode};
+00030 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a475ef9dd466cc3431d876ac7918d190f}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!mode\-Changed@{mode\-Changed}}
+\index{mode\-Changed@{mode\-Changed}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{mode\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::mode\-Changed (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a475ef9dd466cc3431d876ac7918d190f}
+
+\begin{DoxyParams}{Paramètres}
+{\em mode} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a9311fae224b8494feaa78c25d7fc657b}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!open\-Tab@{open\-Tab}}
+\index{open\-Tab@{open\-Tab}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{open\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::open\-Tab (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{tab\-Pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a9311fae224b8494feaa78c25d7fc657b}
+
+\begin{DoxyParams}{Paramètres}
+{\em tab\-Pos} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a0b2a0302185a40aecf01bb3e9eb17e12}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!receive\-Confirmation@{receive\-Confirmation}}
+\index{receive\-Confirmation@{receive\-Confirmation}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{receive\-Confirmation}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::receive\-Confirmation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a0b2a0302185a40aecf01bb3e9eb17e12}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00150}{150} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a949cdb448f813f201b6ca827d1c860e9}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::confirm\-Input()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}.
+
+
+\begin{DoxyCode}
+00151 \{
+00152 
+00153     emit this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a949cdb448f813f201b6ca827d1c860e9}{confirmInput}();
+00154 
+00155 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_ac4fc52911ea786bd99bdc8d78153a7ff}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!receive\-Input@{receive\-Input}}
+\index{receive\-Input@{receive\-Input}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{receive\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::receive\-Input (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_ac4fc52911ea786bd99bdc8d78153a7ff}
+
+\begin{DoxyParams}{Paramètres}
+{\em in} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00128}{128} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{Simple\-Hotel\-::\-S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a17482446bbf0327e84feb5d6a1a612f0}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}.
+
+
+\begin{DoxyCode}
+00129 \{
+00130     \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{SH\_MessageManager::infoMessage}(\textcolor{stringliteral}{"input received "}+in);
+00131     emit this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a17482446bbf0327e84feb5d6a1a612f0}{receiveInput}(in);
+00132 
+00133 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_ae597b1ac2cc9efb4fe0a61df806bd81a}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!receive\-Validation@{receive\-Validation}}
+\index{receive\-Validation@{receive\-Validation}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{receive\-Validation}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::receive\-Validation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_ae597b1ac2cc9efb4fe0a61df806bd81a}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00139}{139} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a3754990c3f90bb7d59e5028d3d6504d8}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}.
+
+
+\begin{DoxyCode}
+00140 \{
+00141 
+00142     emit this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a3754990c3f90bb7d59e5028d3d6504d8}{validateInput}();
+00143 
+00144 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_ae6e8bc23c61759f03dfa3412db8935f6}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!replace\-Input@{replace\-Input}}
+\index{replace\-Input@{replace\-Input}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{replace\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::replace\-Input (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{input\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_ae6e8bc23c61759f03dfa3412db8935f6}
+
+\begin{DoxyParams}{Paramètres}
+{\em input\-Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00161}{161} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a9117d781c5f8bc02d8b2eba359b0e85a}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}.
+
+
+\begin{DoxyCode}
+00162 \{
+00163 
+00164     emit this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{m\_currentFSM}->\hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a9117d781c5f8bc02d8b2eba359b0e85a}{replaceInput}(inputName);
+00165 
+00166 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a5efca063423bec2a36ae72ea506aa2d6}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!resend\-Text@{resend\-Text}}
+\index{resend\-Text@{resend\-Text}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{resend\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::resend\-Text (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a5efca063423bec2a36ae72ea506aa2d6}
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_ade1b758816c051515fac381418aada14}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!send\-Text@{send\-Text}}
+\index{send\-Text@{send\-Text}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{send\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::send\-Text (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_ade1b758816c051515fac381418aada14}
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a1661e9a56883ec760064066386b47bab}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!set\-Mode@{set\-Mode}}
+\index{set\-Mode@{set\-Mode}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{set\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::set\-Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-H\-\_\-\-Application\-Core\-::\-App\-Mode}}]{mode}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__ApplicationCore_a1661e9a56883ec760064066386b47bab}
+
+
+Modifie le mode dans lequel se trouve l'application. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mode} & Le nouveau mode de l'application \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00046}{46} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}{A\-C\-C\-U\-E\-I\-L}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}{A\-D\-M\-I\-N\-I\-S\-T\-R\-A\-T\-I\-O\-N}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{C\-O\-N\-N\-E\-X\-I\-O\-N}, \hyperlink{classSimpleHotel_1_1SH__User_a5b620469cfd767611c8be0cea77842ee}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::exists()}, \hyperlink{classSimpleHotel_1_1SH__User_aad4b9071828b2aedac8ad964c9b4e987}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::is\-Administrator()}, \hyperlink{classSimpleHotel_1_1SH__User_a98ea0f274591c094f62063c5d03c313f}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::is\-Manager\-X()}, \hyperlink{classSimpleHotel_1_1SH__User_a0f69fcf69b750b59aef25f95e44fd789}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::is\-Manager\-Z()}, \hyperlink{classSimpleHotel_1_1SH__User_ad8921664946cd0301f4abdba71d9293e}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::is\-Receptionist()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\-\_\-mode}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}{M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-Z}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode()}, \hyperlink{classSimpleHotel_1_1SH__User_a060aa57674e4cabf6a650b015563da77}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::name}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}{R\-E\-C\-E\-P\-T\-I\-O\-N}.
+
+
+\begin{DoxyCode}
+00047 \{
+00048     \textcolor{keywordflow}{if}(!this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser} || ! \hyperlink{classSimpleHotel_1_1SH__User_a5b620469cfd767611c8be0cea77842ee}{SH\_User::exists}(QVariant(this->
+      \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->\hyperlink{classSimpleHotel_1_1SH__User_a060aa57674e4cabf6a650b015563da77}{name}())).toBool()) \{
+00049         this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\_mode} = \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcab28d722a9e532b8be780de474f2416b0}{CONNEXION};
+00050     \} \textcolor{keywordflow}{else} \{
+00051         \textcolor{keywordflow}{if}(((\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode} == \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca8a254e01f0e1dfe299c327bfb770b253}{ADMINISTRATION}) && (!this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->
+      \hyperlink{classSimpleHotel_1_1SH__User_aad4b9071828b2aedac8ad964c9b4e987}{isAdministrator}())) ||
+00052                 ((\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode} == \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca7d966b7aab9fa700be8aca4d01cea71a}{MANAGEMENT\_X}) && (!this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->
+      \hyperlink{classSimpleHotel_1_1SH__User_a98ea0f274591c094f62063c5d03c313f}{isManagerX}())) ||
+00053                 ((\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode} == \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca5a1a605e06eead8cba816fe77b3d825a}{MANAGEMENT\_Z}) && (!this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->
+      \hyperlink{classSimpleHotel_1_1SH__User_a0f69fcf69b750b59aef25f95e44fd789}{isManagerZ}())) ||
+00054                 ((\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode} == \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddcade78cf47a182504c4e92b013969393bc}{RECEPTION}) && (!this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->
+      \hyperlink{classSimpleHotel_1_1SH__User_ad8921664946cd0301f4abdba71d9293e}{isReceptionist}()))) \{
+00055             this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\_mode} = \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5fea25d06c20cd22de5a2221c3a2dddca803d99a9521a4b887012d7533e13e0e1}{ACCUEIL};
+00056         \} \textcolor{keywordflow}{else} \{
+00057             this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{m\_mode} = \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode};
+00058         \}
+00059     \}
+00060 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a2af3f48e113eaa6771a0fa328bd9f2e1}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!set\-User@{set\-User}}
+\index{set\-User@{set\-User}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{set\-User}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::set\-User (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{login, }
+\item[{Q\-String}]{pass}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a2af3f48e113eaa6771a0fa328bd9f2e1}
+
+
+Modifie l'utilisateur actuel. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em login} & Le nom d'utilisateur du nouvel utilisateur \\
+\hline
+{\em pass} & Le mot de passe du nouvel utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne {\itshape true} si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; {\itshape false} sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00088}{88} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__User_a8b60e67bc474ee97367f36d0278721ca}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::is\-Valid()}, \hyperlink{classSimpleHotel_1_1SH__User_a5576062913b7f5a7e22e933585471738}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::log\-In()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}, \hyperlink{classSimpleHotel_1_1SH__User_a060aa57674e4cabf6a650b015563da77}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::name}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a7e29b9cd8e14d86b30180a60166a927f}{user\-Changed()}.
+
+
+\begin{DoxyCode}
+00089 \{
+00090     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser} = \hyperlink{classSimpleHotel_1_1SH__User_a5576062913b7f5a7e22e933585471738}{SH\_User::logIn}(login,pass);
+00091     \textcolor{keywordflow}{if}(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->\hyperlink{classSimpleHotel_1_1SH__User_a8b60e67bc474ee97367f36d0278721ca}{isValid}()) \{
+00092         emit \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a7e29b9cd8e14d86b30180a60166a927f}{userChanged}(QVariant(this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->
+      \hyperlink{classSimpleHotel_1_1SH__User_a060aa57674e4cabf6a650b015563da77}{name}()));
+00093         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00094     \}
+00095     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00096 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_ada4d031ef3de48f7859495f57b13aad2}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!user@{user}}
+\index{user@{user}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{user}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::user (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSimpleHotel_1_1SH__ApplicationCore_ada4d031ef3de48f7859495f57b13aad2}
+
+
+retourne l'utilisateur actuellement connecté 
+
+\begin{DoxyReturn}{Renvoie}
+User 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00067}{67} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}.
+
+
+\begin{DoxyCode}
+00068 \{
+00069     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser};
+00070 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a7e29b9cd8e14d86b30180a60166a927f}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!user\-Changed@{user\-Changed}}
+\index{user\-Changed@{user\-Changed}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{user\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::user\-Changed (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a7e29b9cd8e14d86b30180a60166a927f}
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a2af3f48e113eaa6771a0fa328bd9f2e1}{set\-User()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a3cd7ead16ca60500883f7888f4d39362}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!user\-Exists@{user\-Exists}}
+\index{user\-Exists@{user\-Exists}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{user\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::user\-Exists (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{login}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a3cd7ead16ca60500883f7888f4d39362}
+
+
+Vérifie s'il existe un utilisateur avec le pseudo fourni. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em login} & Le nom d'utilisateur pour lequel il faut effectuer une vérification \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00104}{104} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__User_a5b620469cfd767611c8be0cea77842ee}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::exists()}.
+
+
+\begin{DoxyCode}
+00105 \{
+00106     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__User_a5b620469cfd767611c8be0cea77842ee}{SH\_User::exists}(login).toBool();
+00107 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a6762ae5436349879687fee53d14bd117}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!user\-Log\-Out@{user\-Log\-Out}}
+\index{user\-Log\-Out@{user\-Log\-Out}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{user\-Log\-Out}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::user\-Log\-Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a6762ae5436349879687fee53d14bd117}
+
+
+\char`\"{}\-Déconnecte\char`\"{} l'utilisateur actuel, et le remplace par un utilisateur invalide 
+
+\begin{DoxyReturn}{Renvoie}
+bool Retourne {\itshape true} si le changement a réussi, {\itshape false} sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00077}{77} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__User_a8b60e67bc474ee97367f36d0278721ca}{Simple\-Hotel\-::\-S\-H\-\_\-\-User\-::is\-Valid()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\-\_\-current\-User}.
+
+
+\begin{DoxyCode}
+00078 \{
+00079     this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser} = \textcolor{keyword}{new} SH\_User();
+00080     \textcolor{keywordflow}{return} !this->\hyperlink{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{m\_currentUser}->\hyperlink{classSimpleHotel_1_1SH__User_a8b60e67bc474ee97367f36d0278721ca}{isValid}();
+00081 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!m\-\_\-current\-F\-S\-M@{m\-\_\-current\-F\-S\-M}}
+\index{m\-\_\-current\-F\-S\-M@{m\-\_\-current\-F\-S\-M}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{m\-\_\-current\-F\-S\-M}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::m\-\_\-current\-F\-S\-M\hspace{0.3cm}{\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_adc77b4d9a57cb898b672f344c9596190}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00268}{268} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a315a26953ece50293e7d2e50bb6429f7}{cancel\-Replacement()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a146358caa7f379dc02cd902bf7c9a674}{cancel\-Running\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a9feff73abc592c9af8d8c50346680d1a}{connect\-Running\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a62e16d4d7aa5bac832cb5556a7dabd4a}{launch\-Billings\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5e72b1bc2e023f4fc5c2f5dd2ab75b2a}{launch\-Bill\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a0b2a0302185a40aecf01bb3e9eb17e12}{receive\-Confirmation()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ac4fc52911ea786bd99bdc8d78153a7ff}{receive\-Input()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ae597b1ac2cc9efb4fe0a61df806bd81a}{receive\-Validation()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ae6e8bc23c61759f03dfa3412db8935f6}{replace\-Input()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!m\-\_\-current\-User@{m\-\_\-current\-User}}
+\index{m\-\_\-current\-User@{m\-\_\-current\-User}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{m\-\_\-current\-User}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::m\-\_\-current\-User\hspace{0.3cm}{\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_afd7cbbb3267dd91e453bfc85211437c7}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00258}{258} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a3c4eb72fcd01013faf53714954995478}{init()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a5e72b1bc2e023f4fc5c2f5dd2ab75b2a}{launch\-Bill\-Thread()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a1661e9a56883ec760064066386b47bab}{set\-Mode()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a2af3f48e113eaa6771a0fa328bd9f2e1}{set\-User()}, \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_ada4d031ef3de48f7859495f57b13aad2}{user()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a6762ae5436349879687fee53d14bd117}{user\-Log\-Out()}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!m\-\_\-mode@{m\-\_\-mode}}
+\index{m\-\_\-mode@{m\-\_\-mode}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{m\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::m\-\_\-mode\hspace{0.3cm}{\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a66a3e44eeddafaea7553740a9686d2b3}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00263}{263} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a508c10bf5c106f265f314ee1c0e113ae}{mode()}, et \hyperlink{classSimpleHotel_1_1SH__ApplicationCore_a1661e9a56883ec760064066386b47bab}{set\-Mode()}.
+
+
+
+\subsection{Documentation des propriétés}
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a62dd46ad070b7ad8587bc7001a93f6e9}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!current\-Mode@{current\-Mode}}
+\index{current\-Mode@{current\-Mode}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{current\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::current\-Mode\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a62dd46ad070b7ad8587bc7001a93f6e9}
+
+
+Le mode actuel de l'application. 
+
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00026}{26} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+\hypertarget{classSimpleHotel_1_1SH__ApplicationCore_a8404f82d10f1510c5f5259794dd3a553}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}!current\-User@{current\-User}}
+\index{current\-User@{current\-User}!SimpleHotel::SH_ApplicationCore@{Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{current\-User}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Application\-Core\-::current\-User\hspace{0.3cm}{\ttfamily [read]}}}\label{classSimpleHotel_1_1SH__ApplicationCore_a8404f82d10f1510c5f5259794dd3a553}
+
+
+L'utilisateur actuellement connecté (un objet S\-H\-\_\-\-U\-Ser invalide si aucun utilisateur n'est connecté) 
+
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00021}{21} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\hyperlink{SH__ApplicationCore_8h}{S\-H\-\_\-\-Application\-Core.\-h}\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/\hyperlink{SH__ApplicationCore_8cpp}{S\-H\-\_\-\-Application\-Core.\-cpp}\end{DoxyCompactItemize}

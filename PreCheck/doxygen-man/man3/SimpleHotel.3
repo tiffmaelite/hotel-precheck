@@ -1,0 +1,290 @@
+.TH "SimpleHotel" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBSH_AdaptDatabaseState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_AddressCreationStateMachine\fP"
+.br
+.RI "\fILa classe \fBSH_AddressCreationStateMachine\fP fournit une machine d'états finis permettant la création d'un entité 'adresse' à enregistrer dans la base de données\&. \fP"
+.ti -1c
+.RI "class \fBSH_ApplicationCore\fP"
+.br
+.RI "\fILa classe \fBSH_ApplicationCore\fP est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique\&. \fP"
+.ti -1c
+.RI "class \fBSH_BillingCreationStateMachine\fP"
+.br
+.RI "\fIThe \fBSH_BillingCreationStateMachine\fP class\&. \fP"
+.ti -1c
+.RI "class \fBSH_BillingsTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_BillsTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_BookingsTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_ClientCreationStateMachine\fP"
+.br
+.RI "\fIThe \fBSH_ClientCreationStateMachine\fP class\&. \fP"
+.ti -1c
+.RI "class \fBSH_ClientsTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_Company\fP"
+.br
+.ti -1c
+.RI "class \fBSH_ConfirmationState\fP"
+.br
+.RI "\fILa class ConfirmationState représente un état dans lequel le système attend que l'utilisateur appuie sur une touche de confirmation\&. \fP"
+.ti -1c
+.RI "class \fBSH_DatabaseContentQuestionState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_DatabaseManager\fP"
+.br
+.ti -1c
+.RI "class \fBSH_DateQuestionState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_DecimalQuestionState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_ExtendedProxyModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_ExtendedQQmlAction\fP"
+.br
+.ti -1c
+.RI "class \fBSH_FileSelectionState\fP"
+.br
+.RI "\fIThe \fBSH_FileSelectionState\fP class\&. \fP"
+.ti -1c
+.RI "class \fBSH_GenericState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_GenericStateMachine\fP"
+.br
+.ti -1c
+.RI "class \fBSH_GroupsTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_InOutState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_InOutStateMachine\fP"
+.br
+.ti -1c
+.RI "class \fBSH_LoopingInOutStateMachine\fP"
+.br
+.ti -1c
+.RI "class \fBSH_MessageManager\fP"
+.br
+.ti -1c
+.RI "class \fBSH_NamedObject\fP"
+.br
+.ti -1c
+.RI "class \fBSH_NumericQuestionState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_PrintingState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_QuestionState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_RegExpQuestionState\fP"
+.br
+.RI "\fIThe \fBSH_RegExpQuestionState\fP class\&. \fP"
+.ti -1c
+.RI "class \fBSH_RoomsTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_ServiceCharging\fP"
+.br
+.RI "\fIThe \fBSH_ServiceCharging\fP class\&. \fP"
+.ti -1c
+.RI "class \fBSH_ServicesTableModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_SqlDataFields\fP"
+.br
+.ti -1c
+.RI "class \fBSH_SqlDataModel\fP"
+.br
+.ti -1c
+.RI "class \fBSH_StatementState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_StringQuestionState\fP"
+.br
+.ti -1c
+.RI "class \fBSH_Trainee\fP"
+.br
+.ti -1c
+.RI "class \fBSH_User\fP"
+.br
+.ti -1c
+.RI "class \fBSH_ValidationState\fP"
+.br
+.in -1c
+.SS "Fonctions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBqShortcutContextMatcher\fP (\fBQObject\fP *o, Qt::ShortcutContext context)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static const QString \fBdbAliasNameStr\fP = 'precheck-hotel'"
+.br
+.RI "\fIdbAliasNameStr \fP"
+.ti -1c
+.RI "static QString \fBdbCannotOpenStr\fP = QObject::tr('The database %1 cannot be opened\&.')\&.arg(\fBdbFilePathStr\fP)"
+.br
+.RI "\fIdbCannotOpenStr \fP"
+.ti -1c
+.RI "static QString \fBdbDriverNotExistStr\fP = QObject::tr('%1 database driver is not available\&.')\&.arg(\fBdbDriverStr\fP)"
+.br
+.RI "\fIdbDriverNotExistStr \fP"
+.ti -1c
+.RI "static const QString \fBdbDriverStr\fP = 'QIBASE'"
+.br
+.RI "\fIdbDriverStr \fP"
+.ti -1c
+.RI "static const QString \fBdbFileNameStr\fP = 'PreCheckDB\&.fdb'"
+.br
+.RI "\fIdbFileNameStr \fP"
+.ti -1c
+.RI "static const QString \fBdbFilePathStr\fP = QString('%1/%2')\&.arg(\fBdbFolderPathStr\fP)\&.arg(\fBdbFileNameStr\fP)"
+.br
+.RI "\fIdbFilePathStr \fP"
+.ti -1c
+.RI "static const QString \fBdbFolderPathStr\fP = QDir::cleanPath(QDir::currentPath()+'/\&.\&./\&.\&./\&.\&./src/Database/')"
+.br
+.RI "\fIdbFolderPathStr \fP"
+.ti -1c
+.RI "static const QString \fBdbPasswordStr\fP = 'masterkey'"
+.br
+.RI "\fIdbPasswordStr \fP"
+.ti -1c
+.RI "static const QString \fBdbUsernameStr\fP = 'SYSDBA'"
+.br
+.RI "\fIdbUsernameStr \fP"
+.in -1c
+.SH "Documentation des fonctions"
+.PP 
+.SS "bool SimpleHotel::qShortcutContextMatcher (\fBQObject\fP *o, Qt::ShortcutContextcontext)"
+
+.PP
+Définition à la ligne 52 du fichier SH_ExtendedQQmlAction\&.cpp\&.
+.PP
+.nf
+53 {
+54     switch (context) {
+55     case Qt::ApplicationShortcut:
+56         return true;
+57     case Qt::WindowShortcut: {
+58         QObject *w = o;
+59         while (w && !w->isWindowType()) {
+60             w = w->parent();
+61             if (QQuickItem * item = qobject_cast<QQuickItem*>(w))
+62                 w = item->window();
+63         }
+64         if (w && w == QGuiApplication::focusWindow())
+65             return true;
+66     }
+67     case Qt::WidgetShortcut:
+68     case Qt::WidgetWithChildrenShortcut:
+69         break;
+70     }
+71 
+72     return false;
+73 }
+.fi
+.SH "Documentation des variables"
+.PP 
+.SS "const QString SimpleHotel::dbAliasNameStr = 'precheck-hotel'\fC [static]\fP"
+
+.PP
+dbAliasNameStr 
+.PP
+Définition à la ligne 24 du fichier SH_DatabaseManager\&.h\&.
+.SS "QString SimpleHotel::dbCannotOpenStr = QObject::tr('The database %1 cannot be opened\&.')\&.arg(\fBdbFilePathStr\fP)\fC [static]\fP"
+
+.PP
+dbCannotOpenStr 
+.PP
+Définition à la ligne 54 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::dbConnect()\&.
+.SS "QString SimpleHotel::dbDriverNotExistStr = QObject::tr('%1 database driver is not available\&.')\&.arg(\fBdbDriverStr\fP)\fC [static]\fP"
+
+.PP
+dbDriverNotExistStr 
+.PP
+Définition à la ligne 50 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString SimpleHotel::dbDriverStr = 'QIBASE'\fC [static]\fP"
+
+.PP
+dbDriverStr 
+.PP
+Définition à la ligne 16 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString SimpleHotel::dbFileNameStr = 'PreCheckDB\&.fdb'\fC [static]\fP"
+
+.PP
+dbFileNameStr 
+.PP
+Définition à la ligne 20 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString SimpleHotel::dbFilePathStr = QString('%1/%2')\&.arg(\fBdbFolderPathStr\fP)\&.arg(\fBdbFileNameStr\fP)\fC [static]\fP"
+
+.PP
+dbFilePathStr 
+.PP
+Définition à la ligne 41 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString SimpleHotel::dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+'/\&.\&./\&.\&./\&.\&./src/Database/')\fC [static]\fP"
+
+.PP
+dbFolderPathStr 
+.PP
+Définition à la ligne 37 du fichier SH_DatabaseManager\&.h\&.
+.SS "const QString SimpleHotel::dbPasswordStr = 'masterkey'\fC [static]\fP"
+
+.PP
+dbPasswordStr 
+.PP
+Définition à la ligne 32 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::SH_DatabaseManager()\&.
+.SS "const QString SimpleHotel::dbUsernameStr = 'SYSDBA'\fC [static]\fP"
+
+.PP
+dbUsernameStr 
+.PP
+Définition à la ligne 28 du fichier SH_DatabaseManager\&.h\&.
+.PP
+Référencé par SimpleHotel::SH_DatabaseManager::SH_DatabaseManager()\&.
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

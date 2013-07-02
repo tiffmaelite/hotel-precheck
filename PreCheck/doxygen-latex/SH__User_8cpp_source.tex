@@ -7,120 +7,144 @@
 00002 \textcolor{preprocessor}{#include <QtCore>}
 00003 \textcolor{preprocessor}{#include <QCryptographicHash>}
 00004 \textcolor{preprocessor}{#include <QDebug>}
-00005 \textcolor{preprocessor}{#include "\hyperlink{SH__User_8h}{SH\_User.h}"}
-00006 \textcolor{preprocessor}{#include "\hyperlink{SH__Trainee_8h}{SH\_Trainee.h}"}
-00007 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseManager_8h}{SH\_DatabaseManager.h}"}
-00008 
-\hypertarget{SH__User_8cpp_source_l00015}{}\hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{00015} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User::SH\_User}(QString name, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} isReceptionist, \textcolor{keywordtype}{bool} isManagerX, \textcolor{keywordtype}{bool} 
+00005 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00006 \textcolor{preprocessor}{#include "\hyperlink{SH__User_8h}{SH\_User.h}"}
+00007 \textcolor{preprocessor}{#include "\hyperlink{SH__Trainee_8h}{SH\_Trainee.h}"}
+00008 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseManager_8h}{SH\_DatabaseManager.h}"}
+00009 
+00010 \textcolor{comment}{/*namespace SimplHotel}
+00011 \textcolor{comment}{\{*/}
+\hypertarget{SH__User_8cpp_source_l00018}{}\hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{00018} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User::SH\_User}(QString name, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} isReceptionist, \textcolor{keywordtype}{bool} isManagerX, \textcolor{keywordtype}{bool} 
       isManagerZ, \textcolor{keywordtype}{bool} isAdministrator, \hyperlink{classQObject}{QObject} *parent)
-00016     : \hyperlink{classQObject}{QObject}(parent)
-00017 \{
-00018     this->\hyperlink{classSH__User_af5037c555cb6fc44f2968ca2db35635f}{setName}(name);
-00019     this->\hyperlink{classSH__User_ad3195a7010669a0d007cf95606562eb3}{setID}(\textcolor{keywordtype}{id});
-00020     this->\hyperlink{classSH__User_a86a5f8feb41c4238c5f022e9fbbe2e44}{m\_receptionist} = \hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist};
-00021     this->\hyperlink{classSH__User_ab9c9475b85e1449da1476eb7b4157a4d}{m\_managerX} = \hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX};
-00022     this->\hyperlink{classSH__User_aff16f3d1a135c4b6673b69c42cffe86d}{m\_managerZ} = \hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ};
-00023     this->\hyperlink{classSH__User_af1e8d755b1bdfd9ab41a9cfc14b4c95e}{m\_administrator} = \hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator};
-00024 \}
-00025 
-\hypertarget{SH__User_8cpp_source_l00032}{}\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{00032} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{SH\_User::isValid}()\textcolor{keyword}{ const }\{
-00033     \textcolor{keywordflow}{return} ((!this->\hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name}.isEmpty()) && (this->\hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{m\_id} != 0));
-00034 \}
-00035 
-\hypertarget{SH__User_8cpp_source_l00042}{}\hyperlink{classSH__User_af5037c555cb6fc44f2968ca2db35635f}{00042} \textcolor{keywordtype}{void} \hyperlink{classSH__User_af5037c555cb6fc44f2968ca2db35635f}{SH\_User::setName}(QString name)
-00043 \{
-00044     \hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name} = \hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{name};
-00045 \}
-00046 
-00047 
-00053 QString \hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{SH\_User::name}()\textcolor{keyword}{ const}
-00054 \textcolor{keyword}{}\{
-00055     \textcolor{keywordflow}{return} \hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name};
-00056 \}
-00057 
-\hypertarget{SH__User_8cpp_source_l00064}{}\hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{00064} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{SH\_User::isReceptionist}()\textcolor{keyword}{ const}
-00065 \textcolor{keyword}{}\{
-00066     \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_a86a5f8feb41c4238c5f022e9fbbe2e44}{m\_receptionist};
-00067 \}
-00068 
-00075 \textcolor{keywordtype}{int} \hyperlink{classSH__User_a4b58db36176601136130aa91e87548ee}{SH\_User::roles}()\textcolor{keyword}{ const}
-00076 \textcolor{keyword}{}\{
-00077     \textcolor{keywordtype}{int} nb = 0;
-00078     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist}()) \{
-00079         nb++;
-00080     \}
-00081     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX}()) \{
+00019     : \hyperlink{classQObject}{QObject}(parent), m\_id(0)
+00020 \{
+00021     this->\hyperlink{classSH__User_af5037c555cb6fc44f2968ca2db35635f}{setName}(name);
+00022     this->\hyperlink{classSH__User_ad3195a7010669a0d007cf95606562eb3}{setID}(\textcolor{keywordtype}{id});
+00023     this->\hyperlink{classSH__User_a86a5f8feb41c4238c5f022e9fbbe2e44}{m\_receptionist} = \hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist};
+00024     this->\hyperlink{classSH__User_ab9c9475b85e1449da1476eb7b4157a4d}{m\_managerX} = \hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX};
+00025     this->\hyperlink{classSH__User_aff16f3d1a135c4b6673b69c42cffe86d}{m\_managerZ} = \hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ};
+00026     this->\hyperlink{classSH__User_af1e8d755b1bdfd9ab41a9cfc14b4c95e}{m\_administrator} = \hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator};
+00027 \}
+00028 
+\hypertarget{SH__User_8cpp_source_l00035}{}\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{00035} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{SH\_User::isValid}()\textcolor{keyword}{ const }\{
+00036     \textcolor{keywordflow}{return} ((!this->\hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name}.isEmpty()) && (this->\hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{m\_id} != 0));
+00037 \}
+00038 
+\hypertarget{SH__User_8cpp_source_l00045}{}\hyperlink{classSH__User_af5037c555cb6fc44f2968ca2db35635f}{00045} \textcolor{keywordtype}{void} \hyperlink{classSH__User_af5037c555cb6fc44f2968ca2db35635f}{SH\_User::setName}(QString name)
+00046 \{
+00047     \hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name} = \hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{name};
+00048 \}
+00049 
+00050 
+00056 QString \hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{SH\_User::name}()\textcolor{keyword}{ const}
+00057 \textcolor{keyword}{}\{
+00058     \textcolor{keywordflow}{return} \hyperlink{classSH__User_abaf53f509224bdd7f8224259bffea2d6}{m\_name};
+00059 \}
+00060 
+\hypertarget{SH__User_8cpp_source_l00067}{}\hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{00067} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{SH\_User::isReceptionist}()\textcolor{keyword}{ const}
+00068 \textcolor{keyword}{}\{
+00069     \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_a86a5f8feb41c4238c5f022e9fbbe2e44}{m\_receptionist};
+00070 \}
+00071 
+00078 \textcolor{keywordtype}{int} \hyperlink{classSH__User_a4b58db36176601136130aa91e87548ee}{SH\_User::roles}()\textcolor{keyword}{ const}
+00079 \textcolor{keyword}{}\{
+00080     \textcolor{keywordtype}{int} nb = 0;
+00081     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist}()) \{
 00082         nb++;
 00083     \}
-00084     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ}()) \{
+00084     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX}()) \{
 00085         nb++;
 00086     \}
-00087     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator}()) \{
+00087     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ}()) \{
 00088         nb++;
 00089     \}
-00090     \textcolor{keywordflow}{return} nb;
-00091 \}
-00092 
-\hypertarget{SH__User_8cpp_source_l00099}{}\hyperlink{classSH__User_ad3195a7010669a0d007cf95606562eb3}{00099} \textcolor{keywordtype}{void} \hyperlink{classSH__User_ad3195a7010669a0d007cf95606562eb3}{SH\_User::setID}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id})
-00100 \{
-00101     \hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{m\_id} = \hyperlink{classSH__User_addf3cb1d491eea2df592dee5c9081d32}{id};
-00102 \}
-00103 
-\hypertarget{SH__User_8cpp_source_l00110}{}\hyperlink{classSH__User_a64161b35866b1c635d5f4214095a2b1e}{00110} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a64161b35866b1c635d5f4214095a2b1e}{SH\_User::userExists}(QString login) \{
-00111     qDebug() << \textcolor{stringliteral}{"user exists"};
-00112     \textcolor{keywordflow}{return} (\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->dataCount(\textcolor{stringliteral}{"USERS"}, \textcolor{stringliteral}{"LOGIN='"}+
+00090     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator}()) \{
+00091         nb++;
+00092     \}
+00093     \textcolor{keywordflow}{return} nb;
+00094 \}
+00095 
+\hypertarget{SH__User_8cpp_source_l00102}{}\hyperlink{classSH__User_ad3195a7010669a0d007cf95606562eb3}{00102} \textcolor{keywordtype}{void} \hyperlink{classSH__User_ad3195a7010669a0d007cf95606562eb3}{SH\_User::setID}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id})
+00103 \{
+00104     \hyperlink{classSH__User_a701e1d1238c488e46e8d1dcc7dbe8dc0}{m\_id} = \hyperlink{classSH__User_addf3cb1d491eea2df592dee5c9081d32}{id};
+00105 \}
+00106 
+\hypertarget{SH__User_8cpp_source_l00113}{}\hyperlink{classSH__User_a64161b35866b1c635d5f4214095a2b1e}{00113} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a64161b35866b1c635d5f4214095a2b1e}{SH\_User::userExists}(QString login) \{
+00114     \textcolor{comment}{//SH\_MessageManager::debugMessage("user exists");}
+00115     \textcolor{keywordflow}{return} (\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->dataCount(\textcolor{stringliteral}{"USERS"}, \textcolor{stringliteral}{"LOGIN='"}+
       login+\textcolor{stringliteral}{"'"}) == 1);
-00113 \}
-00114 
-\hypertarget{SH__User_8cpp_source_l00121}{}\hyperlink{classSH__User_adfc35c967cb405f4a14886676612fbb7}{00121} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_adfc35c967cb405f4a14886676612fbb7}{SH\_User::traineeExists}(QString login) \{
-00122     qDebug() << \textcolor{stringliteral}{"trainee exists"};
-00123     \textcolor{keywordflow}{return} (\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->dataCount(\textcolor{stringliteral}{"TRAINEES"}, \textcolor{stringliteral}{"
+00116 \}
+00117 
+\hypertarget{SH__User_8cpp_source_l00124}{}\hyperlink{classSH__User_adfc35c967cb405f4a14886676612fbb7}{00124} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_adfc35c967cb405f4a14886676612fbb7}{SH\_User::traineeExists}(QString login) \{
+00125     \textcolor{comment}{//SH\_MessageManager::debugMessage("trainee exists");}
+00126     \textcolor{keywordflow}{return} (\hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->dataCount(\textcolor{stringliteral}{"TRAINEES"}, \textcolor{stringliteral}{"
       LOGIN='"}+login+\textcolor{stringliteral}{"'"}) == 1);
-00124 \}
-00125 
-\hypertarget{SH__User_8cpp_source_l00132}{}\hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{00132} \hyperlink{classSH__User}{SH\_User} *\hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{SH\_User::logIn}(QString login, QString pass)
-00133 \{
-00134     qDebug() << \textcolor{stringliteral}{"log in"};
-00135     \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid} = \textcolor{keyword}{false};
-00136     QCryptographicHash encPass(QCryptographicHash::Sha512);
-00137     encPass.addData(pass.toUtf8());
-00138     \textcolor{keywordtype}{bool} trainee=\textcolor{keyword}{false};
-00139     QStringList fields;
-00140     QString table;
-00141     \textcolor{keywordflow}{if}(\hyperlink{classSH__User_a64161b35866b1c635d5f4214095a2b1e}{userExists}(login)) \{
-00142         fields << \textcolor{stringliteral}{"ID"} << \textcolor{stringliteral}{"LOGIN"} << \textcolor{stringliteral}{"ISRECEPTIONIST"} << \textcolor{stringliteral}{"ISMANAGERX"} << \textcolor{stringliteral}{"ISMANAGERZ"} << \textcolor{stringliteral}{"ISADMINISTRATOR"};
-00143         table =\textcolor{stringliteral}{"USERS"};
-00144     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classSH__User_adfc35c967cb405f4a14886676612fbb7}{traineeExists}(login)) \{
-00145         fields << \textcolor{stringliteral}{"ID"} << \textcolor{stringliteral}{"LOGIN"};
-00146         table =\textcolor{stringliteral}{"TRAINEES"};
-00147         trainee=\textcolor{keyword}{true};
-00148     \}
-00149     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+00127 \}
+00128 
+00129 
+\hypertarget{SH__User_8cpp_source_l00130}{}\hyperlink{classSH__User_a372d9b8ce8edf778df1c12d3e416091f}{00130} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a372d9b8ce8edf778df1c12d3e416091f}{SH\_User::save}(QString password) \{
+00131     QVariantMap map;
+00132     \textcolor{keywordflow}{if}(\textcolor{keywordtype}{id}() > 0) \{
+00133         map.insert(\textcolor{stringliteral}{"ID"},QVariant(this->\textcolor{keywordtype}{id}()));
+00134     \}
+00135     map.insert(\textcolor{stringliteral}{"LOGIN"},QVariant(this->\hyperlink{classSH__User_ae91e70207f4057846667af6e1c300d96}{name}()));
+00136     map.insert(\textcolor{stringliteral}{"ISRECEPTIONIST"},QVariant(this->\hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist}()));
+00137     map.insert(\textcolor{stringliteral}{"ISMANAGERX"},QVariant(this->\hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX}()));
+00138     map.insert(\textcolor{stringliteral}{"ISMANAGERZ"},QVariant(this->\hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ}()));
+00139     map.insert(\textcolor{stringliteral}{"ISADMINISTRATOR"},QVariant(this->\hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator}()));
+00140     QCryptographicHash encPass(QCryptographicHash::Sha512);
+00141     encPass.addData(password.toUtf8());
+00142     map.insert(\textcolor{stringliteral}{"ENCRYPTEDPASS"},QVariant(QString::fromLatin1(encPass.result().toHex()).toUpper()));
+00143 
+00144     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+      \hyperlink{classSH__DatabaseManager_a25e0f24d7833c2728f55b85be529063d}{execReplaceQuery}(\textcolor{stringliteral}{"USERS"},map);
+00145 \}
+00146 
+\hypertarget{SH__User_8cpp_source_l00147}{}\hyperlink{classSH__User_ada3160c3abf1b200646cb6f4fe5ccd72}{00147} \textcolor{keywordtype}{bool} \hyperlink{classSH__User_ada3160c3abf1b200646cb6f4fe5ccd72}{SH\_User::setNewPassword}(QString newPass) \{
+00148     \textcolor{keywordflow}{return} this->\hyperlink{classSH__User_a372d9b8ce8edf778df1c12d3e416091f}{save}(newPass);
+00149 \}
+00150 
+\hypertarget{SH__User_8cpp_source_l00157}{}\hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{00157} \hyperlink{classSH__User}{SH\_User} *\hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{SH\_User::logIn}(QString login, QString pass)
+00158 \{
+00159     \textcolor{comment}{//SH\_MessageManager::debugMessage("log in");}
+00160     \textcolor{keywordtype}{bool} \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid} = \textcolor{keyword}{false};
+00161     QCryptographicHash encPass(QCryptographicHash::Sha512);
+00162     encPass.addData(pass.toUtf8());
+00163     \textcolor{keywordtype}{bool} trainee=\textcolor{keyword}{false};
+00164     QStringList fields;
+00165     QString table;
+00166     \textcolor{keywordflow}{if}(\hyperlink{classSH__User_a64161b35866b1c635d5f4214095a2b1e}{userExists}(login)) \{
+00167         fields << \textcolor{stringliteral}{"ID"} << \textcolor{stringliteral}{"LOGIN"} << \textcolor{stringliteral}{"ISRECEPTIONIST"} << \textcolor{stringliteral}{"ISMANAGERX"} << \textcolor{stringliteral}{"ISMANAGERZ"} << \textcolor{stringliteral}{"ISADMINISTRATOR"};
+00168         table =\textcolor{stringliteral}{"USERS"};
+00169     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classSH__User_adfc35c967cb405f4a14886676612fbb7}{traineeExists}(login)) \{
+00170         fields << \textcolor{stringliteral}{"ID"} << \textcolor{stringliteral}{"LOGIN"};
+00171         table =\textcolor{stringliteral}{"TRAINEES"};
+00172         trainee=\textcolor{keyword}{true};
+00173     \}
+00174     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
       \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(table,fields,\textcolor{stringliteral}{"LOGIN='"}+login+\textcolor{stringliteral}{"' AND ENCRYPTEDPASS='"}+QString::fromLatin1(
       encPass.result().toHex()).toUpper()+\textcolor{stringliteral}{"'"});
-00150     \textcolor{keywordflow}{if}(result.next()) \{
-00151         QSqlRecord rec = result.record();
-00152         \textcolor{keywordflow}{if}(rec.isEmpty() || !result.isValid()) \{
-00153             isValid = \textcolor{keyword}{false};
-00154         \} \textcolor{keywordflow}{else} \{
-00155             isValid = (rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString() == login);
-00156         \}
-00157 
-00158         \textcolor{keywordflow}{if}(isValid) \{
-00159             \textcolor{keywordflow}{if}(trainee) \{
-00160                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__Trainee}{SH\_Trainee}(rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString(),rec.value(rec.
+00175     \textcolor{keywordflow}{if}(result.next()) \{
+00176         QSqlRecord rec = result.record();
+00177         \textcolor{keywordflow}{if}(rec.isEmpty() || !result.isValid()) \{
+00178             isValid = \textcolor{keyword}{false};
+00179         \} \textcolor{keywordflow}{else} \{
+00180             isValid = (rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString() == login);
+00181         \}
+00182 
+00183         \textcolor{keywordflow}{if}(isValid) \{
+00184             \textcolor{keywordflow}{if}(trainee) \{
+00185                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__Trainee}{SH\_Trainee}(rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString(),rec.value(rec.
       indexOf(\textcolor{stringliteral}{"ID"})).toInt());
-00161             \} \textcolor{keywordflow}{else} \{
-00162                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}(rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString(),rec.value(rec.indexOf(\textcolor{stringliteral}{
+00186             \} \textcolor{keywordflow}{else} \{
+00187                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}(rec.value(rec.indexOf(\textcolor{stringliteral}{"LOGIN"})).toString(),rec.value(rec.indexOf(\textcolor{stringliteral}{
       "ID"})).toInt(),(rec.value(rec.indexOf(\textcolor{stringliteral}{"ISRECEPTIONIST"})).toString()==\textcolor{stringliteral}{"1"}),(rec.value(rec.indexOf(\textcolor{stringliteral}{"ISMANAGERX
       "})).toString()==\textcolor{stringliteral}{"1"}),(rec.value(rec.indexOf(\textcolor{stringliteral}{"ISMANAGERZ"})).toString()==\textcolor{stringliteral}{"1"}),(rec.value(rec.indexOf(\textcolor{stringliteral}{"
       ISADMINISTRATOR"})).toString()==\textcolor{stringliteral}{"1"}));
-00163             \}
-00164         \}
-00165     \}
-00166     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}();
-00167 \}
-00168 
-00169 
-00170 
+00188             \}
+00189         \}
+00190     \}
+00191     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classSH__User_a96c0ebb3f11c1654935aaecb92295724}{SH\_User}();
+00192 \}
+00193 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

@@ -7,207 +7,206 @@
 00002 \textcolor{preprocessor}{#include <QDebug>}
 00003 \textcolor{preprocessor}{#include "\hyperlink{SH__ExtendedSqlProxyModel_8h}{SH\_ExtendedSqlProxyModel.h}"}
 00004 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
-00005 
-00006 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00012}{}\hyperlink{classSH__ExtendedProxyModel_a63b0969a9f5799c9e871e6ceb13cf83e}{00012} \hyperlink{classSH__ExtendedProxyModel_a63b0969a9f5799c9e871e6ceb13cf83e}{SH\_ExtendedProxyModel::SH\_ExtendedProxyModel}(
+00005 \textcolor{keyword}{namespace }SimpleHotel
+00006 \{
+00007 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00013}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a67be298376a1c82cc96b7789bb6b301c}{00013} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a67be298376a1c82cc96b7789bb6b301c}{SH\_ExtendedProxyModel::SH\_ExtendedProxyModel}(
       \hyperlink{classQObject}{QObject} *parent) :
-00013     \hyperlink{classQSortFilterProxyModel}{QSortFilterProxyModel}(parent)
-00014 \{
-00015     this->setDynamicSortFilter(\textcolor{keyword}{false});
-00016     this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model} = \textcolor{keyword}{new} \hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel}(parent);
-00017     this->setSourceModel(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model});
-00018     this->\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex} = 0;
-00019     \textcolor{comment}{/*connect(this->model, tableChanged(), tableName());*/}
-00020 \}
-00021 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00027}{}\hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{00027} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{SH\_ExtendedProxyModel::replaceSet}(QList<int>& originalSet, QList<int>
+00014     \hyperlink{classQSortFilterProxyModel}{QSortFilterProxyModel}(parent)
+00015 \{
+00016     this->setDynamicSortFilter(\textcolor{keyword}{false});
+00017     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model} = \textcolor{keyword}{new} \hyperlink{classSimpleHotel_1_1SH__SqlDataModel}{SH\_SqlDataModel}(parent);
+00018     this->setSourceModel(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model});
+00019     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a49e63382c2c5e09f8e4ae0b288513d0a}{sortIndex} = 0;
+00020     \textcolor{comment}{/*connect(this->model, tableChanged(), tableName());*/}
+00021 \}
+00022 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00028}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{00028} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{SH\_ExtendedProxyModel::replaceSet}(QList<int>& originalSet, QList<int>
        newSet) \{
-00028     originalSet.clear();
-00029     \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} col, newSet) \{
-00030         \textcolor{keywordflow}{if}(!originalSet.contains(col)) \{
-00031             originalSet.append(col);
-00032         \}
-00033     \}
-00034 \}
-00035 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00041}{}\hyperlink{classSH__ExtendedProxyModel_a2acefd1604abfef312fdaa65e57c2234}{00041} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2acefd1604abfef312fdaa65e57c2234}{SH\_ExtendedProxyModel::setBooleanColumns}(QList<int> boolCols) 
+00029     originalSet.clear();
+00030     \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} col, newSet) \{
+00031         \textcolor{keywordflow}{if}(!originalSet.contains(col)) \{
+00032             originalSet.append(col);
+00033         \}
+00034     \}
+00035 \}
+00036 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00042}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65e5c7011b2b31f61bf9a7dddabef27c}{00042} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65e5c7011b2b31f61bf9a7dddabef27c}{SH\_ExtendedProxyModel::setBooleanColumns}(QList<int> boolCols) 
       \{
-00042     \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}, boolCols);
-00043 \}
-00044 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00050}{}\hyperlink{classSH__ExtendedProxyModel_a985d27d4f35a303e0cd453a05910da1d}{00050} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a985d27d4f35a303e0cd453a05910da1d}{SH\_ExtendedProxyModel::setReadOnlyColumns}(QList<int> 
+00043     \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{replaceSet}(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a58b66236a9d0600e55264626d543d960}{booleanSet}, boolCols);
+00044 \}
+00045 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00051}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a452dd45c56f8cfde44e1261b597f169b}{00051} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a452dd45c56f8cfde44e1261b597f169b}{SH\_ExtendedProxyModel::setReadOnlyColumns}(QList<int> 
       readonlyCols) \{
-00051     \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{readonlySet}, readonlyCols);
-00052 \}
-00053 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00059}{}\hyperlink{classSH__ExtendedProxyModel_a4bbea95e7483aeeef4709c12e5ef61c5}{00059} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a4bbea95e7483aeeef4709c12e5ef61c5}{SH\_ExtendedProxyModel::setPasswordColumns}(QList<int> 
+00052     \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{replaceSet}(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a5b7b000fd9eaf85564589f0023dc93b0}{readonlySet}, readonlyCols);
+00053 \}
+00054 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00060}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a4a3cc4b9dfceb14bfd71770a7189f686}{00060} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a4a3cc4b9dfceb14bfd71770a7189f686}{SH\_ExtendedProxyModel::setPasswordColumns}(QList<int> 
       passwordCols) \{
-00060     \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{passwordSet}, passwordCols);
-00061 \}
-00062 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00068}{}\hyperlink{classSH__ExtendedProxyModel_a2a5734c26bb72fb11e50b9036914d987}{00068} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2a5734c26bb72fb11e50b9036914d987}{SH\_ExtendedProxyModel::setNullColumns}(QList<int> nullCols) \{
-00069     \textcolor{keywordflow}{if} (sourceModel()->inherits(\textcolor{stringliteral}{"QSqlQueryModel"})) \{
-00070         \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet}, nullCols);
-00071     \}
-00072 \}
-00073 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00080}{}\hyperlink{classSH__ExtendedProxyModel_a9211b1bc09442298367565d7e0f62de4}{00080} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a9211b1bc09442298367565d7e0f62de4}{SH\_ExtendedProxyModel::setNotNullColumns}(QList<int> 
+00061     \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{replaceSet}(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_af630ba54d80971ce64dbbf875f94a073}{passwordSet}, passwordCols);
+00062 \}
+00063 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00069}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_adf6a9faa540bda5bb7bbe9040fafc667}{00069} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_adf6a9faa540bda5bb7bbe9040fafc667}{SH\_ExtendedProxyModel::setNullColumns}(QList<int> nullCols) \{
+00070     \textcolor{keywordflow}{if} (sourceModel()->inherits(\textcolor{stringliteral}{"QSqlQueryModel"})) \{
+00071         \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{replaceSet}(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a3335d384f2c33af3db4db58af0a359e6}{nullSet}, nullCols);
+00072     \}
+00073 \}
+00074 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00081}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a0136908081b4423eb0ddd5781654f65d}{00081} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a0136908081b4423eb0ddd5781654f65d}{SH\_ExtendedProxyModel::setNotNullColumns}(QList<int> 
       notNullCols) \{
-00081     \textcolor{keywordflow}{if} (sourceModel()->inherits(\textcolor{stringliteral}{"QSqlQueryModel"})) \{
-00082         \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(this->\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet}, notNullCols);
-00083     \}
-00084 \}
-00085 
+00082     \textcolor{keywordflow}{if} (sourceModel()->inherits(\textcolor{stringliteral}{"QSqlQueryModel"})) \{
+00083         \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a57ca42214193a4361e00a275c9c64531}{replaceSet}(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a7c7d8e43d6988da141f1c4ef032839a4}{notNullSet}, notNullCols);
+00084     \}
+00085 \}
 00086 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00092}{}\hyperlink{classSH__ExtendedProxyModel_a1eda169699702a7bfed4dfa8718c0b86}{00092} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a1eda169699702a7bfed4dfa8718c0b86}{SH\_ExtendedProxyModel::filterAcceptsRow}(\textcolor{keywordtype}{int} source\_row, \textcolor{keyword}{const} 
+00087 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00093}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a11b30f0f630fe9ddaa778eb9534918e1}{00093} \textcolor{keywordtype}{bool} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a11b30f0f630fe9ddaa778eb9534918e1}{SH\_ExtendedProxyModel::filterAcceptsRow}(\textcolor{keywordtype}{int} source\_row, \textcolor{keyword}{const} 
       QModelIndex &source\_parent)\textcolor{keyword}{ const}
-00093 \textcolor{keyword}{}\{
-00094     Q\_UNUSED(source\_parent);
-00095 
-00096     \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet}.isEmpty())
-00097     \{
-00098         QSqlQueryModel *m = \textcolor{keyword}{static\_cast<}QSqlQueryModel *\textcolor{keyword}{>}(sourceModel());
-00099         \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} column, this->\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet})
-00100         \{
-00101             \textcolor{keywordflow}{if} (m->record(source\_row).isNull(column))
-00102             \{
-00103                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00104             \}
-00105         \}
-00106     \}
-00107 
-00108     \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet}.isEmpty())
-00109     \{
-00110         QSqlQueryModel *m = \textcolor{keyword}{static\_cast<}QSqlQueryModel *\textcolor{keyword}{>}(sourceModel());
-00111         \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} column, this->\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet})
-00112         \{
-00113             \textcolor{keywordflow}{if} (!m->record(source\_row).isNull(column))
-00114             \{
-00115                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00116             \}
-00117         \}
-00118     \}
-00119     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-00120 \}
-00121 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00127}{}\hyperlink{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926c52902a1c}{00127} QVariant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{SH\_ExtendedProxyModel::data}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keywordtype}{int} role)\textcolor{keyword}{ const}
-00128 \textcolor{keyword}{}\{
-00129     \textcolor{keywordflow}{if} (index.isValid())
-00130     \{
-00131         \textcolor{keywordflow}{if} (this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}.contains(role))
-00132         \{
-00133             \textcolor{keywordflow}{return} index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
-00134         \}
-00135         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this->\hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{passwordSet}.contains(role))
-00136         \{
-00137             \textcolor{keywordflow}{return} QVariant(\textcolor{stringliteral}{"***"});
-00138         \}
-00139         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.contains(role))
-00140         \{
-00141             QModelIndex source\_index = QSortFilterProxyModel::mapToSource(index);
-00142             \textcolor{keywordflow}{if} (source\_index.isValid()) \{
-00143                 \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{data}(source\_index, role);
-00144             \}
-00145         \}
-00146     \}
-00147     \textcolor{keywordflow}{return} QVariant();
-00148 \}
-00149 
+00094 \textcolor{keyword}{}\{
+00095     Q\_UNUSED(source\_parent);
+00096 
+00097     \textcolor{keywordflow}{if} (!this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a7c7d8e43d6988da141f1c4ef032839a4}{notNullSet}.isEmpty())
+00098     \{
+00099         QSqlQueryModel *m = \textcolor{keyword}{static\_cast<}QSqlQueryModel *\textcolor{keyword}{>}(sourceModel());
+00100         \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} column, this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a7c7d8e43d6988da141f1c4ef032839a4}{notNullSet})
+00101         \{
+00102             \textcolor{keywordflow}{if} (m->record(source\_row).isNull(column))
+00103             \{
+00104                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00105             \}
+00106         \}
+00107     \}
+00108 
+00109     \textcolor{keywordflow}{if} (!this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a3335d384f2c33af3db4db58af0a359e6}{nullSet}.isEmpty())
+00110     \{
+00111         QSqlQueryModel *m = \textcolor{keyword}{static\_cast<}QSqlQueryModel *\textcolor{keyword}{>}(sourceModel());
+00112         \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{int} column, this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a3335d384f2c33af3db4db58af0a359e6}{nullSet})
+00113         \{
+00114             \textcolor{keywordflow}{if} (!m->record(source\_row).isNull(column))
+00115             \{
+00116                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00117             \}
+00118         \}
+00119     \}
+00120     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00121 \}
+00122 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00128}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a25bc1047c6e9835d9d3c580e0a4ec42a}{00128} QVariant \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a24edf7c777ce9e00a07b30614ee71019}{SH\_ExtendedProxyModel::data}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keywordtype}{int} role)\textcolor{keyword}{ const}
+00129 \textcolor{keyword}{}\{
+00130     \textcolor{keywordflow}{if} (index.isValid())
+00131     \{
+00132         \textcolor{keywordflow}{if} (this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a58b66236a9d0600e55264626d543d960}{booleanSet}.contains(role))
+00133         \{
+00134             \textcolor{keywordflow}{return} index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
+00135         \}
+00136         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_af630ba54d80971ce64dbbf875f94a073}{passwordSet}.contains(role))
+00137         \{
+00138             \textcolor{keywordflow}{return} QVariant(\textcolor{stringliteral}{"***"});
+00139         \}
+00140         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65b0d93138f5e83616bd277c038063ce}{filters}.contains(role))
+00141         \{
+00142             QModelIndex source\_index = QSortFilterProxyModel::mapToSource(index);
+00143             \textcolor{keywordflow}{if} (source\_index.isValid()) \{
+00144                 \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model}->\hyperlink{classSimpleHotel_1_1SH__SqlDataModel_a6874d8547f590990f5aab80976ec7c6e}{data}(source\_index, role);
+00145             \}
+00146         \}
+00147     \}
+00148     \textcolor{keywordflow}{return} QVariant();
+00149 \}
 00150 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00156}{}\hyperlink{classSH__ExtendedProxyModel_aaaddcc27fdce4ef70f242460b8e053da}{00156} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_aaaddcc27fdce4ef70f242460b8e053da}{SH\_ExtendedProxyModel::setData}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keyword}{const} QVariant 
+00151 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00157}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a94775c043450518596dab93676149b90}{00157} \textcolor{keywordtype}{bool} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a94775c043450518596dab93676149b90}{SH\_ExtendedProxyModel::setData}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keyword}{const} QVariant 
       &value, \textcolor{keywordtype}{int} role)
-00157 \{
-00158     \textcolor{keywordflow}{if} (!index.isValid())
-00159         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00160 
-00161     \textcolor{keywordflow}{if} (this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}.contains(role))
-00162     \{
-00163         QVariant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data} = (value.toInt() == Qt::Checked) ? QVariant(1) : QVariant(0);
-00164         \textcolor{keywordflow}{return} QSortFilterProxyModel::setData(index, data, role);
-00165     \}
-00166     \textcolor{keywordflow}{else}
-00167     \{
-00168         \textcolor{keywordflow}{return} QSortFilterProxyModel::setData(index, value, role);
-00169     \}
-00170 
-00171 \}
-00172 
+00158 \{
+00159     \textcolor{keywordflow}{if} (!index.isValid())
+00160         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00161 
+00162     \textcolor{keywordflow}{if} (this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a58b66236a9d0600e55264626d543d960}{booleanSet}.contains(role))
+00163     \{
+00164         QVariant \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a24edf7c777ce9e00a07b30614ee71019}{data} = (value.toInt() == Qt::Checked) ? QVariant(1) : QVariant(0);
+00165         \textcolor{keywordflow}{return} QSortFilterProxyModel::setData(index, data, role);
+00166     \}
+00167     \textcolor{keywordflow}{else}
+00168     \{
+00169         \textcolor{keywordflow}{return} QSortFilterProxyModel::setData(index, value, role);
+00170     \}
+00171 
+00172 \}
 00173 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00179}{}\hyperlink{classSH__ExtendedProxyModel_aa12f3d989293da24fb47fd96a080cdc0}{00179} Qt::ItemFlags \hyperlink{classSH__ExtendedProxyModel_aa12f3d989293da24fb47fd96a080cdc0}{SH\_ExtendedProxyModel::flags}(\textcolor{keyword}{const} QModelIndex &index)\textcolor{keyword}{ const}
-00180 \textcolor{keyword}{}\{
-00181     \textcolor{keywordflow}{if} (!index.isValid())
-00182     \{
-00183         \textcolor{keywordflow}{return} Qt::ItemIsEnabled;
-00184     \}
-00185     \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet}.isEmpty())
-00186     \{
-00187         \textcolor{keywordflow}{return} Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
-00188     \}
-00189     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!this->\hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{readonlySet}.isEmpty())
-00190     \{
-00191         \textcolor{keywordflow}{return} Qt::ItemIsSelectable;
-00192     \}
-00193     \textcolor{keywordflow}{else}
-00194     \{
-00195         \textcolor{keywordflow}{return} QSortFilterProxyModel::flags(index);
-00196     \}
-00197 
-00198 \}
-00199 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00205}{}\hyperlink{classSH__ExtendedProxyModel_a7cfb1803f839023c7ba6fc67b900d76a}{00205} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a7cfb1803f839023c7ba6fc67b900d76a}{SH\_ExtendedProxyModel::invalidateFilter}()
-00206 \{
-00207     this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.clear();
-00208 \}
-00209 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00215}{}\hyperlink{classSH__ExtendedProxyModel_a631c2a56b4a301b9c8a855facec3ac1c}{00215} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a631c2a56b4a301b9c8a855facec3ac1c}{SH\_ExtendedProxyModel::removeFilterKeyColumn}(\textcolor{keywordtype}{int} column)
-00216 \{
-00217     this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.removeAt(this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.indexOf(column));
-00218 \}
-00219 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00225}{}\hyperlink{classSH__ExtendedProxyModel_a81c40d3ce9710029cae19cc65bf5419d}{00225} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a81c40d3ce9710029cae19cc65bf5419d}{SH\_ExtendedProxyModel::containsFilterKeyColumn}(\textcolor{keywordtype}{int} 
+00174 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00180}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a13db609799a6c190772602574d0a8d7a}{00180} Qt::ItemFlags \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a13db609799a6c190772602574d0a8d7a}{SH\_ExtendedProxyModel::flags}(\textcolor{keyword}{const} QModelIndex &index)\textcolor{keyword}{ const}
+00181 \textcolor{keyword}{}\{
+00182     \textcolor{keywordflow}{if} (!index.isValid())
+00183     \{
+00184         \textcolor{keywordflow}{return} Qt::ItemIsEnabled;
+00185     \}
+00186     \textcolor{keywordflow}{if} (!this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a58b66236a9d0600e55264626d543d960}{booleanSet}.isEmpty())
+00187     \{
+00188         \textcolor{keywordflow}{return} Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+00189     \}
+00190     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a5b7b000fd9eaf85564589f0023dc93b0}{readonlySet}.isEmpty())
+00191     \{
+00192         \textcolor{keywordflow}{return} Qt::ItemIsSelectable;
+00193     \}
+00194     \textcolor{keywordflow}{else}
+00195     \{
+00196         \textcolor{keywordflow}{return} QSortFilterProxyModel::flags(index);
+00197     \}
+00198 
+00199 \}
+00200 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00206}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ac9bdf77bc05ce34a80652c4fa36f4bc1}{00206} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ac9bdf77bc05ce34a80652c4fa36f4bc1}{SH\_ExtendedProxyModel::invalidateFilter}()
+00207 \{
+00208     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65b0d93138f5e83616bd277c038063ce}{filters}.clear();
+00209 \}
+00210 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00216}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_af549f904ee842d516f3cdbe60358a910}{00216} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_af549f904ee842d516f3cdbe60358a910}{SH\_ExtendedProxyModel::removeFilterKeyColumn}(\textcolor{keywordtype}{int} column)
+00217 \{
+00218     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65b0d93138f5e83616bd277c038063ce}{filters}.removeAt(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65b0d93138f5e83616bd277c038063ce}{filters}.indexOf(column));
+00219 \}
+00220 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00226}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a4db5231a36976dd249ec1439422e331c}{00226} \textcolor{keywordtype}{bool} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a4db5231a36976dd249ec1439422e331c}{SH\_ExtendedProxyModel::containsFilterKeyColumn}(\textcolor{keywordtype}{int} 
       column)
-00226 \{
-00227     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.contains(column);
-00228 \}
-00229 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00235}{}\hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{00235} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{SH\_ExtendedProxyModel::sort}(\textcolor{keywordtype}{int} column, Qt::SortOrder newOrder)
-00236 \{
-00237     this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field}(column)->\hyperlink{classSH__SqlDataFields_a32a7c040a081d39594245e1a4a68f70d}{setSortOrder}(newOrder);
-00238     \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{SH\_ExtendedProxyModel::setSortKeyColumn}(column);
-00239 \}
-00240 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00246}{}\hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{00246} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{SH\_ExtendedProxyModel::setSortKeyColumn}(\textcolor{keywordtype}{int} column)
-00247 \{
-00248     this->\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex} = column;
-00249     QSortFilterProxyModel::setSortRole(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{roleForField}(column));
-00250     QSortFilterProxyModel::sort(0, this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field}(column)->
-      \hyperlink{classSH__SqlDataFields_a67b20d296535d6b9dda6c85f75427ad1}{sortOrder}());
-00251     emit \hyperlink{classSH__ExtendedProxyModel_ad34f69425d6c86a2671cf9f85562a724}{sortChanged}();
-00252 \}
-00253 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00259}{}\hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{00259} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{SH\_ExtendedProxyModel::addFilterKeyColumn}(\textcolor{keywordtype}{int} column)
-00260 \{
-00261     this->\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters}.append(column);
-00262 \}
-00263 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00269}{}\hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{00269} QVariant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{SH\_ExtendedProxyModel::data}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} column)\textcolor{keyword}{ const}
-00270 \textcolor{keyword}{}\{
-00271     QModelIndex modelIndex = this->index(row, 0);
-00272     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data}(modelIndex, this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{roleForField}(column));
-00273 \}
-00274 
-\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00280}{}\hyperlink{classSH__ExtendedProxyModel_a1df5323af8d29e81f22a7118227eeeb8}{00280} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a1df5323af8d29e81f22a7118227eeeb8}{SH\_ExtendedProxyModel::fetch}(QString tableName, QString filter, QString 
+00227 \{
+00228     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65b0d93138f5e83616bd277c038063ce}{filters}.contains(column);
+00229 \}
+00230 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00236}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a5d7686a9fae295e0662057b8450c8a8d}{00236} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a5d7686a9fae295e0662057b8450c8a8d}{SH\_ExtendedProxyModel::sort}(\textcolor{keywordtype}{int} column, Qt::SortOrder newOrder)
+00237 \{
+00238     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model}->\hyperlink{classSimpleHotel_1_1SH__SqlDataModel_a19ff52676ebed5ac65be5e0fe9d51171}{field}(column)->\hyperlink{classSimpleHotel_1_1SH__SqlDataFields_ac07613264da2a130e58ffafeaa7744dc}{setSortOrder}(newOrder);
+00239     \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a901f2d931216126e6769482d91f02fa0}{SH\_ExtendedProxyModel::setSortKeyColumn}(column);
+00240 \}
+00241 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00247}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a901f2d931216126e6769482d91f02fa0}{00247} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a901f2d931216126e6769482d91f02fa0}{SH\_ExtendedProxyModel::setSortKeyColumn}(\textcolor{keywordtype}{int} column)
+00248 \{
+00249     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a49e63382c2c5e09f8e4ae0b288513d0a}{sortIndex} = column;
+00250     QSortFilterProxyModel::setSortRole(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model}->\hyperlink{classSimpleHotel_1_1SH__SqlDataModel_adc99fa53df4371dc658b3abe8d8b4752}{roleForField}(column));
+00251     QSortFilterProxyModel::sort(0, this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model}->\hyperlink{classSimpleHotel_1_1SH__SqlDataModel_a19ff52676ebed5ac65be5e0fe9d51171}{field}(column)->
+      \hyperlink{classSimpleHotel_1_1SH__SqlDataFields_ae80c421b82b4a6f242989788f2b6d299}{sortOrder}());
+00252     emit \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_adb9ae03a88cda8d9efbed47527b5186a}{sortChanged}();
+00253 \}
+00254 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00260}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_af8036ffa208ebaf55129cce307c3e296}{00260} \textcolor{keywordtype}{void} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_af8036ffa208ebaf55129cce307c3e296}{SH\_ExtendedProxyModel::addFilterKeyColumn}(\textcolor{keywordtype}{int} column)
+00261 \{
+00262     this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a65b0d93138f5e83616bd277c038063ce}{filters}.append(column);
+00263 \}
+00264 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00270}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a24edf7c777ce9e00a07b30614ee71019}{00270} QVariant \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a24edf7c777ce9e00a07b30614ee71019}{SH\_ExtendedProxyModel::data}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} column)\textcolor{keyword}{ const}
+00271 \textcolor{keyword}{}\{
+00272     QModelIndex modelIndex = this->index(row, 0);
+00273     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a24edf7c777ce9e00a07b30614ee71019}{data}(modelIndex, this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model}->\hyperlink{classSimpleHotel_1_1SH__SqlDataModel_adc99fa53df4371dc658b3abe8d8b4752}{roleForField}(column));
+00274 \}
+00275 
+\hypertarget{SH__ExtendedProxyModel_8cpp_source_l00281}{}\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a422dc77c44ec3ded9291812efb128053}{00281} \textcolor{keywordtype}{bool} \hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a422dc77c44ec3ded9291812efb128053}{SH\_ExtendedProxyModel::fetch}(QString tableName, QString filter, QString 
       sort, QStringList fields)
-00281 \{
-00282     \textcolor{keywordtype}{bool} fetched = this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch}(tableName, filter, sort, fields);
-00283     \textcolor{keywordflow}{if} (fetched)
-00284     \{
-00285         this->\hyperlink{classSH__ExtendedProxyModel_ad6b7ea810aa00f42624253d77caafcbb}{fillModel}();
-00286     \}
-00287     this->setSourceModel(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model});
-00288     \textcolor{keywordflow}{return} fetched;
-00289 \}
-00290 
-00291 
-00292 
+00282 \{
+00283     \textcolor{keywordtype}{bool} fetched = this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model}->\hyperlink{classSimpleHotel_1_1SH__SqlDataModel_ab8b74a08f668025c11c5446d4e4b469b}{fetch}(tableName, filter, sort, fields);
+00284     \textcolor{keywordflow}{if} (fetched)
+00285     \{
+00286         this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_a3538dabe2b3cf71a0a85159ea95469dd}{fillModel}();
+00287     \}
+00288     this->setSourceModel(this->\hyperlink{classSimpleHotel_1_1SH__ExtendedProxyModel_ad31718ed4f13ecafcb53dbf1e392b3b0}{model});
+00289     \textcolor{keywordflow}{return} fetched;
+00290 \}
+00291 \}
 \end{DoxyCode}

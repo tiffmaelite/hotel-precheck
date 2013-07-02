@@ -1,0 +1,137 @@
+\hypertarget{libs_2qt-signal-tools_2README_8md_source}{\section{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/libs/qt-\/signal-\/tools/\-R\-E\-A\-D\-M\-E.md}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{# Qt Signal Tools}
+00002 \textcolor{preprocessor}{}
+00003 qt-signal-tools is a collection of utility classes related to signal and slots in Qt.  It includes:
+00004  * QtCallback - Package up a receiver and slot arguments into an \textcolor{keywordtype}{object} \textcolor{keywordflow}{for} invoking later.
+00005  * QtSignalForwarder - Connect signals and events from objects to QtCallback or arbitrary functions.
+00006  * QtMetacallAdapter - Low-level \textcolor{keyword}{interface }for calling a function using a list of QGenericArgument() 
+      arguments.
+00007  * safe\_bind() - Create a wrapper around a method call which does nothing and returns a \textcolor{keywordflow}{default} value \textcolor{keywordflow}{if}
+00008   the \textcolor{keywordtype}{object} is destroyed before the wrapper is called.
+00009 
+00010 ## Requirements
+00011 
+00012  * Qt 4.8 (could be adapted \textcolor{keywordflow}{for} earlier Qt versions \textcolor{keywordflow}{if} necessary)
+00013  * The TR1 standard library (\textcolor{keywordflow}{for} C++03 compilers) or the C++11 standard library
+00014   (\textcolor{keywordflow}{for} newer compilers when C++11 support is enabled).
+00015 
+00016 ## Classes
+00017 
+00018 \textcolor{preprocessor}{### QtCallback}
+00019 \textcolor{preprocessor}{}
+00020 QtCallback is a binder \textcolor{keyword}{class }which provides a way to create callbacks that invoke a signal or slot
+00021 when invoked, using a mixture of pre-bound arguments and arguments passed to QtCallback::invoke().
+00022 
+00023 Usage:
+00024 ```cpp
+00025 QtCallback1<int> callback(myWidget, SLOT(someSlot(int,QString)));
+00026 callback.bind(42);
+00027 
+00028 \textcolor{comment}{// invokes the MyWidget::someSlot() slot with arguments (42, "Hello World")}
+00029 callback.invoke("Hello World");
+00030 
+00031 void MyWidget::someSlot(int firstArg, const QString& secondArg)
+00032 \{
+00033 \}
+00034 ```
+00035 
+00036 \textcolor{preprocessor}{### QtSignalForwarder}
+00037 \textcolor{preprocessor}{}
+00038 QtSignalForwarder provides a way to invoke callbacks when an \textcolor{keywordtype}{object} emits a signal or receives
+00039 a particular type of \textcolor{keyword}{event}.  The callbacks can be signals and slots
+00040 (via `QtCallback`) or arbitrary functions \textcolor{keyword}{using} `tr1::function`, `std::function`, `boost::function` or
+00041 a similar wrapper.
+00042 
+00043 Qt 5 provides support \textcolor{keywordflow}{for} connecting signals to arbitrary functions out of the box and to lambdas
+00044 when \textcolor{keyword}{using} C++11.  QtSignalForwarder emulates \textcolor{keyword}{this} \textcolor{keywordflow}{for} Qt 4.
+00045 
+00046 As well as being able to connect signals to functions that are not slots, \textcolor{keyword}{this} also provides
+00047 a way to pass additional arguments to the receiver other than those from the signal \textcolor{keyword}{using} `QtCallback::bind
+      ()`
+00048 or `std::tr1::bind()`.
+00049 
+00050 Usage:
+00051 
+00052 Connecting a signal to a slot with pre-bound arguments:
+00053 ```cpp
+00054 MyObject receiver;
+00055 QPushButton button;
+00056 QtSignalForwarder::connect(&button, SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+00057   QtCallback(&receiver, SLOT(buttonClicked(\textcolor{keywordtype}{int}))).bind(42));
+00058 
+00059 \textcolor{comment}{// invokes MyObject::buttonClicked() slot with arguments (42)}
+00060 button.click();
+00061 ```
+00062 
+00063 Connecting a signal to an arbitrary \textcolor{keyword}{function}:
+00064 ```cpp
+00065 \textcolor{keyword}{using namespace }std::tr1;
+00066 \textcolor{keyword}{using namespace }std::tr1::placeholders;
+00067 
+00068 SomeObject receiver;
+00069 QLineEdit editor;
+00070 
+00071 \textcolor{comment}{// function which calls someMethod() with the first-argument fixed (42) and the}
+00072 \textcolor{comment}{// second string argument from the signal}
+00073 function<void(int,QString)> callback(bind(&SomeObject::someMethod, &receiver, 42, \_1));
+00074 
+00075 QtSignalForwarder::connect(&editor, SIGNAL(textChanged(QString)), callback);
+00076   
+00077 \textcolor{comment}{// invokes SomeObject::someMethod(42, "Hello World")}
+00078 editor.setText(\textcolor{stringliteral}{"Hello World"});
+00079 ```
+00080 
+00081 \textcolor{preprocessor}{### safe\_bind()}
+00082 \textcolor{preprocessor}{}
+00083 Compared to \textcolor{keyword}{using} Qt 4\textcolor{stringliteral}{'s normal signals and slots, a disadvantage of using `bind()` or `function` to}
+00084 \textcolor{stringliteral}{create a callback object which can be run later is that there is no automatically disconnection}
+00085 \textcolor{stringliteral}{if the object is destroyed.}
+00086 \textcolor{stringliteral}{}
+00087 \textcolor{stringliteral}{As a solution, the `safe\_bind()` function creates a wrapper around an object and a method call.  The}
+00088 \textcolor{stringliteral}{wrapper can then be called with the same arguments as the wrapped method.  When a call happens,}
+00089 \textcolor{stringliteral}{either the wrapped method is called with the provided arguments, or if the object has been destroyed,}
+00090 \textcolor{stringliteral}{nothing happens and a default value is returned.}
+00091 \textcolor{stringliteral}{}
+00092 \textcolor{stringliteral}{The wrapper created by `safe\_bind()` can be used with `bind()` and `function` and can be used together}
+00093 \textcolor{stringliteral}{with `QtSignalForwarder` to automatically '}disconnect\textcolor{stringliteral}{' if the receiver is destroyed.}
+00094 \textcolor{stringliteral}{}
+00095 \textcolor{stringliteral}{```cpp}
+00096 \textcolor{stringliteral}{QScopedPointer<QLabel> label(new QLabel);}
+00097 \textcolor{stringliteral}{}
+00098 \textcolor{stringliteral}{// create a wrapper around label->setText() which can be run using}
+00099 \textcolor{stringliteral}{// setTextWrapper(text).}
+00100 \textcolor{stringliteral}{function<void(QString)> setTextWrapper = safe\_bind(label.data(), &QLabel::setText);}
+00101 \textcolor{stringliteral}{}
+00102 \textcolor{stringliteral}{// create a wrapper around label->text() which either calls label->text() and returns}
+00103 \textcolor{stringliteral}{// the same result or returns an empty string if the label has been destroyed}
+00104 \textcolor{stringliteral}{function<QString()> getTextWrapper = safe\_bind(label.data(), &QLabel::text);}
+00105 \textcolor{stringliteral}{}
+00106 \textcolor{stringliteral}{setTextWrapper("first update"); // sets the label'}s text to \textcolor{stringliteral}{"first update"}
+00107 qDebug() << \textcolor{stringliteral}{"label text"} << getTextWrapper(); \textcolor{comment}{// prints "first update"}
+00108 label.reset(); \textcolor{comment}{// destroy the label}
+00109 setTextWrapper(\textcolor{stringliteral}{"second update"}); \textcolor{comment}{// does nothing, as the label has been destroyed}
+00110 qDebug() << \textcolor{stringliteral}{"label text"} << getTextWrapper(); \textcolor{comment}{// prints an empty string}
+00111 ```
+00112 
+00113 \textcolor{preprocessor}{### QtMetacallAdapter}
+00114 \textcolor{preprocessor}{}
+00115 QtMetacallAdapter is a low-level wrapper around a \textcolor{keyword}{function} or \textcolor{keyword}{function} object (eg. `std::function`)
+00116 which can be used to invoke the function with a list of QGenericArgument (created by the Q\_ARG() macro)
+00117 and introspect the function's argument types at runtime.
+00118 
+00119 \textcolor{preprocessor}{## License}
+00120 \textcolor{preprocessor}{}
+00121 qt-signal-tools is licensed under the BSD license.
+00122 
+00123 ## Related Projects & Reading
+00124 
+00125  * Qt Signal Adapters - Library \textcolor{keywordflow}{for} connecting signals to Boost \textcolor{keyword}{function} objects: http:\textcolor{comment}{//
+      sourceforge.net/projects/qtsignaladapter/}
+00126  * sigfwd - Library \textcolor{keywordflow}{for} connecting signals to \textcolor{keyword}{function} objects.  Uses Boost. https:\textcolor{comment}{//
+      bitbucket.org/edd/sigfwd/wiki/Home}
+00127  * Qt 5 meta-\textcolor{keywordtype}{object} system changes - http:\textcolor{comment}{//
+      blog.qt.digia.com/blog/2012/06/22/changes-to-the-meta-object-system-in-qt-5/}
+\end{DoxyCode}

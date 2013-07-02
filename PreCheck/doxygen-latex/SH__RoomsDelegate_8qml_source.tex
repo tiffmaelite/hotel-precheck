@@ -24,16 +24,12 @@
 00022                 border.left: 1
 00023                 border.right: 1
 00024                 anchors.bottomMargin: -1
-00025                 \textcolor{comment}{/*property color color:(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' ||
-       AVAILABILITY === 1) ? "green" : "orange")*/}
-00026                 \textcolor{keyword}{property} \textcolor{keywordtype}{string} color:(AVAILABILITY == \textcolor{stringliteral}{''}) ? \textcolor{stringliteral}{'blue'} : ((AVAILABILITY === \textcolor{charliteral}{'1'} || 
-      AVAILABILITY === 1) ? \textcolor{stringliteral}{"green"} : \textcolor{stringliteral}{"orange"})
-00027                 \textcolor{comment}{/*source: btn.pressed ? "../img/button"+color.toString().toUpperCase()+"down.png" : "../img
-      /button"+color.toString().toUpperCase()+"up.png"*/}
-00028                 source: btn.pressed ? \textcolor{stringliteral}{"../img/button"}+color.toUpperCase()+\textcolor{stringliteral}{"down.png"} : \textcolor{stringliteral}{"../img/button"}+
+00025                 \textcolor{keyword}{property} \textcolor{keywordtype}{string} color: \textcolor{stringliteral}{"green"}\textcolor{comment}{//(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' ||
+       AVAILABILITY === 1) ? "green" : "orange")}
+00026                 source: btn.pressed ? \textcolor{stringliteral}{"../img/button"}+color.toUpperCase()+\textcolor{stringliteral}{"down.png"} : \textcolor{stringliteral}{"../img/button"}+
       color.toUpperCase()+\textcolor{stringliteral}{"up.png"}
-00029             \}
-00030         \}
-00031     \}
-00032 \}
+00027             \}
+00028         \}
+00029     \}
+00030 \}
 \end{DoxyCode}

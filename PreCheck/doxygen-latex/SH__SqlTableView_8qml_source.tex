@@ -14,72 +14,124 @@
 00012     \textcolor{keywordtype}{id}: table
 00013     model: 0
 00014     signal selected(\textcolor{keywordtype}{string} selectedItem)
-00015     Component.onCompleted:\{
-00016         \textcolor{keywordflow}{if}(table.model !== 0) \{
-00017             table.model.fetch();
-00018             var count = table.model.fieldsCount();
-00019             \textcolor{keywordflow}{for}(var index = 0; index < count; index++) \{
-00020                 \textcolor{keywordflow}{if}(!table.model.containsFilterKeyColumn(index)) \{
-00021                     var col = Qt.createQmlObject(\textcolor{stringliteral}{'import QtQuick 2.1; import QtQuick.Controls 1.0;
+00015     signal selectedRow(\textcolor{keywordtype}{int} selectedData)
+00016     Component.onCompleted:\{
+00017         \textcolor{keywordflow}{if}(table.model !== 0) \{
+00018             table.model.fetch();
+00019             var count = table.model.fieldsCount();
+00020             \textcolor{keywordflow}{for}(var index = 0; index < count; index++) \{
+00021                 \textcolor{keywordflow}{if}(!table.model.containsFilterKeyColumn(index)) \{
+00022                     var col = Qt.createQmlObject(\textcolor{stringliteral}{'import QtQuick 2.1; import QtQuick.Controls 1.0;
        TableViewColumn \{title: table.model.field('}+index+\textcolor{stringliteral}{').text; role: table.model.field('}+index+\textcolor{stringliteral}{').role\}'},table,\textcolor{stringliteral}{'column'}+
       index);
-00022                     \textcolor{comment}{/*tmp.push(col);*/}
-00023                     table.addColumn(col);
-00024                 \}
-00025             \}
-00026         \}
-00027     \}
-00028 
+00023                     \textcolor{comment}{/*tmp.push(col);*/}
+00024                     table.addColumn(col);
+00025                 \}
+00026             \}
+00027         \}
+00028     \}
 00029 
-00030     itemDelegate:
-00031         \hyperlink{classItem}{Item} \{
-00032 
-00033         Text \{
-00034             width: parent.width
-00035             anchors.margins: 4
-00036             anchors.left: parent.left
-00037             anchors.verticalCenter: parent.verticalCenter
-00038             elide: styleData.elideMode
-00039             text: styleData.value !== undefined ? styleData.value : \textcolor{stringliteral}{""}
-00040             color: styleData.textColor
-00041             visible: !styleData.selected
-00042         \}
-00043         Loader \{ \textcolor{comment}{/* Initialize text input lazily to improve performance*/}
-00044             \textcolor{keywordtype}{id}: loaderEditor
-00045             anchors.fill: parent
-00046             anchors.margins: 4
-00047             Connections \{
-00048                 target: loaderEditor.item
-00049                 onAccepted: \{
-00050                     \textcolor{comment}{/*if (typeof styleData.value === 'number')*/}
-00051                     table.selected(styleData.row);
-00052                     model.setData(styleData.row, styleData.role, styleData.value);
-00053                 \}
-00054             \}
-00055             sourceComponent: styleData.selected ? editor : null
-00056             Component \{
-00057                 \textcolor{keywordtype}{id}: editor
-00058                 TextInput \{
-00059                     \textcolor{keywordtype}{id}: textinput
-00060                     color: styleData.textColor
-00061                     text: styleData.value
-00062                     MouseArea \{
-00063                         \textcolor{keywordtype}{id}: mouseArea
-00064                         anchors.fill: parent
-00065                         hoverEnabled: \textcolor{keyword}{true}
-00066                         onClicked: \{
-00067                             textinput.forceActiveFocus()
-00068                         \}
-00069                     \}
-00070                     onFocusChanged: \{
-00071                         \textcolor{keywordflow}{if}(styleData.value !== textinput.text) \{
-00072                             textinput.accepted();
-00073                         \}
-00074                     \}
-00075 
-00076                 \}
-00077             \}
-00078         \}
-00079     \}
-00080 \}
+00030     headerDelegate:
+00031         \hyperlink{classRectangle}{Rectangle} \{
+00032         color: \textcolor{stringliteral}{"white"}
+00033         \textcolor{comment}{//border.color: "black"}
+00034         border.width: 0
+00035         gradient: Gradient \{
+00036             GradientStop \{
+00037                 position: 0.00;
+00038                 color: \textcolor{stringliteral}{"white"};
+00039             \}
+00040             GradientStop \{
+00041                 position: 0.8;
+00042                 color: \textcolor{stringliteral}{"lemonchiffon"};
+00043             \}
+00044             GradientStop \{
+00045                 position: 1;
+00046                 color: \textcolor{stringliteral}{"wheat"};
+00047             \}
+00048         \}
+00049         width: headerText.width
+00050         height: 1.5*headerText.height
+00051         Label \{
+00052             \textcolor{keywordtype}{id}:headerText
+00053             text: styleData.value !== undefined ? styleData.value : \textcolor{stringliteral}{""}
+00054             font.bold: \textcolor{keyword}{true}
+00055             font.pointSize: 10
+00056             horizontalAlignment: Text.AlignHCenter
+00057             verticalAlignment: Text.AlignVCenter
+00058             maximumLineCount: 2
+00059             anchors.centerIn: parent
+00060             styleColor: \textcolor{stringliteral}{"tan"}
+00061             renderType: Text.NativeRendering
+00062             wrapMode: Text.Wrap
+00063         \}
+00064     \}
+00065 
+00066     itemDelegate:
+00067         \hyperlink{classItem}{Item} \{
+00068         \textcolor{keywordtype}{id}: cellDelegate
+00069         height: Math.max(16, label.implicitHeight)
+00070         \textcolor{keyword}{property} \textcolor{keywordtype}{int} implicitWidth: sizehint.paintedWidth + 16
+00071         Text \{
+00072             \textcolor{keywordtype}{id}: label
+00073             height: contentHeight
+00074             visible: !styleData.selected
+00075             width: parent.width
+00076             anchors.leftMargin: 8
+00077             maximumLineCount: 3
+00078             anchors.left: parent.left
+00079             anchors.right: parent.right
+00080             horizontalAlignment: styleData.textAlignment
+00081             anchors.verticalCenter: parent.verticalCenter
+00082             elide: styleData.elideMode
+00083             wrapMode: Text.Wrap
+00084             text: styleData.value !== undefined ? styleData.value : \textcolor{stringliteral}{""}
+00085             color: styleData.textColor
+00086             renderType: Text.NativeRendering
+00087         \}
+00088         Text \{
+00089             \textcolor{keywordtype}{id}: sizehint
+00090             font: label.font
+00091             text: styleData.value ? styleData.value : \textcolor{stringliteral}{""}
+00092             visible: \textcolor{keyword}{false}
+00093         \}
+00094         Loader \{ \textcolor{comment}{/* Initialize text input lazily to improve performance*/}
+00095             \textcolor{keywordtype}{id}: loaderEditor
+00096             anchors.fill: parent
+00097             anchors.margins: 4
+00098             Connections \{
+00099                 target: loaderEditor.item
+00100                 onAccepted: \{
+00101                     \textcolor{comment}{/*if (typeof styleData.value === 'NUMBER')*/}
+00102                     table.selected(styleData.value);
+00103                     table.selectedRow(styleData.row)
+00104                     model.setData(styleData.row, styleData.role, styleData.value);
+00105                 \}
+00106             \}
+00107             sourceComponent: styleData.selected ? editor : null
+00108             Component \{
+00109                 \textcolor{keywordtype}{id}: editor
+00110                 TextInput \{
+00111                     \textcolor{keywordtype}{id}: textinput
+00112                     wrapMode: Text.Wrap
+00113                     text: styleData.value !== undefined ? styleData.value : \textcolor{stringliteral}{""}
+00114                     color: styleData.textColor
+00115                     MouseArea \{
+00116                         \textcolor{keywordtype}{id}: mouseArea
+00117                         anchors.fill: parent
+00118                         hoverEnabled: \textcolor{keyword}{true}
+00119                         onClicked: \{
+00120                             textinput.forceActiveFocus()
+00121                         \}
+00122                     \}
+00123                     onFocusChanged: \{
+00124                         \textcolor{keywordflow}{if}(styleData.value !== textinput.text) \{
+00125                             textinput.accepted();
+00126                         \}
+00127                     \}
+00128                 \}
+00129             \}
+00130         \}
+00131     \}
+00132 \}
 \end{DoxyCode}

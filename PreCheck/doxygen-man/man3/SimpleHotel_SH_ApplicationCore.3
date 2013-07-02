@@ -1,0 +1,704 @@
+.TH "SimpleHotel::SH_ApplicationCore" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_ApplicationCore \- 
+.PP
+La classe \fBSH_ApplicationCore\fP est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_ApplicationCore\&.h>\fP
+.PP
+Est dérivée de \fBQObject\fP\&.
+.SS "Types publics"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAppMode\fP { \fBCONNEXION\fP, \fBACCUEIL\fP, \fBRECEPTION\fP, \fBMANAGEMENT_X\fP, \fBMANAGEMENT_Z\fP, \fBADMINISTRATION\fP }"
+.br
+.RI "\fI\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::CONNEXION\fP \fP"
+.in -1c
+.SS "Connecteurs publics"
+
+.in +1c
+.ti -1c
+.RI "bool \fBbalanceLogRoutine\fP ()"
+.br
+.ti -1c
+.RI "void \fBcancelReplacement\fP ()"
+.br
+.ti -1c
+.RI "bool \fBcancelRunningThread\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlaunchBillingsThread\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlaunchBillThread\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlaunchBookingsThread\fP ()"
+.br
+.ti -1c
+.RI "void \fBreceiveConfirmation\fP ()"
+.br
+.ti -1c
+.RI "void \fBreceiveInput\fP (QString in)"
+.br
+.ti -1c
+.RI "void \fBreceiveValidation\fP ()"
+.br
+.ti -1c
+.RI "void \fBreplaceInput\fP (QString inputName)"
+.br
+.ti -1c
+.RI "bool \fBsetUser\fP (QString login, QString pass)"
+.br
+.RI "\fIModifie l'utilisateur actuel\&. \fP"
+.ti -1c
+.RI "bool \fBuserExists\fP (QString login)"
+.br
+.RI "\fIVérifie s'il existe un utilisateur avec le pseudo fourni\&. \fP"
+.ti -1c
+.RI "bool \fBuserLogOut\fP ()"
+.br
+.RI "\fI'Déconnecte' l'utilisateur actuel, et le remplace par un utilisateur invalide \fP"
+.in -1c
+.SS "Signaux"
+
+.in +1c
+.ti -1c
+.RI "void \fBclearAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBcurrentFSMchanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBdisplayCalendar\fP ()"
+.br
+.ti -1c
+.RI "void \fBmodeChanged\fP (QVariant \fBmode\fP)"
+.br
+.ti -1c
+.RI "void \fBopenTab\fP (QVariant tabPos)"
+.br
+.ti -1c
+.RI "void \fBresendText\fP (QString text)"
+.br
+.ti -1c
+.RI "void \fBsendText\fP (QString text)"
+.br
+.ti -1c
+.RI "void \fBuserChanged\fP (QVariant name)"
+.br
+.in -1c
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_ApplicationCore\fP (\fBQObject\fP *parent=0)"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.RI "\fIInitialise l'application avec un utilisateur invalide, et le mode \fICONNEXION\fP\&. \fP"
+.ti -1c
+.RI "\fBAppMode\fP \fBmode\fP () const "
+.br
+.RI "\fIRetourne le mode actuel de l'application\&. \fP"
+.ti -1c
+.RI "void \fBsetMode\fP (\fBAppMode\fP \fBmode\fP)"
+.br
+.RI "\fIModifie le mode dans lequel se trouve l'application\&. \fP"
+.ti -1c
+.RI "\fBSH_User\fP * \fBuser\fP () const "
+.br
+.RI "\fIretourne l'utilisateur actuellement connecté \fP"
+.in -1c
+.SS "Fonctions membres protégées"
+
+.in +1c
+.ti -1c
+.RI "bool \fBconnectRunningThread\fP ()"
+.br
+.in -1c
+.SS "Propriétés"
+
+.in +1c
+.ti -1c
+.RI "\fBSimpleHotel::SH_ApplicationCore::AppMode\fP \fBcurrentMode\fP"
+.br
+.RI "\fILe mode actuel de l'application\&. \fP"
+.ti -1c
+.RI "\fBSimpleHotel::SH_User\fP \fBcurrentUser\fP"
+.br
+.RI "\fIL'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté) \fP"
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "\fBSimpleHotel::SH_InOutStateMachine\fP * \fBm_currentFSM\fP"
+.br
+.ti -1c
+.RI "\fBSimpleHotel::SH_User\fP * \fBm_currentUser\fP"
+.br
+.ti -1c
+.RI "\fBSimpleHotel::SH_ApplicationCore::AppMode\fP \fBm_mode\fP"
+.br
+.in -1c
+.SH "Description détaillée"
+.PP 
+La classe \fBSH_ApplicationCore\fP est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique\&. 
+.PP
+Définition à la ligne 14 du fichier SH_ApplicationCore\&.h\&.
+.SH "Documentation des énumérations membres"
+.PP 
+.SS "enum \fBSimpleHotel::SH_ApplicationCore::AppMode\fP"
+
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::CONNEXION\fP Énumération des modes possibles de l'application\&.
+.PP
+Mode de l'application qui ne contient que le formulaire de connexion
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::ACCUEIL\fP Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::RECEPTION\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::MANAGEMENT_X\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::MANAGEMENT_Z\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable Z (lecture et modifications) du service
+.PP
+\fBSH_ApplicationCore::AppMode\fP \fBSH_ApplicationCore::ADMINISTRATION\fP Mode de l'application qui regroupe les interfaces liées aux activités d'un technicien en charge de paramétrer l'application ou de modifier ses données (comptes utilisateurs, chambres\&.\&.\&.) 
+.PP
+\fBValeurs énumérées\fP
+.in +1c
+.TP
+\fB\fICONNEXION \fP\fP
+.TP
+\fB\fIACCUEIL \fP\fP
+.TP
+\fB\fIRECEPTION \fP\fP
+.TP
+\fB\fIMANAGEMENT_X \fP\fP
+.TP
+\fB\fIMANAGEMENT_Z \fP\fP
+.TP
+\fB\fIADMINISTRATION \fP\fP
+.PP
+Définition à la ligne 60 du fichier SH_ApplicationCore\&.h\&.
+.PP
+.nf
+60 { CONNEXION, ACCUEIL, RECEPTION, MANAGEMENT_X, MANAGEMENT_Z, ADMINISTRATION };
+.fi
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_ApplicationCore::SH_ApplicationCore (\fBQObject\fP *parent = \fC0\fP)"
+
+.PP
+Définition à la ligne 16 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références init()\&.
+.PP
+.nf
+16                                                       :
+17     QObject(parent)
+18 {
+19     init();
+20 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_ApplicationCore::balanceLogRoutine ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 114 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+.nf
+114                                            {
+115     /*SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(H)");
+116     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(D)");
+117     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(W)");
+118     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(M)");
+119     SH_DatabaseManager::getInstance()->getDbConnection()\&.exec("execute procedure logPeriodicBalance(Y)");*/
+120     return true;
+121 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::cancelReplacement ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 172 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutStateMachine::cancelReplacement(), et m_currentFSM\&.
+.PP
+.nf
+173 {
+174     if(this->m_currentFSM) {
+175         emit this->m_currentFSM->cancelReplacement();
+176     }
+177 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::cancelRunningThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 223 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_GenericStateMachine::isRunning(), et m_currentFSM\&.
+.PP
+.nf
+224 {
+225     this->m_currentFSM->stop();
+226     bool ok = !this->m_currentFSM->isRunning();
+227     this->m_currentFSM = NULL;
+228     return ok;
+229 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::clearAll ()\fC [signal]\fP"
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "SimpleHotel::SH_ApplicationCore::connectRunningThread ()\fC [protected]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 237 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutStateMachine::clearAll(), clearAll(), SimpleHotel::SH_InOutStateMachine::displayCalendar(), displayCalendar(), SimpleHotel::SH_GenericStateMachine::isRunning(), m_currentFSM, SimpleHotel::SH_InOutStateMachine::resendText(), resendText(), SimpleHotel::SH_InOutStateMachine::sendText(), et sendText()\&.
+.PP
+Référencé par launchBillingsThread(), launchBillThread(), et launchBookingsThread()\&.
+.PP
+.nf
+238 {
+239     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, this, &SH_ApplicationCore::sendText, Qt::DirectConnection);
+240     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
+241     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
+242     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);
+243     return this->m_currentFSM->isRunning();
+244 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::currentFSMchanged ()\fC [signal]\fP"
+
+.SS "SimpleHotel::SH_ApplicationCore::displayCalendar ()\fC [signal]\fP"
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "SimpleHotel::SH_ApplicationCore::init ()"
+
+.PP
+Initialise l'application avec un utilisateur invalide, et le mode \fICONNEXION\fP\&. 
+.PP
+Définition à la ligne 37 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentUser\&.
+.PP
+Référencé par SH_ApplicationCore()\&.
+.PP
+.nf
+37                               {
+38     this->m_currentUser = new SH_User();
+39 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::launchBillingsThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 185 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références connectRunningThread(), et m_currentFSM\&.
+.PP
+.nf
+186 {
+187     this->m_currentFSM= new SH_BillingCreationStateMachine("création facturation");
+188     this->m_currentFSM->start();
+189     return this->connectRunningThread();
+190 
+191 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::launchBillThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 210 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références connectRunningThread(), SimpleHotel::SH_User::id, m_currentFSM, m_currentUser, et SimpleHotel::SH_InOutStateMachine::setContentValue()\&.
+.PP
+.nf
+211 {
+212     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
+213     this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->id()), "BILL_ID");
+214     this->m_currentFSM->start();
+215     return this->connectRunningThread();
+216 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::launchBookingsThread ()\fC [slot]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 198 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références connectRunningThread()\&.
+.PP
+.nf
+199 {
+200     /*this->m_currentFSM= new BookingCreationStateMachine("création facturation");*/
+201     /*this->m_currentFSM->start();*/
+202     return this->connectRunningThread();
+203 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::mode () const"
+
+.PP
+Retourne le mode actuel de l'application\&. 
+.PP
+\fBRenvoie:\fP
+.RS 4
+AppMode 
+.RE
+.PP
+
+.PP
+Définition à la ligne 27 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_mode\&.
+.PP
+Référencé par setMode()\&.
+.PP
+.nf
+28 {
+29     return m_mode;
+30 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::modeChanged (QVariantmode)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImode\fP 
+.RE
+.PP
+
+.SS "SimpleHotel::SH_ApplicationCore::openTab (QVarianttabPos)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItabPos\fP 
+.RE
+.PP
+
+.SS "SimpleHotel::SH_ApplicationCore::receiveConfirmation ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 150 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_InOutStateMachine::confirmInput(), et m_currentFSM\&.
+.PP
+.nf
+151 {
+152 
+153     emit this->m_currentFSM->confirmInput();
+154 
+155 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::receiveInput (QStringin)\fC [slot]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIin\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 128 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_MessageManager::infoMessage(), m_currentFSM, et SimpleHotel::SH_InOutStateMachine::receiveInput()\&.
+.PP
+.nf
+129 {
+130     SH_MessageManager::infoMessage("input received "+in);
+131     emit this->m_currentFSM->receiveInput(in);
+132 
+133 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::receiveValidation ()\fC [slot]\fP"
+
+.PP
+Définition à la ligne 139 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentFSM, et SimpleHotel::SH_InOutStateMachine::validateInput()\&.
+.PP
+.nf
+140 {
+141 
+142     emit this->m_currentFSM->validateInput();
+143 
+144 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::replaceInput (QStringinputName)\fC [slot]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIinputName\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 161 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentFSM, et SimpleHotel::SH_InOutStateMachine::replaceInput()\&.
+.PP
+.nf
+162 {
+163 
+164     emit this->m_currentFSM->replaceInput(inputName);
+165 
+166 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::resendText (QStringtext)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItext\fP 
+.RE
+.PP
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "SimpleHotel::SH_ApplicationCore::sendText (QStringtext)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fItext\fP 
+.RE
+.PP
+
+.PP
+Référencé par connectRunningThread()\&.
+.SS "SimpleHotel::SH_ApplicationCore::setMode (\fBSH_ApplicationCore::AppMode\fPmode)"
+
+.PP
+Modifie le mode dans lequel se trouve l'application\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImode\fP Le nouveau mode de l'application 
+.RE
+.PP
+
+.PP
+Définition à la ligne 46 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références ACCUEIL, ADMINISTRATION, CONNEXION, SimpleHotel::SH_User::exists(), SimpleHotel::SH_User::isAdministrator(), SimpleHotel::SH_User::isManagerX(), SimpleHotel::SH_User::isManagerZ(), SimpleHotel::SH_User::isReceptionist(), m_currentUser, m_mode, MANAGEMENT_X, MANAGEMENT_Z, mode(), SimpleHotel::SH_User::name, et RECEPTION\&.
+.PP
+.nf
+47 {
+48     if(!this->m_currentUser || ! SH_User::exists(QVariant(this->m_currentUser->name()))\&.toBool()) {
+49         this->m_mode = CONNEXION;
+50     } else {
+51         if(((mode == ADMINISTRATION) && (!this->m_currentUser->isAdministrator())) ||
+52                 ((mode == MANAGEMENT_X) && (!this->m_currentUser->isManagerX())) ||
+53                 ((mode == MANAGEMENT_Z) && (!this->m_currentUser->isManagerZ())) ||
+54                 ((mode == RECEPTION) && (!this->m_currentUser->isReceptionist()))) {
+55             this->m_mode = ACCUEIL;
+56         } else {
+57             this->m_mode = mode;
+58         }
+59     }
+60 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::setUser (QStringlogin, QStringpass)\fC [slot]\fP"
+
+.PP
+Modifie l'utilisateur actuel\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP Le nom d'utilisateur du nouvel utilisateur 
+.br
+\fIpass\fP Le mot de passe du nouvel utilisateur 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool Retourne \fItrue\fP si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; \fIfalse\fP sinon 
+.RE
+.PP
+
+.PP
+Définition à la ligne 88 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_User::isValid(), SimpleHotel::SH_User::logIn(), m_currentUser, SimpleHotel::SH_User::name, et userChanged()\&.
+.PP
+.nf
+89 {
+90     this->m_currentUser = SH_User::logIn(login,pass);
+91     if(this->m_currentUser->isValid()) {
+92         emit userChanged(QVariant(this->m_currentUser->name()));
+93         return true;
+94     }
+95     return false;
+96 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::user () const"
+
+.PP
+retourne l'utilisateur actuellement connecté 
+.PP
+\fBRenvoie:\fP
+.RS 4
+User 
+.RE
+.PP
+
+.PP
+Définition à la ligne 67 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références m_currentUser\&.
+.PP
+.nf
+68 {
+69     return this->m_currentUser;
+70 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::userChanged (QVariantname)\fC [signal]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.PP
+Référencé par setUser()\&.
+.SS "SimpleHotel::SH_ApplicationCore::userExists (QStringlogin)\fC [slot]\fP"
+
+.PP
+Vérifie s'il existe un utilisateur avec le pseudo fourni\&. 
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIlogin\fP Le nom d'utilisateur pour lequel il faut effectuer une vérification 
+.RE
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.PP
+Définition à la ligne 104 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_User::exists()\&.
+.PP
+.nf
+105 {
+106     return SH_User::exists(login)\&.toBool();
+107 }
+.fi
+.SS "SimpleHotel::SH_ApplicationCore::userLogOut ()\fC [slot]\fP"
+
+.PP
+'Déconnecte' l'utilisateur actuel, et le remplace par un utilisateur invalide 
+.PP
+\fBRenvoie:\fP
+.RS 4
+bool Retourne \fItrue\fP si le changement a réussi, \fIfalse\fP sinon 
+.RE
+.PP
+
+.PP
+Définition à la ligne 77 du fichier SH_ApplicationCore\&.cpp\&.
+.PP
+Références SimpleHotel::SH_User::isValid(), et m_currentUser\&.
+.PP
+.nf
+78 {
+79     this->m_currentUser = new SH_User();
+80     return !this->m_currentUser->isValid();
+81 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "SimpleHotel::SH_ApplicationCore::m_currentFSM\fC [private]\fP"
+
+.PP
+Définition à la ligne 268 du fichier SH_ApplicationCore\&.h\&.
+.PP
+Référencé par cancelReplacement(), cancelRunningThread(), connectRunningThread(), launchBillingsThread(), launchBillThread(), receiveConfirmation(), receiveInput(), receiveValidation(), et replaceInput()\&.
+.SS "SimpleHotel::SH_ApplicationCore::m_currentUser\fC [private]\fP"
+
+.PP
+Définition à la ligne 258 du fichier SH_ApplicationCore\&.h\&.
+.PP
+Référencé par init(), launchBillThread(), setMode(), setUser(), user(), et userLogOut()\&.
+.SS "SimpleHotel::SH_ApplicationCore::m_mode\fC [private]\fP"
+
+.PP
+Définition à la ligne 263 du fichier SH_ApplicationCore\&.h\&.
+.PP
+Référencé par mode(), et setMode()\&.
+.SH "Documentation des propriétés"
+.PP 
+.SS "SimpleHotel::SH_ApplicationCore::currentMode\fC [read]\fP, \fC [write]\fP"
+
+.PP
+Le mode actuel de l'application\&. 
+.PP
+Définition à la ligne 26 du fichier SH_ApplicationCore\&.h\&.
+.SS "SimpleHotel::SH_ApplicationCore::currentUser\fC [read]\fP"
+
+.PP
+L'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté) 
+.PP
+Définition à la ligne 21 du fichier SH_ApplicationCore\&.h\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

@@ -1,0 +1,94 @@
+.TH "md__home_tiff_Stage-IUT_app_simplhotel_hotel-precheck_libs_qt-signal-tools_README" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__home_tiff_Stage-IUT_app_simplhotel_hotel-precheck_libs_qt-signal-tools_README \- Qt Signal Tools 
+qt-signal-tools is a collection of utility classes related to signal and slots in Qt\&. It includes:
+.IP "\(bu" 2
+QtCallback - Package up a receiver and slot arguments into an object for invoking later\&.
+.IP "\(bu" 2
+QtSignalForwarder - Connect signals and events from objects to QtCallback or arbitrary functions\&.
+.IP "\(bu" 2
+QtMetacallAdapter - Low-level interface for calling a function using a list of QGenericArgument() arguments\&.
+.IP "\(bu" 2
+safe_bind() - Create a wrapper around a method call which does nothing and returns a default value if the object is destroyed before the wrapper is called\&.
+.PP
+.PP
+.SS "Requirements"
+.PP
+.IP "\(bu" 2
+Qt 4\&.8 (could be adapted for earlier Qt versions if necessary)
+.IP "\(bu" 2
+The TR1 standard library (for C++03 compilers) or the C++11 standard library (for newer compilers when C++11 support is enabled)\&.
+.PP
+.PP
+.SS "Classes"
+.PP
+.SS "QtCallback"
+.PP
+QtCallback is a binder class which provides a way to create callbacks that invoke a signal or slot when invoked, using a mixture of pre-bound arguments and arguments passed to QtCallback::invoke()\&.
+.PP
+Usage: ```cpp QtCallback1<int> callback(myWidget, SLOT(someSlot(int,QString))); callback\&.bind(42);
+.PP
+// invokes the MyWidget::someSlot() slot with arguments (42, 'Hello World') callback\&.invoke('Hello World');
+.PP
+void MyWidget::someSlot(int firstArg, const QString& secondArg) { } ```
+.PP
+.SS "QtSignalForwarder"
+.PP
+QtSignalForwarder provides a way to invoke callbacks when an object emits a signal or receives a particular type of event\&. The callbacks can be signals and slots (via \fCQtCallback\fP) or arbitrary functions using \fCtr1::function\fP, \fCstd::function\fP, \fCboost::function\fP or a similar wrapper\&.
+.PP
+Qt 5 provides support for connecting signals to arbitrary functions out of the box and to lambdas when using C++11\&. QtSignalForwarder emulates this for Qt 4\&.
+.PP
+As well as being able to connect signals to functions that are not slots, this also provides a way to pass additional arguments to the receiver other than those from the signal using \fCQtCallback::bind()\fP or \fCstd::tr1::bind()\fP\&.
+.PP
+Usage:
+.PP
+Connecting a signal to a slot with pre-bound arguments: ```cpp MyObject receiver; QPushButton button; QtSignalForwarder::connect(&button, SIGNAL(clicked(bool)), QtCallback(&receiver, SLOT(buttonClicked(int)))\&.bind(42));
+.PP
+// invokes MyObject::buttonClicked() slot with arguments (42) button\&.click(); ```
+.PP
+Connecting a signal to an arbitrary function: ```cpp using namespace std::tr1; using namespace std::tr1::placeholders;
+.PP
+SomeObject receiver; QLineEdit editor;
+.PP
+// function which calls someMethod() with the first-argument fixed (42) and the // second string argument from the signal function<void(int,QString)> callback(bind(&SomeObject::someMethod, &receiver, 42, _1));
+.PP
+QtSignalForwarder::connect(&editor, SIGNAL(textChanged(QString)), callback);
+.PP
+// invokes SomeObject::someMethod(42, 'Hello World') editor\&.setText('Hello World'); ```
+.PP
+.SS "safe_bind()"
+.PP
+Compared to using Qt 4's normal signals and slots, a disadvantage of using \fCbind()\fP or \fCfunction\fP to create a callback object which can be run later is that there is no automatically disconnection if the object is destroyed\&.
+.PP
+As a solution, the \fCsafe_bind()\fP function creates a wrapper around an object and a method call\&. The wrapper can then be called with the same arguments as the wrapped method\&. When a call happens, either the wrapped method is called with the provided arguments, or if the object has been destroyed, nothing happens and a default value is returned\&.
+.PP
+The wrapper created by \fCsafe_bind()\fP can be used with \fCbind()\fP and \fCfunction\fP and can be used together with \fCQtSignalForwarder\fP to automatically 'disconnect' if the receiver is destroyed\&.
+.PP
+```cpp QScopedPointer<QLabel> label(new QLabel);
+.PP
+// create a wrapper around label->setText() which can be run using // setTextWrapper(text)\&. function<void(QString)> setTextWrapper = safe_bind(label\&.data(), &QLabel::setText);
+.PP
+// create a wrapper around label->text() which either calls label->text() and returns // the same result or returns an empty string if the label has been destroyed function<QString()> getTextWrapper = safe_bind(label\&.data(), &QLabel::text);
+.PP
+setTextWrapper('first update'); // sets the label's text to 'first update' qDebug() << 'label text' << getTextWrapper(); // prints 'first update' label\&.reset(); // destroy the label setTextWrapper('second update'); // does nothing, as the label has been destroyed qDebug() << 'label text' << getTextWrapper(); // prints an empty string ```
+.PP
+.SS "QtMetacallAdapter"
+.PP
+QtMetacallAdapter is a low-level wrapper around a function or function object (eg\&. \fCstd::function\fP) which can be used to invoke the function with a list of QGenericArgument (created by the Q_ARG() macro) and introspect the function's argument types at runtime\&.
+.PP
+.SS "License"
+.PP
+qt-signal-tools is licensed under the BSD license\&.
+.PP
+.SS "Related Projects & Reading"
+.PP
+.IP "\(bu" 2
+Qt Signal Adapters - Library for connecting signals to Boost function objects: http://sourceforge.net/projects/qtsignaladapter/
+.IP "\(bu" 2
+sigfwd - Library for connecting signals to function objects\&. Uses Boost\&. https://bitbucket.org/edd/sigfwd/wiki/Home
+.IP "\(bu" 2
+Qt 5 meta-object system changes - http://blog.qt.digia.com/blog/2012/06/22/changes-to-the-meta-object-system-in-qt-5/ 
+.PP
+

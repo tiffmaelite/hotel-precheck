@@ -1,4 +1,4 @@
-.TH "SH_InOutState" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_InOutState" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,13 +51,16 @@ Dérivée par \fBSH_FileSelectionState\fP, \fBSH_QuestionState\fP, et \fBSH_Stat
 .RI "void \fBdisplay\fP (bool canDisplay)"
 .br
 .ti -1c
+.RI "void \fBemitResendInput\fP ()"
+.br
+.ti -1c
+.RI "void \fBemitSendOutput\fP ()"
+.br
+.ti -1c
 .RI "virtual QVariant \fBinput\fP () const "
 .br
 .ti -1c
 .RI "bool \fBisRunning\fP ()"
-.br
-.ti -1c
-.RI "void \fBonExit\fP (QEvent *event)"
 .br
 .ti -1c
 .RI "virtual QString \fBoutput\fP () const "
@@ -77,6 +80,9 @@ Dérivée par \fBSH_FileSelectionState\fP, \fBSH_QuestionState\fP, et \fBSH_Stat
 .in +1c
 .ti -1c
 .RI "void \fBonEntry\fP (QEvent *event)"
+.br
+.ti -1c
+.RI "void \fBonExit\fP (QEvent *event)"
 .br
 .in -1c
 .SS "Attributs privés"
@@ -109,11 +115,15 @@ Définition à la ligne 11 du fichier SH_IOState\&.h\&.
 .PP
 Définition à la ligne 9 du fichier SH_IOState\&.cpp\&.
 .PP
+Références emitResendInput(), emitSendOutput(), et SH_GenericState::goNext()\&.
+.PP
 .nf
 9                                                                          :
-10     SH_GenericState(name, parent), m_output(output), m_isVisible(true)
+10     SH_GenericState(name, parent), m_output(output), m_isVisible(true),m_display(true)
 11 {
-12 }
+12     connect(this, &QState::entered, this, &SH_InOutState::emitSendOutput);
+13     connect(this, &SH_GenericState::goNext, this, &SH_InOutState::emitResendInput);
+14 }
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
@@ -127,27 +137,52 @@ Définition à la ligne 9 du fichier SH_IOState\&.cpp\&.
 .PP
 
 .PP
-Définition à la ligne 101 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 80 du fichier SH_IOState\&.cpp\&.
+.PP
+Références emitSendOutput(), et m_display\&.
+.PP
+.nf
+81 {
+82         m_display=canDisplay;
+83         emitSendOutput();
+84 }
+.fi
+.SS "void SH_InOutState::emitResendInput ()"
+
+.PP
+Définition à la ligne 92 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SH_GenericState::isRunning(), m_input, m_isVisible, et resendInput()\&.
+.PP
+Référencé par setInput(), et SH_InOutState()\&.
+.PP
+.nf
+92                                     {
+93     if(isRunning() && m_isVisible) {
+94         emit resendInput(m_input);
+95     }
+96 }
+.fi
+.SS "void SH_InOutState::emitSendOutput ()"
+
+.PP
+Définition à la ligne 86 du fichier SH_IOState\&.cpp\&.
 .PP
 Références SH_GenericState::isRunning(), m_display, m_isVisible, m_output, et sendOutput()\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), et SH_StatementState::onEntry()\&.
+Référencé par display(), setOutput(), et SH_InOutState()\&.
 .PP
 .nf
-102 {
-103     if(isRunning()) {
-104         m_display=canDisplay;
-105         if(m_display && !m_output\&.isEmpty() && m_isVisible) {
-106             qDebug() << "resalut !" << QVariant(m_output);
-107             emit sendOutput(QVariant(m_output));
-108         }
-109     }
-110 }
+86                                    {
+87     if(isRunning() && m_display && !m_output\&.isEmpty() && m_isVisible) {
+88         emit sendOutput(QVariant(m_output));
+89     }
+90 }
 .fi
 .SS "SH_GenericState::goNext ()\fC [signal]\fP, \fC [inherited]\fP"
 
 .PP
-Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_AdaptDatabaseState::insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericState::SH_GenericState(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_AdaptDatabaseState::insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericState::SH_GenericState(), SH_InOutState(), et SH_ServiceCharging::SH_ServiceCharging()\&.
 .SS "SH_InOutState::input () const\fC [virtual]\fP"
 
 .PP
@@ -158,16 +193,16 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 20 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 19 du fichier SH_IOState\&.cpp\&.
 .PP
 Références m_input\&.
 .PP
 Référencé par rawInput(), SH_DateQuestionState::rawInput(), et setInput()\&.
 .PP
 .nf
-21 {
-22     return m_input;
-23 }
+20 {
+21     return m_input;
+22 }
 .fi
 .SS "SH_GenericState::isRunning ()\fC [inherited]\fP"
 
@@ -179,16 +214,16 @@ bool
 .PP
 
 .PP
-Définition à la ligne 92 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 81 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
 Références SH_GenericState::m_isRunning\&.
 .PP
-Référencé par SH_InOutStateMachine::addChildrenReplaceTransition(), display(), SH_GenericState::emitGoNext(), setInput(), setOutput(), et setVisibility()\&.
+Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_GenericState::emitGoNext(), emitResendInput(), emitSendOutput(), setInput(), setOutput(), et setVisibility()\&.
 .PP
 .nf
-93 {
-94     return m_isRunning;
-95 }
+82 {
+83     return m_isRunning;
+84 }
 .fi
 .SS "SH_GenericState::next ()\fC [signal]\fP, \fC [inherited]\fP"
 
@@ -204,21 +239,24 @@ Référencé par SH_GenericState::emitGoNext()\&.
 .PP
 
 .PP
-Définition à la ligne 71 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 60 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_GenericState::m_isRunning, et SH_NamedObject::name()\&.
+Références SH_MessageManager::debugMessage(), SH_GenericState::m_isRunning, SH_NamedObject::name(), et SH_GenericState::onTransitionTriggered()\&.
 .PP
 Référencé par SH_StatementState::onEntry()\&.
 .PP
 .nf
-72 {
-73     Q_UNUSED(event);
-74     m_isRunning = true;
-75     this->blockSignals(!m_isRunning);
-76     qDebug() << "Machine: " << machine()->objectName() << " entered " << name();
-77 }
+61 {
+62     Q_UNUSED(event);
+63     foreach (QAbstractTransition* tr, transitions()) {
+64         connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
+65     }
+66     m_isRunning = true;
+67     this->blockSignals(!m_isRunning);
+68     SH_MessageManager::debugMessage(QString("Machine: %1, entered state %2")\&.arg(machine()->objectName())\&.arg(name()));
+69 }
 .fi
-.SS "SH_InOutState::onExit (QEvent *event)"
+.SS "SH_GenericState::onExit (QEvent *event)\fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
 \fBParamètres:\fP
@@ -228,17 +266,17 @@ Référencé par SH_StatementState::onEntry()\&.
 .PP
 
 .PP
-Définition à la ligne 118 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 74 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références m_input, m_isVisible, SH_GenericState::onExit(), et resendInput()\&.
+Références SH_MessageManager::debugMessage(), SH_GenericState::m_isRunning, et SH_NamedObject::name()\&.
 .PP
 .nf
-119 {
-120     if(m_isVisible) {
-121         emit resendInput(m_input);
-122     }
-123     SH_GenericState::onExit(event);
-124 }
+75 {
+76     Q_UNUSED(event);
+77     m_isRunning = false;
+78     this->blockSignals(!m_isRunning);
+79     SH_MessageManager::debugMessage(QString("Machine: %1, exited state %2")\&.arg(machine()->objectName())\&.arg(name()));
+80 }
 .fi
 .SS "SH_InOutState::output () const\fC [virtual]\fP"
 
@@ -250,16 +288,16 @@ QString
 .PP
 
 .PP
-Définition à la ligne 58 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 47 du fichier SH_IOState\&.cpp\&.
 .PP
 Références m_output\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), setOutput(), et SH_StatementState::SH_StatementState()\&.
+Référencé par SH_QuestionState::checkValidity(), et setOutput()\&.
 .PP
 .nf
-59 {
-60     return m_output;
-61 }
+48 {
+49     return m_output;
+50 }
 .fi
 .SS "SH_InOutState::rawInput () const\fC [virtual]\fP"
 
@@ -273,16 +311,16 @@ QVariant
 .PP
 Réimplémentée dans \fBSH_DateQuestionState\fP, et \fBSH_DatabaseContentQuestionState\fP\&.
 .PP
-Définition à la ligne 30 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 27 du fichier SH_IOState\&.cpp\&.
 .PP
 Références input()\&.
 .PP
 Référencé par SH_InOutStateMachine::addIOState()\&.
 .PP
 .nf
-31 {
-32     return input();
-33 }
+28 {
+29     return input();
+30 }
 .fi
 .SS "SH_InOutState::resendInput (QVariantinput)\fC [signal]\fP"
 
@@ -294,7 +332,7 @@ Référencé par SH_InOutStateMachine::addIOState()\&.
 .PP
 
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), onExit(), et setInput()\&.
+Référencé par SH_InOutStateMachine::addIOState(), et emitResendInput()\&.
 .SS "SH_InOutState::sendOutput (QVariantoutput)\fC [signal]\fP"
 
 .PP
@@ -305,7 +343,7 @@ Référencé par SH_InOutStateMachine::addIOState(), onExit(), et setInput()\&.
 .PP
 
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), display(), et setOutput()\&.
+Référencé par SH_InOutStateMachine::addIOState(), et emitSendOutput()\&.
 .SS "SH_InOutState::setInput (const QVariant &input)\fC [virtual]\fP, \fC [slot]\fP"
 
 .PP
@@ -318,22 +356,20 @@ Référencé par SH_InOutStateMachine::addIOState(), display(), et setOutput()\&
 .PP
 Réimplémentée dans \fBSH_QuestionState\fP, et \fBSH_StatementState\fP\&.
 .PP
-Définition à la ligne 41 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 35 du fichier SH_IOState\&.cpp\&.
 .PP
-Références input(), SH_GenericState::isRunning(), m_input, m_isVisible, et resendInput()\&.
+Références emitResendInput(), input(), SH_GenericState::isRunning(), et m_input\&.
 .PP
 Référencé par SH_InOutStateMachine::addIOState(), SH_QuestionState::checkValidity(), et SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-42 {
-43     if(isRunning()) {
-44         qDebug() << "new input " << input\&.toString();
-45         m_input = input;
-46         if(m_isVisible) {
-47             emit resendInput(m_input);
-48         }
-49     }
-50 }
+36 {
+37     if(isRunning() && input != this->input()) {
+38         //SH_MessageManager::infoMessage("new input " + input\&.toString());
+39         m_input = input;
+40         emitResendInput();
+41     }
+42 }
 .fi
 .SS "SH_InOutState::setOutput (const QString &output)\fC [virtual]\fP, \fC [slot]\fP"
 
@@ -347,21 +383,19 @@ Référencé par SH_InOutStateMachine::addIOState(), SH_QuestionState::checkVali
 .PP
 Réimplémentée dans \fBSH_DatabaseContentQuestionState\fP\&.
 .PP
-Définition à la ligne 70 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 55 du fichier SH_IOState\&.cpp\&.
 .PP
-Références SH_GenericState::isRunning(), m_isVisible, m_output, output(), et sendOutput()\&.
+Références emitSendOutput(), SH_GenericState::isRunning(), m_output, et output()\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), SH_DatabaseContentQuestionState::setOutput(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+Référencé par SH_DatabaseContentQuestionState::setOutput(), et SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-71 {
-72     if(isRunning()) {
-73         m_output = output;
-74         if(m_isVisible) {
-75             emit sendOutput(QVariant(m_output));
-76         }
-77     }
-78 }
+56 {
+57     if(isRunning() && output != this->output()) {
+58         m_output = output;
+59         emitSendOutput();
+60     }
+61 }
 .fi
 .SS "SH_InOutState::setVisibility (boolisVisible)\fC [virtual]\fP, \fC [slot]\fP"
 
@@ -373,18 +407,18 @@ Référencé par SH_InOutStateMachine::addIOState(), SH_DatabaseContentQuestionS
 .PP
 
 .PP
-Définition à la ligne 85 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 66 du fichier SH_IOState\&.cpp\&.
 .PP
-Références SH_GenericState::isRunning(), et m_isVisible\&.
+Références SH_GenericState::isRunning(), m_isVisible, et visibility()\&.
 .PP
 Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-86 {
-87     if(isRunning()) {
-88         m_isVisible = isVisible;
-89     }
-90 }
+67 {
+68     if(isRunning() && isVisible!=this->visibility()) {
+69         m_isVisible = isVisible;
+70     }
+71 }
 .fi
 .SS "SH_GenericState::toString ()\fC [virtual]\fP, \fC [inherited]\fP"
 
@@ -398,22 +432,22 @@ QString
 .PP
 Réimplémentée à partir de \fBSH_NamedObject\fP\&.
 .PP
-Définition à la ligne 22 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 23 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_GenericStateMachine::toString(), et SH_NamedObject::toString()\&.
+Références SH_NamedObject::toString(), et SH_GenericState::toString()\&.
 .PP
-Référencé par SH_GenericStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOState(), SH_DateQuestionState::rawInput(), et SH_GenericStateMachine::toString()\&.
+Référencé par SH_QuestionState::checkValidity(), SH_DateQuestionState::rawInput(), SH_GenericStateMachine::toString(), et SH_GenericState::toString()\&.
 .PP
 .nf
-23 {
-24     QStateMachine* machine = this->machine();
-25     SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
-26     if(mach) {
-27         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
-28     } else {
-29         return SH_NamedObject::toString();
-30     }
-31 }
+24 {
+25     QStateMachine* machine = this->machine();
+26     SH_GenericState* mach = qobject_cast<SH_GenericState *>(machine);
+27     if(mach) {
+28         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
+29     } else {
+30         return SH_NamedObject::toString();
+31     }
+32 }
 .fi
 .SS "SH_InOutState::visibility ()"
 
@@ -425,16 +459,16 @@ bool
 .PP
 
 .PP
-Définition à la ligne 97 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 76 du fichier SH_IOState\&.cpp\&.
 .PP
 Références m_isVisible\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState()\&.
+Référencé par setVisibility()\&.
 .PP
 .nf
-97                                {
-98     return m_isVisible;
-99 }
+76                                {
+77     return m_isVisible;
+78 }
 .fi
 .SH "Documentation des données membres"
 .PP 
@@ -443,33 +477,33 @@ Référencé par SH_InOutStateMachine::addIOState()\&.
 .PP
 m_display 
 .PP
-Définition à la ligne 128 du fichier SH_IOState\&.h\&.
+Définition à la ligne 121 du fichier SH_IOState\&.h\&.
 .PP
-Référencé par display()\&.
+Référencé par display(), et emitSendOutput()\&.
 .SS "QVariant SH_InOutState::m_input\fC [private]\fP"
 
 .PP
 m_input 
 .PP
-Définition à la ligne 116 du fichier SH_IOState\&.h\&.
+Définition à la ligne 106 du fichier SH_IOState\&.h\&.
 .PP
-Référencé par input(), onExit(), et setInput()\&.
+Référencé par emitResendInput(), input(), et setInput()\&.
 .SS "bool SH_InOutState::m_isVisible\fC [private]\fP"
 
 .PP
 m_isVisible 
 .PP
-Définition à la ligne 124 du fichier SH_IOState\&.h\&.
+Définition à la ligne 116 du fichier SH_IOState\&.h\&.
 .PP
-Référencé par display(), onExit(), setInput(), setOutput(), setVisibility(), et visibility()\&.
+Référencé par emitResendInput(), emitSendOutput(), setVisibility(), et visibility()\&.
 .SS "QString SH_InOutState::m_output\fC [private]\fP"
 
 .PP
 m_output 
 .PP
-Définition à la ligne 120 du fichier SH_IOState\&.h\&.
+Définition à la ligne 111 du fichier SH_IOState\&.h\&.
 .PP
-Référencé par display(), output(), et setOutput()\&.
+Référencé par emitSendOutput(), output(), et setOutput()\&.
 
 .SH "Auteur"
 .PP 

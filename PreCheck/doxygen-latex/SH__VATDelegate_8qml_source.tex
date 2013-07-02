@@ -1,0 +1,32 @@
+\hypertarget{SH__VATDelegate_8qml}{\section{S\-H\-\_\-\-V\-A\-T\-Delegate.\-qml}
+\label{SH__VATDelegate_8qml}\index{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-V\-A\-T\-Delegate.\-qml@{/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/views/qml/\-S\-H\-\_\-\-V\-A\-T\-Delegate.\-qml}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{keyword}{import} QtQuick 2.1
+00002 import QtQuick.Window 2.1
+00003 import QtQuick.Controls 1.0
+\hypertarget{SH__VATDelegate_8qml_source_l00004}{}\hyperlink{classSH__VATDelegate}{00004} import QtQuick.Controls.Styles 1.0
+00005 import QtQuick.Layouts 1.0
+00006 import PreCheck 1.0
+00007 
+00011 SH\_DataDelegate \{
+00012     value: PERCENTAGE
+00013     text: LABEL
+00014     style: ButtonStyle \{
+00015         background:
+00016             \hyperlink{classItem}{Item} \{
+00017             BorderImage \{
+00018                 anchors.fill: parent
+00019                 border.top: 3
+00020                 border.bottom: 3
+00021                 border.left: 3
+00022                 border.right: 3
+00023                 anchors.bottomMargin: -1
+00024                 source: btn.enabled ? (btn.pressed ? \textcolor{stringliteral}{"../img/buttondown.png"} : \textcolor{stringliteral}{"../img/buttonup.png"}) : \textcolor{stringliteral}{"
+      ../img/buttonblocked.png"}
+00025             \}
+00026         \}
+00027     \}
+00028 \}
+\end{DoxyCode}

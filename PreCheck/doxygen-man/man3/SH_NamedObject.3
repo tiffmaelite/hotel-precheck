@@ -1,4 +1,4 @@
-.TH "SH_NamedObject" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_NamedObject" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -49,12 +49,13 @@ Définition à la ligne 10 du fichier SH_NamedObject\&.h\&.
 .SS "SH_NamedObject::SH_NamedObject (QStringname)"
 
 .PP
-Définition à la ligne 9 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 8 du fichier SH_NamedObject\&.cpp\&.
 .PP
 .nf
-9                                            :
-10     m_name(name)
-11 {
+8                                            :
+9     m_name(name)
+10 {
+11 
 12     /*m_ptraddress = QString(&this);*/
 13 }
 .fi
@@ -70,16 +71,16 @@ QString
 .PP
 
 .PP
-Définition à la ligne 32 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 26 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références m_name\&.
 .PP
-Référencé par SH_GenericStateMachine::onEntry(), SH_GenericState::onEntry(), SH_GenericStateMachine::onExit(), SH_GenericState::onExit(), SH_GenericState::onTransitionTriggered(), setName(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+Référencé par SH_GenericStateMachine::onEntry(), SH_GenericState::onEntry(), SH_GenericStateMachine::onExit(), SH_GenericState::onExit(), setName(), et SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-33 {
-34     return m_name;
-35 }
+27 {
+28     return m_name;
+29 }
 .fi
 .SS "SH_NamedObject::ptraddress () const"
 
@@ -91,14 +92,14 @@ QString
 .PP
 
 .PP
-Définition à la ligne 54 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 42 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références m_ptraddress\&.
 .PP
 .nf
-55 {
-56     return m_ptraddress;
-57 }
+43 {
+44     return m_ptraddress;
+45 }
 .fi
 .SS "SH_NamedObject::setName (const QString &name)\fC [virtual]\fP"
 
@@ -110,14 +111,14 @@ Références m_ptraddress\&.
 .PP
 
 .PP
-Définition à la ligne 43 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 34 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références m_name, et name()\&.
 .PP
 .nf
-44 {
-45     m_name = name;
-46 }
+35 {
+36     m_name = name;
+37 }
 .fi
 .SS "SH_NamedObject::toString ()\fC [virtual]\fP"
 
@@ -131,16 +132,16 @@ QString
 .PP
 Réimplémentée dans \fBSH_GenericState\fP, et \fBSH_GenericStateMachine\fP\&.
 .PP
-Définition à la ligne 21 du fichier SH_NamedObject\&.cpp\&.
+Définition à la ligne 18 du fichier SH_NamedObject\&.cpp\&.
 .PP
 Références m_name\&.
 .PP
 Référencé par SH_GenericStateMachine::toString(), et SH_GenericState::toString()\&.
 .PP
 .nf
-22 {
-23     return this->m_name;
-24 }
+19 {
+20     return this->m_name;
+21 }
 .fi
 .SH "Documentation des données membres"
 .PP 
@@ -149,7 +150,7 @@ Référencé par SH_GenericStateMachine::toString(), et SH_GenericState::toStrin
 .PP
 m_name 
 .PP
-Définition à la ligne 55 du fichier SH_NamedObject\&.h\&.
+Définition à la ligne 52 du fichier SH_NamedObject\&.h\&.
 .PP
 Référencé par name(), setName(), et toString()\&.
 .SS "QString SH_NamedObject::m_ptraddress\fC [private]\fP"
@@ -157,7 +158,7 @@ Référencé par name(), setName(), et toString()\&.
 .PP
 m_ptraddress 
 .PP
-Définition à la ligne 59 du fichier SH_NamedObject\&.h\&.
+Définition à la ligne 57 du fichier SH_NamedObject\&.h\&.
 .PP
 Référencé par ptraddress()\&.
 

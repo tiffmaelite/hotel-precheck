@@ -1,4 +1,4 @@
-.TH "SH_DatabaseContentQuestionState" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_DatabaseContentQuestionState" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -29,7 +29,7 @@ Est dérivée de \fBSH_QuestionState\fP\&.
 .br
 .RI "\fIanswerValid \fP"
 .ti -1c
-.RI "void \fBdisplayChoiceList\fP ()"
+.RI "void \fBdisplayChoiceList\fP (QVariantList choices)"
 .br
 .ti -1c
 .RI "void \fBgoNext\fP ()"
@@ -54,10 +54,16 @@ Est dérivée de \fBSH_QuestionState\fP\&.
 .RI "bool \fBcheckValidity\fP ()"
 .br
 .ti -1c
-.RI "QMap< int, QVariant > \fBchoiceList\fP ()"
+.RI "QVariantList \fBchoiceList\fP ()"
 .br
 .ti -1c
 .RI "void \fBdisplay\fP (bool canDisplay)"
+.br
+.ti -1c
+.RI "void \fBemitResendInput\fP ()"
+.br
+.ti -1c
+.RI "void \fBemitSendOutput\fP ()"
 .br
 .ti -1c
 .RI "virtual QVariant \fBgivenAnswer\fP () const "
@@ -70,9 +76,6 @@ Est dérivée de \fBSH_QuestionState\fP\&.
 .br
 .ti -1c
 .RI "bool \fBisRunning\fP ()"
-.br
-.ti -1c
-.RI "void \fBonExit\fP (QEvent *event)"
 .br
 .ti -1c
 .RI "virtual QString \fBoutput\fP () const "
@@ -102,12 +105,15 @@ Est dérivée de \fBSH_QuestionState\fP\&.
 .ti -1c
 .RI "void \fBonEntry\fP (QEvent *event)"
 .br
+.ti -1c
+.RI "void \fBonExit\fP (QEvent *event)"
+.br
 .in -1c
 .SS "Attributs privés"
 
 .in +1c
 .ti -1c
-.RI "QMap< int, QVariant > \fBm_choices\fP"
+.RI "QVariantList \fBm_choices\fP"
 .br
 .RI "\fIm_choices \fP"
 .ti -1c
@@ -137,25 +143,26 @@ Définition à la ligne 10 du fichier SH_DatabaseContentQuestionState\&.h\&.
 .PP
 Définition à la ligne 10 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
 .PP
-Références SH_SqlDataModel::datas(), SH_SqlDataModel::fetch(), m_choices, m_condition, m_field, et m_table\&.
+Références SH_SqlDataModel::datas(), SH_MessageManager::debugMessage(), SH_SqlDataModel::fetch(), m_condition, m_field, et m_table\&.
 .PP
 .nf
 10                                                                                                                                                                                      :
 11     SH_QuestionState(question, name, parent), m_table(databaseTable), m_condition(databaseCondition), m_field(tableField)
 12 {
-13     qDebug() << "multiple choice list with datas from " << databaseTable << "!";
+13     SH_MessageManager::debugMessage(QString("multiple choice list with datas from %1!")\&.arg(databaseTable));
 14     SH_SqlDataModel *sqlDatas = new SH_SqlDataModel();
 15     QStringList fields;
 16     fields << "ID" << m_field;
-17     sqlDatas->fetch(m_table, m_condition, "", fields);
-18     QVariantMap results = sqlDatas->datas();
-19     QVariantList idValues = results\&.values("ID");
-20     QVariantList fieldsValues = results\&.values(m_field);
-21     for(int i = 0; i < idValues\&.length(); i++) {
-22         qDebug() << "new choice " << idValues\&.at(i)\&.toString() <<  ": " << fieldsValues\&.at(i)\&.toString();
-23         m_choices\&.insert(idValues\&.at(i)\&.toInt(), fieldsValues\&.at(i));
-24     }
-25 }
+17     fields\&.removeDuplicates();
+18     sqlDatas->fetch(m_table, m_condition, "", fields);
+19     QVariantMap results = sqlDatas->datas();
+20     QVariantList idValues = results\&.values("ID");
+21     QVariantList fieldsValues = results\&.values(m_field);
+22     for(int i = 0; i < idValues\&.length(); i++) {
+23         SH_MessageManager::debugMessage(QString("new choice %1: %2")\&.arg(idValues\&.at(i)\&.toString())\&.arg(fieldsValues\&.at(i)\&.toString()));
+24         //m_choices\&.insert(idValues\&.at(i)\&.toInt(), fieldsValues\&.at(i));
+25     }
+26 }
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
@@ -181,30 +188,31 @@ bool
 .PP
 
 .PP
-Définition à la ligne 20 du fichier SH_QuestionState\&.cpp\&.
+Définition à la ligne 17 du fichier SH_QuestionState\&.cpp\&.
 .PP
-Références SH_QuestionState::answerInvalid(), SH_QuestionState::answerValid(), SH_QuestionState::givenAnswer(), SH_GenericState::goNext(), SH_QuestionState::isAnswerValid(), et SH_InOutState::setInput()\&.
+Références SH_QuestionState::answerInvalid(), SH_QuestionState::answerValid(), SH_QuestionState::givenAnswer(), SH_GenericState::goNext(), SH_MessageManager::infoMessage(), SH_QuestionState::isAnswerValid(), SH_GenericState::isRunning(), SH_InOutState::output(), SH_InOutState::setInput(), et SH_GenericState::toString()\&.
 .PP
 Référencé par SH_QuestionState::setGivenAnswer()\&.
 .PP
 .nf
-21 {
-22     bool ok = this->isAnswerValid(this->givenAnswer());
-23     if(ok) {
-24         qDebug() << this->givenAnswer() << " answer valid !";
-25         qDebug() << this->givenAnswer();
-26         SH_InOutState::setInput(this->givenAnswer());
-27         emit answerValid();
-28         emit goNext();
-29     } else {
-30         qDebug() << this->givenAnswer() << " answer invalid :-(";
-31         qDebug() << this->givenAnswer();
-32         emit answerInvalid();
-33     }
-34     return ok;
-35 }
+18 {
+19     bool ok = false;
+20     if(isRunning()) {
+21         ok = this->isAnswerValid(this->givenAnswer());
+22         if(ok) {
+23             SH_MessageManager::infoMessage(QString("%1 is a VALID answer for question '%2'!")\&.arg(this->givenAnswer()\&.toString())\&.arg(this->output()));
+24             SH_InOutState::setInput(this->givenAnswer());
+25             emit answerValid();
+26             emit goNext();
+27         } else {
+28             SH_MessageManager::infoMessage(QString("%1 is an INvalid :-( answer for question '%2'")\&.arg(this->givenAnswer()\&.toString())\&.arg(this->output()));
+29             emit answerInvalid();
+30         }
+31     }
+32     return ok;
+33 }
 .fi
-.SS "SH_DatabaseContentQuestionState::choiceList ()"
+.SS "QVariantList SH_DatabaseContentQuestionState::choiceList ()"
 
 .PP
 \fBRenvoie:\fP
@@ -214,17 +222,17 @@ QMap<int, QVariant>
 .PP
 
 .PP
-Définition à la ligne 67 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
+Définition à la ligne 59 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
 .PP
 Références m_choices, et m_choicesDisplayed\&.
 .PP
 .nf
-67                                                                 {
-68     if(m_choicesDisplayed) {
-69         return m_choices;
-70     }
-71     return QMap<int,QVariant>();
-72 }
+59                                                          {
+60     if(m_choicesDisplayed) {
+61         return m_choices;
+62     }
+63     return QVariantList();
+64 }
 .fi
 .SS "SH_InOutState::display (boolcanDisplay)\fC [inherited]\fP"
 
@@ -236,27 +244,52 @@ Références m_choices, et m_choicesDisplayed\&.
 .PP
 
 .PP
-Définition à la ligne 101 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 80 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SH_InOutState::emitSendOutput(), et SH_InOutState::m_display\&.
+.PP
+.nf
+81 {
+82         m_display=canDisplay;
+83         emitSendOutput();
+84 }
+.fi
+.SS "SH_DatabaseContentQuestionState::displayChoiceList (QVariantListchoices)\fC [signal]\fP"
+
+.PP
+Référencé par SH_InOutStateMachine::addIOState(), et setOutput()\&.
+.SS "void SH_InOutState::emitResendInput ()\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 92 du fichier SH_IOState\&.cpp\&.
+.PP
+Références SH_GenericState::isRunning(), SH_InOutState::m_input, SH_InOutState::m_isVisible, et SH_InOutState::resendInput()\&.
+.PP
+Référencé par SH_InOutState::setInput(), et SH_InOutState::SH_InOutState()\&.
+.PP
+.nf
+92                                     {
+93     if(isRunning() && m_isVisible) {
+94         emit resendInput(m_input);
+95     }
+96 }
+.fi
+.SS "void SH_InOutState::emitSendOutput ()\fC [inherited]\fP"
+
+.PP
+Définition à la ligne 86 du fichier SH_IOState\&.cpp\&.
 .PP
 Références SH_GenericState::isRunning(), SH_InOutState::m_display, SH_InOutState::m_isVisible, SH_InOutState::m_output, et SH_InOutState::sendOutput()\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), et SH_StatementState::onEntry()\&.
+Référencé par SH_InOutState::display(), SH_InOutState::setOutput(), et SH_InOutState::SH_InOutState()\&.
 .PP
 .nf
-102 {
-103     if(isRunning()) {
-104         m_display=canDisplay;
-105         if(m_display && !m_output\&.isEmpty() && m_isVisible) {
-106             qDebug() << "resalut !" << QVariant(m_output);
-107             emit sendOutput(QVariant(m_output));
-108         }
-109     }
-110 }
+86                                    {
+87     if(isRunning() && m_display && !m_output\&.isEmpty() && m_isVisible) {
+88         emit sendOutput(QVariant(m_output));
+89     }
+90 }
 .fi
-.SS "SH_DatabaseContentQuestionState::displayChoiceList ()\fC [signal]\fP"
-
-.PP
-Référencé par setOutput()\&.
 .SS "SH_QuestionState::givenAnswer () const\fC [virtual]\fP, \fC [inherited]\fP"
 
 .PP
@@ -267,21 +300,21 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 55 du fichier SH_QuestionState\&.cpp\&.
+Définition à la ligne 48 du fichier SH_QuestionState\&.cpp\&.
 .PP
 Références SH_QuestionState::m_givenAnswer\&.
 .PP
-Référencé par SH_QuestionState::checkValidity(), rawInput(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
+Référencé par SH_QuestionState::checkValidity(), rawInput(), SH_QuestionState::setGivenAnswer(), SH_QuestionState::setInput(), et SH_BillingCreationStateMachine::SH_BillingCreationStateMachine()\&.
 .PP
 .nf
-56 {
-57     return this->m_givenAnswer;
-58 }
+49 {
+50     return this->m_givenAnswer;
+51 }
 .fi
 .SS "SH_GenericState::goNext ()\fC [signal]\fP, \fC [inherited]\fP"
 
 .PP
-Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_AdaptDatabaseState::insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericState::SH_GenericState(), et SH_ServiceCharging::SH_ServiceCharging()\&.
+Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_AdaptDatabaseState::insertUpdate(), SH_StatementState::onEntry(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), SH_GenericState::SH_GenericState(), SH_InOutState::SH_InOutState(), et SH_ServiceCharging::SH_ServiceCharging()\&.
 .SS "SH_InOutState::input () const\fC [virtual]\fP, \fC [inherited]\fP"
 
 .PP
@@ -292,18 +325,18 @@ QVariant
 .PP
 
 .PP
-Définition à la ligne 20 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 19 du fichier SH_IOState\&.cpp\&.
 .PP
 Références SH_InOutState::m_input\&.
 .PP
 Référencé par SH_InOutState::rawInput(), SH_DateQuestionState::rawInput(), et SH_InOutState::setInput()\&.
 .PP
 .nf
-21 {
-22     return m_input;
-23 }
+20 {
+21     return m_input;
+22 }
 .fi
-.SS "SH_DatabaseContentQuestionState::isAnswerValid (const QVariant &givenAnswer)\fC [virtual]\fP"
+.SS "bool SH_DatabaseContentQuestionState::isAnswerValid (const QVariant &givenAnswer)\fC [virtual]\fP"
 
 .PP
 \fBParamètres:\fP
@@ -315,15 +348,14 @@ Référencé par SH_InOutState::rawInput(), SH_DateQuestionState::rawInput(), et
 .PP
 Implémente \fBSH_QuestionState\fP\&.
 .PP
-Définition à la ligne 33 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
+Définition à la ligne 31 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
 .PP
 Références m_choices\&.
 .PP
 .nf
-34 {
-35     qDebug() << m_choices\&.values();
-36     return m_choices\&.isEmpty() || m_choices\&.values()\&.contains(givenAnswer);
-37 }
+32 {
+33     return m_choices\&.isEmpty() || m_choices\&.contains(givenAnswer);
+34 }
 .fi
 .SS "SH_GenericState::isRunning ()\fC [inherited]\fP"
 
@@ -335,16 +367,16 @@ bool
 .PP
 
 .PP
-Définition à la ligne 92 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 81 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
 Références SH_GenericState::m_isRunning\&.
 .PP
-Référencé par SH_InOutStateMachine::addChildrenReplaceTransition(), SH_InOutState::display(), SH_GenericState::emitGoNext(), SH_InOutState::setInput(), SH_InOutState::setOutput(), et SH_InOutState::setVisibility()\&.
+Référencé par SH_QuestionState::checkValidity(), SH_ConfirmationState::confirmInput(), SH_GenericState::emitGoNext(), SH_InOutState::emitResendInput(), SH_InOutState::emitSendOutput(), SH_InOutState::setInput(), SH_InOutState::setOutput(), et SH_InOutState::setVisibility()\&.
 .PP
 .nf
-93 {
-94     return m_isRunning;
-95 }
+82 {
+83     return m_isRunning;
+84 }
 .fi
 .SS "SH_GenericState::next ()\fC [signal]\fP, \fC [inherited]\fP"
 
@@ -360,21 +392,24 @@ Référencé par SH_GenericState::emitGoNext()\&.
 .PP
 
 .PP
-Définition à la ligne 71 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 60 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_GenericState::m_isRunning, et SH_NamedObject::name()\&.
+Références SH_MessageManager::debugMessage(), SH_GenericState::m_isRunning, SH_NamedObject::name(), et SH_GenericState::onTransitionTriggered()\&.
 .PP
 Référencé par SH_StatementState::onEntry()\&.
 .PP
 .nf
-72 {
-73     Q_UNUSED(event);
-74     m_isRunning = true;
-75     this->blockSignals(!m_isRunning);
-76     qDebug() << "Machine: " << machine()->objectName() << " entered " << name();
-77 }
+61 {
+62     Q_UNUSED(event);
+63     foreach (QAbstractTransition* tr, transitions()) {
+64         connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
+65     }
+66     m_isRunning = true;
+67     this->blockSignals(!m_isRunning);
+68     SH_MessageManager::debugMessage(QString("Machine: %1, entered state %2")\&.arg(machine()->objectName())\&.arg(name()));
+69 }
 .fi
-.SS "SH_InOutState::onExit (QEvent *event)\fC [inherited]\fP"
+.SS "SH_GenericState::onExit (QEvent *event)\fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
 \fBParamètres:\fP
@@ -384,17 +419,17 @@ Référencé par SH_StatementState::onEntry()\&.
 .PP
 
 .PP
-Définition à la ligne 118 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 74 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_InOutState::m_input, SH_InOutState::m_isVisible, SH_GenericState::onExit(), et SH_InOutState::resendInput()\&.
+Références SH_MessageManager::debugMessage(), SH_GenericState::m_isRunning, et SH_NamedObject::name()\&.
 .PP
 .nf
-119 {
-120     if(m_isVisible) {
-121         emit resendInput(m_input);
-122     }
-123     SH_GenericState::onExit(event);
-124 }
+75 {
+76     Q_UNUSED(event);
+77     m_isRunning = false;
+78     this->blockSignals(!m_isRunning);
+79     SH_MessageManager::debugMessage(QString("Machine: %1, exited state %2")\&.arg(machine()->objectName())\&.arg(name()));
+80 }
 .fi
 .SS "SH_InOutState::output () const\fC [virtual]\fP, \fC [inherited]\fP"
 
@@ -406,18 +441,18 @@ QString
 .PP
 
 .PP
-Définition à la ligne 58 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 47 du fichier SH_IOState\&.cpp\&.
 .PP
 Références SH_InOutState::m_output\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), SH_InOutState::setOutput(), et SH_StatementState::SH_StatementState()\&.
+Référencé par SH_QuestionState::checkValidity(), et SH_InOutState::setOutput()\&.
 .PP
 .nf
-59 {
-60     return m_output;
-61 }
+48 {
+49     return m_output;
+50 }
 .fi
-.SS "SH_DatabaseContentQuestionState::rawInput () const\fC [virtual]\fP"
+.SS "QVariant SH_DatabaseContentQuestionState::rawInput () const\fC [virtual]\fP"
 
 .PP
 \fBRenvoie:\fP
@@ -429,16 +464,16 @@ QVariant
 .PP
 Réimplémentée à partir de \fBSH_InOutState\fP\&.
 .PP
-Définition à la ligne 57 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
+Définition à la ligne 51 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
 .PP
 Références SH_QuestionState::givenAnswer(), et m_choices\&.
 .PP
 Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-58 {
-59     return m_choices\&.key(this->givenAnswer());
-60 }
+52 {
+53     return m_choices\&.indexOf(this->givenAnswer());
+54 }
 .fi
 .SS "SH_InOutState::resendInput (QVariantinput)\fC [signal]\fP, \fC [inherited]\fP"
 
@@ -450,7 +485,7 @@ Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), SH_InOutState::onExit(), et SH_InOutState::setInput()\&.
+Référencé par SH_InOutStateMachine::addIOState(), et SH_InOutState::emitResendInput()\&.
 .SS "SH_InOutState::sendOutput (QVariantoutput)\fC [signal]\fP, \fC [inherited]\fP"
 
 .PP
@@ -461,7 +496,7 @@ Référencé par SH_InOutStateMachine::addIOState(), SH_InOutState::onExit(), et
 .PP
 
 .PP
-Référencé par SH_InOutStateMachine::addIOState(), SH_InOutState::display(), et SH_InOutState::setOutput()\&.
+Référencé par SH_InOutStateMachine::addIOState(), et SH_InOutState::emitSendOutput()\&.
 .SS "SH_QuestionState::setGivenAnswer (const QVariant &givenAnswer)\fC [virtual]\fP, \fC [inherited]\fP"
 
 .PP
@@ -472,17 +507,19 @@ Référencé par SH_InOutStateMachine::addIOState(), SH_InOutState::display(), e
 .PP
 
 .PP
-Définition à la ligne 66 du fichier SH_QuestionState\&.cpp\&.
+Définition à la ligne 56 du fichier SH_QuestionState\&.cpp\&.
 .PP
-Références SH_QuestionState::checkValidity(), et SH_QuestionState::m_givenAnswer\&.
+Références SH_QuestionState::checkValidity(), SH_QuestionState::givenAnswer(), et SH_QuestionState::m_givenAnswer\&.
 .PP
 Référencé par SH_QuestionState::setInput()\&.
 .PP
 .nf
-67 {
-68     this->m_givenAnswer = givenAsnwer;
-69     this->checkValidity();
-70 }
+57 {
+58     if(givenAnswer != this->givenAnswer()) {
+59         this->m_givenAnswer = givenAnswer;
+60         this->checkValidity();
+61     }
+62 }
 .fi
 .SS "SH_QuestionState::setInput (const QVariant &input)\fC [virtual]\fP, \fC [inherited]\fP"
 
@@ -496,19 +533,20 @@ Référencé par SH_QuestionState::setInput()\&.
 .PP
 Réimplémentée à partir de \fBSH_InOutState\fP\&.
 .PP
-Définition à la ligne 43 du fichier SH_QuestionState\&.cpp\&.
+Définition à la ligne 38 du fichier SH_QuestionState\&.cpp\&.
 .PP
-Références SH_QuestionState::setGivenAnswer()\&.
+Références SH_QuestionState::givenAnswer(), et SH_QuestionState::setGivenAnswer()\&.
 .PP
 Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-44 {
-45     qDebug() << "new answer " << input\&.toString();
-46     this->setGivenAnswer(input);
-47 }
+39 {
+40     if(input != this->givenAnswer()) {
+41         this->setGivenAnswer(input);
+42     }
+43 }
 .fi
-.SS "SH_DatabaseContentQuestionState::setOutput (const QString &output)\fC [virtual]\fP"
+.SS "void SH_DatabaseContentQuestionState::setOutput (const QString &output)\fC [virtual]\fP"
 
 .PP
 \fBParamètres:\fP
@@ -520,20 +558,20 @@ Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 Réimplémentée à partir de \fBSH_InOutState\fP\&.
 .PP
-Définition à la ligne 43 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
+Définition à la ligne 39 du fichier SH_DatabaseContentQuestionState\&.cpp\&.
 .PP
 Références displayChoiceList(), m_choices, m_choicesDisplayed, et SH_InOutState::setOutput()\&.
 .PP
 Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-44 {
-45     SH_QuestionState::setOutput(output);
-46     if(m_choices\&.size() < 8) {
-47         m_choicesDisplayed = true;
-48         emit displayChoiceList();
-49     }
-50 }
+40 {
+41     SH_QuestionState::setOutput(output);
+42     if(m_choices\&.size() < 8) {
+43         m_choicesDisplayed = true;
+44         emit displayChoiceList(m_choices);
+45     }
+46 }
 .fi
 .SS "SH_InOutState::setVisibility (boolisVisible)\fC [virtual]\fP, \fC [slot]\fP, \fC [inherited]\fP"
 
@@ -545,18 +583,18 @@ Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 
 .PP
-Définition à la ligne 85 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 66 du fichier SH_IOState\&.cpp\&.
 .PP
-Références SH_GenericState::isRunning(), et SH_InOutState::m_isVisible\&.
+Références SH_GenericState::isRunning(), SH_InOutState::m_isVisible, et SH_InOutState::visibility()\&.
 .PP
 Référencé par SH_ServiceCharging::SH_ServiceCharging()\&.
 .PP
 .nf
-86 {
-87     if(isRunning()) {
-88         m_isVisible = isVisible;
-89     }
-90 }
+67 {
+68     if(isRunning() && isVisible!=this->visibility()) {
+69         m_isVisible = isVisible;
+70     }
+71 }
 .fi
 .SS "SH_GenericState::toString ()\fC [virtual]\fP, \fC [inherited]\fP"
 
@@ -570,22 +608,22 @@ QString
 .PP
 Réimplémentée à partir de \fBSH_NamedObject\fP\&.
 .PP
-Définition à la ligne 22 du fichier SH_GenericDebugableState\&.cpp\&.
+Définition à la ligne 23 du fichier SH_GenericDebugableState\&.cpp\&.
 .PP
-Références SH_GenericStateMachine::toString(), et SH_NamedObject::toString()\&.
+Références SH_NamedObject::toString(), et SH_GenericState::toString()\&.
 .PP
-Référencé par SH_GenericStateMachine::addChildrenNextTransition(), SH_InOutStateMachine::addIOState(), SH_DateQuestionState::rawInput(), et SH_GenericStateMachine::toString()\&.
+Référencé par SH_QuestionState::checkValidity(), SH_DateQuestionState::rawInput(), SH_GenericStateMachine::toString(), et SH_GenericState::toString()\&.
 .PP
 .nf
-23 {
-24     QStateMachine* machine = this->machine();
-25     SH_InOutStateMachine* mach = qobject_cast<SH_InOutStateMachine *>(machine);
-26     if(mach) {
-27         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
-28     } else {
-29         return SH_NamedObject::toString();
-30     }
-31 }
+24 {
+25     QStateMachine* machine = this->machine();
+26     SH_GenericState* mach = qobject_cast<SH_GenericState *>(machine);
+27     if(mach) {
+28         return SH_NamedObject::toString()+ " [in "+mach->toString()+"] ";
+29     } else {
+30         return SH_NamedObject::toString();
+31     }
+32 }
 .fi
 .SS "SH_InOutState::visibility ()\fC [inherited]\fP"
 
@@ -597,33 +635,33 @@ bool
 .PP
 
 .PP
-Définition à la ligne 97 du fichier SH_IOState\&.cpp\&.
+Définition à la ligne 76 du fichier SH_IOState\&.cpp\&.
 .PP
 Références SH_InOutState::m_isVisible\&.
 .PP
-Référencé par SH_InOutStateMachine::addIOState()\&.
+Référencé par SH_InOutState::setVisibility()\&.
 .PP
 .nf
-97                                {
-98     return m_isVisible;
-99 }
+76                                {
+77     return m_isVisible;
+78 }
 .fi
 .SH "Documentation des données membres"
 .PP 
-.SS "QMap<int, QVariant> SH_DatabaseContentQuestionState::m_choices\fC [private]\fP"
+.SS "QVariantList SH_DatabaseContentQuestionState::m_choices\fC [private]\fP"
 
 .PP
 m_choices 
 .PP
-Définition à la ligne 80 du fichier SH_DatabaseContentQuestionState\&.h\&.
+Définition à la ligne 82 du fichier SH_DatabaseContentQuestionState\&.h\&.
 .PP
-Référencé par choiceList(), isAnswerValid(), rawInput(), setOutput(), et SH_DatabaseContentQuestionState()\&.
+Référencé par choiceList(), isAnswerValid(), rawInput(), et setOutput()\&.
 .SS "bool SH_DatabaseContentQuestionState::m_choicesDisplayed\fC [private]\fP"
 
 .PP
 m_choicesDisplayed 
 .PP
-Définition à la ligne 84 du fichier SH_DatabaseContentQuestionState\&.h\&.
+Définition à la ligne 87 du fichier SH_DatabaseContentQuestionState\&.h\&.
 .PP
 Référencé par choiceList(), et setOutput()\&.
 .SS "QString SH_DatabaseContentQuestionState::m_condition\fC [private]\fP"
@@ -639,7 +677,7 @@ Référencé par SH_DatabaseContentQuestionState()\&.
 .PP
 m_field 
 .PP
-Définition à la ligne 76 du fichier SH_DatabaseContentQuestionState\&.h\&.
+Définition à la ligne 77 du fichier SH_DatabaseContentQuestionState\&.h\&.
 .PP
 Référencé par SH_DatabaseContentQuestionState()\&.
 .SS "QString SH_DatabaseContentQuestionState::m_table\fC [private]\fP"
@@ -647,7 +685,7 @@ Référencé par SH_DatabaseContentQuestionState()\&.
 .PP
 m_table 
 .PP
-Définition à la ligne 68 du fichier SH_DatabaseContentQuestionState\&.h\&.
+Définition à la ligne 67 du fichier SH_DatabaseContentQuestionState\&.h\&.
 .PP
 Référencé par SH_DatabaseContentQuestionState()\&.
 

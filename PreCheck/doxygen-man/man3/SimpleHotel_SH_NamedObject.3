@@ -1,0 +1,166 @@
+.TH "SimpleHotel::SH_NamedObject" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleHotel::SH_NamedObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SH_NamedObject\&.h>\fP
+.PP
+Dérivée par \fBSimpleHotel::SH_GenericState\fP\fC [private]\fP, et \fBSimpleHotel::SH_GenericStateMachine\fP\fC [private]\fP\&.
+.SS "Fonctions membres publiques"
+
+.in +1c
+.ti -1c
+.RI "\fBSH_NamedObject\fP (QString \fBname\fP)"
+.br
+.ti -1c
+.RI "virtual QString \fBname\fP () const "
+.br
+.ti -1c
+.RI "QString \fBptraddress\fP () const "
+.br
+.ti -1c
+.RI "virtual void \fBsetName\fP (const QString &\fBname\fP)"
+.br
+.ti -1c
+.RI "virtual QString \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Attributs privés"
+
+.in +1c
+.ti -1c
+.RI "QString \fBm_name\fP"
+.br
+.RI "\fIm_name \fP"
+.ti -1c
+.RI "QString \fBm_ptraddress\fP"
+.br
+.RI "\fIm_ptraddress \fP"
+.in -1c
+.SH "Description détaillée"
+.PP 
+Définition à la ligne 12 du fichier SH_NamedObject\&.h\&.
+.SH "Documentation des constructeurs et destructeur"
+.PP 
+.SS "SimpleHotel::SH_NamedObject::SH_NamedObject (QStringname)"
+
+.PP
+Définition à la ligne 11 du fichier SH_NamedObject\&.cpp\&.
+.PP
+.nf
+11                                            :
+12     m_name(name)
+13 {
+14     /*m_ptraddress = QString(&this);*/
+15 }
+.fi
+.SH "Documentation des fonctions membres"
+.PP 
+.SS "SimpleHotel::SH_NamedObject::name () const\fC [virtual]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 34 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_name\&.
+.PP
+Référencé par SimpleHotel::SH_GenericStateMachine::onEntry(), SimpleHotel::SH_GenericState::onEntry(), SimpleHotel::SH_GenericStateMachine::onExit(), SimpleHotel::SH_GenericState::onExit(), setName(), et SimpleHotel::SH_ServiceCharging::SH_ServiceCharging()\&.
+.PP
+.nf
+35 {
+36     return m_name;
+37 }
+.fi
+.SS "SimpleHotel::SH_NamedObject::ptraddress () const"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Définition à la ligne 56 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_ptraddress\&.
+.PP
+.nf
+57 {
+58     return m_ptraddress;
+59 }
+.fi
+.SS "SimpleHotel::SH_NamedObject::setName (const QString &name)\fC [virtual]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 45 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_name, et name()\&.
+.PP
+.nf
+46 {
+47     m_name = name;
+48 }
+.fi
+.SS "SimpleHotel::SH_NamedObject::toString ()\fC [virtual]\fP"
+
+.PP
+\fBRenvoie:\fP
+.RS 4
+QString 
+.RE
+.PP
+
+.PP
+Réimplémentée dans \fBSimpleHotel::SH_GenericState\fP, et \fBSimpleHotel::SH_GenericStateMachine\fP\&.
+.PP
+Définition à la ligne 23 du fichier SH_NamedObject\&.cpp\&.
+.PP
+Références m_name\&.
+.PP
+Référencé par SimpleHotel::SH_GenericStateMachine::toString(), et SimpleHotel::SH_GenericState::toString()\&.
+.PP
+.nf
+24 {
+25     return this->m_name;
+26 }
+.fi
+.SH "Documentation des données membres"
+.PP 
+.SS "QString SimpleHotel::SH_NamedObject::m_name\fC [private]\fP"
+
+.PP
+m_name 
+.PP
+Définition à la ligne 57 du fichier SH_NamedObject\&.h\&.
+.PP
+Référencé par name(), setName(), et toString()\&.
+.SS "QString SimpleHotel::SH_NamedObject::m_ptraddress\fC [private]\fP"
+
+.PP
+m_ptraddress 
+.PP
+Définition à la ligne 61 du fichier SH_NamedObject\&.h\&.
+.PP
+Référencé par ptraddress()\&.
+
+.SH "Auteur"
+.PP 
+Généré automatiquement par Doxygen pour PreCheck à partir du code source\&.

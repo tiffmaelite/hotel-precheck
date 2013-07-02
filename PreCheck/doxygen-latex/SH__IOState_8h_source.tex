@@ -7,43 +7,51 @@
 00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IOSTATE\_H}
 00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{SH__GenericDebugableState_8h}{SH\_GenericDebugableState.h}"}
 00004 \textcolor{preprocessor}{#include <QtCore>}
-00005 
+00005 \textcolor{comment}{/*namespace SimplHotel}
+00006 \textcolor{comment}{\{*/}
 \hypertarget{SH__IOState_8h_source_l00011}{}\hyperlink{classSH__InOutState}{00011} \textcolor{keyword}{class }\hyperlink{classSH__InOutState}{SH\_InOutState} : \textcolor{keyword}{public} \hyperlink{classSH__GenericState}{SH\_GenericState}
 00012 \{
 00013     Q\_OBJECT
 00014 \textcolor{keyword}{public}:
+00015 
 00023     \hyperlink{classSH__InOutState_a5fa88487103a8e197a8453c991bb056b}{SH\_InOutState}(QString \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}, QString \hyperlink{classSH__NamedObject_a9f686c6f2a5bcc08ad03d0cee0151f0f}{name}, \hyperlink{classQState}{QState} *parent = 0);
 00024 
-00031     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}() \textcolor{keyword}{const};
-00032 
-00039     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{rawInput}() \textcolor{keyword}{const};
-00040 
-00047     \textcolor{keyword}{virtual} QString \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}() \textcolor{keyword}{const};
-00048 
-00049 
-00056     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_afc0433d63375063a43e39adca641e330}{onExit}(QEvent *event);
-00057 
-00063     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{visibility}();
-00064 
-00070     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{display}(\textcolor{keywordtype}{bool} canDisplay);
-00071 
-00072 signals:
-00079     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{sendOutput}(QVariant output);
-00086     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{resendInput}(QVariant input);
+00030     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__InOutState_a8e1b78069343122df7713624a1a5a100}{input}() \textcolor{keyword}{const};
+00031 
+00037     \textcolor{keyword}{virtual} QVariant \hyperlink{classSH__InOutState_a4c674a54f41d2e6ef951b22393dcd89f}{rawInput}() \textcolor{keyword}{const};
+00038 
+00044     \textcolor{keyword}{virtual} QString \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}() \textcolor{keyword}{const};
+00045 
+00051     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutState_a3a18752c4122c26a2ebf38310c9c1b75}{visibility}();
+00052 
+00058     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{display}(\textcolor{keywordtype}{bool} canDisplay);
+00059 
+00060     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a40995f4a8201f21d26b7e78b7e7b652e}{emitSendOutput}();
+00061 
+00062     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_ad1695493d39c5194e5b7c6372754ddd7}{emitResendInput}();
+00063 
+00064 signals:
+00065 
+00071     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a77921c5f42059bc97361f4ff7827da12}{sendOutput}(QVariant output);
+00072 
+00078     \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a1f00480afefd173002cf56d4c4128048}{resendInput}(QVariant input);
+00079 \textcolor{keyword}{public} slots:
+00080 
+00086     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{setInput}(\textcolor{keyword}{const} QVariant &input);
 00087 
-00088 \textcolor{keyword}{public} slots:
-00095     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{setInput}(\textcolor{keyword}{const} QVariant &input);
-00102     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{setOutput}(\textcolor{keyword}{const} QString &output);
-00103 
-00104 
-00110     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a7fdfaa6f600f0ac4a96f238a038ba9ad}{setVisibility}(\textcolor{keywordtype}{bool} isVisible);
-00111 
-00112 \textcolor{keyword}{private}:
-\hypertarget{SH__IOState_8h_source_l00116}{}\hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{00116}     QVariant \hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{m\_input};
-\hypertarget{SH__IOState_8h_source_l00120}{}\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{00120}     QString \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output};
-\hypertarget{SH__IOState_8h_source_l00124}{}\hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{00124}     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible};
-\hypertarget{SH__IOState_8h_source_l00128}{}\hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{00128}     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{m\_display};
-00129 \};
-00130 
-00131 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* IOSTATE\_H*/}\textcolor{preprocessor}{}
+00093     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{setOutput}(\textcolor{keyword}{const} QString &output);
+00094 
+00100     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__InOutState_a7fdfaa6f600f0ac4a96f238a038ba9ad}{setVisibility}(\textcolor{keywordtype}{bool} isVisible);
+00101 \textcolor{keyword}{private}:
+00102 
+\hypertarget{SH__IOState_8h_source_l00106}{}\hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{00106}     QVariant \hyperlink{classSH__InOutState_ae43d6fdc62047f285913837648a1e883}{m\_input};
+00107 
+\hypertarget{SH__IOState_8h_source_l00111}{}\hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{00111}     QString \hyperlink{classSH__InOutState_ae735e741ce229d2600448d8daa0abc2d}{m\_output};
+00112 
+\hypertarget{SH__IOState_8h_source_l00116}{}\hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{00116}     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutState_a8fd66b185c9a55f0e84daa97e2acf53a}{m\_isVisible};
+00117 
+\hypertarget{SH__IOState_8h_source_l00121}{}\hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{00121}     \textcolor{keywordtype}{bool} \hyperlink{classSH__InOutState_a3351fa53593266a1ae4334d33d0b1610}{m\_display};
+00122 \};
+00123 \textcolor{comment}{/*\}*/}
+00124 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* IOSTATE\_H*/}\textcolor{preprocessor}{}
 \end{DoxyCode}

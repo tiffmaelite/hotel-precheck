@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data',['data',['../classSH__ExtendedProxyModel.xhtml#aca6cc510f740e847e0cfc06e0adb5771',1,'SH_ExtendedProxyModel::data(int row, int column) const '],['../classSH__ExtendedProxyModel.xhtml#afbc947efbe1107fc5bf8926c52902a1c',1,'SH_ExtendedProxyModel::data(const QModelIndex &amp;index, int role=Qt::DisplayRole) const '],['../classSH__SqlDataModel.xhtml#aa4664329d52c2d2cba2bacc42fa1a564',1,'SH_SqlDataModel::data()']]],
+  ['data',['data',['../classSH__ExtendedProxyModel.xhtml#a9fd2e16750c7c8c4cbd8f357b00ed008',1,'SH_ExtendedProxyModel::data(int row, int column=-1) const '],['../classSH__ExtendedProxyModel.xhtml#afbc947efbe1107fc5bf8926c52902a1c',1,'SH_ExtendedProxyModel::data(const QModelIndex &amp;index, int role=Qt::DisplayRole) const '],['../classSH__SqlDataModel.xhtml#aa4664329d52c2d2cba2bacc42fa1a564',1,'SH_SqlDataModel::data()']]],
   ['datacount',['dataCount',['../classSH__DatabaseManager.xhtml#ad3e372d89b60b43e3f3bae649be6d7fb',1,'SH_DatabaseManager']]],
   ['datadelegate',['dataDelegate',['../classSH__ContentView.xhtml#a4587c7cc61cefdb55d96e2f3b05e02b4',1,'SH_ContentView']]],
   ['datas',['datas',['../classSH__SqlDataModel.xhtml#a24db284b370930b57e2261a7a72e2da8',1,'SH_SqlDataModel']]],
@@ -18,15 +18,15 @@ var searchData=
   ['dbusernamestr',['dbUsernameStr',['../SH__DatabaseManager_8h.xhtml#a15964752bd7d7c2075f3bafca2218411',1,'SH_DatabaseManager.h']]],
   ['debug',['DEBUG',['../classSH__MessageManager.xhtml#a13742daa1342475d4fcee295b9dee4eeac1f651f46ed4faeccbb6ce75f31c6123',1,'SH_MessageManager']]],
   ['debug_5fverbose',['DEBUG_VERBOSE',['../classSH__MessageManager.xhtml#a13742daa1342475d4fcee295b9dee4eea10b19d57d9a8572101d39b51cdca79d0',1,'SH_MessageManager']]],
+  ['debugmessage',['debugMessage',['../classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7',1,'SH_MessageManager']]],
   ['delegatemodel',['delegateModel',['../classSH__HeaderView.xhtml#a95ec60701e7213acbe17fdc477feb83c',1,'SH_HeaderView']]],
   ['display',['display',['../classSH__InOutState.xhtml#a616f88b20478b81b2927a9ddc2b4f521',1,'SH_InOutState::display()'],['../classSH__OutputZone.xhtml#a137f08121743a873a4b803378564b831',1,'SH_OutputZone::display()']]],
   ['displaycalendar',['displayCalendar',['../classSH__InOutStateMachine.xhtml#ab3a12d1f9b658d8ffdc17669a6c065f2',1,'SH_InOutStateMachine::displayCalendar()'],['../classSH__ApplicationCore.xhtml#acb00dec6d5cc096ca99e8d0235dd8095',1,'SH_ApplicationCore::displayCalendar()'],['../classSH__OutputZone.xhtml#a3fb363c9732edb963b97a0af893378a7',1,'SH_OutputZone::displayCalendar()']]],
-  ['displaychoicelist',['displayChoiceList',['../classSH__DatabaseContentQuestionState.xhtml#acc79a171c2a70d52120676329a132dc4',1,'SH_DatabaseContentQuestionState']]],
-  ['displayfiledialog',['displayFileDialog',['../classSH__InOutStateMachine.xhtml#abd206c3bc32bb7690df9c3e1cd546ebc',1,'SH_InOutStateMachine']]],
+  ['displaychoicelist',['displayChoiceList',['../classSH__DatabaseContentQuestionState.xhtml#ae1e149ad7ab3d957f3c5df9ef078448b',1,'SH_DatabaseContentQuestionState::displayChoiceList()'],['../classSH__InOutStateMachine.xhtml#ab74b981b0aab09067d7479f2b7e79b0b',1,'SH_InOutStateMachine::displayChoiceList()'],['../classSH__ApplicationCore.xhtml#a9e5a18f183d1e2999f86eb9f7fad0d80',1,'SH_ApplicationCore::displayChoiceList()']]],
+  ['displayfiledialog',['displayFileDialog',['../classSH__InOutStateMachine.xhtml#abd206c3bc32bb7690df9c3e1cd546ebc',1,'SH_InOutStateMachine::displayFileDialog()'],['../classSH__ApplicationCore.xhtml#ab69844843adf0044efc0810b1772ce5a',1,'SH_ApplicationCore::displayFileDialog()'],['../classSH__CommonPage.xhtml#a4a067bd704f5c91d1487a8cb62f7f7b6',1,'SH_CommonPage::displayFileDialog()']]],
   ['displaynew',['displayNew',['../classSH__OutputZone.xhtml#ae5a2247f1c3223e5a73de52fdbdb821b',1,'SH_OutputZone']]],
   ['displaynewfixed',['displayNewFixed',['../classSH__OutputZone.xhtml#a899a18d02081f15ec88699652926d1b2',1,'SH_OutputZone']]],
-  ['displaysqldatas',['displaySqlDatas',['../classSH__OutputZone.xhtml#ad898491cb4e3c7f27d1a020a12b0de83',1,'SH_OutputZone']]],
-  ['displaysqldetail',['displaySqlDetail',['../classSH__OutputZone.xhtml#a5a785363482e4bd17c0f9cee4d29e2ee',1,'SH_OutputZone']]],
+  ['displaysqldatas',['displaySqlDatas',['../classSH__OutputZone.xhtml#ad3182752fc9999b2f907af5d07e2575d',1,'SH_OutputZone']]],
   ['displaytext',['displayText',['../classSH__OutputZone.xhtml#a2643d4fe88a476c2296f9e7a44da6c62',1,'SH_OutputZone']]],
   ['divideqvariantmap',['divideQVariantMap',['../classSH__DatabaseManager.xhtml#a4562e0c0027c0adbba645edc433f7fd1',1,'SH_DatabaseManager']]]
 ];

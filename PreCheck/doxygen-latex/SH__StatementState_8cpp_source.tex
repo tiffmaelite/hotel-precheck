@@ -4,24 +4,24 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__StatementState_8h}{SH\_StatementState.h}"}
-00002 
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00003 \textcolor{comment}{/*namespace SimplHotel}
+00004 \textcolor{comment}{\{*/}
 \hypertarget{SH__StatementState_8cpp_source_l00009}{}\hyperlink{classSH__StatementState_acc888fc333049b693f05ff760e363f27}{00009} \hyperlink{classSH__StatementState_acc888fc333049b693f05ff760e363f27}{SH\_StatementState::SH\_StatementState}(QString output, QString name, 
       \hyperlink{classQState}{QState} *parent) :
 00010     \hyperlink{classSH__InOutState}{SH\_InOutState}(output, name, parent)
 00011 \{
-00012     qDebug() << \textcolor{stringliteral}{"salut ! "}<< \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output};
-00013 \}
-00014 
-\hypertarget{SH__StatementState_8cpp_source_l00021}{}\hyperlink{classSH__StatementState_ac9d6483521908224e4cb3765d680d113}{00021} \textcolor{keywordtype}{void} \hyperlink{classSH__StatementState_ac9d6483521908224e4cb3765d680d113}{SH\_StatementState::setInput}(\textcolor{keyword}{const} QVariant &input)
-00022 \{
-00023     Q\_UNUSED(input);
-00024     \textcolor{comment}{/*DO NOTHING*/}
-00025 \}
-00026 
-\hypertarget{SH__StatementState_8cpp_source_l00033}{}\hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{00033} \textcolor{keywordtype}{void} \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{SH\_StatementState::onEntry}(QEvent *event)
-00034 \{
-00035     \hyperlink{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{SH\_GenericState::onEntry}(event);
-00036     \hyperlink{classSH__InOutState_a616f88b20478b81b2927a9ddc2b4f521}{display}(\textcolor{keyword}{true});
-00037     emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
-00038 \}
+00012 \}
+\hypertarget{SH__StatementState_8cpp_source_l00017}{}\hyperlink{classSH__StatementState_ac9d6483521908224e4cb3765d680d113}{00017} \textcolor{keywordtype}{void} \hyperlink{classSH__StatementState_ac9d6483521908224e4cb3765d680d113}{SH\_StatementState::setInput}(\textcolor{keyword}{const} QVariant &input)
+00018 \{
+00019     Q\_UNUSED(input);
+00020     \textcolor{comment}{/*DO NOTHING*/}
+00021 \}
+\hypertarget{SH__StatementState_8cpp_source_l00026}{}\hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{00026} \textcolor{keywordtype}{void} \hyperlink{classSH__StatementState_ab866a023213fe1bd1857705bf98a8f65}{SH\_StatementState::onEntry}(QEvent *event)
+00027 \{
+00028     \hyperlink{classSH__GenericState_a68c67ef95738e01cd34cd5926f4932fb}{SH\_GenericState::onEntry}(event);
+00029     \textcolor{comment}{//display(true);}
+00030     emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
+00031 \}
+00032 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

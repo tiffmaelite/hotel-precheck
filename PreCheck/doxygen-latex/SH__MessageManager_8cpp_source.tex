@@ -13,47 +13,50 @@
 00008 \textcolor{preprocessor}{#include <string>}
 00009 \textcolor{preprocessor}{#include <QMessageBox>}
 00010 
-\hypertarget{SH__MessageManager_8cpp_source_l00016}{}\hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{00016} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(QString message, QString title)
-00017 \{
-00018     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
-00019 \textcolor{preprocessor}{#ifdef DEBUG}
-00020 \textcolor{preprocessor}{}        qWarning() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
-00021 \textcolor{preprocessor}{#else}
-00022 \textcolor{preprocessor}{}        QMessageBox::critical(0,QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title),QObject::tr(\textcolor{stringliteral}{"%L2"}).arg(message));
-00023 \textcolor{preprocessor}{#endif}
-00024 \textcolor{preprocessor}{}    \}
-00025 \}
-00026 
+00011 \textcolor{comment}{/*namespace SimplHotel}
+00012 \textcolor{comment}{\{*/}
+\hypertarget{SH__MessageManager_8cpp_source_l00017}{}\hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{00017} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(QString message, QString title)
+00018 \{
+00019     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00020 \textcolor{preprocessor}{#ifdef DEBUG}
+00021 \textcolor{preprocessor}{}    qWarning() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00022 \textcolor{preprocessor}{#else}
+00023 \textcolor{preprocessor}{}    QMessageBox::critical(0,QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title),QObject::tr(\textcolor{stringliteral}{"%L2"}).arg(message));
+00024 \textcolor{preprocessor}{#endif}
+00025 \textcolor{preprocessor}{}    \}
+00026 \}
 00027 
-\hypertarget{SH__MessageManager_8cpp_source_l00033}{}\hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{00033} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{SH\_MessageManager::successMessage}(QString message, QString title)
-00034 \{
-00035     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
-00036         \textcolor{comment}{/*switch(errorMode) \{}
-00037 \textcolor{comment}{    case DEBUG:*/}
-00038         qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
-00039         \textcolor{comment}{/*break;}
-00040 \textcolor{comment}{    case TEST:}
-00041 \textcolor{comment}{    case RELEASE:}
-00042 \textcolor{comment}{        QMessageBox::information(0,QObject::tr("%L1).arg(title),QObject::tr("%L2).arg(message));}
-00043 \textcolor{comment}{    default:}
-00044 \textcolor{comment}{        console.log(title+" : " + message);}
-00045 \textcolor{comment}{    \}*/}
-00046     \}
-00047 \}
-00048 
-\hypertarget{SH__MessageManager_8cpp_source_l00054}{}\hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{00054} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString message, QString title)
-00055 \{
-00056     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
-00057         \textcolor{comment}{/*switch(errorMode) \{}
-00058 \textcolor{comment}{    case DEBUG:*/}
-00059         qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
-00060         \textcolor{comment}{/*break;}
-00061 \textcolor{comment}{    case TEST:}
-00062 \textcolor{comment}{    case RELEASE:}
-00063 \textcolor{comment}{        QMessageBox::information(0,QObject::tr("%L1).arg(title),QObject::tr("%L2).arg(message));}
-00064 \textcolor{comment}{    default:}
-00065 \textcolor{comment}{        console.log(title+" : " + message);}
-00066 \textcolor{comment}{    \}*/}
-00067     \}
-00068 \}
+\hypertarget{SH__MessageManager_8cpp_source_l00032}{}\hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{00032} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString message, QString title)
+00033 \{
+00034     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00035 \textcolor{comment}{//#ifdef DEBUG}
+00036     qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00037 \textcolor{comment}{//#endif}
+00038     \}
+00039 \}
+00040 
+00041 
+\hypertarget{SH__MessageManager_8cpp_source_l00046}{}\hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{00046} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{SH\_MessageManager::successMessage}(QString message, QString title)
+00047 \{
+00048     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00049 \textcolor{preprocessor}{#ifdef DEBUG}
+00050 \textcolor{preprocessor}{}    qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00051 \textcolor{preprocessor}{#else}
+00052 \textcolor{preprocessor}{}    QMessageBox::information(0,QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title),QObject::tr(\textcolor{stringliteral}{"%L2"}).arg(message));
+00053 \textcolor{preprocessor}{#endif}
+00054 \textcolor{preprocessor}{}    \}
+00055 \}
+00056 
+\hypertarget{SH__MessageManager_8cpp_source_l00061}{}\hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{00061} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString message, QString title)
+00062 \{
+00063     \textcolor{keywordflow}{if}(!message.isEmpty()) \{
+00064 \textcolor{preprocessor}{#ifdef DEBUG}
+00065 \textcolor{preprocessor}{}    qDebug() << QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message);
+00066 \textcolor{preprocessor}{#else}
+00067 \textcolor{preprocessor}{}    QMessageBox::warning(0, QObject::tr(\textcolor{stringliteral}{"%L1"}).arg(title), QObject::tr(\textcolor{stringliteral}{"%L1 : %L2"}).arg(title).arg(message)
+      );
+00068 \textcolor{preprocessor}{#endif}
+00069 \textcolor{preprocessor}{}    \}
+00070 \}
+00071 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

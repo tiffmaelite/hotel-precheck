@@ -4,29 +4,27 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__RegExpQuestionState_8h}{SH\_RegExpQuestionState.h}"}
-00002 
+00002 \textcolor{comment}{/*namespace SimplHotel}
+00003 \textcolor{comment}{\{*/}
 \hypertarget{SH__RegExpQuestionState_8cpp_source_l00008}{}\hyperlink{classSH__RegExpQuestionState_a4b4263f6933e16d2535b7c04b7a8dc3a}{00008} \hyperlink{classSH__RegExpQuestionState_a4b4263f6933e16d2535b7c04b7a8dc3a}{SH\_RegExpQuestionState::SH\_RegExpQuestionState}(QString 
       question, QString name, QRegularExpression regex, \hyperlink{classQState}{QState} *parent) :
-00009     \hyperlink{classSH__StringQuestionState}{SH\_StringQuestionState}(question, name, 0,-1,parent)
+00009     \hyperlink{classSH__StringQuestionState}{SH\_StringQuestionState}(question, name, 0,-1,parent), m\_regexp(regex)
 00010 \{
 00011 \}
-00012 
-\hypertarget{SH__RegExpQuestionState_8cpp_source_l00018}{}\hyperlink{classSH__RegExpQuestionState_ae0bb330572247ce10fb961d183eb5720}{00018} \textcolor{keywordtype}{bool} \hyperlink{classSH__RegExpQuestionState_ae0bb330572247ce10fb961d183eb5720}{SH\_RegExpQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer
+\hypertarget{SH__RegExpQuestionState_8cpp_source_l00016}{}\hyperlink{classSH__RegExpQuestionState_ae0bb330572247ce10fb961d183eb5720}{00016} \textcolor{keywordtype}{bool} \hyperlink{classSH__RegExpQuestionState_ae0bb330572247ce10fb961d183eb5720}{SH\_RegExpQuestionState::isAnswerValid}(\textcolor{keyword}{const} QVariant &givenAnswer
       )
-00019 \{
-00020     QString answer = givenAnswer.toString();
-00021     QRegularExpressionMatch found = \hyperlink{classSH__RegExpQuestionState_a82543a3535f8dcb09942bfab8acf3323}{m\_regexp}.match(answer);
-00022     \textcolor{keywordflow}{return} (found.hasMatch() && (found.captured(0) == answer));
-00023 \}
-00024 
-00025 
-\hypertarget{SH__RegExpQuestionState_8cpp_source_l00031}{}\hyperlink{classSH__RegExpQuestionState_ab6c04f9e67ad6759b12c889815618bdd}{00031} QRegularExpression \hyperlink{classSH__RegExpQuestionState_ab6c04f9e67ad6759b12c889815618bdd}{SH\_RegExpQuestionState::regexp}()\textcolor{keyword}{ const}
-00032 \textcolor{keyword}{}\{
-00033     \textcolor{keywordflow}{return} \hyperlink{classSH__RegExpQuestionState_a82543a3535f8dcb09942bfab8acf3323}{m\_regexp};
-00034 \}
-00035 
-\hypertarget{SH__RegExpQuestionState_8cpp_source_l00041}{}\hyperlink{classSH__RegExpQuestionState_afa04f3a85226430e1a250bd5390e7c95}{00041} \textcolor{keywordtype}{void} \hyperlink{classSH__RegExpQuestionState_afa04f3a85226430e1a250bd5390e7c95}{SH\_RegExpQuestionState::setRegexp}(\textcolor{keyword}{const} QRegularExpression &regexp)
-00042 \{
-00043     \hyperlink{classSH__RegExpQuestionState_a82543a3535f8dcb09942bfab8acf3323}{m\_regexp} = \hyperlink{classSH__RegExpQuestionState_ab6c04f9e67ad6759b12c889815618bdd}{regexp};
-00044 \}
+00017 \{
+00018     QString answer = givenAnswer.toString();
+00019     QRegularExpressionMatch found = \hyperlink{classSH__RegExpQuestionState_a82543a3535f8dcb09942bfab8acf3323}{m\_regexp}.match(answer);
+00020     \textcolor{keywordflow}{return} (found.hasMatch() && (found.captured(0) == answer));
+00021 \}
+\hypertarget{SH__RegExpQuestionState_8cpp_source_l00026}{}\hyperlink{classSH__RegExpQuestionState_ab6c04f9e67ad6759b12c889815618bdd}{00026} QRegularExpression \hyperlink{classSH__RegExpQuestionState_ab6c04f9e67ad6759b12c889815618bdd}{SH\_RegExpQuestionState::regexp}()\textcolor{keyword}{ const}
+00027 \textcolor{keyword}{}\{
+00028     \textcolor{keywordflow}{return} \hyperlink{classSH__RegExpQuestionState_a82543a3535f8dcb09942bfab8acf3323}{m\_regexp};
+00029 \}
+\hypertarget{SH__RegExpQuestionState_8cpp_source_l00034}{}\hyperlink{classSH__RegExpQuestionState_afa04f3a85226430e1a250bd5390e7c95}{00034} \textcolor{keywordtype}{void} \hyperlink{classSH__RegExpQuestionState_afa04f3a85226430e1a250bd5390e7c95}{SH\_RegExpQuestionState::setRegexp}(\textcolor{keyword}{const} QRegularExpression &regexp)
+00035 \{
+00036     \hyperlink{classSH__RegExpQuestionState_a82543a3535f8dcb09942bfab8acf3323}{m\_regexp} = \hyperlink{classSH__RegExpQuestionState_ab6c04f9e67ad6759b12c889815618bdd}{regexp};
+00037 \}
+00038 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

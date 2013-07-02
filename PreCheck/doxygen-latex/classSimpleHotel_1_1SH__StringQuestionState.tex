@@ -1,0 +1,883 @@
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState}{\section{Référence de la classe Simple\-Hotel\-:\-:S\-H\-\_\-\-String\-Question\-State}
+\label{classSimpleHotel_1_1SH__StringQuestionState}\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+}
+
+
+{\ttfamily \#include $<$S\-H\-\_\-\-String\-Question\-State.\-h$>$}
+
+Graphe d'héritage de Simple\-Hotel\-:\-:S\-H\-\_\-\-String\-Question\-State\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.000000cm]{classSimpleHotel_1_1SH__StringQuestionState}
+\end{center}
+\end{figure}
+\subsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classSimpleHotel_1_1SH__InOutState_a5e151d7b01cceb6766b6d83d4a9ac1aa}{set\-Output} (const Q\-String \&\hyperlink{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}{output})
+\item 
+virtual void \hyperlink{classSimpleHotel_1_1SH__InOutState_a2da1edbe247e9b2661c81c9dc2c7ef8d}{set\-Visibility} (bool is\-Visible)
+\end{DoxyCompactItemize}
+\subsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__QuestionState_a69caaa66c68de820a5afa9584f24ca31}{answer\-Invalid} ()
+\begin{DoxyCompactList}\small\item\em answer\-Invalid \end{DoxyCompactList}\item 
+void \hyperlink{classSimpleHotel_1_1SH__QuestionState_ad69b23cffd57936805e7b66483c5c951}{answer\-Valid} ()
+\begin{DoxyCompactList}\small\item\em answer\-Valid \end{DoxyCompactList}\item 
+void \hyperlink{classSimpleHotel_1_1SH__GenericState_a5afea8cc17017b08b8db6d51b5bcefc4}{go\-Next} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__GenericState_a0ff6668857baab63d4f13c4d7175acbd}{next} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__InOutState_ab259648430e9e6e0667e79398c68c0d9}{resend\-Input} (Q\-Variant \hyperlink{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{input})
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}{send\-Output} (Q\-Variant \hyperlink{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}{output})
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a9c0279dfa4d5839719a3c0380d126f84}{S\-H\-\_\-\-String\-Question\-State} (Q\-String question, Q\-String \hyperlink{classSimpleHotel_1_1SH__NamedObject_ad144716345034c91cface8f3163a799e}{name}, int min\-Length=0, int max\-Length=-\/1, \hyperlink{classQState}{Q\-State} $\ast$parent=0)
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{check\-Validity} ()
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__InOutState_a1cbe5befe4f42e0941165498ed0117a9}{display} (bool can\-Display)
+\item 
+virtual Q\-Variant \hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{given\-Answer} () const 
+\item 
+virtual Q\-Variant \hyperlink{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{input} () const 
+\item 
+virtual bool \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a64428aab057a96918f2f97815c7c2717}{is\-Answer\-Valid} (const Q\-Variant \&\hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{given\-Answer})
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{is\-Running} ()
+\item 
+int \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}{max\-Len} () const 
+\item 
+int \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}{min\-Len} () const 
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__InOutState_aa5fc1b9281087bd8abcd6873d2a36009}{on\-Exit} (Q\-Event $\ast$event)
+\item 
+virtual Q\-String \hyperlink{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}{output} () const 
+\item 
+virtual Q\-Variant \hyperlink{classSimpleHotel_1_1SH__InOutState_a5e8064672e20c7b13fec67a4955a3ce3}{raw\-Input} () const 
+\item 
+virtual void \hyperlink{classSimpleHotel_1_1SH__QuestionState_aeb4464741ecd13b283c504def63dd619}{set\-Given\-Answer} (const Q\-Variant \&\hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{given\-Answer})
+\item 
+virtual void \hyperlink{classSimpleHotel_1_1SH__QuestionState_ae404d8874e542fd5f3e6d658f003bae4}{set\-Input} (const Q\-Variant \&\hyperlink{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{input})
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_add76bb81ad6095e3445e843c460c351e}{set\-Max\-Len} (int \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}{max\-Len})
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a391cd56671790f9553cd99aa5bef5f50}{set\-Min\-Len} (int \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}{min\-Len})
+\item 
+Q\-String \hyperlink{classSimpleHotel_1_1SH__GenericState_adaded78178f9999a9e07a32871af5e61}{to\-String} ()
+\item 
+bool \hyperlink{classSimpleHotel_1_1SH__InOutState_a145a6e0e2c9e22971e35aa4538adeb4a}{visibility} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSimpleHotel_1_1SH__GenericState_adebdb330ff20556a54a833b15e50eacc}{on\-Entry} (Q\-Event $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\-\_\-max\-Len}
+\begin{DoxyCompactList}\small\item\em m\-\_\-max\-Len \end{DoxyCompactList}\item 
+int \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\-\_\-min\-Len}
+\begin{DoxyCompactList}\small\item\em m\-\_\-min\-Len \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8h_source_l00012}{12} du fichier \hyperlink{SH__StringQuestionState_8h_source}{S\-H\-\_\-\-String\-Question\-State.\-h}.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_a9c0279dfa4d5839719a3c0380d126f84}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!S\-H\-\_\-\-String\-Question\-State@{S\-H\-\_\-\-String\-Question\-State}}
+\index{S\-H\-\_\-\-String\-Question\-State@{S\-H\-\_\-\-String\-Question\-State}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{S\-H\-\_\-\-String\-Question\-State}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::\-S\-H\-\_\-\-String\-Question\-State (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{question, }
+\item[{Q\-String}]{name, }
+\item[{int}]{min\-Length = {\ttfamily 0}, }
+\item[{int}]{max\-Length = {\ttfamily -\/1}, }
+\item[{{\bf Q\-State} $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__StringQuestionState_a9c0279dfa4d5839719a3c0380d126f84}
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8cpp_source_l00011}{11} du fichier \hyperlink{SH__StringQuestionState_8cpp_source}{S\-H\-\_\-\-String\-Question\-State.\-cpp}.
+
+
+\begin{DoxyCode}
+00011                                                                                                            
+                      :
+00012     \hyperlink{classSimpleHotel_1_1SH__QuestionState_a130ebc5b653b08b01d205963202410bf}{SH\_QuestionState}(question, \hyperlink{classSimpleHotel_1_1SH__NamedObject_ad144716345034c91cface8f3163a799e}{name}, parent), \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\_minLen}(minLength), 
+      \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\_maxLen}(maxLength)
+00013 \{
+00014 
+00015 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSimpleHotel_1_1SH__QuestionState_a69caaa66c68de820a5afa9584f24ca31}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!answer\-Invalid@{answer\-Invalid}}
+\index{answer\-Invalid@{answer\-Invalid}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{answer\-Invalid}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::answer\-Invalid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__QuestionState_a69caaa66c68de820a5afa9584f24ca31}
+
+
+answer\-Invalid 
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity()}, \hyperlink{classSimpleHotel_1_1SH__BillingCreationStateMachine_a8c7d39e11d0ced1fd9c27a5550465b86}{Simple\-Hotel\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, et \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+\hypertarget{classSimpleHotel_1_1SH__QuestionState_ad69b23cffd57936805e7b66483c5c951}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!answer\-Valid@{answer\-Valid}}
+\index{answer\-Valid@{answer\-Valid}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{answer\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::answer\-Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__QuestionState_ad69b23cffd57936805e7b66483c5c951}
+
+
+answer\-Valid 
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity()}, et \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+\hypertarget{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!check\-Validity@{check\-Validity}}
+\index{check\-Validity@{check\-Validity}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{check\-Validity}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00023}{23} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__QuestionState_a69caaa66c68de820a5afa9584f24ca31}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::answer\-Invalid()}, \hyperlink{classSimpleHotel_1_1SH__QuestionState_ad69b23cffd57936805e7b66483c5c951}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::answer\-Valid()}, \hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::given\-Answer()}, \hyperlink{classSimpleHotel_1_1SH__GenericState_a5afea8cc17017b08b8db6d51b5bcefc4}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::go\-Next()}, \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{Simple\-Hotel\-::\-S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSimpleHotel_1_1SH__QuestionState_a4ac48027efab18daeb389a9cb1efe39c}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::is\-Answer\-Valid()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a30d45824ca3c749427ac8d40479cf072}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, et \hyperlink{classSimpleHotel_1_1SH__GenericState_adaded78178f9999a9e07a32871af5e61}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::to\-String()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_aeb4464741ecd13b283c504def63dd619}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::set\-Given\-Answer()}.
+
+
+\begin{DoxyCode}
+00024 \{
+00025     \textcolor{keywordtype}{bool} ok = this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_a4ac48027efab18daeb389a9cb1efe39c}{isAnswerValid}(this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{givenAnswer}());
+00026     \textcolor{keywordflow}{if}(ok) \{
+00027         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 is a VALID answer!"}).arg(
+      this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{givenAnswer}().\hyperlink{classSimpleHotel_1_1SH__GenericState_adaded78178f9999a9e07a32871af5e61}{toString}()));
+00028         \hyperlink{classSimpleHotel_1_1SH__InOutState_a30d45824ca3c749427ac8d40479cf072}{SH\_InOutState::setInput}(this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{givenAnswer}());
+00029         emit \hyperlink{classSimpleHotel_1_1SH__QuestionState_ad69b23cffd57936805e7b66483c5c951}{answerValid}();
+00030         emit \hyperlink{classSimpleHotel_1_1SH__GenericState_a5afea8cc17017b08b8db6d51b5bcefc4}{goNext}();
+00031     \} \textcolor{keywordflow}{else} \{
+00032         \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 is an INvalid :-( answer"})
+      .arg(this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{givenAnswer}().\hyperlink{classSimpleHotel_1_1SH__GenericState_adaded78178f9999a9e07a32871af5e61}{toString}()));
+00033         emit \hyperlink{classSimpleHotel_1_1SH__QuestionState_a69caaa66c68de820a5afa9584f24ca31}{answerInvalid}();
+00034     \}
+00035     \textcolor{keywordflow}{return} ok;
+00036 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a1cbe5befe4f42e0941165498ed0117a9}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!display@{display}}
+\index{display@{display}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::display (
+\begin{DoxyParamCaption}
+\item[{bool}]{can\-Display}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a1cbe5befe4f42e0941165498ed0117a9}
+
+\begin{DoxyParams}{Paramètres}
+{\em can\-Display} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00104}{104} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a219039bbe5e46a91dfd7aa51fb530ae4}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-display}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, \hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-output}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::send\-Output()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a07ae9f1f74a9a41b26e77a014679a33e}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSimpleHotel_1_1SH__StatementState_a0b70f003ac6617fa2d3a43e07a3e4319}{Simple\-Hotel\-::\-S\-H\-\_\-\-Statement\-State\-::on\-Entry()}.
+
+
+\begin{DoxyCode}
+00105 \{
+00106     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{isRunning}()) \{
+00107         \hyperlink{classSimpleHotel_1_1SH__InOutState_a219039bbe5e46a91dfd7aa51fb530ae4}{m\_display}=canDisplay;
+00108         \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__InOutState_a219039bbe5e46a91dfd7aa51fb530ae4}{m\_display} && !\hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{m\_output}.isEmpty() && \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{m\_isVisible}) \{
+00109             emit \hyperlink{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}{sendOutput}(QVariant(\hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{m\_output}));
+00110         \}
+00111     \}
+00112 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!given\-Answer@{given\-Answer}}
+\index{given\-Answer@{given\-Answer}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{given\-Answer}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::given\-Answer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}
+\begin{DoxyReturn}{Renvoie}
+Q\-Variant 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00055}{55} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__QuestionState_ac8577f9df8ac0ac261103dad5cd29f10}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::m\-\_\-given\-Answer}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity()}, \hyperlink{classSimpleHotel_1_1SH__DatabaseContentQuestionState_af7b1002ee7209e3e8238a5e11fd0294b}{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Content\-Question\-State\-::raw\-Input()}, et \hyperlink{classSimpleHotel_1_1SH__BillingCreationStateMachine_a8c7d39e11d0ced1fd9c27a5550465b86}{Simple\-Hotel\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}.
+
+
+\begin{DoxyCode}
+00056 \{
+00057     \textcolor{keywordflow}{return} this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_ac8577f9df8ac0ac261103dad5cd29f10}{m\_givenAnswer};
+00058 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__GenericState_a5afea8cc17017b08b8db6d51b5bcefc4}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!go\-Next@{go\-Next}}
+\index{go\-Next@{go\-Next}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{go\-Next}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::go\-Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__GenericState_a5afea8cc17017b08b8db6d51b5bcefc4}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity()}, \hyperlink{classSimpleHotel_1_1SH__ConfirmationState_a42814c25df062e1f4cf3929dd9f37a85}{Simple\-Hotel\-::\-S\-H\-\_\-\-Confirmation\-State\-::confirm\-Input()}, \hyperlink{classSimpleHotel_1_1SH__AdaptDatabaseState_af125e11b83df08b8e67f90c55c69d583}{Simple\-Hotel\-::\-S\-H\-\_\-\-Adapt\-Database\-State\-::insert\-Update()}, \hyperlink{classSimpleHotel_1_1SH__StatementState_a0b70f003ac6617fa2d3a43e07a3e4319}{Simple\-Hotel\-::\-S\-H\-\_\-\-Statement\-State\-::on\-Entry()}, \hyperlink{classSimpleHotel_1_1SH__BillingCreationStateMachine_a8c7d39e11d0ced1fd9c27a5550465b86}{Simple\-Hotel\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine\-::\-S\-H\-\_\-\-Billing\-Creation\-State\-Machine()}, \hyperlink{classSimpleHotel_1_1SH__GenericState_a447410572f03a61d1d3170b55724a2de}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::\-S\-H\-\_\-\-Generic\-State()}, et \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!input@{input}}
+\index{input@{input}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{input}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}
+\begin{DoxyReturn}{Renvoie}
+Q\-Variant 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00023}{23} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutState_a7d352dcee656801359ae973726fabc4f}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-input}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutState_a5e8064672e20c7b13fec67a4955a3ce3}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::raw\-Input()}, \hyperlink{classSimpleHotel_1_1SH__DateQuestionState_adb8becb2b3f9c9c38da757dbcea95554}{Simple\-Hotel\-::\-S\-H\-\_\-\-Date\-Question\-State\-::raw\-Input()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a30d45824ca3c749427ac8d40479cf072}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}.
+
+
+\begin{DoxyCode}
+00024 \{
+00025     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__InOutState_a7d352dcee656801359ae973726fabc4f}{m\_input};
+00026 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_a64428aab057a96918f2f97815c7c2717}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!is\-Answer\-Valid@{is\-Answer\-Valid}}
+\index{is\-Answer\-Valid@{is\-Answer\-Valid}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{is\-Answer\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::is\-Answer\-Valid (
+\begin{DoxyParamCaption}
+\item[{const Q\-Variant \&}]{given\-Answer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSimpleHotel_1_1SH__StringQuestionState_a64428aab057a96918f2f97815c7c2717}
+
+\begin{DoxyParams}{Paramètres}
+{\em given\-Answer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classSimpleHotel_1_1SH__QuestionState_a4ac48027efab18daeb389a9cb1efe39c}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State}.
+
+
+
+Réimplémentée dans \hyperlink{classSimpleHotel_1_1SH__RegExpQuestionState_a97925825746247026e1b6abaac04bbf3}{Simple\-Hotel\-::\-S\-H\-\_\-\-Reg\-Exp\-Question\-State}.
+
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8cpp_source_l00023}{23} du fichier \hyperlink{SH__StringQuestionState_8cpp_source}{S\-H\-\_\-\-String\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\-\_\-max\-Len}, et \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\-\_\-min\-Len}.
+
+
+\begin{DoxyCode}
+00024 \{
+00025     QString answer = \hyperlink{classSimpleHotel_1_1SH__QuestionState_a243f09bc1f822af7748edb038ac2957c}{givenAnswer}.toString();
+00026     \textcolor{keywordflow}{if}(!answer.isEmpty()) \{
+00027         \textcolor{keywordtype}{int} answerLength= answer.length();
+00028         \textcolor{keywordflow}{return} ((\hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\_maxLen} <= \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\_minLen} || answerLength <= 
+      \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\_maxLen}) && answerLength >= \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\_minLen});
+00029     \} \textcolor{keywordflow}{else} \{
+00030         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00031     \}
+00032 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!is\-Running@{is\-Running}}
+\index{is\-Running@{is\-Running}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::is\-Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00095}{95} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__GenericState_a4e4ba53c9e163eed2685cfda8745308d}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::m\-\_\-is\-Running}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a3339fd43658e6ac0979bd43014785766}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-Children\-Replace\-Transition()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a1cbe5befe4f42e0941165498ed0117a9}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::display()}, \hyperlink{classSimpleHotel_1_1SH__GenericState_a74b339fb51ef402058b66b4e580eda5a}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::emit\-Go\-Next()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a30d45824ca3c749427ac8d40479cf072}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a5e151d7b01cceb6766b6d83d4a9ac1aa}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a2da1edbe247e9b2661c81c9dc2c7ef8d}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Visibility()}.
+
+
+\begin{DoxyCode}
+00096 \{
+00097     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__GenericState_a4e4ba53c9e163eed2685cfda8745308d}{m\_isRunning};
+00098 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!max\-Len@{max\-Len}}
+\index{max\-Len@{max\-Len}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{max\-Len}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::max\-Len (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8cpp_source_l00040}{40} du fichier \hyperlink{SH__StringQuestionState_8cpp_source}{S\-H\-\_\-\-String\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\-\_\-max\-Len}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_add76bb81ad6095e3445e843c460c351e}{set\-Max\-Len()}.
+
+
+\begin{DoxyCode}
+00041 \{
+00042     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\_maxLen};
+00043 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!min\-Len@{min\-Len}}
+\index{min\-Len@{min\-Len}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{min\-Len}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::min\-Len (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8cpp_source_l00062}{62} du fichier \hyperlink{SH__StringQuestionState_8cpp_source}{S\-H\-\_\-\-String\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\-\_\-min\-Len}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a391cd56671790f9553cd99aa5bef5f50}{set\-Min\-Len()}.
+
+
+\begin{DoxyCode}
+00063 \{
+00064     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\_minLen};
+00065 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__GenericState_a0ff6668857baab63d4f13c4d7175acbd}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!next@{next}}
+\index{next@{next}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__GenericState_a0ff6668857baab63d4f13c4d7175acbd}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__GenericState_a74b339fb51ef402058b66b4e580eda5a}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::emit\-Go\-Next()}.
+
+\hypertarget{classSimpleHotel_1_1SH__GenericState_adebdb330ff20556a54a833b15e50eacc}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!on\-Entry@{on\-Entry}}
+\index{on\-Entry@{on\-Entry}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{on\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::on\-Entry (
+\begin{DoxyParamCaption}
+\item[{Q\-Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__GenericState_adebdb330ff20556a54a833b15e50eacc}
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00071}{71} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{Simple\-Hotel\-::\-S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSimpleHotel_1_1SH__GenericState_a4e4ba53c9e163eed2685cfda8745308d}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::m\-\_\-is\-Running}, \hyperlink{classSimpleHotel_1_1SH__NamedObject_ad144716345034c91cface8f3163a799e}{Simple\-Hotel\-::\-S\-H\-\_\-\-Named\-Object\-::name()}, et \hyperlink{classSimpleHotel_1_1SH__GenericState_a795964c1ae04e47f1c87e316a4b49af5}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::on\-Transition\-Triggered()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__StatementState_a0b70f003ac6617fa2d3a43e07a3e4319}{Simple\-Hotel\-::\-S\-H\-\_\-\-Statement\-State\-::on\-Entry()}.
+
+
+\begin{DoxyCode}
+00072 \{
+00073     Q\_UNUSED(event);
+00074     \textcolor{keywordflow}{foreach} (QAbstractTransition* tr, transitions()) \{
+00075         connect(tr, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(\hyperlink{classSimpleHotel_1_1SH__GenericState_a795964c1ae04e47f1c87e316a4b49af5}{onTransitionTriggered}()));
+00076     \}
+00077     \hyperlink{classSimpleHotel_1_1SH__GenericState_a4e4ba53c9e163eed2685cfda8745308d}{m\_isRunning} = \textcolor{keyword}{true};
+00078     this->blockSignals(!\hyperlink{classSimpleHotel_1_1SH__GenericState_a4e4ba53c9e163eed2685cfda8745308d}{m\_isRunning});
+00079     \hyperlink{classSimpleHotel_1_1SH__MessageManager_a76697bfabd6917a3b20ed58c22a34ed7}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"Machine: %1, entered state %2"}).
+      arg(machine()->objectName()).arg(\hyperlink{classSimpleHotel_1_1SH__NamedObject_ad144716345034c91cface8f3163a799e}{name}()));
+00080 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_aa5fc1b9281087bd8abcd6873d2a36009}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!on\-Exit@{on\-Exit}}
+\index{on\-Exit@{on\-Exit}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{on\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::on\-Exit (
+\begin{DoxyParamCaption}
+\item[{Q\-Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_aa5fc1b9281087bd8abcd6873d2a36009}
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00120}{120} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutState_a7d352dcee656801359ae973726fabc4f}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-input}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, \hyperlink{classSimpleHotel_1_1SH__GenericState_acfcd0946dfa10d98c35abc8cd74b0429}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::on\-Exit()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_ab259648430e9e6e0667e79398c68c0d9}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::resend\-Input()}.
+
+
+\begin{DoxyCode}
+00121 \{
+00122     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{m\_isVisible}) \{
+00123         emit \hyperlink{classSimpleHotel_1_1SH__InOutState_ab259648430e9e6e0667e79398c68c0d9}{resendInput}(\hyperlink{classSimpleHotel_1_1SH__InOutState_a7d352dcee656801359ae973726fabc4f}{m\_input});
+00124     \}
+00125     \hyperlink{classSimpleHotel_1_1SH__GenericState_acfcd0946dfa10d98c35abc8cd74b0429}{SH\_GenericState::onExit}(event);
+00126 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!output@{output}}
+\index{output@{output}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}
+\begin{DoxyReturn}{Renvoie}
+Q\-String 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00061}{61} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-output}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a07ae9f1f74a9a41b26e77a014679a33e}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a5e151d7b01cceb6766b6d83d4a9ac1aa}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}.
+
+
+\begin{DoxyCode}
+00062 \{
+00063     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{m\_output};
+00064 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a5e8064672e20c7b13fec67a4955a3ce3}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!raw\-Input@{raw\-Input}}
+\index{raw\-Input@{raw\-Input}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{raw\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::raw\-Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a5e8064672e20c7b13fec67a4955a3ce3}
+\begin{DoxyReturn}{Renvoie}
+Q\-Variant 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \hyperlink{classSimpleHotel_1_1SH__DateQuestionState_adb8becb2b3f9c9c38da757dbcea95554}{Simple\-Hotel\-::\-S\-H\-\_\-\-Date\-Question\-State}, et \hyperlink{classSimpleHotel_1_1SH__DatabaseContentQuestionState_af7b1002ee7209e3e8238a5e11fd0294b}{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Content\-Question\-State}.
+
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00033}{33} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::input()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a07ae9f1f74a9a41b26e77a014679a33e}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
+
+
+\begin{DoxyCode}
+00034 \{
+00035     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{input}();
+00036 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_ab259648430e9e6e0667e79398c68c0d9}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!resend\-Input@{resend\-Input}}
+\index{resend\-Input@{resend\-Input}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{resend\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::resend\-Input (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_ab259648430e9e6e0667e79398c68c0d9}
+
+\begin{DoxyParams}{Paramètres}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a07ae9f1f74a9a41b26e77a014679a33e}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_aa5fc1b9281087bd8abcd6873d2a36009}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::on\-Exit()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a30d45824ca3c749427ac8d40479cf072}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Input()}.
+
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!send\-Output@{send\-Output}}
+\index{send\-Output@{send\-Output}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{send\-Output}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::send\-Output (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}
+
+\begin{DoxyParams}{Paramètres}
+{\em output} & \\
+\hline
+\end{DoxyParams}
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a07ae9f1f74a9a41b26e77a014679a33e}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a1cbe5befe4f42e0941165498ed0117a9}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::display()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a5e151d7b01cceb6766b6d83d4a9ac1aa}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Output()}.
+
+\hypertarget{classSimpleHotel_1_1SH__QuestionState_aeb4464741ecd13b283c504def63dd619}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!set\-Given\-Answer@{set\-Given\-Answer}}
+\index{set\-Given\-Answer@{set\-Given\-Answer}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{set\-Given\-Answer}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::set\-Given\-Answer (
+\begin{DoxyParamCaption}
+\item[{const Q\-Variant \&}]{given\-Answer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__QuestionState_aeb4464741ecd13b283c504def63dd619}
+
+\begin{DoxyParams}{Paramètres}
+{\em given\-Answer} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00066}{66} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity()}, et \hyperlink{classSimpleHotel_1_1SH__QuestionState_ac8577f9df8ac0ac261103dad5cd29f10}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::m\-\_\-given\-Answer}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_ae404d8874e542fd5f3e6d658f003bae4}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::set\-Input()}.
+
+
+\begin{DoxyCode}
+00067 \{
+00068     this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_ac8577f9df8ac0ac261103dad5cd29f10}{m\_givenAnswer} = givenAsnwer;
+00069     this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{checkValidity}();
+00070 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__QuestionState_ae404d8874e542fd5f3e6d658f003bae4}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!set\-Input@{set\-Input}}
+\index{set\-Input@{set\-Input}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{set\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::set\-Input (
+\begin{DoxyParamCaption}
+\item[{const Q\-Variant \&}]{input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__QuestionState_ae404d8874e542fd5f3e6d658f003bae4}
+
+\begin{DoxyParams}{Paramètres}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \hyperlink{classSimpleHotel_1_1SH__InOutState_a30d45824ca3c749427ac8d40479cf072}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State}.
+
+
+
+Définition à la ligne \hyperlink{SH__QuestionState_8cpp_source_l00044}{44} du fichier \hyperlink{SH__QuestionState_8cpp_source}{S\-H\-\_\-\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__QuestionState_aeb4464741ecd13b283c504def63dd619}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::set\-Given\-Answer()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+
+\begin{DoxyCode}
+00045 \{
+00046     this->\hyperlink{classSimpleHotel_1_1SH__QuestionState_aeb4464741ecd13b283c504def63dd619}{setGivenAnswer}(\hyperlink{classSimpleHotel_1_1SH__InOutState_a487d2ca6200fed372b1a27cfa27774db}{input});
+00047 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_add76bb81ad6095e3445e843c460c351e}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!set\-Max\-Len@{set\-Max\-Len}}
+\index{set\-Max\-Len@{set\-Max\-Len}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{set\-Max\-Len}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::set\-Max\-Len (
+\begin{DoxyParamCaption}
+\item[{int}]{max\-Len}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__StringQuestionState_add76bb81ad6095e3445e843c460c351e}
+
+\begin{DoxyParams}{Paramètres}
+{\em max\-Len} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8cpp_source_l00051}{51} du fichier \hyperlink{SH__StringQuestionState_8cpp_source}{S\-H\-\_\-\-String\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\-\_\-max\-Len}, et \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}{max\-Len()}.
+
+
+\begin{DoxyCode}
+00052 \{
+00053     \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{m\_maxLen} = \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}{maxLen};
+00054 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_a391cd56671790f9553cd99aa5bef5f50}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!set\-Min\-Len@{set\-Min\-Len}}
+\index{set\-Min\-Len@{set\-Min\-Len}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{set\-Min\-Len}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::set\-Min\-Len (
+\begin{DoxyParamCaption}
+\item[{int}]{min\-Len}
+\end{DoxyParamCaption}
+)}}\label{classSimpleHotel_1_1SH__StringQuestionState_a391cd56671790f9553cd99aa5bef5f50}
+
+\begin{DoxyParams}{Paramètres}
+{\em min\-Len} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8cpp_source_l00073}{73} du fichier \hyperlink{SH__StringQuestionState_8cpp_source}{S\-H\-\_\-\-String\-Question\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\-\_\-min\-Len}, et \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}{min\-Len()}.
+
+
+\begin{DoxyCode}
+00074 \{
+00075     \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{m\_minLen} = \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}{minLen};
+00076 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a5e151d7b01cceb6766b6d83d4a9ac1aa}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!set\-Output@{set\-Output}}
+\index{set\-Output@{set\-Output}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{set\-Output}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Output (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a5e151d7b01cceb6766b6d83d4a9ac1aa}
+
+\begin{DoxyParams}{Paramètres}
+{\em output} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \hyperlink{classSimpleHotel_1_1SH__DatabaseContentQuestionState_ab85498797a0318417580ad3f274b018a}{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Content\-Question\-State}.
+
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00073}{73} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::is\-Running()}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}, \hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-output}, \hyperlink{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::output()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::send\-Output()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__DatabaseContentQuestionState_ab85498797a0318417580ad3f274b018a}{Simple\-Hotel\-::\-S\-H\-\_\-\-Database\-Content\-Question\-State\-::set\-Output()}, et \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+
+\begin{DoxyCode}
+00074 \{
+00075     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{isRunning}()) \{
+00076         \hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{m\_output} = \hyperlink{classSimpleHotel_1_1SH__InOutState_a71b15e4d49b9c2aa540500065ceb39da}{output};
+00077         \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{m\_isVisible}) \{
+00078             emit \hyperlink{classSimpleHotel_1_1SH__InOutState_a6f39ba3a9682ece4a0d2c96e8f8983a0}{sendOutput}(QVariant(\hyperlink{classSimpleHotel_1_1SH__InOutState_ab3dc360d32c8da2b958f8cdda90a8518}{m\_output}));
+00079         \}
+00080     \}
+00081 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a2da1edbe247e9b2661c81c9dc2c7ef8d}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!set\-Visibility@{set\-Visibility}}
+\index{set\-Visibility@{set\-Visibility}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{set\-Visibility}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::set\-Visibility (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\-Visible}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a2da1edbe247e9b2661c81c9dc2c7ef8d}
+
+\begin{DoxyParams}{Paramètres}
+{\em is\-Visible} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00088}{88} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::is\-Running()}, et \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__ServiceCharging_ae82c86c7e955f0dc93cdfc3603789b87}{Simple\-Hotel\-::\-S\-H\-\_\-\-Service\-Charging\-::\-S\-H\-\_\-\-Service\-Charging()}.
+
+
+\begin{DoxyCode}
+00089 \{
+00090     \textcolor{keywordflow}{if}(\hyperlink{classSimpleHotel_1_1SH__GenericState_a5151ff071129bdd4dcf7c60cb93794da}{isRunning}()) \{
+00091         \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{m\_isVisible} = isVisible;
+00092     \}
+00093 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__GenericState_adaded78178f9999a9e07a32871af5e61}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-::to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__GenericState_adaded78178f9999a9e07a32871af5e61}
+\begin{DoxyReturn}{Renvoie}
+Q\-String 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{classSimpleHotel_1_1SH__NamedObject_ab6e289aeff50c3fb0f30156c68b1e808}{Simple\-Hotel\-::\-S\-H\-\_\-\-Named\-Object}.
+
+
+
+Définition à la ligne \hyperlink{SH__GenericDebugableState_8cpp_source_l00027}{27} du fichier \hyperlink{SH__GenericDebugableState_8cpp_source}{S\-H\-\_\-\-Generic\-Debugable\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__GenericStateMachine_ad6dd1d0986c40684410ed94f1f610b12}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}, et \hyperlink{classSimpleHotel_1_1SH__NamedObject_ab6e289aeff50c3fb0f30156c68b1e808}{Simple\-Hotel\-::\-S\-H\-\_\-\-Named\-Object\-::to\-String()}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__QuestionState_a0fd7e76443cfd6f0329b085358e30355}{Simple\-Hotel\-::\-S\-H\-\_\-\-Question\-State\-::check\-Validity()}, \hyperlink{classSimpleHotel_1_1SH__DateQuestionState_adb8becb2b3f9c9c38da757dbcea95554}{Simple\-Hotel\-::\-S\-H\-\_\-\-Date\-Question\-State\-::raw\-Input()}, et \hyperlink{classSimpleHotel_1_1SH__GenericStateMachine_ad6dd1d0986c40684410ed94f1f610b12}{Simple\-Hotel\-::\-S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
+
+
+\begin{DoxyCode}
+00028 \{
+00029     \hyperlink{classQStateMachine}{QStateMachine}* machine = this->machine();
+00030     SH\_InOutStateMachine* mach = qobject\_cast<SH\_InOutStateMachine *>(machine);
+00031     \textcolor{keywordflow}{if}(mach) \{
+00032         \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__NamedObject_ab6e289aeff50c3fb0f30156c68b1e808}{SH\_NamedObject::toString}()+ \textcolor{stringliteral}{" [in "}+mach->toString()+\textcolor{stringliteral}{"] "};
+00033     \} \textcolor{keywordflow}{else} \{
+00034         \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__NamedObject_ab6e289aeff50c3fb0f30156c68b1e808}{SH\_NamedObject::toString}();
+00035     \}
+00036 \}
+\end{DoxyCode}
+\hypertarget{classSimpleHotel_1_1SH__InOutState_a145a6e0e2c9e22971e35aa4538adeb4a}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!visibility@{visibility}}
+\index{visibility@{visibility}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{visibility}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::visibility (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inherited]}}}\label{classSimpleHotel_1_1SH__InOutState_a145a6e0e2c9e22971e35aa4538adeb4a}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{SH__IOState_8cpp_source_l00100}{100} du fichier \hyperlink{SH__IOState_8cpp_source}{S\-H\-\_\-\-I\-O\-State.\-cpp}.
+
+
+
+Références \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-::m\-\_\-is\-Visible}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__InOutStateMachine_a07ae9f1f74a9a41b26e77a014679a33e}{Simple\-Hotel\-::\-S\-H\-\_\-\-In\-Out\-State\-Machine\-::add\-I\-O\-State()}.
+
+
+\begin{DoxyCode}
+00100                                \{
+00101     \textcolor{keywordflow}{return} \hyperlink{classSimpleHotel_1_1SH__InOutState_a041ad53f3cdfb1b18ee002597e833848}{m\_isVisible};
+00102 \}
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!m\-\_\-max\-Len@{m\-\_\-max\-Len}}
+\index{m\-\_\-max\-Len@{m\-\_\-max\-Len}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{m\-\_\-max\-Len}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::m\-\_\-max\-Len\hspace{0.3cm}{\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__StringQuestionState_a536f87fad8a2f7f4edc314d34ba2c82b}
+
+
+m\-\_\-max\-Len 
+
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8h_source_l00077}{77} du fichier \hyperlink{SH__StringQuestionState_8h_source}{S\-H\-\_\-\-String\-Question\-State.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a64428aab057a96918f2f97815c7c2717}{is\-Answer\-Valid()}, \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a0e6c288a9af0b8d48238b24a07021457}{max\-Len()}, et \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_add76bb81ad6095e3445e843c460c351e}{set\-Max\-Len()}.
+
+\hypertarget{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}{\index{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}!m\-\_\-min\-Len@{m\-\_\-min\-Len}}
+\index{m\-\_\-min\-Len@{m\-\_\-min\-Len}!SimpleHotel::SH_StringQuestionState@{Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State}}
+\subsubsection[{m\-\_\-min\-Len}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\-Hotel\-::\-S\-H\-\_\-\-String\-Question\-State\-::m\-\_\-min\-Len\hspace{0.3cm}{\ttfamily [private]}}}\label{classSimpleHotel_1_1SH__StringQuestionState_a69ae39a696138f6078705509b0dbfa88}
+
+
+m\-\_\-min\-Len 
+
+
+
+Définition à la ligne \hyperlink{SH__StringQuestionState_8h_source_l00073}{73} du fichier \hyperlink{SH__StringQuestionState_8h_source}{S\-H\-\_\-\-String\-Question\-State.\-h}.
+
+
+
+Référencé par \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a64428aab057a96918f2f97815c7c2717}{is\-Answer\-Valid()}, \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_abe581cfd2fc9591effad3f07b33544a1}{min\-Len()}, et \hyperlink{classSimpleHotel_1_1SH__StringQuestionState_a391cd56671790f9553cd99aa5bef5f50}{set\-Min\-Len()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\hyperlink{SH__StringQuestionState_8h}{S\-H\-\_\-\-String\-Question\-State.\-h}\item 
+/home/tiff/\-Stage-\/\-I\-U\-T/app/simplhotel/hotel-\/precheck/src/\-Pre\-Check/logic/\hyperlink{SH__StringQuestionState_8cpp}{S\-H\-\_\-\-String\-Question\-State.\-cpp}\end{DoxyCompactItemize}

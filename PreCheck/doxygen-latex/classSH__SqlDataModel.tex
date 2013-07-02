@@ -47,9 +47,9 @@ const Q\-String \& \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d634
 \item 
 bool \hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{is\-Empty} () const 
 \item 
-const Q\-String \& \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{last\-Error} ()
+const Q\-String \hyperlink{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{last\-Error} ()
 \item 
-const Q\-String \& \hyperlink{classSH__SqlDataModel_aee909d0a29715d02d920fcf854bfbba2}{query} () const 
+const Q\-String \hyperlink{classSH__SqlDataModel_aee909d0a29715d02d920fcf854bfbba2}{query} () const 
 \item 
 void \hyperlink{classSH__SqlDataModel_ad0477d16e78ba808250e2054952f9833}{reset\-Fields\-To\-All} ()
 \item 
@@ -109,7 +109,7 @@ Q\-String \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{m\
 \subsection{Description détaillée}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00014}{14} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00012}{12} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -123,14 +123,14 @@ Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00014}{14} du fic
 )\hspace{0.3cm}{\ttfamily [explicit]}}}\label{classSH__SqlDataModel_a946716dc9b74e3ec4a70778319ceb3f8}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00016}{16} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00014}{14} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 \begin{DoxyCode}
-00016                                                 :
-00017     \hyperlink{classQAbstractListModel}{QAbstractListModel}(parent)
-00018 \{
-00019 \}
+00014                                                 :
+00015     \hyperlink{classQAbstractListModel}{QAbstractListModel}(parent)
+00016 \{
+00017 \}
 \end{DoxyCode}
 
 
@@ -144,7 +144,7 @@ Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00016}{16} du f
 )\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00339}{339} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00292}{292} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -156,18 +156,16 @@ Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e
 
 
 \begin{DoxyCode}
-00340 \{
-00341     this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.clear();
-00342     \textcolor{keywordtype}{int} nbFields = this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.count();
-00343     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
-00344     \{
-00345         \textcolor{comment}{/*MessageManager::infoMessage(QString("nouveau rôle :
-       %1").arg(QString(this->mDataFields.at(i)->role())));*/}
-00346         this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.insert(this->\hyperlink{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{roleForField}(i), this->
+00293 \{
+00294     this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.clear();
+00295     \textcolor{keywordtype}{int} nbFields = this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.count();
+00296     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
+00297     \{
+00298         this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.insert(this->\hyperlink{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{roleForField}(i), this->
       \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(i)->role());
-00347     \}
-00348     emit \hyperlink{classSH__SqlDataModel_acf85dacdcc946ef27377d221b16b0e41}{rolesChanged}();
-00349 \}
+00299     \}
+00300     emit \hyperlink{classSH__SqlDataModel_acf85dacdcc946ef27377d221b16b0e41}{rolesChanged}();
+00301 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a564}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!data@{data}}
 \index{data@{data}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -189,11 +187,11 @@ Q\-Variant
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00039}{39} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00031}{31} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
-Références \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}, \hyperlink{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{field\-From\-Role()}, \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{m\-Data\-Fields}, \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{m\-Records}, et \hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{m\-Roles}.
+Références \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}, \hyperlink{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{field\-From\-Role()}, \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{m\-Data\-Fields}, \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{m\-Records}, et \hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{m\-Roles}.
 
 
 
@@ -201,25 +199,25 @@ Référencé par \hyperlink{classSH__ExtendedProxyModel_afbc947efbe1107fc5bf8926
 
 
 \begin{DoxyCode}
-00040 \{
-00041     \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count() > 0)
-00042     \{
-00043         \textcolor{keywordtype}{int} row = index.row();
-00044         \textcolor{keywordtype}{int} column = this->\hyperlink{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{fieldFromRole}(role);
-00045         \textcolor{keywordtype}{int} nbCols = this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.count();
-00046         \textcolor{keywordflow}{if}(column >= 0 && column < nbCols) \{
-00047             \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"row : %1, column : %2,
+00032 \{
+00033     \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count() > 0)
+00034     \{
+00035         \textcolor{keywordtype}{int} row = index.row();
+00036         \textcolor{keywordtype}{int} column = this->\hyperlink{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{fieldFromRole}(role);
+00037         \textcolor{keywordtype}{int} nbCols = this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.count();
+00038         \textcolor{keywordflow}{if}(column >= 0 && column < nbCols) \{
+00039             \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"row : %1, column : %2,
        field: %3 (%4), value : %5\(\backslash\)n"}).arg(index.row()).arg(index.column()).arg(column).arg(QString(this->
       \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(column)->role())).arg(this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.at(row).value(column).toString()));
-00048             \textcolor{keywordflow}{return} this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.at(row).value(column);
-00049         \} \textcolor{keywordflow}{else}\{
-00050             \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(QString(\textcolor{stringliteral}{"rien à retourner pour
+00040             \textcolor{keywordflow}{return} this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.at(row).value(column);
+00041         \} \textcolor{keywordflow}{else}\{
+00042             \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(QString(\textcolor{stringliteral}{"rien à retourner pour
        %1x%2x%3 (%4>=%5)"}).arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));
-00051         \}
-00052     \}
-00053     \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(\textcolor{stringliteral}{"modèle vide"});
-00054     \textcolor{keywordflow}{return} QVariant();
-00055 \}
+00043         \}
+00044     \}
+00045     \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(\textcolor{stringliteral}{"modèle vide"});
+00046     \textcolor{keywordflow}{return} QVariant();
+00047 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a24db284b370930b57e2261a7a72e2da8}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!datas@{datas}}
 \index{datas@{datas}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -240,11 +238,11 @@ Q\-Variant
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00062}{62} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00053}{53} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
-Références \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{m\-Records}, et \hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{m\-Roles}.
+Références \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{m\-Records}, et \hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{m\-Roles}.
 
 
 
@@ -252,22 +250,21 @@ Référencé par \hyperlink{classSH__DatabaseContentQuestionState_ab26490ea51926
 
 
 \begin{DoxyCode}
-00063 \{
-00064     qDebug() << \textcolor{stringliteral}{"datas"};
-00065     QVariantMap result;
-00066     \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count() > 0)
-00067     \{
-00068         qDebug() << \textcolor{stringliteral}{"datas ok"};
-00069         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} column = 0; column < this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.count(); column++) \{
-00070             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row = 0; row < this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count();row++) \{
-00071                 qDebug() << \textcolor{stringliteral}{"data inserted"};
-00072                 result.insertMulti(this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.value(column),this->
+00054 \{
+00055     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"datas"});
+00056     QVariantMap result;
+00057     \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count() > 0)
+00058     \{
+00059         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} column = 0; column < this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.count(); column++) \{
+00060             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row = 0; row < this->\hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count();row++) \{
+00061                 \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}( \textcolor{stringliteral}{"data inserted"});
+00062                 result.insertMulti(this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}.value(column),this->
       \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.at(row).value(column));
-00073             \}
-00074         \}
-00075     \}
-00076     \textcolor{keywordflow}{return} result;
-00077 \}
+00063             \}
+00064         \}
+00065     \}
+00066     \textcolor{keywordflow}{return} result;
+00067 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!fetch@{fetch}}
 \index{fetch@{fetch}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -295,11 +292,11 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00194}{194} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00159}{159} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
-Références \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{apply\-Roles()}, \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}, \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query()}, \hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field()}, \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fields\-Changed()}, \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fields\-List()}, \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}, \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{is\-Empty()}, \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{last\-Error()}, \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{m\-Data\-Fields}, \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{m\-Filter}, \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{m\-Records}, \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{m\-Sort}, \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{m\-Sql\-Query}, \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{m\-Table}, \hyperlink{classSH__SqlDataFields_ac7823e9c229edea389fc55ed73bf071b}{S\-H\-\_\-\-Sql\-Data\-Fields\-::name}, \hyperlink{classSH__SqlDataModel_ad297d359375d55e66493ce8935f8ff05}{set\-Fields()}, \hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{set\-Filter\-Condition()}, \hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{S\-H\-\_\-\-Sql\-Data\-Fields\-::set\-Name()}, \hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{set\-Order\-By()}, et \hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{set\-Table()}.
+Références \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{apply\-Roles()}, \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{S\-H\-\_\-\-Message\-Manager\-::debug\-Message()}, \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{S\-H\-\_\-\-Message\-Manager\-::error\-Message()}, \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query()}, \hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field()}, \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fields\-Changed()}, \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fields\-List()}, \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}, \hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{is\-Empty()}, \hyperlink{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{last\-Error()}, \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{m\-Data\-Fields}, \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{m\-Filter}, \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{m\-Records}, \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{m\-Sort}, \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{m\-Sql\-Query}, \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{m\-Table}, \hyperlink{classSH__SqlDataModel_ad297d359375d55e66493ce8935f8ff05}{set\-Fields()}, \hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{set\-Filter\-Condition()}, \hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{S\-H\-\_\-\-Sql\-Data\-Fields\-::set\-Name()}, \hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{set\-Order\-By()}, et \hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{set\-Table()}.
 
 
 
@@ -307,86 +304,89 @@ Référencé par \hyperlink{classSH__ExtendedProxyModel_a1df5323af8d29e81f22a711
 
 
 \begin{DoxyCode}
-00195 \{
-00196     \textcolor{keywordflow}{if}(!\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable}.isEmpty() || !\hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}.isEmpty()) \{
-00197         \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(\textcolor{stringliteral}{"Bienvenue dans fetch"});
-00198         qDebug() << \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} << \textcolor{stringliteral}{" "} << this->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().join(\textcolor{stringliteral}{", "}) << \textcolor{stringliteral}{" "} << 
-      \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} << \textcolor{stringliteral}{" "} << \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort};
-00199         this->\hyperlink{classSH__SqlDataModel_ad297d359375d55e66493ce8935f8ff05}{setFields}(\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList});
-00200         this->\hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName});
-00201         this->\hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{setFilterCondition}(\hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter});
-00202         this->\hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{setOrderBy}(sort);
-00203         qDebug() << \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName} << \textcolor{stringliteral}{" "} << \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} << \textcolor{stringliteral}{" "} << sort << \textcolor{stringliteral}{" "} << 
-      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}.join(\textcolor{stringliteral}{", "});
-00204         \textcolor{keywordflow}{try}
-00205         \{
-00206             beginResetModel();
-00207             \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.clear();
-00208             endResetModel();
-00209             qDebug() << \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} << \textcolor{stringliteral}{" "} << this->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}() << \textcolor{stringliteral}{" "} << 
-      \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} << \textcolor{stringliteral}{" "} << \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort};
-00210             \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery} = \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+00160 \{
+00161     \textcolor{keywordflow}{if}(!\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable}.isEmpty() || !\hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}.isEmpty()) \{
+00162         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"Bienvenue dans fetch"});
+00163         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} + \textcolor{stringliteral}{" "} + this->
+      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().join(\textcolor{stringliteral}{", "}) + \textcolor{stringliteral}{" "} +\hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} + \textcolor{stringliteral}{" "} + \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort});
+00164         this->\hyperlink{classSH__SqlDataModel_ad297d359375d55e66493ce8935f8ff05}{setFields}(\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList});
+00165         this->\hyperlink{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{setTable}(\hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName});
+00166         this->\hyperlink{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{setFilterCondition}(\hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter});
+00167         this->\hyperlink{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{setOrderBy}(sort);
+00168         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} + \textcolor{stringliteral}{" "} + this->
+      \hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().join(\textcolor{stringliteral}{", "}) + \textcolor{stringliteral}{" "} +\hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} + \textcolor{stringliteral}{" "} + sort);
+00169         \textcolor{keywordflow}{try}
+00170         \{
+00171             beginResetModel();
+00172             \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.clear();
+00173             endResetModel();
+00174             \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(
+      \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} + \textcolor{stringliteral}{" "} + this->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().join(\textcolor{stringliteral}{", "}) + \textcolor{stringliteral}{" "} +\hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} + \textcolor{stringliteral}{" "} + 
+      \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort});
+00175             \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery} = \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
       \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable}, this->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}(), 
-      \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter}, mSort);
-00211             qDebug() << \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.executedQuery();
-00212             \textcolor{keywordtype}{bool} next = \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.next();
-00213             \textcolor{keywordflow}{if}(next) \{
-00214                 qDebug() << \textcolor{stringliteral}{"next ok"};
-00215             \}
-00216             \textcolor{keywordflow}{while} (next) \textcolor{comment}{/* && mSqlQuery.isActive())*/}
-00217             \{
-00218                 QSqlRecord record = \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.record();
-00219                 qDebug() << \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"};
-00220                 \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(\textcolor{stringliteral}{"Nouvelle ligne récupérée"});
-00221                 \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 champs"}).arg(
+      \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter}, \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort});
+00176             \textcolor{keywordtype}{bool} next = \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.next();
+00177             \textcolor{comment}{//SH\_MessageManager::infoMessage(mSqlQuery.executedQuery());}
+00178             \textcolor{comment}{/*if(next) \{}
+00179 \textcolor{comment}{                SH\_MessageManager::debugMessage("next ok");}
+00180 \textcolor{comment}{            \}*/}
+00181             \textcolor{keywordflow}{while} (next)
+00182             \{
+00183                 QSqlRecord record = \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.record();
+00184 
+00185                 \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(\textcolor{stringliteral}{"Nouvelle ligne récupérée"});
+00186                 \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"%1 champs"}).arg(
       record.count()));
-00222                 \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.isValid() && (!record.isEmpty()) && (record.count() > 0))
-00223                 \{
-00224                     beginInsertRows(QModelIndex(), 0, 0);
-00225                     \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.append(record);
-00226                     \textcolor{keywordtype}{int} nbFields = record.count();
-00227                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
-00228                     \{
-00229                         \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 : %2"}).arg
-      (record.fieldName(i)).arg(record.value(i).toString()));
-00230                     \}
-00231                     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.empty())
-00232                     \{
-00233                         \textcolor{keywordtype}{int} nbFields = record.count();
-00234                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
-00235                         \{
-00236                             \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field} = \textcolor{keyword}{new} 
+00187                 \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.isValid() && (!record.isEmpty()) && (record.count() > 0))
+00188                 \{
+00189                     beginInsertRows(QModelIndex(), 0, 0);
+00190                     \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.append(record);
+00191 \textcolor{comment}{//#ifdef DEBUG}
+00192                     \textcolor{keywordtype}{int} nbFields = record.count();
+00193                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
+00194                     \{
+00195                         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"%1 : %2"}).
+      arg(record.fieldName(i)).arg(record.value(i).toString()));
+00196                     \}
+00197 \textcolor{comment}{//#endif}
+00198                     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.empty())
+00199                     \{
+00200                         \textcolor{keywordtype}{int} nbFields = record.count();
+00201                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
+00202                         \{
+00203                             \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field} = \textcolor{keyword}{new} 
       \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields}();
-00237                             field->\hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{setName}(record.fieldName(i));
-00238                             \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"nouveau
-       champ (le n°%1): %2"}).arg(i).arg(field->\hyperlink{classSH__SqlDataFields_ac7823e9c229edea389fc55ed73bf071b}{name}()));
-00239                             \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.append(field);
-00240                         \}
-00241                         this->\hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
-00242                         emit \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
-00243                     \}
-00244                     endInsertRows();
-00245                 \}
-00246                 next = \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.next();
-00247             \}
-00248         \}
-00249         \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception &e)
-00250         \{
-00251             \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(e.what(), \textcolor{stringliteral}{"exception"});
-00252             \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError}().isEmpty())
-00253             \{
-00254                 \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(this->
-      \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError}(), \textcolor{stringliteral}{"erreur SQL"});
-00255             \}
-00256         \}
-00257         \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError}().\hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}())
-00258         \{
-00259             \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(this->
-      \hyperlink{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{lastError}(), \textcolor{stringliteral}{"erreur SQL"});
-00260         \}
-00261     \}
-00262     \textcolor{keywordflow}{return} (!this->\hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}());
-00263 \}
+00204                             field->\hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{setName}(record.fieldName(i));
+00205                             \textcolor{comment}{//SH\_MessageManager::debugMessage(QString("nouveau champ (le n°%1):
+       %2").arg(i).arg(field->name()));}
+00206                             \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.append(field);
+00207                         \}
+00208                         this->\hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
+00209                         emit \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
+00210                     \}
+00211                     endInsertRows();
+00212                 \}
+00213                 next = \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.next();
+00214             \}
+00215         \}
+00216         \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception &e)
+00217         \{
+00218             \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(e.what(), \textcolor{stringliteral}{"exception"});
+00219             \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{lastError}().isEmpty())
+00220             \{
+00221                 \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(this->
+      \hyperlink{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{lastError}(), \textcolor{stringliteral}{"erreur SQL"});
+00222             \}
+00223         \}
+00224         \textcolor{keywordflow}{if} (this->\hyperlink{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{lastError}().\hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}())
+00225         \{
+00226             \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{SH\_MessageManager::errorMessage}(this->
+      \hyperlink{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{lastError}(), \textcolor{stringliteral}{"erreur SQL"});
+00227         \}
+00228     \}
+00229     \textcolor{keywordflow}{return} (!this->\hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}());
+00230 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!field@{field}}
 \index{field@{field}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -405,7 +405,7 @@ Sql\-Data\-Fields
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00271}{271} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00235}{235} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -417,11 +417,11 @@ Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e
 
 
 \begin{DoxyCode}
-00272 \{
-00273     i = qMin(i, this->\hyperlink{classSH__SqlDataModel_a46f0951fd358e30892a982ebd34e43c2}{fieldsCount}()-1);
-00274     i = qMax(i, 0);
-00275     \textcolor{keywordflow}{return} this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(i);
-00276 \}
+00236 \{
+00237     i = qMin(i, this->\hyperlink{classSH__SqlDataModel_a46f0951fd358e30892a982ebd34e43c2}{fieldsCount}()-1);
+00238     i = qMax(i, 0);
+00239     \textcolor{keywordflow}{return} this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(i);
+00240 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a3c6539114dd06aa8043e7a4e9762f6f4}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!field\-From\-Role@{field\-From\-Role}}
 \index{field\-From\-Role@{field\-From\-Role}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -440,7 +440,7 @@ int
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00081}{81} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00078}{78} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -448,7 +448,7 @@ Référencé par \hyperlink{classSH__SqlDataModel_aa4664329d52c2d2cba2bacc42fa1a
 
 
 \begin{DoxyCode}
-00081 \{ \textcolor{keywordflow}{return} role - Qt::UserRole; \}
+00078 \{ \textcolor{keywordflow}{return} role - Qt::UserRole; \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!fields\-Changed@{fields\-Changed}}
 \index{fields\-Changed@{fields\-Changed}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -473,7 +473,7 @@ int
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00358}{358} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00306}{306} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -485,9 +485,9 @@ Référencé par \hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4
 
 
 \begin{DoxyCode}
-00359 \{
-00360     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.count();
-00361 \}
+00307 \{
+00308     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.count();
+00309 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!fields\-List@{fields\-List}}
 \index{fields\-List@{fields\-List}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -501,7 +501,7 @@ const Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00134}{134} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00110}{110} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -509,21 +509,21 @@ Références \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, et \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields()}.
+Référencé par \hyperlink{classSH__ExtendedProxyModel_a9fd2e16750c7c8c4cbd8f357b00ed008}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::data()}, \hyperlink{classSH__ExtendedProxyModel_a1df5323af8d29e81f22a7118227eeeb8}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fetch()}, \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::fields()}, \hyperlink{classSH__BillingsTableModel_abb270d638314e98a5512c68c66bd88f1}{S\-H\-\_\-\-Billings\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__VATTableModel_a88ae41a95c657e74498bd3bbc1adcb6e}{S\-H\-\_\-\-V\-A\-T\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{S\-H\-\_\-\-Rooms\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__TraineesTableModel_a5610a2065e5679a9268816b208b5acb3}{S\-H\-\_\-\-Trainees\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__ServicesTableModel_a2d18a3b167ded4e34a546e3f337c9c1a}{S\-H\-\_\-\-Services\-Table\-Model\-::fill\-Model()}, et \hyperlink{classSH__UsersTableModel_ab0df5f2a1d0b636e0fe8bae1b81be23e}{S\-H\-\_\-\-Users\-Table\-Model\-::fill\-Model()}.
 
 
 \begin{DoxyCode}
-00135 \{
-00136     QStringList fields;
-00137     \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.isEmpty()) \{
-00138         \textcolor{keywordtype}{int} c = \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.count();
-00139         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < c; i++)
-00140         \{
-00141             fields .append(this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(i)->name());
-00142         \}
-00143     \}
-00144     \textcolor{keywordflow}{return} fields;
-00145 \}
+00111 \{
+00112     QStringList fields;
+00113     \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.isEmpty()) \{
+00114         \textcolor{keywordtype}{int} c = \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.count();
+00115         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < c; i++)
+00116         \{
+00117             fields .append(this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(i)->name());
+00118         \}
+00119     \}
+00120     \textcolor{keywordflow}{return} fields;
+00121 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!filter@{filter}}
 \index{filter@{filter}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -559,7 +559,7 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00380}{380} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00322}{322} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -571,17 +571,17 @@ Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e
 
 
 \begin{DoxyCode}
-00381 \{
-00382     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.empty();
-00383 \}
+00323 \{
+00324     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.empty();
+00325 \}
 \end{DoxyCode}
-\hypertarget{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!last\-Error@{last\-Error}}
+\hypertarget{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!last\-Error@{last\-Error}}
 \index{last\-Error@{last\-Error}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
-\subsubsection[{last\-Error}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String\& S\-H\-\_\-\-Sql\-Data\-Model\-::last\-Error (
+\subsubsection[{last\-Error}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String S\-H\-\_\-\-Sql\-Data\-Model\-::last\-Error (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classSH__SqlDataModel_ade915650ffbdb8d026e00893d1f5a195}
+)}}\label{classSH__SqlDataModel_ad9aaa1569cd20c3c0e18d39eeb6caa43}
 
 
 Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}.
@@ -605,7 +605,7 @@ const Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00101}{101} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00086}{86} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -613,9 +613,9 @@ Références \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}
 
 
 \begin{DoxyCode}
-00102 \{
-00103     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.lastQuery();
-00104 \}
+00087 \{
+00088     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}{mSqlQuery}.lastQuery();
+00089 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_ad0477d16e78ba808250e2054952f9833}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!reset\-Fields\-To\-All@{reset\-Fields\-To\-All}}
 \index{reset\-Fields\-To\-All@{reset\-Fields\-To\-All}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -626,7 +626,7 @@ Références \hyperlink{classSH__SqlDataModel_a54f0cf057e3200f6b199508958e43fec}
 )}}\label{classSH__SqlDataModel_ad0477d16e78ba808250e2054952f9833}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00306}{306} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00265}{265} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -634,11 +634,11 @@ Références \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}
 
 
 \begin{DoxyCode}
-00307 \{
-00308     \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.clear();
-00309     this->\hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
-00310     emit \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
-00311 \}
+00266 \{
+00267     \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.clear();
+00268     this->\hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
+00269     emit \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
+00270 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a0bf147a87376fc3aa436562f94661679}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!reset\-Filter\-Condition@{reset\-Filter\-Condition}}
 \index{reset\-Filter\-Condition@{reset\-Filter\-Condition}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -649,7 +649,7 @@ Références \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}
 )}}\label{classSH__SqlDataModel_a0bf147a87376fc3aa436562f94661679}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00182}{182} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00150}{150} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -657,10 +657,10 @@ Références \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}
 
 
 \begin{DoxyCode}
-00183 \{
-00184     \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} = \textcolor{stringliteral}{""};
-00185     emit \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}{filterChanged}();
-00186 \}
+00151 \{
+00152     \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} = \textcolor{stringliteral}{""};
+00153     emit \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}{filterChanged}();
+00154 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_aa487bb763eaf2544e4eb5822cd666105}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!role\-For\-Field@{role\-For\-Field}}
 \index{role\-For\-Field@{role\-For\-Field}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -679,15 +679,15 @@ int
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00073}{73} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00070}{70} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{apply\-Roles()}, \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::data()}, et \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Sort\-Key\-Column()}.
+Référencé par \hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{apply\-Roles()}, \hyperlink{classSH__ExtendedProxyModel_a9fd2e16750c7c8c4cbd8f357b00ed008}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::data()}, et \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{S\-H\-\_\-\-Extended\-Proxy\-Model\-::set\-Sort\-Key\-Column()}.
 
 
 \begin{DoxyCode}
-00073 \{ \textcolor{keywordflow}{return} Qt::UserRole + fieldIndex;\}
+00070 \{ \textcolor{keywordflow}{return} Qt::UserRole + fieldIndex;\}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_ac9954bbf92ed14566128c74318e3125b}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!role\-Names@{role\-Names}}
 \index{role\-Names@{role\-Names}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -707,7 +707,7 @@ Q\-Hash$<$int, Q\-Byte\-Array$>$
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00179}{179} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00175}{175} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -719,7 +719,7 @@ Référencé par \hyperlink{classSH__ExtendedProxyModel_aead7c7969b112c3d0443051
 
 
 \begin{DoxyCode}
-00179 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}; \}
+00175 \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__SqlDataModel_ad1e46c72a6aeb83e3e7bb0c3110d12a4}{mRoles}; \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_acf85dacdcc946ef27377d221b16b0e41}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!roles\-Changed@{roles\-Changed}}
 \index{roles\-Changed@{roles\-Changed}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -749,7 +749,7 @@ int
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00027}{27} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00022}{22} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -757,9 +757,10 @@ Références \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}
 
 
 \begin{DoxyCode}
-00028 \{
-00029     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count();
-00030 \}
+00023 \{
+00024     Q\_UNUSED(parent);
+00025     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}{mRecords}.count();
+00026 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_ad297d359375d55e66493ce8935f8ff05}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!set\-Fields@{set\-Fields}}
 \index{set\-Fields@{set\-Fields}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -775,7 +776,7 @@ Références \hyperlink{classSH__SqlDataModel_aa58096989daac3cd3fdea5e6dd4f27ee}
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00284}{284} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00245}{245} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -787,21 +788,21 @@ Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e
 
 
 \begin{DoxyCode}
-00285 \{
-00286     fields.removeDuplicates();
-00287     \textcolor{keywordtype}{int} nbFields = fields.count();
-00288     \textcolor{keywordflow}{if} (nbFields > 0)
-00289     \{
-00290         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
-00291         \{
-00292             \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field} = \textcolor{keyword}{new} \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields}();
-00293             field->\hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{setName}(fields.at(i));
-00294             \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.append(field);
-00295         \}
-00296         this->\hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
-00297         emit \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
-00298     \}
-00299 \}
+00246 \{
+00247     fields.removeDuplicates();
+00248     \textcolor{keywordtype}{int} nbFields = fields.count();
+00249     \textcolor{keywordflow}{if} (nbFields > 0)
+00250     \{
+00251         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nbFields; i++)
+00252         \{
+00253             \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field} = \textcolor{keyword}{new} \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields}();
+00254             field->\hyperlink{classSH__SqlDataFields_a8d7b864a4ad5513af9e4c47a0d9919e8}{setName}(fields.at(i));
+00255             \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.append(field);
+00256         \}
+00257         this->\hyperlink{classSH__SqlDataModel_ad4f032ceb7c2f70b2d7388e3afd161ab}{applyRoles}();
+00258         emit \hyperlink{classSH__SqlDataModel_a34a4750c1fb9c7ed05fe869d6de84e28}{fieldsChanged}();
+00259     \}
+00260 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a99c6317027a7c9f723215b53b69e0647}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!set\-Filter\-Condition@{set\-Filter\-Condition}}
 \index{set\-Filter\-Condition@{set\-Filter\-Condition}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -817,7 +818,7 @@ Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00168}{168} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00138}{138} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -825,17 +826,17 @@ Références \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, et \hyperlink{classSH__BookingsTableModel_a870c87c10391ca25985f3b8ea04cbaa6}{S\-H\-\_\-\-Bookings\-Table\-Model\-::\-S\-H\-\_\-\-Bookings\-Table\-Model()}.
+Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, \hyperlink{classSH__BookingsTableModel_a870c87c10391ca25985f3b8ea04cbaa6}{S\-H\-\_\-\-Bookings\-Table\-Model\-::\-S\-H\-\_\-\-Bookings\-Table\-Model()}, et \hyperlink{classSH__VATTableModel_a64afdd54a316c5c4dbf7f700de3f5708}{S\-H\-\_\-\-V\-A\-T\-Table\-Model\-::\-S\-H\-\_\-\-V\-A\-T\-Table\-Model()}.
 
 
 \begin{DoxyCode}
-00169 \{
-00170     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} != \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} && \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} != \textcolor{stringliteral}{""})
-00171     \{
-00172         \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} = \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter};
-00173         emit \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}{filterChanged}();
-00174     \}
-00175 \}
+00139 \{
+00140     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} != \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} && \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter} != \textcolor{stringliteral}{""})
+00141     \{
+00142         \hyperlink{classSH__SqlDataModel_af83c15ae3ad1dc4617dd58f2a852a1e2}{mFilter} = \hyperlink{classSH__SqlDataModel_aa86018df823c85798574ec8d63413c1a}{filter};
+00143         emit \hyperlink{classSH__SqlDataModel_ab7bf039eba1e085b137509b7b93ea39b}{filterChanged}();
+00144     \}
+00145 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_aae31b72ec89a35a7b8d4175d7bcaa33a}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!set\-Header\-Data@{set\-Header\-Data}}
 \index{set\-Header\-Data@{set\-Header\-Data}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -863,7 +864,7 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00085}{85} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00072}{72} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -871,19 +872,19 @@ Références \hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}
 
 
 
-Référencé par \hyperlink{classSH__BillingsTableModel_abb270d638314e98a5512c68c66bd88f1}{S\-H\-\_\-\-Billings\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{S\-H\-\_\-\-Rooms\-Table\-Model\-::fill\-Model()}, et \hyperlink{classSH__BookingsTableModel_a03e7c5e25dd25bdb0c85c4465ddd95e5}{S\-H\-\_\-\-Bookings\-Table\-Model\-::fill\-Model()}.
+Référencé par \hyperlink{classSH__BillingsTableModel_abb270d638314e98a5512c68c66bd88f1}{S\-H\-\_\-\-Billings\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__BookingsTableModel_a03e7c5e25dd25bdb0c85c4465ddd95e5}{S\-H\-\_\-\-Bookings\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__VATTableModel_a88ae41a95c657e74498bd3bbc1adcb6e}{S\-H\-\_\-\-V\-A\-T\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__TraineesTableModel_a5610a2065e5679a9268816b208b5acb3}{S\-H\-\_\-\-Trainees\-Table\-Model\-::fill\-Model()}, \hyperlink{classSH__RoomsTableModel_a5ac9fe2af0bda8002387546a0db01e1d}{S\-H\-\_\-\-Rooms\-Table\-Model\-::fill\-Model()}, et \hyperlink{classSH__UsersTableModel_ab0df5f2a1d0b636e0fe8bae1b81be23e}{S\-H\-\_\-\-Users\-Table\-Model\-::fill\-Model()}.
 
 
 \begin{DoxyCode}
-00086 \{
-00087     Q\_UNUSED(role);
-00088     \textcolor{keywordflow}{if} (orientation == Qt::Horizontal)
-00089     \{
-00090         this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(section)->setText(value.toString());
-00091         \textcolor{keywordflow}{return} (this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(section)->text() == value.toString());
-00092     \}
-00093     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00094 \}
+00073 \{
+00074     Q\_UNUSED(role);
+00075     \textcolor{keywordflow}{if} (orientation == Qt::Horizontal)
+00076     \{
+00077         this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(section)->setText(value.toString());
+00078         \textcolor{keywordflow}{return} (this->\hyperlink{classSH__SqlDataModel_a3e998f75dd5b3193783612002461888d}{mDataFields}.at(section)->text() == value.toString());
+00079     \}
+00080     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00081 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_ab443cd7935993270c37f9bd977b33875}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!set\-Order\-By@{set\-Order\-By}}
 \index{set\-Order\-By@{set\-Order\-By}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -899,7 +900,7 @@ Référencé par \hyperlink{classSH__BillingsTableModel_abb270d638314e98a5512c68
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00369}{369} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00314}{314} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -907,13 +908,13 @@ Références \hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, et \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{S\-H\-\_\-\-Rooms\-Table\-Model\-::\-S\-H\-\_\-\-Rooms\-Table\-Model()}.
+Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{S\-H\-\_\-\-Rooms\-Table\-Model\-::\-S\-H\-\_\-\-Rooms\-Table\-Model()}, et \hyperlink{classSH__VATTableModel_a64afdd54a316c5c4dbf7f700de3f5708}{S\-H\-\_\-\-V\-A\-T\-Table\-Model\-::\-S\-H\-\_\-\-V\-A\-T\-Table\-Model()}.
 
 
 \begin{DoxyCode}
-00370 \{
-00371     this->\hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort} = sort;
-00372 \}
+00315 \{
+00316     this->\hyperlink{classSH__SqlDataModel_a7e36fd116b7cb50e949ee56af0c31772}{mSort} = sort;
+00317 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a2c09d14926326a1149c1df7856c9879c}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!set\-Table@{set\-Table}}
 \index{set\-Table@{set\-Table}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -929,7 +930,7 @@ Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00153}{153} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00126}{126} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -937,17 +938,17 @@ Références \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}
 
 
 
-Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, \hyperlink{classSH__BillingsTableModel_a96183b1dd581519136c9b3932607f3d0}{S\-H\-\_\-\-Billings\-Table\-Model\-::\-S\-H\-\_\-\-Billings\-Table\-Model()}, \hyperlink{classSH__BillsTableModel_ab93c4113bb4f81833f9a3b7d9365ed3f}{S\-H\-\_\-\-Bills\-Table\-Model\-::\-S\-H\-\_\-\-Bills\-Table\-Model()}, \hyperlink{classSH__BookingsTableModel_a870c87c10391ca25985f3b8ea04cbaa6}{S\-H\-\_\-\-Bookings\-Table\-Model\-::\-S\-H\-\_\-\-Bookings\-Table\-Model()}, \hyperlink{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3}{S\-H\-\_\-\-Clients\-Table\-Model\-::\-S\-H\-\_\-\-Clients\-Table\-Model()}, \hyperlink{classSH__GroupsTableModel_a038761e5d85ea2d06867f4b28ffc6677}{S\-H\-\_\-\-Groups\-Table\-Model\-::\-S\-H\-\_\-\-Groups\-Table\-Model()}, \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{S\-H\-\_\-\-Rooms\-Table\-Model\-::\-S\-H\-\_\-\-Rooms\-Table\-Model()}, et \hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{S\-H\-\_\-\-Services\-Table\-Model\-::\-S\-H\-\_\-\-Services\-Table\-Model()}.
+Référencé par \hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch()}, \hyperlink{classSH__BillingsTableModel_a96183b1dd581519136c9b3932607f3d0}{S\-H\-\_\-\-Billings\-Table\-Model\-::\-S\-H\-\_\-\-Billings\-Table\-Model()}, \hyperlink{classSH__BillsTableModel_ab93c4113bb4f81833f9a3b7d9365ed3f}{S\-H\-\_\-\-Bills\-Table\-Model\-::\-S\-H\-\_\-\-Bills\-Table\-Model()}, \hyperlink{classSH__BookingsTableModel_a870c87c10391ca25985f3b8ea04cbaa6}{S\-H\-\_\-\-Bookings\-Table\-Model\-::\-S\-H\-\_\-\-Bookings\-Table\-Model()}, \hyperlink{classSH__ClientsTableModel_ac0fce2c2880ff26de22fce2abb6432a3}{S\-H\-\_\-\-Clients\-Table\-Model\-::\-S\-H\-\_\-\-Clients\-Table\-Model()}, \hyperlink{classSH__GroupsTableModel_a038761e5d85ea2d06867f4b28ffc6677}{S\-H\-\_\-\-Groups\-Table\-Model\-::\-S\-H\-\_\-\-Groups\-Table\-Model()}, \hyperlink{classSH__RoomsTableModel_a722f2c372e27e502e73f045b38301368}{S\-H\-\_\-\-Rooms\-Table\-Model\-::\-S\-H\-\_\-\-Rooms\-Table\-Model()}, \hyperlink{classSH__ServicesTableModel_ab21926661cb9374e9116a3236800caa7}{S\-H\-\_\-\-Services\-Table\-Model\-::\-S\-H\-\_\-\-Services\-Table\-Model()}, \hyperlink{classSH__TraineesTableModel_aa28ee863afaf81efdc5c6979060321e3}{S\-H\-\_\-\-Trainees\-Table\-Model\-::\-S\-H\-\_\-\-Trainees\-Table\-Model()}, \hyperlink{classSH__UsersTableModel_a04927caa4b15b925b2f30f362af25433}{S\-H\-\_\-\-Users\-Table\-Model\-::\-S\-H\-\_\-\-Users\-Table\-Model()}, et \hyperlink{classSH__VATTableModel_a64afdd54a316c5c4dbf7f700de3f5708}{S\-H\-\_\-\-V\-A\-T\-Table\-Model\-::\-S\-H\-\_\-\-V\-A\-T\-Table\-Model()}.
 
 
 \begin{DoxyCode}
-00154 \{
-00155     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable}.toUpper() != \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}.toUpper() && \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName} != \textcolor{stringliteral}{""})
-00156     \{
-00157         \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} = \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}.toUpper();
-00158         emit \hyperlink{classSH__SqlDataModel_a791a6cc9d8a2ba109fe5f54ab287dc80}{tableChanged}();
-00159     \}
-00160 \}
+00127 \{
+00128     \textcolor{keywordflow}{if} (\hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable}.toUpper() != \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}.toUpper() && \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName} != \textcolor{stringliteral}{""})
+00129     \{
+00130         \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable} = \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}.toUpper();
+00131         emit \hyperlink{classSH__SqlDataModel_a791a6cc9d8a2ba109fe5f54ab287dc80}{tableChanged}();
+00132     \}
+00133 \}
 \end{DoxyCode}
 \hypertarget{classSH__SqlDataModel_a791a6cc9d8a2ba109fe5f54ab287dc80}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!table\-Changed@{table\-Changed}}
 \index{table\-Changed@{table\-Changed}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -972,7 +973,7 @@ const Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00112}{112} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8cpp_source_l00094}{94} du fichier \hyperlink{SH__SqlDataModel_8cpp_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-cpp}.
 
 
 
@@ -984,9 +985,9 @@ Référencé par \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57
 
 
 \begin{DoxyCode}
-00113 \{
-00114     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable};
-00115 \}
+00095 \{
+00096     \textcolor{keywordflow}{return} \hyperlink{classSH__SqlDataModel_a88b8738a0d2803c94295c90c83d65f32}{mTable};
+00097 \}
 \end{DoxyCode}
 
 
@@ -1000,7 +1001,7 @@ m\-Data\-Fields
 
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00258}{258} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00256}{256} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1015,7 +1016,7 @@ m\-Filter
 
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00250}{250} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00246}{246} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1030,7 +1031,7 @@ m\-Records
 
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00270}{270} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00271}{271} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1045,7 +1046,7 @@ m\-Roles
 
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00262}{262} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00261}{261} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1060,7 +1061,7 @@ m\-Sort
 
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00254}{254} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00251}{251} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1090,7 +1091,7 @@ m\-Table
 
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00246}{246} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00241}{241} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1107,7 +1108,7 @@ const Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00018}{18} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00016}{16} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 \hypertarget{classSH__SqlDataModel_a28af51642aee51bc7e0ce19b97c57b60}{\index{S\-H\-\_\-\-Sql\-Data\-Model@{S\-H\-\_\-\-Sql\-Data\-Model}!last\-Error@{last\-Error}}
 \index{last\-Error@{last\-Error}!SH_SqlDataModel@{S\-H\-\_\-\-Sql\-Data\-Model}}
@@ -1117,7 +1118,7 @@ const Q\-String
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00019}{19} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00017}{17} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 
@@ -1128,7 +1129,7 @@ Référencé par \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f
 \subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String S\-H\-\_\-\-Sql\-Data\-Model\-::table\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}}\label{classSH__SqlDataModel_afd3e2e62c847463c5177ccad35ad4992}
 
 
-Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00017}{17} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
+Définition à la ligne \hyperlink{SH__SqlDataModel_8h_source_l00015}{15} du fichier \hyperlink{SH__SqlDataModel_8h_source}{S\-H\-\_\-\-Sql\-Data\-Model.\-h}.
 
 
 

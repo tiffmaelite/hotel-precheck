@@ -13,7 +13,7 @@ var classSH__SqlDataModel =
     [ "filter", "classSH__SqlDataModel.xhtml#aa86018df823c85798574ec8d63413c1a", null ],
     [ "filterChanged", "classSH__SqlDataModel.xhtml#ab7bf039eba1e085b137509b7b93ea39b", null ],
     [ "isEmpty", "classSH__SqlDataModel.xhtml#ad85bfde0f7ffb06172eb5543e26d1331", null ],
-    [ "lastError", "classSH__SqlDataModel.xhtml#ade915650ffbdb8d026e00893d1f5a195", null ],
+    [ "lastError", "classSH__SqlDataModel.xhtml#ad9aaa1569cd20c3c0e18d39eeb6caa43", null ],
     [ "lastErrorChanged", "classSH__SqlDataModel.xhtml#a16f5316d5ca383f137d0d571931e4cc5", null ],
     [ "query", "classSH__SqlDataModel.xhtml#aee909d0a29715d02d920fcf854bfbba2", null ],
     [ "resetFieldsToAll", "classSH__SqlDataModel.xhtml#ad0477d16e78ba808250e2054952f9833", null ],

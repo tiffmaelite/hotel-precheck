@@ -1,11 +1,14 @@
 var searchData=
 [
   ['emitgonext',['emitGoNext',['../classSH__GenericState.xhtml#a66d4d4d94ef4fac3eb8d137848290582',1,'SH_GenericState::emitGoNext()'],['../classSH__GenericStateMachine.xhtml#a2e162a1da1f694d433cb9072b37ac530',1,'SH_GenericStateMachine::emitGoNext()']]],
+  ['emitresendinput',['emitResendInput',['../classSH__InOutState.xhtml#ad1695493d39c5194e5b7c6372754ddd7',1,'SH_InOutState']]],
+  ['emitsendoutput',['emitSendOutput',['../classSH__InOutState.xhtml#a40995f4a8201f21d26b7e78b7e7b652e',1,'SH_InOutState']]],
   ['empty',['empty',['../classSH__ExtendedProxyModel.xhtml#a9e22d17af7776aca8052084cc33c3442',1,'SH_ExtendedProxyModel']]],
   ['emptydelegate',['emptyDelegate',['../classSH__ContentView.xhtml#a243657fbb9155fd4af8e14c225795aa8',1,'SH_ContentView::emptyDelegate()'],['../classSH__SqlDataView.xhtml#af2c0c75bb57606451699027fa74eeda2',1,'SH_SqlDataView::emptyDelegate()']]],
   ['enabled',['enabled',['../classSH__ExtendedQQmlAction.xhtml#ac2d51d5f8e6ee51883a8ea1efe974ad2',1,'SH_ExtendedQQmlAction']]],
   ['enabledchanged',['enabledChanged',['../classSH__ExtendedQQmlAction.xhtml#aa4caaf211f7f26e0d670929b998efb97',1,'SH_ExtendedQQmlAction']]],
   ['enablelogging',['enableLogging',['../main_8cpp.xhtml#ac3c79e35c4fc5c50939ae90485e1483f',1,'main.cpp']]],
+  ['enableroomneeded',['enableRoomNeeded',['../classSH__ServicesDelegate.xhtml#a8567cacba7b48a3c1f71e6fa6dfb9f74',1,'SH_ServicesDelegate']]],
   ['error',['ERROR',['../classSH__MessageManager.xhtml#a13742daa1342475d4fcee295b9dee4eeaed8e377759e5f203a417dbd267cbc33a',1,'SH_MessageManager']]],
   ['errormessage',['errorMessage',['../classSH__MessageManager.xhtml#a0cb4f06cf67539457482ba1c8544eb06',1,'SH_MessageManager']]],
   ['errormode',['ErrorMode',['../classSH__MessageManager.xhtml#a13742daa1342475d4fcee295b9dee4ee',1,'SH_MessageManager']]],

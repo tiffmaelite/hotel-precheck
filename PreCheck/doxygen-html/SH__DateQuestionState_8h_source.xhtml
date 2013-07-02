@@ -112,40 +112,40 @@ $(document).ready(function(){initNavTree('SH__DateQuestionState_8h_source.xhtml'
 <a href="SH__DateQuestionState_8h.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATEQUESTIONSTATE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATEQUESTIONSTATE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="SH__QuestionState_8h.xhtml">SH_QuestionState.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*namespace SimplHotel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">{*/</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSH__DateQuestionState.xhtml">SH_DateQuestionState</a> : <span class="keyword">public</span> <a class="code" href="classSH__QuestionState.xhtml">SH_QuestionState</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#a9a60060ebcd5994d62f0ca5f0e6b5e98">SH_DateQuestionState</a>(QString question, QString <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>, <span class="keywordtype">bool</span> past = <span class="keyword">true</span>, <span class="keywordtype">bool</span> future = <span class="keyword">false</span>, <a class="code" href="classQState.xhtml">QState</a> *parent = 0);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a303e9f86c37ded79fb3ad4d31d183c21">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__QuestionState.xhtml#a29cdea8bc55e39e3ed02d24743c30f8c">givenAnswer</a>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a409a85ad6b7d2e37cfc42c3cfdca12ad">getPast</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">setPast</a>(<span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#aa7b73f952558aa2aefaec2b94119abbc">getFuture</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">setFuture</a>(<span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;QVariant <a class="code" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">rawInput</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;signals:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#afa33fd208cf539167bcc26c83e57d803">   78</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a0a1577dc70f9c1120a6d623f8eb635c8">   82</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DATEQUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#a9a60060ebcd5994d62f0ca5f0e6b5e98">SH_DateQuestionState</a>(QString question, QString <a class="code" href="classSH__NamedObject.xhtml#a9f686c6f2a5bcc08ad03d0cee0151f0f">name</a>, <span class="keywordtype">bool</span> past = <span class="keyword">true</span>, <span class="keywordtype">bool</span> future = <span class="keyword">false</span>, <a class="code" href="classQState.xhtml">QState</a> *parent = 0);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a28dba9f895682e7722c1a245e0aac713">setMinimumDate</a>(QDate after);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a43fd05c32a82342a25ea860f25917253">setMaximumDate</a>(QDate before);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a303e9f86c37ded79fb3ad4d31d183c21">isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="classSH__QuestionState.xhtml#a29cdea8bc55e39e3ed02d24743c30f8c">givenAnswer</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#ad16ab3d70e9356ca17c0a05d9a2093da">isPast</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">setPast</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a737a3f24e3bffbd367d439dd47fcc3cd">isFuture</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">setFuture</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    QVariant <a class="code" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">rawInput</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;signals:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">   68</a></span>&#160;    QDate <a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">   69</a></span>&#160;    QDate <a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/*}*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DATEQUESTIONSTATE_H*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DateQuestionState_8h.xhtml">SH_DateQuestionState.h</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_13c294c896149c6e7ad839bf15bc2a5b.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DateQuestionState_8h.xhtml">SH_DateQuestionState.h</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

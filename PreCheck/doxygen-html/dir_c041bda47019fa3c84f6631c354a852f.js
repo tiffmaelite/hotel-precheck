@@ -6,12 +6,12 @@ var dir_c041bda47019fa3c84f6631c354a852f =
     [ "main.cpp", "main_8cpp.xhtml", "main_8cpp" ],
     [ "SH_ApplicationCore.cpp", "SH__ApplicationCore_8cpp.xhtml", null ],
     [ "SH_ApplicationCore.h", "SH__ApplicationCore_8h.xhtml", [
-      [ "SH_ApplicationCore", "classSH__ApplicationCore.xhtml", "classSH__ApplicationCore" ]
+      [ "SH_ApplicationCore", "classSimpleHotel_1_1SH__ApplicationCore.xhtml", "classSimpleHotel_1_1SH__ApplicationCore" ]
     ] ],
     [ "SH_DatabaseManager.cpp", "SH__DatabaseManager_8cpp.xhtml", null ],
     [ "SH_DatabaseManager.h", "SH__DatabaseManager_8h.xhtml", "SH__DatabaseManager_8h" ],
     [ "SH_MessageManager.cpp", "SH__MessageManager_8cpp.xhtml", null ],
     [ "SH_MessageManager.h", "SH__MessageManager_8h.xhtml", [
-      [ "SH_MessageManager", "classSH__MessageManager.xhtml", "classSH__MessageManager" ]
+      [ "SH_MessageManager", "classSimpleHotel_1_1SH__MessageManager.xhtml", "classSimpleHotel_1_1SH__MessageManager" ]
     ] ]
 ];

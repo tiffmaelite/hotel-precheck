@@ -36,13 +36,11 @@ bool \hyperlink{classSH__ApplicationCore_a008b4a797ce77f88df8c59226a151708}{bala
 \item 
 void \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{cancel\-Replacement} ()
 \item 
-bool \hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}{cancel\-Running\-Thread} ()
+bool \hyperlink{classSH__ApplicationCore_a1e718a7a101e53e1cfcf8160104d4ba8}{launch\-Billing\-Creation} ()
 \item 
-bool \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{launch\-Billings\-Thread} ()
+bool \hyperlink{classSH__ApplicationCore_aa38f270d3c02be636c9acb2bd8c2bbbe}{launch\-Booking\-Creation} ()
 \item 
-bool \hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{launch\-Bill\-Thread} ()
-\item 
-bool \hyperlink{classSH__ApplicationCore_af70c0875c93910b83acbcd49e56bf0fb}{launch\-Bookings\-Thread} ()
+bool \hyperlink{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{launch\-Service\-Charging} ()
 \item 
 void \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{receive\-Confirmation} ()
 \item 
@@ -52,8 +50,12 @@ void \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{rece
 \item 
 void \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{replace\-Input} (Q\-String input\-Name)
 \item 
+bool \hyperlink{classSH__ApplicationCore_a30bb8d51f737740e33c2063bc30a0213}{save\-User} (Q\-String login, Q\-String pass, bool is\-Trainee, bool is\-Receptionist, bool is\-Man\-X, bool is\-Man\-Z, bool is\-Admin)
+\item 
 bool \hyperlink{classSH__ApplicationCore_a2dd5c029a2ea348f1dfd0a60dea476e4}{set\-User} (Q\-String login, Q\-String pass)
 \begin{DoxyCompactList}\small\item\em Modifie l'utilisateur actuel. \end{DoxyCompactList}\item 
+bool \hyperlink{classSH__ApplicationCore_a8015a273eaedf42926f20a7858933683}{stop\-Running\-State\-Machine} ()
+\item 
 bool \hyperlink{classSH__ApplicationCore_a63afe07c7ef380f8709854aba85fdb9e}{user\-Exists} (Q\-String login)
 \begin{DoxyCompactList}\small\item\em Vérifie s'il existe un utilisateur avec le pseudo fourni. \end{DoxyCompactList}\item 
 bool \hyperlink{classSH__ApplicationCore_a3603a68faa57edb8722f9d1b67767368}{user\-Log\-Out} ()
@@ -67,13 +69,17 @@ void \hyperlink{classSH__ApplicationCore_aac0f404ccc6443d1ddaf9b25dda14416}{curr
 \item 
 void \hyperlink{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}{display\-Calendar} ()
 \item 
+void \hyperlink{classSH__ApplicationCore_a9e5a18f183d1e2999f86eb9f7fad0d80}{display\-Choice\-List} (Q\-Variant choices)
+\item 
+void \hyperlink{classSH__ApplicationCore_ab69844843adf0044efc0810b1772ce5a}{display\-File\-Dialog} ()
+\item 
 void \hyperlink{classSH__ApplicationCore_ad9ef4e541ba77120b8f1b5f71bbfe717}{mode\-Changed} (Q\-Variant \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode})
 \item 
 void \hyperlink{classSH__ApplicationCore_a1ca7706a2414bcfba6d529f0216dec8f}{open\-Tab} (Q\-Variant tab\-Pos)
 \item 
 void \hyperlink{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{resend\-Text} (Q\-String text)
 \item 
-void \hyperlink{classSH__ApplicationCore_aeaf9c78e68e7f55564f75e07d0f327aa}{send\-Text} (Q\-String text)
+void \hyperlink{classSH__ApplicationCore_ab13d32ef84d080424469c6cecc0bf4c8}{send\-Text} (Q\-String text, bool editable)
 \item 
 void \hyperlink{classSH__ApplicationCore_aeeac6cde618cb677218d72c4ea7ecf18}{user\-Changed} (Q\-Variant name)
 \end{DoxyCompactItemize}
@@ -82,23 +88,35 @@ void \hyperlink{classSH__ApplicationCore_aeeac6cde618cb677218d72c4ea7ecf18}{user
 \item 
 \hyperlink{classSH__ApplicationCore_a3c33fe8a39bd571c4c809d8c55603156}{S\-H\-\_\-\-Application\-Core} (\hyperlink{classQObject}{Q\-Object} $\ast$parent=0)
 \item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E int \hyperlink{classSH__ApplicationCore_a111103d68e1a0f1fdaeef7cd85333896}{bill\-Opened} ()
+\item 
 void \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{init} ()
 \begin{DoxyCompactList}\small\item\em Initialise l'application avec un utilisateur invalide, et le mode {\itshape C\-O\-N\-N\-E\-X\-I\-O\-N}. \end{DoxyCompactList}\item 
 \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\-Mode} \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} () const 
 \begin{DoxyCompactList}\small\item\em Retourne le mode actuel de l'application. \end{DoxyCompactList}\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E Q\-Variant \hyperlink{classSH__ApplicationCore_a9feb9d83185f8ba1f99125b06f381436}{read\-Setting} (Q\-String key, Q\-String group=\char`\"{}\char`\"{})
+\item 
 void \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{set\-Mode} (\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\-Mode} \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode})
 \begin{DoxyCompactList}\small\item\em Modifie le mode dans lequel se trouve l'application. \end{DoxyCompactList}\item 
+void \hyperlink{classSH__ApplicationCore_a04f612b13a53b442a94c66598eea2907}{set\-Settings} (Q\-Settings\-::\-Scope scope, Q\-String dev\-Name, Q\-String app\-Name)
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E qreal \hyperlink{classSH__ApplicationCore_ac6ebc8bb079a1faf430129bf7922b65d}{today\-Balance} ()
+\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E qreal \hyperlink{classSH__ApplicationCore_a7c97dd4990e8f4b24afda9e7c5b88c21}{total\-Balance} ()
+\item 
 \hyperlink{classSH__User}{S\-H\-\_\-\-User} $\ast$ \hyperlink{classSH__ApplicationCore_a57fa0d6b5fd5f4a02f8a129ee470697b}{user} () const 
-\begin{DoxyCompactList}\small\item\em retourne l'utilisateur actuellement connecté \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em retourne l'utilisateur actuellement connecté \end{DoxyCompactList}\item 
+Q\-\_\-\-I\-N\-V\-O\-K\-A\-B\-L\-E void \hyperlink{classSH__ApplicationCore_af58caab2fbbdc5a5c0dd0d162aa643ef}{write\-Setting} (Q\-String key, Q\-Variant value, Q\-String group)
+\end{DoxyCompactItemize}
 \subsection*{Fonctions membres protégées}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread} ()
+bool \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine} ()
 \end{DoxyCompactItemize}
 \subsection*{Propriétés}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\-Mode} \hyperlink{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}{current\-Mode}
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_ac83ee9ad9c649105eb8eac5fac74b951}{current\-Mode}
 \begin{DoxyCompactList}\small\item\em Le mode actuel de l'application. \end{DoxyCompactList}\item 
 \hyperlink{classSH__User}{S\-H\-\_\-\-User} \hyperlink{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}{current\-User}
 \begin{DoxyCompactList}\small\item\em L'utilisateur actuellement connecté (un objet S\-H\-\_\-\-U\-Ser invalide si aucun utilisateur n'est connecté) \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -107,16 +125,20 @@ bool \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{conn
 \item 
 \hyperlink{classSH__InOutStateMachine}{S\-H\-\_\-\-In\-Out\-State\-Machine} $\ast$ \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}
 \item 
+bool \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}
+\item 
 \hyperlink{classSH__User}{S\-H\-\_\-\-User} $\ast$ \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\-\_\-current\-User}
 \item 
-\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{App\-Mode} \hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\-\_\-mode}
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\-\_\-mode}
+\item 
+Q\-Settings \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\-\_\-settings}
 \end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
 La classe \hyperlink{classSH__ApplicationCore}{S\-H\-\_\-\-Application\-Core} est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique. 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00012}{12} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00014}{14} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
@@ -132,7 +154,9 @@ Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00012}{12} du 
 
 Mode de l'application qui ne contient que le formulaire de connexion
 
-\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{S\-H\-\_\-\-Application\-Core\-::\-A\-C\-C\-U\-E\-I\-L} Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès /$\ast$!  \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{S\-H\-\_\-\-Application\-Core\-::\-R\-E\-C\-E\-P\-T\-I\-O\-N} Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{S\-H\-\_\-\-Application\-Core\-::\-A\-C\-C\-U\-E\-I\-L} Mode central de l'application qui permet d'accéder aux autres modes auxquels l'utilisateur a accès
+
+\hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{S\-H\-\_\-\-Application\-Core\-::\-R\-E\-C\-E\-P\-T\-I\-O\-N} Mode de l'application qui regroupe les interfaces liées aux activités d'un réceptionniste
 
 \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899}{S\-H\-\_\-\-Application\-Core\-::\-App\-Mode} \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{S\-H\-\_\-\-Application\-Core\-::\-M\-A\-N\-A\-G\-E\-M\-E\-N\-T\-\_\-\-X} Mode de l'application qui regroupe les interfaces liées aux activités d'un responsable X (en lecture seulement) du service
 
@@ -157,11 +181,11 @@ Mode de l'application qui ne contient que le formulaire de connexion
 \end{Desc}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00057}{57} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00066}{66} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 \begin{DoxyCode}
-00057 \{ \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}, 
+00066 \{ \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}, 
       \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{MANAGEMENT\_Z}, \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{ADMINISTRATION} \};
 \end{DoxyCode}
 
@@ -185,7 +209,8 @@ Références \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf
 
 \begin{DoxyCode}
 00014                                                       :
-00015     \hyperlink{classQObject}{QObject}(parent)
+00015     \hyperlink{classQObject}{QObject}(parent), \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}(\textcolor{keyword}{false}), 
+      \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}(NULL)
 00016 \{
 00017     \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{init}();
 00018 \}
@@ -205,17 +230,47 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00112}{112} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00106}{106} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 \begin{DoxyCode}
-00112                                            \{
-00113     \textcolor{comment}{/*SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");}
-00114 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");}
-00115 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");}
-00116 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");}
-00117 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/}
-00118 \}
+00106                                            \{
+00107 
+00108     \textcolor{comment}{/*SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");}
+00109 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");}
+00110 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");}
+00111 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");}
+00112 \textcolor{comment}{    SH\_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/}
+00113     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00114 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_a111103d68e1a0f1fdaeef7cd85333896}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!bill\-Opened@{bill\-Opened}}
+\index{bill\-Opened@{bill\-Opened}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{bill\-Opened}]{\setlength{\rightskip}{0pt plus 5cm}int S\-H\-\_\-\-Application\-Core\-::bill\-Opened (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__ApplicationCore_a111103d68e1a0f1fdaeef7cd85333896}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00242}{242} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::get\-Content\-Value()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}.
+
+
+\begin{DoxyCode}
+00242                                    \{
+00243     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00244         \hyperlink{classSH__ServiceCharging}{SH\_ServiceCharging}* smachine = qobject\_cast<
+      \hyperlink{classSH__ServiceCharging}{SH\_ServiceCharging}*>(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM});
+00245         \textcolor{keywordflow}{if}(smachine) \{
+00246             \textcolor{keywordflow}{return} smachine->\hyperlink{classSH__InOutStateMachine_aa1a3bd3c0ea8a59b9bc916dc718eb9ca}{getContentValue}(\textcolor{stringliteral}{"ID"}).toInt();
+00247         \}
+00248     \}
+00249     \textcolor{keywordflow}{return} -1;
+00250 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!cancel\-Replacement@{cancel\-Replacement}}
 \index{cancel\-Replacement@{cancel\-Replacement}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -226,49 +281,19 @@ Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00112}{112} 
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00169}{169} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00173}{173} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::cancel\-Replacement()}, et \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}.
-
-
-\begin{DoxyCode}
-00170 \{
-00171     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}) \{
-00172         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{cancelReplacement}();
-00173     \}
-00174 \}
-\end{DoxyCode}
-\hypertarget{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!cancel\-Running\-Thread@{cancel\-Running\-Thread}}
-\index{cancel\-Running\-Thread@{cancel\-Running\-Thread}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{cancel\-Running\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::cancel\-Running\-Thread (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
-
-
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00232}{232} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
-
-
-
-Références \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{S\-H\-\_\-\-Generic\-State\-Machine\-::is\-Running()}, et \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}.
+Références \hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::cancel\-Replacement()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}.
 
 
 \begin{DoxyCode}
-00233 \{
-00234     \textcolor{comment}{/*if(!this->m\_currentFSM) \{}
-00235 \textcolor{comment}{        return true;}
-00236 \textcolor{comment}{    \}*/}
-00237     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->stop();
-00238     \textcolor{keywordtype}{bool} ok = !this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}();
-00239     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM} = NULL;
-00240     \textcolor{keywordflow}{return} ok;
-00241 \}
+00174 \{
+00175     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00176         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a035d37535533d4805fe2606f38c19380}{cancelReplacement}();
+00177     \}
+00178 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!clear\-All@{clear\-All}}
 \index{clear\-All@{clear\-All}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -279,52 +304,8 @@ Références \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb587
 )\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}
 
 
-Référencé par \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
 
-\hypertarget{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!connect\-Running\-Thread@{connect\-Running\-Thread}}
-\index{connect\-Running\-Thread@{connect\-Running\-Thread}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{connect\-Running\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::connect\-Running\-Thread (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
-
-
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00249}{249} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
-
-
-
-Références \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::clear\-All()}, \hyperlink{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{clear\-All()}, \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}{display\-Calendar()}, \hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{S\-H\-\_\-\-Generic\-State\-Machine\-::is\-Running()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{resend\-Text()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, et \hyperlink{classSH__ApplicationCore_aeaf9c78e68e7f55564f75e07d0f327aa}{send\-Text()}.
-
-
-
-Référencé par \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{launch\-Billings\-Thread()}, \hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{launch\-Bill\-Thread()}, et \hyperlink{classSH__ApplicationCore_af70c0875c93910b83acbcd49e56bf0fb}{launch\-Bookings\-Thread()}.
-
-
-\begin{DoxyCode}
-00250 \{
-00251     \textcolor{comment}{/*if(!this->m\_currentFSM) \{}
-00252 \textcolor{comment}{        return false;}
-00253 \textcolor{comment}{    \}*/}
-00254     qDebug() << \textcolor{stringliteral}{"coucou"};
-00255     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{SH\_InOutStateMachine::sendText}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_aeaf9c78e68e7f55564f75e07d0f327aa}{SH\_ApplicationCore::sendText}, Qt::DirectConnection);
-00256         QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{SH\_InOutStateMachine::clearAll}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{SH\_ApplicationCore::clearAll}, Qt::DirectConnection);
-00257         QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{SH\_InOutStateMachine::resendText}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{SH\_ApplicationCore::resendText}, Qt::DirectConnection);
-00258     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
-      \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar}, \textcolor{keyword}{this}, &
-      \hyperlink{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}{SH\_ApplicationCore::displayCalendar}, Qt::DirectConnection);
-00259     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__GenericStateMachine_a7e650d582a4c1b8cf2869fb5873b36a9}{isRunning}();
-00260 \}
-\end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_aac0f404ccc6443d1ddaf9b25dda14416}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!current\-F\-S\-Mchanged@{current\-F\-S\-Mchanged}}
 \index{current\-F\-S\-Mchanged@{current\-F\-S\-Mchanged}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
 \subsubsection[{current\-F\-S\-Mchanged}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::current\-F\-S\-Mchanged (
@@ -341,7 +322,29 @@ Référencé par \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06
 )\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}
 
 
-Référencé par \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
+
+\hypertarget{classSH__ApplicationCore_a9e5a18f183d1e2999f86eb9f7fad0d80}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!display\-Choice\-List@{display\-Choice\-List}}
+\index{display\-Choice\-List@{display\-Choice\-List}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{display\-Choice\-List}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Application\-Core\-::display\-Choice\-List (
+\begin{DoxyParamCaption}
+\item[{Q\-Variant}]{choices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__ApplicationCore_a9e5a18f183d1e2999f86eb9f7fad0d80}
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
+
+\hypertarget{classSH__ApplicationCore_ab69844843adf0044efc0810b1772ce5a}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!display\-File\-Dialog@{display\-File\-Dialog}}
+\index{display\-File\-Dialog@{display\-File\-Dialog}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{display\-File\-Dialog}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::display\-File\-Dialog (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__ApplicationCore_ab69844843adf0044efc0810b1772ce5a}
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
 
 \hypertarget{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!init@{init}}
 \index{init@{init}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -356,7 +359,7 @@ Initialise l'application avec un utilisateur invalide, et le mode {\itshape C\-O
 
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00035}{35} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00031}{31} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -368,104 +371,128 @@ Référencé par \hyperlink{classSH__ApplicationCore_a3c33fe8a39bd571c4c809d8c55
 
 
 \begin{DoxyCode}
-00035                               \{
-00036     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
-00037 \}
+00031                               \{
+00032     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
+00033 \}
 \end{DoxyCode}
-\hypertarget{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-Billings\-Thread@{launch\-Billings\-Thread}}
-\index{launch\-Billings\-Thread@{launch\-Billings\-Thread}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{launch\-Billings\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::launch\-Billings\-Thread (
+\hypertarget{classSH__ApplicationCore_a1e718a7a101e53e1cfcf8160104d4ba8}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-Billing\-Creation@{launch\-Billing\-Creation}}
+\index{launch\-Billing\-Creation@{launch\-Billing\-Creation}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-Billing\-Creation}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::launch\-Billing\-Creation (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a1e718a7a101e53e1cfcf8160104d4ba8}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00182}{182} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00183}{183} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{S\-H\-\_\-\-Generic\-State\-Machine\-::to\-String()}.
+Références \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}.
 
 
 \begin{DoxyCode}
-00183 \{
-00184     qDebug() << \textcolor{stringliteral}{"Hallo !"};
-00185     \textcolor{comment}{/*if(this->m\_currentFSM) \{}
-00186 \textcolor{comment}{        return false;}
-00187 \textcolor{comment}{    \}*/}
-00188     qDebug() << \textcolor{stringliteral}{"Hallo !"};
-00189     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__BillingCreationStateMachine}{SH\_BillingCreationStateMachine}(\textcolor{stringliteral}{"
+00184 \{
+00185     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__BillingCreationStateMachine}{SH\_BillingCreationStateMachine}(\textcolor{stringliteral}{"
       création facturation"});
-00190     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->start();
-00191     qDebug() << this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}() << \textcolor{stringliteral}{" "} << this->
-      \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->initialState();
-00192     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connectRunningThread}();
-00193 
-00194 \}
+00186     \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull} = \textcolor{keyword}{true};
+00187     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launchStateMachine}();
+00188 \}
 \end{DoxyCode}
-\hypertarget{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-Bill\-Thread@{launch\-Bill\-Thread}}
-\index{launch\-Bill\-Thread@{launch\-Bill\-Thread}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{launch\-Bill\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::launch\-Bill\-Thread (
+\hypertarget{classSH__ApplicationCore_aa38f270d3c02be636c9acb2bd8c2bbbe}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-Booking\-Creation@{launch\-Booking\-Creation}}
+\index{launch\-Booking\-Creation@{launch\-Booking\-Creation}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-Booking\-Creation}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::launch\-Booking\-Creation (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_aa38f270d3c02be636c9acb2bd8c2bbbe}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00216}{216} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00193}{193} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}, \hyperlink{classSH__User_a187ee34e1d6d3466f3852e091cdb69e9}{S\-H\-\_\-\-User\-::id}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\-\_\-current\-User}, et \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}.
+Références \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
 
 
 \begin{DoxyCode}
-00217 \{
-00218     \textcolor{comment}{/*if(this->m\_currentFSM) \{}
-00219 \textcolor{comment}{        return false;}
-00220 \textcolor{comment}{    \}*/}
-00221     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__ServiceCharging}{SH\_ServiceCharging}(\textcolor{stringliteral}{"facturation prestation"});
-00222     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(QVariant(this->
+00194 \{
+00195     \textcolor{comment}{/*this->m\_currentFSM= new BookingCreationStateMachine("création facturation");}
+00196 \textcolor{comment}{    this->m\_currentFSMNotNull = true;*/}
+00197     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launchStateMachine}();
+00198 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-Service\-Charging@{launch\-Service\-Charging}}
+\index{launch\-Service\-Charging@{launch\-Service\-Charging}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-Service\-Charging}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::launch\-Service\-Charging (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00203}{203} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__User_a187ee34e1d6d3466f3852e091cdb69e9}{S\-H\-\_\-\-User\-::id}, \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}, \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\-\_\-current\-User}, et \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::set\-Content\-Value()}.
+
+
+\begin{DoxyCode}
+00204 \{
+00205     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}= \textcolor{keyword}{new} \hyperlink{classSH__ServiceCharging}{SH\_ServiceCharging}(\textcolor{stringliteral}{"facturation prestation"});
+00206     \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull} = \textcolor{keyword}{true};
+00207     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(QVariant(this->
       \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a187ee34e1d6d3466f3852e091cdb69e9}{id}()), \textcolor{stringliteral}{"BILL\_ID"});
-00223     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->start();
-00224     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connectRunningThread}();
-00225 \}
+00208     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launchStateMachine}();
+00209 \}
 \end{DoxyCode}
-\hypertarget{classSH__ApplicationCore_af70c0875c93910b83acbcd49e56bf0fb}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-Bookings\-Thread@{launch\-Bookings\-Thread}}
-\index{launch\-Bookings\-Thread@{launch\-Bookings\-Thread}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
-\subsubsection[{launch\-Bookings\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::launch\-Bookings\-Thread (
+\hypertarget{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!launch\-State\-Machine@{launch\-State\-Machine}}
+\index{launch\-State\-Machine@{launch\-State\-Machine}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{launch\-State\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::launch\-State\-Machine (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_af70c0875c93910b83acbcd49e56bf0fb}
-\begin{DoxyReturn}{Renvoie}
-bool 
-\end{DoxyReturn}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00201}{201} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00228}{228} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}.
+Références \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::clear\-All()}, \hyperlink{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{clear\-All()}, \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Calendar()}, \hyperlink{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}{display\-Calendar()}, \hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-Choice\-List()}, \hyperlink{classSH__ApplicationCore_a9e5a18f183d1e2999f86eb9f7fad0d80}{display\-Choice\-List()}, \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::display\-File\-Dialog()}, \hyperlink{classSH__ApplicationCore_ab69844843adf0044efc0810b1772ce5a}{display\-File\-Dialog()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::resend\-Text()}, \hyperlink{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{resend\-Text()}, \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::send\-Text()}, et \hyperlink{classSH__ApplicationCore_ab13d32ef84d080424469c6cecc0bf4c8}{send\-Text()}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_a1e718a7a101e53e1cfcf8160104d4ba8}{launch\-Billing\-Creation()}, \hyperlink{classSH__ApplicationCore_aa38f270d3c02be636c9acb2bd8c2bbbe}{launch\-Booking\-Creation()}, et \hyperlink{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{launch\-Service\-Charging()}.
 
 
 \begin{DoxyCode}
-00202 \{
-00203     \textcolor{comment}{/*if(this->m\_currentFSM) \{}
-00204 \textcolor{comment}{        return false;}
-00205 \textcolor{comment}{    \}*/}
-00206     \textcolor{comment}{/*this->m\_currentFSM= new BookingCreationStateMachine("création facturation");*/}
-00207     \textcolor{comment}{/*this->m\_currentFSM->start();*/}
-00208     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connectRunningThread}();
-00209 \}
+00229 \{
+00230     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_a5e7f5958bae31696b6a8deab94ad2b4f}{SH\_InOutStateMachine::sendText}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_ab13d32ef84d080424469c6cecc0bf4c8}{SH\_ApplicationCore::sendText}, Qt::DirectConnection);
+00231     \textcolor{comment}{/*QObject::connect(this->m\_currentFSM, &SH\_InOutStateMachine::sendText, [=](QString text, bool
+       editable) \{ SH\_MessageManager::infoMessage(text,"reçu de la machine"); emit this->sendText(text, editable);\});*/}
+00232     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_aa1d5860888c96ff94c55dc77e0fdfdcf}{SH\_InOutStateMachine::clearAll}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{SH\_ApplicationCore::clearAll}, Qt::DirectConnection);
+00233     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_a526822c66b46aa0cd81ba4473fa5573f}{SH\_InOutStateMachine::resendText}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{SH\_ApplicationCore::resendText}, Qt::DirectConnection);
+00234     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_ab3a12d1f9b658d8ffdc17669a6c065f2}{SH\_InOutStateMachine::displayCalendar}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_acb00dec6d5cc096ca99e8d0235dd8095}{SH\_ApplicationCore::displayCalendar}, Qt::DirectConnection);
+00235     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_ab74b981b0aab09067d7479f2b7e79b0b}{SH\_InOutStateMachine::displayChoiceList}, [=](QVariantList list) \{
+      this->\hyperlink{classSH__ApplicationCore_a9e5a18f183d1e2999f86eb9f7fad0d80}{displayChoiceList}(QVariant(list));\});
+00236     QObject::connect(this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}, &
+      \hyperlink{classSH__InOutStateMachine_abd206c3bc32bb7690df9c3e1cd546ebc}{SH\_InOutStateMachine::displayFileDialog}, \textcolor{keyword}{this}, &
+      \hyperlink{classSH__ApplicationCore_ab69844843adf0044efc0810b1772ce5a}{SH\_ApplicationCore::displayFileDialog}, Qt::DirectConnection);
+00237     emit \hyperlink{classSH__ApplicationCore_ab03fe18921573a2566d587189173f691}{clearAll}();
+00238     this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->start();
+00239     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->isRunning();
+00240 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!mode@{mode}}
 \index{mode@{mode}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -483,7 +510,7 @@ App\-Mode
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00025}{25} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00023}{23} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -495,9 +522,9 @@ Référencé par \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2c
 
 
 \begin{DoxyCode}
-00026 \{
-00027     \textcolor{keywordflow}{return} \hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode};
-00028 \}
+00024 \{
+00025     \textcolor{keywordflow}{return} \hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode};
+00026 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_ad9ef4e541ba77120b8f1b5f71bbfe717}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!mode\-Changed@{mode\-Changed}}
 \index{mode\-Changed@{mode\-Changed}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -523,6 +550,35 @@ Référencé par \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2c
 {\em tab\-Pos} & \\
 \hline
 \end{DoxyParams}
+\hypertarget{classSH__ApplicationCore_a9feb9d83185f8ba1f99125b06f381436}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!read\-Setting@{read\-Setting}}
+\index{read\-Setting@{read\-Setting}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{read\-Setting}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant S\-H\-\_\-\-Application\-Core\-::read\-Setting (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{key, }
+\item[{Q\-String}]{group = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classSH__ApplicationCore_a9feb9d83185f8ba1f99125b06f381436}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00257}{257} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\-\_\-settings}.
+
+
+\begin{DoxyCode}
+00258 \{
+00259     \textcolor{keywordflow}{if}(group != \textcolor{stringliteral}{""}) \{
+00260         \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}.beginGroup(group);
+00261     \}
+00262     QVariant value = \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}.value(key);
+00263     \textcolor{keywordflow}{if}(group != \textcolor{stringliteral}{""}) \{
+00264         \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}.endGroup();
+00265     \}
+00266     \textcolor{keywordflow}{return} value;
+00267 \}
+\end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!receive\-Confirmation@{receive\-Confirmation}}
 \index{receive\-Confirmation@{receive\-Confirmation}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
 \subsubsection[{receive\-Confirmation}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::receive\-Confirmation (
@@ -532,19 +588,19 @@ Référencé par \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2c
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00147}{147} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00153}{153} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::confirm\-Input()}, et \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}.
+Références \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::confirm\-Input()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}.
 
 
 \begin{DoxyCode}
-00148 \{
-00149 
-00150     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{confirmInput}();
-00151 
-00152 \}
+00154 \{
+00155     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00156         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28cc31}{confirmInput}();
+00157     \}
+00158 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!receive\-Input@{receive\-Input}}
 \index{receive\-Input@{receive\-Input}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -560,19 +616,20 @@ Références \hyperlink{classSH__InOutStateMachine_a7f7d9c9300c1d05bce2c26029f28
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00125}{125} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00132}{132} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}.
+Références \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{S\-H\-\_\-\-Message\-Manager\-::info\-Message()}, \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}, et \hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::receive\-Input()}.
 
 
 \begin{DoxyCode}
-00126 \{
-00127     qDebug() << \textcolor{stringliteral}{"input received "}<<in;
-00128     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{receiveInput}(in);
-00129 
-00130 \}
+00133 \{
+00134     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00135         \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(\textcolor{stringliteral}{"input received "}+in);
+00136         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a037ed5e13ecfae2123a8d4940292e410}{receiveInput}(in);
+00137     \}
+00138 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!receive\-Validation@{receive\-Validation}}
 \index{receive\-Validation@{receive\-Validation}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -583,19 +640,19 @@ Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e49
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00136}{136} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00143}{143} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}.
+Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}, et \hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::validate\-Input()}.
 
 
 \begin{DoxyCode}
-00137 \{
-00138 
-00139     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{validateInput}();
-00140 
-00141 \}
+00144 \{
+00145     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00146         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_aec1b3fef3c1f82499aa1f73beaecd08a}{validateInput}();
+00147     \}
+00148 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!replace\-Input@{replace\-Input}}
 \index{replace\-Input@{replace\-Input}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -611,19 +668,19 @@ Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e49
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00158}{158} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00163}{163} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
-Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}.
+Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}, et \hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{S\-H\-\_\-\-In\-Out\-State\-Machine\-::replace\-Input()}.
 
 
 \begin{DoxyCode}
-00159 \{
-00160 
-00161     emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{replaceInput}(inputName);
-00162 
-00163 \}
+00164 \{
+00165     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00166         emit this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{replaceInput}(inputName);
+00167     \}
+00168 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a83dbcb859d0d31a6487086150e430d6b}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!resend\-Text@{resend\-Text}}
 \index{resend\-Text@{resend\-Text}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -639,15 +696,49 @@ Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e49
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
 
-\hypertarget{classSH__ApplicationCore_aeaf9c78e68e7f55564f75e07d0f327aa}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!send\-Text@{send\-Text}}
+\hypertarget{classSH__ApplicationCore_a30bb8d51f737740e33c2063bc30a0213}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!save\-User@{save\-User}}
+\index{save\-User@{save\-User}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{save\-User}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::save\-User (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{login, }
+\item[{Q\-String}]{pass, }
+\item[{bool}]{is\-Trainee, }
+\item[{bool}]{is\-Receptionist, }
+\item[{bool}]{is\-Man\-X, }
+\item[{bool}]{is\-Man\-Z, }
+\item[{bool}]{is\-Admin}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a30bb8d51f737740e33c2063bc30a0213}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00084}{84} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__Trainee_ac118976aaa960a727127370e625a3bb9}{S\-H\-\_\-\-Trainee\-::save()}, et \hyperlink{classSH__User_a372d9b8ce8edf778df1c12d3e416091f}{S\-H\-\_\-\-User\-::save()}.
+
+
+\begin{DoxyCode}
+00085 \{
+00086     \textcolor{keywordflow}{if}(!isTrainee) \{
+00087         \hyperlink{classSH__User}{SH\_User}* newUser = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}(login, 0, isReceptionist, isManX, isManZ,isAdmin);
+00088         \textcolor{keywordflow}{return} newUser->\hyperlink{classSH__User_a372d9b8ce8edf778df1c12d3e416091f}{save}(pass);
+00089     \} \textcolor{keywordflow}{else} \{
+00090         \hyperlink{classSH__Trainee}{SH\_Trainee}* newTrainee = \textcolor{keyword}{new} \hyperlink{classSH__Trainee}{SH\_Trainee}(login);
+00091         \textcolor{keywordflow}{return} newTrainee->\hyperlink{classSH__Trainee_ac118976aaa960a727127370e625a3bb9}{save}(pass);
+00092     \}
+00093 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_ab13d32ef84d080424469c6cecc0bf4c8}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!send\-Text@{send\-Text}}
 \index{send\-Text@{send\-Text}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
 \subsubsection[{send\-Text}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::send\-Text (
 \begin{DoxyParamCaption}
-\item[{Q\-String}]{text}
+\item[{Q\-String}]{text, }
+\item[{bool}]{editable}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__ApplicationCore_aeaf9c78e68e7f55564f75e07d0f327aa}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__ApplicationCore_ab13d32ef84d080424469c6cecc0bf4c8}
 
 \begin{DoxyParams}{Paramètres}
 {\em text} & \\
@@ -655,7 +746,7 @@ Référencé par \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9
 \end{DoxyParams}
 
 
-Référencé par \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}.
+Référencé par \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}.
 
 \hypertarget{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!set\-Mode@{set\-Mode}}
 \index{set\-Mode@{set\-Mode}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -675,7 +766,7 @@ Modifie le mode dans lequel se trouve l'application.
 \end{DoxyParams}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00044}{44} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00038}{38} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -683,25 +774,48 @@ Références \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb29358
 
 
 \begin{DoxyCode}
-00045 \{
-00046     \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} || ! \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{SH\_User::exists}(QVariant(this->
+00039 \{
+00040     \textcolor{keywordflow}{if}(!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} || ! \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{SH\_User::exists}(QVariant(this->
       \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_ae32b20d52e62ec32c1f335006f52214e}{name}())).toBool()) \{
-00047         this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION};
-00048     \} \textcolor{keywordflow}{else} \{
-00049         \textcolor{keywordflow}{if}(((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{ADMINISTRATION}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+00041         this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a3594de687d70f634e91ef60a63b74172}{CONNEXION};
+00042     \} \textcolor{keywordflow}{else} \{
+00043         \textcolor{keywordflow}{if}(((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a110d50af3f0d2f505021620359b6163b}{ADMINISTRATION}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
       \hyperlink{classSH__User_a2a9cbd9e27e5047ec108d4f373884de5}{isAdministrator}())) ||
-00050                 ((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+00044                 ((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ae3d0d6045024cbde467f9c8cb536c6a8}{MANAGEMENT\_X}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
       \hyperlink{classSH__User_af5e5639aa5f7794b5b169f0ed0333268}{isManagerX}())) ||
-00051                 ((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{MANAGEMENT\_Z}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+00045                 ((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899ad68aea91f508ecc6cc9fe1430ddccaf1}{MANAGEMENT\_Z}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
       \hyperlink{classSH__User_a763479597c54bb92ad2490826dedacfa}{isManagerZ}())) ||
-00052                 ((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+00046                 ((\hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode} == \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a16687d65e8feb3b768ff655d73a45916}{RECEPTION}) && (!this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
       \hyperlink{classSH__User_a6e78a5559a202eb3f2bd79e50768da7f}{isReceptionist}()))) \{
-00053             this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL};
-00054         \} \textcolor{keywordflow}{else} \{
-00055             this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode};
-00056         \}
-00057     \}
-00058 \}
+00047             this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a6b93b2f83a290305f282616eb2935899a1892b908076a0887805e80f590ecdef4}{ACCUEIL};
+00048         \} \textcolor{keywordflow}{else} \{
+00049             this->\hyperlink{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{m\_mode} = \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode};
+00050         \}
+00051     \}
+00052 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_a04f612b13a53b442a94c66598eea2907}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!set\-Settings@{set\-Settings}}
+\index{set\-Settings@{set\-Settings}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{set\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Application\-Core\-::set\-Settings (
+\begin{DoxyParamCaption}
+\item[{Q\-Settings\-::\-Scope}]{scope, }
+\item[{Q\-String}]{dev\-Name, }
+\item[{Q\-String}]{app\-Name}
+\end{DoxyParamCaption}
+)}}\label{classSH__ApplicationCore_a04f612b13a53b442a94c66598eea2907}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00252}{252} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\-\_\-settings}.
+
+
+\begin{DoxyCode}
+00253 \{
+00254     QSettings \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}(scope, devName, appName);
+00255 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a2dd5c029a2ea348f1dfd0a60dea476e4}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!set\-User@{set\-User}}
 \index{set\-User@{set\-User}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -727,7 +841,7 @@ bool Retourne {\itshape true} si un utilisateur correspondant aux pseudo et mot 
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00086}{86} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00074}{74} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -735,15 +849,92 @@ Références \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{S\-H\-\
 
 
 \begin{DoxyCode}
-00087 \{
-00088     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{SH\_User::logIn}(login,pass);
-00089     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid}()) \{
-00090         emit \hyperlink{classSH__ApplicationCore_aeeac6cde618cb677218d72c4ea7ecf18}{userChanged}(QVariant(this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
+00075 \{
+00076     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \hyperlink{classSH__User_a98e3e3ca706a6988e6d7af23ce8bb82a}{SH\_User::logIn}(login,pass);
+00077     \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid}()) \{
+00078         emit \hyperlink{classSH__ApplicationCore_aeeac6cde618cb677218d72c4ea7ecf18}{userChanged}(QVariant(this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->
       \hyperlink{classSH__User_ae32b20d52e62ec32c1f335006f52214e}{name}()));
-00091         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-00092     \}
-00093     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-00094 \}
+00079         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00080     \}
+00081     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00082 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_a8015a273eaedf42926f20a7858933683}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!stop\-Running\-State\-Machine@{stop\-Running\-State\-Machine}}
+\index{stop\-Running\-State\-Machine@{stop\-Running\-State\-Machine}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{stop\-Running\-State\-Machine}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::stop\-Running\-State\-Machine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classSH__ApplicationCore_a8015a273eaedf42926f20a7858933683}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00214}{214} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\-\_\-current\-F\-S\-M}, et \hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\-\_\-current\-F\-S\-M\-Not\-Null}.
+
+
+\begin{DoxyCode}
+00215 \{
+00216     \textcolor{keywordflow}{if}(\hyperlink{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{m\_currentFSMNotNull}) \{
+00217         this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->stop();
+00218         \textcolor{keywordtype}{bool} ok = !this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM}->isRunning();
+00219         this->\hyperlink{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}{m\_currentFSM} = NULL;
+00220         \textcolor{keywordflow}{return} ok;
+00221     \}
+00222     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00223 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_ac6ebc8bb079a1faf430129bf7922b65d}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!today\-Balance@{today\-Balance}}
+\index{today\-Balance@{today\-Balance}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{today\-Balance}]{\setlength{\rightskip}{0pt plus 5cm}qreal S\-H\-\_\-\-Application\-Core\-::today\-Balance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__ApplicationCore_ac6ebc8bb079a1faf430129bf7922b65d}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00116}{116} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query()}, et \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}.
+
+
+\begin{DoxyCode}
+00116                                        \{
+00117     QSqlQuery result = \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+      \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(\textcolor{stringliteral}{"DAYLYBALCOUNT"}, QStringList(\textcolor{stringliteral}{"BALANCE"}), \textcolor{stringliteral}{"TIMESTAMP = (SELECT MAX(TIMESTAMP)
+       FROM YEARLYLOGBALCOUNT)"});
+00118     result.next();
+00119     \textcolor{keywordflow}{return} result.value(\textcolor{stringliteral}{"BALANCE"}).toReal();
+00120 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_a7c97dd4990e8f4b24afda9e7c5b88c21}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!total\-Balance@{total\-Balance}}
+\index{total\-Balance@{total\-Balance}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{total\-Balance}]{\setlength{\rightskip}{0pt plus 5cm}qreal S\-H\-\_\-\-Application\-Core\-::total\-Balance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSH__ApplicationCore_a7c97dd4990e8f4b24afda9e7c5b88c21}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00122}{122} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{S\-H\-\_\-\-Database\-Manager\-::exec\-Select\-Query()}, et \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{S\-H\-\_\-\-Database\-Manager\-::get\-Instance()}.
+
+
+\begin{DoxyCode}
+00122                                        \{
+00123     QSqlQuery result =  \hyperlink{classSH__DatabaseManager_a31198eb4de0f8b18e3fa0eed09f24d19}{SH\_DatabaseManager::getInstance}()->
+      \hyperlink{classSH__DatabaseManager_ab8f9850cb68444ab9a4e613b36a3b044}{execSelectQuery}(\textcolor{stringliteral}{"YEARLYLOGBALCOUNT"}, QStringList(\textcolor{stringliteral}{"BALANCE"}), \textcolor{stringliteral}{"TIMESTAMP = (SELECT
+       MAX(TIMESTAMP) FROM YEARLYLOGBALCOUNT)"});
+00124     result.next();
+00125     \textcolor{keywordflow}{return} result.value(\textcolor{stringliteral}{"BALANCE"}).toReal();
+00126 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a57fa0d6b5fd5f4a02f8a129ee470697b}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!user@{user}}
 \index{user@{user}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -761,7 +952,7 @@ User
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00065}{65} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00057}{57} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -769,9 +960,9 @@ Références \hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da
 
 
 \begin{DoxyCode}
-00066 \{
-00067     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser};
-00068 \}
+00058 \{
+00059     \textcolor{keywordflow}{return} this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser};
+00060 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_aeeac6cde618cb677218d72c4ea7ecf18}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!user\-Changed@{user\-Changed}}
 \index{user\-Changed@{user\-Changed}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -810,7 +1001,7 @@ bool
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00102}{102} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00098}{98} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -818,9 +1009,9 @@ Références \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{S\-H\-\
 
 
 \begin{DoxyCode}
-00103 \{
-00104     \textcolor{keywordflow}{return} \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{SH\_User::exists}(login).toBool();
-00105 \}
+00099 \{
+00100     \textcolor{keywordflow}{return} \hyperlink{classSH__User_aeefcf386df717163d07e17c48205814b}{SH\_User::exists}(login).toBool();
+00101 \}
 \end{DoxyCode}
 \hypertarget{classSH__ApplicationCore_a3603a68faa57edb8722f9d1b67767368}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!user\-Log\-Out@{user\-Log\-Out}}
 \index{user\-Log\-Out@{user\-Log\-Out}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -838,7 +1029,7 @@ bool Retourne {\itshape true} si le changement a réussi, {\itshape false} sinon
 \end{DoxyReturn}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00075}{75} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00065}{65} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
 
 
 
@@ -846,10 +1037,39 @@ Références \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{S\-H\-\
 
 
 \begin{DoxyCode}
-00076 \{
-00077     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
-00078     \textcolor{keywordflow}{return} !this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid}();
-00079 \}
+00066 \{
+00067     this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser} = \textcolor{keyword}{new} \hyperlink{classSH__User}{SH\_User}();
+00068     \textcolor{keywordflow}{return} !this->\hyperlink{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{m\_currentUser}->\hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{isValid}();
+00069 \}
+\end{DoxyCode}
+\hypertarget{classSH__ApplicationCore_af58caab2fbbdc5a5c0dd0d162aa643ef}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!write\-Setting@{write\-Setting}}
+\index{write\-Setting@{write\-Setting}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{write\-Setting}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Application\-Core\-::write\-Setting (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{key, }
+\item[{Q\-Variant}]{value, }
+\item[{Q\-String}]{group}
+\end{DoxyParamCaption}
+)}}\label{classSH__ApplicationCore_af58caab2fbbdc5a5c0dd0d162aa643ef}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8cpp_source_l00269}{269} du fichier \hyperlink{SH__ApplicationCore_8cpp_source}{S\-H\-\_\-\-Application\-Core.\-cpp}.
+
+
+
+Références \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\-\_\-settings}.
+
+
+\begin{DoxyCode}
+00270 \{
+00271     \textcolor{keywordflow}{if}(group != \textcolor{stringliteral}{""}) \{
+00272         \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}.beginGroup(group);
+00273     \}
+00274     \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}.setValue(key,value);
+00275     \textcolor{keywordflow}{if}(group != \textcolor{stringliteral}{""}) \{
+00276         \hyperlink{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{m\_settings}.endGroup();
+00277     \}
+00278 \}
 \end{DoxyCode}
 
 
@@ -859,33 +1079,55 @@ Références \hyperlink{classSH__User_a07de5c02b2a02b3bb2b0aaf0886bb4d9}{S\-H\-\
 \subsubsection[{m\-\_\-current\-F\-S\-M}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::m\-\_\-current\-F\-S\-M\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__ApplicationCore_a8e550daf4a5d49d88714b716953e4957}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00265}{265} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00297}{297} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
-Référencé par \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{cancel\-Replacement()}, \hyperlink{classSH__ApplicationCore_a1877174428cec5165c2c2f317086a9b7}{cancel\-Running\-Thread()}, \hyperlink{classSH__ApplicationCore_a264c6e0c0c2e25a36a2502d1d9bcb109}{connect\-Running\-Thread()}, \hyperlink{classSH__ApplicationCore_aa0777211696005ec89b2effe06190c3b}{launch\-Billings\-Thread()}, \hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{launch\-Bill\-Thread()}, \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{receive\-Confirmation()}, \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{receive\-Input()}, \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{receive\-Validation()}, et \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{replace\-Input()}.
+Référencé par \hyperlink{classSH__ApplicationCore_a111103d68e1a0f1fdaeef7cd85333896}{bill\-Opened()}, \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{cancel\-Replacement()}, \hyperlink{classSH__ApplicationCore_a1e718a7a101e53e1cfcf8160104d4ba8}{launch\-Billing\-Creation()}, \hyperlink{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{launch\-Service\-Charging()}, \hyperlink{classSH__ApplicationCore_ac0d2178f5351e1eb12ff5d6c6afb83d6}{launch\-State\-Machine()}, \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{receive\-Confirmation()}, \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{receive\-Input()}, \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{receive\-Validation()}, \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{replace\-Input()}, et \hyperlink{classSH__ApplicationCore_a8015a273eaedf42926f20a7858933683}{stop\-Running\-State\-Machine()}.
+
+\hypertarget{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!m\-\_\-current\-F\-S\-M\-Not\-Null@{m\-\_\-current\-F\-S\-M\-Not\-Null}}
+\index{m\-\_\-current\-F\-S\-M\-Not\-Null@{m\-\_\-current\-F\-S\-M\-Not\-Null}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{m\-\_\-current\-F\-S\-M\-Not\-Null}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-H\-\_\-\-Application\-Core\-::m\-\_\-current\-F\-S\-M\-Not\-Null\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__ApplicationCore_a7a300f62c70a0b7b8554fe73982d1feb}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00291}{291} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_a111103d68e1a0f1fdaeef7cd85333896}{bill\-Opened()}, \hyperlink{classSH__ApplicationCore_a9976ff6a371d6fe4c97cc37692584ff1}{cancel\-Replacement()}, \hyperlink{classSH__ApplicationCore_a1e718a7a101e53e1cfcf8160104d4ba8}{launch\-Billing\-Creation()}, \hyperlink{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{launch\-Service\-Charging()}, \hyperlink{classSH__ApplicationCore_a15cce25dbf982bc8fc391ddfb4d1fd24}{receive\-Confirmation()}, \hyperlink{classSH__ApplicationCore_a2191031eaee203587c1897791ddefbc4}{receive\-Input()}, \hyperlink{classSH__ApplicationCore_a6d40bb4cca2fe9e091dd369518d08ce0}{receive\-Validation()}, \hyperlink{classSH__ApplicationCore_a82123e26fba2d137cbf356b4aaf2078e}{replace\-Input()}, et \hyperlink{classSH__ApplicationCore_a8015a273eaedf42926f20a7858933683}{stop\-Running\-State\-Machine()}.
 
 \hypertarget{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!m\-\_\-current\-User@{m\-\_\-current\-User}}
 \index{m\-\_\-current\-User@{m\-\_\-current\-User}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
 \subsubsection[{m\-\_\-current\-User}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::m\-\_\-current\-User\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__ApplicationCore_a2bd2432939b96af2a1003630df83da63}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00255}{255} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00283}{283} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
-Référencé par \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{init()}, \hyperlink{classSH__ApplicationCore_ab72fd6cdc47575d47157fc7bdffae8f2}{launch\-Bill\-Thread()}, \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{set\-Mode()}, \hyperlink{classSH__ApplicationCore_a2dd5c029a2ea348f1dfd0a60dea476e4}{set\-User()}, \hyperlink{classSH__ApplicationCore_a57fa0d6b5fd5f4a02f8a129ee470697b}{user()}, et \hyperlink{classSH__ApplicationCore_a3603a68faa57edb8722f9d1b67767368}{user\-Log\-Out()}.
+Référencé par \hyperlink{classSH__ApplicationCore_acc4f20b555300706bc08424c71c6bf02}{init()}, \hyperlink{classSH__ApplicationCore_a74af071d9fefb1f0c3373e6501d04d62}{launch\-Service\-Charging()}, \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{set\-Mode()}, \hyperlink{classSH__ApplicationCore_a2dd5c029a2ea348f1dfd0a60dea476e4}{set\-User()}, \hyperlink{classSH__ApplicationCore_a57fa0d6b5fd5f4a02f8a129ee470697b}{user()}, et \hyperlink{classSH__ApplicationCore_a3603a68faa57edb8722f9d1b67767368}{user\-Log\-Out()}.
 
 \hypertarget{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!m\-\_\-mode@{m\-\_\-mode}}
 \index{m\-\_\-mode@{m\-\_\-mode}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
 \subsubsection[{m\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}S\-H\-\_\-\-Application\-Core\-::m\-\_\-mode\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__ApplicationCore_ab2bb2bdb19e4969dee699e0d4ae33e25}
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00260}{260} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00289}{289} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 
 Référencé par \hyperlink{classSH__ApplicationCore_a5d9ecb0e578e78d84591e36dccdf3d07}{mode()}, et \hyperlink{classSH__ApplicationCore_a2bfe19528b27831332559d5d2cd24d25}{set\-Mode()}.
+
+\hypertarget{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!m\-\_\-settings@{m\-\_\-settings}}
+\index{m\-\_\-settings@{m\-\_\-settings}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
+\subsubsection[{m\-\_\-settings}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Settings S\-H\-\_\-\-Application\-Core\-::m\-\_\-settings\hspace{0.3cm}{\ttfamily [private]}}}\label{classSH__ApplicationCore_a26684dd6552b4aea5860de641a326774}
+
+
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00299}{299} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+
+
+
+Référencé par \hyperlink{classSH__ApplicationCore_a9feb9d83185f8ba1f99125b06f381436}{read\-Setting()}, \hyperlink{classSH__ApplicationCore_a04f612b13a53b442a94c66598eea2907}{set\-Settings()}, et \hyperlink{classSH__ApplicationCore_af58caab2fbbdc5a5c0dd0d162aa643ef}{write\-Setting()}.
 
 
 
@@ -899,7 +1141,7 @@ Le mode actuel de l'application.
 
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00024}{24} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00028}{28} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 \hypertarget{classSH__ApplicationCore_aaa2609e7bcda83fd65b602e7e211b027}{\index{S\-H\-\_\-\-Application\-Core@{S\-H\-\_\-\-Application\-Core}!current\-User@{current\-User}}
 \index{current\-User@{current\-User}!SH_ApplicationCore@{S\-H\-\_\-\-Application\-Core}}
@@ -910,7 +1152,7 @@ L'utilisateur actuellement connecté (un objet S\-H\-\_\-\-U\-Ser invalide si au
 
 
 
-Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00019}{19} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
+Définition à la ligne \hyperlink{SH__ApplicationCore_8h_source_l00022}{22} du fichier \hyperlink{SH__ApplicationCore_8h_source}{S\-H\-\_\-\-Application\-Core.\-h}.
 
 
 

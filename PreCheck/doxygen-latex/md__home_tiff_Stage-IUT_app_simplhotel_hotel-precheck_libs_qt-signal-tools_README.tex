@@ -1,0 +1,84 @@
+qt-\/signal-\/tools is a collection of utility classes related to signal and slots in Qt. It includes\-:
+\begin{DoxyItemize}
+\item Qt\-Callback -\/ Package up a receiver and slot arguments into an object for invoking later.
+\item Qt\-Signal\-Forwarder -\/ Connect signals and events from objects to Qt\-Callback or arbitrary functions.
+\item Qt\-Metacall\-Adapter -\/ Low-\/level interface for calling a function using a list of Q\-Generic\-Argument() arguments.
+\item safe\-\_\-bind() -\/ Create a wrapper around a method call which does nothing and returns a default value if the object is destroyed before the wrapper is called.
+\end{DoxyItemize}
+
+\subsection*{Requirements}
+
+
+\begin{DoxyItemize}
+\item Qt 4.\-8 (could be adapted for earlier Qt versions if necessary)
+\item The T\-R1 standard library (for C++03 compilers) or the C++11 standard library (for newer compilers when C++11 support is enabled).
+\end{DoxyItemize}
+
+\subsection*{Classes}
+
+\subsubsection*{Qt\-Callback}
+
+Qt\-Callback is a binder class which provides a way to create callbacks that invoke a signal or slot when invoked, using a mixture of pre-\/bound arguments and arguments passed to Qt\-Callback\-::invoke().
+
+Usage\-: ```cpp Qt\-Callback1$<$int$>$ callback(my\-Widget, S\-L\-O\-T(some\-Slot(int,\-Q\-String))); callback.\-bind(42);
+
+// invokes the My\-Widget\-::some\-Slot() slot with arguments (42, \char`\"{}\-Hello World\char`\"{}) callback.\-invoke(\char`\"{}\-Hello World\char`\"{});
+
+void My\-Widget\-::some\-Slot(int first\-Arg, const Q\-String\& second\-Arg) \{ \} ```
+
+\subsubsection*{Qt\-Signal\-Forwarder}
+
+Qt\-Signal\-Forwarder provides a way to invoke callbacks when an object emits a signal or receives a particular type of event. The callbacks can be signals and slots (via {\ttfamily Qt\-Callback}) or arbitrary functions using {\ttfamily tr1\-::function}, {\ttfamily std\-::function}, {\ttfamily boost\-::function} or a similar wrapper.
+
+Qt 5 provides support for connecting signals to arbitrary functions out of the box and to lambdas when using C++11. Qt\-Signal\-Forwarder emulates this for Qt 4.
+
+As well as being able to connect signals to functions that are not slots, this also provides a way to pass additional arguments to the receiver other than those from the signal using {\ttfamily Qt\-Callback\-::bind()} or {\ttfamily std\-::tr1\-::bind()}.
+
+Usage\-:
+
+Connecting a signal to a slot with pre-\/bound arguments\-: ```cpp My\-Object receiver; Q\-Push\-Button button; Qt\-Signal\-Forwarder\-::connect(\&button, S\-I\-G\-N\-A\-L(clicked(bool)), Qt\-Callback(\&receiver, S\-L\-O\-T(button\-Clicked(int))).bind(42));
+
+// invokes My\-Object\-::button\-Clicked() slot with arguments (42) button.\-click(); ```
+
+Connecting a signal to an arbitrary function\-: ```cpp using namespace std\-::tr1; using namespace std\-::tr1\-::placeholders;
+
+Some\-Object receiver; Q\-Line\-Edit editor;
+
+// function which calls some\-Method() with the first-\/argument fixed (42) and the // second string argument from the signal function$<$void(int,\-Q\-String)$>$ callback(bind(\&\-Some\-Object\-::some\-Method, \&receiver, 42, \-\_\-1));
+
+Qt\-Signal\-Forwarder\-::connect(\&editor, S\-I\-G\-N\-A\-L(text\-Changed(\-Q\-String)), callback);
+
+// invokes Some\-Object\-::some\-Method(42, \char`\"{}\-Hello World\char`\"{}) editor.\-set\-Text(\char`\"{}\-Hello World\char`\"{}); ```
+
+\subsubsection*{safe\-\_\-bind()}
+
+Compared to using Qt 4's normal signals and slots, a disadvantage of using {\ttfamily bind()} or {\ttfamily function} to create a callback object which can be run later is that there is no automatically disconnection if the object is destroyed.
+
+As a solution, the {\ttfamily safe\-\_\-bind()} function creates a wrapper around an object and a method call. The wrapper can then be called with the same arguments as the wrapped method. When a call happens, either the wrapped method is called with the provided arguments, or if the object has been destroyed, nothing happens and a default value is returned.
+
+The wrapper created by {\ttfamily safe\-\_\-bind()} can be used with {\ttfamily bind()} and {\ttfamily function} and can be used together with {\ttfamily Qt\-Signal\-Forwarder} to automatically 'disconnect' if the receiver is destroyed.
+
+```cpp Q\-Scoped\-Pointer$<$\-Q\-Label$>$ label(new Q\-Label);
+
+// create a wrapper around label-\/$>$set\-Text() which can be run using // set\-Text\-Wrapper(text). function$<$void(\-Q\-String)$>$ set\-Text\-Wrapper = safe\-\_\-bind(label.\-data(), \&Q\-Label\-::set\-Text);
+
+// create a wrapper around label-\/$>$text() which either calls label-\/$>$text() and returns // the same result or returns an empty string if the label has been destroyed function$<$\-Q\-String()$>$ get\-Text\-Wrapper = safe\-\_\-bind(label.\-data(), \&Q\-Label\-::text);
+
+set\-Text\-Wrapper(\char`\"{}first update\char`\"{}); // sets the label's text to \char`\"{}first update\char`\"{} q\-Debug() $<$$<$ \char`\"{}label text\char`\"{} $<$$<$ get\-Text\-Wrapper(); // prints \char`\"{}first update\char`\"{} label.\-reset(); // destroy the label set\-Text\-Wrapper(\char`\"{}second update\char`\"{}); // does nothing, as the label has been destroyed q\-Debug() $<$$<$ \char`\"{}label text\char`\"{} $<$$<$ get\-Text\-Wrapper(); // prints an empty string ```
+
+\subsubsection*{Qt\-Metacall\-Adapter}
+
+Qt\-Metacall\-Adapter is a low-\/level wrapper around a function or function object (eg. {\ttfamily std\-::function}) which can be used to invoke the function with a list of Q\-Generic\-Argument (created by the Q\-\_\-\-A\-R\-G() macro) and introspect the function's argument types at runtime.
+
+\subsection*{License}
+
+qt-\/signal-\/tools is licensed under the B\-S\-D license.
+
+\subsection*{Related Projects \& Reading}
+
+
+\begin{DoxyItemize}
+\item Qt Signal Adapters -\/ Library for connecting signals to Boost function objects\-: \href{http://sourceforge.net/projects/qtsignaladapter/}{\tt http\-://sourceforge.\-net/projects/qtsignaladapter/}
+\item sigfwd -\/ Library for connecting signals to function objects. Uses Boost. \href{https://bitbucket.org/edd/sigfwd/wiki/Home}{\tt https\-://bitbucket.\-org/edd/sigfwd/wiki/\-Home}
+\item Qt 5 meta-\/object system changes -\/ \href{http://blog.qt.digia.com/blog/2012/06/22/changes-to-the-meta-object-system-in-qt-5/}{\tt http\-://blog.\-qt.\-digia.\-com/blog/2012/06/22/changes-\/to-\/the-\/meta-\/object-\/system-\/in-\/qt-\/5/} 
+\end{DoxyItemize}

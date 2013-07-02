@@ -14,7 +14,7 @@
 00012     \textcolor{keywordtype}{id}: tabView
 00013     currentIndex: 0
 00014     signal selected(\textcolor{keywordtype}{string} selectedItem)
-00015     signal selectedForDetail(var data)
+00015     signal selectedForDetail(var datas, \textcolor{keywordtype}{int} row)
 00016     \textcolor{keyword}{property} var stdKeyboard: []
 00017     signal reload()
 00018     signal newBilling()
@@ -24,180 +24,335 @@
 00030         tabView.currentIndex = tabIndex;
 00031     \}
 00032     onNewBilling: \{
-00033         console.log(\textcolor{stringliteral}{"launch new billings thread ?"});
-00034         App.launchBillingsThread();
-00035     \}
-00036     onNewBooking: \{
-00037         App.launchBookingsThread();
-00038     \}
-00039     onNewSelling: \{
-00040         App.launchBillThread();
-00041     \}
+00033         App.launchBillingCreation();
+00034     \}
+00035     onNewBooking: \{
+00036         App.launchBookingCreation();
+00037     \}
+00038     onNewSelling: \{
+00039         App.launchServiceCharging();
+00040     \}
+00041 
 00042 
-00043 
-00044     style: TabViewStyle \{
-00045         \textcolor{keywordtype}{id}:style
-00046         frame: \hyperlink{classRectangle}{Rectangle} \{
-00047             anchors.fill: parent
-00048             height: tabView.height-style.frameOverlap
-00049             width: tabView.width
-00050             color: \textcolor{stringliteral}{"#dcdcdc"}
-00051             border.color: \textcolor{stringliteral}{"#aaa"}
-00052 
-00053             \hyperlink{classRectangle}{Rectangle} \{
-00054                 anchors.fill: parent
-00055                 color: \textcolor{stringliteral}{"transparent"}
-00056                 border.color: \textcolor{stringliteral}{"#66ffffff"}
-00057                 anchors.margins: 2
-00058             \}
-00059         \}
-00060     \}
-00061 
-00062     Component.onCompleted: \{
-00063         tabView.addTab(qsTr(\textcolor{stringliteral}{"Clavier complet"}), fullKeyboardTab);
-00064         tabView.reload();
-00065     \}
-00066     onReload: \{
-00067         var nbTabs = tabView.count;
-00068         \textcolor{keywordflow}{for}(var i = 1; i < nbTabs; i++) \{
-00069             tabView.removeTab(i)
-00070         \}
-00071         \textcolor{keywordflow}{switch}(App.currentMode) \{
-00072         \textcolor{keywordflow}{case} AppMode.RECEPTION:
-00073             tabView.addTab(qsTr(\textcolor{stringliteral}{"Prestations"}), servicesTab);
-00074             tabView.addTab(qsTr(\textcolor{stringliteral}{"Chambres"}), roomsTab);
-00075             tabView.addTab(qsTr(\textcolor{stringliteral}{"Facturations"}), billingsTab);
-00076             tabView.addTab(qsTr(\textcolor{stringliteral}{"Réservations"}), bookingsTab);
-00077             \textcolor{comment}{/*tabView.addTab(qsTr("Offres"), offersTab);*/}
-00078             \textcolor{keywordflow}{break};
-00079         \textcolor{keywordflow}{case} AppMode.MANAGEMENT\_Z:
-00080             \textcolor{comment}{/*tabView.addTab(qsTr("Clôtures"), accountsTab);*/}
-00081         \textcolor{keywordflow}{case} AppMode.MANAGEMENT\_X:
-00082             \textcolor{comment}{/*tabView.addTab(qsTr("Prestations"), servicesEditTab);*/}
-00083             tabView.addTab(qsTr(\textcolor{stringliteral}{"Chambres"}), roomsEditTab);
-00084             \textcolor{comment}{/*tabView.addTab(qsTr("Clients privés"), clientsEditTab);*/}
-00085             \textcolor{comment}{/*tabView.addTab(qsTr("Groupes"), groupsEditTab);*/}
-00086             \textcolor{comment}{/*tabView.addTab(qsTr("Rapports"), reportsTab);*/}
-00087             \textcolor{keywordflow}{break};
-00088         \textcolor{keywordflow}{case} AppMode.ADMINISTRATION :
-00089             \textcolor{comment}{/*tabView.addTab(qsTr("Paramètres"), settingsTab);*/}
-00090             \textcolor{comment}{/*tabView.addTab(qsTr("Utilisateurs"), usersTab);*/}
-00091             \textcolor{comment}{/*tabView.addTab(qsTr("Design"), skinTab);*/}
-00092             \textcolor{keywordflow}{break};
-00093         \}
-00094     \}
-00095 
-00096     resources: [
-00097         Component \{
-00098             \textcolor{keywordtype}{id}:fullKeyboardTab
-00099             \hyperlink{classSH__Keyboard}{SH\_Keyboard} \{
-00100                 \textcolor{keywordtype}{id}:fullKeyboard
-00101                 actionsList: stdKeyboard
-00102                 columns: 11
-00103                 enabled: tabView.enabled
-00104                 height: tabView.height-style.frameOverlap
-00105                 width: tabView.width
-00106             \}
-00107         \},
-00108         Component \{
-00109             \textcolor{keywordtype}{id}: servicesTab
-00110             ColumnLayout \{
-00111                 \hyperlink{classRectangle}{Rectangle} \{
-00112                     color:\textcolor{stringliteral}{"transparent"}
-00113                     Layout.fillWidth: \textcolor{keyword}{true}
-00114                     Layout.minimumHeight: 20
-00115                     RowLayout \{
-00116                         \hyperlink{classSH__DataDelegate}{SH\_DataDelegate} \{
-00117                             Layout.minimumHeight: childrenRect.height
-00118                             Layout.minimumWidth: childrenRect.width
-00119                             text: qsTr(\textcolor{stringliteral}{"Autre"});
-00120                             value: \textcolor{stringliteral}{"0"}
-00121                             onClicked: \{
-00122                                 tabView.selected(value);
-00123                             \}
-00124                         \}
-00125                         \hyperlink{classSH__DataDelegate}{SH\_DataDelegate} \{
-00126                             Layout.minimumHeight: childrenRect.height
-00127                             Layout.minimumWidth: childrenRect.width
-00128                             text: qsTr(\textcolor{stringliteral}{"Autre..."});
-00129                             value: \textcolor{stringliteral}{"-1"}
-00130                             onClicked: \{
-00131                                 tabView.selected(value);
-00132                             \}
-00133                         \}
-00134                     \}
-00135                 \}
-00136                 \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
-00137                     Layout.fillWidth: \textcolor{keyword}{true}
-00138                     Layout.fillHeight: \textcolor{keyword}{true}
-00139                     enabled: tabView.enabled
-00140                     filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des prestations"})
-00141                     sqlModel: SH\_ServicesModel \{ \}
-00142                     itemDelegate: \textcolor{stringliteral}{"SH\_ServicesDelegate.qml"}
-00143                     emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00144                     sectionDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00145                     onSelected: \{
-00146                         tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
-00147                     \}
-00148                 \}
-00149             \}
+00043     style: TabViewStyle \{
+00044         \textcolor{keywordtype}{id}:style
+00045         frame: \hyperlink{classRectangle}{Rectangle} \{
+00046             anchors.fill: parent
+00047             height: tabView.height-style.frameOverlap
+00048             width: tabView.width
+00049             color: \textcolor{stringliteral}{"whitesmoke"}
+00050             border.color: \textcolor{stringliteral}{"silver"}
+00051 
+00052             \hyperlink{classRectangle}{Rectangle} \{
+00053                 anchors.fill: parent
+00054                 color: \textcolor{stringliteral}{"transparent"}
+00055                 border.color: \textcolor{stringliteral}{"silver"}
+00056                 anchors.margins: 2
+00057             \}
+00058         \}
+00059     \}
+00060 
+00061     Component.onCompleted: \{
+00062         tabView.addTab(qsTr(\textcolor{stringliteral}{"Clavier complet"}), fullKeyboardTab);
+00063         tabView.reload();
+00064     \}
+00065     onReload: \{
+00066         var nbTabs = tabView.count;
+00067         \textcolor{keywordflow}{for}(var i = nbTabs-1; i > 0; i--) \{
+00068             tabView.removeTab(i);
+00069         \}
+00070         \textcolor{keywordflow}{switch}(App.currentMode) \{
+00071         \textcolor{keywordflow}{case} AppMode.RECEPTION:
+00072             tabView.addTab(qsTr(\textcolor{stringliteral}{"Prestations"}), servicesTab);
+00073             tabView.addTab(qsTr(\textcolor{stringliteral}{"Chambres"}), roomsTab);
+00074             tabView.addTab(qsTr(\textcolor{stringliteral}{"Facturations"}), billingsTab);
+00075             \textcolor{comment}{/*tabView.addTab(qsTr("Réservations"), bookingsTab);*/}
+00076             \textcolor{comment}{/*tabView.addTab(qsTr("Offres"), offersTab);*/}
+00077             \textcolor{keywordflow}{break};
+00078         \textcolor{keywordflow}{case} AppMode.MANAGEMENT\_Z:
+00079             \textcolor{comment}{/*tabView.addTab(qsTr("Clôtures"), accountsTab);*/}
+00080         \textcolor{keywordflow}{case} AppMode.MANAGEMENT\_X:
+00081             tabView.addTab(qsTr(\textcolor{stringliteral}{"Prestations"}), servicesEditTab);
+00082             tabView.addTab(qsTr(\textcolor{stringliteral}{"Chambres"}), roomsEditTab);
+00083             tabView.addTab(qsTr(\textcolor{stringliteral}{"Clients privés"}), clientsEditTab);
+00084             tabView.addTab(qsTr(\textcolor{stringliteral}{"Groupes"}), groupsEditTab);
+00085             tabView.addTab(qsTr(\textcolor{stringliteral}{"Rapports"}), reportsTab);
+00086             \textcolor{keywordflow}{break};
+00087         \textcolor{keywordflow}{case} AppMode.ADMINISTRATION :
+00088             \textcolor{comment}{/*tabView.addTab(qsTr("Paramètres"), settingsTab);*/}
+00089             tabView.addTab(qsTr(\textcolor{stringliteral}{"Utilisateurs"}), usersTab);
+00090             \textcolor{comment}{/*tabView.addTab(qsTr("Design"), skinTab);*/}
+00091             \textcolor{keywordflow}{break};
+00092         \}
+00093     \}
+00094 
+00095     resources: [
+00096         Component \{
+00097             \textcolor{keywordtype}{id}:fullKeyboardTab
+00098             \hyperlink{classSH__Keyboard}{SH\_Keyboard} \{
+00099                 \textcolor{keywordtype}{id}:fullKeyboard
+00100                 actionsList: stdKeyboard
+00101                 columns: 11
+00102                 enabled: tabView.enabled
+00103                 height: tabView.height-style.frameOverlap
+00104                 width: tabView.width
+00105             \}
+00106         \},
+00107         Component \{
+00108             \textcolor{keywordtype}{id}: servicesTab
+00109             \textcolor{comment}{/*ColumnLayout \{}
+00110 \textcolor{comment}{                Rectangle \{}
+00111 \textcolor{comment}{                    color:"transparent"}
+00112 \textcolor{comment}{                    Layout.fillWidth: true}
+00113 \textcolor{comment}{                    Layout.minimumHeight: 20}
+00114 \textcolor{comment}{                    RowLayout \{}
+00115 \textcolor{comment}{                        SH\_DataDelegate \{}
+00116 \textcolor{comment}{                            Layout.minimumHeight: childrenRect.height}
+00117 \textcolor{comment}{                            Layout.minimumWidth: childrenRect.width}
+00118 \textcolor{comment}{                            text: qsTr("Autre");}
+00119 \textcolor{comment}{                            value: "0"}
+00120 \textcolor{comment}{                            onClicked: \{}
+00121 \textcolor{comment}{                                tabView.selected(value);}
+00122 \textcolor{comment}{                            \}}
+00123 \textcolor{comment}{                        \}}
+00124 \textcolor{comment}{                        SH\_DataDelegate \{}
+00125 \textcolor{comment}{                            Layout.minimumHeight: childrenRect.height}
+00126 \textcolor{comment}{                            Layout.minimumWidth: childrenRect.width}
+00127 \textcolor{comment}{                            text: qsTr("Autre...");}
+00128 \textcolor{comment}{                            value: "-1"}
+00129 \textcolor{comment}{                            onClicked: \{}
+00130 \textcolor{comment}{                                tabView.selected(value);}
+00131 \textcolor{comment}{                            \}}
+00132 \textcolor{comment}{                        \}}
+00133 \textcolor{comment}{                    \}}
+00134 \textcolor{comment}{                \}*/}
+00135             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
+00136                 Layout.fillWidth: \textcolor{keyword}{true}
+00137                 Layout.fillHeight: \textcolor{keyword}{true}
+00138                 enabled: tabView.enabled
+00139                 \textcolor{comment}{//columns: 5 //6}
+00140                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des prestations"})
+00141                 sqlModel: SH\_ServicesModel \{ \}
+00142                 itemDelegate: \textcolor{stringliteral}{"SH\_ServicesDelegate.qml"}
+00143                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00144                 sectionDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00145                 onSelected: \{
+00146                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
+00147                 \}
+00148             \}
+00149             \textcolor{comment}{/*\}*/}
 00150         \},
 00151         Component \{
-00152             \textcolor{keywordtype}{id}: roomsTab
-00153             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
-00154                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des chambres"})
-00155                 sqlModel: SH\_RoomsModel \{ \}
-00156                 itemDelegate: \textcolor{stringliteral}{"SH\_RoomsDelegate.qml"}
-00157                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00158                 sectionDelegate: \textcolor{stringliteral}{"RoomsSectionDelegate.qml"}
-00159                 onSelected: \{
-00160                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
-00161                 \}
-00162             \}
-00163         \},
-00164         Component \{
-00165             \textcolor{keywordtype}{id}: roomsEditTab
-00166             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
-00167                 \textcolor{keywordtype}{id}: roomsEditView
-00168                 model: SH\_RoomsModel \{ \}
+00152             \textcolor{keywordtype}{id}: servicesEditTab
+00153             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00154                 \textcolor{keywordtype}{id}: servicesEditView
+00155                 model: SH\_ServicesModel \{ \}
+00156                 onSelectedRow: \{
+00157                     tabView.selectedForDetail(servicesEditView.model, selectedData);
+00158                 \}
+00159             \}
+00160         \},
+00161         Component \{
+00162             \textcolor{keywordtype}{id}: roomsTab
+00163             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
+00164                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des chambres"})
+00165                 sqlModel: SH\_RoomsModel \{ \}
+00166                 itemDelegate: \textcolor{stringliteral}{"SH\_RoomsDelegate.qml"}
+00167                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00168                 sectionDelegate: \textcolor{stringliteral}{"RoomsSectionDelegate.qml"}
 00169                 onSelected: \{
-00170                     tabView.selectedForDetail(roomsEditView.model.table, selectedItem);
+00170                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
 00171                 \}
 00172             \}
 00173         \},
 00174         Component \{
-00175             \textcolor{keywordtype}{id}: billingsTab
-00176             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
-00177                 sqlModel: SH\_BillingsModel \{\}
-00178                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des facturations"})
-00179                 itemDelegate: \textcolor{stringliteral}{"SH\_BillingsDelegate.qml"}
-00180                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00181                 sectionDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00182                 onSelected: \{
-00183                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
-00184                 \}
-00185                 onNewItem: \{
-00186                     tabView.newBilling();
-00187                 \}
-00188             \}
-00189         \},
-00190         Component \{
-00191             \textcolor{keywordtype}{id}: bookingsTab
-00192             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
-00193                 sqlModel: SH\_BookingsModel
-00194                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des réservations"})
-00195                 itemDelegate: \textcolor{stringliteral}{"SH\_BookingsDelegate.qml"}
-00196                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00197                 sectionDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
-00198                 onSelected: \{
-00199                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
-00200                 \}
-00201                 onNewItem: \{
-00202                     tabView.newBooking();
-00203                 \}
-00204             \}
-00205         \}
-00206 
-00207     ]
-00208 \}
+00175             \textcolor{keywordtype}{id}: roomsEditTab
+00176             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00177                 \textcolor{keywordtype}{id}: roomsEditView
+00178                 model: SH\_RoomsModel \{ \}
+00179                 onSelectedRow: \{
+00180                     tabView.selectedForDetail(roomsEditView.model, selectedData);
+00181                 \}
+00182             \}
+00183         \},
+00184         Component \{
+00185             \textcolor{keywordtype}{id}: billingsTab
+00186             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
+00187                 sqlModel: SH\_BillingsModel \{\}
+00188                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des facturations"})
+00189                 itemDelegate: \textcolor{stringliteral}{"SH\_BillingsDelegate.qml"}
+00190                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00191                 sectionDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00192                 onSelected: \{
+00193                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
+00194                 \}
+00195                 onNewItem: \{
+00196                     tabView.newBilling();
+00197                 \}
+00198             \}
+00199         \},
+00200         Component \{
+00201             \textcolor{keywordtype}{id}: bookingsTab
+00202             \hyperlink{classSH__SqlDataView}{SH\_SqlDataView} \{
+00203                 sqlModel: SH\_BookingsModel
+00204                 filtersTitle: qsTr(\textcolor{stringliteral}{"Tri des réservations"})
+00205                 itemDelegate: \textcolor{stringliteral}{"SH\_BookingsDelegate.qml"}
+00206                 emptyDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00207                 sectionDelegate: \textcolor{stringliteral}{"SH\_DataDelegate.qml"}
+00208                 onSelected: \{
+00209                     tabView.\hyperlink{classSH__SqlDataView_a95366e3f65b183e8c82381e90b5ddc94}{selected}(selectedItem);
+00210                 \}
+00211                 onNewItem: \{
+00212                     tabView.newBooking();
+00213                 \}
+00214             \}
+00215         \},
+00216         Component \{
+00217             \textcolor{keywordtype}{id}: groupsEditTab
+00218             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00219                 \textcolor{keywordtype}{id}: groupsEditView
+00220                 model: SH\_GroupsModel \{ \}
+00221                 onSelectedRow: \{
+00222                     tabView.selectedForDetail(groupsEditView.model, selectedData);
+00223                 \}
+00224             \}
+00225         \},
+00226         Component \{
+00227             \textcolor{keywordtype}{id}: clientsEditTab
+00228             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00229                 \textcolor{keywordtype}{id}: clientsEditView
+00230                 model: SH\_ClientsModel \{ \}
+00231                 onSelectedRow: \{
+00232                     tabView.selectedForDetail(clientsEditView.model, selectedData);
+00233                 \}
+00234             \}
+00235         \},
+00236         Component \{
+00237             \textcolor{keywordtype}{id}: reportsTab
+00238             \hyperlink{classRectangle}{Rectangle} \{
+00239                 \hyperlink{classGridLayout}{GridLayout} \{
+00240                     anchors.centerIn: parent
+00241                     width: parent.width
+00242                     height: parent.height
+00243                     columns: 2
+00244                     rows: 2
+00245                     Label \{
+00246                         Layout.fillHeight: \textcolor{keyword}{true}
+00247                         Layout.fillWidth: \textcolor{keyword}{true}
+00248                         text: \textcolor{stringliteral}{"compteur journalier"}
+00249                     \}
+00250                     Label \{
+00251                         text: App.todayBalance()
+00252                     \}
+00253 
+00254                     Label \{
+00255                         Layout.fillHeight: \textcolor{keyword}{true}
+00256                         Layout.fillWidth: \textcolor{keyword}{true}
+00257                         text: \textcolor{stringliteral}{"compteurs totaux"}
+00258                     \}
+00259                     Label \{
+00260                         text: App.totalBalance()
+00261                     \}
+00262                 \}
+00263             \}
+00264         \},
+00265         Component \{
+00266             \textcolor{keywordtype}{id}: usersTab
+00267             \hyperlink{classRectangle}{Rectangle} \{
+00268                 ColumnLayout \{
+00269                     GroupBox \{
+00270                         title: \textcolor{stringliteral}{"Nouvel utilisateur"}
+00271                         RowLayout \{
+00272                             anchors.centerIn: parent
+00273                             width: parent.width
+00274                             height: parent.height
+00275                             Label \{
+00276                                 Layout.fillHeight: \textcolor{keyword}{true}
+00277                                 Layout.fillWidth: \textcolor{keyword}{true}
+00278                                 text: \textcolor{stringliteral}{"Nom d'utilisateur"}
+00279                             \}
+00280                             TextEdit \{
+00281                                 \textcolor{keywordtype}{id}: loginEdit
+00282                                 Layout.fillHeight: \textcolor{keyword}{true}
+00283                                 Layout.fillWidth: \textcolor{keyword}{true}
+00284                             \}
+00285                             Label \{
+00286                                 Layout.fillHeight: \textcolor{keyword}{true}
+00287                                 Layout.fillWidth: \textcolor{keyword}{true}
+00288                                 text: \textcolor{stringliteral}{"Mot de passe"}
+00289                             \}
+00290                             TextEdit \{
+00291                                 \textcolor{keywordtype}{id}: passEdit
+00292                                 Layout.fillHeight: \textcolor{keyword}{true}
+00293                                 Layout.fillWidth: \textcolor{keyword}{true}
+00294                             \}
+00295                         \}
+00296                         RowLayout \{
+00297                             Label \{
+00298                                 text : \textcolor{stringliteral}{"Droits/Accès"}
+00299                             \}
+00300 
+00301                             CheckBox \{
+00302                                 \textcolor{keywordtype}{id}: traineeCbx
+00303                                 text: \textcolor{stringliteral}{"Formation (pas encore fonctionnel)"}
+00304                                 checked: \textcolor{keyword}{false}
+00305                             \}
+00306                             CheckBox \{
+00307                                 \textcolor{keywordtype}{id}: receptionistCbx
+00308                                 text: \textcolor{stringliteral}{"Réception"}
+00309                                 checked: \textcolor{keyword}{true}
+00310                             \}
+00311                             CheckBox \{
+00312                                 \textcolor{keywordtype}{id}: managerXCbx
+00313                                 text: \textcolor{stringliteral}{"Responsable avec droits X"}
+00314                                 checked: \textcolor{keyword}{false}
+00315                             \}
+00316                             CheckBox \{
+00317                                 \textcolor{keywordtype}{id}: managerZCbx
+00318                                 text: \textcolor{stringliteral}{"Responsable avec droits Z"}
+00319                                 checked: \textcolor{keyword}{false}
+00320                             \}
+00321                             CheckBox \{
+00322                                 \textcolor{keywordtype}{id}:administratorCbx
+00323                                 text: \textcolor{stringliteral}{"Administrateur"}
+00324                                 checked: \textcolor{keyword}{false}
+00325                             \}
+00326                             \hyperlink{classButton}{Button} \{
+00327                                 text: \textcolor{stringliteral}{"Enregistrer"}
+00328                                 onClicked: \{
+00329                                     App.saveUser(loginEdit.text,passEdit.text,traineeCbx.checked, 
+      receptionistCbx.checked,  managerXCbx.checked, managerZCbx.checked, administratorCbx.checked);
+00330                                 \}
+00331                             \}
+00332                         \}
+00333                     \}
+00334                     GroupBox \{
+00335                         title: \textcolor{stringliteral}{"Utilisateurs existants"}
+00336                         ColumnLayout \{
+00337                             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00338                                 \textcolor{keywordtype}{id}: usersList
+00339                                 model: SH\_UsersListModel \{ \}
+00340                                 onSelectedRow: \{
+00341                                     tabView.selectedForDetail(usersList.model, selectedData);
+00342                                 \}
+00343                                 Layout.fillHeight: \textcolor{keyword}{true}
+00344                                 Layout.fillWidth: \textcolor{keyword}{true}
+00345                             \}
+00346 
+00347                             \hyperlink{classSH__SqlTableView}{SH\_SqlTableView} \{
+00348                                 \textcolor{keywordtype}{id}: traineesList
+00349                                 model: SH\_TraineesListModel \{ \}
+00350                                 onSelectedRow: \{
+00351                                     tabView.selectedForDetail(traineesList.model, selectedData);
+00352                                 \}
+00353                                 Layout.fillHeight: \textcolor{keyword}{true}
+00354                                 Layout.fillWidth: \textcolor{keyword}{true}
+00355                             \}
+00356                         \}
+00357                     \}
+00358                 \}
+00359             \}
+00360         \}
+00361     ]
+00362 \}
 \end{DoxyCode}

@@ -149,28 +149,27 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="SH__ExtendedQQmlAction_8cpp_source.xhtml#l00050">50</a> du fichier <a class="el" href="SH__ExtendedQQmlAction_8cpp_source.xhtml">SH_ExtendedQQmlAction.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">switch</span> (context) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">case</span> Qt::ApplicationShortcut:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">case</span> Qt::WindowShortcut: {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classQObject.xhtml">QObject</a> *w = o;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">while</span> (w &amp;&amp; !w-&gt;isWindowType()) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            w = w-&gt;parent();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classQQuickItem.xhtml">QQuickItem</a> * item = qobject_cast&lt;QQuickItem*&gt;(w))</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                w = item-&gt;window();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> (w &amp;&amp; w == QGuiApplication::focusWindow())</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">case</span> Qt::WidgetShortcut:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">case</span> Qt::WidgetWithChildrenShortcut:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<p>Définition à la ligne <a class="el" href="SH__ExtendedQQmlAction_8cpp_source.xhtml#l00042">42</a> du fichier <a class="el" href="SH__ExtendedQQmlAction_8cpp_source.xhtml">SH_ExtendedQQmlAction.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">switch</span> (context) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">case</span> Qt::ApplicationShortcut:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">case</span> Qt::WindowShortcut: {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classQObject.xhtml">QObject</a> *w = o;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">while</span> (w &amp;&amp; !w-&gt;isWindowType()) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    w = w-&gt;parent();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classQQuickItem.xhtml">QQuickItem</a> * item = qobject_cast&lt;QQuickItem*&gt;(w))</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    w = item-&gt;window();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span> (w &amp;&amp; w == QGuiApplication::focusWindow())</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">case</span> Qt::WidgetShortcut:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">case</span> Qt::WidgetWithChildrenShortcut:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -180,8 +179,8 @@ Fonctions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_c6b67c5d790d73d5f77581c2751c7958.xhtml">views</a></li><li class="navelem"><a class="el" href="SH__ExtendedQQmlAction_8cpp.xhtml">SH_ExtendedQQmlAction.cpp</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_44cba02192501e33694092d42d632c2e.xhtml">views</a></li><li class="navelem"><a class="el" href="SH__ExtendedQQmlAction_8cpp.xhtml">SH_ExtendedQQmlAction.cpp</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:24 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

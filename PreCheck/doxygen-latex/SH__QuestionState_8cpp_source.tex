@@ -4,44 +4,51 @@
 
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__QuestionState_8h}{SH\_QuestionState.h}"}
-00002 
+00002 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00003 \textcolor{comment}{/*namespace SimplHotel}
+00004 \textcolor{comment}{\{*/}
 \hypertarget{SH__QuestionState_8cpp_source_l00009}{}\hyperlink{classSH__QuestionState_ad7ea575ec284d1dc89da5df9f31cd751}{00009} \hyperlink{classSH__QuestionState_ad7ea575ec284d1dc89da5df9f31cd751}{SH\_QuestionState::SH\_QuestionState}(QString question, QString name, 
       \hyperlink{classQState}{QState} *parent) :
 00010     \hyperlink{classSH__InOutState}{SH\_InOutState}(question, name, parent)
 00011 \{
 00012 \}
-00013 
-\hypertarget{SH__QuestionState_8cpp_source_l00020}{}\hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{00020} \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{SH\_QuestionState::checkValidity}()
-00021 \{
-00022     \textcolor{keywordtype}{bool} ok = this->\hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{isAnswerValid}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
-00023     \textcolor{keywordflow}{if}(ok) \{
-00024         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}() << \textcolor{stringliteral}{" answer valid !"};
-00025         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}();
-00026         \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{SH\_InOutState::setInput}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
-00027         emit \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
-00028         emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
-00029     \} \textcolor{keywordflow}{else} \{
-00030         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}() << \textcolor{stringliteral}{" answer invalid :-("};
-00031         qDebug() << this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}();
-00032         emit \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
-00033     \}
-00034     \textcolor{keywordflow}{return} ok;
-00035 \}
-00036 
-\hypertarget{SH__QuestionState_8cpp_source_l00043}{}\hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{00043} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{SH\_QuestionState::setInput}(\textcolor{keyword}{const} QVariant &input)
-00044 \{
-00045     qDebug() << \textcolor{stringliteral}{"new answer "} << input.toString();
-00046     this->\hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{setGivenAnswer}(input);
-00047 \}
-00048 
-\hypertarget{SH__QuestionState_8cpp_source_l00055}{}\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{00055} QVariant \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{SH\_QuestionState::givenAnswer}()\textcolor{keyword}{ const}
-00056 \textcolor{keyword}{}\{
-00057     \textcolor{keywordflow}{return} this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
-00058 \}
-00059 
-\hypertarget{SH__QuestionState_8cpp_source_l00066}{}\hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{00066} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{SH\_QuestionState::setGivenAnswer}(\textcolor{keyword}{const} QVariant &givenAsnwer)
-00067 \{
-00068     this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer} = givenAsnwer;
-00069     this->\hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{checkValidity}();
-00070 \}
+\hypertarget{SH__QuestionState_8cpp_source_l00017}{}\hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{00017} \textcolor{keywordtype}{bool} \hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{SH\_QuestionState::checkValidity}()
+00018 \{
+00019     \textcolor{keywordtype}{bool} ok = \textcolor{keyword}{false};
+00020     \textcolor{keywordflow}{if}(\hyperlink{classSH__GenericState_a5f731810dad0cacd28828ccbf1539e4e}{isRunning}()) \{
+00021         ok = this->\hyperlink{classSH__QuestionState_a8780740599e2e183560a670ff9874708}{isAnswerValid}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
+00022         \textcolor{keywordflow}{if}(ok) \{
+00023             \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 is a VALID answer for
+       question '%2'!"}).arg(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}().\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()).arg(this->
+      \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}()));
+00024             \hyperlink{classSH__InOutState_aaec9c2b5ef7c406bff7469461352d47c}{SH\_InOutState::setInput}(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
+00025             emit \hyperlink{classSH__QuestionState_a04e259643788d15ab6244bc8a04286d6}{answerValid}();
+00026             emit \hyperlink{classSH__GenericState_a34c1bebc765cc3a62d66c94c37d4f0c3}{goNext}();
+00027         \} \textcolor{keywordflow}{else} \{
+00028             \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{SH\_MessageManager::infoMessage}(QString(\textcolor{stringliteral}{"%1 is an INvalid :-(
+       answer for question '%2'"}).arg(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}().\hyperlink{classSH__GenericState_a7779babbb40f3f8faa71112204d9804f}{toString}()).arg(this->
+      \hyperlink{classSH__InOutState_a17ed7eaf5e3ed5af80a4f9fe65d5bfd9}{output}()));
+00029             emit \hyperlink{classSH__QuestionState_a3348a8a683130678ac87a10ba2a25486}{answerInvalid}();
+00030         \}
+00031     \}
+00032     \textcolor{keywordflow}{return} ok;
+00033 \}
+\hypertarget{SH__QuestionState_8cpp_source_l00038}{}\hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{00038} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_ab40b6202090d1afcc965e124b2deb88a}{SH\_QuestionState::setInput}(\textcolor{keyword}{const} QVariant &input)
+00039 \{
+00040     \textcolor{keywordflow}{if}(input != this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}()) \{
+00041         this->\hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{setGivenAnswer}(input);
+00042     \}
+00043 \}
+\hypertarget{SH__QuestionState_8cpp_source_l00048}{}\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{00048} QVariant \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{SH\_QuestionState::givenAnswer}()\textcolor{keyword}{ const}
+00049 \textcolor{keyword}{}\{
+00050     \textcolor{keywordflow}{return} this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer};
+00051 \}
+\hypertarget{SH__QuestionState_8cpp_source_l00056}{}\hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{00056} \textcolor{keywordtype}{void} \hyperlink{classSH__QuestionState_a8fec0a91aed0b2b1699db17169873eb0}{SH\_QuestionState::setGivenAnswer}(\textcolor{keyword}{const} QVariant &givenAnswer)
+00057 \{
+00058     \textcolor{keywordflow}{if}(givenAnswer != this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}()) \{
+00059         this->\hyperlink{classSH__QuestionState_a309bb96a6aed67d190f9ab995fdc7c61}{m\_givenAnswer} = \hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer};
+00060         this->\hyperlink{classSH__QuestionState_a902be003650c33d954d707b2d3ee0bb9}{checkValidity}();
+00061     \}
+00062 \}
+00063 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

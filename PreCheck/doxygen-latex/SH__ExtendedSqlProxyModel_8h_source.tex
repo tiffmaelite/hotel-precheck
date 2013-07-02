@@ -9,73 +9,110 @@
 00004 \textcolor{preprocessor}{#include <QSortFilterProxyModel>}
 00005 \textcolor{preprocessor}{#include "\hyperlink{SH__SqlDataModel_8h}{SH\_SqlDataModel.h}"}
 00006 
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00013}{}\hyperlink{classSH__ExtendedProxyModel}{00013} \textcolor{keyword}{class }\hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel} : \textcolor{keyword}{public} \hyperlink{classQSortFilterProxyModel}{QSortFilterProxyModel}
-00014 \{
-00015 
-00016     Q\_OBJECT
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00017}{}\hyperlink{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}{00017}     Q\_PROPERTY(QString \hyperlink{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}{table} READ \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{tableName})
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00018}{}\hyperlink{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}{00018}     Q\_PROPERTY(QString \hyperlink{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}{fieldsList} READ \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields})
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00019}{}\hyperlink{classSH__ExtendedProxyModel_a287d34971582bbe68a7f1f0826165de5}{00019}     Q\_PROPERTY(QString \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{lastError} READ \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{lastError})
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00020}{}\hyperlink{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}{00020}     Q\_PROPERTY(\textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}{sortKeyColumn} READ \hyperlink{classSH__ExtendedProxyModel_adbbc1e62c72991f4ed14537cf1ba9c8f}{currentSortKeyColumn} WRITE 
+00007 \textcolor{comment}{/*namespace SimplHotel}
+00008 \textcolor{comment}{\{*/}
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00015}{}\hyperlink{classSH__ExtendedProxyModel}{00015} \textcolor{keyword}{class }\hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel} : \textcolor{keyword}{public} \hyperlink{classQSortFilterProxyModel}{QSortFilterProxyModel}
+00016 \{
+00017 
+00018     Q\_OBJECT
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00019}{}\hyperlink{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}{00019}     Q\_PROPERTY(QString \hyperlink{classSH__ExtendedProxyModel_a7eef4557a77444e9ce5c24c180392bfa}{table} READ \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{tableName})
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00020}{}\hyperlink{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}{00020}     Q\_PROPERTY(QString \hyperlink{classSH__ExtendedProxyModel_a15e779ba92384a57442d6bd79ef3d1d1}{fieldsList} READ \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields})
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00021}{}\hyperlink{classSH__ExtendedProxyModel_a287d34971582bbe68a7f1f0826165de5}{00021}     Q\_PROPERTY(QString \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{lastError} READ \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{lastError})
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00022}{}\hyperlink{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}{00022}     Q\_PROPERTY(\textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_a47e2d0b99b84fb066438db667dd1ad26}{sortKeyColumn} READ \hyperlink{classSH__ExtendedProxyModel_adbbc1e62c72991f4ed14537cf1ba9c8f}{currentSortKeyColumn} WRITE 
       \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{setSortKeyColumn} NOTIFY \hyperlink{classSH__ExtendedProxyModel_ad34f69425d6c86a2671cf9f85562a724}{sortChanged})
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00021}{}\hyperlink{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}{00021}     Q\_PROPERTY(\textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}{empty} READ \hyperlink{classSH__ExtendedProxyModel_af8e37132288a46f527be0c67b652fdf5}{isEmpty})
-00022 
-00023 public:
-00030     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(\hyperlink{classQObject}{QObject} *parent = 0);
-00031 
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00038}{}\hyperlink{classSH__ExtendedProxyModel_adbbc1e62c72991f4ed14537cf1ba9c8f}{00038}     const \textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_adbbc1e62c72991f4ed14537cf1ba9c8f}{currentSortKeyColumn}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this->
-      \hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex};\}
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00045}{}\hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{00045}     \textcolor{keyword}{const} QString \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{tableName}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00023}{}\hyperlink{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}{00023}     Q\_PROPERTY(\textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a9e22d17af7776aca8052084cc33c3442}{empty} READ \hyperlink{classSH__ExtendedProxyModel_af8e37132288a46f527be0c67b652fdf5}{isEmpty})
+00024 
+00025 public:
+00032     \hyperlink{classSH__ExtendedProxyModel}{SH\_ExtendedProxyModel}(\hyperlink{classQObject}{QObject} *parent = 0);
+00033 
+00034 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00041}{}\hyperlink{classSH__ExtendedProxyModel_adbbc1e62c72991f4ed14537cf1ba9c8f}{00041}     \textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_adbbc1e62c72991f4ed14537cf1ba9c8f}{currentSortKeyColumn}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex};\}
+00042 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00049}{}\hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{00049}     \textcolor{keyword}{const} QString \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{tableName}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->
       \hyperlink{classSH__SqlDataModel_afced07f7b9e6fecd349a5428a1a4615e}{tableName}(); \}
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00052}{}\hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{00052}     \textcolor{keyword}{const} QString \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().isEmpty())\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"*"}
+00050 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00057}{}\hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{00057}     \textcolor{keyword}{const} QString \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{if}(this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().isEmpty())\{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"*"}
       ;\} \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a571bdc1f9592bd13f98fd748563d46c0}{fieldsList}().join(\textcolor{stringliteral}{", "});\} \}
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00059}{}\hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{00059}     \textcolor{keyword}{const} QString \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{lastError}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->
+00058 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00065}{}\hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{00065}     \textcolor{keyword}{const} QString \hyperlink{classSH__ExtendedProxyModel_afb11fa89e1181d88843ea0f7fb3fe654}{lastError}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->
       \hyperlink{classSH__SqlDataModel_a28af51642aee51bc7e0ce19b97c57b60}{lastError}(); \}
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00066}{}\hyperlink{classSH__ExtendedProxyModel_af8e37132288a46f527be0c67b652fdf5}{00066}     \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_af8e37132288a46f527be0c67b652fdf5}{isEmpty}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}(); \}
-00073     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{setSortKeyColumn}(\textcolor{keywordtype}{int} column);
+00066 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00073}{}\hyperlink{classSH__ExtendedProxyModel_af8e37132288a46f527be0c67b652fdf5}{00073}     \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_af8e37132288a46f527be0c67b652fdf5}{isEmpty}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_ad85bfde0f7ffb06172eb5543e26d1331}{isEmpty}(); \}
 00074 
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00082}{}\hyperlink{classSH__ExtendedProxyModel_a75081819198741a532eefd5875a90678}{00082}     Q\_INVOKABLE \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__ExtendedProxyModel_a75081819198741a532eefd5875a90678}{field}(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
+00081     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ab8123244a5060aa35f5bce651046b99d}{setSortKeyColumn}(\textcolor{keywordtype}{int} column);
+00082 
+00083 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00091}{}\hyperlink{classSH__ExtendedProxyModel_a75081819198741a532eefd5875a90678}{00091}     Q\_INVOKABLE \hyperlink{classSH__SqlDataFields}{SH\_SqlDataFields} *\hyperlink{classSH__ExtendedProxyModel_a75081819198741a532eefd5875a90678}{field}(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
       \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_a92c51d5c1f6aca08a7ee566ece1e4cb6}{field}(i); \}
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00089}{}\hyperlink{classSH__ExtendedProxyModel_ab935cb0865fd2010ab35f1743adb8633}{00089}     Q\_INVOKABLE \textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_ab935cb0865fd2010ab35f1743adb8633}{fieldsCount}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->
+00092 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00099}{}\hyperlink{classSH__ExtendedProxyModel_ab935cb0865fd2010ab35f1743adb8633}{00099}     Q\_INVOKABLE \textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_ab935cb0865fd2010ab35f1743adb8633}{fieldsCount}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->
       \hyperlink{classSH__SqlDataModel_a46f0951fd358e30892a982ebd34e43c2}{fieldsCount}(); \}
-00100     Q\_INVOKABLE \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a1df5323af8d29e81f22a7118227eeeb8}{fetch}(QString \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{tableName} = \textcolor{stringliteral}{""}, QString filter = \textcolor{stringliteral}{""}, QString 
+00100 
+00111     Q\_INVOKABLE \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a1df5323af8d29e81f22a7118227eeeb8}{fetch}(QString \hyperlink{classSH__ExtendedProxyModel_abb133e196ca7cf90b9c9b57263e898d6}{tableName} = \textcolor{stringliteral}{""}, QString filter = \textcolor{stringliteral}{""}, QString 
       \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{sort} = \textcolor{stringliteral}{""}, QStringList \hyperlink{classSH__ExtendedProxyModel_a3a69386b6070dacf320ef29e760816c1}{fields} = QStringList());
-00108     Q\_INVOKABLE \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{sort}(\textcolor{keywordtype}{int} column, Qt::SortOrder newOrder = Qt::AscendingOrder);
-00115     Q\_INVOKABLE \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{addFilterKeyColumn}(\textcolor{keywordtype}{int} column);
-00122     Q\_INVOKABLE \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a631c2a56b4a301b9c8a855facec3ac1c}{removeFilterKeyColumn}(\textcolor{keywordtype}{int} column);
-00130     Q\_INVOKABLE \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a81c40d3ce9710029cae19cc65bf5419d}{containsFilterKeyColumn}(\textcolor{keywordtype}{int} column);
-00139     Q\_INVOKABLE QVariant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} column) \textcolor{keyword}{const};
-00148     Q\_INVOKABLE QVariant \hyperlink{classSH__ExtendedProxyModel_aca6cc510f740e847e0cfc06e0adb5771}{data}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keywordtype}{int} role = Qt::DisplayRole) \textcolor{keyword}{const};
-00158     Q\_INVOKABLE \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_aaaddcc27fdce4ef70f242460b8e053da}{setData}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keyword}{const} QVariant &value, \textcolor{keywordtype}{int} role = 
+00112 
+00120     Q\_INVOKABLE \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2d5fdb58bf67879e3f3130619b93104a}{sort}(\textcolor{keywordtype}{int} column, Qt::SortOrder newOrder = Qt::AscendingOrder);
+00121 
+00128     Q\_INVOKABLE \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a7b432fac5c42bf84a005f2942896ca32}{addFilterKeyColumn}(\textcolor{keywordtype}{int} column);
+00129 
+00136     Q\_INVOKABLE \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a631c2a56b4a301b9c8a855facec3ac1c}{removeFilterKeyColumn}(\textcolor{keywordtype}{int} column);
+00137 
+00145     Q\_INVOKABLE \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a81c40d3ce9710029cae19cc65bf5419d}{containsFilterKeyColumn}(\textcolor{keywordtype}{int} column);
+00146 
+00155     Q\_INVOKABLE QVariant \hyperlink{classSH__ExtendedProxyModel_a9fd2e16750c7c8c4cbd8f357b00ed008}{data}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} column = -1) \textcolor{keyword}{const};
+00156 
+00165     Q\_INVOKABLE QVariant \hyperlink{classSH__ExtendedProxyModel_a9fd2e16750c7c8c4cbd8f357b00ed008}{data}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keywordtype}{int} role = Qt::DisplayRole) \textcolor{keyword}{const};
+00166 
+00176     Q\_INVOKABLE \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_aaaddcc27fdce4ef70f242460b8e053da}{setData}(\textcolor{keyword}{const} QModelIndex &index, \textcolor{keyword}{const} QVariant &value, \textcolor{keywordtype}{int} role = 
       Qt::EditRole);
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00165}{}\hyperlink{classSH__ExtendedProxyModel_aead7c7969b112c3d0443051ae6a4757a}{00165}     Q\_INVOKABLE \textcolor{keyword}{virtual} QHash<int, QByteArray> \hyperlink{classSH__ExtendedProxyModel_aead7c7969b112c3d0443051ae6a4757a}{roleNames}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
+00177 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00184}{}\hyperlink{classSH__ExtendedProxyModel_aead7c7969b112c3d0443051ae6a4757a}{00184}     Q\_INVOKABLE \textcolor{keyword}{virtual} QHash<int, QByteArray> \hyperlink{classSH__ExtendedProxyModel_aead7c7969b112c3d0443051ae6a4757a}{roleNames}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
       \hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model}->\hyperlink{classSH__SqlDataModel_ac9954bbf92ed14566128c74318e3125b}{roleNames}(); \}
-00173     Q\_INVOKABLE Qt::ItemFlags \hyperlink{classSH__ExtendedProxyModel_aa12f3d989293da24fb47fd96a080cdc0}{flags}(\textcolor{keyword}{const} QModelIndex &index) \textcolor{keyword}{const};
-00174 
-00180     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a7cfb1803f839023c7ba6fc67b900d76a}{invalidateFilter}();
-00187     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2acefd1604abfef312fdaa65e57c2234}{setBooleanColumns}(QList<int> boolCols);
-00194     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a985d27d4f35a303e0cd453a05910da1d}{setReadOnlyColumns}(QList<int> readonlyCols);
-00201     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a4bbea95e7483aeeef4709c12e5ef61c5}{setPasswordColumns}(QList<int> passwordCols);
-00208     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2a5734c26bb72fb11e50b9036914d987}{setNullColumns}(QList<int> nullCols);
-00215     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a9211b1bc09442298367565d7e0f62de4}{setNotNullColumns}(QList<int> notNullCols);
-00216 
-00217 signals:
-00223     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ad34f69425d6c86a2671cf9f85562a724}{sortChanged}();
-00224 
-00225 \textcolor{keyword}{protected}:
-00231     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ad6b7ea810aa00f42624253d77caafcbb}{fillModel}() = 0;
-00240     \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a1eda169699702a7bfed4dfa8718c0b86}{filterAcceptsRow}(\textcolor{keywordtype}{int} source\_row, \textcolor{keyword}{const} QModelIndex &source\_parent) \textcolor{keyword}{const};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00241}{}\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{00241}     \hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel} *\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model};
+00185 
+00193     Q\_INVOKABLE Qt::ItemFlags \hyperlink{classSH__ExtendedProxyModel_aa12f3d989293da24fb47fd96a080cdc0}{flags}(\textcolor{keyword}{const} QModelIndex &index) \textcolor{keyword}{const};
+00194 
+00195 
+00201     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a7cfb1803f839023c7ba6fc67b900d76a}{invalidateFilter}();
+00202 
+00209     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2acefd1604abfef312fdaa65e57c2234}{setBooleanColumns}(QList<int> boolCols);
+00210 
+00217     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a985d27d4f35a303e0cd453a05910da1d}{setReadOnlyColumns}(QList<int> readonlyCols);
+00218 
+00225     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a4bbea95e7483aeeef4709c12e5ef61c5}{setPasswordColumns}(QList<int> passwordCols);
+00226 
+00233     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a2a5734c26bb72fb11e50b9036914d987}{setNullColumns}(QList<int> nullCols);
+00234 
+00241     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_a9211b1bc09442298367565d7e0f62de4}{setNotNullColumns}(QList<int> notNullCols);
 00242 
-00243 \textcolor{keyword}{private}:
-00251     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(QList<int>& originalSet, QList<int> newSet);
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00255}{}\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{00255}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00259}{}\hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{00259}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{passwordSet};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00263}{}\hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{00263}     QList<int> \hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{readonlySet};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00267}{}\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{00267}     QList<int> \hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00271}{}\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{00271}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00275}{}\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{00275}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters};
-\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00279}{}\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{00279}     \textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex};
-00280 \};
-00281 \textcolor{preprocessor}{#endif}
+00243 signals:
+00244 
+00250     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ad34f69425d6c86a2671cf9f85562a724}{sortChanged}();
+00251 
+00252 \textcolor{keyword}{protected}:
+00253 
+00259     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_ad6b7ea810aa00f42624253d77caafcbb}{fillModel}() = 0;
+00260 
+00269     \textcolor{keywordtype}{bool} \hyperlink{classSH__ExtendedProxyModel_a1eda169699702a7bfed4dfa8718c0b86}{filterAcceptsRow}(\textcolor{keywordtype}{int} source\_row, \textcolor{keyword}{const} QModelIndex &source\_parent) \textcolor{keyword}{const};
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00270}{}\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{00270}     \hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel} *\hyperlink{classSH__ExtendedProxyModel_a8c8b8930c6b1abd9bbb1dce1fdc9690b}{model};
+00271 
+00272 \textcolor{keyword}{private}:
+00273 
+00281     \textcolor{keywordtype}{void} \hyperlink{classSH__ExtendedProxyModel_abb0f0b100df006c1c2646833a444b734}{replaceSet}(QList<int>& originalSet, QList<int> newSet);
+00282 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00286}{}\hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{00286}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a7dd9cf1dd153b98220d217e9be1f0916}{booleanSet};
+00287 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00291}{}\hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{00291}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a9616e7be442b560e260e1db9034143bc}{passwordSet};
+00292 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00296}{}\hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{00296}     QList<int> \hyperlink{classSH__ExtendedProxyModel_ad8e1da8be7d34eefe243a7707be8b166}{readonlySet};
+00297 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00301}{}\hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{00301}     QList<int> \hyperlink{classSH__ExtendedProxyModel_ac17eb2c65d47f6dc6dd322e0a39bbe3e}{notNullSet};
+00302 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00306}{}\hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{00306}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a0a3818c6f8e4b73d1b5b47b2914cb56d}{nullSet};
+00307 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00311}{}\hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{00311}     QList<int> \hyperlink{classSH__ExtendedProxyModel_a99a5c4c6b9d125c87f048c76d22278d3}{filters};
+00312 
+\hypertarget{SH__ExtendedSqlProxyModel_8h_source_l00316}{}\hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{00316}     \textcolor{keywordtype}{int} \hyperlink{classSH__ExtendedProxyModel_a83cabe4cf90a26d26c4aaa40e944b2bd}{sortIndex};
+00317 \};
+00318 \textcolor{comment}{/*\}*/}
+00319 \textcolor{preprocessor}{#endif}
 \end{DoxyCode}

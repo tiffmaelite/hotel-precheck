@@ -8,7 +8,6 @@ var classSH__GenericState =
     [ "next", "classSH__GenericState.xhtml#ad5e2a1f3dc129336c8f529cf897c2eb0", null ],
     [ "onEntry", "classSH__GenericState.xhtml#a68c67ef95738e01cd34cd5926f4932fb", null ],
     [ "onExit", "classSH__GenericState.xhtml#a7f7863859318c70c9b734be5bf5510b0", null ],
-    [ "onMachineStarted", "classSH__GenericState.xhtml#a4bf70be0a8f92cd7d6dacd953df90f52", null ],
     [ "onTransitionTriggered", "classSH__GenericState.xhtml#aad4259cc1e6a51681d6a92e995486380", null ],
     [ "ptraddress", "classSH__GenericState.xhtml#a147d0e52d9f0fc1d3a423d02f82325f5", null ],
     [ "setName", "classSH__GenericState.xhtml#a6bc164e6fa10ae190770529af75d1775", null ],

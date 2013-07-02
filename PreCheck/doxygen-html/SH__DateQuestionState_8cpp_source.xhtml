@@ -110,55 +110,88 @@ $(document).ready(function(){initNavTree('SH__DateQuestionState_8cpp_source.xhtm
 </div><!--header-->
 <div class="contents">
 <a href="SH__DateQuestionState_8cpp.xhtml">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__DateQuestionState_8h.xhtml">SH_DateQuestionState.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a9a60060ebcd5994d62f0ca5f0e6b5e98">    9</a></span>&#160;<a class="code" href="classSH__DateQuestionState.xhtml#a9a60060ebcd5994d62f0ca5f0e6b5e98">SH_DateQuestionState::SH_DateQuestionState</a>(QString question, QString name, <span class="keywordtype">bool</span> past, <span class="keywordtype">bool</span> future, <a class="code" href="classQState.xhtml">QState</a> *parent) :</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classSH__QuestionState.xhtml">SH_QuestionState</a>(question+<span class="stringliteral">&quot; (au format jj-mm-aaaa)&quot;</span>, name, parent), m_past(past), m_future(future)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a303e9f86c37ded79fb3ad4d31d183c21">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a303e9f86c37ded79fb3ad4d31d183c21">SH_DateQuestionState::isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;givenAnswer)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    QDate answer = QDate::fromString(givenAnswer.toString(),QString(<span class="stringliteral">&quot;dd-MM-yyyy&quot;</span>));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(answer.isValid()) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        qDebug() &lt;&lt; <span class="stringliteral">&quot;date conforme&quot;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> ((<a class="code" href="classSH__DateQuestionState.xhtml#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a> &amp;&amp; answer &gt;= QDate::currentDate()) || (<a class="code" href="classSH__DateQuestionState.xhtml#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a> &amp;&amp; answer &lt;= QDate::currentDate()));</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a409a85ad6b7d2e37cfc42c3cfdca12ad">   37</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a409a85ad6b7d2e37cfc42c3cfdca12ad">SH_DateQuestionState::getPast</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__DateQuestionState.xhtml#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">SH_DateQuestionState::setPast</a>(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#afa33fd208cf539167bcc26c83e57d803" title="m_past ">m_past</a> = value;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#aa7b73f952558aa2aefaec2b94119abbc">   59</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#aa7b73f952558aa2aefaec2b94119abbc">SH_DateQuestionState::getFuture</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classSH__DateQuestionState.xhtml#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">SH_DateQuestionState::setFuture</a>(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#a0a1577dc70f9c1120a6d623f8eb635c8" title="m_future ">m_future</a> = value;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SH__MessageManager_8h.xhtml">SH_MessageManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*namespace SimplHotel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">{*/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a9a60060ebcd5994d62f0ca5f0e6b5e98">   10</a></span>&#160;<a class="code" href="classSH__DateQuestionState.xhtml#a9a60060ebcd5994d62f0ca5f0e6b5e98">SH_DateQuestionState::SH_DateQuestionState</a>(QString question, QString name, <span class="keywordtype">bool</span> past, <span class="keywordtype">bool</span> future, <a class="code" href="classQState.xhtml">QState</a> *parent) :</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classSH__QuestionState.xhtml">SH_QuestionState</a>(question+<span class="stringliteral">&quot; (au format jj-mm-aaaa)&quot;</span>, name, parent), m_maximum(QDate()), m_minimum(QDate())</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">setPast</a>(past);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">setFuture</a>(future);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a28dba9f895682e7722c1a245e0aac713">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a28dba9f895682e7722c1a245e0aac713">SH_DateQuestionState::setMinimumDate</a>(QDate after)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a> = after;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a43fd05c32a82342a25ea860f25917253">   22</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a43fd05c32a82342a25ea860f25917253">SH_DateQuestionState::setMaximumDate</a>(QDate before)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a> = before;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a303e9f86c37ded79fb3ad4d31d183c21">   31</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a303e9f86c37ded79fb3ad4d31d183c21">SH_DateQuestionState::isAnswerValid</a>(<span class="keyword">const</span> QVariant &amp;givenAnswer)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QDate answer = QDate::fromString(givenAnswer.toString(),QString(<span class="stringliteral">&quot;dd-MM-yyyy&quot;</span>)); <span class="comment">//FIXME ajouter autres formats</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(answer.isValid()) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(<span class="stringliteral">&quot;date conforme&quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>.isValid()) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;date max (%1) valide&quot;</span>).arg(<a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>.toString()));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span>(answer &lt;= <a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;%1 avant date max&quot;</span>).arg(answer.toString()));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a>.isValid()) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;date min (%1) valide&quot;</span>).arg(<a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a>.toString()));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span>(answer &gt;= <a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <a class="code" href="classSH__MessageManager.xhtml#a379f2aa0a590a5add34dbe91f98b2ff7">SH_MessageManager::debugMessage</a>(QString(<span class="stringliteral">&quot;%1 avant après min&quot;</span>).arg(answer.toString()));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> (</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                (answer.isValid())</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                &amp;&amp; ((<a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>.isValid() &amp;&amp; answer &lt;= <a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>)||(<a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a>.isValid() &amp;&amp; answer &gt;= <a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a>))</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#ad16ab3d70e9356ca17c0a05d9a2093da">   58</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#ad16ab3d70e9356ca17c0a05d9a2093da">SH_DateQuestionState::isPast</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a>.isValid() &amp;&amp; <a class="code" href="classSH__DateQuestionState.xhtml#a9cb25c158f1622cf65b868c2bbab7e30">m_maximum</a> &gt;= QDate::currentDate());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">   66</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#a6f376c24355deb573b3132d18cf50341">SH_DateQuestionState::setPast</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span>(value) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classSH__DateQuestionState.xhtml#a43fd05c32a82342a25ea860f25917253">setMaximumDate</a>(QDate::currentDate());</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    } <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="classSH__DateQuestionState.xhtml#a43fd05c32a82342a25ea860f25917253">setMaximumDate</a>(QDate());</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">   80</a></span>&#160;QVariant <a class="code" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">SH_DateQuestionState::rawInput</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> QVariant(<a class="code" href="classSH__InOutState.xhtml#a8e1b78069343122df7713624a1a5a100">input</a>().toDate().<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>()); <span class="comment">/*TODO set format*/</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a737a3f24e3bffbd367d439dd47fcc3cd">   78</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSH__DateQuestionState.xhtml#a737a3f24e3bffbd367d439dd47fcc3cd">SH_DateQuestionState::isFuture</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a>.isValid() &amp;&amp; <a class="code" href="classSH__DateQuestionState.xhtml#a9b4c46cf566ae037d816e1d6b66c777b">m_minimum</a> &lt;= QDate::currentDate());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSH__DateQuestionState.xhtml#acda6fa1cdc24ad7c5c012d88c948b819">SH_DateQuestionState::setFuture</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(value) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="classSH__DateQuestionState.xhtml#a28dba9f895682e7722c1a245e0aac713">setMinimumDate</a>(QDate::currentDate());</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    } <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="classSH__DateQuestionState.xhtml#a28dba9f895682e7722c1a245e0aac713">setMinimumDate</a>(QDate());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">   98</a></span>&#160;QVariant <a class="code" href="classSH__DateQuestionState.xhtml#a71917e94cb9ce692f916a848bc8c8892">SH_DateQuestionState::rawInput</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> QVariant(<a class="code" href="classSH__InOutState.xhtml#a8e1b78069343122df7713624a1a5a100">input</a>().toDate().<a class="code" href="classSH__GenericState.xhtml#a7779babbb40f3f8faa71112204d9804f">toString</a>());</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">/*TODO set format*/</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/*}*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_c041bda47019fa3c84f6631c354a852f.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_e2affbc6953da20ca911abf42c1c2b24.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DateQuestionState_8cpp.xhtml">SH_DateQuestionState.cpp</a></li>
-    <li class="footer">Généré le Lundi Juin 24 2013 17:37:30 pour PreCheck par
+    <li class="navelem"><a class="el" href="dir_c80be020ffd0de449d9be99ce0437220.xhtml">hotel-precheck</a></li><li class="navelem"><a class="el" href="dir_7694152d5891a38fdd1a84f1b68308a7.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_91e8dea975c1c90a42592511f67ed700.xhtml">PreCheck</a></li><li class="navelem"><a class="el" href="dir_13c294c896149c6e7ad839bf15bc2a5b.xhtml">logic</a></li><li class="navelem"><a class="el" href="SH__DateQuestionState_8cpp.xhtml">SH_DateQuestionState.cpp</a></li>
+    <li class="footer">Généré le Mardi Juillet 2 2013 13:26:23 pour PreCheck par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

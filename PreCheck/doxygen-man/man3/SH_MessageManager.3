@@ -1,4 +1,4 @@
-.TH "SH_MessageManager" 3 "Lundi Juin 24 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
+.TH "SH_MessageManager" 3 "Mardi Juillet 2 2013" "Version 0.4" "PreCheck" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,6 +21,9 @@ Est dérivée de \fBQObject\fP\&.
 
 .in +1c
 .ti -1c
+.RI "static void \fBdebugMessage\fP (QString message, QString title='Trace')"
+.br
+.ti -1c
 .RI "static void \fBerrorMessage\fP (QString message, QString title='Erreur')"
 .br
 .ti -1c
@@ -32,7 +35,7 @@ Est dérivée de \fBQObject\fP\&.
 .in -1c
 .SH "Description détaillée"
 .PP 
-Définition à la ligne 12 du fichier SH_MessageManager\&.h\&.
+Définition à la ligne 15 du fichier SH_MessageManager\&.h\&.
 .SH "Documentation des énumérations membres"
 .PP 
 .SS "enum \fBSH_MessageManager::ErrorMode\fP"
@@ -51,13 +54,38 @@ Définition à la ligne 12 du fichier SH_MessageManager\&.h\&.
 .TP
 \fB\fIRELEASE \fP\fP
 .PP
-Définition à la ligne 24 du fichier SH_MessageManager\&.h\&.
+Définition à la ligne 27 du fichier SH_MessageManager\&.h\&.
 .PP
 .nf
-24 { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
+27 { ERROR, TEST, DEBUG, DEBUG_VERBOSE, RELEASE };
 .fi
 .SH "Documentation des fonctions membres"
 .PP 
+.SS "SH_MessageManager::debugMessage (QStringmessage, QStringtitle = \fC'Trace'\fP)\fC [static]\fP"
+
+.PP
+\fBParamètres:\fP
+.RS 4
+\fImessage\fP 
+.br
+\fItitle\fP 
+.RE
+.PP
+
+.PP
+Définition à la ligne 32 du fichier SH_MessageManager\&.cpp\&.
+.PP
+Référencé par SH_InOutStateMachine::addIOState(), SH_InOutStateMachine::addState(), SH_InOutStateMachine::addStateMachine(), SH_ConfirmationState::confirmInput(), SH_SqlDataModel::data(), SH_SqlDataModel::datas(), SH_DatabaseManager::execSelectQuery(), SH_SqlDataModel::fetch(), SH_NumericQuestionState::isAnswerValid(), SH_DateQuestionState::isAnswerValid(), SH_GenericStateMachine::onEntry(), SH_GenericState::onEntry(), SH_GenericStateMachine::onExit(), SH_GenericState::onExit(), SH_GenericState::onTransitionTriggered(), SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(), et SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState()\&.
+.PP
+.nf
+33 {
+34     if(!message\&.isEmpty()) {
+35 //#ifdef DEBUG
+36     qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+37 //#endif
+38     }
+39 }
+.fi
 .SS "SH_MessageManager::errorMessage (QStringmessage, QStringtitle = \fC'Erreur'\fP)\fC [static]\fP"
 
 .PP
@@ -70,20 +98,20 @@ Définition à la ligne 24 du fichier SH_MessageManager\&.h\&.
 .PP
 
 .PP
-Définition à la ligne 16 du fichier SH_MessageManager\&.cpp\&.
+Définition à la ligne 17 du fichier SH_MessageManager\&.cpp\&.
 .PP
-Référencé par SH_SqlDataModel::data(), SH_DatabaseManager::dbConnect(), SH_SqlDataModel::fetch(), main(), et SH_DatabaseManager::SH_DatabaseManager()\&.
+Référencé par SH_SqlDataModel::data(), SH_DatabaseManager::dbConnect(), SH_SqlDataModel::fetch(), main(), SH_DatabaseManager::SH_DatabaseManager(), et SH_GenericStateMachine::SH_GenericStateMachine()\&.
 .PP
 .nf
-17 {
-18     if(!message\&.isEmpty()) {
-19 #ifdef DEBUG
-20         qWarning() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
-21 #else
-22         QMessageBox::critical(0,QObject::tr("%L1")\&.arg(title),QObject::tr("%L2")\&.arg(message));
-23 #endif
-24     }
-25 }
+18 {
+19     if(!message\&.isEmpty()) {
+20 #ifdef DEBUG
+21     qWarning() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+22 #else
+23     QMessageBox::critical(0,QObject::tr("%L1")\&.arg(title),QObject::tr("%L2")\&.arg(message));
+24 #endif
+25     }
+26 }
 .fi
 .SS "SH_MessageManager::infoMessage (QStringmessage, QStringtitle = \fC'Info'\fP)\fC [static]\fP"
 
@@ -97,25 +125,20 @@ Référencé par SH_SqlDataModel::data(), SH_DatabaseManager::dbConnect(), SH_Sq
 .PP
 
 .PP
-Définition à la ligne 54 du fichier SH_MessageManager\&.cpp\&.
+Définition à la ligne 61 du fichier SH_MessageManager\&.cpp\&.
 .PP
-Référencé par SH_SqlDataModel::data(), et SH_SqlDataModel::fetch()\&.
+Référencé par SH_InOutStateMachine::addIOState(), SH_QuestionState::checkValidity(), et SH_ApplicationCore::receiveInput()\&.
 .PP
 .nf
-55 {
-56     if(!message\&.isEmpty()) {
-57         /*switch(errorMode) {
-58     case DEBUG:*/
-59         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
-60         /*break;
-61     case TEST:
-62     case RELEASE:
-63         QMessageBox::information(0,QObject::tr("%L1)\&.arg(title),QObject::tr("%L2)\&.arg(message));
-64     default:
-65         console\&.log(title+" : " + message);
-66     }*/
-67     }
-68 }
+62 {
+63     if(!message\&.isEmpty()) {
+64 #ifdef DEBUG
+65     qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+66 #else
+67     QMessageBox::warning(0, QObject::tr("%L1")\&.arg(title), QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message));
+68 #endif
+69     }
+70 }
 .fi
 .SS "SH_MessageManager::successMessage (QStringmessage, QStringtitle = \fC'Réussite'\fP)\fC [static]\fP"
 
@@ -129,23 +152,18 @@ Référencé par SH_SqlDataModel::data(), et SH_SqlDataModel::fetch()\&.
 .PP
 
 .PP
-Définition à la ligne 33 du fichier SH_MessageManager\&.cpp\&.
+Définition à la ligne 46 du fichier SH_MessageManager\&.cpp\&.
 .PP
 .nf
-34 {
-35     if(!message\&.isEmpty()) {
-36         /*switch(errorMode) {
-37     case DEBUG:*/
-38         qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
-39         /*break;
-40     case TEST:
-41     case RELEASE:
-42         QMessageBox::information(0,QObject::tr("%L1)\&.arg(title),QObject::tr("%L2)\&.arg(message));
-43     default:
-44         console\&.log(title+" : " + message);
-45     }*/
-46     }
-47 }
+47 {
+48     if(!message\&.isEmpty()) {
+49 #ifdef DEBUG
+50     qDebug() << QObject::tr("%L1 : %L2")\&.arg(title)\&.arg(message);
+51 #else
+52     QMessageBox::information(0,QObject::tr("%L1")\&.arg(title),QObject::tr("%L2")\&.arg(message));
+53 #endif
+54     }
+55 }
 .fi
 
 

@@ -8,5 +8,7 @@ var classSH__PrintingState =
     [ "onExit", "classSH__PrintingState.xhtml#a7f7863859318c70c9b734be5bf5510b0", null ],
     [ "printFinished", "classSH__PrintingState.xhtml#a2d3819c50a51e825ca27b2d320af4828", null ],
     [ "printStarted", "classSH__PrintingState.xhtml#a59679f51ced1c4a956e752999526d7fe", null ],
-    [ "toString", "classSH__PrintingState.xhtml#a7779babbb40f3f8faa71112204d9804f", null ]
+    [ "toString", "classSH__PrintingState.xhtml#a7779babbb40f3f8faa71112204d9804f", null ],
+    [ "m_currentLineNb", "classSH__PrintingState.xhtml#ac458fdbc8cea191ab7b6da82761e50e0", null ],
+    [ "m_nbPrintedLines", "classSH__PrintingState.xhtml#ad90a15a7d50f0c67777d593ae10a8881", null ]
 ];

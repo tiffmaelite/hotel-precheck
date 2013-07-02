@@ -5,130 +5,126 @@
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__LoopingIOStateMachine_8h}{SH\_LoopingIOStateMachine.h}"}
 00002 \textcolor{preprocessor}{#include "\hyperlink{SH__AdaptDatabaseState_8h}{SH\_AdaptDatabaseState.h}"}
-00003 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00010}{}\hyperlink{classSH__LoopingInOutStateMachine_ab183e4ef00fa1297e942b3a4d78b3523}{00010} \hyperlink{classSH__LoopingInOutStateMachine_ab183e4ef00fa1297e942b3a4d78b3523}{SH\_LoopingInOutStateMachine::SH\_LoopingInOutStateMachine}
+00003 \textcolor{comment}{/*namespace SimplHotel}
+00004 \textcolor{comment}{\{*/}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00009}{}\hyperlink{classSH__LoopingInOutStateMachine_ab183e4ef00fa1297e942b3a4d78b3523}{00009} \hyperlink{classSH__LoopingInOutStateMachine_ab183e4ef00fa1297e942b3a4d78b3523}{SH\_LoopingInOutStateMachine::SH\_LoopingInOutStateMachine}
       (QString tableName, QString name, \textcolor{keywordtype}{int} limit, \hyperlink{classQObject}{QObject} *parent) :
-00011     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}(tableName, name, parent), m\_limit(limit), m\_current(-1)
-00012 \{
-00013 
-00014 \}
-00015 
-00016 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00023}{}\hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{00023} \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{SH\_LoopingInOutStateMachine::current}()\textcolor{keyword}{ const}
-00024 \textcolor{keyword}{}\{
-00025     \textcolor{keywordflow}{return} \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current};
-00026 \}
-00027 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00034}{}\hyperlink{classSH__LoopingInOutStateMachine_aed2f3a75029856cbf28cae78040e17c1}{00034} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_aed2f3a75029856cbf28cae78040e17c1}{SH\_LoopingInOutStateMachine::setCurrent}(\textcolor{keywordtype}{int} current)
-00035 \{
-00036     \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} = \hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{current};
-00037 \}
-00038 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00039}{}\hyperlink{classSH__LoopingInOutStateMachine_a99686121d80e3de4c64bebb1d5890ac0}{00039} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a99686121d80e3de4c64bebb1d5890ac0}{SH\_LoopingInOutStateMachine::setPersistentContentValue}
+00010     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}(tableName, name, parent), m\_limit(limit), m\_current(-1)
+00011 \{
+00012 \}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00017}{}\hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{00017} \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{SH\_LoopingInOutStateMachine::current}()\textcolor{keyword}{ const}
+00018 \textcolor{keyword}{}\{
+00019     \textcolor{keywordflow}{return} \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current};
+00020 \}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00025}{}\hyperlink{classSH__LoopingInOutStateMachine_aed2f3a75029856cbf28cae78040e17c1}{00025} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_aed2f3a75029856cbf28cae78040e17c1}{SH\_LoopingInOutStateMachine::setCurrent}(\textcolor{keywordtype}{int} current)
+00026 \{
+00027     \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} = \hyperlink{classSH__LoopingInOutStateMachine_afce58401195a4941b1939c46f1caa23b}{current};
+00028 \}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00029}{}\hyperlink{classSH__LoopingInOutStateMachine_a99686121d80e3de4c64bebb1d5890ac0}{00029} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a99686121d80e3de4c64bebb1d5890ac0}{SH\_LoopingInOutStateMachine::setPersistentContentValue}
       (QVariant value, QString field)
-00040 \{
-00041     \hyperlink{classSH__LoopingInOutStateMachine_a4e9ea23cf1eecbe26c6ed93b290a9115}{m\_persistentContent}.insert(field, value);
-00042 \}
-00043 
-00050 \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{SH\_LoopingInOutStateMachine::limit}()\textcolor{keyword}{ const}
-00051 \textcolor{keyword}{}\{
-00052     \textcolor{keywordflow}{return} \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit};
-00053 \}
-00054 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00061}{}\hyperlink{classSH__LoopingInOutStateMachine_a6dbf2fbcc6524bba5a70baadb8d61be4}{00061} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a6dbf2fbcc6524bba5a70baadb8d61be4}{SH\_LoopingInOutStateMachine::setLimit}(\textcolor{keywordtype}{int} limit)
-00062 \{
-00063     \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} = \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit};
-00064     emit \hyperlink{classSH__LoopingInOutStateMachine_ab9ce2fc14467ccbfaf9ccb696d90d9df}{limitChanged}();
-00065 \}
-00066 
-00067 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00072}{}\hyperlink{classSH__LoopingInOutStateMachine_a73d75e30318da22fec99387e9bf02a9b}{00072} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a73d75e30318da22fec99387e9bf02a9b}{SH\_LoopingInOutStateMachine::stopLooping}() \{
-00073     \textcolor{keywordflow}{if}(\hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} = 0) \{
-00074         \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} = \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} + 1;
-00075     \} \textcolor{keywordflow}{else} \{
-00076         \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} = \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} - 1;
-00077     \}
-00078 \}
-00079 
-\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00085}{}\hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{00085} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_abfae9f47019379f270496de46845c729}{SH\_LoopingInOutStateMachine::addChildrenNextTransition}
+00030 \{
+00031     \hyperlink{classSH__LoopingInOutStateMachine_a4e9ea23cf1eecbe26c6ed93b290a9115}{m\_persistentContent}.insert(field, value);
+00032 \}
+00037 \textcolor{keywordtype}{int} \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{SH\_LoopingInOutStateMachine::limit}()\textcolor{keyword}{ const}
+00038 \textcolor{keyword}{}\{
+00039     \textcolor{keywordflow}{return} \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit};
+00040 \}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00045}{}\hyperlink{classSH__LoopingInOutStateMachine_a6dbf2fbcc6524bba5a70baadb8d61be4}{00045} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a6dbf2fbcc6524bba5a70baadb8d61be4}{SH\_LoopingInOutStateMachine::setLimit}(\textcolor{keywordtype}{int} limit)
+00046 \{
+00047     \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} = \hyperlink{classSH__LoopingInOutStateMachine_aa82afb8de3acbd0953bdf468f697d777}{limit};
+00048     emit \hyperlink{classSH__LoopingInOutStateMachine_ab9ce2fc14467ccbfaf9ccb696d90d9df}{limitChanged}();
+00049 \}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00054}{}\hyperlink{classSH__LoopingInOutStateMachine_a73d75e30318da22fec99387e9bf02a9b}{00054} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a73d75e30318da22fec99387e9bf02a9b}{SH\_LoopingInOutStateMachine::stopLooping}() \{
+00055     \textcolor{keywordflow}{if}(\hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} == 0) \{
+00056         \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} = \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} + 1;
+00057     \} \textcolor{keywordflow}{else} \{
+00058         \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} = \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} - 1;
+00059     \}
+00060 \}
+\hypertarget{SH__LoopingIOStateMachine_8cpp_source_l00065}{}\hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{00065} \textcolor{keywordtype}{void} \hyperlink{classSH__LoopingInOutStateMachine_a0ee122553641721012f3710e71cce234}{SH\_LoopingInOutStateMachine::setStatesNextTransition}
       (QAbstractState *previousState, QAbstractState *nextState)
-00086 \{
-00087     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
+00066 \{
+00067     \hyperlink{classSH__GenericState}{SH\_GenericState}* genPreviousState = qobject\_cast<
       \hyperlink{classSH__GenericState}{SH\_GenericState}*>(previousState);
-00088     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* fsmPreviousState = qobject\_cast<
+00068     \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}* fsmPreviousState = qobject\_cast<
       \hyperlink{classSH__InOutStateMachine}{SH\_InOutStateMachine}*>(previousState);
-00089     QFinalState* \textcolor{keyword}{final} = qobject\_cast<QFinalState*>(nextState);
-00090     \textcolor{keywordflow}{if}(\textcolor{keyword}{final}) \{
-00091         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état previousState*/}
-00092         connect(previousState, &QAbstractState::entered, [=]() \{
-00093             \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current}++;
-00094             \hyperlink{classSH__LoopingInOutStateMachine_a145e625dcb4d5438bd9c761eeb9425d4}{m\_contents}.append(\hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent});
-00095             \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}.clear();
-00096             \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent} = \hyperlink{classSH__LoopingInOutStateMachine_a4e9ea23cf1eecbe26c6ed93b290a9115}{m\_persistentContent};
-00097             \textcolor{keywordflow}{if}(\hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} == 0 || \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} < \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit}) \{
-00098                 \textcolor{keywordflow}{if}(genPreviousState) \{
-00099                     connect(genPreviousState, &QAbstractState::entered, [=]() \{
-00100                         genPreviousState->addTransition(genPreviousState, SIGNAL(
+00069     QFinalState* \textcolor{keyword}{final} = qobject\_cast<QFinalState*>(nextState);
+00070     \textcolor{keywordflow}{if}(\textcolor{keyword}{final}) \{
+00071 
+00072         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état previousState*/}
+00073         connect(previousState, &QAbstractState::entered, [=]() \{
+00074             \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current}++;
+00075             \hyperlink{classSH__LoopingInOutStateMachine_a145e625dcb4d5438bd9c761eeb9425d4}{m\_contents}.append(\hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent});
+00076             \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent}.clear();
+00077             \hyperlink{classSH__InOutStateMachine_a8cfbc27eef057bf37b7711bdfef2077e}{m\_ioContent} = \hyperlink{classSH__LoopingInOutStateMachine_a4e9ea23cf1eecbe26c6ed93b290a9115}{m\_persistentContent};
+00078             \textcolor{keywordflow}{if}(\hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit} == 0 || \hyperlink{classSH__LoopingInOutStateMachine_af64f9f28a1b8e82bd9ee5f4b96a7c82e}{m\_current} < \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit}) \{
+00079                 \textcolor{keywordflow}{if}(genPreviousState) \{
+00080                     connect(genPreviousState, &QAbstractState::entered, [=]() \{
+00081                         genPreviousState->addTransition(genPreviousState, SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), initialState());
-00101                     \});
-00102                 \}
-00103                 \textcolor{keywordflow}{if}(fsmPreviousState) \{
-00104                     connect(fsmPreviousState, &QAbstractState::entered, [=]() \{
-00105                         fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(
+00082                     \});
+00083                 \}
+00084                 \textcolor{keywordflow}{if}(fsmPreviousState) \{
+00085                     connect(fsmPreviousState, &QAbstractState::entered, [=]() \{
+00086                         fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), initialState());
-00106                     \});
-00107                 \}
-00108             \} \textcolor{keywordflow}{else} \{
-00109                 \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}* nextSaveState = \textcolor{keyword}{new} 
+00087                     \});
+00088                 \}
+00089             \} \textcolor{keywordflow}{else} \{
+00090                 \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}* nextSaveState = \textcolor{keyword}{new} 
       \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}(\textcolor{stringliteral}{"enregistrement 0 de la machine "}+
       \hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}());
-00110                 \textcolor{keywordflow}{if}(genPreviousState) \{
-00111                     genPreviousState->addTransition(genPreviousState, SIGNAL(
+00091                 \textcolor{keywordflow}{if}(genPreviousState) \{
+00092                     genPreviousState->addTransition(genPreviousState, SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextSaveState);
-00112                 \}
-00113                 \textcolor{keywordflow}{if}(fsmPreviousState) \{
-00114                     fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(
+00093                 \}
+00094                 \textcolor{keywordflow}{if}(fsmPreviousState) \{
+00095                     fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextSaveState);
-00115                 \}
-00116                 \textcolor{keywordflow}{if}(genPreviousState || fsmPreviousState) \{
-00117                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit}; i++) \{
-00118                         \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}* saveState = nextSaveState;
-00119                         nextSaveState = \textcolor{keyword}{new} \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}(QString(\textcolor{stringliteral}{"
+00096                 \}
+00097                 \textcolor{keywordflow}{if}(genPreviousState || fsmPreviousState) \{
+00098                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < \hyperlink{classSH__LoopingInOutStateMachine_a818a60d3691fcac11323ad114c309dcb}{m\_limit}; i++) \{
+00099                         \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}* saveState = nextSaveState;
+00100                         nextSaveState = \textcolor{keyword}{new} \hyperlink{classSH__AdaptDatabaseState}{SH\_AdaptDatabaseState}(QString(\textcolor{stringliteral}{"
       enregistrement %1 de la machine %2"}).arg(QString::number(i)).arg(\hyperlink{classSH__GenericStateMachine_a85c0c1c9d258ae991f84667412fa47cd}{toString}()));
-00120                         saveState->addTransition(saveState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()),nextSaveState);
-00121                         connect(saveState, &QAbstractState::exited, [=]() \{
-00122                             connect(nextSaveState, &QAbstractState::entered, [=]() \{
-00123                                 \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(nextSaveState->
+00101                         saveState->addTransition(saveState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()),nextSaveState);
+00102                         connect(saveState, &QAbstractState::exited, [=]() \{
+00103                             connect(nextSaveState, &QAbstractState::entered, [=]() \{
+00104                                 \hyperlink{classSH__InOutStateMachine_a9ab1534306b2bdb62743d4bcefe40c17}{setContentValue}(nextSaveState->
       \hyperlink{classSH__AdaptDatabaseState_a037db544ea05f42d21fcbdda758839fe}{insertUpdate}(\hyperlink{classSH__InOutStateMachine_aa009eecc5ab6181358faafb5996b6006}{m\_tableName}, \hyperlink{classSH__LoopingInOutStateMachine_a145e625dcb4d5438bd9c761eeb9425d4}{m\_contents}[i]), \textcolor{stringliteral}{"ID"});
-00124                             \});
-00125                         \});
-00126                     \}
-00127                     nextSaveState->addTransition(nextSaveState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()),\textcolor{keyword}{final});
-00128                 \}
-00129             \}
-00130         \});
-00131     \}
-00132     \textcolor{keywordflow}{if}(genPreviousState) \{
-00133         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état previousState*/}
-00134         connect(genPreviousState, &QAbstractState::entered, [=]() \{
-00135             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput}, [=](
+00105                             \});
+00106                         \});
+00107                     \}
+00108                     nextSaveState->addTransition(nextSaveState, SIGNAL(\hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()),\textcolor{keyword}{final});
+00109                 \}
+00110             \}
+00111         \});
+00112     \}
+00113     \textcolor{keywordflow}{if}(genPreviousState) \{
+00114 
+00115         \textcolor{comment}{/*à faire au moment de l'entrée dans l'état previousState*/}
+00116         connect(genPreviousState, &QAbstractState::entered, [=]() \{
+00117             connect(\textcolor{keyword}{this}, &\hyperlink{classSH__InOutStateMachine_a9fa5db44086de2576c812f631aa4f60a}{SH\_InOutStateMachine::replaceInput}, [=](
       QString field) \{
-00136                 \textcolor{comment}{/*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel
+00118 
+00119                 \textcolor{comment}{/*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel
        puis on retourne à l'historique de l'état désiré; celui-ci fini, on passe à l'état qui aurait du suivre celui
        pendant lequel on a demandé à revenir sur un état précédent*/}
-00137                 QHistoryState* hState = \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{historyValue}(field);
-00138                 \textcolor{keywordflow}{if}(hState) \{ \textcolor{comment}{/*si l'historique existe (on a déjà quitté l'état voulu)*/}
-00139                     hState->parentState()->addTransition(hState->parentState(), SIGNAL(
+00120                 QHistoryState* hState = \hyperlink{classSH__InOutStateMachine_af71bfdb3b59b7bf2763588b513b4205f}{historyValue}(field);
+00121                 \textcolor{keywordflow}{if}(hState) \{
+00122                     \textcolor{comment}{/*si l'historique existe (on a déjà quitté l'état voulu)*/}
+00123                     hState->parentState()->addTransition(hState->parentState(), SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), nextState);
-00140                     genPreviousState->addTransition(genPreviousState, SIGNAL(
+00124                     genPreviousState->addTransition(genPreviousState, SIGNAL(
       \hyperlink{classSH__GenericStateMachine_af4771d31d87951c997fba1633c2d67f6}{next}()), hState);
-00141                 \}
-00142             \});
-00143         \});
-00144     \}
-00145     \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{SH\_InOutStateMachine::addChildrenReplaceTransition}(
+00125                 \}
+00126             \});
+00127         \});
+00128     \}
+00129     \hyperlink{classSH__InOutStateMachine_ae0f3b4622d2c70884bb224dee86e95c0}{SH\_InOutStateMachine::addChildrenReplaceTransition}(
       previousState, nextState);
-00146     \hyperlink{classSH__GenericStateMachine_a22433f8df2f41120a05bfa4bbfa9e0ae}{SH\_GenericStateMachine::addChildrenNextTransition}(
+00130     \hyperlink{classSH__GenericStateMachine_a136a71cd1f2de1322ac7694db25f0b53}{SH\_GenericStateMachine::setStatesNextTransition}(
       previousState, nextState);
-00147 \}
+00131 \}
+00132 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}

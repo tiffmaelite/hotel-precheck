@@ -8,21 +8,32 @@
 00003 \textcolor{preprocessor}{}
 00004 \textcolor{preprocessor}{#include <QObject>}
 00005 
-\hypertarget{SH__MessageManager_8h_source_l00012}{}\hyperlink{classSH__MessageManager}{00012} \textcolor{keyword}{class }\hyperlink{classSH__MessageManager}{SH\_MessageManager}: \hyperlink{classQObject}{QObject}
-00013 \{
-00014     Q\_OBJECT
-00015 
-00016     Q\_ENUMS(\hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4ee}{ErrorMode})
-00017 
-00018 \textcolor{keyword}{public}:
-\hypertarget{SH__MessageManager_8h_source_l00024}{}\hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea20e4a860505461ef78ebb902cac1bbc7}{00024}     \textcolor{keyword}{enum} \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4ee}{ErrorMode} \{ \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeaed8e377759e5f203a417dbd267cbc33a}{ERROR}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea20e4a860505461ef78ebb902cac1bbc7}{TEST}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeac1f651f46ed4faeccbb6ce75f31c6123}{DEBUG}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea10b19d57d9a8572101d39b51cdca79d0}{DEBUG\_VERBOSE}, 
+00006 
+00007 \textcolor{comment}{/*namespace SimplHotel}
+00008 \textcolor{comment}{\{*/}
+00009 
+\hypertarget{SH__MessageManager_8h_source_l00015}{}\hyperlink{classSH__MessageManager}{00015} \textcolor{keyword}{class }\hyperlink{classSH__MessageManager}{SH\_MessageManager}: \hyperlink{classQObject}{QObject}
+00016 \{
+00017     Q\_OBJECT
+00018 
+00019     Q\_ENUMS(\hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4ee}{ErrorMode})
+00020 
+00021 \textcolor{keyword}{public}:
+00022 
+\hypertarget{SH__MessageManager_8h_source_l00027}{}\hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea20e4a860505461ef78ebb902cac1bbc7}{00027}     \textcolor{keyword}{enum} \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4ee}{ErrorMode} \{ \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeaed8e377759e5f203a417dbd267cbc33a}{ERROR}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea20e4a860505461ef78ebb902cac1bbc7}{TEST}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eeac1f651f46ed4faeccbb6ce75f31c6123}{DEBUG}, \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea10b19d57d9a8572101d39b51cdca79d0}{DEBUG\_VERBOSE}, 
       \hyperlink{classSH__MessageManager_a13742daa1342475d4fcee295b9dee4eea81df11b9abe47d3c95d300a3ff71227e}{RELEASE} \};
-00025 
-00033     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{errorMessage}(QString message, QString title = \textcolor{stringliteral}{"Erreur"});
-00041     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{successMessage}(QString message, QString title =\textcolor{stringliteral}{"Réussite"});
-00049     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{infoMessage}(QString message,QString title =\textcolor{stringliteral}{"Info"});
-00050 
-00051 \};
-00052 
-00053 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* ERRORMESSAGE\_H*/}\textcolor{preprocessor}{}
+00028 
+00029 
+00036     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0cb4f06cf67539457482ba1c8544eb06}{errorMessage}(QString message, QString title = \textcolor{stringliteral}{"Erreur"});
+00037 
+00044     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a829b465beb548a78616c0c97439bf720}{successMessage}(QString message, QString title =\textcolor{stringliteral}{"Réussite"});
+00045 
+00052     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a0b35c2f96e6d69934bf7f7c1e2172ea9}{infoMessage}(QString message,QString title =\textcolor{stringliteral}{"Info"});
+00053 
+00054 
+00061     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{debugMessage}(QString message, QString title = \textcolor{stringliteral}{"Trace"});
+00062 \};
+00063 
+00064 \textcolor{comment}{/*\}*/}
+00065 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* ERRORMESSAGE\_H*/}\textcolor{preprocessor}{}
 \end{DoxyCode}

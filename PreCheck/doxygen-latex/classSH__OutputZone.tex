@@ -16,9 +16,13 @@ void \hyperlink{classSH__OutputZone_ae5a2247f1c3223e5a73de52fdbdb821b}{display\-
 \item 
 void \hyperlink{classSH__OutputZone_a899a18d02081f15ec88699652926d1b2}{display\-New\-Fixed} (string text)
 \item 
+void \hyperlink{classSH__OutputZone_ad3182752fc9999b2f907af5d07e2575d}{display\-Sql\-Datas} (variant sql\-Data)
+\item 
 void \hyperlink{classSH__OutputZone_af5abdd0bd587e4df3ed9278192978da5}{replace} (string text)
 \item 
 void \hyperlink{classSH__OutputZone_a41c89f3ac170cc1fa3f2946c155da958}{selected} (string selected\-Item)
+\item 
+void \hyperlink{classSH__OutputZone_a5906ca386b615db53fa8dca07c8f9f89}{selected\-For\-Detail} (var sql\-Datas)
 \end{DoxyCompactItemize}
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
@@ -28,10 +32,6 @@ void \hyperlink{classSH__OutputZone_a5e060d86ebcea9f4dd4acfd203d324de}{clear} (r
 void \hyperlink{classSH__OutputZone_a90e3b3d2bdd58bef244d5a347ddcf74a}{clear\-All} ()
 \item 
 void \hyperlink{classSH__OutputZone_a3fb363c9732edb963b97a0af893378a7}{display\-Calendar} ()
-\item 
-void \hyperlink{classSH__OutputZone_ad898491cb4e3c7f27d1a020a12b0de83}{display\-Sql\-Datas} (sql\-Data, sql\-Delegate)
-\item 
-void \hyperlink{classSH__OutputZone_a5a785363482e4bd17c0f9cee4d29e2ee}{display\-Sql\-Detail} (sql\-Data)
 \item 
 void \hyperlink{classSH__OutputZone_a2643d4fe88a476c2296f9e7a44da6c62}{display\-Text} (text)
 \end{DoxyCompactItemize}
@@ -93,21 +93,13 @@ Définition à la ligne \hyperlink{SH__OutputZone_8qml_source_l00004}{4} du fich
 \item[{string}]{text}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__OutputZone_a899a18d02081f15ec88699652926d1b2}
-\hypertarget{classSH__OutputZone_ad898491cb4e3c7f27d1a020a12b0de83}{\index{S\-H\-\_\-\-Output\-Zone@{S\-H\-\_\-\-Output\-Zone}!display\-Sql\-Datas@{display\-Sql\-Datas}}
+\hypertarget{classSH__OutputZone_ad3182752fc9999b2f907af5d07e2575d}{\index{S\-H\-\_\-\-Output\-Zone@{S\-H\-\_\-\-Output\-Zone}!display\-Sql\-Datas@{display\-Sql\-Datas}}
 \index{display\-Sql\-Datas@{display\-Sql\-Datas}!SH_OutputZone@{S\-H\-\_\-\-Output\-Zone}}
 \subsubsection[{display\-Sql\-Datas}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Output\-Zone\-::display\-Sql\-Datas (
 \begin{DoxyParamCaption}
-\item[{sql\-Data}]{, }
-\item[{sql\-Delegate}]{}
+\item[{variant}]{sql\-Data}
 \end{DoxyParamCaption}
-)}}\label{classSH__OutputZone_ad898491cb4e3c7f27d1a020a12b0de83}
-\hypertarget{classSH__OutputZone_a5a785363482e4bd17c0f9cee4d29e2ee}{\index{S\-H\-\_\-\-Output\-Zone@{S\-H\-\_\-\-Output\-Zone}!display\-Sql\-Detail@{display\-Sql\-Detail}}
-\index{display\-Sql\-Detail@{display\-Sql\-Detail}!SH_OutputZone@{S\-H\-\_\-\-Output\-Zone}}
-\subsubsection[{display\-Sql\-Detail}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Output\-Zone\-::display\-Sql\-Detail (
-\begin{DoxyParamCaption}
-\item[{sql\-Data}]{}
-\end{DoxyParamCaption}
-)}}\label{classSH__OutputZone_a5a785363482e4bd17c0f9cee4d29e2ee}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__OutputZone_ad3182752fc9999b2f907af5d07e2575d}
 \hypertarget{classSH__OutputZone_a2643d4fe88a476c2296f9e7a44da6c62}{\index{S\-H\-\_\-\-Output\-Zone@{S\-H\-\_\-\-Output\-Zone}!display\-Text@{display\-Text}}
 \index{display\-Text@{display\-Text}!SH_OutputZone@{S\-H\-\_\-\-Output\-Zone}}
 \subsubsection[{display\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Output\-Zone\-::display\-Text (
@@ -129,6 +121,13 @@ Définition à la ligne \hyperlink{SH__OutputZone_8qml_source_l00004}{4} du fich
 \item[{string}]{selected\-Item}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__OutputZone_a41c89f3ac170cc1fa3f2946c155da958}
+\hypertarget{classSH__OutputZone_a5906ca386b615db53fa8dca07c8f9f89}{\index{S\-H\-\_\-\-Output\-Zone@{S\-H\-\_\-\-Output\-Zone}!selected\-For\-Detail@{selected\-For\-Detail}}
+\index{selected\-For\-Detail@{selected\-For\-Detail}!SH_OutputZone@{S\-H\-\_\-\-Output\-Zone}}
+\subsubsection[{selected\-For\-Detail}]{\setlength{\rightskip}{0pt plus 5cm}void S\-H\-\_\-\-Output\-Zone\-::selected\-For\-Detail (
+\begin{DoxyParamCaption}
+\item[{var}]{sql\-Datas}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{classSH__OutputZone_a5906ca386b615db53fa8dca07c8f9f89}
 
 
 \subsection{Documentation des propriétés}

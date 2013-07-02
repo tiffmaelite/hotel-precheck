@@ -5,54 +5,54 @@
 \begin{DoxyCode}
 00001 \textcolor{preprocessor}{#include "\hyperlink{SH__DatabaseContentQuestionState_8h}{SH\_DatabaseContentQuestionState.h}"}
 00002 \textcolor{preprocessor}{#include "\hyperlink{SH__SqlDataModel_8h}{models/SH\_SqlDataModel.h}"}
-00003 
+00003 \textcolor{preprocessor}{#include "\hyperlink{SH__MessageManager_8h}{SH\_MessageManager.h}"}
+00004 \textcolor{comment}{/*namespace SimplHotel}
+00005 \textcolor{comment}{\{*/}
 \hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00010}{}\hyperlink{classSH__DatabaseContentQuestionState_ab26490ea519262a8f9ca72c000bf7313}{00010} \hyperlink{classSH__DatabaseContentQuestionState_ab26490ea519262a8f9ca72c000bf7313}{SH\_DatabaseContentQuestionState::SH\_DatabaseContentQuestionState}
       (QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition, 
       \hyperlink{classQState}{QState} *parent) :
 00011     \hyperlink{classSH__QuestionState}{SH\_QuestionState}(question, name, parent), m\_table(databaseTable), m\_condition(
       databaseCondition), m\_field(tableField)
 00012 \{
-00013     qDebug() << \textcolor{stringliteral}{"multiple choice list with datas from "} << databaseTable << \textcolor{stringliteral}{"!"};
+00013     \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"multiple choice list with datas
+       from %1!"}).arg(databaseTable));
 00014     \hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel} *sqlDatas = \textcolor{keyword}{new} \hyperlink{classSH__SqlDataModel}{SH\_SqlDataModel}();
 00015     QStringList fields;
 00016     fields << \textcolor{stringliteral}{"ID"} << \hyperlink{classSH__DatabaseContentQuestionState_a32b3f4f2cadbc4837add2556c1a926d4}{m\_field};
-00017     sqlDatas->\hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch}(\hyperlink{classSH__DatabaseContentQuestionState_a95d8a6ffc051cd9283314a56f7a11296}{m\_table}, \hyperlink{classSH__DatabaseContentQuestionState_aaffd467fccc69b6d46194f04831a1edc}{m\_condition}, \textcolor{stringliteral}{""}, fields);
-00018     QVariantMap results = sqlDatas->\hyperlink{classSH__SqlDataModel_a24db284b370930b57e2261a7a72e2da8}{datas}();
-00019     QVariantList idValues = results.values(\textcolor{stringliteral}{"ID"});
-00020     QVariantList fieldsValues = results.values(m\_field);
-00021     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < idValues.length(); i++) \{
-00022         qDebug() << \textcolor{stringliteral}{"new choice "} << idValues.at(i).toString() <<  \textcolor{stringliteral}{": "} << fieldsValues.at(i).toString();
-00023         \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices}.insert(idValues.at(i).toInt(), fieldsValues.at(i));
-00024     \}
-00025 \}
-00026 
-\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00033}{}\hyperlink{classSH__DatabaseContentQuestionState_a9bd6d20076c08d8e4085d22883ab7d14}{00033} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseContentQuestionState_a9bd6d20076c08d8e4085d22883ab7d14}{SH\_DatabaseContentQuestionState::isAnswerValid}(\textcolor{keyword}{const} 
+00017     fields.removeDuplicates();
+00018     sqlDatas->\hyperlink{classSH__SqlDataModel_ab6c206088250a66ddc8cb8d33a38e421}{fetch}(\hyperlink{classSH__DatabaseContentQuestionState_a95d8a6ffc051cd9283314a56f7a11296}{m\_table}, \hyperlink{classSH__DatabaseContentQuestionState_aaffd467fccc69b6d46194f04831a1edc}{m\_condition}, \textcolor{stringliteral}{""}, fields);
+00019     QVariantMap results = sqlDatas->\hyperlink{classSH__SqlDataModel_a24db284b370930b57e2261a7a72e2da8}{datas}();
+00020     QVariantList idValues = results.values(\textcolor{stringliteral}{"ID"});
+00021     QVariantList fieldsValues = results.values(m\_field);
+00022     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < idValues.length(); i++) \{
+00023         \hyperlink{classSH__MessageManager_a379f2aa0a590a5add34dbe91f98b2ff7}{SH\_MessageManager::debugMessage}(QString(\textcolor{stringliteral}{"new choice %1: %2"}).arg(
+      idValues.at(i).toString()).arg(fieldsValues.at(i).toString()));
+00024         \textcolor{comment}{//m\_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));}
+00025     \}
+00026 \}
+\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00031}{}\hyperlink{classSH__DatabaseContentQuestionState_a9262aeba84c1bb7feff540ca5edb27a7}{00031} \textcolor{keywordtype}{bool} \hyperlink{classSH__DatabaseContentQuestionState_a9262aeba84c1bb7feff540ca5edb27a7}{SH\_DatabaseContentQuestionState::isAnswerValid}(\textcolor{keyword}{const} 
       QVariant &givenAnswer)
-00034 \{
-00035     qDebug() << \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices}.values();
-00036     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices}.isEmpty() || \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices}.values().contains(givenAnswer);
-00037 \}
-00038 
-\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00043}{}\hyperlink{classSH__DatabaseContentQuestionState_aaec6c7f8bc78c6beb7447fc41ffe3875}{00043} \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseContentQuestionState_aaec6c7f8bc78c6beb7447fc41ffe3875}{SH\_DatabaseContentQuestionState::setOutput}(\textcolor{keyword}{const} QString &
+00032 \{
+00033     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseContentQuestionState_a0045a4afd3731c6f666887adc1f3b7a1}{m\_choices}.isEmpty() || \hyperlink{classSH__DatabaseContentQuestionState_a0045a4afd3731c6f666887adc1f3b7a1}{m\_choices}.contains(givenAnswer);
+00034 \}
+\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00039}{}\hyperlink{classSH__DatabaseContentQuestionState_aff932cdd7974baeea9a477cf0abc5ace}{00039} \textcolor{keywordtype}{void} \hyperlink{classSH__DatabaseContentQuestionState_aff932cdd7974baeea9a477cf0abc5ace}{SH\_DatabaseContentQuestionState::setOutput}(\textcolor{keyword}{const} QString &
       output)
-00044 \{
-00045     \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{SH\_QuestionState::setOutput}(output);
-00046     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices}.size() < 8) \{
-00047         \hyperlink{classSH__DatabaseContentQuestionState_aff4d8f402d9299029038ec4f21271b2b}{m\_choicesDisplayed} = \textcolor{keyword}{true};
-00048         emit \hyperlink{classSH__DatabaseContentQuestionState_acc79a171c2a70d52120676329a132dc4}{displayChoiceList}();
-00049     \}
-00050 \}
-00051 
-\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00057}{}\hyperlink{classSH__DatabaseContentQuestionState_aed9d5e4205ca37d32653475ac13fe097}{00057} QVariant \hyperlink{classSH__DatabaseContentQuestionState_aed9d5e4205ca37d32653475ac13fe097}{SH\_DatabaseContentQuestionState::rawInput}()\textcolor{keyword}{ const}
-00058 \textcolor{keyword}{}\{
-00059     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices}.key(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
-00060 \}
-00061 
-\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00067}{}\hyperlink{classSH__DatabaseContentQuestionState_a14ca81b7c20c9e20e9d9e327b513f6ec}{00067} QMap<int, QVariant> \hyperlink{classSH__DatabaseContentQuestionState_a14ca81b7c20c9e20e9d9e327b513f6ec}{SH\_DatabaseContentQuestionState::choiceList}(
-      ) \{
-00068     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseContentQuestionState_aff4d8f402d9299029038ec4f21271b2b}{m\_choicesDisplayed}) \{
-00069         \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseContentQuestionState_a0bbbd0d3b22877dc9e78f81136f31618}{m\_choices};
-00070     \}
-00071     \textcolor{keywordflow}{return} QMap<int,QVariant>();
-00072 \}
+00040 \{
+00041     \hyperlink{classSH__InOutState_af611c84134e262739cd834797b315c80}{SH\_QuestionState::setOutput}(output);
+00042     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseContentQuestionState_a0045a4afd3731c6f666887adc1f3b7a1}{m\_choices}.size() < 8) \{
+00043         \hyperlink{classSH__DatabaseContentQuestionState_aff4d8f402d9299029038ec4f21271b2b}{m\_choicesDisplayed} = \textcolor{keyword}{true};
+00044         emit \hyperlink{classSH__DatabaseContentQuestionState_ae1e149ad7ab3d957f3c5df9ef078448b}{displayChoiceList}(\hyperlink{classSH__DatabaseContentQuestionState_a0045a4afd3731c6f666887adc1f3b7a1}{m\_choices});
+00045     \}
+00046 \}
+\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00051}{}\hyperlink{classSH__DatabaseContentQuestionState_a344d9109e15509506b1b998d28392cac}{00051} QVariant \hyperlink{classSH__DatabaseContentQuestionState_a344d9109e15509506b1b998d28392cac}{SH\_DatabaseContentQuestionState::rawInput}()\textcolor{keyword}{ const}
+00052 \textcolor{keyword}{}\{
+00053     \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseContentQuestionState_a0045a4afd3731c6f666887adc1f3b7a1}{m\_choices}.indexOf(this->\hyperlink{classSH__QuestionState_a29cdea8bc55e39e3ed02d24743c30f8c}{givenAnswer}());
+00054 \}
+\hypertarget{SH__DatabaseContentQuestionState_8cpp_source_l00059}{}\hyperlink{classSH__DatabaseContentQuestionState_a9a121a43b672118d36f6a1a709dfdb50}{00059} QVariantList \hyperlink{classSH__DatabaseContentQuestionState_a9a121a43b672118d36f6a1a709dfdb50}{SH\_DatabaseContentQuestionState::choiceList}() \{
+00060     \textcolor{keywordflow}{if}(\hyperlink{classSH__DatabaseContentQuestionState_aff4d8f402d9299029038ec4f21271b2b}{m\_choicesDisplayed}) \{
+00061         \textcolor{keywordflow}{return} \hyperlink{classSH__DatabaseContentQuestionState_a0045a4afd3731c6f666887adc1f3b7a1}{m\_choices};
+00062     \}
+00063     \textcolor{keywordflow}{return} QVariantList();
+00064 \}
+00065 \textcolor{comment}{/*\}*/}
 \end{DoxyCode}
