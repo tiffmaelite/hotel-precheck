@@ -1,6 +1,6 @@
 #include <QtSql/QSqlRelationalTableModel>
-#ifndef SERVICE_H
-#define SERVICE_H
+#ifndef SH_ServicesTableModel_H
+#define SH_ServicesTableModel_H
 
 #include "SH_ExtendedSqlProxyModel.h"
 /*namespace SimplHotel
@@ -13,29 +13,29 @@
 */
 class SH_ServicesTableModel : public SH_ExtendedProxyModel
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 
 
-	
+
 /*!
 \brief \~french
 
- \fn ServicesTableModel
+ \fn SH_ServicesTableModel
  \param parent
 */
-	SH_ServicesTableModel(QObject *parent = 0);
+    SH_ServicesTableModel(QObject *parent = 0);
 
 
 protected:
 
-	
-/*!
-	\brief \~french
 
-	\fn fillModel
-	*/
-	void fillModel();
+/*!
+    \brief \~french
+
+    \fn fillModel
+    */
+    void fillModel();
 };
 /*}*/
-#endif /* SERVICE_H*/
+#endif /* SH_ServicesTableModel_H*/

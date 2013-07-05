@@ -1,6 +1,6 @@
 #include <QtSql/QSqlRelationalTableModel>
-#ifndef BOOKING_H
-#define BOOKING_H
+#ifndef SH_BookingsTableModel_H
+#define SH_BookingsTableModel_H
 
 #include "SH_ExtendedSqlProxyModel.h"
 /*namespace SimplHotel
@@ -12,27 +12,27 @@
 */
 class SH_BookingsTableModel : public SH_ExtendedProxyModel
 {
-	Q_OBJECT
-	public:
+    Q_OBJECT
+    public:
 
 
 /*!
  * \brief \~french
- * \fn BookingsTableModel
+ * \fn SH_BookingsTableModel
  * \param parent
 */
-	SH_BookingsTableModel(QObject *parent = 0);
+    SH_BookingsTableModel(QObject *parent = 0);
 
 
-	protected:
+    protected:
 
 
-	
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn fillModel
-	*/
-	void fillModel();
+    */
+    void fillModel();
 };
 /*}*/
 #endif /* BOOKING_H*/

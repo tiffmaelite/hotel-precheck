@@ -14,6 +14,13 @@
 class SH_InOutStateMachine : public SH_GenericStateMachine
 {
     Q_OBJECT
+    Q_PROPERTY(QString tableName MEMBER m_tableName NOTIFY tableNameChanged)
+    Q_PROPERTY(QString ioContent MEMBER m_ioContent NOTIFY ioContentChanged)
+    Q_PROPERTY(QString ioStatesHistory MEMBER m_ioStatesHistory NOTIFY ioStatesHistoryChanged)
+
+
+
+
 public:
 
     /*!
@@ -25,19 +32,6 @@ public:
 */
     SH_InOutStateMachine(QString tableName, QString name="", QObject *parent = 0);
 
-    /*!
-    * \brief \~french
- * \fn ioContent
-    * \return QVariantMap
-    */
-    QVariantMap ioContent() const;
-
-    /*!
-    * \brief \~french
- * \fn setIOcontent
-    * \param ioContent
-    */
-    void setIOcontent(const QVariantMap &ioContent);
 
     /*!
     * \brief \~french
@@ -47,19 +41,7 @@ public:
     */
     QVariant getContentValue(QString field);
 
-    /*!
-    * \brief \~french
- * \fn tableName
-    * \return QString
-    */
-    QString tableName() const;
 
-    /*!
-    * \brief \~french
- * \fn setTableName
-    * \param tableName
-    */
-    void setTableName(const QString &tableName);
 
     /*!
     * \brief \~french
@@ -201,12 +183,6 @@ public slots:
     virtual void addChildrenReplaceTransition(QAbstractState *previousState, QAbstractState *nextState);
 protected:
 
-    /*!
-    * \brief \~french
-    * \fn ioStatesHistory
-    * \return QMap<QString, QHistoryState *>
-    */
-    QMap<QString, QHistoryState *> ioStatesHistory() const;
 
     /*!
     * \brief \~french
@@ -232,15 +208,6 @@ protected:
     * \var m_ioStatesHistory
     */
     QMap<QString, QHistoryState*> m_ioStatesHistory;
-private:
-
-    /*!
-    * \brief \~french
-    * \fn setIOStatesHistory
-    * \param QMap<QString
-    * \param ioStatesHistory
-    */
-    void setIOStatesHistory(const QMap<QString, QHistoryState *> &ioStatesHistory);
 };
 /*}*/
 #endif /* IOSTATEMACHINE_H*/

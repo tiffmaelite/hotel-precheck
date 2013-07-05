@@ -9,7 +9,9 @@
 */
 class SH_NumericQuestionState : public SH_QuestionState
 {
-	Q_OBJECT
+    Q_OBJECT
+    Q_PROPERTY(int minimum MEMBER m_min NOTIFY minimumChanged)
+    Q_PROPERTY(int maximum MEMBER m_max NOTIFY maximumChanged)
 public:
 /*!
  * \brief \~french
@@ -20,37 +22,14 @@ public:
  * \param max
  * \param parent
 */
-	SH_NumericQuestionState(QString question, QString name, int min=0, int max=-1, QState *parent = 0);
+    SH_NumericQuestionState(QString question, QString name, int min=0, int max=-1, QState *parent = 0);
 /*!
  * \brief \~french
  * \fn isAnswerValid
  * \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
-/*!
- * \brief \~french
- * \fn min
- * \return int
-*/
-int min() const;
-/*!
- * \brief \~french
- * \fn setMin
- * \param min
-*/
-void setMin(int min);
-/*!
- * \brief \~french
- * \fn max
- * \return int
-*/
-int max() const;
-/*!
- * \brief \~french
- * \fn setMax
- * \param max
-*/
-void setMax(int max);
+
 signals:
 public slots:
 private:

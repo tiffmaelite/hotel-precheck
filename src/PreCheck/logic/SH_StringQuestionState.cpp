@@ -23,36 +23,5 @@ bool SH_StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
         return false;
     }
 }
-/*!
- * \details \~french
- * \fn SH_StringQuestionState::maxLen
-*/
-int SH_StringQuestionState::maxLen() const
-{
-    return m_maxLen;
-}
-/*!
- * \details \~french
- * \fn SH_StringQuestionState::setMaxLen
-*/
-void SH_StringQuestionState::setMaxLen(int maxLen)
-{
-    m_maxLen = maxLen;
-}
-/*!
- * \details \~french
- * \fn SH_StringQuestionState::minLen
-*/
-int SH_StringQuestionState::minLen() const
-{
-    return m_minLen;
-}
-/*!
- * \details \~french
- * \fn SH_StringQuestionState::setMinLen
-*/
-void SH_StringQuestionState::setMinLen(int minLen)
-{
-    m_minLen = minLen;
-}
+
 /*}*/

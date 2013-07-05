@@ -8,7 +8,7 @@
 
 /*!
  * \details \~french
- * \fn SH_SH_DatabaseManager::getInstance
+ * \fn SH_DatabaseManager::getInstance
 */
 SH_DatabaseManager *SH_DatabaseManager::getInstance()
 {
@@ -22,7 +22,7 @@ SH_DatabaseManager *SH_DatabaseManager::getInstance()
 
 /*!
  * \details \~french
- * \fn SH_SH_DatabaseManager::~SH_DatabaseManager
+ * \fn SH_DatabaseManager::~SH_DatabaseManager
 */
 SH_DatabaseManager::~SH_DatabaseManager()
 {
@@ -32,7 +32,7 @@ SH_DatabaseManager::~SH_DatabaseManager()
 
 /*!
  * \details \~french
- * \fn SH_SH_DatabaseManager::SH_DatabaseManager
+ * \fn SH_DatabaseManager::SH_DatabaseManager
 */
 SH_DatabaseManager::SH_DatabaseManager()
 {
@@ -72,7 +72,7 @@ SH_DatabaseManager::SH_DatabaseManager()
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::dbConnect
+ * \fn SH_DatabaseManager::dbConnect
     */
 bool SH_DatabaseManager::dbConnect()
 {
@@ -105,7 +105,7 @@ bool SH_DatabaseManager::dbConnect()
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::dbDisconnect
+ * \fn SH_DatabaseManager::dbDisconnect
     */
 bool SH_DatabaseManager::dbDisconnect()
 {
@@ -119,7 +119,7 @@ bool SH_DatabaseManager::dbDisconnect()
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::isConnected
+ * \fn SH_DatabaseManager::isConnected
     */
 bool SH_DatabaseManager::isConnected()
 {
@@ -129,7 +129,7 @@ bool SH_DatabaseManager::isConnected()
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::getDbConnection
+ * \fn SH_DatabaseManager::getDbConnection
     */
 QSqlDatabase SH_DatabaseManager::getDbConnection()
 {
@@ -138,7 +138,7 @@ QSqlDatabase SH_DatabaseManager::getDbConnection()
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::tableExistsl
+ * \fn SH_DatabaseManager::tableExistsl
     */
 bool SH_DatabaseManager::tableExists(QString tableName)
 {
@@ -147,7 +147,7 @@ bool SH_DatabaseManager::tableExists(QString tableName)
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::dataExists
+ * \fn SH_DatabaseManager::dataExists
     */
 int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
     if(!tableName.isEmpty() && !filter.isEmpty()) {
@@ -169,7 +169,7 @@ int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::execQuery
+ * \fn SH_DatabaseManager::execQuery
     */
 QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fields, QString condition, QString ordering) {
     if(fields.isEmpty()) {
@@ -177,7 +177,7 @@ QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fie
     }
 
     QString query;
-    if(dbConnection.driverName() == "QIBASE") {
+    if(dbConnection.driverName() == "QIBASE" || dbConnection.driverName() == "QPSQL") {
         query = QString("SELECT %1 FROM %2").arg(fields.join(", ")).arg(tableName);
         if(!condition.isEmpty()) {
             query = QString("%1 WHERE %2").arg(query).arg(condition);
@@ -186,17 +186,17 @@ QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fie
             query = QString("%1 ORDER BY %2").arg(query).arg(ordering);
         }
     }
-    SH_MessageManager::debugMessage(query);
+    //SH_MessageManager::debugMessage(query);
     QSqlQuery result;
     result.exec(query);
-    SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
+    //SH_MessageManager::debugMessage(QString("executed query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
     return result;
 }
 
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::execReplaceQuery
+ * \fn SH_DatabaseManager::execReplaceQuery
     */
 bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values) {
     QString fields;
@@ -205,6 +205,8 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
     QString query;
     if(dbConnection.driverName() == "QIBASE") {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
+    } else if(dbConnection.driverName() == "QPSQL") {
+        //query = QString("REPLACE INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
@@ -213,7 +215,7 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
 
 /*!
     * \details \~french
- * \fn SH_SH_DatabaseManager::execInsertReturningQuery
+ * \fn SH_DatabaseManager::execInsertReturningQuery
     */
 QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField) {
     QString fields;
@@ -222,6 +224,8 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
     QString query;
     if(dbConnection.driverName() == "QIBASE") {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
+    } else if(dbConnection.driverName() == "QPSQL") {
+        //query = QString("REPLACE INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));

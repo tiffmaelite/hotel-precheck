@@ -9,8 +9,9 @@
 */
 class SH_LoopingInOutStateMachine : public SH_InOutStateMachine
 {
-	Q_OBJECT
-	Q_PROPERTY(int limit READ limit WRITE setLimit NOTIFY limitChanged)
+    Q_OBJECT
+    Q_PROPERTY(int limit MEMBER m_limit NOTIFY limitChanged)
+    Q_PROPERTY(int current MEMBER m_current NOTIFY currentChanged)
 public:
 /*!
  * \brief \~french
@@ -20,86 +21,59 @@ public:
  * \param name
  * \param parent
 */
-	SH_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
-	
+    SH_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
+
 /*!
-	* \brief \~french
- * \fn current
-	* \return int
-	*/
-	int current() const;
-	
-/*!
-	* \brief \~french
- * \fn setCurrent
-	* \param current
-	*/
-	void setCurrent(int current);
-	
-/*!
-	* \brief \~french
+    * \brief \~french
  * \fn setPersistentContentValue
-	* \param content
-	* \param field
-	*/
-	void setPersistentContentValue(QVariant value, QString field);
-	
+    * \param content
+    * \param field
+    */
+    void setPersistentContentValue(QVariant value, QString field);
+
+
 /*!
-	* \brief \~french
- * \fn limit
-	* \return int
-	*/
-	int limit() const;
-	
+    * \brief \~french
+    * \fn addChildrenNextTransition
+    * \param previousState
+    * \param nextState
+    */
+    void setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState);
+
 /*!
-	* \brief \~french
- * \fn setLimit
-	* \param limit
-	*/
-	void setLimit(int limit);
-	
-/*!
-	* \brief \~french
-	* \fn addChildrenNextTransition
-	* \param previousState
-	* \param nextState
-	*/
-	void setStatesNextTransition(QAbstractState *previousState, QAbstractState *nextState);
-	
-/*!
-	* \brief \~french
-	* \fn stopLooping
-	*/
-	void stopLooping();
+    * \brief \~french
+    * \fn stopLooping
+    */
+    void stopLooping();
 signals:
-	
+
 /*!
-	* \brief \~french
-	* \fn limitChanged
-	*/
-	void limitChanged();
+    * \brief \~french
+    * \fn limitChanged
+    */
+    void limitChanged();
 public slots:
 private:
-	
+
 /*!
-	* \brief \~french m_limit
-	*/
-	int m_limit;
-	
+    * \brief \~french m_limit
+    */
+    int m_limit;
+
 /*!
-	* \brief \~french m_current
-	*/
-	int m_current;
-	
+    * \brief \~french m_current
+    */
+    int m_current;
+
 /*!
-	* \brief \~french m_contents
-	*/
-	QList<QVariantMap> m_contents;
-	
+    * \brief \~french m_contents
+    */
+    QList<QVariantMap> m_contents;
+
 /*!
-	* \brief \~french m_persistentContent
-	*/
-	QVariantMap m_persistentContent;
+    * \brief \~french m_persistentContent
+    */
+    QVariantMap m_persistentContent;
 };
 /*}*/
 #endif /* LOOPINGSTATEMACHINE_H*/

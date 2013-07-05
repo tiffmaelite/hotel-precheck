@@ -10,43 +10,11 @@ SH_LoopingInOutStateMachine::SH_LoopingInOutStateMachine(QString tableName, QStr
     SH_InOutStateMachine(tableName, name, parent), m_limit(limit), m_current(-1)
 {
 }
-/*!
- * \details \~french
- * \fn SH_LoopingStateMachine::current
-*/
-int SH_LoopingInOutStateMachine::current() const
-{
-    return m_current;
-}
-/*!
- * \details \~french
- * \fn SH_LoopingStateMachine::setCurrent
-*/
-void SH_LoopingInOutStateMachine::setCurrent(int current)
-{
-    m_current = current;
-}
 void SH_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QString field)
 {
     m_persistentContent.insert(field, value);
 }
-/*!
- * \details \~french
- * \fn SH_LoopingStateMachine::limit
-*/
-int SH_LoopingInOutStateMachine::limit() const
-{
-    return m_limit;
-}
-/*!
- * \details \~french
- * \fn SH_LoopingStateMachine::setLimit
-*/
-void SH_LoopingInOutStateMachine::setLimit(int limit)
-{
-    m_limit = limit;
-    emit limitChanged();
-}
+
 /*!
  * \details \~french
  * \fn SH_LoopingIOStateMachine::stopLooping

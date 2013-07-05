@@ -10,6 +10,9 @@
 class SH_DateQuestionState : public SH_QuestionState
 {
     Q_OBJECT
+    Q_PROPERTY(QDate maximumDate MEMBER m_maximum NOTIFY maximumDateChanged)
+    Q_PROPERTY(QDate minimumDate MEMBER m_minimum NOTIFY minimumDateChanged)
+
 public:
     /*!
  * \brief \~french
@@ -22,8 +25,6 @@ public:
 */
     SH_DateQuestionState(QString question, QString name, bool past = true, bool future = false, QState *parent = 0);
 
-    void setMinimumDate(QDate after);
-    void setMaximumDate(QDate before);
     /*!
  * \brief \~french
  * \fn isAnswerValid

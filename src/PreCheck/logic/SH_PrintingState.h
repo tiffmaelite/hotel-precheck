@@ -10,6 +10,8 @@
 class SH_PrintingState : public SH_GenericState
 {
     Q_OBJECT
+    Q_PROPERTY(int printedLines MEMBER m_nbPrintedLines NOTIFY nbPrintedLinesChanged)
+    Q_PROPERTY(int currentLine MEMBER m_currentLineNb NOTIFY currentLineNbChanged)
 public:
 /*!
  * \brief \~french

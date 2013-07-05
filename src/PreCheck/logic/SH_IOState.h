@@ -11,6 +11,12 @@
 class SH_InOutState : public SH_GenericState
 {
     Q_OBJECT
+    Q_PROPERTY(QVariant rawIntput READ rawInput NOTIFY rawInputChanged)
+    Q_PROPERTY(QVariant intput WRITE setInput MEMBER m_input NOTIFY inputChanged)
+    Q_PROPERTY(QString output MEMBER m_output WRITE setOutput NOTIFY outputChanged)
+    Q_PROPERTY(bool visibility MEMBER m_isVisible WRITE setVisibility NOTIFY visibilityChanged)
+    Q_PROPERTY(bool display MEMBER m_display WRITE enableDisplay NOTIFY displayChanged)
+
 public:
 
     /*!
@@ -24,31 +30,11 @@ public:
 
     /*!
     * \brief \~french
- * \fn input
-    * \return QVariant
-    */
-    virtual QVariant input() const;
-
-    /*!
-    * \brief \~french
  * \fn rawInput
     * \return QVariant
     */
     virtual QVariant rawInput() const;
 
-    /*!
-    * \brief \~french
- * \fn output
-    * \return QString
-    */
-    virtual QString output() const;
-
-    /*!
-    * \brief \~french
-    * \fn visibility
-    * \return bool
-    */
-    bool visibility();
 
     /*!
     * \brief \~french
@@ -61,6 +47,7 @@ public:
 
     void emitResendInput();
 
+    void enableDisplay(bool canDisplay);
 signals:
 
     /*!

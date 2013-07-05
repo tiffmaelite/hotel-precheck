@@ -12,9 +12,12 @@
 class SH_SqlDataModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString table READ tableName WRITE setTable NOTIFY tableChanged)
-    Q_PROPERTY(QString filter READ filter WRITE setFilterCondition NOTIFY filterChanged)
+    Q_PROPERTY(QStringList fields READ fieldsList WRITE setFields RESET resetFieldsToAll NOTIFY filterChanged)
     Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged)
+    Q_PROPERTY(QString tableName MEMBER mTable NOTIFY tableChanged)
+    Q_PROPERTY(QString roleNames MEMBER mRoles NOTIFY rolesChanged)
+    Q_PROPERTY(QString filterCondition MEMBER mFilter RESET resetFilterCondition NOTIFY filterChanged)
+
 public:
 
 /*!
@@ -77,46 +80,6 @@ public:
     */
     int fieldFromRole(int role) const { return role - Qt::UserRole; }
 
-/*!
-    \brief \~french
-    \fn tableName
-    \return const QString
-    */
-    const QString &tableName() const;
-
-/*!
-    \brief \~french
-    \fn lastError
-    \return const QString
-    */
-    const QString lastError();
-
-/*!
-    \brief \~french
-    \fn filter
-    \return const QString
-    */
-    const QString &filter() const;
-
-/*!
-    \brief \~french
-    \fn setTable
-    \param tableName
-    */
-    void setTable(const QString &tableName);
-
-/*!
-    \brief \~french
-    \fn setFilterCondition
-    \param filter
-    */
-    void setFilterCondition(const QString &filter);
-
-/*!
-    \brief \~french
-    \fn resetFilterCondition
-    */
-    void resetFilterCondition();
 
 /*!
     \brief \~french
@@ -169,13 +132,6 @@ public:
 
 /*!
     \brief \~french
-    \fn roleNames
-    \return QHash<int, QByteArray>
-    */
-    virtual QHash<int, QByteArray> roleNames() const { return this->mRoles; }
-
-/*!
-    \brief \~french
     \fn isEmpty
     \return bool
     */
@@ -195,6 +151,7 @@ public:
     */
     const QStringList fieldsList() const;
 
+    const QString lastError();
 signals:
 
 /*!

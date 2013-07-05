@@ -15,12 +15,12 @@
 class SH_User : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(int id READ id)
-    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
-    Q_PROPERTY(bool receptionist READ isReceptionist NOTIFY rolesChanged)
-    Q_PROPERTY(bool managerX READ isManagerX NOTIFY rolesChanged)
-    Q_PROPERTY(bool managerZ READ isManagerZ NOTIFY rolesChanged)
-    Q_PROPERTY(bool administrator READ isAdministrator NOTIFY rolesChanged)
+    Q_PROPERTY(int ID MEMBER m_id WRITE setID NOTIFY idChanged)
+    Q_PROPERTY(QString name MEMBER m_name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(bool receptionist MEMBER m_receptionist NOTIFY receptionistChanged)
+    Q_PROPERTY(bool managerX MEMBER m_managerX NOTIFY managerXChanged)
+    Q_PROPERTY(bool managerZ MEMBER m_managerZ NOTIFY managerZChanged)
+    Q_PROPERTY(bool administrator MEMBER m_administrator NOTIFY rolesChanged)
     Q_PROPERTY(int roles READ roles NOTIFY rolesChanged)
     Q_PROPERTY(bool valid READ isValid NOTIFY validityChanged)
 
@@ -29,7 +29,7 @@ public:
 /*!
 \brief \~french
 
- \fn User
+ \fn SH_User
  \param name
  \param id
  \param isReceptionist
@@ -39,54 +39,6 @@ public:
  \param parent
 */
     SH_User(QString name = "", int id = 0, bool isReceptionist = false, bool isManagerX = false, bool isManagerZ = false, bool isAdministrator = false, QObject *parent = 0);
-
-/*!
-    \brief \~french
-
-    \fn name
-    \return QString
-    */
-    QString name() const;
-
-/*!
-    \brief \~french
-
-    \fn id
-    \return int
-    */
-    int id() const { return this->m_id; }
-
-/*!
-    \brief \~french
-
-    \fn isReceptionist
-    \return bool
-    */
-    bool isReceptionist() const;
-
-/*!
-    \brief \~french
-
-    \fn isManagerX
-    \return bool
-    */
-    bool isManagerX() const { return this->m_managerX; }
-
-/*!
-    \brief \~french
-
-    \fn isManagerZ
-    \return bool
-    */
-    bool isManagerZ() const { return this->m_managerZ; }
-
-/*!
-    \brief \~french
-
-    \fn isAdministrator
-    \return bool
-    */
-    bool isAdministrator() const { return this->m_administrator; }
 
 /*!
     \brief \~french

@@ -1,6 +1,6 @@
 #include <QtSql/QSqlRelationalTableModel>
-#ifndef CLIENT_H
-#define CLIENT_H
+#ifndef SH_ClientsTableModel_H
+#define SH_ClientsTableModel_H
 
 #include "SH_ExtendedSqlProxyModel.h"
 
@@ -18,8 +18,8 @@ public:
 
 /*!
 * \brief \~french
-* \fn ClientsTableModel
-* \parcél parent
+* \fn SH_ClientsTableModel
+* \param parent
 */
 SH_ClientsTableModel(QObject *parent = 0);
 

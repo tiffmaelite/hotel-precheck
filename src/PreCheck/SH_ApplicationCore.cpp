@@ -9,21 +9,14 @@
 {*/
 /*!
  * \details \~french
- * \fn SH_ApplicationCore::RestrictiveApplication
+ * \fn SH_ApplicationCore::SH_ApplicationCore
 */
 SH_ApplicationCore::SH_ApplicationCore(QObject* parent) :
     QObject(parent), m_currentFSMNotNull(false), m_currentFSM(NULL)
 {
     init();
 }
-/*!
- * \details \~french
- * \fn SH_ApplicationCore::mode
-*/
-SH_ApplicationCore::AppMode SH_ApplicationCore::mode() const
-{
-    return m_mode;
-}
+
 /*!
  * \details \~french
  * \fn SH_ApplicationCore::init
@@ -37,13 +30,13 @@ void SH_ApplicationCore::init() {
 */
 void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 {
-    if(!this->m_currentUser || ! SH_User::exists(QVariant(this->m_currentUser->name())).toBool()) {
+    if(!this->m_currentUser || ! SH_User::exists(QVariant(this->m_currentUser->property("name").value<QString>())).toBool()) {
         this->m_mode = CONNEXION;
     } else {
-        if(((mode == ADMINISTRATION) && (!this->m_currentUser->isAdministrator())) ||
-                ((mode == MANAGEMENT_X) && (!this->m_currentUser->isManagerX())) ||
-                ((mode == MANAGEMENT_Z) && (!this->m_currentUser->isManagerZ())) ||
-                ((mode == RECEPTION) && (!this->m_currentUser->isReceptionist()))) {
+        if(((mode == ADMINISTRATION) && (!this->m_currentUser->property("administrator").value<bool>())) ||
+                ((mode == MANAGEMENT_X) && (!this->m_currentUser->property("managerX").value<bool>())) ||
+                ((mode == MANAGEMENT_Z) && (!this->m_currentUser->property("managerZ").value<bool>())) ||
+                ((mode == RECEPTION) && (!this->m_currentUser->property("receptionist").value<bool>()))) {
             this->m_mode = ACCUEIL;
         } else {
             this->m_mode = mode;
@@ -75,7 +68,7 @@ bool SH_ApplicationCore::setUser(QString login, QString pass)
 {
     this->m_currentUser = SH_User::logIn(login,pass);
     if(this->m_currentUser->isValid()) {
-        emit userChanged(QVariant(this->m_currentUser->name()));
+        emit userChanged(QVariant(this->m_currentUser->property("name").value<QString>()));
         return true;
     }
     return false;
@@ -204,7 +197,7 @@ bool SH_ApplicationCore::launchServiceCharging()
 {
     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
     m_currentFSMNotNull = true;
-    this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->id()), "BILL_ID");
+    this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->property("ID").toInt()), "BILL_ID");
     return this->launchStateMachine();
 }
 /*!

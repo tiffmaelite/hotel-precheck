@@ -16,22 +16,7 @@ SH_InOutStateMachine::SH_InOutStateMachine(QString tableName, QString name, QObj
     SH_GenericStateMachine(name, parent), m_tableName(tableName)
 {
 }
-/*!
- * \details \~french
- * \fn SH_InOutStateMachine::ioContent
-*/
-QVariantMap SH_InOutStateMachine::ioContent() const
-{
-    return m_ioContent;
-}
-/*!
- * \details \~french
- * \fn SH_InOutStateMachine::setIOcontent
-*/
-void SH_InOutStateMachine::setIOcontent(const QVariantMap &ioContent)
-{
-    m_ioContent = ioContent;
-}
+
 /*!
  * \details \~french
  * \fn SH_InOutStateMachine::getContentValue
@@ -40,22 +25,7 @@ QVariant SH_InOutStateMachine::getContentValue(QString field)
 {
     return m_ioContent.value(field);
 }
-/*!
- * \details \~french
- * \fn SH_InOutStateMachine::tableName
-*/
-QString SH_InOutStateMachine::tableName() const
-{
-    return m_tableName;
-}
-/*!
- * \details \~french
- * \fn SH_InOutStateMachine::setTableName
-*/
-void SH_InOutStateMachine::setTableName(const QString &tableName)
-{
-    m_tableName = tableName;
-}
+
 /*!
  * \details \~french
  * \fn SH_InOutStateMachine::setContentValue
@@ -187,22 +157,7 @@ void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *astate, QString
         SH_InOutStateMachine::addState(abstate);
     }
 }
-/*!
- * \details \~french
- * \fn SH_InOutStateMachine::ioStatesHistory
-*/
-QMap<QString, QHistoryState *> SH_InOutStateMachine::ioStatesHistory() const
-{
-    return m_ioStatesHistory;
-}
-/*!
- * \details \~french
- * \fn SH_InOutStateMachine::setIOStatesHistory
-*/
-void SH_InOutStateMachine::setIOStatesHistory(const QMap<QString, QHistoryState *> &ioStatesHistory)
-{
-    m_ioStatesHistory = ioStatesHistory;
-}
+
 /*!
  * \details \~french
  * \fn SH_InOutStateMachine::setIOStateHistory

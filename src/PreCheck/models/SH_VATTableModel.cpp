@@ -12,8 +12,8 @@
 SH_VATTableModel::SH_VATTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTable("TAXES");
-    SH_ExtendedProxyModel::model->setFilterCondition("((STARTDATE IS NULL OR STARTDATE <= CURRENT_DATE) AND (ENDDATE IS NULL OR ENDDATE >= CURRENT_DATE))");
+    SH_ExtendedProxyModel::model->setProperty("table",QVariant("TAXES"));
+    SH_ExtendedProxyModel::model->setProperty("filterCondition", "((STARTDATE IS NULL OR STARTDATE <= CURRENT_DATE) AND (ENDDATE IS NULL OR ENDDATE >= CURRENT_DATE))");
     SH_ExtendedProxyModel::model->setOrderBy("PERCENTAGE ASC");
 }
 

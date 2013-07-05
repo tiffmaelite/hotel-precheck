@@ -10,7 +10,10 @@
 */
 class SH_DecimalQuestionState : public SH_QuestionState
 {
-	Q_OBJECT
+    Q_OBJECT
+    Q_PROPERTY(qreal minimum MEMBER m_min NOTIFY minimumChanged)
+    Q_PROPERTY(qreal maximum MEMBER m_max NOTIFY maximumChanged)
+
 public:
 /*!
  * \brief \~french
@@ -21,55 +24,29 @@ public:
  * \param max
  * \param parent
 */
-	SH_DecimalQuestionState(QString question, QString name, qreal min=0, qreal max=-1, QState *parent = 0);
-	
+    SH_DecimalQuestionState(QString question, QString name, qreal min=0, qreal max=-1, QState *parent = 0);
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn isAnswerValid
-	* \param givenAnswer
-	*/
-	virtual bool isAnswerValid(const QVariant &givenAnswer);
-	
-/*!
-	* \brief \~french
- * \fn min
-	* \return qreal
-	*/
-	qreal min() const;
-	
-/*!
-	* \brief \~french
- * \fn setMin
-	* \param min
-	*/
-	void setMin(const qreal &min);
-	
-/*!
-	* \brief \~french
- * \fn max
-	* \return qreal
-	*/
-	qreal max() const;
-	
-/*!
-	* \brief \~french
- * \fn setMax
-	* \param max
-	*/
-	void setMax(const qreal &max);
+    * \param givenAnswer
+    */
+    virtual bool isAnswerValid(const QVariant &givenAnswer);
+
+
 signals:
 public slots:
 private:
-	
+
 /*!
-	* \brief \~french m_min
-	*/
-	qreal m_min;
-	
+    * \brief \~french m_min
+    */
+    qreal m_min;
+
 /*!
-	* \brief \~french m_max
-	*/
-	qreal m_max;
+    * \brief \~french m_max
+    */
+    qreal m_max;
 };
 /*}*/
 #endif /* DECIMALQUESTIONSTATE_H*/

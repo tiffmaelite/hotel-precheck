@@ -13,21 +13,25 @@
 
 
 # Increase compilation speed (needs ccache installed)
-QMAKE_CXX = ccache g++
+#QMAKE_CXX = ccache g++
 
 # Determines whether the output of the build process will be an application, a library, or a plugin
 TEMPLATE = app
 
-# General project configuration options
-CONFIG *= qt testlib console thread exceptions c++11
+# General project configuration options (c.f. http://doc-snapshot.qt-project.org/qt5-stable/qmake/qmake-variable-reference.html#config)
+CONFIG *= c++11 qt thread exceptions console testcase # static
 
-# Qt-specific configuration options : required modules
-QT *= core gui quick qml sql widgets printsupport concurrent
+# Qt-specific configuration options : required modules (c.f. http://doc-snapshot.qt-project.org/qt5-stable/qmake/qmake-variable-reference.html#qt)
+QT *= core gui quick qml sql widgets printsupport concurrent qmltest testlib #svg uitools x11extras
+
+# Plugins that should be statically linked for deployment
+QTPLUGIN *= core gui quick qml sql widgets printsupport concurrent qmltest testlib #svg uitools x11extras
 
 # QStringBuilder uses expression templates and reimplements the '%' operator so that when you use '%' for string concatenation instead of '+', multiple substring concatenations will be postponed until the final result is about to be assigned to a QString. Let '+' automatically be performed as the QStringBuilder '%' everywhere.
 DEFINES *= QT_USE_QSTRINGBUILDER
+
 # Allows macro "DEBUG" when in debug mode (allowing conditional code)
-Debug:DEFINES*=DEBUG
+Debug:DEFINES+=DEBUG
 
 # Installation
 # Installation path
@@ -53,39 +57,4 @@ include(../../libs/QtSignalGuard.pri)
 
 
 OTHER_FILES *= \
-	../Database/PreCheckDB.fbd \
-	../Database/dbInitScript.sql \
-	../Database/4_dbCrea_procedures.sql \
-	../Database/3_dbCrea_View_ServicesInfos.sql \
-	../Database/3_dbCrea_View_RoomsInfos.sql \
-	../Database/3_dbCrea_View_BillingsInfos.sql \
-	../Database/2_dbCrea_constraints.sql \
-	../Database/1_dbCrea_Users.sql \
-	../Database/1_dbCrea_Trainees.sql \
-	../Database/1_dbCrea_Taxes.sql \
-	../Database/1_dbCrea_ServicesTypes.sql \
-	../Database/1_dbCrea_ServicesFields.sql \
-	../Database/1_dbCrea_ServicesFamilies.sql \
-	../Database/1_dbCrea_ServicesDetails.sql \
-	../Database/1_dbCrea_Services.sql \
-	../Database/1_dbCrea_RoomsTypes.sql \
-	../Database/1_dbCrea_Rooms.sql \
-	../Database/1_dbCrea_Reports.sql \
-	../Database/1_dbCrea_Nationalities.sql \
-	../Database/1_dbCrea_Groups.sql \
-	../Database/1_dbCrea_Clients.sql \
-	../Database/1_dbCrea_ChargedServices.sql \
-	../Database/1_dbCrea_Bookings.sql \
-	../Database/1_dbCrea_BillsTypes.sql \
-	../Database/1_dbCrea_Bills.sql \
-	../Database/1_dbCrea_BillingsTypes.sql \
-	../Database/1_dbCrea_BillingsGroups.sql \
-	../Database/1_dbCrea_BillingsClients.sql \
-	../Database/1_dbCrea_Billings.sql \
-	../Database/1_dbCrea_BalanceLog.sql \
-	../Database/1_dbCrea_Addresses.sql \
-	../Database/0_dbCrea_general.sql \
-	../Database/install_script.sh \
-	../Database/PreCheckCreaError.log \
-	../Database/PreCheckCrea.log
-
+	../Database/*

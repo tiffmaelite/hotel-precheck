@@ -1,5 +1,5 @@
-#ifndef RENT_H
-#define RENT_H
+#ifndef SH_BillingsTableModel_H
+#define SH_BillingsTableModel_H
 #include <QtSql/QSqlRelationalTableModel>
 #include "SH_ExtendedSqlProxyModel.h"
 
@@ -11,28 +11,28 @@
 */
 class SH_BillingsTableModel : public SH_ExtendedProxyModel
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 
 
-	
+
 /*!
  * \brief \~french
- * \fn BillingsTableModel
+ * \fn SH_BillingsTableModel
  * \param parent
 */
-	SH_BillingsTableModel(QObject *parent = 0);
+    SH_BillingsTableModel(QObject *parent = 0);
 
 protected:
 
 
-	
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn fillModel
-	*/
-	void fillModel();
+    */
+    void fillModel();
 
 };
 /*}*/
-#endif /* RENT_H*/
+#endif /* SH_BillingsTableModel*/

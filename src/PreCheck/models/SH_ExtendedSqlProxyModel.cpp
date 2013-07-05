@@ -7,7 +7,7 @@
 /*!
  \details \~french
 
- \fn SH_ExtendedProxyModel::CheckableSortFilterProxyModel
+ \fn SH_ExtendedProxyModel::SH_ExtendedProxyModel
 */
 SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent)

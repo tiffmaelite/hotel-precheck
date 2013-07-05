@@ -1,5 +1,5 @@
-#ifndef ROOM_H
-#define ROOM_H
+#ifndef SH_RoomsTableModel_H
+#define SH_RoomsTableModel_H
 
 #include "SH_ExtendedSqlProxyModel.h"
 #include "SH_SqlDataField.h"
@@ -16,28 +16,28 @@
 */
 class SH_RoomsTableModel : public SH_ExtendedProxyModel
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 
-	
+
 /*!
 \brief \~french
 
- \fn RoomsTableModel
+ \fn SH_RoomsTableModel
  \param parent
 */
-	SH_RoomsTableModel(QObject *parent = 0);
+    SH_RoomsTableModel(QObject *parent = 0);
 
 protected:
-	
-/*!
-	\brief \~french
 
-	\fn fillModel
-	*/
-	virtual void fillModel();
+/*!
+    \brief \~french
+
+    \fn fillModel
+    */
+    virtual void fillModel();
 private:
 
 };
 /*}*/
-#endif /* ROOM_H*/
+#endif /* SH_RoomsTableModel_H*/

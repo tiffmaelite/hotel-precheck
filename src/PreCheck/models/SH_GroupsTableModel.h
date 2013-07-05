@@ -1,7 +1,7 @@
 #include <QtSql/QSqlRelationalTableModel>
 
-#ifndef GROUP_H
-#define GROUP_H
+#ifndef SH_GroupsTableModel_H
+#define SH_GroupsTableModel_H
 
 #include "SH_ExtendedSqlProxyModel.h"
 
@@ -15,29 +15,29 @@
 */
 class SH_GroupsTableModel : public SH_ExtendedProxyModel
 {
-	Q_OBJECT
-	public:
+    Q_OBJECT
+    public:
 
 
 /*!
 \brief \~french
 
- \fn GroupsTableModel
+ \fn SH_GroupsTableModel
  \param parent
 */
-	SH_GroupsTableModel(QObject *parent = 0);
+    SH_GroupsTableModel(QObject *parent = 0);
 
 
-	protected:
+    protected:
 
 
-	
+
 /*!
-	\brief \~french
+    \brief \~french
 
-	\fn fillModel
-	*/
-	void fillModel();
+    \fn fillModel
+    */
+    void fillModel();
 };
 /*}*/
 #endif /* GROUP_H*/

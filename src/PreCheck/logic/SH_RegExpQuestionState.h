@@ -8,7 +8,8 @@
  */
 class SH_RegExpQuestionState : public SH_StringQuestionState
 {
-	Q_OBJECT
+    Q_OBJECT
+    Q_PROPERTY(QRegularExpression regexp MEMBER m_regexp NOTIFY regexpChanged)
 public:
 /*!
  * \brief \~french
@@ -18,36 +19,24 @@ public:
  * \param regex
  * \param parent
 */
-	SH_RegExpQuestionState(QString question, QString name, QRegularExpression regex = QRegularExpression(), QState *parent = 0);
-	
+    SH_RegExpQuestionState(QString question, QString name, QRegularExpression regex = QRegularExpression(), QState *parent = 0);
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn isAnswerValid
-	* \param givenAnswer
-	*/
-	virtual bool isAnswerValid(const QVariant &givenAnswer);
-	
-/*!
-	* \brief \~french
-	* \fn regexp
-	* \return QRegularExpression
-	*/
-	QRegularExpression regexp() const;
-	
-/*!
-	* \brief \~french
-	* \fn setRegexp
-	* \param regexp
-	*/
-	void setRegexp(const QRegularExpression &regexp);
+    * \param givenAnswer
+    */
+    virtual bool isAnswerValid(const QVariant &givenAnswer);
+
+
 signals:
 public slots:
 private:
-	
+
 /*!
-	* \brief \~french m_regexp
-	*/
-	QRegularExpression m_regexp;
+    * \brief \~french m_regexp
+    */
+    QRegularExpression m_regexp;
 };
 /*}*/
 #endif /* REGEXQUESTIONSTATE_H*/

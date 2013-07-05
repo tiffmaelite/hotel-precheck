@@ -9,7 +9,9 @@
 */
 class SH_StringQuestionState : public SH_QuestionState
 {
-	Q_OBJECT
+    Q_OBJECT
+    Q_PROPERTY(int minimumLength MEMBER m_minLen NOTIFY minimumLengthChanged)
+    Q_PROPERTY(int maximumLength MEMBER m_maxLen NOTIFY maximumLengthChanged)
 public:
 /*!
  * \brief \~french
@@ -20,37 +22,14 @@ public:
  * \param maxLength
  * \param parent
 */
-	SH_StringQuestionState(QString question, QString name, int minLength = 0, int maxLength = -1, QState *parent = 0);
+    SH_StringQuestionState(QString question, QString name, int minLength = 0, int maxLength = -1, QState *parent = 0);
 /*!
  * \brief \~french
  * \fn isAnswerValid
  * \param givenAnswer
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
-/*!
- * \brief \~french
- * \fn maxLen
- * \return int
-*/
-int maxLen() const;
-/*!
- * \brief \~french
- * \fn setMaxLen
- * \param maxLen
-*/
-void setMaxLen(int maxLen);
-/*!
- * \brief \~french
- * \fn minLen
- * \return int
-*/
-int minLen() const;
-/*!
- * \brief \~french
- * \fn setMinLen
- * \param minLen
-*/
-void setMinLen(int minLen);
+
 signals:
 public slots:
 private:

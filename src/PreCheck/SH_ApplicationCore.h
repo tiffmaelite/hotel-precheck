@@ -1,5 +1,5 @@
-#ifndef RESTRICTIVEAPPLICATION_H
-#define RESTRICTIVEAPPLICATION_H
+#ifndef SH_ApplicationCore_H
+#define SH_ApplicationCore_H
 #include "models/SH_User.h"
 #include <QApplication>
 #include <QSettings>
@@ -9,7 +9,7 @@
 /*!
  * \brief \~french La classe SH_ApplicationCore est la classe principale du coeur de l'application; c'est avec elle exclusivement que communique l'interface graphique
  * \class SH_ApplicationCore
- * \headerfile RestrictiveApplication.h "models/RestrictiveApplication.h"
+ * \headerfile SH_ApplicationCore.h "models/SH_ApplicationCore.h"
 */
 class SH_ApplicationCore : public QObject
 {
@@ -25,7 +25,7 @@ class SH_ApplicationCore : public QObject
     * \brief \~french Le mode actuel de l'application
     * \property currentMode
     */
-    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode READ mode WRITE setMode NOTIFY modeChanged)
+    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode MEMBER m_mode WRITE setMode NOTIFY modeChanged)
     Q_ENUMS(AppMode)
 public:
 
@@ -72,19 +72,6 @@ public:
     */
     SH_ApplicationCore(QObject* parent=0);
 
-    /*!
-    * \brief \~french Retourne le mode actuel de l'application
-    * \fn mode
-    * \return AppMode
-    */
-    AppMode mode() const;
-
-    /*!
-    * \brief \~french retourne l'utilisateur actuellement connecté
-    * \fn user
-    * \return User
-    */
-    SH_User* user() const;
 
     /*!
     * \brief \~french Initialise l'application avec un utilisateur invalide, et le mode \a CONNEXION
@@ -109,7 +96,20 @@ public:
 
 
     Q_INVOKABLE qreal totalBalance();
+
     Q_INVOKABLE qreal todayBalance();
+
+    /*!
+    * \brief \~french Modifie l'utilisateur actuel
+    * \fn setUser
+    * \param login Le nom d'utilisateur du nouvel utilisateur
+    * \param pass Le mot de passe du nouvel utilisateur
+    * \return bool Retourne \a true si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; \a false sinon
+    */
+    Q_INVOKABLE bool setUser(QString login, QString pass);
+
+    Q_INVOKABLE bool saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin);
+    SH_User *user() const;
 public slots:
 
     /*!
@@ -126,17 +126,6 @@ public slots:
     * \return bool
     */
     bool userExists(QString login);
-
-    /*!
-    * \brief \~french Modifie l'utilisateur actuel
-    * \fn setUser
-    * \param login Le nom d'utilisateur du nouvel utilisateur
-    * \param pass Le mot de passe du nouvel utilisateur
-    * \return bool Retourne \a true si un utilisateur correspondant aux pseudo et mot de passe fournis a été trouvé et que l'utilisateur actuel a pu être modifié avec cet utilisateur; \a false sinon
-    */
-    bool setUser(QString login, QString pass);
-
-       bool saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin);
 
     /*!
     * \brief \~french "Déconnecte" l'utilisateur actuel, et le remplace par un utilisateur invalide
@@ -301,4 +290,4 @@ private:
 
 };
 /*}*/
-#endif /* RESTRICTIVEAPPLICATION_H*/
+#endif /* SH_ApplicationCore_H*/

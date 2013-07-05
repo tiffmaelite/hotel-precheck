@@ -16,14 +16,10 @@
 
 */
 SH_User::SH_User(QString name, int id, bool isReceptionist, bool isManagerX, bool isManagerZ, bool isAdministrator, QObject *parent)
-    : QObject(parent), m_id(0)
+    : QObject(parent), m_id(0), m_receptionist(isReceptionist), m_managerX(isManagerX), m_managerZ(isManagerZ), m_administrator(isAdministrator)
 {
     this->setName(name);
     this->setID(id);
-    this->m_receptionist = isReceptionist;
-    this->m_managerX = isManagerX;
-    this->m_managerZ = isManagerZ;
-    this->m_administrator = isAdministrator;
 }
 
 /*!
@@ -45,28 +41,6 @@ bool SH_User::isValid() const {
 void SH_User::setName(QString name)
 {
     m_name = name;
-}
-
-
-/*!
- \details \~french
-
- \fn SH_User::name
- */
-QString SH_User::name() const
-{
-    return m_name;
-}
-
-/*!
- \details \~french
-
- \fn SH_User::isReceptionist
-
-*/
-bool SH_User::isReceptionist() const
-{
-    return this->m_receptionist;
 }
 
 /*!

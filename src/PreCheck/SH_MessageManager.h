@@ -1,5 +1,5 @@
-#ifndef ERRORMESSAGE_H
-#define ERRORMESSAGE_H
+#ifndef SH_MessageManager_H
+#define SH_MessageManager_H
 
 #include <QObject>
 
@@ -62,4 +62,4 @@ public:
 };
 
 /*}*/
-#endif /* ERRORMESSAGE_H*/
+#endif /* SH_MessageManager_H*/

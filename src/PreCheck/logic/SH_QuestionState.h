@@ -11,6 +11,7 @@
 class SH_QuestionState : public SH_InOutState
 {
     Q_OBJECT
+    Q_PROPERTY(QVariant givenAnswer WRITE setGivenAnswer MEMBER m_givenAnswer NOTIFY givenAnswerChanged)
 public:
     /*!
  * \brief \~french
@@ -28,12 +29,6 @@ public:
     */
     bool checkValidity();
 
-    /*!
-    * \brief \~french
-    * \fn givenAnswer
-    * \return QVariant
-    */
-    virtual QVariant givenAnswer() const;
 
     /*!
     * \brief \~french

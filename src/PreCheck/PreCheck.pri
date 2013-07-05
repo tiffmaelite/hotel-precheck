@@ -15,7 +15,10 @@ HEADERS *= \
 	SH_DatabaseManager.h \
 	SH_ApplicationCore.h \
 	views/SH_ExtendedQQmlAction.h \
+	models/SH_VATTableModel.h \
+	models/SH_UsersTableModel.h \
 	models/SH_User.h \
+	models/SH_TraineesTableModel.h \
 	models/SH_Trainee.h \
 	models/SH_SqlDataModel.h \
 	models/SH_SqlDataField.h \
@@ -28,8 +31,8 @@ HEADERS *= \
 	models/SH_BookingsTableModel.h \
 	models/SH_BillsTableModel.h \
 	models/SH_BillingsTableModel.h \
-	logic/SH_StringQuestionState.h \
 	logic/SH_ValidationState.h \
+	logic/SH_StringQuestionState.h \
 	logic/SH_StatementState.h \
 	logic/SH_ServiceCharging.h \
 	logic/SH_RegExpQuestionState.h \
@@ -38,8 +41,9 @@ HEADERS *= \
 	logic/SH_NumericQuestionState.h \
 	logic/SH_NamedObject.h \
 	logic/SH_LoopingIOStateMachine.h \
-	logic/SH_IOState.h \
 	logic/SH_IOStateMachine.h \
+	logic/SH_IOState.h \
+	logic/SH_GenericDebugableStateMachine.h \
 	logic/SH_GenericDebugableState.h \
 	logic/SH_FileSelectionState.h \
 	logic/SH_DecimalQuestionState.h \
@@ -49,11 +53,7 @@ HEADERS *= \
 	logic/SH_ClientCreation.h \
 	logic/SH_BillingCreation.h \
 	logic/SH_AddressCreation.h \
-	logic/SH_AdaptDatabaseState.h \
-	logic/SH_GenericDebugableStateMachine.h \
-	models/SH_VATTableModel.h \
-	models/SH_UsersTableModel.h \
-	models/SH_TraineesTableModel.h
+	logic/SH_AdaptDatabaseState.h
 
 SOURCES *= \
 	main.cpp \
@@ -61,59 +61,63 @@ SOURCES *= \
 	SH_DatabaseManager.cpp \
 	SH_ApplicationCore.cpp \
 	views/SH_ExtendedQQmlAction.cpp \
-	models/SH_BillingsTableModel.cpp \
-	models/SH_BillsTableModel.cpp \
-	models/SH_BookingsTableModel.cpp \
-	models/SH_ClientsTableModel.cpp \
-	models/SH_Company.cpp \
-	models/SH_RoomsTableModel.cpp \
-	models/SH_GroupsTableModel.cpp \
-	models/SH_ServicesTableModel.cpp \
+	models/SH_VATTableModel.cpp \
+	models/SH_UsersTableModel.cpp \
+	models/SH_User.cpp \
+	models/SH_TraineesTableModel.cpp \
+	models/SH_Trainee.cpp \
 	models/SH_SqlDataModel.cpp \
 	models/SH_SqlDataField.cpp \
-	models/SH_Trainee.cpp \
-	models/SH_User.cpp \
-	logic/SH_AdaptDatabaseState.cpp \
-	logic/SH_AddressCreation.cpp \
-	logic/SH_BillingCreation.cpp \
-	logic/SH_ConfirmationState.cpp \
-	logic/SH_ClientCreation.cpp \
-	logic/SH_DateQuestionState.cpp \
-	logic/SH_DatabaseContentQuestionState.cpp \
-	logic/SH_IOState.cpp \
-	logic/SH_DecimalQuestionState.cpp \
-	logic/SH_FileSelectionState.cpp \
-	logic/SH_GenericDebugableState.cpp \
-	logic/SH_LoopingIOStateMachine.cpp \
-	logic/SH_PrintingState.cpp \
-	logic/SH_RegExpQuestionState.cpp \
-	logic/SH_IOStateMachine.cpp \
-	logic/SH_NumericQuestionState.cpp \
-	logic/SH_NamedObject.cpp \
-	logic/SH_ServiceCharging.cpp \
-	logic/SH_QuestionState.cpp \
+	models/SH_ServicesTableModel.cpp \
+	models/SH_RoomsTableModel.cpp \
+	models/SH_GroupsTableModel.cpp \
+	models/SH_ExtendedSqlProxyModel.cpp \
+	models/SH_Company.cpp \
+	models/SH_ClientsTableModel.cpp \
+	models/SH_BookingsTableModel.cpp \
+	models/SH_BillsTableModel.cpp \
+	models/SH_BillingsTableModel.cpp \
+	logic/SH_ValidationState.cpp \
 	logic/SH_StringQuestionState.cpp \
 	logic/SH_StatementState.cpp \
-	logic/SH_ValidationState.cpp \
+	logic/SH_ServiceCharging.cpp \
+	logic/SH_RegExpQuestionState.cpp \
+	logic/SH_QuestionState.cpp \
+	logic/SH_PrintingState.cpp \
+	logic/SH_NumericQuestionState.cpp \
+	logic/SH_NamedObject.cpp \
+	logic/SH_LoopingIOStateMachine.cpp \
+	logic/SH_IOStateMachine.cpp \
+	logic/SH_IOState.cpp \
 	logic/SH_GenericDebugableStateMachine.cpp \
-	models/SH_VATTableModel.cpp \
-	models/SH_ExtendedSqlProxyModel.cpp \
-	models/SH_UsersTableModel.cpp \
-	models/SH_TraineesTableModel.cpp
+	logic/SH_GenericDebugableState.cpp \
+	logic/SH_FileSelectionState.cpp \
+	logic/SH_DecimalQuestionState.cpp \
+	logic/SH_DateQuestionState.cpp \
+	logic/SH_DatabaseContentQuestionState.cpp \
+	logic/SH_ConfirmationState.cpp \
+	logic/SH_ClientCreation.cpp \
+	logic/SH_BillingCreation.cpp \
+	logic/SH_AddressCreation.cpp \
+	logic/SH_AdaptDatabaseState.cpp
 
 # QML-files as a ressource
 RESOURCES *= \
-	views/qmlResources.qrc
+	views/qmlResources.qrc \
+	views/iconsResources.qrc
 
 # Non C++ files, including QML files
 OTHER_FILES *= \
 	debugLog.txt \
-	views/qml/SH_BillingsDelegate.qml \
-	views/qml/SH_TriStateCheckImage.qml \
-	views/qml/SH_SqlTableView.qml \
+	../../doc/DoxygenConfigFile \
+	../../doc/DoxyAssistConfigFile.xml \
 	views/qml/SH_WelcomePage.qml \
+	views/qml/SH_VATDelegate.qml \
+	views/qml/SH_TriStateCheckImage.qml \
 	views/qml/SH_TabZone.qml \
+	views/qml/SH_SqlTableView.qml \
 	views/qml/SH_SqlDataView.qml \
+	views/qml/SH_SqlContentGrid.qml \
 	views/qml/SH_ServicesDelegate.qml \
 	views/qml/SH_RoomsSectionsDelegate.qml \
 	views/qml/SH_RoomsDelegate.qml \
@@ -126,8 +130,5 @@ OTHER_FILES *= \
 	views/qml/SH_CommonPage.qml \
 	views/qml/SH_CalendarDialog.qml \
 	views/qml/SH_BookingsDelegate.qml \
-	views/qml/SH_app.qml \
-	../../../gh-pages/DoxygenConfigFile \
-	../../../gh-pages/DoxyAssistConfigFile.xml \
-	views/qml/SH_VATDelegate.qml \
-	views/qml/SH_SqlContentGrid.qml
+	views/qml/SH_BillingsDelegate.qml \
+	views/qml/SH_app.qml

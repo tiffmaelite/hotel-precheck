@@ -12,11 +12,11 @@
 /*!
  * \brief \~french dbDriverStr
  */
-static const QString dbDriverStr = "QIBASE";
+static const QString dbDriverStr = "QIBASE"; //QPSQL
 /*!
  * \brief \~french dbFileNameStr
  */
-static const QString dbFileNameStr = "PreCheckDB.fdb";
+static const QString dbFileNameStr = "PreCheckDB.fdb"; //"PreCheck.pgdb"
 /*!
  * \brief \~french dbAliasNameStr
  */
@@ -24,11 +24,11 @@ static const QString dbAliasNameStr = "precheck-hotel";
 /*!
  * \brief \~french dbUsernameStr
  */
-static const QString dbUsernameStr = "SYSDBA";
+static const QString dbUsernameStr = "precheck";
 /*!
  * \brief \~french dbPasswordStr
  */
-static const QString dbPasswordStr = "masterkey";
+static const QString dbPasswordStr = "hotel";
 
 /*!
  * \brief \~french dbFolderPathStr
@@ -55,7 +55,7 @@ static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened."
 
 /*!
  * \brief \~french
- * \class SH_SH_DatabaseManager
+ * \class SH_DatabaseManager
  * \headerfile database_manager.h "models/database_manager.h"
 */
 class SH_DatabaseManager: public QObject

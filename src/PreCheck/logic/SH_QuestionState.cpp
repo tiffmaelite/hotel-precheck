@@ -41,14 +41,7 @@ void SH_QuestionState::setInput(const QVariant &input)
         this->setGivenAnswer(input);
     }
 }
-/*!
- * \details \~french
- * \fn SH_QuestionState::givenAnswer
-*/
-QVariant SH_QuestionState::givenAnswer() const
-{
-    return this->m_givenAnswer;
-}
+
 /*!
  * \details \~french
  * \fn SH_QuestionState::setGivenAnswer

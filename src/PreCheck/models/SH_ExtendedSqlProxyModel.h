@@ -1,5 +1,5 @@
-#ifndef CHECKABLESORTFILTERPROXYMODEL_H
-#define CHECKABLESORTFILTERPROXYMODEL_H
+#ifndef SH_ExtendedProxyModel_H
+#define SH_ExtendedProxyModel_H
 
 #include <QSortFilterProxyModel>
 #include "SH_SqlDataModel.h"
@@ -16,29 +16,21 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
 {
 
     Q_OBJECT
-    Q_PROPERTY(QString table READ tableName)
-    Q_PROPERTY(QString fieldsList READ fields)
-    Q_PROPERTY(QString lastError READ lastError)
-    Q_PROPERTY(int sortKeyColumn READ currentSortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged)
-    Q_PROPERTY(bool empty READ isEmpty)
+    Q_PROPERTY(QString table READ tableName STORED false)
+    Q_PROPERTY(QString fieldsList READ fields STORED false)
+    Q_PROPERTY(QString fieldsCount READ fieldsCount STORED false)
+    Q_PROPERTY(bool empty READ isEmpty STORED false)
+    Q_PROPERTY(QString lastError READ lastError STORED false)
+    Q_PROPERTY(int sortKeyColumn MEMBER sortIndex WRITE setSortKeyColumn NOTIFY sortChanged)
 
 public:
 /*!
 \brief \~french
 
- \fn CheckableSortFilterProxyModel
+ \fn SH_ExtendedProxyModel
  \param parent
 */
     SH_ExtendedProxyModel(QObject *parent = 0);
-
-
-/*!
-    \brief \~french
-
-    \fn currentSortKeyColumn
-    \return const int
-    */
-    int currentSortKeyColumn() const {return this->sortIndex;}
 
 /*!
     \brief \~french
@@ -46,7 +38,7 @@ public:
     \fn tableName
     \return const QString
     */
-    const QString tableName() const { return this->model->tableName(); }
+    const QString tableName() const { return (this->model->property("tableName")).value<QString>(); }
 
 /*!
     \brief \~french
@@ -96,7 +88,7 @@ public:
     \fn fieldsCount
     \return int
     */
-    Q_INVOKABLE int fieldsCount() const { return this->model->fieldsCount(); }
+    int fieldsCount() const { return this->model->fieldsCount(); }
 
 /*!
     \brief \~french

@@ -36,7 +36,7 @@ QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
         int column = this->fieldFromRole(role);
         int nbCols = this->mRoles.count();
         if(column >= 0 && column < nbCols) {
-            SH_MessageManager::debugMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n").arg(index.row()).arg(index.column()).arg(column).arg(QString(this->mDataFields.at(column)->role())).arg(this->mRecords.at(row).value(column).toString()));
+            //SH_MessageManager::debugMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n").arg(index.row()).arg(index.column()).arg(column).arg(QString(this->mDataFields.at(column)->role())).arg(this->mRecords.at(row).value(column).toString()));
             return this->mRecords.at(row).value(column);
         } else{
             SH_MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)").arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));
@@ -52,13 +52,13 @@ QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
 */
 QVariantMap SH_SqlDataModel::datas() const
 {
-    SH_MessageManager::debugMessage("datas");
+    //SH_MessageManager::debugMessage("datas");
     QVariantMap result;
     if (this->mRecords.count() > 0)
     {
         for(int column = 0; column < this->mRoles.count(); column++) {
             for(int row = 0; row < this->mRecords.count();row++) {
-                SH_MessageManager::debugMessage( "data inserted");
+                //SH_MessageManager::debugMessage( "data inserted");
                 result.insertMulti(this->mRoles.value(column),this->mRecords.at(row).value(column));
             }
         }
@@ -159,19 +159,19 @@ void SH_SqlDataModel::resetFilterCondition()
 bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QStringList fieldsList)
 {
     if(!mTable.isEmpty() || !tableName.isEmpty()) {
-        SH_MessageManager::debugMessage("Bienvenue dans fetch");
-        SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +mFilter + " " + mSort);
+        //SH_MessageManager::debugMessage("Bienvenue dans fetch");
+        //SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +mFilter + " " + mSort);
         this->setFields(fieldsList);
         this->setTable(tableName);
         this->setFilterCondition(filter);
         this->setOrderBy(sort);
-        SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
+        //SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
         try
         {
             beginResetModel();
             mRecords.clear();
             endResetModel();
-            SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +mFilter + " " + mSort);
+            //SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +mFilter + " " + mSort);
             mSqlQuery = SH_DatabaseManager::getInstance()->execSelectQuery(mTable, this->fieldsList(), mFilter, mSort);
             bool next = mSqlQuery.next();
             //SH_MessageManager::infoMessage(mSqlQuery.executedQuery());
@@ -182,18 +182,18 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
             {
                 QSqlRecord record = mSqlQuery.record();
 
-                SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
-                SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
+                //SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
+                //SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
                 if (mSqlQuery.isValid() && (!record.isEmpty()) && (record.count() > 0))
                 {
                     beginInsertRows(QModelIndex(), 0, 0);
                     mRecords.append(record);
 //#ifdef DEBUG
-                    int nbFields = record.count();
+                    /*int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {
                         SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
-                    }
+                    }*/
 //#endif
                     if (mDataFields.empty())
                     {

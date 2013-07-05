@@ -280,7 +280,7 @@ Rectangle {
                     }
                     SH_ContentView {
                         id: choiceContent
-                        maxColumns: 7 //4
+                        maxColumns: 4
                         model: 0
                         Layout.fillHeight: true
                         Layout.fillWidth: true

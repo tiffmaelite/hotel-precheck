@@ -1,6 +1,7 @@
 #include <QtSql/QSqlRelationalTableModel>
 #ifndef COMPANY_H
 #define COMPANY_H
+#include "SH_User.h"
 /*namespace SimplHotel
 {*/
 /*!
@@ -11,7 +12,12 @@
 */
 class SH_Company : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
+public:
+    explicit SH_Company(QObject* parent = 0);
+    bool setContact(SH_User* contactUser);
+private:
+    QStringList bannedUsers;
 };
 /*}*/
 #endif /* COMPANY_H*/

@@ -35,30 +35,29 @@ ApplicationWindow {
     }
     StackView {
         id: stack
-        signal cycle(Item c)
+        signal cycle(Item previous, Item next)
         anchors.fill: parent
         Component.onCompleted: {
-            stack.push({item: commonPage, immediate:true});
-            stack.push({item: welcomePage, immediate: true});
-            stack.push({item: connexionPage, immediate: true});
+            stack.clear();
+            stack.push([commonPage, welcomePage, connexionPage]);
+            /*commonPage.focus = false;
+            commonPage.visible = false;
+            welcomePage.focus = false;
+            welcomePage.visible = false;*/
         }
         onCycle: {
+            previous.focus = false;
+            previous.visible = false;
             window.reload();
-            c.reload();
-            stack.push({item: stack.get(c.Stack.index)});
+            next.focus = true;
+            next.visible = true;
+            next.forceActiveFocus();
+            stack.push({item: stack.get(next.Stack.index)});
+            next.reload();
         }
         delegate: StackViewDelegate {
-            /*!
-              \fn
-              \param
-              \return
-
-              \brief
-              \details
-              */
             function getTransition(properties)
             {
-                /*return (properties.enterItem.Stack.index % 2) ? fading : bouncing*/
                 return fading;
             }
 
@@ -68,7 +67,21 @@ ApplicationWindow {
                     property: "opacity"
                     from: 100
                     to: 0
-                    duration: 50
+                    duration: 100
+                }
+                PropertyAnimation {
+                    target: exitItem
+                    property: "visible"
+                    from: true
+                    to: false
+                    duration: 0
+                }
+                PropertyAnimation {
+                    target: exitItem
+                    property: "focus"
+                    from: true
+                    to: false
+                    duration: 0
                 }
                 PropertyAnimation {
                     target: enterItem
@@ -77,35 +90,54 @@ ApplicationWindow {
                     to: 100
                     duration: 600
                 }
+                PropertyAnimation {
+                    target: enterItem
+                    property: "visible"
+                    from: false
+                    to: true
+                    duration: 0
+                }
+                PropertyAnimation {
+                    target: enterItem
+                    property: "focus"
+                    from: false
+                    to: true
+                    duration: 0
+                }
             }
-        }
-    }
-    SH_WelcomePage {
-        id:welcomePage
-        objectName: "Welcome"
-        onQuit: {
-            Qt.quit();
-        }
-        onClicked : {
-            stack.cycle(commonPage);
-        }
-        onLoggedOut: {
-            stack.cycle(connexionPage);
         }
     }
     SH_ConnexionPage {
         id: connexionPage
         objectName: "Connexion"
+        focus: true
+        visible: true
         onLoggedIn: {
-            stack.cycle(welcomePage);
+            stack.cycle(connexionPage,welcomePage);
         }
     }
-
+    SH_WelcomePage {
+        id:welcomePage
+        objectName: "Welcome"
+        focus: false
+        visible: false
+        onQuit: {
+            Qt.quit();
+        }
+        onClicked : {
+            stack.cycle(welcomePage,commonPage);
+        }
+        onLoggedOut: {
+            stack.cycle(welcomePage,connexionPage);
+        }
+    }
     SH_CommonPage {
         id: commonPage
         objectName: "Common"
+        focus: false
+        visible: false
         onQuit: {
-            stack.cycle(welcomePage);
+            stack.cycle(commonPage,welcomePage);
         }
     }
 }

@@ -14,16 +14,6 @@ SH_DateQuestionState::SH_DateQuestionState(QString question, QString name, bool 
     setFuture(future);
 }
 
-void SH_DateQuestionState::setMinimumDate(QDate after)
-{
-    m_minimum = after;
-}
-
-void SH_DateQuestionState::setMaximumDate(QDate before)
-{
-    m_maximum = before;
-}
-
 /*!
  * \details \~french
  * \fn SH_DateQuestionState::isAnswerValid

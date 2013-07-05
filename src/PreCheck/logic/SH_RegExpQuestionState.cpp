@@ -19,20 +19,5 @@ bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
     QRegularExpressionMatch found = m_regexp.match(answer);
     return (found.hasMatch() && (found.captured(0) == answer));
 }
-/*!
- * \details \~french
- * \fn SH_RegExQuestionState::regexp
-*/
-QRegularExpression SH_RegExpQuestionState::regexp() const
-{
-    return m_regexp;
-}
-/*!
- * \details \~french
- * \fn SH_RegExQuestionState::setRegexp
-*/
-void SH_RegExpQuestionState::setRegexp(const QRegularExpression &regexp)
-{
-    m_regexp = regexp;
-}
+
 /*}*/
