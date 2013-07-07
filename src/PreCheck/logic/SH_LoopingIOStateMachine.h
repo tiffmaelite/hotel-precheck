@@ -10,8 +10,9 @@
 class SH_LoopingInOutStateMachine : public SH_InOutStateMachine
 {
     Q_OBJECT
-    Q_PROPERTY(int limit MEMBER m_limit NOTIFY limitChanged)
-    Q_PROPERTY(int current MEMBER m_current NOTIFY currentChanged)
+    Q_PROPERTY(int limit READ limit WRITE setLimit NOTIFY limitChanged) //MEMBER m_limit
+    Q_PROPERTY(int current READ current WRITE setCurrent NOTIFY currentChanged) //MEMBER m_current
+
 public:
 /*!
  * \brief \~french
@@ -22,6 +23,11 @@ public:
  * \param parent
 */
     SH_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
+
+    void setLimit(int newLimit) { m_limit = newLimit; emit limitChanged(); }
+    int limit() const { return m_limit; }
+    void setCurrent(int current) { m_current = current; emit currentChanged(); }
+    int current() const { return m_current; }
 
 /*!
     * \brief \~french
@@ -52,6 +58,7 @@ signals:
     * \fn limitChanged
     */
     void limitChanged();
+    void currentChanged();
 public slots:
 private:
 

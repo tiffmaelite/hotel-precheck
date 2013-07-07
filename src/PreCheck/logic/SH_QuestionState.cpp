@@ -50,6 +50,7 @@ void SH_QuestionState::setGivenAnswer(const QVariant &givenAnswer)
 {
     if(givenAnswer != this->givenAnswer()) {
         this->m_givenAnswer = givenAnswer;
+        emit givenAnswerChanged();
         this->checkValidity();
     }
 }

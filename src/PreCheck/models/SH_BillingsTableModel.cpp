@@ -10,7 +10,7 @@
 SH_BillingsTableModel::SH_BillingsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTable("BILLINGSINFOS");
+    SH_ExtendedProxyModel::model->setTableName("BILLINGSINFOS");
 }
 
 

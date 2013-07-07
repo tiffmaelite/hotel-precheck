@@ -8,9 +8,8 @@ import PreCheck 1.0
 /*!
   \class  SH_WelcomePage
   */
-Rectangle {
+Item {
     id: welcomePage
-    color: "green"
     signal logOut()
     signal loggedOut()
     signal quit()
@@ -23,10 +22,6 @@ Rectangle {
     }
     onReload: {
         grid.anchors.centerIn = welcomePage;
-        /*receptionButton.visible = App.currentUser.receptionist;
-        administrationButton.visible = App.currentUser.administrator;
-        managementXButton.visible = App.currentUser.managerX;
-        managementZButton.visible = App.currentUser.managerZ;*/
     }
 
     GridLayout {
@@ -46,8 +41,8 @@ Rectangle {
             Layout.fillWidth: true
             Button {
                 id: logoutButton
-                height: (grid.height%2)-grid.spacing
-                width: (grid.width/2)-grid.spacing
+                height: Math.floor(grid.height/5)-grid.spacing
+                width: Math.floor(grid.width/2)-grid.spacing
                 text: qsTr("Déconnecter")
                 onClicked: {
                     welcomePage.logOut();
@@ -55,8 +50,8 @@ Rectangle {
             }
             Button {
                 id: quitButton
-                height: (grid.height%2)-grid.spacing
-                width: (grid.width/2)-grid.spacing
+                height: Math.floor(grid.height/5)-grid.spacing
+                width: Math.floor(grid.width/2)-grid.spacing
                 text: qsTr("Quitter")
                 onClicked: {
                     welcomePage.quit();
@@ -93,14 +88,14 @@ Rectangle {
                 }
             }
             delegate: Rectangle {
-                visible: true
-                color: "red"//"transparent"
+                color: "transparent"
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: childrenRect.height
                 Layout.minimumWidth: childrenRect.width
-                Layout.columnSpan: computeSpan(true)
-                Layout.rowSpan: computeSpan(false)
+                /*Layout.columnSpan: computeSpan(true)
+                Layout.rowSpan: computeSpan(false)*/
+
                 function computeSpan(columnAxis) {
                     var axisLength = 0;
                     if(columnAxis) {
@@ -127,11 +122,10 @@ Rectangle {
                         }
                     }
                 }
-                anchors.centerIn: parent
                 Button {
                     id: button
-                    height: (grid.height/2)-grid.spacing
-                    width: (grid.width/2)-grid.spacing
+                    height: Math.floor(grid.height*2/5)-grid.spacing
+                    width: Math.floor(grid.width/2)-grid.spacing
                     anchors.centerIn: parent
                     visible: true //grid.getRole(BUTTONROLE)
                     enabled: true //grid.getRole(BUTTONROLE)
@@ -141,15 +135,15 @@ Rectangle {
                         welcomePage.clicked();
                     }
                     /*Binding {
-                    target: button
-                    property: "visible"
-                    value: grid.getRole(BUTTONROLE)
-                }
-                Binding {
-                    target: button
-                    property: "enabled"
-                    value: grid.getRole(BUTTONROLE)
-                }*/
+                        target: button
+                        property: "visible"
+                        value: grid.getRole(BUTTONROLE)
+                    }*/
+                    /*Binding {
+                        target: button
+                        property: "enabled"
+                        value: grid.getRole(BUTTONROLE)
+                    }*/
                 }
             }
         }

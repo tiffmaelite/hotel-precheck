@@ -10,7 +10,7 @@
 SH_UsersTableModel::SH_UsersTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTable("USERS");
+    SH_ExtendedProxyModel::model->setTableName("USERS");
 }
 
 /*!

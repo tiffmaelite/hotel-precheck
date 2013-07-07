@@ -33,7 +33,7 @@ Button {
                 border.left: 3
                 border.right: 3
                 anchors.bottomMargin: -1
-                source: btn.enabled ? (btn.pressed ? "../img/buttondown.png" : "../img/buttonup.png") : "../img/buttonblocked.png"
+                source: btn.enabled ? (btn.pressed ? "../icons/buttondown.png" : "../icons/buttonup.png") : "../icons/buttonblocked.png"
             }
         }
     }

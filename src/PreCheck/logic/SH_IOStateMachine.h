@@ -13,13 +13,12 @@
 */
 class SH_InOutStateMachine : public SH_GenericStateMachine
 {
+    typedef QMap<QString, QHistoryState *> QHistoryStateMap;
+
     Q_OBJECT
-    Q_PROPERTY(QString tableName MEMBER m_tableName NOTIFY tableNameChanged)
-    Q_PROPERTY(QString ioContent MEMBER m_ioContent NOTIFY ioContentChanged)
-    Q_PROPERTY(QString ioStatesHistory MEMBER m_ioStatesHistory NOTIFY ioStatesHistoryChanged)
-
-
-
+    Q_PROPERTY(QString tableName READ tableName WRITE setTableName NOTIFY tableNameChanged) //MEMBER m_tableName
+    Q_PROPERTY(QVariantMap ioContent READ ioContent WRITE setIOcontent NOTIFY ioContentChanged) //MEMBER m_ioContent
+    Q_PROPERTY(QHistoryStateMap ioStatesHistory READ ioStatesHistory WRITE setIOStatesHistory NOTIFY ioStatesHistoryChanged) //MEMBER m_ioStatesHistory
 
 public:
 
@@ -32,6 +31,18 @@ public:
 */
     SH_InOutStateMachine(QString tableName, QString name="", QObject *parent = 0);
 
+
+    QString tableName() const { return m_tableName; }
+    void setTableName(const QString &name) { m_tableName = name; emit tableNameChanged();}
+
+    QVariantMap ioContent() const { return m_ioContent; }
+    void setIOcontent(const QVariantMap &content) { m_ioContent = content; emit ioContentChanged();}
+
+    QHistoryStateMap ioStatesHistory() const { return m_ioStatesHistory; }
+    void setIOStatesHistory(const QHistoryStateMap &name) { m_ioStatesHistory = name; emit ioStatesHistoryChanged();}
+
+    /*QMap<QString, QHistoryState *> ioStatesHistory() const { return m_ioStatesHistory; }
+    void setIOStatesHistory(const QMap<QString, QHistoryState *> &name) { m_ioStatesHistory = name; emit ioStatesHistoryChanged();}*/
 
     /*!
     * \brief \~french
@@ -128,6 +139,10 @@ signals:
     void displayFileDialog();
 
     void displayChoiceList(QVariantList choices);
+
+    void tableNameChanged();
+    void ioContentChanged();
+    void ioStatesHistoryChanged();
 public slots:
     /*connecteurs : récepteurs de signaux*/
 
@@ -207,7 +222,7 @@ protected:
     * \brief \~french
     * \var m_ioStatesHistory
     */
-    QMap<QString, QHistoryState*> m_ioStatesHistory;
+    QMap<QString, QHistoryState *> m_ioStatesHistory;
 };
 /*}*/
 #endif /* IOSTATEMACHINE_H*/

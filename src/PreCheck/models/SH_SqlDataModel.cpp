@@ -87,22 +87,7 @@ const QString SH_SqlDataModel::query() const
 {
     return mSqlQuery.lastQuery();
 }
-/*!
- \details \~french
- \fn SH_SqlDataModel::tableName
-*/
-const QString &SH_SqlDataModel::tableName() const
-{
-    return mTable;
-}
-/*!
- \details \~french
- \fn SH_SqlDataModel::filter
-*/
-const QString &SH_SqlDataModel::filter() const
-{
-    return mFilter;
-}
+
 /*!
  \details \~french
  \fn SH_SqlDataModel::fieldsList
@@ -121,14 +106,14 @@ const QStringList SH_SqlDataModel::fieldsList() const
 }
 /*!
  \details \~french
- \fn SH_SqlDataModel::setTable
+ \fn SH_SqlDataModel::setTableName
 */
-void SH_SqlDataModel::setTable(const QString &tableName)
+void SH_SqlDataModel::setTableName(const QString &tableName)
 {
     if (mTable.toUpper() != tableName.toUpper() && tableName != "")
     {
         mTable = tableName.toUpper();
-        emit tableChanged();
+        emit tableNameChanged();
     }
 }
 /*!
@@ -140,18 +125,10 @@ void SH_SqlDataModel::setFilterCondition(const QString &filter)
     if (mFilter != filter && filter != "")
     {
         mFilter = filter;
-        emit filterChanged();
+        emit filterConditionChanged();
     }
 }
-/*!
- \details \~french
- \fn SH_SqlDataModel::resetFilterCondition
-*/
-void SH_SqlDataModel::resetFilterCondition()
-{
-    mFilter = "";
-    emit filterChanged();
-}
+
 /*!
  \details \~french
  \fn SH_SqlDataModel::fetch
@@ -162,7 +139,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
         //SH_MessageManager::debugMessage("Bienvenue dans fetch");
         //SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +mFilter + " " + mSort);
         this->setFields(fieldsList);
-        this->setTable(tableName);
+        this->setTableName(tableName);
         this->setFilterCondition(filter);
         this->setOrderBy(sort);
         //SH_MessageManager::debugMessage(mTable + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
@@ -299,6 +276,26 @@ void SH_SqlDataModel::applyRoles()
     }
     emit rolesChanged();
 }
+QString SH_SqlDataModel::getMTable() const
+{
+    return mTable;
+}
+
+void SH_SqlDataModel::setMTable(const QString &value)
+{
+    mTable = value;
+}
+
+QString SH_SqlDataModel::getMFilter() const
+{
+    return mFilter;
+}
+
+void SH_SqlDataModel::setMFilter(const QString &value)
+{
+    mFilter = value;
+}
+
 /*!
  \details \~french
  \fn SH_SqlDataModel::fieldsCount

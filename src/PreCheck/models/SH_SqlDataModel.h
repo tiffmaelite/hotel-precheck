@@ -12,22 +12,53 @@
 class SH_SqlDataModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QStringList fields READ fieldsList WRITE setFields RESET resetFieldsToAll NOTIFY filterChanged)
+    Q_PROPERTY(QString tableName READ tableName WRITE setTableName NOTIFY tableNameChanged) //MEMBER mTable
+    Q_PROPERTY(QStringList fields READ fieldsList WRITE setFields RESET resetFieldsToAll NOTIFY fieldsChanged)
+    Q_PROPERTY(QString filterCondition READ filterCondition WRITE setFilterCondition RESET resetFilterCondition NOTIFY filterConditionChanged) //MEMBER mFilter
+    //Q_PROPERTY(QHash roles READ roleNames WRITE setRoles NOTIFY rolesChanged) //MEMBER mRoles
     Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged)
-    Q_PROPERTY(QString tableName MEMBER mTable NOTIFY tableChanged)
-    Q_PROPERTY(QString roleNames MEMBER mRoles NOTIFY rolesChanged)
-    Q_PROPERTY(QString filterCondition MEMBER mFilter RESET resetFilterCondition NOTIFY filterChanged)
 
 public:
 
-/*!
+    /*!
     \brief \~french
     \fn SqlDataModel
     \param parent
     */
     explicit SH_SqlDataModel(QObject *parent = 0);
 
-/*!
+    /*!
+    * \fn tableName
+    * \brief \~french Accesseur en lecture de la propriété \a choiceList
+    * \details \~french Permet d'obtenir la liste de choix permis dans cet état
+    * \return QString La liste de choix de l'état
+    */
+    QString tableName() const { return mTable; }
+    /*!
+    * \fn setTableName
+    * \brief \~french Accesseur en écriture de la propriété \a choiceList
+    * \details \~french Permet de définir la liste de choix permis dans cet état
+    * \param QString table La nouvelle liste de choix de l'état
+    */
+    void setTableName(const QString &table);
+
+    /*!
+    * \fn tableCondition
+    * \brief \~french Accesseur en lecture de la propriété \a choiceList
+    * \details \~french Permet d'obtenir la liste de choix permis dans cet état
+    * \return QString La liste de choix de l'état
+    */
+    QString filterCondition() const { return mFilter; }
+    /*!
+    * \fn setTableCondition
+    * \brief \~french Accesseur en écriture de la propriété \a choiceList
+    * \details \~french Permet de définir la liste de choix permis dans cet état
+    * \param QString condition La nouvelle liste de choix de l'état
+    */
+    void setFilterCondition(const QString &condition);
+    void resetFilterCondition() { mFilter = ""; emit filterConditionChanged();}
+
+    /*!
     \brief \~french
     \fn rowCount
     \param parent
@@ -35,7 +66,7 @@ public:
     */
     int rowCount(const QModelIndex &parent) const;
 
-/*!
+    /*!
     \brief \~french
     \fn data
     \param index
@@ -44,7 +75,7 @@ public:
     */
     QVariant data(const QModelIndex &index, int role) const;
 
-/*!
+    /*!
     \brief \~french
     \fn datas
     \param index
@@ -53,7 +84,7 @@ public:
     */
     QVariantMap datas() const;
 
-/*!
+    /*!
     \brief \~french
     \fn setHeaderData
     \param section
@@ -64,7 +95,7 @@ public:
     */
     bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole);
 
-/*!
+    /*!
     \brief \~french
     \fn roleForField
     \param fieldIndex
@@ -72,7 +103,7 @@ public:
     */
     int roleForField(int fieldIndex) const { return Qt::UserRole + fieldIndex;}
 
-/*!
+    /*!
     \brief \~french
     \fn fieldFromRole
     \param role
@@ -81,20 +112,20 @@ public:
     int fieldFromRole(int role) const { return role - Qt::UserRole; }
 
 
-/*!
+    /*!
     \brief \~french
     \fn setFields
     \param fieldList
     */
     void setFields(QStringList fieldList);
 
-/*!
+    /*!
     \brief \~french
     \fn resetFieldsToAll
     */
     void resetFieldsToAll();
 
-/*!
+    /*!
     \brief \~french
     \fn fetch
     \param tableName
@@ -105,7 +136,7 @@ public:
     */
     bool fetch(QString tableName = "", QString filter = "", QString sort="", QStringList fields = QStringList());
 
-/*!
+    /*!
     \brief \~french
     \fn field
     \param i
@@ -113,38 +144,38 @@ public:
     */
     SH_SqlDataFields *field(int i) const;
 
-/*!
+    /*!
     \brief \~french
     \fn fieldsCount
     \return int
     */
     int fieldsCount() const;
 
-/*!
+    /*!
     \brief \~french
     \fn setOrderBy
     \param sort
     */
     void setOrderBy(QString sort);
 
-/*!This function allows mapping of role identifiers to role property names in scripting languages.
+    /*!This function allows mapping of role identifiers to role property names in scripting languages.
     !*/
 
-/*!
+    /*!
     \brief \~french
     \fn isEmpty
     \return bool
     */
     bool isEmpty() const;
 
-/*!
+    /*!
     \brief \~french
     \fn query
     \return const QString
     */
     const QString query() const;
 
-/*!
+    /*!
     \brief \~french
     \fn fieldsList
     \return const QString
@@ -152,77 +183,84 @@ public:
     const QStringList fieldsList() const;
 
     const QString lastError();
+    QString getMFilter() const;
+    void setMFilter(const QString &value);
+
+    QString getMTable() const;
+    void setMTable(const QString &value);
+
 signals:
 
-/*!
+    /*!
     \brief \~french
     \fn fieldsChanged
     */
     void fieldsChanged();
 
-/*!
+    /*!
     \brief \~french
-    \fn tableChanged
+    \fn tableNameChanged
     */
-    void tableChanged();
+    void tableNameChanged();
 
-/*!
+    /*!
     \brief \~french
     \fn lastErrorChanged
     */
     void lastErrorChanged();
 
-/*!
+    /*!
     \brief \~french
-    \fn filterChanged
+    \fn filterConditionChanged
     */
-    void filterChanged();
+    void filterConditionChanged();
 
-/*!
+
+    /*!
     \brief \~french
     \fn rolesChanged
     */
     void rolesChanged();
 protected:
 
-/*!
+    /*!
     \brief \~french
     \fn applyRoles
     */
     void applyRoles();
 private:
 
-/*!
+    /*!
     *\brief \~french mTable
     */
     QString mTable;
 
-/*!
+    /*!
     *\brief \~french mFilter
     */
     QString mFilter;
 
-/*!
+    /*!
     *\brief \~french mSort
     */
     QString mSort;
 
-/*!
+    /*!
     *\brief \~french mDataFields
     */
     QList<SH_SqlDataFields *> mDataFields;
 
-/*!
+    /*!
     *\brief \~french mRoles
     */
     QHash<int, QByteArray> mRoles;
 
-/*!
+    /*!
     *\brief \~french mSqlQuery
     */
     QSqlQuery mSqlQuery;
 
-/*!
+    /*!
     *\brief \~french mRecords
     */
     QList<QSqlRecord> mRecords;

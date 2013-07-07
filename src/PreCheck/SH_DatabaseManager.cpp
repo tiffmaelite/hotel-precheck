@@ -2,9 +2,16 @@
 #include "SH_MessageManager.h"
 #include <QDebug>
 #include <QtSql>
+#include "SH_DatabaseManagerSettings.cpp"
 
 /*namespace SimplHotel
-{*/SH_DatabaseManager *SH_DatabaseManager::_instance = 0;
+{*/
+
+const QString SH_DatabaseManager::dbInterbaseDriverStr = "QIBASE";
+const QString SH_DatabaseManager::dbFirebirdDriverStr= "QIBASE";
+const QString SH_DatabaseManager::dbPostgresqlDriverStr = "QPSQL";
+const QString SH_DatabaseManager::dbMysqlDriverStr = "QMYSQL";
+
 
 /*!
  * \details \~french
@@ -12,13 +19,32 @@
 */
 SH_DatabaseManager *SH_DatabaseManager::getInstance()
 {
-    if (_instance == 0)
+    if (SH_DatabaseManager::_instance == 0)
     {
-        _instance = new SH_DatabaseManager;
+        SH_DatabaseManager::_instance = new SH_DatabaseManager();
     }
-    return _instance;
+    return SH_DatabaseManager::_instance;
 }
 
+void SH_DatabaseManager::setDriver(SH_DatabaseManager::dbDrivers driver)
+{
+    SH_DatabaseManager::_dbDriver = driver;
+}
+
+QSqlDriver *SH_DatabaseManager::dbDriver()
+{
+    return dbConnection.driver();
+}
+
+
+QString SH_DatabaseManager::dbDriverName()
+{
+    return dbConnection.driverName();
+}
+
+SH_DatabaseManager::dbDrivers SH_DatabaseManager::dbDriverLabel() {
+    return SH_DatabaseManager::driverEnumFromName(dbDriverName());
+}
 
 /*!
  * \details \~french
@@ -27,6 +53,7 @@ SH_DatabaseManager *SH_DatabaseManager::getInstance()
 SH_DatabaseManager::~SH_DatabaseManager()
 {
     dbDisconnect();
+    SH_DatabaseManager::_instance = 0;
 }
 
 
@@ -36,25 +63,29 @@ SH_DatabaseManager::~SH_DatabaseManager()
 */
 SH_DatabaseManager::SH_DatabaseManager()
 {
+    if(checkDriver()) {
+        addDatabase();
+        dbConnect();
+    }
+}
 
-    /*Check the existence of the database driver.
-    */
-    if (!QSqlDatabase::isDriverAvailable(dbDriverStr))
+bool SH_DatabaseManager::checkDriver() {
+    /*Check the existence of the database driver.*/
+    if (!QSqlDatabase::isDriverAvailable(driverNameFromEnum(SH_DatabaseManager::_dbDriver)))
     {
-
-        /*Gui message that informs that the driver does not exist
-    */
-        SH_MessageManager::errorMessage(dbDriverNotExistStr);
+        /*Gui message that informs that the driver does not exist*/
+        SH_MessageManager::errorMessage(QObject::tr("%1 database driver is not available.").arg(driverNameFromEnum(SH_DatabaseManager::_dbDriver)));
         SH_MessageManager::errorMessage(dbConnection.lastError().text());
         SH_MessageManager::errorMessage("AVAILABLE DRIVERS: "+dbConnection.drivers().join(", "));
-        exit(1);
+        return false;
     }
+    return true;
+}
 
-
-    /*Connect to the database with the following driver.
-    */
-    dbConnection = QSqlDatabase::addDatabase(dbDriverStr);
-    if (dbDriverStr == "QIBASE")
+void SH_DatabaseManager::addDatabase() {
+    /*Connect to the database with the following driver.*/
+    dbConnection = QSqlDatabase::addDatabase(driverNameFromEnum(SH_DatabaseManager::_dbDriver));
+    if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver)
     {
         dbConnection.setDatabaseName(dbFilePathStr);
     } else {
@@ -63,8 +94,6 @@ SH_DatabaseManager::SH_DatabaseManager()
 
     dbConnection.setUserName(dbUsernameStr);
     dbConnection.setPassword(dbPasswordStr);
-    dbConnect();
-
 }
 
 /*connect to database
@@ -85,7 +114,7 @@ bool SH_DatabaseManager::dbConnect()
 
         /*Gui message that informs that the database cannot open
     */
-        SH_MessageManager::errorMessage(dbCannotOpenStr);
+        SH_MessageManager::errorMessage(QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr));
         SH_MessageManager::errorMessage(dbConnection.lastError().text());
 
 
@@ -152,7 +181,7 @@ bool SH_DatabaseManager::tableExists(QString tableName)
 int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
     if(!tableName.isEmpty() && !filter.isEmpty()) {
         QSqlQuery result = execSelectQuery(tableName, QStringList("COUNT(*) AS MATCH"), filter);
-        if(dbConnection.driver()->hasFeature(QSqlDriver::QuerySize)) {
+        if(dbDriver()->hasFeature(QSqlDriver::QuerySize)) {
             return result.size();
         } else {
             if(result.next()) {
@@ -177,7 +206,7 @@ QSqlQuery SH_DatabaseManager::execSelectQuery(QString tableName, QStringList fie
     }
 
     QString query;
-    if(dbConnection.driverName() == "QIBASE" || dbConnection.driverName() == "QPSQL") {
+    if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver || dbDriverLabel() == SH_DatabaseManager::PostgresqlDriver|| dbDriverLabel() == SH_DatabaseManager::MysqlDriver) {
         query = QString("SELECT %1 FROM %2").arg(fields.join(", ")).arg(tableName);
         if(!condition.isEmpty()) {
             query = QString("%1 WHERE %2").arg(query).arg(condition);
@@ -203,9 +232,9 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
     QString vals;
     divideQVariantMap(values, fields, vals);
     QString query;
-    if(dbConnection.driverName() == "QIBASE") {
+    if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
-    } else if(dbConnection.driverName() == "QPSQL") {
+    } else if (dbDriverLabel() == SH_DatabaseManager::PostgresqlDriver) {
         //query = QString("REPLACE INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     }
     QSqlQuery result = dbConnection.exec(query);
@@ -222,9 +251,10 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
     QString vals;
     divideQVariantMap(values, fields, vals);
     QString query;
-    if(dbConnection.driverName() == "QIBASE") {
+    dbDrivers label = dbDriverLabel();
+    if (label == SH_DatabaseManager::InterbaseDriver || label == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
-    } else if(dbConnection.driverName() == "QPSQL") {
+    } else if (label == SH_DatabaseManager::PostgresqlDriver) {
         //query = QString("REPLACE INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
     }
     QSqlQuery result = dbConnection.exec(query);

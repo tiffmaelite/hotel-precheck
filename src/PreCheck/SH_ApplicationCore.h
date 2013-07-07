@@ -19,13 +19,13 @@ class SH_ApplicationCore : public QObject
     * \brief \~french L'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté)
     * \property currentUser
     */
-    Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged)
+    Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged) //MEMBER m_currentUser
 
     /*!
     * \brief \~french Le mode actuel de l'application
     * \property currentMode
     */
-    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode MEMBER m_mode WRITE setMode NOTIFY modeChanged)
+    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode READ currentMode WRITE setMode NOTIFY modeChanged) //MEMBER m_mode
     Q_ENUMS(AppMode)
 public:
 
@@ -86,13 +86,15 @@ public:
     */
     void setMode(AppMode mode);
 
+    SH_ApplicationCore::AppMode currentMode() { return m_mode; }
+
     Q_INVOKABLE int billOpened();
 
     void setSettings(QSettings::Scope scope, QString devName, QString appName);
 
     Q_INVOKABLE QVariant readSetting(QString key, QString group="");
 
-    Q_INVOKABLE void writeSetting(QString key, QVariant value, QString group);
+    Q_INVOKABLE void writeSetting(QString key, QVariant value, QString group, bool replace = false);
 
 
     Q_INVOKABLE qreal totalBalance();
@@ -110,6 +112,7 @@ public:
 
     Q_INVOKABLE bool saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin);
     SH_User *user() const;
+    Q_INVOKABLE void replaceSetting(QString key, QVariant value, QString group);
 public slots:
 
     /*!
@@ -285,8 +288,10 @@ private:
     */
     SH_InOutStateMachine* m_currentFSM;
 
-    QSettings m_settings;
-
+    QSettings::Scope m_settingsScope;
+    QString m_settingsDevName;
+    QString m_settingsAppName;
+    QString m_settingsFile;
 
 };
 /*}*/

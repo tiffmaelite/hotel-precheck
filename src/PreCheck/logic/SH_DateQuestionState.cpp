@@ -38,49 +38,14 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
     }
     return (
                 (answer.isValid())
-                && ((m_maximum.isValid() && answer <= m_maximum)||(m_minimum.isValid() && answer >= m_minimum))
+                && (
+                    (m_maximum.isValid() && answer <= m_maximum)
+                    ||(m_minimum.isValid() && answer >= m_minimum)
+                    )
                 );
 }
-/*!
- * \details \~french
- * \fn SH_DateQuestionState::getPast
-*/
-bool SH_DateQuestionState::isPast() const
-{
-    return (m_maximum.isValid() && m_maximum >= QDate::currentDate());
-}
-/*!
- * \details \~french
- * \fn SH_DateQuestionState::setPast
-*/
-void SH_DateQuestionState::setPast(bool value)
-{
-    if(value) {
-        setMaximumDate(QDate::currentDate());
-    } else{
-        setMaximumDate(QDate());
-    }
-}
-/*!
- * \details \~french
- * \fn SH_DateQuestionState::getFuture
-*/
-bool SH_DateQuestionState::isFuture() const
-{
-    return (m_minimum.isValid() && m_minimum <= QDate::currentDate());
-}
-/*!
- * \details \~french
- * \fn SH_DateQuestionState::setFuture
-*/
-void SH_DateQuestionState::setFuture(bool value)
-{
-    if(value) {
-        setMinimumDate(QDate::currentDate());
-    } else{
-        setMinimumDate(QDate());
-    }
-}
+
+
 /*!
  * \details \~french
  * \fn SH_DateQuestionState::rawInput
@@ -90,4 +55,6 @@ QVariant SH_DateQuestionState::rawInput() const
     return QVariant(input().toDate().toString());
     /*TODO set format*/
 }
+
+
 /*}*/

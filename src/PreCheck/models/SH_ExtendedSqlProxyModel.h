@@ -21,7 +21,7 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
     Q_PROPERTY(QString fieldsCount READ fieldsCount STORED false)
     Q_PROPERTY(bool empty READ isEmpty STORED false)
     Q_PROPERTY(QString lastError READ lastError STORED false)
-    Q_PROPERTY(int sortKeyColumn MEMBER sortIndex WRITE setSortKeyColumn NOTIFY sortChanged)
+    Q_PROPERTY(int sortKeyColumn READ sortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged) //MEMBER sortIndex
 
 public:
 /*!
@@ -39,6 +39,8 @@ public:
     \return const QString
     */
     const QString tableName() const { return (this->model->property("tableName")).value<QString>(); }
+
+    int sortKeyColumn() const { return sortIndex; }
 
 /*!
     \brief \~french

@@ -7,51 +7,6 @@
 #include <QtCore>
 /*namespace SimplHotel
 {*/
-/* declare DB driver and filename.
- */
-/*!
- * \brief \~french dbDriverStr
- */
-static const QString dbDriverStr = "QIBASE"; //QPSQL
-/*!
- * \brief \~french dbFileNameStr
- */
-static const QString dbFileNameStr = "PreCheckDB.fdb"; //"PreCheck.pgdb"
-/*!
- * \brief \~french dbAliasNameStr
- */
-static const QString dbAliasNameStr = "precheck-hotel";
-/*!
- * \brief \~french dbUsernameStr
- */
-static const QString dbUsernameStr = "precheck";
-/*!
- * \brief \~french dbPasswordStr
- */
-static const QString dbPasswordStr = "hotel";
-
-/*!
- * \brief \~french dbFolderPathStr
- */
-static const QString dbFolderPathStr = QDir::cleanPath(QDir::currentPath()+"/../../../src/Database/");
-/*!
- * \brief \~french dbFilePathStr
- */
-static const QString dbFilePathStr = QString("%1/%2").arg(dbFolderPathStr).arg(dbFileNameStr);
-
-
-/* GUI string messages.
- */
-/*!
- * \brief \~french dbDriverNotExistStr
- */
-static QString dbDriverNotExistStr = QObject::tr("%1 database driver is not available.").arg(dbDriverStr);
-/*!
- * \brief \~french dbCannotOpenStr
- */
-static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr);
-
-
 
 /*!
  * \brief \~french
@@ -61,13 +16,188 @@ static QString dbCannotOpenStr = QObject::tr("The database %1 cannot be opened."
 class SH_DatabaseManager: public QObject
 {
     Q_OBJECT
-private:
+    Q_ENUMS(dbDrivers)
 
+public:
+    enum dbDrivers { InterbaseDriver, FirebirdDriver, PostgresqlDriver, MysqlDriver};
+
+
+    /*!
+* \brief \~french
+* \fn getInstance
+* \return SH_DatabaseManager
+*/
+    static SH_DatabaseManager *getInstance();
+
+    static void setDriver(SH_DatabaseManager::dbDrivers driver);
+
+
+    QSqlDriver *dbDriver();
+
+    /*!
+* \brief \~french
+* \fn dbConnect
+* \return bool
+*/
+    bool dbConnect();
+
+
+    /*!
+* \brief \~french
+* \fn isConnected
+* \return bool
+*/
+    bool isConnected();
+
+
+
+    /*!
+* \brief \~french
+* \fn dbDisconnect
+* \return bool
+*/
+    bool dbDisconnect();
+
+
+
+    /*!
+* \brief \~french
+* \fn getDbConnection
+* \return QSqlDatabase
+*/
+    QSqlDatabase getDbConnection();
+
+
+
+    /*!
+* \brief \~french
+* \fn ~SH_DatabaseManager
+*/
+    ~SH_DatabaseManager();
+
+
+    /*!
+* \brief \~french
+* \fn tableExists
+* \param tableName
+* \return bool
+*/
+    bool tableExists(QString tableName);
+
+
+    /*!
+* \brief \~french
+* \fn dataExists
+* \param tableName
+* \param filter
+* \return int
+*/
+    int dataCount(QString tableName, QString filter);
+
+
+    /*!
+* \brief \~french
+* \fn execQuery
+* \param query
+* \return QSqlQuery
+*/
+    QSqlQuery execSelectQuery(QString tableName, QStringList fields=QStringList("*"), QString condition="", QString ordering="");
+
+
+    /*!
+* \brief \~french
+* \fn execReplaceQuery
+* \param query
+* \return bool
+*/
+    bool execReplaceQuery(QString tableName, QVariantMap values);
+
+
+    /*!
+* \brief \~french
+* \fn execInsertReturningQuery
+* \param query
+* \param returningField
+* \return QVariant
+*/
+    QVariant execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField);
+
+    QString dbDriverName();
+
+    dbDrivers dbDriverLabel();
+protected:
+
+    static QString driverNameFromEnum(SH_DatabaseManager::dbDrivers driver) {
+        switch(driver) {
+        case InterbaseDriver: return dbInterbaseDriverStr; break;
+        case FirebirdDriver: return dbFirebirdDriverStr; break;
+        case PostgresqlDriver: return dbPostgresqlDriverStr; break;
+        case MysqlDriver: return dbMysqlDriverStr; break;
+        default: return "";
+        }
+    }
+
+    static SH_DatabaseManager::dbDrivers driverEnumFromName(QString driver) {
+        if(driver == dbInterbaseDriverStr) { return InterbaseDriver; }
+        else if(driver == dbFirebirdDriverStr) { return FirebirdDriver; }
+        else if(driver == dbPostgresqlDriverStr) { return PostgresqlDriver; }
+        else if(driver == dbMysqlDriverStr) { return MysqlDriver; }
+    }
+
+    /*!
+    * \brief \~french dbConnection
+    */
+    QSqlDatabase dbConnection;
+
+    bool checkDriver();
+    void addDatabase();
+private:
     /*!
     * \brief _instance
     */
     static SH_DatabaseManager *_instance;
 
+    static SH_DatabaseManager::dbDrivers _dbDriver;
+
+    /*!
+    * \brief \~french
+    * \fn SH_DatabaseManager
+    */
+    SH_DatabaseManager();
+
+    /* declare DB filename and path.
+     */
+
+    /*!
+     * \brief \~french dbFileNameStr
+     */
+    static const QString dbFileNameStr;
+    /*!
+     * \brief \~french dbAliasNameStr
+     */
+    static const QString dbAliasNameStr;
+    /*!
+     * \brief \~french dbUsernameStr
+     */
+    static const QString dbUsernameStr;
+    /*!
+     * \brief \~french dbPasswordStr
+     */
+    static const QString dbPasswordStr;
+
+    /*!
+     * \brief \~french dbFolderPathStr
+     */
+    static const QString dbFolderPathStr;
+    /*!
+     * \brief \~french dbFilePathStr
+     */
+    static const QString dbFilePathStr;
+
+    static const QString dbInterbaseDriverStr;
+    static const QString dbFirebirdDriverStr;
+    static const QString dbPostgresqlDriverStr;
+    static const QString dbMysqlDriverStr;
 
     /*!
     * \brief \~french
@@ -77,121 +207,7 @@ private:
     * \param[ou] vals
     */
     void divideQVariantMap(QVariantMap values, QString &fields, QString &vals);
-protected:
-
-    /*!
-    * \brief \~french
-    * \fn SH_DatabaseManager
-    */
-    SH_DatabaseManager();
-
-
-    /*!
-    * \brief \~french dbConnection
-    */
-    QSqlDatabase dbConnection;
-
-public:
-
-
-
-    /*!
-    * \brief \~french
-    * \fn getInstance
-    * \return SH_DatabaseManager
-    */
-    static SH_DatabaseManager *getInstance();
-
-
-
-
-    /*!
-    * \brief \~french
-    * \fn dbConnect
-    * \return bool
-    */
-    bool dbConnect();
-
-
-    /*!
-    * \brief \~french
-    * \fn isConnected
-    * \return bool
-    */
-    bool isConnected();
-
-
-
-    /*!
-    * \brief \~french
-    * \fn dbDisconnect
-    * \return bool
-    */
-    bool dbDisconnect();
-
-
-
-    /*!
-    * \brief \~french
-    * \fn getDbConnection
-    * \return QSqlDatabase
-    */
-    QSqlDatabase getDbConnection();
-
-
-
-    /*!
-    * \brief \~french
-    * \fn ~SH_DatabaseManager
-    */
-    ~SH_DatabaseManager();
-
-
-    /*!
-    * \brief \~french
-    * \fn tableExists
-    * \param tableName
-    * \return bool
-    */
-    bool tableExists(QString tableName);
-
-
-    /*!
-    * \brief \~french
-    * \fn dataExists
-    * \param tableName
-    * \param filter
-    * \return int
-    */
-    int dataCount(QString tableName, QString filter);
-
-
-    /*!
-    * \brief \~french
-    * \fn execQuery
-    * \param query
-    * \return QSqlQuery
-    */
-    QSqlQuery execSelectQuery(QString tableName, QStringList fields=QStringList("*"), QString condition="", QString ordering="");
-
-
-    /*!
-    * \brief \~french
-    * \fn execReplaceQuery
-    * \param query
-    * \return bool
-    */
-    bool execReplaceQuery(QString tableName, QVariantMap values);
-
-
-    /*!
-    * \brief \~french
-    * \fn execInsertReturningQuery
-    * \param query
-    * \param returningField
-    * \return QVariant
-    */
-    QVariant execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField);
 };
+
 /*}*/
 #endif /* SH_DatabaseManagerSINGLETON_H*/

@@ -12,10 +12,10 @@ class SH_InOutState : public SH_GenericState
 {
     Q_OBJECT
     Q_PROPERTY(QVariant rawIntput READ rawInput NOTIFY rawInputChanged)
-    Q_PROPERTY(QVariant intput WRITE setInput MEMBER m_input NOTIFY inputChanged)
-    Q_PROPERTY(QString output MEMBER m_output WRITE setOutput NOTIFY outputChanged)
-    Q_PROPERTY(bool visibility MEMBER m_isVisible WRITE setVisibility NOTIFY visibilityChanged)
-    Q_PROPERTY(bool display MEMBER m_display WRITE enableDisplay NOTIFY displayChanged)
+    Q_PROPERTY(QVariant intput READ input WRITE setInput NOTIFY inputChanged) //MEMBER m_input
+    Q_PROPERTY(QString output READ output WRITE setOutput NOTIFY outputChanged) //MEMBER m_output
+    Q_PROPERTY(bool visibility READ visibility WRITE setVisibility NOTIFY visibilityChanged) //MEMBER m_isVisible
+    Q_PROPERTY(bool display READ display WRITE enableDisplay NOTIFY displayChanged) //MEMBER m_display
 
 public:
 
@@ -28,26 +28,33 @@ public:
 */
     SH_InOutState(QString output, QString name, QState *parent = 0);
 
+    QString output() const { return m_output; }
+
+    QVariant input() const { return m_input; }
+
+    bool visibility() const { return m_isVisible; }
+
     /*!
     * \brief \~french
  * \fn rawInput
     * \return QVariant
     */
-    virtual QVariant rawInput() const;
+    virtual QVariant rawInput() const { return input(); }
 
 
     /*!
     * \brief \~french
     * \fn display
-    * \param canDisplay
+    * \return canDisplay
     */
-    void display(bool canDisplay);
+    bool display() { return m_display; }
 
     void emitSendOutput();
 
     void emitResendInput();
 
-    void enableDisplay(bool canDisplay);
+    void enableDisplay(bool canDisplay) { m_display=canDisplay; emitSendOutput(); }
+
 signals:
 
     /*!
@@ -63,6 +70,11 @@ signals:
     * \param input
     */
     void resendInput(QVariant input);
+    void visibilityChanged();
+    void inputChanged();
+    void outputChanged();
+    void rawInputChanged();
+    void displayChanged();
 public slots:
 
     /*!

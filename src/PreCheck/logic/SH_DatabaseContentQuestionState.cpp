@@ -56,7 +56,7 @@ QVariant SH_DatabaseContentQuestionState::rawInput() const
  * \details \~french
  * \fn SH_DatabaseContentQuestionState::choiceList
 */
-QVariantList SH_DatabaseContentQuestionState::choiceList() {
+QVariantList SH_DatabaseContentQuestionState::choiceList() const {
     if(m_choicesDisplayed) {
         return m_choices;
     }

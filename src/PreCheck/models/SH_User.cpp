@@ -20,6 +20,11 @@ SH_User::SH_User(QString name, int id, bool isReceptionist, bool isManagerX, boo
 {
     this->setName(name);
     this->setID(id);
+
+    connect(this, &SH_User::receptionistChanged, this, &SH_User::rolesChanged);
+    connect(this, &SH_User::managerXChanged, this, &SH_User::rolesChanged);
+    connect(this, &SH_User::managerZChanged, this, &SH_User::rolesChanged);
+    connect(this, &SH_User::administratorChanged, this, &SH_User::rolesChanged);
 }
 
 /*!

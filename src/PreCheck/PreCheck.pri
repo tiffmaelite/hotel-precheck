@@ -99,7 +99,8 @@ SOURCES *= \
 	logic/SH_ClientCreation.cpp \
 	logic/SH_BillingCreation.cpp \
 	logic/SH_AddressCreation.cpp \
-	logic/SH_AdaptDatabaseState.cpp
+	logic/SH_AdaptDatabaseState.cpp \
+    SH_DatabaseManagerSettings.cpp
 
 # QML-files as a ressource
 RESOURCES *= \

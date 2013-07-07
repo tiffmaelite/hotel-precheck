@@ -10,7 +10,7 @@
 SH_TraineesTableModel::SH_TraineesTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTable("TRAINEES");
+    SH_ExtendedProxyModel::model->setTableName("TRAINEES");
 }
 
 /*!

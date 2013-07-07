@@ -12,8 +12,8 @@ import PreCheck 1.0
 ApplicationWindow {
     id: window
     visibility: Window.Windowed
-    /*maximumHeight: 600*/
-    /*maximumWidth: 800*/
+    /*maximumHeight: 600
+    maximumWidth: 800*/
     height: maximumHeight
     width: maximumWidth
     title: qsTr("Réception")
@@ -52,6 +52,9 @@ ApplicationWindow {
             next.focus = true;
             next.visible = true;
             next.forceActiveFocus();
+            next.width = stack.width;
+            next.height = stack.height;
+            next.anchors.centerIn = stack;
             stack.push({item: stack.get(next.Stack.index)});
             next.reload();
         }

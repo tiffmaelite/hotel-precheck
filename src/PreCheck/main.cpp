@@ -28,6 +28,12 @@ using namespace std;
 
 const int iterations = 20;
 
+void initSettings(SH_ApplicationCore *app) {
+    app->writeSetting("backgroundColor", "whitesmoke", "global GUI", false);
+    //TODO: continuer avec toutes les valeurs par défaut
+}
+
+
 /*!
  * \details \~french
  * \fn SH_statusChanged
@@ -128,13 +134,7 @@ void spin(int &iteration)
     qDebug() << "iteration" << iteration << "in thread" << QThread::currentThreadId();
 }
 
-void initSettings(QSettings::Scope scope, QString devName,QString appName) {
-    QSettings settings(scope, devName, appName);
-    settings.beginGroup("global GUI");
-    settings.setValue("backgroundColor","whitesmoke");
-    //TODO: continuer avec toutes les valeurs configurables pour le premier lancement (installation)
-    settings.endGroup();
-}
+
 
 /*!
  * \details \~french
@@ -160,7 +160,7 @@ int main(int argc, char **argv)
         QCoreApplication::setOrganizationName(devName);
         QCoreApplication::setApplicationName(appName);
 
-initSettings(QSettings::SystemScope, devName,appName);
+
 
         QString locale = QLocale::system().name();
         QTranslator translator;
@@ -186,8 +186,9 @@ initSettings(QSettings::SystemScope, devName,appName);
 
         SH_ApplicationCore* appManager = new SH_ApplicationCore();
         appManager->setSettings(QSettings::SystemScope, devName,appName); // system-wide location for the application
-        engine.rootContext()->setContextProperty("App", appManager);
+        initSettings(appManager);
 
+        engine.rootContext()->setContextProperty("App", appManager);
 
         qmlRegisterType<SH_VATTableModel>("PreCheck", 1, 0, "SH_VATModel");
         qmlRegisterType<SH_UsersTableModel>("PreCheck", 1, 0, "SH_UsersListModel");

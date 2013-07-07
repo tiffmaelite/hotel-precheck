@@ -11,7 +11,7 @@
 class SH_QuestionState : public SH_InOutState
 {
     Q_OBJECT
-    Q_PROPERTY(QVariant givenAnswer WRITE setGivenAnswer MEMBER m_givenAnswer NOTIFY givenAnswerChanged)
+    Q_PROPERTY(QVariant givenAnswer READ givenAnswer WRITE setGivenAnswer NOTIFY givenAnswerChanged) //MEMBER m_givenAnswer
 public:
     /*!
  * \brief \~french
@@ -21,6 +21,8 @@ public:
  * \param parent
 */
     SH_QuestionState(QString question, QString name, QState *parent = 0);
+
+    QVariant givenAnswer() const {return m_givenAnswer;}
 
     /*!
     * \brief \~french
@@ -62,6 +64,7 @@ signals:
     * \brief \~french answerInvalid
     */
     void answerInvalid();
+    void givenAnswerChanged();
 public slots:
 private:
 

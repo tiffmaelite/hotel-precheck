@@ -10,10 +10,36 @@
 class SH_DateQuestionState : public SH_QuestionState
 {
     Q_OBJECT
-    Q_PROPERTY(QDate maximumDate MEMBER m_maximum NOTIFY maximumDateChanged)
-    Q_PROPERTY(QDate minimumDate MEMBER m_minimum NOTIFY minimumDateChanged)
+
+    /*!
+    * \property QDate maximumDate
+    * \brief \~french La plus grande date permise
+    * \details ~\french
+    */
+    Q_PROPERTY(QDate maximumDate READ maximumDate WRITE setMaximumDate NOTIFY maximumDateChanged) //MEMBER m_maximum
+    /*!
+    * \property QDate minimumDate
+    * \brief \~french La plus petite date permise
+    * \details ~\french
+    */
+    Q_PROPERTY(QDate minimumDate READ minimumDate WRITE setMinimumDate NOTIFY minimumDateChanged) //MEMBER m_minimum
+    /*!
+    * \property QDate minimumDate
+    * \brief \~french La plus petite date permise
+    * \details ~\french
+    */
+    Q_PROPERTY(bool isPast READ isPast WRITE setPast STORED false)
+    /*!
+    * \property QDate minimumDate
+    * \brief \~french La plus petite date permise
+    * \details ~\french
+    */
+    Q_PROPERTY(bool isFuture READ isFuture WRITE setFuture STORED false)
 
 public:
+
+    /*** Constructor(s) ***/
+
     /*!
  * \brief \~french
  * \fn DateQuestionState
@@ -25,36 +51,75 @@ public:
 */
     SH_DateQuestionState(QString question, QString name, bool past = true, bool future = false, QState *parent = 0);
 
+    /*** Properties Getters & Setters ***/
+
+    /*!
+    * \fn minimumDate
+    * \brief \~french Accesseur en lecture de la propriété \a minimumDate
+    * \details \~french Permet d'obtenir la date minimale permise
+    * \return QDate La date minimale permise
+    */
+    QDate minimumDate() const { return m_minimum; }
+    /*!
+    * \fn setMinimumDate
+    * \brief \~french Accesseur en écriture de la propriété \a minimumDate
+    * \details \~french Permet de définir la date minimale permise
+    * \param QDate minimumDate La nouvelle date minimale permise
+    */
+    void setMinimumDate(const QDate &minimumDate){ m_minimum = minimumDate; emit minimumDateChanged(); }
+
+    /*!
+    * \fn maximumDate
+    * \brief \~french Accesseur en lecture de la propriété \a maximumDate
+    * \details \~french Permet d'obtenir la date maximale permise
+    * \return QDate La date maximale permise
+    */
+    QDate maximumDate() const { return m_maximum; }
+    /*!
+    * \fn setMaximumDate
+    * \brief \~french Accesseur en écriture de la propriété \a maximumDate
+    * \details \~french Permet de définir la date maximale permise
+    * \param QDate minimumDate La nouvelle date maximale permise
+    */
+    void setMaximumDate(const QDate &maximumDate){ m_maximum = maximumDate; emit maximumDateChanged(); }
+
+    /*!
+ * \brief \~french
+ * \fn getPast
+ * \return bool
+*/
+    bool isPast() const { return (m_maximum.isValid() && m_maximum >= QDate::currentDate()); }
+
+    /*!
+ * \brief \~french
+ * \fn setPast
+ * \param value
+*/
+    void setPast(bool past) { setMaximumDate(past ? QDate::currentDate() : QDate()); }
+
+    /*!
+ * \brief \~french
+ * \fn getFuture
+ * \return bool
+*/
+    bool isFuture() const { return (m_minimum.isValid() && m_minimum >= QDate::currentDate()); }
+
+    /*!
+ * \brief \~french
+ * \fn setFuture
+ * \param value
+*/
+    void setFuture(bool future) { setMinimumDate(future ? QDate::currentDate() : QDate()); }
+
+    /*** Overwritten methods ***/
+
     /*!
  * \brief \~french
  * \fn isAnswerValid
  * \param givenAnswer
 */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
-    /*!
- * \brief \~french
- * \fn getPast
- * \return bool
-*/
-    bool isPast() const;
-    /*!
- * \brief \~french
- * \fn setPast
- * \param value
-*/
-    void setPast(bool value);
-    /*!
- * \brief \~french
- * \fn getFuture
- * \return bool
-*/
-    bool isFuture() const;
-    /*!
- * \brief \~french
- * \fn setFuture
- * \param value
-*/
-    void setFuture(bool value);
+
     /*!
  * \brief \~french
  * \fn rawInput
@@ -62,10 +127,24 @@ public:
 */
     QVariant rawInput() const;
 
+
+    /*** Signals methods ***/
 signals:
+    void minimumDateChanged();
+    void maximumDateChanged();
+
+    /*** Slots ***/
+protected slots:
+
 public slots:
 
+private slots:
+
+
+
 private:
+
+    /*** Properties private members ***/
     QDate m_maximum;
     QDate m_minimum;
 };

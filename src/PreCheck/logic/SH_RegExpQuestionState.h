@@ -9,7 +9,7 @@
 class SH_RegExpQuestionState : public SH_StringQuestionState
 {
     Q_OBJECT
-    Q_PROPERTY(QRegularExpression regexp MEMBER m_regexp NOTIFY regexpChanged)
+    Q_PROPERTY(QRegularExpression regexp READ regexp WRITE setRegexp NOTIFY regexpChanged) //MEMBER m_regexp
 public:
 /*!
  * \brief \~french
@@ -28,8 +28,12 @@ public:
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
 
+    void setRegexp(QRegularExpression regexp) { m_regexp = regexp; emit regexpChanged(); }
+
+    QRegularExpression regexp() const { return m_regexp; }
 
 signals:
+    void regexpChanged();
 public slots:
 private:
 

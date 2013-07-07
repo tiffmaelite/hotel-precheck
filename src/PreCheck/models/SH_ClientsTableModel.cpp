@@ -9,7 +9,7 @@
 SH_ClientsTableModel::SH_ClientsTableModel(QObject *parent):
 SH_ExtendedProxyModel(parent)
 {
-	SH_ExtendedProxyModel::model->setTable("CLIENTS");
+    SH_ExtendedProxyModel::model->setTableName("CLIENTS");
 }
 
 

@@ -12,7 +12,7 @@
 SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
     SH_ExtendedProxyModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTable("ROOMSINFOS");
+    SH_ExtendedProxyModel::model->setTableName("ROOMSINFOS");
     SH_ExtendedProxyModel::model->setOrderBy("FLOOR ASC, NUMBER ASC");
 }
 

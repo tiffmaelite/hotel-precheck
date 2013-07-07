@@ -15,14 +15,6 @@ SH_InOutState::SH_InOutState(QString output, QString name, QState *parent) :
 
 /*!
  * \details \~french
- * \fn SH_IOState::rawInput
-*/
-QVariant SH_InOutState::rawInput() const
-{
-    return input();
-}
-/*!
- * \details \~french
  * \fn SH_IOState::setInput
 */
 void SH_InOutState::setInput(const QVariant &input)
@@ -53,14 +45,10 @@ void SH_InOutState::setVisibility(bool isVisible)
 {
     if(isRunning() && isVisible!=this->visibility()) {
         m_isVisible = isVisible;
+        emit visibilityChanged();
     }
 }
 
-void SH_InOutState::enableDisplay(bool canDisplay)
-{
-        m_display=canDisplay;
-        emitSendOutput();
-}
 
 void SH_InOutState::emitSendOutput() {
     if(isRunning() && m_display && !m_output.isEmpty() && m_isVisible) {

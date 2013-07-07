@@ -57,4 +57,6 @@ include(../../libs/QtSignalGuard.pri)
 
 
 OTHER_FILES *= \
-	../Database/*
+	../Database/* \
+    TODO.md \
+    ../../README.md

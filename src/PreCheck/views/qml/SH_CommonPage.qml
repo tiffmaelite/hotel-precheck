@@ -55,7 +55,6 @@ Item {
         }
     }
     onReload: {
-        commonPage.setVisible(true);
         tabs.reload();
     }
     onSelected: {

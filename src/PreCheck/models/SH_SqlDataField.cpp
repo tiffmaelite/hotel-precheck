@@ -19,7 +19,7 @@ void SH_SqlDataFields::setText(QString newText)
     m_text = newText;
     if (m_name == "")
     {
-    this->setName(m_text.toUpper());
+        this->setName(m_text.toUpper());
     }
     emit textChanged();
 }
@@ -33,7 +33,7 @@ void SH_SqlDataFields::setName(QString newName)
     this->setSortOrder(Qt::AscendingOrder);
     if (m_text == "")
     {
-    this->setText(m_name);
+        this->setText(m_name);
     }
     emit nameChanged();
     emit roleChanged();

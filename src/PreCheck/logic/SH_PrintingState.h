@@ -10,8 +10,8 @@
 class SH_PrintingState : public SH_GenericState
 {
     Q_OBJECT
-    Q_PROPERTY(int printedLines MEMBER m_nbPrintedLines NOTIFY nbPrintedLinesChanged)
-    Q_PROPERTY(int currentLine MEMBER m_currentLineNb NOTIFY currentLineNbChanged)
+    Q_PROPERTY(int printedLines READ nbPrintedLines WRITE setNbPrintedLines NOTIFY nbPrintedLinesChanged) //MEMBER m_nbPrintedLines
+    Q_PROPERTY(int currentLine READ currentLineNb WRITE setCurrentLineNb NOTIFY currentLineNbChanged) //MEMBER m_currentLineNb
 public:
 /*!
  * \brief \~french
@@ -20,6 +20,12 @@ public:
  * \param parent
 */
     SH_PrintingState(QString name, QState *parent = 0);
+    int nbPrintedLines() const;
+    void setNbPrintedLines(int nbPrintedLines);
+
+    int currentLineNb() const;
+    void setCurrentLineNb(int currentLineNb);
+
 signals:
 
     /*!
@@ -34,6 +40,9 @@ signals:
     */
     void printFinished();
 public slots:
+signals:
+    void nbPrintedLinesChanged();
+    void currentLineNbChanged();
 
 private:
     int m_nbPrintedLines;

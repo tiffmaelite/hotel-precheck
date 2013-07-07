@@ -30,13 +30,15 @@ void SH_ApplicationCore::init() {
 */
 void SH_ApplicationCore::setMode(SH_ApplicationCore::AppMode mode)
 {
-    if(!this->m_currentUser || ! SH_User::exists(QVariant(this->m_currentUser->property("name").value<QString>())).toBool()) {
+    if(!this->m_currentUser->isValid() || ! SH_ApplicationCore::userExists(this->m_currentUser->name())) {
         this->m_mode = CONNEXION;
     } else {
-        if(((mode == ADMINISTRATION) && (!this->m_currentUser->property("administrator").value<bool>())) ||
-                ((mode == MANAGEMENT_X) && (!this->m_currentUser->property("managerX").value<bool>())) ||
-                ((mode == MANAGEMENT_Z) && (!this->m_currentUser->property("managerZ").value<bool>())) ||
-                ((mode == RECEPTION) && (!this->m_currentUser->property("receptionist").value<bool>()))) {
+        if(
+                ((mode == ADMINISTRATION) && (!this->m_currentUser->isAdministrator())) ||
+                ((mode == MANAGEMENT_X) && (!this->m_currentUser->isManagerX())) ||
+                ((mode == MANAGEMENT_Z) && (!this->m_currentUser->isManagerZ())) ||
+                ((mode == RECEPTION) && (!this->m_currentUser->isReceptionist()))
+                ) {
             this->m_mode = ACCUEIL;
         } else {
             this->m_mode = mode;
@@ -244,29 +246,42 @@ int SH_ApplicationCore::billOpened() {
 
 void SH_ApplicationCore::setSettings(QSettings::Scope scope, QString devName, QString appName)
 {
-    QSettings m_settings(scope, devName, appName);
+    m_settingsScope = scope;
+    m_settingsDevName = devName;
+    m_settingsAppName = appName;
+    /*QSettings settings(m_settingsScope, m_settingsDevName, m_settingsAppName);
+    SH_MessageManager::infoMessage(settings.fileName());*/
 }
 
 QVariant SH_ApplicationCore::readSetting(QString key, QString group)
 {
+    QSettings settings(m_settingsScope, m_settingsDevName, m_settingsAppName);
     if(group != "") {
-        m_settings.beginGroup(group);
+        settings.beginGroup(group);
     }
-    QVariant value = m_settings.value(key);
+    QVariant value = settings.value(key);
     if(group != "") {
-        m_settings.endGroup();
+        settings.endGroup();
     }
     return value;
 }
 
-void SH_ApplicationCore::writeSetting(QString key, QVariant value, QString group)
+void SH_ApplicationCore::replaceSetting(QString key, QVariant value, QString group)
 {
+    writeSetting(key, value, group, true);
+}
+
+void SH_ApplicationCore::writeSetting(QString key, QVariant value, QString group, bool replace)
+{
+    QSettings settings(m_settingsScope, m_settingsDevName, m_settingsAppName);
     if(group != "") {
-        m_settings.beginGroup(group);
+        settings.beginGroup(group);
     }
-    m_settings.setValue(key,value);
+    if(replace || settings.value(key) == QVariant()) { //not set yet or to be replaced
+        settings.setValue(key,value);
+    }
     if(group != "") {
-        m_settings.endGroup();
+        settings.endGroup();
     }
 }
 

@@ -42,7 +42,8 @@ TabView {
 
     style: TabViewStyle {
         id:style
-        frame: Rectangle {
+        frame:
+            Rectangle {
             anchors.fill: parent
             height: tabView.height-style.frameOverlap
             width: tabView.width
@@ -54,6 +55,27 @@ TabView {
                 color: "transparent"
                 border.color: "silver"
                 anchors.margins: 2
+            }
+        }
+        tab:
+            Rectangle {
+            color: styleData.selected ? "lightgrey" :"whitesmoke"
+            border.color:  "silver"
+            implicitWidth: Math.max(text.width + 4, 80)
+            implicitHeight: 20
+            radius: 2
+            RowLayout {
+                Image {
+                    visible:(styleData.title===qsTr("Clavier complet"))
+                    source: (styleData.title===qsTr("Clavier complet")) ? "../icons/keyboard.png" : "" ;
+                    height: 15
+                }
+                Text {
+                    id: text
+                    anchors.centerIn: parent
+                    text: styleData.title
+                    color: styleData.selected ? "black" : "grey"
+                }
             }
         }
     }
