@@ -1,6 +1,7 @@
-CONNECT precheck-hotel USER 'precheck' PASSWORD 'hotel';
+CONNECT TO "PreCheckDB" AS precheck-hotel USER 'precheck' USING 'hotel';
 
 COMMIT;
+
 
 INSERT INTO ROOMSTYPES(ID, LABEL, DESCRIPTION, PRICEMIN, PRICEMAX) VALUES(0, '1L+D', '1 lit en 80x200 + 1 douche', 100, 120);
 INSERT INTO ROOMSTYPES(ID, LABEL, DESCRIPTION, PRICEMIN, PRICEMAX) VALUES(0, '1GL+D', '1 lit en 160x200 + 1 douche', 120, 150);

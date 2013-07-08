@@ -1,4 +1,5 @@
 CONNECT precheck-hotel USER 'precheck' PASSWORD 'hotel';
+CONNECT TO "PreCheckDB" AS precheck-hotel USER 'precheck' USING 'hotel';
 
 COMMIT;
 

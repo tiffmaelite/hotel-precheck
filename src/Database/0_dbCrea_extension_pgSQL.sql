@@ -1,3 +1,7 @@
+CONNECT TO "PreCheckDB" AS precheck-hotel USER 'precheck' USING 'hotel';
+
+COMMIT;
+
 -- PL/pgSQL code to create pivot tables with automatic column names
 -- Eric Minikel, CureFFI.org - 2013-03-19
 -- Modified by Tiffany Grenier (2013-07-08) for taking SQL types in other database

@@ -1,7 +1,6 @@
-CONNECT archives-hotel USER 'precheck' PASSWORD 'hotel';
+CONNECT TO "PreCheckArchivesDB" AS archives-hotel USER 'precheck' USING 'hotel';
 
 COMMIT;
-
 
 CREATE TABLE NATIONALITIES
 (
