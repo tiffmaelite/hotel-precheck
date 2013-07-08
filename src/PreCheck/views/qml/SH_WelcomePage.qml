@@ -33,32 +33,29 @@ Item {
         columns:2
         visible: welcomePage.visible
         property int count: App.currentUser.roles
-        RowLayout {
-            Layout.rowSpan: grid.columns
-            Layout.minimumHeight: childrenRect.height
-            Layout.minimumWidth: childrenRect.width
+        Button {
+            id: logoutButton
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Button {
-                id: logoutButton
-                height: Math.floor(grid.height/5)-grid.spacing
-                width: Math.floor(grid.width/2)-grid.spacing
-                text: qsTr("Déconnecter")
-                onClicked: {
-                    welcomePage.logOut();
-                }
-            }
-            Button {
-                id: quitButton
-                height: Math.floor(grid.height/5)-grid.spacing
-                width: Math.floor(grid.width/2)-grid.spacing
-                text: qsTr("Quitter")
-                onClicked: {
-                    welcomePage.quit();
-                }
+            height: Math.floor(grid.height/5)-grid.spacing
+            width: Math.floor(grid.width/2)-grid.spacing
+            text: qsTr("Déconnecter")
+            onClicked: {
+                welcomePage.logOut();
             }
         }
-        function getRole(c) {
+        Button {
+            id: quitButton
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            height: Math.floor(grid.height/5)-grid.spacing
+            width: Math.floor(grid.width/2)-grid.spacing
+            text: qsTr("Quitter")
+            onClicked: {
+                welcomePage.quit();
+            }
+        }
+        function checkRole(c) {
             var table = {reception: App.currentUser.receptionist, administration: App.currentUser.administrator, managementX: App.currentUser.managerX, managementZ: App.currentUser.managerZ}
             return table[c];
         }
@@ -89,12 +86,13 @@ Item {
             }
             delegate: Rectangle {
                 color: "transparent"
+                visible: grid.checkRole(BUTTONROLE)
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: childrenRect.height
                 Layout.minimumWidth: childrenRect.width
-                /*Layout.columnSpan: computeSpan(true)
-                Layout.rowSpan: computeSpan(false)*/
+                Layout.columnSpan: computeSpan(true)
+                Layout.rowSpan: computeSpan(false)
 
                 function computeSpan(columnAxis) {
                     var axisLength = 0;
@@ -127,23 +125,22 @@ Item {
                     height: Math.floor(grid.height*2/5)-grid.spacing
                     width: Math.floor(grid.width/2)-grid.spacing
                     anchors.centerIn: parent
-                    visible: true //grid.getRole(BUTTONROLE)
-                    enabled: true //grid.getRole(BUTTONROLE)
+                    enabled: grid.checkRole(BUTTONROLE)
                     text: qsTr(BUTTONTEXT)
                     onClicked: {
                         App.currentMode = grid.getMode(BUTTONROLE);
                         welcomePage.clicked();
                     }
-                    /*Binding {
+                    Binding {
                         target: button
                         property: "visible"
-                        value: grid.getRole(BUTTONROLE)
-                    }*/
-                    /*Binding {
+                        value: grid.checkRole(BUTTONROLE)
+                    }
+                    Binding {
                         target: button
                         property: "enabled"
-                        value: grid.getRole(BUTTONROLE)
-                    }*/
+                        value: grid.checkRole(BUTTONROLE)
+                    }
                 }
             }
         }
