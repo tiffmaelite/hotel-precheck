@@ -1,4 +1,4 @@
-CONNECT precheck-hotel USER 'precheck' PASSWORD 'hotel';
+CONNECT archives-hotel USER 'precheck' PASSWORD 'hotel';
 
 COMMIT;
 

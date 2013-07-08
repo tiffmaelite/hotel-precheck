@@ -44,7 +44,7 @@ Item {
             id: errorLabel
             visible: false
             color: "red"
-            font.pointSize: 15
+            font.pointSize: 14
             Layout.minimumHeight: paintedHeight+2
             Layout.minimumWidth: paintedWidth
             Layout.columnSpan: 2

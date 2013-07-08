@@ -1,5 +1,7 @@
 #include "SH_AdaptDatabaseState.h"
+#include "SH_MessageManager.h"
 #include "SH_DatabaseManager.h"
+#include <QtSql>
 #include <QtCore>
 /*namespace SimplHotel
 {*/
@@ -19,6 +21,7 @@ QVariant SH_AdaptDatabaseState::insertUpdate(QString table, QVariantMap content)
 {
     QVariant id = SH_DatabaseManager::getInstance()->execInsertReturningQuery(table, content, "id");
     if(id.isValid()) {
+        SH_MessageManager::debugMessage(QString("Nouvel upsert réussi dans la base de données pour la table : %1").arg(table));
         emit goNext();
     }
     return id;

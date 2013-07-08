@@ -155,11 +155,8 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
             SH_MessageManager::debugMessage(m_tableName + " " + this->fieldsList().join(", ") + " " +m_condition + " " + m_order);
             m_query = SH_DatabaseManager::getInstance()->execSelectQuery(m_tableName, this->fieldsList(), m_condition, m_order);
             bool next = m_query.next();
-            //SH_MessageManager::infoMessage(mSqlQuery.executedQuery());
-            /*if(next) {
-                SH_MessageManager::debugMessage("next ok");
-            }*/
-            while (next)
+            SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(m_query.executedQuery()).arg(m_query.size()));
+            while (next && m_query.isActive())
             {
                 QSqlRecord record = m_query.record();
 
@@ -169,7 +166,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
                 {
                     beginInsertRows(QModelIndex(), 0, 0);
                     m_records.append(record);
-//#ifdef DEBUG
+//#ifdef DEBUGMODE
                     int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {

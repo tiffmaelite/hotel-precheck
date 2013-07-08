@@ -197,7 +197,7 @@ public slots:
     */
     void cancelReplacement();
 signals:
-
+void displayProgressBar(qreal filledPercentage);
     /*!
     * \brief \~french
     * \fn clearAll

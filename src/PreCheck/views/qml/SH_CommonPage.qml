@@ -152,6 +152,7 @@ Item {
                 Repeater {
                     id: vatRep
                     model: SH_VATModel { }
+                    Component.onCompleted: model.fetch()
                     delegate:
                         Loader {
                         id: contentLoader

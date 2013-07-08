@@ -19,7 +19,7 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     SH_StringQuestionState* serviceName = new SH_StringQuestionState("Veuillez entrer ce qui sera affiché sur la facture", "service name in service charging",1);
     SH_DecimalQuestionState* price = new SH_DecimalQuestionState("", "price in service charging",-Q_INFINITY,Q_INFINITY);
     SH_DecimalQuestionState* quantity = new SH_DecimalQuestionState("", "quantity in service charging",1);
-    SH_DatabaseContentQuestionState* vat = new SH_DatabaseContentQuestionState("", "vat in service charging","TAXES","PERCENTAGE","ENABLED='1'");
+    SH_DatabaseContentQuestionState* vat = new SH_DatabaseContentQuestionState("", "vat in service charging","TAXES","PERCENTAGE","ENABLED='1'", true);
     QFinalState* final = new QFinalState();
     connect(service, &SH_QuestionState::answerInvalid, [=]() {
         int in = service->rawInput().toInt();

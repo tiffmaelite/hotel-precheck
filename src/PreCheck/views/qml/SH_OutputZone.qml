@@ -19,17 +19,31 @@ Rectangle {
             output.lastVisibleRow = -1;
         }
     }*/
-
+    signal displayProgressBar(real percentage)
     signal display(string text)
     signal displayNewFixed(string text)
     signal displayNew(string text, bool editable)
     signal replace(string text)
     signal selected(string selectedItem)
     signal selectedForDetail(var sqlDatas)
-
+    onDisplayProgressBar: {
+        if(output.lastVisibleRow < 0) {
+            output.lastVisibleRow = 0;
+        } else {
+            if(rep.itemAt(output.lastVisibleRow).model !== "" && rep.itemAt(output.lastVisibleRow).state !== "progress") {
+                output.lastVisibleRow++;
+            }
+        }
+        rep.itemAt(output.lastVisibleRow).model = percentage;
+        rep.itemAt(output.lastVisibleRow).state="progress";
+    }
     onSelectedForDetail: {
         if(output.lastVisibleRow < 0) {
             output.lastVisibleRow = 0;
+        } else {
+            if(rep.itemAt(output.lastVisibleRow).model !== "") {
+                output.lastVisibleRow++;
+            }
         }
         rep.itemAt(output.lastVisibleRow).model = sqlDatas;
         rep.itemAt(output.lastVisibleRow).state="detail";
@@ -224,6 +238,11 @@ Rectangle {
                             model: 0
                             visible: false
                         }
+                        PropertyChanges {
+                            target: progressBarContent
+                            value: 0
+                            visible: false
+                        }
                     },
                     State{
                         name: "choices"
@@ -245,6 +264,11 @@ Rectangle {
                             model: 0
                             visible: false
                         }
+                        PropertyChanges {
+                            target: progressBarContent
+                            value: 0
+                            visible: false
+                        }
                     },
                     State{
                         name: "choices"
@@ -265,6 +289,37 @@ Rectangle {
                             target: choiceContent
                             model: 0
                             visible: false
+                        }
+                        PropertyChanges {
+                            target: progressBarContent
+                            value: 0
+                            visible: false
+                        }
+                    },
+                    State{
+                        name: "progress"
+                        PropertyChanges {
+                            target: defaultContent
+                            visible: false
+                        }
+                        PropertyChanges {
+                            target: detailedContent
+                            model: 0
+                            visible: false
+                        }
+                        /*PropertyChanges {
+                            target: calendarContent
+                            visible: false
+                        }*/
+                        PropertyChanges {
+                            target: choiceContent
+                            model: 0
+                            visible: false
+                        }
+                        PropertyChanges {
+                            target: progressBarContent
+                            value: row.model === ""? 0  : 100*row.model
+                            visible: true
                         }
                     }
                 ]
@@ -275,7 +330,7 @@ Rectangle {
                         wrapMode: TextEdit.Wrap;
                         Layout.fillHeight: true
                         Layout.fillWidth: true
-                        font.pointSize: 12
+                        font.pointSize: 8
                         color: defaultContent.readOnly ? "gray" : "dimgray"
                     }
                     SH_ContentView {
@@ -288,6 +343,14 @@ Rectangle {
                     TableView {
                         id: detailedContent
                         model: 0
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+                    ProgressBar {
+                        id: progressBarContent
+                        minimumValue: 0
+                        maximumValue: 100
+                        value: 0
                         Layout.fillHeight: true
                         Layout.fillWidth: true
                     }

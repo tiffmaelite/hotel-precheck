@@ -59,4 +59,5 @@ include(../../libs/QtSignalGuard.pri)
 OTHER_FILES *= \
 	../Database/* \
 	../../README.md \
-	TODO.md
+	TODO.md \
+    ../Database/0_dbCrea_extension_pgSQL.sql

@@ -140,6 +140,8 @@ signals:
 
     void displayChoiceList(QVariantList choices);
 
+    void displayProgressBar(qreal filledPercentage);
+
     void tableNameChanged();
     void ioContentChanged();
     void ioStatesHistoryChanged();

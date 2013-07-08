@@ -52,7 +52,7 @@ TableView {
             id:headerText
             text: styleData.value !== undefined ? styleData.value : ""
             font.bold: true
-            font.pointSize: 10
+            font.pointSize: 9
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             maximumLineCount: 2

@@ -229,6 +229,7 @@ bool SH_ApplicationCore::launchStateMachine()
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list) {this->displayChoiceList(QVariant(list));});
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayFileDialog, this, &SH_ApplicationCore::displayFileDialog, Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayProgressBar, this, &SH_ApplicationCore::displayProgressBar, Qt::DirectConnection);
     emit clearAll();
     this->m_currentFSM->start();
     return this->m_currentFSM->isRunning();

@@ -17,7 +17,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     SH_InOutStateMachine("BILLINGS",name, parent)
 {
     SH_MessageManager::debugMessage("facturation");
-    SH_StatementState* intro = new SH_StatementState("Création d'une facturation\n", "intro billing creation");
+    SH_StatementState* intro = new SH_StatementState("<h2>Création d'une facturation</h2>", "intro billing creation");
     SH_NumericQuestionState* nbAdults = new SH_NumericQuestionState("Veuillez entrer le nombre d'adultes","adults billing creation", 0);
     SH_NumericQuestionState* nbChildren = new SH_NumericQuestionState("Veuillez entrer le nombre d'enfants", "children billing creation", 0);
     SH_DateQuestionState* arrivingDate = new SH_DateQuestionState("Veuillez entrer la date d'arrivée", "arriving date billing creation", true,true);
@@ -54,6 +54,24 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     });
     connect(confirmPart1, &SH_GenericState::exited, [=]() {
         setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
+    });
+    connect(billsCreation, &SH_GenericState::entered, [=]() {
+        displayProgressBar(0);
+        connect(billsCreation, &SH_LoopingInOutStateMachine::currentChanged, [=]() {
+            displayProgressBar(billsCreation->current()/(billsCreation->limit()+roomsAffectation->limit()+clientList->limit()));
+        });
+    });
+    connect(roomsAffectation, &SH_GenericState::entered, [=]() {
+        displayProgressBar(billsCreation->limit());
+        connect(roomsAffectation, &SH_LoopingInOutStateMachine::currentChanged, [=]() {
+            displayProgressBar((billsCreation->limit()+roomsAffectation->current())/(billsCreation->limit()+roomsAffectation->limit()+clientList->limit()));
+        });
+    });
+    connect(clientList, &SH_GenericState::entered, [=]() {
+        displayProgressBar(billsCreation->limit()+roomsAffectation->limit());
+        connect(clientList, &SH_LoopingInOutStateMachine::currentChanged, [=]() {
+            displayProgressBar((billsCreation->limit()+roomsAffectation->limit()+clientList->current())/(billsCreation->limit()+roomsAffectation->limit()+clientList->limit()));
+        });
     });
 
     SH_MessageManager::debugMessage("facturation : main connexions finished");
@@ -125,7 +143,6 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     this->addState(saveState);
     this->addState(final);
 
-    this->setStatesNextTransition(intro, final);
     this->setStatesNextTransition(intro, nbAdults);
     this->setStatesNextTransition(nbAdults, nbChildren);
     this->setStatesNextTransition(nbChildren, arrivingDate);

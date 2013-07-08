@@ -52,7 +52,7 @@ public:
     * \param databaseCondition
     * \param parent
     */
-    SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition = "", QState *parent = 0);
+    SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition = "", bool noChoiceDisplay = false, QState *parent = 0);
 
     /*** Properties Getters & Setters ***/
 
@@ -183,6 +183,8 @@ private:
     * \brief \~french m_choicesDisplayed
     */
     bool m_choicesDisplayed;
+
+    bool m_noChoiceDisplay;
 };
 /*}*/
 #endif /* DATABASECONTENTQUESTIONSTATE_H*/
