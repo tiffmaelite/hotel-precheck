@@ -73,7 +73,7 @@ public:
     \param role
     \return QVariant
     */
-    QVariant data(const QModelIndex &index, int role);
+    QVariant data(const QModelIndex &index, int role) const;
 
     /*!
     \brief \~french

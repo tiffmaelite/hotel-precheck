@@ -1,0 +1,1147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>  Howto setup Database Server With postgresql and pgadmin3&nbsp;|&nbsp;Ubuntu Geek</title>
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.ubuntugeek.com/feed" />
+<link rel="pingback" href="http://www.ubuntugeek.com/xmlrpc.php" />
+<link rel="stylesheet" href="http://www.ubuntugeek.com/wp-content/themes/UbuntuGeek/style.css" type="text/css" media="screen" />
+<!--[if lte IE 6]><script type="text/javascript" src="http://www.ubuntugeek.com/wp-content/themes/UbuntuGeek/unitpngfix.js"></script><![endif]-->
+<!--[if lte IE 6]><syle>#container, #footer { width: expression(document.body.clientWidth < 902? "900px" : document.body.clientWidth > 1202? "1200px" : "auto"); }</style><![endif]-->
+<!--[if IE]><link rel="stylesheet" type="text/css" href="http://www.ubuntugeek.com/wp-content/themes/UbuntuGeek/ie.css" media="screen" /><![endif]-->
+<style type="text/css" media="screen">
+	
+    form dl, dl.labels {
+      margin:0em;
+      font-size:100%;
+      margin-top:0.5em
+    }
+    form dt, dl.labels dt {
+      float:left;
+      
+      width:10em;
+      margin-bottom:0.8em;
+      color:#555;
+      text-align:right;
+      font-weight:normal;
+      position:relative /*IEWin hack*/
+    }
+    form dd, dl.labels dd {
+      margin-left:10.5em;
+      margin-bottom:0.8em;
+      font-size:100%;
+      font-style:normal;
+      padding-left:0.5em
+    }
+    form dd.submit, dl.labels dd.submit  {
+      margin-top:2em
+    }
+  </style>
+<link rel="alternate" type="application/rss+xml" title="Ubuntu Geek &raquo; Howto setup Database Server With postgresql and pgadmin3 Comments Feed" href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/feed" />
+<link rel='stylesheet' id='arconix-shortcodes-css'  href='http://www.ubuntugeek.com/wp-content/plugins/arconix-shortcodes/includes/css/shortcodes.css?ver=1.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-email-css'  href='http://www.ubuntugeek.com/wp-content/plugins/wp-email/email-css.css?ver=2.60' type='text/css' media='all' />
+<script type="text/javascript">/* <![CDATA[ */ var SHRSB_Globals = {"src":"http:\/\/www.ubuntugeek.com\/wp-content\/plugins\/shareaholic\/spritegen_default","perfoption":"1","twitter_template":"%24%7Btitle%7D+-+%24%7Bshort_link%7D+via+%40Shareaholic","locale":"0","shortener":"google","shortener_key":"","pubGaSocial":0,"pubGaKey":""}; /* ]]> */</script><script type='text/javascript' src='http://www.ubuntugeek.com/wp-includes/js/comment-reply.min.js?ver=3.5.2'></script>
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript'>try{jQuery.noConflict();}catch(e){};</script>
+<script type='text/javascript' src='http://dtym7iokkjlif.cloudfront.net/media/js/jquery.shareaholic-publishers-sb.min.js?ver=6.1.3.8'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.ubuntugeek.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.ubuntugeek.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Howto Crack pdf File Password' href='http://www.ubuntugeek.com/howto-crack-pdf-file-password.html' />
+<link rel='next' title='Install Nodoka (Fedora theme) on Ubuntu' href='http://www.ubuntugeek.com/install-nodoka-fedora-theme-on-ubuntu.html' />
+<link rel='canonical' href='http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html' />
+<link rel='shortlink' href='http://www.ubuntugeek.com/?p=375' />
+
+<!-- Powered by AdSense-Deluxe WordPress Plugin v0.8 - http://www.acmetech.com/blog/adsense-deluxe/ -->
+
+<!-- Shareaholic Content Tags -->
+
+<meta property='shareaholic:site_name' content='Ubuntu Geek' />
+
+<!-- / Shareaholic Content Tags -->
+
+
+
+<!-- Shareaholic - Open Graph Tags -->
+
+	<!-- Shareaholic Notice: There is neither a featured nor gallery image set -->
+
+<!-- / Shareaholic - Open Graph Tags -->
+
+<script type="text/javascript">/* <![CDATA[ */ var SHRSB_Globals = {"src":"http:\/\/www.ubuntugeek.com\/wp-content\/plugins\/shareaholic\/spritegen_default","perfoption":"1","twitter_template":"%24%7Btitle%7D+-+%24%7Bshort_link%7D+via+%40Shareaholic","locale":"0","shortener":"google","shortener_key":"","pubGaSocial":0,"pubGaKey":""}; /* ]]> */</script><!-- wp thread comment 1.4.9.4.002 -->
+<style type="text/css" media="screen">
+
+.editComment, .editableComment, .textComment{
+	display: inline;
+}
+.comment-childs{
+	border: 1px solid #999;
+	margin: 5px 2px 2px 4px;
+	padding: 4px 2px 2px 4px;
+	background-color: white;
+}
+.chalt{
+	background-color: #E2E2E2;
+}
+#newcomment{
+	border:1px dashed #777;width:90%;
+}
+#newcommentsubmit{
+	color:red;
+}
+.adminreplycomment{
+	border:1px dashed #777;
+	width:99%;
+	margin:4px;
+	padding:4px;
+}
+.mvccls{
+	color: #999;
+}
+			
+</style>
+</head>
+<body>
+<div id="container">
+
+<div class="clear"></div>
+<div id="header" class="g33">
+<div id="logo" class="g23 alpha">
+<h2><a href="http://www.ubuntugeek.com"><img src="http://www.ubuntugeek.com/wp-content/themes/UbuntuGeek/images/logo3.png" alt="Ubuntu Geek" /></a></h2>
+<h3>Ubuntu Linux Tutorials,Howtos,Tips &amp; News | Quantal,Precise,Oneiric </h3>
+</div>
+<div id="search" class="g10 omega">
+
+<!-- Google CSE Search Box Begins  -->
+<form action="http://www.ubuntugeek.com/search/" id="searchbox_017338271194360913207:vuzb4jxd_2m">
+  <input type="hidden" name="cx" value="017338271194360913207:vuzb4jxd_2m" />
+  <input type="hidden" name="cof" value="FORID:11" />
+  <input type="text" name="q" size="25" />
+  <input type="submit" name="sa" value="Search" />
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_017338271194360913207%3Avuzb4jxd_2m&lang=en"></script>
+<!-- Google CSE Search Box Ends -->
+
+</div>
+</div>
+<div id="bar1" class="g33">
+<ul id="pg">
+<li><a href="http://www.ubuntugeek.com">Home</a></li>
+<li class="page_item page-item-3411"><a href="http://www.ubuntugeek.com/forum" target="_blank">Forum</a></li>
+<li class="page_item page-item-6271"><a href="http://www.ubuntugeek.com/free-ubuntu-e-books">Free Ubuntu E-Books</a></li>
+<li class="page_item page-item-154"><a href="http://www.ubuntugeek.com/submit-article">Submit Article</a></li>
+<li class="page_item page-item-768"><a href="http://www.ubuntugeek.com/top-posts">Top Posts</a></li>
+<li class="page_item page-item-774"><a href="http://www.ubuntugeek.com/ubuntu-hosting">Ubuntu Hosting</a></li>
+<li class="page_item page-item-11"><a href="http://www.ubuntugeek.com/contact">Contact</a></li>
+<li class="page_item page-item-402"><a href="http://www.ubuntugeek.com/about-2">About</a></li>
+<li class="page_item page-item-454"><a href="http://www.ubuntugeek.com/subscribe">Newsletter and RSS Feed</a></li>
+<li class="page_item page-item-400"><a href="http://www.ubuntugeek.com/sitemap">Sitemap</a></li>
+<li class="page_item page-item-1459"><a href="http://www.ubuntugeek.com/privacy-policy">Privacy Policy</a></li>
+<li class="page_item page-item-404"><a href="http://www.ubuntugeek.com/search">Search</a></li>
+</ul>
+</div>
+<div class="clear"></div>
+
+
+<div id="content" class="g33">
+<div style="text-align:center">
+<div align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-3561711309083119";
+//UG-TOPLinks-468x15
+google_ad_slot = "0021823703";
+google_ad_width = 468;
+google_ad_height = 15;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div><div id="sidebar-left" class="g6 alpha">
+<ul>
+<li id="text-310769683" class="widget widget_text"><h2 class="widgettitle">Sponsor</h2>
+			<div class="textwidget"><ul>
+<a href="http://www.a2hosting.com/1659-vps-224-custom.html" target="_blank">
+<img src="http://www.ubuntugeek.com/images/ubuntu1.png" border="0" alt="Cheap Web Hosting" /></a>
+</ul><br />
+
+<a href='http://ubuntuservergui.com'target="_blank">Ubuntu Server GUI</a><br />
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "pub-3561711309083119";
+//UGleft160x90
+google_ad_slot = "0800632016";
+google_ad_width = 160;
+google_ad_height = 90;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+		</li>
+<li id="categories-310769689" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-3"><a href="http://www.ubuntugeek.com/category/backup" title="View all posts filed under Backup">Backup</a>
+</li>
+	<li class="cat-item cat-item-6929"><a href="http://www.ubuntugeek.com/category/free-books" title="View all posts filed under Free Books">Free Books</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.ubuntugeek.com/category/general" title="View all posts filed under General">General</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.ubuntugeek.com/category/monitoring" title="View all posts filed under Monitoring">Monitoring</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.ubuntugeek.com/category/networking" title="View all posts filed under Networking">Networking</a>
+</li>
+	<li class="cat-item cat-item-2626"><a href="http://www.ubuntugeek.com/category/news" title="View all posts filed under News">News</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.ubuntugeek.com/category/package-mgmt" title="View all posts filed under Package Mgmt">Package Mgmt</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.ubuntugeek.com/category/security" title="View all posts filed under Security">Security</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.ubuntugeek.com/category/server" title="View all posts filed under Server">Server</a>
+</li>
+		</ul>
+</li>
+<li id="text-390956925" class="widget widget_text">			<div class="textwidget"><ul>
+<a href="http://www.digitalocean.com/?utm_source=UnbuntuGeek&utm_medium=BannerAd&utm_campaign=UnbuntuGeekBannerAd" target="_blank">
+<img src="http://www.ubuntugeek.com/images/od.jpg" border="0" alt="Deploy Ubuntu VPS server
+> > in 60 sec" /></a>
+</ul><br /></div>
+		</li>
+<li id="text-310769684" class="widget widget_text"><h2 class="widgettitle">Sponsor</h2>
+			<div class="textwidget"><br />
+<script type="text/javascript"><!--
+google_ad_client = "pub-3561711309083119";
+//UG-Left1-160x90
+google_ad_slot = "7832127707";
+google_ad_width = 160;
+google_ad_height = 90;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+		</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Login/Register</h2>
+			<ul>
+						<li><a href="http://www.ubuntugeek.com/wp-login.php">Log in</a></li>
+		
+						</ul>
+</li>
+<li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'> <option value="">Select Month</option> 	<option value='http://www.ubuntugeek.com/2013/07'> July 2013 </option>
+	<option value='http://www.ubuntugeek.com/2013/06'> June 2013 </option>
+	<option value='http://www.ubuntugeek.com/2013/05'> May 2013 </option>
+	<option value='http://www.ubuntugeek.com/2013/04'> April 2013 </option>
+	<option value='http://www.ubuntugeek.com/2013/03'> March 2013 </option>
+	<option value='http://www.ubuntugeek.com/2013/02'> February 2013 </option>
+	<option value='http://www.ubuntugeek.com/2013/01'> January 2013 </option>
+	<option value='http://www.ubuntugeek.com/2012/12'> December 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/11'> November 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/10'> October 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/09'> September 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/08'> August 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/07'> July 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/06'> June 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/05'> May 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/04'> April 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/03'> March 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/02'> February 2012 </option>
+	<option value='http://www.ubuntugeek.com/2012/01'> January 2012 </option>
+	<option value='http://www.ubuntugeek.com/2011/12'> December 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/11'> November 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/10'> October 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/09'> September 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/08'> August 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/07'> July 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/06'> June 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/05'> May 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/04'> April 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/03'> March 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/02'> February 2011 </option>
+	<option value='http://www.ubuntugeek.com/2011/01'> January 2011 </option>
+	<option value='http://www.ubuntugeek.com/2010/12'> December 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/11'> November 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/10'> October 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/09'> September 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/08'> August 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/07'> July 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/06'> June 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/05'> May 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/04'> April 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/03'> March 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/02'> February 2010 </option>
+	<option value='http://www.ubuntugeek.com/2010/01'> January 2010 </option>
+	<option value='http://www.ubuntugeek.com/2009/12'> December 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/11'> November 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/10'> October 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/09'> September 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/08'> August 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/07'> July 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/06'> June 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/05'> May 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/04'> April 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/03'> March 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/02'> February 2009 </option>
+	<option value='http://www.ubuntugeek.com/2009/01'> January 2009 </option>
+	<option value='http://www.ubuntugeek.com/2008/12'> December 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/11'> November 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/10'> October 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/09'> September 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/08'> August 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/07'> July 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/06'> June 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/05'> May 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/04'> April 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/03'> March 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/02'> February 2008 </option>
+	<option value='http://www.ubuntugeek.com/2008/01'> January 2008 </option>
+	<option value='http://www.ubuntugeek.com/2007/12'> December 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/11'> November 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/10'> October 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/09'> September 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/08'> August 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/07'> July 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/06'> June 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/05'> May 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/04'> April 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/03'> March 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/02'> February 2007 </option>
+	<option value='http://www.ubuntugeek.com/2007/01'> January 2007 </option>
+	<option value='http://www.ubuntugeek.com/2006/12'> December 2006 </option>
+ </select>
+</li>
+</ul>
+</div><div id="main" class="g21 alpha omega">
+<div class="post-375 post type-post status-publish format-standard hentry category-server tag-configuring-postgresql-server-ubuntu tag-database-server-ubuntu tag-install-pgadmin3 tag-install-postgresql-server-ubuntu tag-pgadmin3-ubuntu tag-postgresql-server-ubuntu tag-server" id="post-375">
+<div class="pt"><h1><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" rel="bookmark" title="Permanent link to Howto setup Database Server With postgresql and pgadmin3">Howto setup Database Server With postgresql and pgadmin3</a></h1></div>
+<div class="meta">April 14, 2008 &middot; <a href="http://www.ubuntugeek.com/category/server" title="View all posts in Server" rel="category tag">Server</a>  &middot; <a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/emailpopup/" onclick="email_popup(this.href); return false;"  title="Email This Post" rel="nofollow">Email This Post</a>
+ </div>
+<div class="text">
+<div class="wwsgd" style="display:none;"><p style="border:thin dotted black; padding:3mm;">If you're new here, you may want to subscribe to my <a href="http://feedproxy.google.com/UbuntuGeek">RSS feed</a> and if you have questions related to your ubuntu system post question to our <a href="http://www.ubuntugeek.com/forum">forums</a>. Thanks for visiting!</p></div><!-- Start Shareaholic LikeButtonSetTop Automatic --><!-- End Shareaholic LikeButtonSetTop Automatic --><div class="shr-publisher-375"></div><p><div style="display:block;float:left;padding:5px;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-3561711309083119";
+//Ubuntu Rectangle
+google_ad_slot = "1464388544";
+google_ad_width = 300;
+google_ad_height = 250;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>PostgreSQL is a powerful, open source relational database system. It has more than 15 years of active development and a proven architecture that has earned it a strong reputation for reliability, data integrity, and correctness. It runs on all major operating systems, including Linux, UNIX (AIX, BSD, HP-UX, SGI IRIX, Mac OS X, Solaris, Tru64), and Windows. It is fully ACID compliant, has full support for foreign keys, joins, views, triggers, and stored procedures (in multiple languages). It includes most SQL92 and SQL99 data types, including INTEGER, NUMERIC, BOOLEAN, CHAR, VARCHAR, DATE, INTERVAL, and TIMESTAMP. It also supports storage of binary large objects, including pictures, sounds, or video. It has native programming interfaces for C/C++, Java, .Net, Perl, Python, Ruby, Tcl, ODBC, among others.</p>
+<p><span id="more-375"></span>pgAdmin III is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world. The application may be used on Linux, FreeBSD, OpenSUSE, Solaris, Mac OSX and Windows platforms to manage PostgreSQL 7.3 and above running on any platform, as well as commercial and derived versions of PostgreSQL such as EnterpriseDB, Mammoth PostgreSQL, Bizgres and Greenplum database.</p>
+<p>pgAdmin III is designed to answer the needs of all users, from writing simple SQL queries to developing complex databases. The graphical interface supports all PostgreSQL features and makes administration easy. The application also includes a syntax highlighting SQL editor, a server-side code editor, an SQL/batch/shell job scheduling agent, support for the Slony-I replication engine and much more. Server connection may be made using TCP/IP or Unix Domain Sockets (on *nix platforms), and may be SSL encrypted for security. No additional drivers are required to communicate with the database server.</p>
+<p><strong>Install Postgresql and pgadmin3 in Ubuntu</strong></p>
+<p>PostgreSQL 8.2 version will be installed in Ubuntu 7.10 (Gutsy Gibbon)</p>
+<p>sudo apt-get install postgresql-8.2 postgresql-client-8.2 postgresql-contrib-8.2</p>
+<p>sudo apt-get install pgadmin3</p>
+<p>This will install the database server/client, some extra utility scripts and the pgAdmin GUI application for working with the database.</p>
+<p><strong>Configuring postgresql in Ubuntu</strong></p>
+<p>Now we need to reset the password for the ‘postgres’ admin account for the server</p>
+<p>sudo su postgres -c psql template1<br />
+template1=# ALTER USER postgres WITH PASSWORD &#8216;password';<br />
+template1=# \q</p>
+<p>That alters the password for within the database, now we need to do the same for the unix user ‘postgres’:</p>
+<p>sudo passwd -d postgres</p>
+<p>sudo su postgres -c passwd</p>
+<p>Now enter the same password that you used previously.</p>
+<p>from here on in we can use both pgAdmin and command-line access (as the postgres user) to run the database server. But before you jump into pgAdmin we should set-up the PostgreSQL admin pack that enables better logging and monitoring within pgAdmin. Run the following at the command-line</p>
+<p>we need to open up the server so that we can access and use it remotely -- unless you only want to access the database on the local machine. To do this, first, we need to edit the postgresql.conf file:</p>
+<p>sudo gedit /etc/postgresql/8.2/main/postgresql.conf</p>
+<p>Now, to edit a couple of lines in the ‘Connections and Authentication’ section</p>
+<p>Change the line</p>
+<p>#listen_addresses = &#8216;localhost'</p>
+<p>to</p>
+<p>listen_addresses = &#8216;*'</p>
+<p>and also change the line</p>
+<p>#password_encryption = on</p>
+<p>to</p>
+<p>password_encryption = on</p>
+<p>Then save the file and close gedit.</p>
+<p>Now for the final step, we must define who can access the server. This is all done using the pg_hba.conf file.</p>
+<p>sudo gedit /etc/postgresql/8.2/main/pg_hba.conf</p>
+<p>Comment out, or delete the current contents of the file, then add this text to the bottom of the file</p>
+<p>DO NOT DISABLE!<br />
+# If you change this first entry you will need to make sure that the<br />
+# database<br />
+# super user can access the database using some other method.<br />
+# Noninteractive<br />
+# access to all databases is required during automatic maintenance<br />
+# (autovacuum, daily cronjob, replication, and similar tasks).<br />
+#<br />
+# Database administrative login by UNIX sockets<br />
+local all postgres ident sameuser<br />
+# TYPE DATABASE USER CIDR-ADDRESS METHOD</p>
+<p># "local" is for Unix domain socket connections only<br />
+local all all md5<br />
+# IPv4 local connections:<br />
+host all all 127.0.0.1/32 md5<br />
+# IPv6 local connections:<br />
+host all all ::1/128 md5</p>
+<p># Connections for all PCs on the subnet<br />
+#<br />
+# TYPE DATABASE USER IP-ADDRESS IP-MASK METHOD<br />
+host all all [ip address] [subnet mask] md5</p>
+<p>and in the last line, add in your subnet mask (i.e. 255.255.255.0) and the IP address of the machine that you would like to access your server (i.e. 138.250.192.115). However, if you would like to enable access to a range of IP addresses, just substitute the last number for a zero and all machines within that range will be allowed access (i.e. 138.250.192.0 would allow all machines with an IP address 138.250.192.x to use the database server).</p>
+<p>That’s it, now all you have to do is restart the server</p>
+<p>sudo /etc/init.d/postgresql-8.2 restart</p>
+<p>That's it you can start using postgresql in Ubuntu</p>
+<p><strong>Create a Database from command line</strong></p>
+<p>You can also use pgadmin3 for all postgresql related</p>
+<p>To create a database with a user that have full rights on the database, use the following command</p>
+<p>sudo -u postgres createuser -D -A -P mynewuser</p>
+<p>sudo -u postgres createdb -O mynewuser mydatabase</p>
+<p><center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3561711309083119";
+/* New Ubuntu Bottom */
+google_ad_slot = "5550623370";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center></p>
+<h4>Incoming search terms:</h4><ul><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="postgresql ubuntu">postgresql ubuntu</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="ubuntu postgresql">ubuntu postgresql</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="ubuntu postgresql tutorial">ubuntu postgresql tutorial</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="pgadmin3 tutorial">pgadmin3 tutorial</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="pgadmin tutorial">pgadmin tutorial</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="postgres ubuntu">postgres ubuntu</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="pgadmin ubuntu">pgadmin ubuntu</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="postgresql ubuntu tutorial">postgresql ubuntu tutorial</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="ubuntu pgadmin">ubuntu pgadmin</a></li><li><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html" title="postgresql on ubuntu">postgresql on ubuntu</a></li></ul><!-- Start Shareaholic LikeButtonSetBottom Automatic --><!-- End Shareaholic LikeButtonSetBottom Automatic -->
+	<h4>Related posts</h4>
+	<ul class="st-related-posts">
+	<li><a href="http://www.ubuntugeek.com/zentyal-linux-small-business-server-based-on-ubuntu-10-04.html" title="Zentyal &#8211; Linux Small Business Server based on ubuntu 10.04 (October 13, 2010)">Zentyal &#8211; Linux Small Business Server based on ubuntu 10.04</a> (3)</li>
+	<li><a href="http://www.ubuntugeek.com/webmin-installation-and-configuration-in-ubuntu-linux.html" title="Webmin Installation and Configuration in Ubuntu Linux (December 22, 2006)">Webmin Installation and Configuration in Ubuntu Linux</a> (21)</li>
+	<li><a href="http://www.ubuntugeek.com/webalizer-apache-web-server-log-file-analysis-tool.html" title="Webalizer &#8211; Apache web server log file analysis Tool (June 10, 2008)">Webalizer &#8211; Apache web server log file analysis Tool</a> (15)</li>
+	<li><a href="http://www.ubuntugeek.com/web-based-centralized-console-for-tripwire.html" title="Web-based centralized console for tripwire (December 8, 2009)">Web-based centralized console for tripwire</a> (0)</li>
+	<li><a href="http://www.ubuntugeek.com/using-nginx-as-a-reverse-proxy-to-get-the-most-out-of-your-vps.html" title="Using Nginx as a Reverse Proxy to Get the Most Out of Your VPS. (May 26, 2009)">Using Nginx as a Reverse Proxy to Get the Most Out of Your VPS.</a> (15)</li>
+	<li><a href="http://www.ubuntugeek.com/upgrade-ubuntu-server-610-edgy-eft-to-704-feisty-fawn.html" title="Upgrade Ubuntu Server 6.10 (Edgy Eft) to 7.04 (Feisty Fawn) (April 25, 2007)">Upgrade Ubuntu Server 6.10 (Edgy Eft) to 7.04 (Feisty Fawn)</a> (4)</li>
+	<li><a href="http://www.ubuntugeek.com/upgrade-ubuntu-810-intrepid-to-ubuntu-904-jaunty-server.html" title="Upgrade Ubuntu 8.10 (Intrepid) To Ubuntu 9.04 (Jaunty) Server (May 1, 2009)">Upgrade Ubuntu 8.10 (Intrepid) To Ubuntu 9.04 (Jaunty) Server</a> (2)</li>
+</ul>
+
+</div>
+</div>
+<div class="navigation">
+<div class="alignleft">&larr; <a href="http://www.ubuntugeek.com/howto-crack-pdf-file-password.html" rel="prev">Howto Crack pdf File Password</a></div>
+<div class="alignright"><a href="http://www.ubuntugeek.com/install-nodoka-fedora-theme-on-ubuntu.html" rel="next">Install Nodoka (Fedora theme) on Ubuntu</a> &rarr;</div>
+</div>
+<!--
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html"
+    dc:identifier="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html"
+    dc:title="Howto setup Database Server With postgresql and pgadmin3"
+    trackback:ping="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/trackback" />
+</rdf:RDF> -->
+
+<h3 id="comments">27 Comments to &#8220;Howto setup Database Server With postgresql and pgadmin3&#8221;</h3>
+<ol class="commentlist">
+		<li class="comment even thread-even depth-1" id="comment-3033">
+				<div id="div-comment-3033" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">yes, i really do want to know, thanks</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3033">
+			April 14, 2008 at 11:26 pm</a>		</div>
+
+		<p>Why should postgresql be used instead of mysql? Isnt mysql the default database in the server package thingie in ubuntu anyway?</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3033,1,'yes, i really do want to know, thanks');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3034">
+				<div id="div-comment-3034" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">admin</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3034">
+			April 15, 2008 at 6:50 am</a>		</div>
+
+		<p>mainly related to performance.If you install LAMP server mysql is default package.If you install basic installation without LAMP option you can install any database.</p>
+<p>Mostly now a days Postgresql is used for webdevelopment</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3034,1,'admin');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3035">
+				<div id="div-comment-3035" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://aarcane.org/' rel='external nofollow' class='url'>Christ</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3035">
+			April 20, 2008 at 9:58 pm</a>		</div>
+
+		<p>PostgreSQL is a more feature-rich database than mysql, more robust and more reliable.  Mysql is used for pure speed and not much else.  Both are perfectly acceptable choices, and will fulfill most people&#8217;s needs nicely.  the only reason mysql has such a large share of the web development market is because the mysql client was once included in PHP, the leading language used for development of web applications.</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3035,1,'Christ');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3036">
+				<div id="div-comment-3036" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Mick</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3036">
+			April 21, 2008 at 3:50 am</a>		</div>
+
+		<p>Licensing is one good reason to use it over MySQL. PostgreSQL has a BSD license, which may mean a lot to some users wanting to sell software. MySQL has also started making moves to become more commercial, limiting some features to corporate versions. There could be some number of developers jumping ship to support PostgreSQL in the near future, so it might finally be their turn in the sun, from all I&#8217;ve seen it is a solid system and should be pretty deserving of a bit more attention.</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3036,1,'Mick');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3037">
+				<div id="div-comment-3037" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">jj</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3037">
+			April 22, 2008 at 10:39 pm</a>		</div>
+
+		<p>In configuration section, after &#8220;template1=# \q&#8221; I received the following response</p>
+<p>postgres=# template1=# ALTER USER postgres WITH PASSWORD ‘jack’;</p>
+<p>ERROR:  syntax error at or near &#8220;template1&#8243;</p>
+<p>LINE 1: template1=# ALTER USER postgres WITH PASSWORD ‘jack’;<br />
+postgres=# template1=# \q</p>
+<p>Not sure if I was to literally use the word &#8220;password&#8221;, I substituted my own password &#8216;jack&#8217;</p>
+<p>Did I screw up?</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3037,1,'jj');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3038">
+				<div id="div-comment-3038" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">jj</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3038">
+			April 23, 2008 at 12:25 am</a>		</div>
+
+		<p>There should be a hash (#)before &#8220;DO NOT DISABLE!&#8221;</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3038,1,'jj');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3039">
+				<div id="div-comment-3039" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">jmvbxx</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3039">
+			April 30, 2008 at 4:39 am</a>		</div>
+
+		<p>Where is the default database installed?  thx</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3039,1,'jmvbxx');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3040">
+				<div id="div-comment-3040" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">spicedreams</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3040">
+			June 18, 2008 at 11:41 am</a>		</div>
+
+		<p><i>postgres=# template1=# ALTER USER postgres WITH PASSWORD ‘jack’;</p>
+<p>ERROR: syntax error at or near “template1?</i></p>
+<p>This is because <i>template1=#</i> is the prompt you&#8217;re supposed to see, not part of the command. In fact you&#8217;re seeing the prompt <i>postgres=#</i>, indicating that you&#8217;re logged in to the database &#8216;postgres&#8217; rather than &#8216;template1&#8242; that you should be. That in turn is because the earlier command listed above: <i>sudo su postgres -c psql template1</i> is wrong- it should read <i>sudo su postgres -c &#8220;psql -d template1&#8243;</i>, which will connect you to database &#8216;template1&#8242; as needed.</p>
+<p>The typographical `quotes&#8217; around the password in the instructions are wrong too- you need to replace them with simple &#8216;quotes&#8217; or you will get other errors.</p>
+<p>That said, I have been using this to help me set up my own postgresql server and it has helped me. Is it strictly true that the unix password for the user &#8216;postgresql&#8217; needs to match the database server&#8217;s password for the user of the same name? I think I have got away in the past without making them match.</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3040,1,'spicedreams');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3041">
+				<div id="div-comment-3041" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">spicedreams</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3041">
+			June 18, 2008 at 11:45 am</a>		</div>
+
+		<p>in fact watch out for the &#8216;typographical quotes&#8217; issue throughout. This WordPress web server software takes all your nice simple <code>"</code> and <code>'</code> quotes as required for these commands, and replaces them with dumb &#8220;typographical&#8221; &#8216;quotes&#8217; which don&#8217;t work. It&#8217;s probably a setting in the wordpress configuration- it needs to be turned off please!</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3041,1,'spicedreams');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3042">
+				<div id="div-comment-3042" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://www.google.ca' rel='external nofollow' class='url'>chappejw</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3042">
+			July 24, 2008 at 3:20 am</a>		</div>
+
+		<p>Thanks for the great quick tutorial. Don&#8217;t forget to read user&#8217;s comments and update/fix your typos&#8230; <img src='http://www.ubuntugeek.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3042,1,'chappejw');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3043">
+				<div id="div-comment-3043" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://www.shareyard.com' rel='external nofollow' class='url'>se7s</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3043">
+			October 13, 2008 at 3:12 pm</a>		</div>
+
+		<p>Thank you so much .. u just saved my day with this great tutorial</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3043,1,'se7s');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3044">
+				<div id="div-comment-3044" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">OldManRiver</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3044">
+			November 20, 2008 at 6:15 pm</a>		</div>
+
+		<p>All,</p>
+<p>Followed this HOWTO and got the the restart part and get:</p>
+<p>root@u-main-svr:/etc/postgresql/8.2/main# sudo /etc/init.d/postgresql-8.2 restart<br />
+ * Restarting PostgreSQL 8.2 database server                                     * Error: pid file is invalid, please manually kill the stale server process.<br />
+                                                                         [fail]</p>
+<p>Tried a stop and start instead but no luck</p>
+<p>What do I need to do to get around this problem?</p>
+<p>OMR</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3044,1,'OldManRiver');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3045">
+				<div id="div-comment-3045" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">OldManRiver</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3045">
+			November 20, 2008 at 6:32 pm</a>		</div>
+
+		<p>All,</p>
+<p>I see why I get no restart when I run the following this is all I get:<br />
+<code><br />
+# find /* -name postg*<br />
+/etc/postgresql/8.2/main/postgresql.conf<br />
+</code><br />
+so system contains no control script in the &#8220;/etc/init.d&#8221; dir.</p>
+<p>OMR</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3045,1,'OldManRiver');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3046">
+				<div id="div-comment-3046" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">OldManRiver</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3046">
+			November 20, 2008 at 6:36 pm</a>		</div>
+
+		<p>All,</p>
+<p>Take that back, was not in root dir.</p>
+<p>OMR</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3046,1,'OldManRiver');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3047">
+				<div id="div-comment-3047" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://www.cts-media.eu' rel='external nofollow' class='url'>Witi</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3047">
+			November 26, 2008 at 9:15 am</a>		</div>
+
+		<p>Thank you for the nice tutorial! I think i will give Postgres a try!</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3047,1,'Witi');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3048">
+				<div id="div-comment-3048" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Piotrek</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-3048">
+			December 9, 2008 at 10:12 pm</a>		</div>
+
+		<p>Very handy jump start<br />
+Thanx !</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,3048,1,'Piotrek');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-10724">
+				<div id="div-comment-10724" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Cesar Scheck</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-10724">
+			July 5, 2009 at 3:19 am</a>		</div>
+
+		<p>Thank you, buddy!!!<br />
+I was looking for a code to change the admin&#8217;s password and I found your article.</p>
+<p>After coding, I had to stop and start the service to make this thing works,<br />
+Thanks once!<br />
+Best regards!</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,10724,1,'Cesar Scheck');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-11371">
+				<div id="div-comment-11371" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Pat</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-11371">
+			July 23, 2009 at 8:39 am</a>		</div>
+
+		<p>I Tried to execute the command but im getting this WARNING&#8230;did i do something wrong?</p>
+<p>petrus@petrus-laptop:~$ sudo gedit /etc/postgresql/8.2/main/postgresql.conf</p>
+<p>(gedit:8166): Gtk-WARNING **: cannot open display:</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,11371,1,'Pat');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-16877">
+				<div id="div-comment-16877" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">Alan Ha;e</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-16877">
+			November 18, 2009 at 5:53 pm</a>		</div>
+
+		<p>Isn&#8217;t there some text missing at the end of the section on&#8221; set-up the PostgreSQL admin pack&#8221; ? WHAT do you run at the command line to set this up?</p>
+<p>Many thanks for the tutorial.</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,16877,1,'Alan Ha;e');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-18730">
+				<div id="div-comment-18730" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">BtcheBtch</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-18730">
+			December 11, 2009 at 6:21 pm</a>		</div>
+
+		<p>I got all the info needed,<br />
+Thank you so much !</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,18730,1,'BtcheBtch');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-26357">
+				<div id="div-comment-26357" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://www.blizzardboy.net/' rel='external nofollow' class='url'>Simon</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-26357">
+			March 25, 2010 at 1:24 pm</a>		</div>
+
+		<p>Thanks for the tutorial. I used it to get connected&#8230;</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,26357,1,'Simon');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-27970">
+				<div id="div-comment-27970" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://-' rel='external nofollow' class='url'>Gontrand</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-27970">
+			April 20, 2010 at 2:29 pm</a>		</div>
+
+		<p>Some commands missing for admin pack installation I think as Alan Ha;e already mention&#8230;</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,27970,1,'Gontrand');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-27971">
+				<div id="div-comment-27971" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://-' rel='external nofollow' class='url'>Gontrand</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-27971">
+			April 20, 2010 at 2:33 pm</a>		</div>
+
+		<p>Not sure, but maybe this command :</p>
+<p>$ sudo su postgres -c psql &lt; /usr/share/postgresql/8.2/contrib/adminpack.sql</p>
+<p>At the end of this post :</p>
+<p><a href="http://moojix.wordpress.com/2008/06/24/install-postgresql-82-under-ubuntu-with-adminpack/" rel="nofollow">http://moojix.wordpress.com/2008/06/24/install-postgresql-82-under-ubuntu-with-adminpack/</a></p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,27971,1,'Gontrand');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-42662">
+				<div id="div-comment-42662" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">RezvieFN</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-42662">
+			August 7, 2010 at 7:17 am</a>		</div>
+
+		<p>Postgres is a good choice. </p>
+<p>Follow this step to install latest Postgres:<br />
+- go to &#8220;Synaptic Package Manager&#8221; then search &#8220;postgresql&#8221; only, then click Apply<br />
+- while you are on &#8220;Synaptic Package Manager&#8221; search &#8220;pgadmin3&#8243; only, then click Apply</p>
+<p>then follow the other steps:<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;<br />
+Configuring postgresql in Ubuntu</p>
+<p>Now we need to reset the password for the ‘postgres’ admin account for the server</p>
+<p>sudo su postgres -c psql template1<br />
+template1=# ALTER USER postgres WITH PASSWORD ‘password’;<br />
+template1=# \q</p>
+<p>That alters the password for within the database, now we need to do the same for the unix user ‘postgres’:</p>
+<p>sudo passwd -d postgres</p>
+<p>sudo su postgres -c passwd</p>
+<p>Now enter the same password that you used previously.</p>
+<p>from here on in we can use both pgAdmin and command-line access (as the postgres user) to run the database server. But before you jump into pgAdmin we should set-up the PostgreSQL admin pack that enables better logging and monitoring within pgAdmin. Run the following at the command-line</p>
+<p>we need to open up the server so that we can access and use it remotely &#8211; unless you only want to access the database on the local machine. To do this, first, we need to edit the postgresql.conf file:</p>
+<p>sudo gedit /etc/postgresql/8.2/main/postgresql.conf</p>
+<p>Now, to edit a couple of lines in the ‘Connections and Authentication’ section</p>
+<p>Change the line</p>
+<p>#listen_addresses = ‘localhost’</p>
+<p>to</p>
+<p>listen_addresses = ‘*’</p>
+<p>and also change the line</p>
+<p>#password_encryption = on</p>
+<p>to</p>
+<p>password_encryption = on</p>
+<p>Then save the file and close gedit.</p>
+<p>Now for the final step, we must define who can access the server. This is all done using the pg_hba.conf file.</p>
+<p>sudo gedit /etc/postgresql/8.2/main/pg_hba.conf</p>
+<p>Comment out, or delete the current contents of the file, then add this text to the bottom of the file</p>
+<p>DO NOT DISABLE!<br />
+# If you change this first entry you will need to make sure that the<br />
+# database<br />
+# super user can access the database using some other method.<br />
+# Noninteractive<br />
+# access to all databases is required during automatic maintenance<br />
+# (autovacuum, daily cronjob, replication, and similar tasks).<br />
+#<br />
+# Database administrative login by UNIX sockets<br />
+local all postgres ident sameuser<br />
+# TYPE DATABASE USER CIDR-ADDRESS METHOD</p>
+<p># “local” is for Unix domain socket connections only<br />
+local all all md5<br />
+# IPv4 local connections:<br />
+host all all 127.0.0.1/32 md5<br />
+# IPv6 local connections:<br />
+host all all ::1/128 md5</p>
+<p># Connections for all PCs on the subnet<br />
+#<br />
+# TYPE DATABASE USER IP-ADDRESS IP-MASK METHOD<br />
+host all all [ip address] [subnet mask] md5</p>
+<p>and in the last line, add in your subnet mask (i.e. 255.255.255.0) and the IP address of the machine that you would like to access your server (i.e. 138.250.192.115). However, if you would like to enable access to a range of IP addresses, just substitute the last number for a zero and all machines within that range will be allowed access (i.e. 138.250.192.0 would allow all machines with an IP address 138.250.192.x to use the database server).</p>
+<p>That’s it, now all you have to do is restart the server</p>
+<p>sudo /etc/init.d/postgresql-8.2 restart</p>
+<p>That’s it you can start using postgresql in Ubuntu</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,42662,1,'RezvieFN');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-91413">
+				<div id="div-comment-91413" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">iceman</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-91413">
+			February 10, 2011 at 6:31 am</a>		</div>
+
+		<p>pg_hba.conf settings for Maverick Meerkat</p>
+<p>#DO NOT DISABLE<br />
+# If you change this first entry you will need to make sure that the<br />
+# database<br />
+# super user can access the database using some other method.<br />
+# Noninteractive<br />
+# access to all databases is required during automatic maintenance<br />
+# (autovacuum, daily cronjob, replication, and similar tasks).<br />
+#<br />
+# Database administrative login by UNIX sockets<br />
+local all postgres ident<br />
+# TYPE DATABASE USER CIDR-ADDRESS METHOD</p>
+<p># “local” is for Unix domain socket connections only<br />
+local all all md5<br />
+# IPv4 local connections:<br />
+host all all 127.0.0.1/32 md5<br />
+# IPv6 local connections:<br />
+host all all ::1/128 md5</p>
+<p># Connections for all PCs on the subnet<br />
+#<br />
+# TYPE DATABASE USER IP-ADDRESS IP-MASK METHOD<br />
+host all all [ipaddress] [subnet mask] md5</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,91413,1,'iceman');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-125379">
+				<div id="div-comment-125379" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">prathvish</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-125379">
+			May 31, 2012 at 1:01 pm</a>		</div>
+
+		<p>hi am new to the postgres world .</p>
+<p>i need help .<br />
+we are planning to set up a postgres server on linux which will share database of a system running on mac and linux. i need the steps and procedures i should follow. would be grateful if i get info and procedure to goabot the same .<br />
+thanks in advance</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,125379,1,'prathvish');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-125380">
+				<div id="div-comment-125380" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn">prathvish</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.ubuntugeek.com/howto-setup-database-server-with-postgresql-and-pgadmin3.html/comment-page-1#comment-125380">
+			May 31, 2012 at 1:06 pm</a>		</div>
+
+		<p>the software is cent os and there will be three machines . one with the centos postgres and other with a centos resolve and a mac resolve with whom the linux resolve has to share the projects data.</p>
+<p class="thdrpy">[<a href="javascript:void(0)" onclick="movecfm(event,125380,1,'prathvish');">Reply</a>]</p>
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+</ol>
+<div class="navigation">
+<div class="alignleft"></div>
+<div class="alignright"></div>
+</div>
+<div id="respond">
+<h3>Leave a Reply</h3>
+<div class="cancel-comment-reply">
+<small><a rel="nofollow" id="cancel-comment-reply-link" href="/howto-setup-database-server-with-postgresql-and-pgadmin3.html#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+<form action="http://www.ubuntugeek.com/wp-comments-post.php" method="post" id="commentform">
+<p><input type="text" name="author" id="author" style="margin:0 0 5px 0;border:1px solid #ccc;-moz-border-radius:5px;-webkit-border-radius:5px;" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+<p><input type="text" name="email" id="email" style="margin:0 0 5px 0;border:1px solid #ccc;-moz-border-radius:5px;-webkit-border-radius:5px;" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+<p><input type="text" name="url" id="url" style="margin:0 0 5px 0;border:1px solid #ccc;-moz-border-radius:5px;-webkit-border-radius:5px;" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+<p><textarea name="comment" id="comment" cols="50" rows="10" tabindex="4" style="margin:0 0 5px 0;border:1px solid #ccc;-moz-border-radius:20px;-webkit-border-radius:20px;padding:20px;"></textarea></p>
+<p><input name="submit" type="submit" id="submit" tabindex="5" style="margin:0 0 5px 0;border:1px solid #ccc;-moz-border-radius:5px;-webkit-border-radius:5px;background:#ddd;" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='375' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="123543833a" /></p><p><input type="hidden" id="comment_reply_ID" name="comment_reply_ID" value="0" /><input type="hidden" id="comment_reply_dp" name="comment_reply_dp" value="0" /></p><div id="cancel_reply" style="display:none;"><a href="javascript:void(0)" onclick="movecfm(null,0,1,null);" style="color:red;">Click to cancel reply</a></div><script type="text/javascript">
+/* <![CDATA[ */
+var commentformid = "commentform";
+var USERINFO = false;
+var atreply = "none";
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.ubuntugeek.com/wp-content/plugins/wordpress-thread-comment/wp-thread-comment.js.php?jsver=common"></script>
+</form>
+</div>
+<div class="navigation">
+<div class="alignleft">&larr; <a href="http://www.ubuntugeek.com/howto-crack-pdf-file-password.html" rel="prev">Howto Crack pdf File Password</a></div>
+<div class="alignright"><a href="http://www.ubuntugeek.com/install-nodoka-fedora-theme-on-ubuntu.html" rel="next">Install Nodoka (Fedora theme) on Ubuntu</a> &rarr;</div>
+</div>
+</div>
+<div id="sidebar" class="g7 omega" style="float:right;">
+<ul>
+<li id="text-390956921" class="widget widget_text"><h2 class="widgettitle">RSS Feed</h2>
+			<div class="textwidget">
+<a href="http://feeds.feedburner.com/UbuntuGeek"target="_blank"><img src="http://www.ubuntugeek.com/images/feed.png" alt="subscribe to the ubuntu Geek RSS feed" border="0" title="Subscribe for Updates" /></a>
+<br />
+</div>
+		</li>
+<li id="html_javascript_adder-2" class="widget widget_html_javascript_adder">
+
+<!-- Start - HTML Javascript Adder plugin v3.7 -->
+<h2 class="widgettitle">Newsletter</h2>
+
+<div class="hjawidget textwidget">
+<script src='http://cts.tradepub.com/cts/Data/jquery.min.rss.js'></script><script id="myscript" src="http://cts.tradepub.com/cts/Data/compressed_signup_rss.js?brand=ubuntugeek&opt_001=Ubuntu Geek Updates"></script> 
+<br /><br />
+</div>
+<!-- End - HTML Javascript Adder plugin v3.7 -->
+
+</li>
+<li id="text-390956926" class="widget widget_text"><h2 class="widgettitle">Sponsor</h2>
+			<div class="textwidget"><a href='http://www.digitalocean.com/?utm_source=UnbuntuGeek&utm_medium=TextAd&utm_campaign=UnbuntuGeekTextAd'target="_blank">$5/Mo. Ubuntu SSD VPS</a> . Deploy an Ubuntu virtual server in 55 sec. 
+Sign up for free. <br />
+</div>
+		</li>
+<li id="text-390956922" class="widget widget_text"><h2 class="widgettitle">UbuntuGeek on Twitter</h2>
+			<div class="textwidget"><ul>
+<a href="http://twitter.com/ubuntugeek" target="_blank">
+<img src="http://www.ubuntugeek.com/images/twitter.png" border="0" alt="Follow Us on Twitter" /></a>
+</ul><br />
+</div>
+		</li>
+<li id="text-310774991" class="widget widget_text">			<div class="textwidget"><script type="text/javascript"><!--
+google_ad_client = "pub-3561711309083119";
+//UG-Right-160x600
+google_ad_slot = "8455868602";
+google_ad_width = 160;
+google_ad_height = 600;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+		</li>
+<li id="execphp-310774992" class="widget widget_execphp"><h2 class="widgettitle">Support Ubuntugeek</h2>
+			
+			<div class="execphpwidget"><form action="https://www.paypal.com/cgi-bin/webscr" target="paypal" method="post"><input type="hidden" name="cmd" value="_xclick" /><input type="hidden" name="business" value="admin@debianadmin.com" /><input type="hidden" name="item_name" value="Support UbuntuGeek" /><input type="hidden" name="no_shipping" value="1" /><input type="hidden" name="return" value="http://www.ubuntugeek.com/" /><input type="hidden" name="cancel_return" value="http://www.ubuntugeek.com/" /><input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="on0" value="Website"/>
+Amount $: 
+<select id="amount" name="amount" class="">
+<option value="5.00">5.00</option>
+<option value="10.00">10.00</option>
+<option value="25.00">25.00</option>
+<option value="50.00">50.00</option>
+<option value="100.00">100.00</option></select>
+<br />
+Website(Optional): <br /><input type="text" size="16" title="Your website (will be displayed)" name="os0" value="" /><br /><input class="ppimg" type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" name="submit" style="none;" alt="Make payments with PayPal - fast, free and secure" />
+<input type="hidden" name="tax" value="0" />
+<input type="hidden" name="bn" value="PP-DonationsBF" />
+</form> <br /></div>
+		</li>
+<li id="_widget-3" class="widget widget__widget"><h2 class="widgettitle">Links of Interest</h2>
+
+<ul><li>Deals on <a href="http://www.imagetoner.com/ricoh-toner-cartridges.html">ricoh toner cartridges</a> here</li>
+</ul></li>
+<li id="text-310774994" class="widget widget_text"><h2 class="widgettitle">Favourite Sites</h2>
+			<div class="textwidget"> <a href='http://www.mydailytechtips.com'target="_blank">My Daily Tech Tips</a><br />  
+  <a href='http://www.debianadmin.com'target="_blank">Debian Admin</a><br />
+  <a href='http://www.debianhelp.co.uk/'target="_blank">DebianHelp</a><br />
+    <a href='http://www.tuxmachines.org'target="_blank">Tuxmachines</a><br />
+<a href='http://www.unixmen.com/'target="_blank">Unixmen</a><br />
+<a href='http://www.hostdone.com'target="_blank">Web Hosting</a><br /> 
+
+</div>
+		</li>
+</ul>
+</div>
+<div class="clear"></div></div>
+<div id="bottom" class="g33">
+<div id="box1" class="g11">
+<ul>
+<li class="recent-entries"><h3>Recent entries</h3>
+<ul>	<li><a href='http://www.ubuntugeek.com/how-to-install-ezame-menu-editor-on-ubuntu-13-04.html' title='How to install Ezame menu editor on Ubuntu 13.04'>How to install Ezame menu editor on Ubuntu 13.04</a></li>
+	<li><a href='http://www.ubuntugeek.com/gimp-2-8-6-released-and-installation-instructions-included.html' title='GIMP 2.8.6 released and Installation instructions included'>GIMP 2.8.6 released and Installation instructions included</a></li>
+	<li><a href='http://www.ubuntugeek.com/how-to-install-elementary-tweaks-on-elementaryos-using-ppa.html' title='How to install Elementary Tweaks on elementaryOS Using PPA'>How to install Elementary Tweaks on elementaryOS Using PPA</a></li>
+	<li><a href='http://www.ubuntugeek.com/how-to-install-ajenti-similar-to-webmin-on-ubuntu-13-04-server.html' title='How to install ajenti (Similar to Webmin) on ubuntu 13.04 server'>How to install ajenti (Similar to Webmin) on ubuntu 13.04 server</a></li>
+	<li><a href='http://www.ubuntugeek.com/dnstop-stay-on-top-of-your-dns-traffic.html' title='DNSTOP &#8211; Stay on top of your DNS Traffic'>DNSTOP &#8211; Stay on top of your DNS Traffic</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="box2" class="g11">
+<ul>
+<li><h3>Recent comments</h3>
+
+<ul>
+<li>Harm:&nbsp;<a href="http://www.ubuntugeek.com/how-to-install-amd-catalyst-legacy-drivers-in-ubuntu-12-10-quantal.html#comment-129256" title="la How To Install AMD Catalyst Legacy Drivers in Ubuntu 12.10 (Quantal)">Hi everyone
+
+I found this while trying</a></li>
+<li>Jeff:&nbsp;<a href="http://www.ubuntugeek.com/how-to-display-hidden-startup-applications-in-ubuntu-12-04-and-above.html#comment-129253" title="la How to Display Hidden Startup Applications in ubuntu 12.04 and Above">I got it to work by copy/pasting the com</a></li>
+<li>leandro:&nbsp;<a href="http://www.ubuntugeek.com/how-to-change-the-mysql-data-default-directory.html#comment-129248" title="la How to change the MySQL data default directory">hello guys I need do that in a linux deb</a></li>
+<li>Trimtab:&nbsp;<a href="http://www.ubuntugeek.com/howto-convert-vmware-image-to-virtualbox-image.html#comment-129234" title="la Howto Convert Vmware Image to Virtualbox Image or Import Vmware Image into Virtualbox">Fantastic.  I was very dissapointed in V</a></li>
+<li>Kristoff:&nbsp;<a href="http://www.ubuntugeek.com/numlock-activate-at-startup-in-login-screen.html#comment-129225" title="la Numlock activate at startup in login screen">ffs there is no gdm folder anywhere, as </a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="box3" class="g11 omega">
+<ul>
+<li><h3>Popular posts</h3>
+<ul><li><a href="http://www.ubuntugeek.com/speed-up-firefox-web-browser.html" title="Speed Up Firefox web browser">Speed Up Firefox web browser</a> (238)</li><li><a href="http://www.ubuntugeek.com/iphone-tethering-on-ubuntu-9-10-karmic.html" title="iPhone Tethering on Ubuntu 9.10 (Karmic)">iPhone Tethering on Ubuntu 9.10 (Karmic)</a> (175)</li><li><a href="http://www.ubuntugeek.com/send-and-receive-your-hotmail-messages-through-evolution.html" title="Send and Receive Your Hotmail messages through Evolution">Send and Receive Your Hotmail messages through Evolution</a> (157)</li><li><a href="http://www.ubuntugeek.com/how-to-install-c-and-c-compilers-in-ubuntu-and-testing-your-first-c-and-c-program.html" title="How to Install C and C++ Compilers in Ubuntu and testing your first C and C++ Program">How to Install C and C++ Compilers in Ubuntu and testing your first C and C++ Program</a> (154)</li><li><a href="http://www.ubuntugeek.com/how-to-install-java-runtime-environment-jre-in-ubuntu.html" title="How to Install Java Runtime Environment (JRE) in Ubuntu">How to Install Java Runtime Environment (JRE) in Ubuntu</a> (153)</li></ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="footer" class="g33">
+	<!-- Start of StatCounter Code -->
+	<script type="text/javascript">
+	<!-- 
+		var sc_project=2122192; 
+		var sc_security="4ec5339a"; 
+	//-->
+	</script>
+	<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script>
+<noscript><div class="statcounter"><a title="web analytics" href="http://statcounter.com/"><img class="statcounter" src="http://c.statcounter.com/2122192/0/4ec5339a/0/" alt="web analytics" /></a></div></noscript>	
+	<!-- End of StatCounter Code -->
+<script type="text/javascript">var SHRSB_Settings = {"shr-publisher-375":{"link":"http:\/\/www.ubuntugeek.com\/howto-setup-database-server-with-postgresql-and-pgadmin3.html","shortener":"google","title":"Howto setup Database Server With postgresql and pgadmin3","notes":"PostgreSQL%20is%20a%20powerful%2C%20open%20source%20relational%20database%20system.%20It%20has%20more%20than%2015%20years%20of%20active%20development%20and%20a%20proven%20architecture%20that%20has%20earned%20it%20a%20strong%20reputation%20for%20reliability%2C%20data%20integrity%2C%20and%20correctness.%20It%20runs%20on%20all%20major%20operating%20systems%2C%20including%20Linux%2C%20UNIX%20%28AIX%2C%20BSD","service":"5,7,304,38,40","apikey":"8afa39428933be41f8afdb8ea21a495c","expand":true,"src":"http:\/\/www.ubuntugeek.com\/wp-content\/plugins\/shareaholic\/spritegen_default","localize":true,"share_src":"http:\/\/www.shareaholic.com","rel":"nofollow","target":"_blank","center":true,"twitter_template":"%24%7Btitle%7D+-+%24%7Bshort_link%7D+via+%40Shareaholic","mode":"inject","designer_toolTips":"1","tip_bg_color":"#000000","tip_text_color":"#ffffff"}};</script><script type="text/javascript">/* <![CDATA[ */ var SHRSB_Globals = {"src":"http:\/\/www.ubuntugeek.com\/wp-content\/plugins\/shareaholic\/spritegen_default","perfoption":"1","twitter_template":"%24%7Btitle%7D+-+%24%7Bshort_link%7D+via+%40Shareaholic","locale":"0","shortener":"google","shortener_key":"","pubGaSocial":0,"pubGaKey":""}; /* ]]> */</script><script type='text/javascript' src='http://www.ubuntugeek.com/wp-includes/js/tw-sack.min.js?ver=1.6.1'></script>
+<script type="text/javascript">
+//<![CDATA[
+function tpbc_track_visit()
+{
+	var mysack = new sack("http://www.ubuntugeek.com/wp-content/plugins/tpbc/tpbc_ajax.php" );
+	mysack.execute = 1;
+	mysack.method = 'GET';	
+	mysack.setVar( "tpbc_post_id", 375 );
+	mysack.onError = function() { alert('Ajax error on tpbc tracking' )};
+	mysack.runAJAX();
+
+	return true;
+} // end of JavaScript function
+setTimeout('tpbc_track_visit()', 1); // Once dom whole loaded
+//]]>
+</script>
+<script type="text/javascript" src="http://www.ubuntugeek.com/wp-content/plugins/what-would-seth-godin-do/jquery.cookie.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var count;
+        if ( !jQuery.cookie('wwsgd_visits') ) {
+            count = 1;
+        }
+        else {
+            count = parseInt(jQuery.cookie('wwsgd_visits'), 10) + 1;
+        }
+        jQuery.cookie('wwsgd_visits', count, { expires: 365, path: "/" });
+
+        if ( count <= 0 ) {
+            jQuery(".wwsgd").show();
+        }
+    });
+</script>
+
+
+<!-- Begin Vibrant Media IntelliTXT tag -->
+<script type="text/javascript" src="http://ubuntugeek.uk.intellitxt.com/intellitxt/front.asp?ipid=15871"></script>
+<!-- End Vibrant Media IntelliTXT tag -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var emailL10n = {"ajax_url":"http:\/\/www.ubuntugeek.com\/wp-admin\/admin-ajax.php","max_allowed":"5","text_error":"The Following Error Occurs:","text_name_invalid":"- Your Name is empty\/invalid","text_email_invalid":"- Your Email is empty\/invalid","text_remarks_invalid":"- Your Remarks is invalid","text_friend_names_empty":"- Friend Name(s) is empty","text_friend_name_invalid":"- Friend Name is empty\/invalid: ","text_max_friend_names_allowed":"- Maximum 5 Friend Names allowed","text_friend_emails_empty":"- Friend Email(s) is empty","text_friend_email_invalid":"- Friend Email is invalid: ","text_max_friend_emails_allowed":"- Maximum 5 Friend Emails allowed","text_friends_tally":"- Friend Name(s) count does not tally with Friend Email(s) count","text_image_verify_empty":"- Image Verification is empty"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.ubuntugeek.com/wp-content/plugins/wp-email/email-js.js?ver=2.60'></script>
+<script>var pltNewTabURLs = ["http:\/\/www.ubuntugeek.com\/forum"];(function(){jQuery(function(e){return e("body").on("click","a",function(t){var n;n=e(this);if(e.inArray(n.attr("href"),pltNewTabURLs)>-1)return n.attr("target","_blank")})})}).call(this);</script><div style="text-align:center">&copy; 2005-2013 &middot; All rights reserved. &middot; <a href="http://www.ubuntugeek.com">Ubuntu Geek</a></div>
+</div><div class="clear"></div>
+</div>
+</body>
+</html>

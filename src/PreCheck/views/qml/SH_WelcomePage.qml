@@ -34,26 +34,31 @@ Item {
         rowSpacing: 2
         columnSpacing: 2
         property int count: App.currentUser.roles
-        Button {
-            id: logoutButton
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+        RowLayout {
+            id: row
+            Layout.columnSpan: 2
+            spacing: grid.columnSpacing
+            width: parent.width
             height: Math.floor(grid.height/3)-grid.rowSpacing
-            width: Math.floor(grid.width/2)-grid.columnSpacing
-            text: qsTr("Déconnecter")
-            onClicked: {
-                welcomePage.logOut();
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Button {
+                id: logoutButton
+                height: row.height
+                width: Math.floor(row.width/2)-row.spacing
+                text: qsTr("Déconnecter")
+                onClicked: {
+                    welcomePage.logOut();
+                }
             }
-        }
-        Button {
-            id: quitButton
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            height: Math.floor(grid.height/3)-grid.rowSpacing
-            width: Math.floor(grid.width/2)-grid.columnSpacing
-            text: qsTr("Quitter")
-            onClicked: {
-                welcomePage.quit();
+            Button {
+                id: quitButton
+                height: row.height
+                width: Math.floor(row.width/2)-row.spacing
+                text: qsTr("Quitter")
+                onClicked: {
+                    welcomePage.quit();
+                }
             }
         }
         Repeater {

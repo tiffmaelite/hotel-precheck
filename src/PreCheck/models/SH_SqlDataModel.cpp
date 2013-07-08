@@ -28,12 +28,8 @@ int SH_SqlDataModel::rowCount(const QModelIndex &parent) const
  \details \~french
  \fn SH_SqlDataModel::data
 */
-QVariant SH_SqlDataModel::data(const QModelIndex &index, int role)
+QVariant SH_SqlDataModel::data(const QModelIndex &index, int role) const
 {
-    if (this->m_records.count() > 0)
-    {
-        fetch();
-    }
     if (this->m_records.count() > 0)
     {
         int row = index.row();

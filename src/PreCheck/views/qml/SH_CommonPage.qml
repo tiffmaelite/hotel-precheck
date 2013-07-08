@@ -149,10 +149,9 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
-                property var sqlModel: SH_VATModel
                 Repeater {
                     id: vatRep
-                    model: vatSidePanel.sqlModel
+                    model: SH_VATModel { }
                     delegate:
                         Loader {
                         id: contentLoader
@@ -169,6 +168,7 @@ Item {
             SH_Keyboard{
                 id: keys
                 enabled:true
+                Layout.maximumWidth: parent.width*9/10;
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 columns: 5

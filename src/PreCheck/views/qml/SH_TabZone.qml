@@ -223,7 +223,7 @@ TabView {
         Component {
             id: bookingsTab
             SH_SqlDataView {
-                sqlModel: SH_BookingsModel
+                sqlModel: SH_BookingsModel { }
                 filtersTitle: qsTr("Tri des réservations")
                 itemDelegate: "SH_BookingsDelegate.qml"
                 emptyDelegate: "SH_DataDelegate.qml"

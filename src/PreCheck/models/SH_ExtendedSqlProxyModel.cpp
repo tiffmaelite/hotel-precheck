@@ -124,6 +124,9 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 */
 QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role)
 {
+    if(!m_fetched) {
+        fetch();
+    }
     if (index.isValid())
     {
         if (this->m_booleanSet.contains(role))
@@ -311,6 +314,9 @@ void SH_ExtendedProxyModel::addHiddenColumn(int column)
 */
 QVariant SH_ExtendedProxyModel::data(int row, int column)
 {
+    if(!m_fetched) {
+        fetch();
+    }
     QModelIndex modelIndex = this->index(row, 0);
     if(column !=-1) {
         return this->data(modelIndex, this->model->roleForField(column));
@@ -331,7 +337,9 @@ QVariant SH_ExtendedProxyModel::data(int row, int column)
 */
 bool SH_ExtendedProxyModel::fetch(QString tableName, QString filter, QString sort, QStringList fields)
 {
+    SH_MessageManager::debugMessage("entering proxy fetch method");
     bool fetched = this->model->fetch(tableName, filter, sort, fields);
+    this->m_fetched = fetched;
     if (fetched)
     {
         this->fillModel();
