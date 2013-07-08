@@ -13,6 +13,8 @@ const QString SH_DatabaseManager::dbPostgresqlDriverStr = "QPSQL";
 const QString SH_DatabaseManager::dbMysqlDriverStr = "QMYSQL";
 
 
+const QString SH_DatabaseManager::dbFilePathStr = QString("%1/%2").arg(SH_DatabaseManager::dbFolderPathStr).arg(SH_DatabaseManager::dbFileNameStr);
+
 /*!
  * \details \~french
  * \fn SH_DatabaseManager::getInstance

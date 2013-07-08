@@ -17,13 +17,13 @@ class SH_DecimalQuestionState : public SH_QuestionState
     * \brief \~french La plus grande valeur permise
     * \details ~\french
     */
-    Q_PROPERTY(qreal maximum READ maximum WRITE setMaximum NOTIFY maximumChanged) //MEMBER m_max
+    Q_PROPERTY(qreal maximum READ maximum WRITE setMaximum NOTIFY maximumChanged) //MEMBER m_maximum
     /*!
     * \property qreal minimum
     * \brief \~french La plus petite valeur permise
     * \details ~\french
     */
-    Q_PROPERTY(qreal minimum READ minimum WRITE setMinimum NOTIFY minimumChanged) //MEMBER m_min
+    Q_PROPERTY(qreal minimum READ minimum WRITE setMinimum NOTIFY minimumChanged) //MEMBER m_minimum
 
 public:
 
@@ -47,14 +47,14 @@ public:
     * \details \~french Permet d'obtenir la date minimale permise
     * \return qreal La date minimale permise
     */
-    qreal minimum() const { return m_min; }
+    qreal minimum() const { return m_minimum; }
     /*!
     * \fn setMinimum
     * \brief \~french Accesseur en écriture de la propriété \a minimum
     * \details \~french Permet de définir la valeur minimale permise
     * \param qreal minimum La nouvelle valeur minimale permise
     */
-    void setMinimum(const qreal &minimum){ m_min = minimum; emit minimumChanged(); }
+    void setMinimum(const qreal &minimum){ m_minimum = minimum; emit minimumChanged(); }
 
     /*!
     * \fn maximum
@@ -62,14 +62,14 @@ public:
     * \details \~french Permet d'obtenir la valeur maximale permise
     * \return qreal La valeur maximale permise
     */
-    qreal maximum() const { return m_max; }
+    qreal maximum() const { return m_maximum; }
     /*!
     * \fn setMaximum
     * \brief \~french Accesseur en écriture de la propriété \a maximum
     * \details \~french Permet de définir la valeur maximale permise
     * \param qreal maximum La nouvelle valeur maximale permise
     */
-    void setMaximum(const qreal &maximum){ m_max = maximum; emit maximumChanged(); }
+    void setMaximum(const qreal &maximum){ m_maximum = maximum; emit maximumChanged(); }
 
 
         /*** Overwritten methods ***/
@@ -102,12 +102,12 @@ private:
 /*!
     * \brief \~french m_min
     */
-    qreal m_min;
+    qreal m_minimum;
 
 /*!
     * \brief \~french m_max
     */
-    qreal m_max;
+    qreal m_maximum;
 };
 /*}*/
 #endif /* DECIMALQUESTIONSTATE_H*/

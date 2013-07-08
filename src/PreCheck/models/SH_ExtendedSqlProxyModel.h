@@ -21,7 +21,7 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
     Q_PROPERTY(QString fieldsCount READ fieldsCount STORED false)
     Q_PROPERTY(bool empty READ isEmpty STORED false)
     Q_PROPERTY(QString lastError READ lastError STORED false)
-    Q_PROPERTY(int sortKeyColumn READ sortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged) //MEMBER sortIndex
+    Q_PROPERTY(int sortKeyColumn READ sortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged) //MEMBER m_sortIndex
 
 public:
 /*!
@@ -40,7 +40,7 @@ public:
     */
     const QString tableName() const { return (this->model->property("tableName")).value<QString>(); }
 
-    int sortKeyColumn() const { return sortIndex; }
+    int sortKeyColumn() const { return m_sortIndex; }
 
 /*!
     \brief \~french
@@ -146,7 +146,7 @@ public:
     \param column
     \return QVariant
     */
-    Q_INVOKABLE QVariant data(int row, int column = -1) const;
+    Q_INVOKABLE QVariant data(int row, int column = -1);
 
 /*!
     \brief \~french
@@ -156,7 +156,7 @@ public:
     \param role
     \return QVariant
     */
-    Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+    Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole);
 
 /*!
     \brief \~french
@@ -282,37 +282,39 @@ private:
 /*!
     *\brief \~french booleanSet
     */
-    QList<int> booleanSet;
+    QList<int> m_booleanSet;
 
 /*!
     *\brief \~french passwordSet
     */
-    QList<int> passwordSet;
+    QList<int> m_passwordSet;
 
 /*!
     *\brief \~french readonlySet
     */
-    QList<int> readonlySet;
+    QList<int> m_readonlySet;
 
 /*!
     *\brief \~french notNullSet
     */
-    QList<int> notNullSet;
+    QList<int> m_notNullSet;
 
 /*!
     *\brief \~french nullSet
     */
-    QList<int> nullSet;
+    QList<int> m_nullSet;
 
 /*!
     *\brief \~french filters
     */
-    QList<int> hiddenSet;
+    QList<int> m_hiddenSet;
 
 /*!
     *\brief \~french sortIndex
     */
-    int sortIndex;
+    int m_sortIndex;
+
+    bool m_fetched;
 };
 /*}*/
 #endif

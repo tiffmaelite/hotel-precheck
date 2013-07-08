@@ -90,15 +90,22 @@ Item {
                 }
             }
         }
-        Button {
-            text: qsTr("Connexion")
+        Rectangle {
+            color: "transparent"
             Layout.minimumHeight: childrenRect.height
             Layout.minimumWidth: childrenRect.width
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             Layout.columnSpan: 2
-            onClicked: {
-                connexionPage.logIn(login.text, password.text);
-                login.text = "";
-                password.text = "";
+            Button {
+                text: qsTr("Connexion")
+                anchors.centerIn: parent
+                width: parent.width
+                onClicked: {
+                    connexionPage.logIn(login.text, password.text);
+                    login.text = "";
+                    password.text = "";
+                }
             }
         }
     }

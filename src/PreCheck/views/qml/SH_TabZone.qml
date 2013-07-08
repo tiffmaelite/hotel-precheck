@@ -57,7 +57,7 @@ TabView {
                 anchors.margins: 2
             }
         }
-        tab:
+        /*tab:
             Rectangle {
             color: styleData.selected ? "lightgrey" :"whitesmoke"
             border.color:  "silver"
@@ -68,7 +68,8 @@ TabView {
                 Image {
                     visible:(styleData.title===qsTr("Clavier complet"))
                     source: (styleData.title===qsTr("Clavier complet")) ? "../icons/keyboard.png" : "" ;
-                    height: 15
+                    Layout.maximumHeight: 15
+                    fillMode: Image.PreserveAspectFit
                 }
                 Text {
                     id: text
@@ -77,7 +78,7 @@ TabView {
                     color: styleData.selected ? "black" : "grey"
                 }
             }
-        }
+        }*/
     }
 
     Component.onCompleted: {

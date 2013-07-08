@@ -6,7 +6,7 @@
  * \fn SH_DecimalQuestionState::DecimalQuestionState
 */
 SH_DecimalQuestionState::SH_DecimalQuestionState(QString question, QString name, qreal min, qreal max, QState *parent) :
-    SH_QuestionState(question, name, parent), m_min(min), m_max(max)
+    SH_QuestionState(question, name, parent), m_minimum(min), m_maximum(max)
 {
 }
 /*!
@@ -18,7 +18,7 @@ bool SH_DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
     bool ok;
     qreal answer = givenAnswer.toReal(&ok);
     if(ok) {
-        return ((m_max <= m_min || answer <= m_max) && answer >= m_min);
+        return ((m_maximum <= m_minimum || answer <= m_maximum) && answer >= m_minimum);
     } else {
         return false;
     }

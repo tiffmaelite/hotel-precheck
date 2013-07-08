@@ -26,19 +26,20 @@ Item {
 
     GridLayout {
         id: grid
-        anchors.centerIn: parent //welcomePage
-        width: parent.width / 3 // welcomePage.width / 3
-        height: parent.height / 3 // welcomePage.height / 3
+        anchors.centerIn: parent
+        width: parent.width / 2
+        height: parent.height / 2
         flow: GridLayout.LeftToRight
         columns:2
-        visible: welcomePage.visible
+        rowSpacing: 2
+        columnSpacing: 2
         property int count: App.currentUser.roles
         Button {
             id: logoutButton
             Layout.fillHeight: true
             Layout.fillWidth: true
-            height: Math.floor(grid.height/5)-grid.spacing
-            width: Math.floor(grid.width/2)-grid.spacing
+            height: Math.floor(grid.height/3)-grid.rowSpacing
+            width: Math.floor(grid.width/2)-grid.columnSpacing
             text: qsTr("Déconnecter")
             onClicked: {
                 welcomePage.logOut();
@@ -48,22 +49,13 @@ Item {
             id: quitButton
             Layout.fillHeight: true
             Layout.fillWidth: true
-            height: Math.floor(grid.height/5)-grid.spacing
-            width: Math.floor(grid.width/2)-grid.spacing
+            height: Math.floor(grid.height/3)-grid.rowSpacing
+            width: Math.floor(grid.width/2)-grid.columnSpacing
             text: qsTr("Quitter")
             onClicked: {
                 welcomePage.quit();
             }
         }
-        function checkRole(c) {
-            var table = {reception: App.currentUser.receptionist, administration: App.currentUser.administrator, managementX: App.currentUser.managerX, managementZ: App.currentUser.managerZ}
-            return table[c];
-        }
-        function getMode(c) {
-            var table = {reception: AppMode.RECEPTION, administration: AppMode.ADMINISTRATION, managementX: AppMode.MANAGEMENT_X, managementZ: AppMode.MANAGEMENT_Z}
-            return table[c];
-        }
-
         Repeater {
             model:  ListModel {
                 id: buttonsList
@@ -86,7 +78,6 @@ Item {
             }
             delegate: Rectangle {
                 color: "transparent"
-                visible: grid.checkRole(BUTTONROLE)
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: childrenRect.height
@@ -122,24 +113,23 @@ Item {
                 }
                 Button {
                     id: button
-                    height: Math.floor(grid.height*2/5)-grid.spacing
-                    width: Math.floor(grid.width/2)-grid.spacing
+                    visible: button.checkRole(BUTTONROLE)
+                    enabled: button.checkRole(BUTTONROLE)
+                    height: Math.floor(grid.height/3)-grid.rowSpacing
+                    width: Math.floor(grid.width/2)-grid.columnSpacing
                     anchors.centerIn: parent
-                    enabled: grid.checkRole(BUTTONROLE)
                     text: qsTr(BUTTONTEXT)
+                    function checkRole(c) {
+                        var table = {reception: App.currentUser.receptionist, administration: App.currentUser.administrator, managementX: App.currentUser.managerX, managementZ: App.currentUser.managerZ}
+                        return table[c];
+                    }
+                    function getMode(c) {
+                        var table = {reception: AppMode.RECEPTION, administration: AppMode.ADMINISTRATION, managementX: AppMode.MANAGEMENT_X, managementZ: AppMode.MANAGEMENT_Z}
+                        return table[c];
+                    }
                     onClicked: {
-                        App.currentMode = grid.getMode(BUTTONROLE);
+                        App.currentMode = button.getMode(BUTTONROLE);
                         welcomePage.clicked();
-                    }
-                    Binding {
-                        target: button
-                        property: "visible"
-                        value: grid.checkRole(BUTTONROLE)
-                    }
-                    Binding {
-                        target: button
-                        property: "enabled"
-                        value: grid.checkRole(BUTTONROLE)
                     }
                 }
             }

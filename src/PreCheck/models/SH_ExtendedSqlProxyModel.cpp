@@ -10,14 +10,11 @@
  \fn SH_ExtendedProxyModel::SH_ExtendedProxyModel
 */
 SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
-    QSortFilterProxyModel(parent)
+    QSortFilterProxyModel(parent), m_sortIndex(0), m_fetched(false)
 {
     this->setDynamicSortFilter(false);
     this->model = new SH_SqlDataModel(parent);
     this->setSourceModel(this->model);
-    this->sortIndex = 0;
-
-    /*connect(this->model, tableChanged(), tableName());*/
 }
 
 /*!
@@ -40,7 +37,7 @@ void SH_ExtendedProxyModel::replaceSet(QList<int>& originalSet, QList<int> newSe
  \fn SH_ExtendedProxyModel::setBooleanColumns
 */
 void SH_ExtendedProxyModel::setBooleanColumns(QList<int> boolCols) {
-    replaceSet(this->booleanSet, boolCols);
+    replaceSet(this->m_booleanSet, boolCols);
 }
 
 /*!
@@ -49,7 +46,7 @@ void SH_ExtendedProxyModel::setBooleanColumns(QList<int> boolCols) {
  \fn SH_ExtendedProxyModel::setReadOnlyColumns
 */
 void SH_ExtendedProxyModel::setReadOnlyColumns(QList<int> readonlyCols) {
-    replaceSet(this->readonlySet, readonlyCols);
+    replaceSet(this->m_readonlySet, readonlyCols);
 }
 
 /*!
@@ -58,7 +55,7 @@ void SH_ExtendedProxyModel::setReadOnlyColumns(QList<int> readonlyCols) {
  \fn SH_ExtendedProxyModel::setPasswordColumns
 */
 void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
-    replaceSet(this->passwordSet, passwordCols);
+    replaceSet(this->m_passwordSet, passwordCols);
 }
 
 /*!
@@ -68,7 +65,7 @@ void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
 */
 void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
     if (sourceModel()->inherits("QSqlQueryModel")) {
-        replaceSet(this->nullSet, nullCols);
+        replaceSet(this->m_nullSet, nullCols);
     }
 }
 
@@ -80,7 +77,7 @@ void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
 */
 void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
     if (sourceModel()->inherits("QSqlQueryModel")) {
-        replaceSet(this->notNullSet, notNullCols);
+        replaceSet(this->m_notNullSet, notNullCols);
     }
 }
 
@@ -94,10 +91,10 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 {
     Q_UNUSED(source_parent);
 
-    if (!this->notNullSet.isEmpty())
+    if (!this->m_notNullSet.isEmpty())
     {
         QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
-        foreach(int column, this->notNullSet)
+        foreach(int column, this->m_notNullSet)
         {
             if (m->record(source_row).isNull(column))
             {
@@ -106,10 +103,10 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
         }
     }
 
-    if (!this->nullSet.isEmpty())
+    if (!this->m_nullSet.isEmpty())
     {
         QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
-        foreach(int column, this->nullSet)
+        foreach(int column, this->m_nullSet)
         {
             if (!m->record(source_row).isNull(column))
             {
@@ -125,19 +122,19 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 
  \fn SH_ExtendedProxyModel::data
 */
-QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role) const
+QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role)
 {
     if (index.isValid())
     {
-        if (this->booleanSet.contains(role))
+        if (this->m_booleanSet.contains(role))
         {
             return index.data(Qt::EditRole).toBool() ? QVariant(Qt::Checked) : QVariant(Qt::Unchecked);
         }
-        else if (this->passwordSet.contains(role))
+        else if (this->m_passwordSet.contains(role))
         {
             return QVariant("***");
         }
-        else if(!this->hiddenSet.contains(role))
+        else if(!this->m_hiddenSet.contains(role))
         {
             QModelIndex source_index = QSortFilterProxyModel::mapToSource(index);
             if (source_index.isValid()) {
@@ -159,7 +156,7 @@ bool SH_ExtendedProxyModel::setData(const QModelIndex &index, const QVariant &va
     if (!index.isValid())
         return false;
 
-    if (this->booleanSet.contains(role))
+    if (this->m_booleanSet.contains(role))
     {
         QVariant data = (value.toInt() == Qt::Checked) ? QVariant(1) : QVariant(0);
         return QSortFilterProxyModel::setData(index, data, role);
@@ -183,11 +180,11 @@ Qt::ItemFlags SH_ExtendedProxyModel::flags(const QModelIndex &index) const
     {
         return Qt::ItemIsEnabled;
     }
-    if (!this->booleanSet.isEmpty())
+    if (!this->m_booleanSet.isEmpty())
     {
         return Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
     }
-    else if (!this->readonlySet.isEmpty())
+    else if (!this->m_readonlySet.isEmpty())
     {
         return Qt::ItemIsSelectable;
     }
@@ -210,7 +207,7 @@ void SH_ExtendedProxyModel::invalidateFilter()
 
 void SH_ExtendedProxyModel::resetColumnsList()
 {
-    this->hiddenSet.clear();
+    this->m_hiddenSet.clear();
 }
 
 /*!
@@ -225,7 +222,7 @@ void SH_ExtendedProxyModel::removeFilterKeyColumn(int column)
 
 void SH_ExtendedProxyModel::showHiddenColumn(int column)
 {
-    this->hiddenSet.removeAt(this->hiddenSet.indexOf(column));
+    this->m_hiddenSet.removeAt(this->m_hiddenSet.indexOf(column));
 }
 
 /*!
@@ -240,7 +237,7 @@ bool SH_ExtendedProxyModel::containsFilterKeyColumn(int column)
 
 bool SH_ExtendedProxyModel::isHidingColumn(int column)
 {
-    return this->hiddenSet.contains(column);
+    return this->m_hiddenSet.contains(column);
 }
 
 /*!
@@ -260,7 +257,7 @@ void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 */
 void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 {
-    this->sortIndex = column;
+    this->m_sortIndex = column;
     this->setSortRole(this->model->roleForField(column));
     this->sort(0, this->model->field(column)->sortOrder());
     emit sortChanged();
@@ -295,7 +292,7 @@ void SH_ExtendedProxyModel::addFilterKeyColumn(int column)
 
 void SH_ExtendedProxyModel::addHiddenColumn(int column)
 {
-    this->hiddenSet.append(column);
+    this->m_hiddenSet.append(column);
 }
 
 /*inspired by: http://www.qtcentre.org/threads/52850-How-to-get-data-from-TableView-QML-Desktop-Components*/
@@ -312,7 +309,7 @@ void SH_ExtendedProxyModel::addHiddenColumn(int column)
 
  \fn SH_ExtendedProxyModel::data
 */
-QVariant SH_ExtendedProxyModel::data(int row, int column) const
+QVariant SH_ExtendedProxyModel::data(int row, int column)
 {
     QModelIndex modelIndex = this->index(row, 0);
     if(column !=-1) {

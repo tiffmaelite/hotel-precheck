@@ -15,13 +15,13 @@ class SH_NumericQuestionState : public SH_QuestionState
     * \brief \~french La plus grande valeur permise
     * \details ~\french
     */
-    Q_PROPERTY(int maximum READ maximum WRITE setMaximum NOTIFY maximumChanged) //MEMBER m_max
+    Q_PROPERTY(int maximum READ maximum WRITE setMaximum NOTIFY maximumChanged) //MEMBER m_maximum
     /*!
     * \property int minimum
     * \brief \~french La plus petite valeur permise
     * \details ~\french
     */
-    Q_PROPERTY(int minimum READ minimum WRITE setMinimum NOTIFY minimumChanged) //MEMBER m_min
+    Q_PROPERTY(int minimum READ minimum WRITE setMinimum NOTIFY minimumChanged) //MEMBER m_minimum
 
 public:
 
@@ -46,14 +46,14 @@ public:
     * \details \~french Permet d'obtenir la date minimale permise
     * \return int La date minimale permise
     */
-    int minimum() const { return m_min; }
+    int minimum() const { return m_minimum; }
     /*!
     * \fn setMinimum
     * \brief \~french Accesseur en écriture de la propriété \a minimum
     * \details \~french Permet de définir la valeur minimale permise
     * \param int minimum La nouvelle valeur minimale permise
     */
-    void setMinimum(const int &minimum){ m_min = minimum; emit minimumChanged(); }
+    void setMinimum(const int &minimum){ m_minimum = minimum; emit minimumChanged(); }
 
     /*!
     * \fn maximum
@@ -61,14 +61,14 @@ public:
     * \details \~french Permet d'obtenir la valeur maximale permise
     * \return int La valeur maximale permise
     */
-    int maximum() const { return m_max; }
+    int maximum() const { return m_maximum; }
     /*!
     * \fn setMaximum
     * \brief \~french Accesseur en écriture de la propriété \a maximum
     * \details \~french Permet de définir la valeur maximale permise
     * \param int maximum La nouvelle valeur maximale permise
     */
-    void setMaximum(const int &maximum){ m_max = maximum; emit maximumChanged(); }
+    void setMaximum(const int &maximum){ m_maximum = maximum; emit maximumChanged(); }
 
 /*!
  * \brief \~french
@@ -86,11 +86,11 @@ private:
 /*!
  * \brief \~french m_min
  */
-int m_min;
+int m_minimum;
 /*!
  * \brief \~french m_max
  */
-int m_max;
+int m_maximum;
 };
 /*}*/
 #endif /* NUMERICQUESTIONSTATE_H*/

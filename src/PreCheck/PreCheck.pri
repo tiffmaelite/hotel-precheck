@@ -100,7 +100,7 @@ SOURCES *= \
 	logic/SH_BillingCreation.cpp \
 	logic/SH_AddressCreation.cpp \
 	logic/SH_AdaptDatabaseState.cpp \
-    SH_DatabaseManagerSettings.cpp
+	SH_DatabaseManagerSettings.cpp
 
 # QML-files as a ressource
 RESOURCES *= \
@@ -132,4 +132,6 @@ OTHER_FILES *= \
 	views/qml/SH_CalendarDialog.qml \
 	views/qml/SH_BookingsDelegate.qml \
 	views/qml/SH_BillingsDelegate.qml \
-	views/qml/SH_app.qml
+	views/qml/SH_app.qml \
+	views/qml/SH_CellFlow.qml \
+    views/qml/SH_StartMenuButtonDelegate.qml

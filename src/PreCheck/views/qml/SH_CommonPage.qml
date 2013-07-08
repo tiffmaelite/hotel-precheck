@@ -141,27 +141,36 @@ Item {
             Layout.minimumHeight: 5*main.height/12-main.rowSpacing
             Layout.fillWidth: true
             Layout.fillHeight: true
+            spacing: 0
             /*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche en mode RECEPTION*/
-            SH_ContentView {
+            ColumnLayout {
                 id: vatSidePanel
-                model: 0//SH_VATModel { }
-                maxColumns:1
-                sectionIndex: 0
-                itemDelegate: "SH_VATDelegate.qml"
-                onSelected: {
-                    commonPage.keySelected(selectedItem);
-                }
-                Component.onCompleted: {
-                    if(model !== 0) {
-                        model.fetch();
-                    }
-                }
                 Layout.minimumWidth: parent.width/10;
                 Layout.fillHeight: true
+                Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
+                property var sqlModel: SH_VATModel
+                Repeater {
+                    id: vatRep
+                    model: vatSidePanel.sqlModel
+                    delegate:
+                        Loader {
+                        id: contentLoader
+                        source: "SH_VATDelegate.qml"
+                        Connections {
+                            target: contentLoader.item
+                            onClicked: {
+                                commonPage.keySelected(contentLoader.item.value);
+                            }
+                        }
+                    }
+                }
             }
             SH_Keyboard{
                 id: keys
+                enabled:true
+                Layout.fillWidth: true
+                Layout.fillHeight: true
                 columns: 5
                 actionsList: [
                     abandonAction, cancelAction, eraseAction, replaceAction, backAction,
@@ -171,9 +180,6 @@ Item {
                     vatAction, doubleNullAction, nullAction, decimalAction, minusAction,
                     escapeAction, enterAction, confirmAction, quitAction, helpAction
                 ]
-                enabled:true
-                Layout.fillWidth: true
-                Layout.fillHeight: true
             }
         }
         /*la zone d'affichage remplit toute la moitié de droite*/
@@ -392,7 +398,7 @@ onTriggered: */ /*TODO*/
     }
     SH_ComplexAction {
         id: vatAction
-        text: qsTr("???")
+        text: qsTr("GROUPES")
         keyShortcut: Qt.Key_unknown
 
         /*enabled: commonPage.visible

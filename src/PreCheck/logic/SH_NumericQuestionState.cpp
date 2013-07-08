@@ -7,7 +7,7 @@
  * \fn SH_NumericQuestionState::NumericQuestionState
 */
 SH_NumericQuestionState::SH_NumericQuestionState(QString question, QString name, int min, int max, QState *parent) :
-    SH_QuestionState(question, name, parent), m_min(min), m_max(max)
+    SH_QuestionState(question, name, parent), m_minimum(min), m_maximum(max)
 {
 }
 /*!
@@ -20,7 +20,7 @@ bool SH_NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
     bool ok;
     int answer = givenAnswer.toInt(&ok);
     if(ok) {
-    return ((m_max <= m_min || answer <= m_max) && answer >= m_min);
+    return ((m_maximum <= m_minimum || answer <= m_maximum) && answer >= m_minimum);
     } else {
     return false;
     }

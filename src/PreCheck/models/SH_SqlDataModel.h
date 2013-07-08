@@ -12,10 +12,10 @@
 class SH_SqlDataModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString tableName READ tableName WRITE setTableName NOTIFY tableNameChanged) //MEMBER mTable
+    Q_PROPERTY(QString tableName READ tableName WRITE setTableName NOTIFY tableNameChanged) //MEMBER m_tableName
     Q_PROPERTY(QStringList fields READ fieldsList WRITE setFields RESET resetFieldsToAll NOTIFY fieldsChanged)
-    Q_PROPERTY(QString filterCondition READ filterCondition WRITE setFilterCondition RESET resetFilterCondition NOTIFY filterConditionChanged) //MEMBER mFilter
-    //Q_PROPERTY(QHash roles READ roleNames WRITE setRoles NOTIFY rolesChanged) //MEMBER mRoles
+    Q_PROPERTY(QString filterCondition READ filterCondition WRITE setFilterCondition RESET resetFilterCondition NOTIFY filterConditionChanged) //MEMBER m_condition
+    //Q_PROPERTY(QHash roles READ roleNames WRITE setRoles NOTIFY rolesChanged) //MEMBER m_roles
     Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged)
 
 public:
@@ -33,7 +33,7 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString tableName() const { return mTable; }
+    QString tableName() const { return m_tableName; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
@@ -48,7 +48,7 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString filterCondition() const { return mFilter; }
+    QString filterCondition() const { return m_condition; }
     /*!
     * \fn setTableCondition
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
@@ -56,7 +56,7 @@ public:
     * \param QString condition La nouvelle liste de choix de l'état
     */
     void setFilterCondition(const QString &condition);
-    void resetFilterCondition() { mFilter = ""; emit filterConditionChanged();}
+    void resetFilterCondition() { m_condition = ""; emit filterConditionChanged();}
 
     /*!
     \brief \~french
@@ -73,7 +73,7 @@ public:
     \param role
     \return QVariant
     */
-    QVariant data(const QModelIndex &index, int role) const;
+    QVariant data(const QModelIndex &index, int role);
 
     /*!
     \brief \~french
@@ -82,7 +82,7 @@ public:
     \param role
     \return QVariant
     */
-    QVariantMap datas() const;
+    QVariantMap datas();
 
     /*!
     \brief \~french
@@ -233,37 +233,37 @@ private:
     /*!
     *\brief \~french mTable
     */
-    QString mTable;
+    QString m_tableName;
 
     /*!
     *\brief \~french mFilter
     */
-    QString mFilter;
+    QString m_condition;
 
     /*!
     *\brief \~french mSort
     */
-    QString mSort;
+    QString m_order;
 
     /*!
     *\brief \~french mDataFields
     */
-    QList<SH_SqlDataFields *> mDataFields;
+    QList<SH_SqlDataFields *> m_fields;
 
     /*!
     *\brief \~french mRoles
     */
-    QHash<int, QByteArray> mRoles;
+    QHash<int, QByteArray> m_roles;
 
     /*!
     *\brief \~french mSqlQuery
     */
-    QSqlQuery mSqlQuery;
+    QSqlQuery m_query;
 
     /*!
     *\brief \~french mRecords
     */
-    QList<QSqlRecord> mRecords;
+    QList<QSqlRecord> m_records;
 };
 /*}*/
 #endif /* SQLDATAMODEL_H*/
