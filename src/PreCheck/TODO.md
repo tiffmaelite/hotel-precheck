@@ -1,12 +1,9 @@
 TODO
 =====
-- Vérifier les accesseurs
-- Corriger et compléter la documentation
+*Fonctionnalités
 - Ajouter des rapports personnalisés
 - Ajouter la personnalisation de l'application
 - Afficher dans l'OutputZone le détail des tableaux en mode Management
-- Gérer plus de types de bases de données différentes
-- Séparer les tables sur plusieurs bases de données : une courante et une clients/archives
 - Ajouter la modification des caractéristiques d'une facturation
 - Ajouter la modification des caractéristiques d'une facture
 - Ajouter les ventes seules
@@ -24,5 +21,10 @@ TODO
 - Ajouter le planning prévisionnel d'occupation de l'hôtel
 - Ajouter les remarques sur les facturations et réservations
 - Ajouter la gestion des groupes
+*Technique
+- Vérifier les accesseurs
+- Corriger et compléter la documentation
+- Gérer plus de types de bases de données différentes
+- Séparer les tables sur plusieurs bases de données : une courante et une clients/archives --> presque OK pour postgresql
 - Adopter des conventions de nommage cohérentes et adapter code et documentation
 - Utiliser des espaces de nommage (namespaces)

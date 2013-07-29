@@ -57,7 +57,11 @@ include(../../libs/QtSignalGuard.pri)
 
 
 OTHER_FILES *= \
-	../Database/* \
+	../Database/*.sh \
+	../Database/firebird/* \
+	../Database/postgresql/* \
+	../Database/datas/* \
 	../../README.md \
 	TODO.md \
-    ../Database/0_dbCrea_extension_pgSQL.sql
+	../../install/* \
+	../../download_and_install.sh

@@ -1,0 +1,2304 @@
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/.pgpass
+DROP DATABASE
+DROP DATABASE
+DROP TABLESPACE
+DROP ROLE
+CREATE ROLE
+CREATE TABLESPACE
+CREATE DATABASE
+CREATE DATABASE
+
+
+_______________________
+
+k=0
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-dbCrea-extensionsTous-pgSQL.sql
+
+CREATE EXTENSION IF NOT EXISTS plpgsql;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dblink;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS adminpack;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_int;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_xsyn;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS autoinc;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS moddatetime;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS insert_username;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS chkpass;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS unaccent;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS intarray;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS plpgsql;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dblink;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS adminpack;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_int;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_xsyn;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS autoinc;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS moddatetime;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS insert_username;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS chkpass;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS unaccent;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS intarray;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-*Archives-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-dbCrea-wrapperMain-pgSQL.sql
+
+-- Create a server-to-server link after loading postgres_fdw extension:
+	CREATE SERVER archivesrv FOREIGN DATA WRAPPER postgres_fdw OPTIONS ( host '/var/run/postgresql', port '5434', dbname 'precheckarchivesdb');
+CREATE SERVER
+-- Create a mapping for local database users to remote database users:
+	CREATE USER MAPPING FOR precheck SERVER archivesrv OPTIONS ( user 'precheck', password 'hotel' );
+CREATE USER MAPPING
+-- Finally, link to the tables on the remote server:
+-- CREATE FOREIGN TABLE clients_archive (aid int, bid int, abalance int, filler char(84)) SERVER archivesrv OPTIONS ( table_name 'clients' );
+-- Queries can be run against the tables on the attached server, including writing to it, just as if it were a table on the local server:
+-- INSERT INTO clients_archive ( aid, bid, abalance ) VALUES ( 10000000, 5, 100 );
+
+
+_______________________
+
+k=1
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-*Tous-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-AddressesArchives-pgSQL.sql
+
+CREATE TABLE ADDRESSES
+(
+  ID SERIAL,
+  CLIENT_ID INTEGER NOT NULL,
+  CONTACT VARCHAR(30) NOT NULL,
+  STREET VARCHAR(50) NOT NULL,
+  NUMBER VARCHAR(4),
+  COMPLEMENTARYLINE VARCHAR(50) NOT NULL,
+  CITY VARCHAR(40) NOT NULL,
+  ZIPCODE VARCHAR(9),
+  COUNTRY VARCHAR(30) NOT NULL,
+  PHONE VARCHAR(13),
+  CONSTRAINT PK_ADDRESSES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_ADDRESSES_CONTACTADDRESS UNIQUE (CONTACT,STREET,NUMBER,CITY,COUNTRY),
+  CONSTRAINT CK_VAL_ADDRESSES_PHONE CHECK (PHONE SIMILAR TO '[\+|00][[1-9]]{3}[[:DIGIT:]]{8}')
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_addresses
+--BEFORE UPDATE ON addresses
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BalanceLogArchives-pgSQL.sql
+
+CREATE TABLE balancelog
+(
+  yearlog INT,
+  monthlog INT,
+  daylog INT,
+  hourlog INT,
+  balance FLOAT,
+  CONSTRAINT PK_BALANCELOG_DATE PRIMARY KEY (yearlog, monthlog, daylog, hourlog)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_balancelog
+--BEFORE UPDATE ON balancelog
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ClientsArchives-pgSQL.sql
+
+CREATE EXTENSION IF NOT EXISTS postpic;
+CREATE TABLE CLIENTS
+(
+  ID SERIAL,
+  NAME VARCHAR(35) NOT NULL,
+  PHONE VARCHAR(12),
+  EMAIL VARCHAR(50),
+  IDCARDSCAN VARCHAR(100),
+  NATIONALITY_ID INTEGER NOT NULL,
+  HOMEADDRESS_ID INTEGER,
+  ISCURRENT BOOLEAN DEFAULT '0' NOT NULL,
+  CONSTRAINT PK_CLIENTS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_CLIENTS_EMAIL UNIQUE (EMAIL),
+  CONSTRAINT UQ_CLIENTS_NAMEIDCARD UNIQUE (NAME, IDCARDSCAN),
+  CONSTRAINT UQ_CLIENTS_NAMEHOME UNIQUE (NAME, HOMEADDRESS_ID),
+  CONSTRAINT CK_VAL_CLIENTS_EMAIL CHECK(EMAIL SIMILAR TO '[[[:ALNUM:]\._%\+\-]+@[[:ALNUM:]\.-]+\.[[:ALPHA:]]+]?'),
+  CONSTRAINT CK_VAL_CLIENTS_PHONE CHECK(PHONE SIMILAR TO '[[\+|00][[1-9]]{3}[[:DIGIT:]]{8}]?')
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_CLIENTS
+--BEFORE UPDATE ON CLIENTS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-GroupsArchives-pgSQL.sql
+
+CREATE TABLE GROUPS
+(
+  ID SERIAL,
+  NAME VARCHAR(25) NOT NULL,
+  CONTACT_ID INTEGER,
+  CONSTRAINT PK_GROUPS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_GROUPS_NAME UNIQUE (NAME)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_GROUPS
+--BEFORE UPDATE ON GROUPS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-NationalitiesArchives-pgSQL.sql
+
+CREATE TABLE NATIONALITIES
+(
+  ID SERIAL,
+  CODE VARCHAR(3) NOT NULL,
+  COUNTRY VARCHAR(100) NOT NULL,
+  LABEL VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_NATIONALITIES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_NATIONALITIES_CODE UNIQUE (CODE),
+  CONSTRAINT UQ_NATIONALITIES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_NATIONALITIES
+--BEFORE UPDATE ON NATIONALITIES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-AddressesArchiveMain-pgSQL.sql
+
+CREATE FOREIGN TABLE ADDRESSES_ARCHIVE
+(
+  ID SERIAL,
+  CLIENT_ID INTEGER NOT NULL,
+  CONTACT VARCHAR(30) NOT NULL,
+  STREET VARCHAR(50) NOT NULL,
+  NUMBER VARCHAR(4),
+  COMPLEMENTARYLINE VARCHAR(50) NOT NULL,
+  CITY VARCHAR(40) NOT NULL,
+  ZIPCODE VARCHAR(9),
+  COUNTRY VARCHAR(30) NOT NULL,
+  PHONE VARCHAR(13)
+) SERVER archivesrv OPTIONS ( table_name 'ADDRESSES', use_remote_estimate 'true', updatable 'true' );
+CREATE FOREIGN TABLE
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BalanceLogArchiveMain-pgSQL.sql
+
+CREATE FOREIGN TABLE balancelog_archive
+(
+  yearlog INT,
+  monthlog INT,
+  daylog INT,
+  hourlog INT,
+  balance FLOAT
+) SERVER archivesrv OPTIONS ( table_name 'balancelog', use_remote_estimate 'true', updatable 'true' );
+CREATE FOREIGN TABLE
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BillingsClientsMain-pgSQL.sql
+
+CREATE TABLE billingsclients
+(
+  id SERIAL,
+  client_id INTEGER NOT NULL,
+  billing_id INTEGER,
+  CONSTRAINT PK_BILLINGSCLIENTS_ID PRIMARY KEY (id),
+  CONSTRAINT UQ_BILLINGSCLIENTS_BILLINGID UNIQUE (billing_id)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_billingsclients
+--BEFORE UPDATE ON billingsclients
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+--ALTER TABLE BILLINGSCLIENTS ADD CONSTRAINT FK_BILLINGSCL_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_ARCHIVE (ID) ON UPDATE NO ACTION ON DELETE NO ACTION;
+CREATE OR REPLACE FUNCTION  fkbillingsclientsreferencesclientsarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF (NOT EXISTS (SELECT 1 FROM CLIENTS_ARCHIVE WHERE ID = NEW.CLIENT_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fkbillingsclientsreferencesclientsarchives BEFORE INSERT OR UPDATE ON billingsclients
+FOR EACH ROW
+EXECUTE PROCEDURE fkbillingsclientsreferencesclientsarchives();
+CREATE TRIGGER
+CREATE TABLE training_billingsclients
+(
+  id SERIAL,
+  client_id INTEGER NOT NULL,
+  billing_id INTEGER,
+  CONSTRAINT PK_TRAININGBILLINGSCLIENTS_ID PRIMARY KEY (id),
+  CONSTRAINT UQ_TRAININGBILLINGSCLIENTS_BILLINGID UNIQUE (billing_id)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_trainingbillingsclients
+--BEFORE UPDATE ON training_billingsclients
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+--ALTER TABLE TRAINING_BILLINGSCLIENTS ADD CONSTRAINT FK_TRAININGBILLINGSCL_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_ARCHIVE (ID) ON UPDATE NO ACTION ON DELETE NO ACTION;
+CREATE OR REPLACE FUNCTION  fktrainingbillingsclientsreferencesclientsarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF  (NOT EXISTS (SELECT 1 FROM CLIENTS_ARCHIVE WHERE ID = NEW.CLIENT_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fktrainingbillingsclientsreferencesclientsarchives BEFORE INSERT OR UPDATE ON training_billingsclients
+FOR EACH ROW
+EXECUTE PROCEDURE fktrainingbillingsclientsreferencesclientsarchives();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BillingsGroupsMain-pgSQL.sql
+
+CREATE TABLE BILLINGSGROUPS
+(
+  ID SERIAL,
+  GROUP_ID INTEGER NOT NULL,
+  BILLING_ID INTEGER,
+  CONSTRAINT PK_BILLINGSGROUPS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_BILLINGSGROUPS_BILLINGID UNIQUE (billing_id)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_billingsgroups
+--BEFORE UPDATE ON billingsgroups
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+--ALTER TABLE BILLINGSGROUPS ADD CONSTRAINT FK_BILLINGSGR_GROUP FOREIGN KEY (GROUP_ID) REFERENCES GROUPS_ARCHIVE (ID) ON UPDATE NO ACTION ON DELETE NO ACTION,
+CREATE OR REPLACE FUNCTION  fkbillingsgroupsreferencesgroupsarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF (NOT EXISTS (SELECT 1 FROM GROUPS_ARCHIVE WHERE ID = NEW.GROUP_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fkbillingsgroupsreferencesgroupsarchives BEFORE INSERT OR UPDATE ON billingsgroups
+FOR EACH ROW
+EXECUTE PROCEDURE fkbillingsgroupsreferencesgroupsarchives();
+CREATE TRIGGER
+CREATE TABLE TRAINING_BILLINGSGROUPS
+(
+  ID SERIAL,
+  GROUP_ID INTEGER NOT NULL,
+  BILLING_ID INTEGER,
+  CONSTRAINT PK_TRAININGBILLINGSGROUPS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_TRAININGBILLINGSGROUPS_BILLINGID UNIQUE (billing_id)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_trainingbillingsgroups
+--BEFORE UPDATE ON training_billingsgroups
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+--ALTER TABLE TRAINING_BILLINGSGROUPS ADD CONSTRAINT FK_TRAININGBILLINGSGR_GROUP FOREIGN KEY (GROUP_ID) REFERENCES GROUPS_ARCHIVE (ID) ON UPDATE NO ACTION ON DELETE NO ACTION,
+CREATE OR REPLACE FUNCTION  fktrainingbillingsgroupsreferencesgroupsarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF (NOT EXISTS (SELECT 1 FROM GROUPS_ARCHIVE WHERE ID = NEW.GROUP_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fktrainingbillingsgroupsreferencesgroupsarchives BEFORE INSERT OR UPDATE ON training_billingsgroups
+FOR EACH ROW
+EXECUTE PROCEDURE fktrainingbillingsgroupsreferencesgroupsarchives();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BillingsMain-pgSQL.sql
+
+CREATE TABLE BILLINGS
+(
+  ID SERIAL,
+  BILLINGSTYPE_ID INTEGER,
+  NBROOMS INT NOT NULL,
+  BOOKING_ID INTEGER,
+  BILLINGADDRESS_ID INTEGER NOT NULL,
+  NBADULTS INTEGER DEFAULT 0,
+  NBCHILDREN INTEGER DEFAULT 0,
+  ARRIVINGDATE DATE NOT NULL,
+  DEPARTUREDATE DATE NOT NULL,
+  EXPECTEDDEPARTUREDATE DATE,
+  ISCLOSED BOOLEAN DEFAULT '0' NOT NULL,
+  NOTE VARCHAR(255),
+  CONSTRAINT PK_BILLINGS_ID PRIMARY KEY (ID),
+  CONSTRAINT CK_POS_BILLINGS_NBADULTS CHECK (NBADULTS >= 0),
+  CONSTRAINT CK_GREA_BILLINGS_EXDEPARRDATE CHECK (EXPECTEDDEPARTUREDATE >= ARRIVINGDATE),
+  CONSTRAINT CK_GREA_BILLINGS_DEPARRDATE CHECK (DEPARTUREDATE >= ARRIVINGDATE)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_billings
+--BEFORE UPDATE ON billings
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+--ALTER TABLE BILLINGS ADD CONSTRAINT FK_BILLINGS_ADDRESS FOREIGN KEY (BILLINGADDRESS_ID) REFERENCES ADDRESSES_ARCHIVE (ID) ON UPDATE NO ACTION ON DELETE NO ACTION,
+CREATE OR REPLACE FUNCTION  fkbillingsreferencesaddressesarchives() RETURNS TRIGGER AS $$
+BEGIN
+ IF (NOT  EXISTS (SELECT 1 FROM ADDRESSES_ARCHIVE WHERE ID = NEW.BILLINGADDRESS_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fkbillingsreferencesaddressesarchives BEFORE INSERT OR UPDATE ON billings
+FOR EACH ROW
+EXECUTE PROCEDURE fkbillingsreferencesaddressesarchives();
+CREATE TRIGGER
+CREATE TABLE TRAINING_BILLINGS
+(
+  ID SERIAL,
+  BILLINGSTYPE_ID INTEGER,
+  NBROOMS INT NOT NULL,
+  BOOKING_ID INTEGER,
+  BILLINGADDRESS_ID INTEGER NOT NULL,
+  NBADULTS INTEGER DEFAULT 0,
+  NBCHILDREN INTEGER DEFAULT 0,
+  ARRIVINGDATE DATE NOT NULL,
+  DEPARTUREDATE DATE NOT NULL,
+  EXPECTEDDEPARTUREDATE DATE,
+  ISCLOSED BOOLEAN DEFAULT '0' NOT NULL,
+  NOTE VARCHAR(255),
+  CONSTRAINT PK_TRAININGBILLINGS_ID PRIMARY KEY (ID),
+  CONSTRAINT CK_POS_TRAININGBILLINGS_NBADULTS CHECK (NBADULTS >= 0),
+  CONSTRAINT CK_GREA_TRAININGBILLINGS_EXDEPARRDATE CHECK (EXPECTEDDEPARTUREDATE >= ARRIVINGDATE),
+  CONSTRAINT CK_GREA_TRAININGBILLINGS_DEPARRDATE CHECK (DEPARTUREDATE >= ARRIVINGDATE)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_billings
+--BEFORE UPDATE ON billings
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+--ALTER TABLE TRAINING_BILLINGS ADD CONSTRAINT FK_TRAININGBILLINGS_ADDRESS FOREIGN KEY (BILLINGADDRESS_ID) REFERENCES ADDRESSES_ARCHIVE (ID) ON UPDATE NO ACTION ON DELETE NO ACTION,
+CREATE OR REPLACE FUNCTION  fktrainingbillingsreferencesaddressesarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF (NOT  EXISTS (SELECT 1 FROM ADDRESSES_ARCHIVE WHERE ID = NEW.BILLINGADDRESS_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fktrainingbillingsreferencesaddressesarchives BEFORE INSERT OR UPDATE ON training_billings
+FOR EACH ROW
+EXECUTE PROCEDURE fktrainingbillingsreferencesaddressesarchives();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BillingsTypesMain-pgSQL.sql
+
+CREATE TABLE BILLINGSTYPES
+(
+  ID SERIAL,
+  LABEL VARCHAR(20),
+  NBBILLS INT NOT NULL,
+  CONSTRAINT PK_BILLINGSTYPES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_BILLINGSTYPES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_BILLINGSTYPES
+--BEFORE UPDATE ON BILLINGSTYPES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BillsMain-pgSQL.sql
+
+CREATE TABLE BILLS
+(
+  ID SERIAL,
+  BILLING_ID INTEGER NOT NULL,
+  BILLINGBILLID INTEGER NOT NULL,
+  BILLTYPE_ID INTEGER NOT NULL,
+  NOTE VARCHAR(255),
+  CONSTRAINT PK_BILLS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_BILLS_IDBILLID UNIQUE (BILLING_ID,BILLINGBILLID)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_bills
+--BEFORE UPDATE ON bills
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE TABLE TRAINING_BILLS
+(
+  ID SERIAL,
+  BILLING_ID INTEGER NOT NULL,
+  BILLINGBILLID INTEGER NOT NULL,
+  BILLTYPE_ID INTEGER NOT NULL,
+  NOTE VARCHAR(255),
+  CONSTRAINT PK_TRAININGBILLS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_TRAININGBILLS_IDBILLID UNIQUE (BILLING_ID,BILLINGBILLID)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_TRAININGbills
+--BEFORE UPDATE ON TRAINING_BILLS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BillsTypesMain-pgSQL.sql
+
+CREATE TABLE BILLSTYPES
+(
+  ID SERIAL,
+  LABEL VARCHAR(20),
+  CONSTRAINT PK_BILLSTYPES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_BILLSTYPES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_BILLSTYPES
+--BEFORE UPDATE ON BILLSTYPES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BookingsMain-pgSQL.sql
+
+CREATE TABLE BOOKINGS
+(
+  ID SERIAL,
+  CLIENT_ID INTEGER NOT NULL,
+  ROOMTYPE_ID INTEGER NOT NULL,
+  NBADULTS INTEGER DEFAULT 0,
+  NBCHILDREN INTEGER DEFAULT 0,
+  EXPECTEDARRIVINGDATE DATE NOT NULL,
+  EXPECTEDDEPARTUREDATE DATE NOT NULL,
+  BOOKINGDATE DATE NOT NULL,
+  CONFIRMATIONDATE DATE,
+  CANCELATIONDATE DATE,
+  NOTE VARCHAR(255),
+  CONSTRAINT PK_BOOKINGS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_BOOKINGS_CLIENTARRIVING UNIQUE (CLIENT_ID,EXPECTEDARRIVINGDATE),
+  CONSTRAINT UQ_BOOKINGS_CLIENTDEPARTURE UNIQUE (CLIENT_ID,EXPECTEDDEPARTUREDATE),
+  CONSTRAINT CK_POS_BOOKINGS_NBADULTS CHECK (NBADULTS >= 0),
+  CONSTRAINT CK_POS_BOOKINGS_NBCHILDREN CHECK (NBCHILDREN >= 0)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--CREATE TRIGGER z__minupdate_BOOKINGS
+--BEFORE UPDATE ON BOOKINGS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE OR REPLACE FUNCTION  fkBOOKINGSreferencesclientsarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF (NOT EXISTS (SELECT 1 FROM CLIENTS_ARCHIVE WHERE ID = new.CLIENT_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fkBOOKINGSreferencesclientsarchives BEFORE INSERT OR UPDATE ON BOOKINGS
+FOR EACH ROW
+EXECUTE PROCEDURE fkBOOKINGSreferencesclientsarchives();
+CREATE TRIGGER
+CREATE OR REPLACE FUNCTION  upsert_BOOKINGS(newinput hstore) RETURNS VOID AS $inner$
+BEGIN
+WITH upsert1 AS (
+	UPDATE BOOKINGS SET ROOMTYPE_ID=newinput -> 'ROOMTYPE_ID', EXPECTEDDEPARTUREDATE=newinput -> 'EXPECTEDDEPARTUREDATE', NBADULTS=newinput -> 'NBADULTS', NBCHILDREN=newinput -> 'NBCHILDREN', BOOKINGDATE=newinput -> 'BOOKINGDATE', CONFIRMATIONDATE=newinput -> 'CONFIRMATIONDATE', CANCELATIONDATE=newinput -> 'CANCELATIONDATE', NOTE=newinput -> 'NOTE' WHERE CLIENT_ID=newinput -> 'CLIENT_ID' AND EXPECTEDARRIVINGDATE=newinput -> 'EXPECTEDARRIVINGDATE' RETURNING BOOKINGS.*
+  ), upsert2 AS (
+	UPDATE BOOKINGS SET ROOMTYPE_ID=newinput -> 'ROOMTYPE_ID', EXPECTEDARRIVINGDATE=newinput -> 'EXPECTEDARRIVINGDATE', NBADULTS=newinput -> 'NBADULTS', NBCHILDREN=newinput -> 'NBCHILDREN', BOOKINGDATE=newinput -> 'BOOKINGDATE', CONFIRMATIONDATE=newinput -> 'CONFIRMATIONDATE', CANCELATIONDATE=newinput -> 'CANCELATIONDATE', NOTE=newinput -> 'NOTE' WHERE CLIENT_ID=newinput -> 'CLIENT_ID' AND EXPECTEDDEPARTUREDATE=newinput -> 'EXPECTEDDEPARTUREDATE' RETURNING BOOKINGS.*
+  )
+INSERT INTO BOOKINGS (
+  SELECT * FROM BOOKINGS
+	WHERE NOT EXISTS (
+	SELECT 1 FROM upsert1 b1 WHERE (CLIENT_ID=b1.CLIENT_ID AND EXPECTEDARRIVINGDATE=b1.EXPECTEDARRIVINGDATE)
+	  UNION ALL SELECT 1 FROM upsert2 b2 WHERE (CLIENT_ID=b2.CLIENT_ID AND EXPECTEDDEPARTUREDATE=b2.EXPECTEDDEPARTUREDATE)
+	)
+  );
+END;
+$inner$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TABLE TRAINING_BOOKINGS
+(
+  ID SERIAL,
+  CLIENT_ID INTEGER NOT NULL,
+  ROOMTYPE_ID INTEGER NOT NULL,
+  NBADULTS INTEGER DEFAULT 0,
+  NBCHILDREN INTEGER DEFAULT 0,
+  EXPECTEDARRIVINGDATE DATE NOT NULL,
+  EXPECTEDDEPARTUREDATE DATE NOT NULL,
+  BOOKINGDATE DATE NOT NULL,
+  CONFIRMATIONDATE DATE,
+  CANCELATIONDATE DATE,
+  NOTE VARCHAR(255),
+  CONSTRAINT PK_TRAININGBOOKINGS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_TRAININGBOOKINGS_CLIENTARRIVING UNIQUE (CLIENT_ID,EXPECTEDARRIVINGDATE),
+  CONSTRAINT UQ_TRAININGBOOKINGS_CLIENTDEPARTURE UNIQUE (CLIENT_ID,EXPECTEDDEPARTUREDATE),
+  CONSTRAINT CK_POS_TRAININGBOOKINGS_NBADULTS CHECK (NBADULTS >= 0),
+  CONSTRAINT CK_POS_TRAININGBOOKINGS_NBCHILDREN CHECK (NBCHILDREN >= 0)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_TRAININGBOOKINGS
+--BEFORE UPDATE ON TRAINING_BOOKINGS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE OR REPLACE FUNCTION  fktrainingbookingsreferencesclientsarchives() RETURNS TRIGGER AS $$
+BEGIN
+IF (NOT EXISTS (SELECT 1 FROM CLIENTS_ARCHIVE WHERE ID = new.CLIENT_ID)) THEN
+RAISE EXCEPTION 'Foreign key exception!';
+END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_fktrainingbookingsreferencesclientsarchives BEFORE INSERT OR UPDATE ON training_bookings
+FOR EACH ROW
+EXECUTE PROCEDURE fktrainingbookingsreferencesclientsarchives();
+CREATE TRIGGER
+CREATE OR REPLACE FUNCTION  upsert_trainingbookings() RETURNS VOID AS $inner$
+BEGIN
+WITH upsert1 AS (
+	UPDATE training_bookings SET ROOMTYPE_ID=newinput -> 'ROOMTYPE_ID', EXPECTEDDEPARTUREDATE=newinput -> 'EXPECTEDDEPARTUREDATE', NBADULTS=newinput -> 'NBADULTS', NBCHILDREN=newinput -> 'NBCHILDREN', BOOKINGDATE=newinput -> 'BOOKINGDATE', CONFIRMATIONDATE=newinput -> 'CONFIRMATIONDATE', CANCELATIONDATE=newinput -> 'CANCELATIONDATE', NOTE=newinput -> 'NOTE' WHERE CLIENT_ID=newinput -> 'CLIENT_ID' AND EXPECTEDARRIVINGDATE=newinput -> 'EXPECTEDARRIVINGDATE' RETURNING BOOKINGS.*
+  ), upsert2 AS (
+	UPDATE training_bookings SET ROOMTYPE_ID=newinput -> 'ROOMTYPE_ID', EXPECTEDARRIVINGDATE=newinput -> 'EXPECTEDARRIVINGDATE', NBADULTS=newinput -> 'NBADULTS', NBCHILDREN=newinput -> 'NBCHILDREN', BOOKINGDATE=newinput -> 'BOOKINGDATE', CONFIRMATIONDATE=newinput -> 'CONFIRMATIONDATE', CANCELATIONDATE=newinput -> 'CANCELATIONDATE', NOTE=newinput -> 'NOTE' WHERE CLIENT_ID=newinput -> 'CLIENT_ID' AND EXPECTEDDEPARTUREDATE=newinput -> 'EXPECTEDDEPARTUREDATE' RETURNING BOOKINGS.*
+  )
+INSERT INTO training_bookings (
+  SELECT * FROM training_bookings
+	WHERE NOT EXISTS (
+	SELECT 1 FROM upsert1 b1 WHERE (CLIENT_ID=b1.CLIENT_ID AND EXPECTEDARRIVINGDATE=b1.EXPECTEDARRIVINGDATE)
+	  UNION ALL SELECT 1 FROM upsert2 b2 WHERE (CLIENT_ID=b2.CLIENT_ID AND EXPECTEDDEPARTUREDATE=b2.EXPECTEDDEPARTUREDATE)
+	)
+  );
+END;
+$inner$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ChargedServicesMain-pgSQL.sql
+
+CREATE TABLE CHARGEDSERVICES
+(
+  SERVICE_ID INTEGER NOT NULL,
+  BILL_ID INTEGER NOT NULL,
+  RECEPTIONIST_ID INTEGER NOT NULL,
+  INVOICINGDATE DATE NOT NULL,
+  QUANTITY INT NOT NULL,
+  CHARGEDUNITPRICE FLOAT,
+  VAT_PERCENTAGE FLOAT,
+  ISPRINTED BOOLEAN DEFAULT '0' NOT NULL,
+  ISPAYED BOOLEAN DEFAULT '0' NOT NULL,
+  PAIEMENTDATE DATE,
+  CONSTRAINT PK_CHARGEDSERVICES_SERVICEBILL PRIMARY KEY (SERVICE_ID,BILL_ID)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--CREATE TRIGGER z__minupdate_CHARGEDSERVICES
+--BEFORE UPDATE ON CHARGEDSERVICES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE TABLE TRAINING_CHARGEDSERVICES
+(
+  SERVICE_ID INTEGER NOT NULL,
+  BILL_ID INTEGER NOT NULL,
+  RECEPTIONIST_ID INTEGER NOT NULL,
+  INVOICINGDATE DATE NOT NULL,
+  QUANTITY INT NOT NULL,
+  CHARGEDUNITPRICE FLOAT,
+  VAT_PERCENTAGE FLOAT,
+  ISPRINTED BOOLEAN DEFAULT '0' NOT NULL,
+  ISPAYED BOOLEAN DEFAULT '0' NOT NULL,
+  PAIEMENTDATE DATE,
+  CONSTRAINT PK_TRAININGCHARGEDSERVICES_SERVICEBILL PRIMARY KEY (SERVICE_ID,BILL_ID)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_TRAININGCHARGEDSERVICES
+--BEFORE UPDATE ON TRAINING_CHARGEDSERVICES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ClientsArchiveMain-pgSQL.sql
+
+CREATE FOREIGN TABLE CLIENTS_ARCHIVE
+(
+  ID SERIAL,
+  NAME VARCHAR(35) NOT NULL,
+  PHONE VARCHAR(12),
+  EMAIL VARCHAR(50),
+  IDCARDSCAN VARCHAR(100),
+  NATIONALITY_ID INTEGER NOT NULL,
+  HOMEADDRESS_ID INTEGER,
+  ISCURRENT BOOLEAN DEFAULT '0' NOT NULL
+) SERVER archivesrv OPTIONS ( table_name 'clients', use_remote_estimate 'true', updatable 'true' );
+CREATE FOREIGN TABLE
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-DailyBalCountMain-pgSQL.sql
+
+CREATE TABLE dailybalcount
+(
+  dcreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  dyearlog INT,
+  dmonthlog INT,
+  ddaylog INT,
+  dbalance FLOAT,
+  CONSTRAINT PK_DAYLYBALCOUNT_CREATION PRIMARY KEY (dcreationtime)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_dailybalcount
+--BEFORE UPDATE ON dailybalcount
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-GroupsArchiveMain-pgSQL.sql
+
+CREATE FOREIGN TABLE GROUPS_ARCHIVE
+(
+  ID SERIAL,
+  NAME VARCHAR(25) NOT NULL,
+  CONTACT_ID INTEGER
+) SERVER archivesrv OPTIONS ( table_name 'groups', use_remote_estimate 'true', updatable 'true' );
+CREATE FOREIGN TABLE
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-HourlyBalCountMain-pgSQL.sql
+
+CREATE TABLE hourlybalcount
+(
+  hcreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  hyearlog INT,
+  hmonthlog INT,
+  hdaylog INT,
+  hhourlog INT,
+  hbalance FLOAT,
+  CONSTRAINT PK_HOURLYBALCOUNT_CREATION PRIMARY KEY (hcreationtime)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_hourlybalcount
+--BEFORE UPDATE ON hourlybalcount
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-MonthlyBalCountMain-pgSQL.sql
+
+CREATE TABLE monthlybalcount
+(
+  mcreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  myearlog INT,
+  mmonthlog INT,
+  mbalance FLOAT,
+  CONSTRAINT PK_MONTHLYBALCOUNT_CREATION PRIMARY KEY (mcreationtime)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_monthlybalcount
+--BEFORE UPDATE ON monthlybalcount
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-NationalitiesArchiveMain-pgSQL.sql
+
+CREATE FOREIGN TABLE NATIONALITIES_ARCHIVE
+(
+  ID SERIAL,
+  CODE VARCHAR(3) NOT NULL,
+  COUNTRY VARCHAR(100) NOT NULL,
+  NAME VARCHAR(50) NOT NULL
+) SERVER archivesrv OPTIONS ( table_name 'nationalities', use_remote_estimate 'true', updatable 'true' );
+CREATE FOREIGN TABLE
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ReportsTypesMain-pgSQL.sql
+
+CREATE TABLE REPORTSTYPES
+(
+  ID SERIAL,
+  LABEL VARCHAR(100),
+  GENERATIONQUERY VARCHAR(1024),
+  CONSTRAINT PK_REPORTSTYPES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_REPORTSTYPES_QUERY UNIQUE (GENERATIONQUERY),
+  CONSTRAINT UQ_REPORTSTYPES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_REPORTSTYPES
+--BEFORE UPDATE ON REPORTSTYPES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-RoomsMain-pgSQL.sql
+
+CREATE TABLE ROOMS
+(
+  ID SERIAL,
+  ROOMTYPE_ID INTEGER NOT NULL,
+  NUMBER SMALLINT NOT NULL,
+  FLOOR SMALLINT NOT NULL,
+  ISCLEANED BOOLEAN DEFAULT '1' NOT NULL,
+  CONSTRAINT PK_ROOMS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_ROOMS_NUMBER UNIQUE (NUMBER)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_ROOMS
+--BEFORE UPDATE ON ROOMS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-RoomsOccupationMain-pgSQL.sql
+
+CREATE TABLE ROOMSOCCUPATIONS
+(
+  ID SERIAL,
+  ROOM_ID INTEGER NOT NULL,
+  BILLING_ID INTEGER NOT NULL,
+  ARRIVINGDATE DATE NOT NULL,
+  DEPARTUREDATE DATE NOT NULL,
+  CONSTRAINT PK_ROOMSOCC_ROOMBILLING PRIMARY KEY (ROOM_ID, BILLING_ID),
+  CONSTRAINT UQ_ROOMSOCC_ROOMARRIVINGDATE UNIQUE (ROOM_ID, ARRIVINGDATE),
+  CONSTRAINT UQ_ROOMSOCC_ROOMDEPARTUREDATE UNIQUE (ROOM_ID, DEPARTUREDATE)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_ROOMSOCCUPATIONS
+--BEFORE UPDATE ON ROOMSOCCUPATIONS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-RoomsTypesMain-pgSQL.sql
+
+CREATE TABLE ROOMSTYPES
+(
+  ID SERIAL,
+  LABEL VARCHAR(20) NOT NULL,
+  DESCRIPTION VARCHAR(255),
+  PRICEMIN FLOAT NOT NULL,
+  PRICEMAX FLOAT,
+  CONSTRAINT PK_ROOMSTYPES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_ROOMSTYPES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_roomstypes
+--BEFORE UPDATE ON roomstypes
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE OR REPLACE FUNCTION  upsert_ROOMSTYPES()
+RETURNS trigger
+AS $$
+BEGIN
+ LOOP
+	-- first try to update the key
+UPDATE ROOMSTYPES SET DESCRIPTION=new.DESCRIPTION, PRICEMIN=NEW.PRICEMIN, PRICEMAX=NEW.PRICEMAX WHERE LABEL=new.LABEL;
+IF (FOUND) THEN --updated, do nothing
+RETURN NULL;
+END IF;
+-- not there, so try to insert the key
+-- if someone else inserts the same key concurrently,
+-- we could get a unique-key failure
+  BEGIN
+INSERT INTO ROOMSTYPES(LABEL, DESCRIPTION, PRICEMIN, PRICEMAX) VALUES(NEW.LABEL, NEW.DESCRIPTION, NEW.PRICEMIN, NEW.PRICEMAX);
+RETURN NEW;
+EXCEPTION WHEN unique_violation THEN
+	 -- do nothing, and loop to try the UPDATE again
+ END;
+END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+--CREATE TRIGGER z__upsertROOMSTYPES
+--BEFORE INSERT ON ROOMSTYPES
+--FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE upsert_ROOMSTYPES();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ServicesDetailsMain-pgSQL.sql
+
+CREATE TABLE SERVICESDETAILS
+(
+  SERVICE_ID INTEGER NOT NULL,
+  SERVICEFIELD_ID INTEGER NOT NULL,
+  FIELDVALUE VARCHAR(255),
+  CONSTRAINT PK_SERVICESDETAILS_ID PRIMARY KEY (SERVICE_ID, SERVICEFIELD_ID)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_SERVICESDETAILS
+--BEFORE UPDATE ON SERVICESDETAILS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ServicesFamiliesMain-pgSQL.sql
+
+CREATE TABLE SERVICESFAMILIES
+(
+  ID SERIAL,
+  LABEL VARCHAR(25) NOT NULL,
+  CONSTRAINT PK_SERVICESFAMILIES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_SERVICESFAMILIES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_SERVICESFAMILIES
+--BEFORE UPDATE ON SERVICESFAMILIES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ServicesFieldsMain-pgSQL.sql
+
+CREATE TABLE SERVICESFIELDS
+(
+  ID SERIAL,
+  LABEL VARCHAR(25) NOT NULL,
+  SQLTYPE VARCHAR(100) DEFAULT 'TEXT' NOT NULL,
+  CONSTRAINT PK_SERVICESFIELDS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_SERVICESFIELDS_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_SERVICESFIELDS
+--BEFORE UPDATE ON SERVICESFIELDS
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ServicesMain-pgSQL.sql
+
+CREATE TABLE SERVICES
+(
+  ID SERIAL,
+  SERVICETYPE_ID INTEGER NOT NULL,
+  NAME VARCHAR(100) NOT NULL,
+  ISAVAILABLE BOOLEAN DEFAULT '1'  NOT NULL,
+  CONSTRAINT PK_SERVICES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_SERVICES_NAME UNIQUE (NAME)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_SERVICES
+--BEFORE UPDATE ON SERVICES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE OR REPLACE FUNCTION  upsert_SERVICES()
+RETURNS trigger
+AS $$
+BEGIN
+ LOOP
+	-- first try to update the key
+UPDATE SERVICES SET SERVICETYPE_ID=new.SERVICETYPE_ID, ISAVAILABLE=NEW.ISAVAILABLE WHERE NAME=new.NAME;
+IF (FOUND) THEN --updated, do nothing
+RETURN NULL;
+END IF;
+-- not there, so try to insert the key
+-- if someone else inserts the same key concurrently,
+-- we could get a unique-key failure
+  BEGIN
+INSERT INTO SERVICES(NAME, SERVICETYPE_ID,ISAVAILABLE) VALUES(NEW.NAME, NEW.SERVICETYPE_ID, NEW.ISAVAILABLE);
+RETURN NEW;
+EXCEPTION WHEN unique_violation THEN
+	 -- do nothing, and loop to try the UPDATE again
+ END;
+END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+--CREATE TRIGGER z__upsertSERVICES
+--BEFORE INSERT ON SERVICES
+--FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE upsert_SERVICES();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-ServicesTypesMain-pgSQL.sql
+
+CREATE TABLE SERVICESTYPES
+(
+  ID SERIAL,
+  LABEL VARCHAR(25) NOT NULL,
+  SERVICEFAMILY_ID INTEGER NOT NULL,
+  VAT_ID INTEGER NOT NULL,
+  ROOMNEEDED BOOLEAN DEFAULT '1' NOT NULL,
+  CONSTRAINT PK_SERVICESTYPES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_SERVICESTYPES_NAME UNIQUE (LABEL)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_SERVICESTYPES
+--BEFORE UPDATE ON SERVICESTYPES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-TaxesMain-pgSQL.sql
+
+CREATE TABLE TAXES
+(
+  ID SERIAL,
+  LABEL VARCHAR(20) NOT NULL,
+  PERCENTAGE FLOAT,
+  STARTDATE DATE,
+  ENDDATE DATE,
+  CONSTRAINT PK_TAXES_ID PRIMARY KEY (ID)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_taxes
+--BEFORE UPDATE ON taxes
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-TraineesMain-pgSQL.sql
+
+CREATE TABLE TRAINEES
+(
+  ID SERIAL,
+  LOGIN VARCHAR(20) NOT NULL,
+  ENCRYPTEDPASS VARCHAR(255) NOT NULL,
+  ISACTIVATED BOOLEAN DEFAULT '1' NOT NULL,
+  CONSTRAINT PK_TRAINEES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_TRAINEES_LOGIN UNIQUE (LOGIN)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_trainees
+--BEFORE UPDATE ON TRAINEES
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-UsersMain-pgSQL.sql
+
+CREATE TABLE USERS
+(
+  ID SERIAL,
+  LOGIN VARCHAR(20) NOT NULL,
+  ENCRYPTEDPASS VARCHAR(255) NOT NULL,
+  ISRECEPTIONIST BOOLEAN DEFAULT '0' NOT NULL,
+  ISMANAGERX BOOLEAN DEFAULT '0' NOT NULL,
+  ISMANAGERZ BOOLEAN DEFAULT '0' NOT NULL,
+  ISADMINISTRATOR BOOLEAN DEFAULT '0' NOT NULL,
+  CONSTRAINT PK_USERS_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_USERS_LOGIN UNIQUE (LOGIN)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_users
+--BEFORE UPDATE ON users
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+CREATE OR REPLACE FUNCTION  upsert_USERS()
+RETURNS trigger
+AS $$
+BEGIN
+WITH upsert AS
+(
+UPDATE USERS SET ENCRYPTEDPASS=new.ENCRYPTEDPASS, ISRECEPTIONIST=NEW.ISRECEPTIONIST, ISMANAGERX=NEW.ISMANAGERX, ISMANAGERZ=NEW.ISMANAGERZ, ISADMINISTRATOR=NEW.ISADMINISTRATOR WHERE LOGIN=new.LOGIN
+  RETURNING USERS.*
+)
+INSERT INTO USERS (SELECT * FROM USERS a WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE b.LOGIN=a.LOGIN));
+RETURN NULL;
+ --LOOP
+	-- first try to update the key
+--UPDATE USERS SET ENCRYPTEDPASS=new.ENCRYPTEDPASS, ISRECEPTIONIST=NEW.ISRECEPTIONIST, ISMANAGERX=NEW.ISMANAGERX, ISMANAGERZ=NEW.ISMANAGERZ, ISADMINISTRATOR=NEW.ISADMINISTRATOR WHERE LOGIN=new.LOGIN;
+--IF (FOUND) THEN --updated, do nothing
+--RETURN NULL;
+--END IF;
+-- not there, so try to insert the key
+-- if someone else inserts the same key concurrently,
+-- we could get a unique-key failure
+  --BEGIN
+--INSERT INTO USERS(LOGIN, ENCRYPTEDPASS, ISRECEPTIONIST, ISMANAGERX, ISMANAGERZ, ISADMINISTRATOR) VALUES(NEW.LOGIN, NEW.ENCRYPTEDPASS, NEW.ISRECEPTIONIST, NEW.ISMANAGERX, NEW.ISMANAGERZ,NEW.ISADMINISTRATOR);
+--RETURN NEW;
+--EXCEPTION WHEN unique_violation THEN
+	 -- do nothing, and loop to try the UPDATE again
+ --END;
+--END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER z__upsertUSERS
+BEFORE INSERT ON USERS
+FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE upsert_USERS();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-YearlyBalCountMain-pgSQL.sql
+
+CREATE TABLE yearlybalcount
+(
+  ycreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  yyearlog INT,
+  ybalance FLOAT,
+  CONSTRAINT PK_YEARLYBALCOUNT_CREATION PRIMARY KEY (ycreationtime)
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_yearlybalcount
+--BEFORE UPDATE ON yearlybalcount
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+_______________________
+
+k=2
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/2-*Tous-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/2-dbCrea-constraintsArchives-pgSQL.sql
+
+ALTER TABLE GROUPS
+  ADD CONSTRAINT FK_GROUPS_CONTACTCLIENT FOREIGN KEY (CONTACT_ID) REFERENCES CLIENTS (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE CLIENTS
+  ADD CONSTRAINT FK_CLIENTS_ADDRESS FOREIGN KEY (HOMEADDRESS_ID) REFERENCES ADDRESSES (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT,
+  ADD CONSTRAINT FK_CLIENTS_NATIONALITY FOREIGN KEY (NATIONALITY_ID) REFERENCES NATIONALITIES (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE
+ALTER TABLE ADDRESSES
+  ADD CONSTRAINT FK_ADDRESSES_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/2-dbCrea-constraintsMain-pgSQL.sql
+
+ALTER TABLE SERVICESTYPES
+ ADD CONSTRAINT FK_SERVICESTYPES_TAXES FOREIGN KEY (VAT_ID) REFERENCES TAXES (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_SERVICESTYPES_FAMILY FOREIGN KEY (SERVICEFAMILY_ID) REFERENCES SERVICESFAMILIES (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE SERVICES
+ ADD CONSTRAINT FK_SERVICES_TYPE FOREIGN KEY (SERVICETYPE_ID) REFERENCES SERVICESTYPES (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE ROOMS
+ ADD CONSTRAINT FK_ROOMS_TYPE FOREIGN KEY (ROOMTYPE_ID) REFERENCES ROOMSTYPES (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE CHARGEDSERVICES
+ ADD CONSTRAINT FK_CHARGEDSERVICES_USER FOREIGN KEY (RECEPTIONIST_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_CHARGEDSERVICES_SERVICE FOREIGN KEY (SERVICE_ID) REFERENCES SERVICES (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_CHARGEDSERVICES_BILL FOREIGN KEY (BILL_ID) REFERENCES BILLS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE TRAINING_CHARGEDSERVICES
+ ADD CONSTRAINT FK_TRAININGCHARGEDSERVICES_TRAINEE FOREIGN KEY (RECEPTIONIST_ID) REFERENCES TRAINEES (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_TRAININGCHARGEDSERVICES_SERVICE FOREIGN KEY (SERVICE_ID) REFERENCES SERVICES (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_TRAININGCHARGEDSERVICES_BILL FOREIGN KEY (BILL_ID) REFERENCES TRAINING_BILLS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE BILLS
+ ADD CONSTRAINT FK_BILLS_BILLING FOREIGN KEY (BILLING_ID) REFERENCES BILLINGS (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_BILLS_TYPE FOREIGN KEY (BILLTYPE_ID) REFERENCES BILLSTYPES (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE TRAINING_BILLS
+ ADD CONSTRAINT FK_TRAININGBILLS_BILLING FOREIGN KEY (BILLING_ID) REFERENCES TRAINING_BILLINGS (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_TRAININGBILLS_TYPE FOREIGN KEY (BILLTYPE_ID) REFERENCES BILLSTYPES (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE ROOMSOCCUPATIONS
+ ADD CONSTRAINT FK_ROOMSOCC_ROOM FOREIGN KEY (ROOM_ID) REFERENCES ROOMS (ID) ON UPDATE NO ACTION ON DELETE NO ACTION,
+ ADD CONSTRAINT FK_ROOMSOCC_BILLINGSID FOREIGN KEY (BILLING_ID) REFERENCES BILLINGS (ID) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE
+ALTER TABLE BILLINGSGROUPS
+ --ADD CONSTRAINT FK_BILLINGSGR_GROUP FOREIGN KEY (GROUP_ID) REFERENCES GROUPS_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE RESTRICT,
+ ADD CONSTRAINT FK_BILLINGSGR_BILLINGSID FOREIGN KEY (BILLING_ID) REFERENCES BILLINGS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE TRAINING_BILLINGSGROUPS
+ --ADD CONSTRAINT FK_TRAININGBILLINGSGR_GROUP FOREIGN KEY (GROUP_ID) REFERENCES GROUPS_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE RESTRICT,
+ ADD CONSTRAINT FK_TRAININGBILLINGSGR_BILLINGSID FOREIGN KEY (BILLING_ID) REFERENCES TRAINING_BILLINGS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE BILLINGSCLIENTS
+ --ADD CONSTRAINT FK_BILLINGSCL_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE RESTRICT,
+ ADD CONSTRAINT FK_BILLINGSCL_BILLINGSID FOREIGN KEY (BILLING_ID) REFERENCES BILLINGS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE TRAINING_BILLINGSCLIENTS
+ --ADD CONSTRAINT FK_TRAININGBILLINGSCL_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE RESTRICT,
+ ADD CONSTRAINT FK_TRAININGBILLINGSCL_BILLINGSID FOREIGN KEY (BILLING_ID) REFERENCES TRAINING_BILLINGS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE
+ALTER TABLE BILLINGS
+ --ADD CONSTRAINT FK_BILLINGS_ADDRESS FOREIGN KEY (BILLINGADDRESS_ID) REFERENCES ADDRESSES_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_BILLINGS_TYPE FOREIGN KEY (BILLINGSTYPE_ID) REFERENCES BILLINGSTYPES (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_BILLINGS_BOOKING FOREIGN KEY (BOOKING_ID) REFERENCES BOOKINGS (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE TRAINING_BILLINGS
+ --ADD CONSTRAINT FK_TRAININGBILLINGS_ADDRESS FOREIGN KEY (BILLINGADDRESS_ID) REFERENCES ADDRESSES_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_TRAININGBILLINGS_TYPE FOREIGN KEY (BILLINGSTYPE_ID) REFERENCES BILLINGSTYPES (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_TRAININGBILLINGS_BOOKING FOREIGN KEY (BOOKING_ID) REFERENCES TRAINING_BOOKINGS (ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE
+ALTER TABLE BOOKINGS
+ --ADD CONSTRAINT FK_BOOKINGS_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_BOOKINGS_ROOMTYPE FOREIGN KEY (ROOMTYPE_ID) REFERENCES ROOMSTYPES (ID) ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE
+ALTER TABLE TRAINING_BOOKINGS
+ --ADD CONSTRAINT FK_TRAININGBOOKINGS_CLIENT FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_ARCHIVE (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ ADD CONSTRAINT FK_TRAININGBOOKINGS_ROOMTYPE FOREIGN KEY (ROOMTYPE_ID) REFERENCES ROOMSTYPES (ID) ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE
+
+
+_______________________
+
+k=3
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-genupsertTous-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  gen_upsert(tablename VARCHAR, updatestring VARCHAR, wherecondition VARCHAR)
+RETURNS VARCHAR
+AS $main$
+DECLARE
+  dynfunc VARCHAR;
+  --dyntrig VARCHAR;
+BEGIN
+  --dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'() RETURNS TRIGGER AS $inner$ BEGIN ';
+  dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'(newinput hstore) RETURNS VOID AS $inner$ BEGIN ';
+  dynfunc=dynfunc||' WITH upsert AS ( UPDATE '||tablename||' SET '||regexp_replace(regexp_replace(updatestring,'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1'' ','ig')||' WHERE '||regexp_replace(regexp_replace(wherecondition,'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1'' ','ig')||' RETURNING '||tablename||'.* ) ';
+  dynfunc=dynfunc||' INSERT INTO '||tablename||' (SELECT * FROM '||tablename||' WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE '||regexp_replace(wherecondition,'new','b','ig')||')); ';
+  --dynfunc=dynfunc||' RETURN NULL; END; $inner$ LANGUAGE plpgsql; ';
+  dynfunc=dynfunc||'END; $inner$ LANGUAGE plpgsql; ';
+
+	EXECUTE dynfunc;
+
+	--dyntrig='CREATE TRIGGER z_genupsert'||tablename||' BEFORE INSERT ON '||tablename||'	FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE genupsert_'||tablename||'();';
+
+	--EXECUTE dyntrig;
+
+ RETURN dynfunc;
+END;
+$main$ LANGUAGE plpgsql
+VOLATILE;
+CREATE FUNCTION
+CREATE OR REPLACE FUNCTION  gen_upsert(tablename VARCHAR, updatestring VARCHAR, wherecondition VARCHAR)
+RETURNS VARCHAR
+AS $main$
+DECLARE
+  dynfunc VARCHAR;
+  --dyntrig VARCHAR;
+BEGIN
+  --dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'() RETURNS TRIGGER AS $inner$ BEGIN ';
+  dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'(newinput hstore) RETURNS VOID AS $inner$ BEGIN ';
+  dynfunc=dynfunc||' WITH upsert AS ( UPDATE '||tablename||' SET '||regexp_replace(regexp_replace(updatestring,'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1'' ','ig')||' WHERE '||regexp_replace(regexp_replace(wherecondition,'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1'' ','ig')||' RETURNING '||tablename||'.* ) ';
+  dynfunc=dynfunc||' INSERT INTO '||tablename||' (SELECT * FROM '||tablename||' WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE '||regexp_replace(wherecondition,'new','b','ig')||')); ';
+  --dynfunc=dynfunc||' RETURN NULL; END; $inner$ LANGUAGE plpgsql; ';
+  dynfunc=dynfunc||'END; $inner$ LANGUAGE plpgsql; ';
+
+	EXECUTE dynfunc;
+
+	--dyntrig='CREATE TRIGGER z_genupsert'||tablename||' BEFORE INSERT ON '||tablename||'	FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE genupsert_'||tablename||'();';
+
+	--EXECUTE dyntrig;
+
+ RETURN dynfunc;
+END;
+$main$ LANGUAGE plpgsql
+VOLATILE;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-genupsertmultTous-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  gen_upsertmult(tablename VARCHAR, updatestrings VARCHAR[], whereconditions VARCHAR[])
+RETURNS VARCHAR
+AS $main$
+DECLARE
+  dynfunc VARCHAR;
+  --dyntrig VARCHAR;
+  mult INTEGER;
+  updatestring VARCHAR;
+  wherecondition VARCHAR;
+BEGIN
+  mult=least(array_length(whereconditions,1),array_length(updatestrings,1));
+  --dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'() RETURNS TRIGGER AS $inner$ BEGIN WITH ';
+  dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'(newinput hstore) RETURNS VOID AS $inner$ BEGIN WITH ';
+  FOR i IN 1..mult
+  LOOP
+  wherecondition=regexp_replace(regexp_replace(whereconditions[i],'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1''','ig');
+  updatestring=regexp_replace(regexp_replace(updatestrings[i],'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1'' ','ig');
+
+  dynfunc=dynfunc||' upsert'||i||' AS ( UPDATE '||tablename||' SET '||updatestring||' WHERE '||wherecondition||' RETURNING '||tablename||'.* ), ';
+  END LOOP;
+  dynfunc=trim(trailing ', ' from dynfunc);
+  dynfunc=dynfunc||' INSERT INTO '||tablename||' (SELECT * FROM '||tablename||' WHERE NOT EXISTS ( ';
+  FOR i IN 1..mult
+  LOOP
+  dynfunc=dynfunc||' SELECT 1 FROM  upsert'||i||' b'||i||' WHERE ('||regexp_replace(whereconditions[i],'new','b'||i,'ig')||') UNION ALL ';
+  END LOOP;
+  dynfunc=trim(trailing 'UNION ALL ' from dynfunc);
+  --dynfunc=dynfunc||' )); RETURN NULL; END; $inner$ LANGUAGE plpgsql; ';
+  dynfunc=dynfunc||' )); END; $inner$ LANGUAGE plpgsql; ';
+
+	EXECUTE dynfunc;
+
+	--dyntrig='CREATE TRIGGER z_genupsert'||tablename||' BEFORE INSERT ON '||tablename||'	FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE genupsert_'||tablename||'();';
+	--EXECUTE dyntrig;
+
+ RETURN dynfunc;
+END;
+$main$ LANGUAGE plpgsql
+VOLATILE;
+CREATE FUNCTION
+CREATE OR REPLACE FUNCTION  gen_upsertmult(tablename VARCHAR, updatestrings VARCHAR[], whereconditions VARCHAR[])
+RETURNS VARCHAR
+AS $main$
+DECLARE
+  dynfunc VARCHAR;
+  --dyntrig VARCHAR;
+  mult INTEGER;
+  updatestring VARCHAR;
+  wherecondition VARCHAR;
+BEGIN
+  mult=least(array_length(whereconditions,1),array_length(updatestrings,1));
+  --dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'() RETURNS TRIGGER AS $inner$ BEGIN WITH ';
+  dynfunc='CREATE OR REPLACE FUNCTION  genupsert_'||tablename||'(newinput hstore) RETURNS VOID AS $inner$ BEGIN WITH ';
+  FOR i IN 1..mult
+  LOOP
+  wherecondition=regexp_replace(regexp_replace(whereconditions[i],'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1''','ig');
+  updatestring=regexp_replace(regexp_replace(updatestrings[i],'new\.(\w+)(\s|,)','newinput -> ''\1''\2','ig'),'new\.(\w+)$','newinput -> ''\1'' ','ig');
+
+  dynfunc=dynfunc||' upsert'||i||' AS ( UPDATE '||tablename||' SET '||updatestring||' WHERE '||wherecondition||' RETURNING '||tablename||'.* ), ';
+  END LOOP;
+  dynfunc=trim(trailing ', ' from dynfunc);
+  dynfunc=dynfunc||' INSERT INTO '||tablename||' (SELECT * FROM '||tablename||' WHERE NOT EXISTS ( ';
+  FOR i IN 1..mult
+  LOOP
+  dynfunc=dynfunc||' SELECT 1 FROM  upsert'||i||' b'||i||' WHERE ('||regexp_replace(whereconditions[i],'new','b'||i,'ig')||') UNION ALL ';
+  END LOOP;
+  dynfunc=trim(trailing 'UNION ALL ' from dynfunc);
+  --dynfunc=dynfunc||' )); RETURN NULL; END; $inner$ LANGUAGE plpgsql; ';
+  dynfunc=dynfunc||' )); END; $inner$ LANGUAGE plpgsql; ';
+
+	EXECUTE dynfunc;
+
+	--dyntrig='CREATE TRIGGER z_genupsert'||tablename||' BEFORE INSERT ON '||tablename||'	FOR EACH ROW WHEN (pg_trigger_depth() = 0) EXECUTE PROCEDURE genupsert_'||tablename||'();';
+	--EXECUTE dyntrig;
+
+ RETURN dynfunc;
+END;
+$main$ LANGUAGE plpgsql
+VOLATILE;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-pivotcodeTous-pgSQL.sql
+
+-- PL/pgSQL code to create pivot tables with automatic column names
+-- Eric Minikel, CureFFI.org - 2013-03-19
+-- Modified by Tiffany Grenier (2013-07-08) for taking SQL types in other database
+-- prerequisite: install the tablefunc module before using crosstab
+CREATE EXTENSION IF NOT EXISTS tablefunc;
+CREATE EXTENSION
+-- sourcetablename: name of source table you want to pivot
+-- rowc: the name of the column in "sourcetablename" you want to be the rows
+-- colc: the name of the column in "tablename" you want to be the columns
+-- cellc: an aggregate expressiON determining how the cell values will be created
+-- celldatatype: the name of the column in "tablename" you want to be the desired data type for the cells
+-- tablename: name of the table cONtaining columns names values and types
+-- sourcecolc: the name of the column in "sourcetablename" matching to column "colc"
+-- rowctype: the type of datas in column "rowc"
+--CREATE OR REPLACE FUNCTION  pivotcode (sourcetablename VARCHAR, rowc VARCHAR, colc VARCHAR, cellc VARCHAR, celldatatype VARCHAR, tablename VARCHAR, sourcecolc VARCHAR, rowctype VARCHAR)
+CREATE OR REPLACE FUNCTION genpivotcode (sourcetablename VARCHAR, rowc VARCHAR, colc VARCHAR, cellc VARCHAR, celldatatype VARCHAR, tablename VARCHAR, sourcecolc VARCHAR, rowctype VARCHAR, pivottable VARCHAR)
+RETURNS VARCHAR
+AS $$
+
+DECLARE
+  columns_sql VARCHAR;
+  crosstab_sql VARCHAR;
+  columnlist VARCHAR;
+BEGIN
+	-- 1. retrieve list of column names and types.
+
+	--in case of a single content type
+	--celldtype = 'VARCHAR';
+	--columns_sql = 'SELECT string_agg(DISTINCT ''_''||'||colc||'||'' '||celldtype||''', '', '' ORDER BY ''_''||'||colc||'||'' '||celldtype||''') FROM '||sourcetablename||';';
+
+	--in case content type is given in the same table as categories
+	columns_sql = 'SELECT string_agg(''_''||'||colc||'||'' ''||'||celldatatype||'||'''', '', '') FROM (SELECT DISTINCT '||colc||', '||celldatatype||', '||tablename||'.id FROM '||tablename||' JOIN '||sourcetablename||' ON '||tablename||'.id = '||sourcetablename||'.'||sourcecolc||' ORDER BY '||tablename||'.id) AS source;';
+
+	EXECUTE columns_sql INTO columnlist;
+	--RAISE NOTICE 'columns_sql: %', columns_sql;
+
+	-- 2. set up the crosstab query [crosstab(text source_sql, text category_sql)]
+
+	-- The main limitation of the single-parameter form of crosstab is that it treats all values in a group alike, inserting each value into the first available column. If you want the value columns to correspond to specific categories of data, and some groups might not have data for some of the categories, that doesn't work well. The two-parameter form of crosstab handles this case by providing an explicit list of the categories corresponding to the output columns.
+	-- The first parameter is a SQL statement that produces the source set of data and returns one row_name column, one category column, and one value column, as well as possible extra columns (which are expected to be the same for all rows with the same row_name value) between the first and the last two columns previously mentioned.
+	-- The second parameter is a SQL statement that produces a duplicates-free non-empty set of datas
+
+	--crosstab_sql = 'SELECT * INTO '||pivottable||' FROM crosstab (''SELECT '||rowc||', '||sourcecolc||', string_agg('||cellc||','''','''') FROM '||sourcetablename||' GROUP BY '||rowc||','||sourcecolc||' ORDER BY '||rowc||','||sourcecolc||''', ''SELECT DISTINCT '||sourcecolc||' FROM  '||sourcetablename||' ORDER BY '||sourcecolc||''') AS '||pivottable||' ('||rowc||' '||rowctype||', '||columnlist||');'; -- actual names and types of the output columns, since the crosstab function is declared to return setof record.
+
+	crosstab_sql = 'CREATE TABLE '||pivottable||' AS (SELECT * FROM crosstab (''SELECT '||rowc||', '||sourcecolc||', string_agg('||cellc||','''','''') FROM '||sourcetablename||' GROUP BY '||rowc||','||sourcecolc||' ORDER BY '||rowc||','||sourcecolc||''', ''SELECT DISTINCT '||sourcecolc||' FROM  '||sourcetablename||' ORDER BY '||sourcecolc||''') AS '||pivottable||' ('||rowc||' '||rowctype||', '||columnlist||'));';
+
+EXECUTE crosstab_sql;
+
+	--RAISE NOTICE 'crosstab_sql: %', crosstab_sql;
+	RETURN crosstab_sql;
+
+END;
+$$ LANGUAGE plpgsql VOLATILE;
+CREATE FUNCTION
+-- PL/pgSQL code to create pivot tables with automatic column names
+-- Eric Minikel, CureFFI.org - 2013-03-19
+-- Modified by Tiffany Grenier (2013-07-08) for taking SQL types in other database
+-- prerequisite: install the tablefunc module before using crosstab
+CREATE EXTENSION IF NOT EXISTS tablefunc;
+CREATE EXTENSION
+-- sourcetablename: name of source table you want to pivot
+-- rowc: the name of the column in "sourcetablename" you want to be the rows
+-- colc: the name of the column in "tablename" you want to be the columns
+-- cellc: an aggregate expressiON determining how the cell values will be created
+-- celldatatype: the name of the column in "tablename" you want to be the desired data type for the cells
+-- tablename: name of the table cONtaining columns names values and types
+-- sourcecolc: the name of the column in "sourcetablename" matching to column "colc"
+-- rowctype: the type of datas in column "rowc"
+--CREATE OR REPLACE FUNCTION  pivotcode (sourcetablename VARCHAR, rowc VARCHAR, colc VARCHAR, cellc VARCHAR, celldatatype VARCHAR, tablename VARCHAR, sourcecolc VARCHAR, rowctype VARCHAR)
+CREATE OR REPLACE FUNCTION genpivotcode (sourcetablename VARCHAR, rowc VARCHAR, colc VARCHAR, cellc VARCHAR, celldatatype VARCHAR, tablename VARCHAR, sourcecolc VARCHAR, rowctype VARCHAR, pivottable VARCHAR)
+RETURNS VARCHAR
+AS $$
+
+DECLARE
+  columns_sql VARCHAR;
+  crosstab_sql VARCHAR;
+  columnlist VARCHAR;
+BEGIN
+	-- 1. retrieve list of column names and types.
+
+	--in case of a single content type
+	--celldtype = 'VARCHAR';
+	--columns_sql = 'SELECT string_agg(DISTINCT ''_''||'||colc||'||'' '||celldtype||''', '', '' ORDER BY ''_''||'||colc||'||'' '||celldtype||''') FROM '||sourcetablename||';';
+
+	--in case content type is given in the same table as categories
+	columns_sql = 'SELECT string_agg(''_''||'||colc||'||'' ''||'||celldatatype||'||'''', '', '') FROM (SELECT DISTINCT '||colc||', '||celldatatype||', '||tablename||'.id FROM '||tablename||' JOIN '||sourcetablename||' ON '||tablename||'.id = '||sourcetablename||'.'||sourcecolc||' ORDER BY '||tablename||'.id) AS source;';
+
+	EXECUTE columns_sql INTO columnlist;
+	--RAISE NOTICE 'columns_sql: %', columns_sql;
+
+	-- 2. set up the crosstab query [crosstab(text source_sql, text category_sql)]
+
+	-- The main limitation of the single-parameter form of crosstab is that it treats all values in a group alike, inserting each value into the first available column. If you want the value columns to correspond to specific categories of data, and some groups might not have data for some of the categories, that doesn't work well. The two-parameter form of crosstab handles this case by providing an explicit list of the categories corresponding to the output columns.
+	-- The first parameter is a SQL statement that produces the source set of data and returns one row_name column, one category column, and one value column, as well as possible extra columns (which are expected to be the same for all rows with the same row_name value) between the first and the last two columns previously mentioned.
+	-- The second parameter is a SQL statement that produces a duplicates-free non-empty set of datas
+
+	--crosstab_sql = 'SELECT * INTO '||pivottable||' FROM crosstab (''SELECT '||rowc||', '||sourcecolc||', string_agg('||cellc||','''','''') FROM '||sourcetablename||' GROUP BY '||rowc||','||sourcecolc||' ORDER BY '||rowc||','||sourcecolc||''', ''SELECT DISTINCT '||sourcecolc||' FROM  '||sourcetablename||' ORDER BY '||sourcecolc||''') AS '||pivottable||' ('||rowc||' '||rowctype||', '||columnlist||');'; -- actual names and types of the output columns, since the crosstab function is declared to return setof record.
+
+	crosstab_sql = 'CREATE TABLE '||pivottable||' AS (SELECT * FROM crosstab (''SELECT '||rowc||', '||sourcecolc||', string_agg('||cellc||','''','''') FROM '||sourcetablename||' GROUP BY '||rowc||','||sourcecolc||' ORDER BY '||rowc||','||sourcecolc||''', ''SELECT DISTINCT '||sourcecolc||' FROM  '||sourcetablename||' ORDER BY '||sourcecolc||''') AS '||pivottable||' ('||rowc||' '||rowctype||', '||columnlist||'));';
+
+EXECUTE crosstab_sql;
+
+	--RAISE NOTICE 'crosstab_sql: %', crosstab_sql;
+	RETURN crosstab_sql;
+
+END;
+$$ LANGUAGE plpgsql VOLATILE;
+CREATE FUNCTION
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-*Archives-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-incrementdailycounterbyhourdiffMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  incrementdailycounterbyhourdiff ()
+RETURNS TRIGGER
+AS $$
+BEGIN
+  UPDATE dailybalancecounter SET dbalance = CAST(dbalance+(NEW.hbalance-OLD.hbalance) AS DECIMAL) WHERE dcreationtime >= (SELECT MAX(dcreationtime) FROM dailybalancecounter);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-incrementhourlycounterbychargedserviceMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  incrementhourlycounterbychargedservice ()
+RETURNS TRIGGER
+AS $$
+BEGIN
+  UPDATE hourlybalancecounter SET hbalance = hbalance+(NEW.chargedunitprice*(1+vat_percentage)*NEW.quantity) WHERE hcreationtime >= (SELECT MAX(hcreationtime) FROM hourlybalancecounter);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-incrementmonthlycounterbydaydiffMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  incrementmonthlycounterbydaydiff ()
+RETURNS TRIGGER
+AS $$
+BEGIN
+  UPDATE monthlybalancecounter SET mbalance = mbalance+(NEW.dbalance-OLD.dbalance) WHERE mcreationtime >= (SELECT MAX(mcreationtime) FROM monthlybalancecounter);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-incrementyearlycounterbymonthdiffMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  incrementyearlycounterbymonthdiff ()
+RETURNS TRIGGER
+AS $$
+BEGIN
+  UPDATE yearlybalancecounter SET ybalance = ybalance+(NEW.mbalance-OLD.mbalance) WHERE ycreationtime >= (SELECT MAX(ycreationtime) FROM yearlybalancecounter);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-restartdailybalanceMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  restartdailybalance (restartyear INT, restartmonth INT, restartday INT)
+RETURNS VOID
+AS $$
+  DECLARE previousyear INT;
+  DECLARE previousmonth INT;
+  DECLARE nowtimestamp TIMESTAMP;
+  DECLARE oldbalance DECIMAL;
+  DECLARE currentbalance DECIMAL;
+BEGIN
+  nowtimestamp = CURRENT_TIMESTAMP;
+  oldbalance = 0.0;
+  currentbalance = 0.0;
+  IF restartmonth = 1 THEN
+	previousyear = restartyear-1;
+  ELSE
+	previousyear = restartyear;
+  END IF;
+  IF restartday = 1 THEN
+	previousmonth = restartmonth-1;
+  ELSE
+	previousmonth = restartmonth;
+  END IF;
+  SELECT dbalance FROM daybalancecounter WHERE dyearlog = previousyear AND dmonthlog = previousmonth AND ddaylog = (restartday-1) INTO oldbalance;
+  IF oldbalance IS NULL THEN
+	oldbalance = 0.0;
+  END IF;
+  SELECT balance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = (restartday-1) INTO currentbalance;
+  IF currentbalance IS NOT NULL THEN
+	UPDATE balancelog_archive SET balance = (oldbalance + currentbalance) WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = (restartday-1);
+  ELSE
+	INSERT INTO balancelog_archive(yearlog, monthlog, daylog, hourlog, balance) VALUES (previousyear, previousmonth, (restartday-1), 0,	 oldbalance);
+  END IF;
+  -- CREATE new counter (ràz)
+  INSERT INTO dailybalancecounter(dcreationtime, dyearlog, dmonthlog, ddaylog, dbalance) VALUES (nowtimestamp, restartyear, restartmonth, restartday, 0);
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-restarthourlybalanceMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  restarthourlybalance (restartyear INTEGER, restartmonth INTEGER, restartday INTEGER, restarthour INTEGER)
+RETURNS VOID
+AS $$
+  DECLARE previousyear INTEGER;
+  DECLARE previousmonth INTEGER;
+  DECLARE previousday INTEGER;
+  DECLARE nowtimestamp TIMESTAMP;
+  DECLARE oldbalance DECIMAL;
+  DECLARE currentbalance DECIMAL;
+BEGIN
+  nowtimestamp = CURRENT_TIMESTAMP;
+  oldbalance = 0.0;
+  currentbalance = 0.0;
+  IF restartmonth = 1 THEN
+	previousyear = restartyear-1;
+  ELSE
+	previousyear = restartyear;
+  END IF;
+  IF restartday = 1 THEN
+	previousmonth = restartmonth-1;
+  ELSE
+	previousmonth = restartmonth;
+  END IF;
+  IF restarthour = 1 THEN
+	previousday = previousday-1;
+  ELSE
+	previousday = previousday;
+  END IF;
+  SELECT hbalance FROM hourlybalancecounter WHERE hyearlog = previousyear AND hmonthlog = previousmonth AND hdaylog = (restartday-1) INTO oldbalance;
+  IF oldbalance IS NULL THEN
+	oldbalance = 0.0;
+  END IF;
+  SELECT balance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = previousday AND hourlog = (restarthour-1) INTO currentbalance;
+  IF currentbalance IS NOT NULL THEN
+	UPDATE balancelog_archive SET balance = (oldbalance + currentbalance) WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = previousday AND hourlog = (restarthour-1);
+  ELSE
+	INSERT INTO balancelog_archive(yearlog, monthlog, daylog, hourlog, balance) VALUES (previousyear, previousmonth, previousday, (restarthour-1), oldbalance);
+  END IF;
+  -- CREATE new counter (ràz)
+  INSERT INTO hourlybalancecounter(hcreationtime, hyearlog, hmonthlog, hdaylog, hhourlog, hbalance) VALUES (nowtimestamp, restartyear, restartmonth, restartday, restarthour, 0.0);
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-restartmonthlybalanceMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  restartmonthlybalance (restartyear INTEGER, restartmonth INTEGER)
+RETURNS VOID
+AS $$
+  DECLARE previousyear INTEGER;
+  DECLARE nowtimestamp TIMESTAMP;
+  DECLARE oldbalance DECIMAL;
+  DECLARE currentbalance DECIMAL;
+BEGIN
+  nowtimestamp = CURRENT_TIMESTAMP;
+  oldbalance = 0.0;
+  currentbalance = 0.0;
+  IF restartmonth = 1 THEN
+	previousyear = restartyear-1;
+  ELSE
+	previousyear = restartyear;
+  END IF;
+  SELECT mbalance FROM monthlybalancecounter WHERE myearlog = previousyear AND mmonthlog = (restartmonth-1) INTO oldbalance;
+  IF oldbalance IS NULL THEN
+	oldbalance = 0.0;
+  END IF;
+  SELECT balance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = (restartmonth-1) INTO currentbalance;
+  IF currentbalance IS NOT NULL THEN
+	UPDATE balancelog_archive SET balance = (oldbalance + currentbalance) WHERE yearlog = previousyear AND monthlog = (restartmonth-1);
+  ELSE
+	INSERT INTO balancelog_archive(yearlog, monthlog, daylog, hourlog, balance) VALUES (previousyear, (restartmonth-1), 0, 0, oldbalance);
+  END IF;
+  -- CREATE new counter (ràz)
+  INSERT INTO monthlybalancecounter(mcreationtime, myearlog, mmonthlog, mbalance) VALUES (nowtimestamp, restartyear, restartmonth, 0.0);
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-dbCrea-Function-restartyearlybalanceMain-pgSQL.sql
+
+CREATE OR REPLACE FUNCTION  restartyearlybalance ( restartyear INTEGER )
+RETURNS VOID
+AS $$
+  DECLARE nowtimestamp TIMESTAMP;
+  DECLARE oldbalance DECIMAL;
+  DECLARE currentbalance DECIMAL;
+BEGIN
+  nowtimestamp = CURRENT_TIMESTAMP;
+  oldbalance = 0.0;
+  currentbalance = 0.0;
+  SELECT ybalance FROM yearlybalancecounter WHERE yyearlog = (restartyear-1) INTO oldbalance;
+  IF oldbalance IS NULL THEN
+	oldbalance = 0.0;
+  END IF;
+  SELECT balance FROM balancelog_archive WHERE yearlog = (restartyear-1) INTO currentbalance;
+  IF currentbalance IS NOT NULL THEN
+	UPDATE balancelog_archive SET balance = (oldbalance + currentbalance) WHERE yearlog =(restartyear-1);
+  ELSE
+	INSERT INTO balancelog_archive(yearlog, monthlog, daylog, hourlog, balance) VALUES ((restartyear-1), 0, 0, 0, oldbalance);
+  END IF;
+  -- CREATE new counter (ràz)
+  INSERT INTO yearlybalancecounter(ycreationtime, yyearlog, ybalance) VALUES (nowtimestamp, restartyear, 0.0);
+END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+
+
+_______________________
+
+k=4
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-*Tous-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-*Archives-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-dbCrea-Trigger-dailybalancecounterMain-pgSQL.sql
+
+CREATE TRIGGER tr_daylog AFTER UPDATE ON dailybalcount
+FOR EACH ROW
+WHEN ((NEW.dbalance IS NOT NULL) AND (NEW.dbalance > 0))
+EXECUTE PROCEDURE incrementmonthlycounterbydaydiff();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-dbCrea-Trigger-hourlybalancecounterMain-pgSQL.sql
+
+CREATE TRIGGER tr_hourlog AFTER UPDATE ON hourlybalcount
+FOR EACH ROW
+WHEN ((NEW.hbalance IS NOT NULL) AND (NEW.hbalance > 0))
+EXECUTE PROCEDURE incrementdailycounterbyhourdiff();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-dbCrea-Trigger-monthlybalancecounterMain-pgSQL.sql
+
+CREATE TRIGGER tr_monthlog AFTER UPDATE ON monthlybalcount
+FOR EACH ROW
+WHEN ((NEW.mbalance IS NOT NULL) AND (NEW.mbalance > 0))
+EXECUTE PROCEDURE incrementyearlycounterbymonthdiff();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-dbCrea-Trigger-registerchargingMain-pgSQL.sql
+
+CREATE TRIGGER tr_registercharging AFTER UPDATE ON chargedservices
+FOR EACH ROW
+WHEN ((NEW.quantity IS NOT NULL) AND (NEW.quantity > 0))
+EXECUTE PROCEDURE incrementhourlycounterbychargedservice();
+CREATE TRIGGER
+
+
+_______________________
+
+k=5
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-*Tous-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitArchives-pgSQL.sql
+
+SELECT gen_upsert('ADDRESSES', 'client_id=new.client_id, zipcode=new.zipcode, phone=new.phone,complementaryline=new.complementaryline', 'contact=new.contact AND street=new.street AND number=new.number AND city=new.city AND country=new.country');
+                                                                                                                                                                                                                                                                                                                                                    gen_upsert                                                                                                                                                                                                                                                                                                                                                     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_ADDRESSES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE ADDRESSES SET client_id=newinput -> 'client_id', zipcode=newinput -> 'zipcode', phone=newinput -> 'phone',complementaryline=newinput -> 'complementaryline'  WHERE contact=newinput -> 'contact' AND street=newinput -> 'street' AND number=newinput -> 'number' AND city=newinput -> 'city' AND country=newinput -> 'country'  RETURNING ADDRESSES.* )  INSERT INTO ADDRESSES (SELECT * FROM ADDRESSES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE contact=b.contact AND street=b.street AND number=b.number AND city=b.city AND country=b.country)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('GROUPS', 'CONTACT_ID=new.CONTACT_ID', 'NAME=new.NAME');
+                                                                                                                                                                            gen_upsert                                                                                                                                                                            
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_GROUPS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE GROUPS SET CONTACT_ID=newinput -> 'CONTACT_ID'  WHERE NAME=newinput -> 'NAME'  RETURNING GROUPS.* )  INSERT INTO GROUPS (SELECT * FROM GROUPS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE NAME=b.NAME)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('BALANCELOG', 'balance=new.balance', 'yearlog=new.yearlog AND monthlog=new.monthlog AND daylog=new.daylog AND hourlog=new.hourlog');
+                                                                                                                                                                                                                                                                             gen_upsert                                                                                                                                                                                                                                                                             
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_BALANCELOG(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE BALANCELOG SET balance=newinput -> 'balance'  WHERE yearlog=newinput -> 'yearlog' AND monthlog=newinput -> 'monthlog' AND daylog=newinput -> 'daylog' AND hourlog=newinput -> 'hourlog'  RETURNING BALANCELOG.* )  INSERT INTO BALANCELOG (SELECT * FROM BALANCELOG WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE yearlog=b.yearlog AND monthlog=b.monthlog AND daylog=b.daylog AND hourlog=b.hourlog)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('NATIONALITIES', 'COUNTRY=new.COUNTRY, CODE=NEW.CODE', 'LABEL=new.LABEL');
+                                                                                                                                                                                                         gen_upsert                                                                                                                                                                                                         
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_NATIONALITIES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE NATIONALITIES SET COUNTRY=newinput -> 'COUNTRY', CODE=newinput -> 'CODE'  WHERE LABEL=newinput -> 'LABEL'  RETURNING NATIONALITIES.* )  INSERT INTO NATIONALITIES (SELECT * FROM NATIONALITIES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LABEL=b.LABEL)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsertmult('CLIENTS', array['NAME=new.NAME, PHONE=new.PHONE, IDCARDSCAN=new.IDCARDSCAN, NATIONALITY_ID=new.NATIONALITY_ID, HOMEADDRESS_ID=NEW.HOMEADDRESS_ID, ISCURRENT=NEW.ISCURRENT','EMAIL=new.EMAIL, PHONE=new.PHONE, NATIONALITY_ID=new.NATIONALITY_ID, HOMEADDRESS_ID=NEW.HOMEADDRESS_ID,ISCURRENT=NEW.ISCURRENT', 'EMAIL=new.EMAIL, PHONE=new.PHONE, IDCARDSCAN=new.IDCARDSCAN, NATIONALITY_ID=new.NATIONALITY_ID, ISCURRENT=NEW.ISCURRENT'], array['EMAIL=new.EMAIL','NAME=new.NAME AND IDCARDSCAN=new.IDCARDSCAN AND IDCARDSCAN IS NOT NULL','NAME=new.NAME AND HOMEADDRESS_ID=new.HOMEADDRESS_ID AND HOMEADDRESS_ID IS NOT NULL']);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                gen_upsertmult                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_CLIENTS(newinput hstore) RETURNS VOID AS $inner$ BEGIN WITH  upsert1 AS ( UPDATE CLIENTS SET NAME=newinput -> 'NAME', PHONE=newinput -> 'PHONE', IDCARDSCAN=newinput -> 'IDCARDSCAN', NATIONALITY_ID=newinput -> 'NATIONALITY_ID', HOMEADDRESS_ID=newinput -> 'HOMEADDRESS_ID', ISCURRENT=newinput -> 'ISCURRENT'  WHERE EMAIL=newinput -> 'EMAIL' RETURNING CLIENTS.* ),  upsert2 AS ( UPDATE CLIENTS SET EMAIL=newinput -> 'EMAIL', PHONE=newinput -> 'PHONE', NATIONALITY_ID=newinput -> 'NATIONALITY_ID', HOMEADDRESS_ID=newinput -> 'HOMEADDRESS_ID',ISCURRENT=newinput -> 'ISCURRENT'  WHERE NAME=newinput -> 'NAME' AND IDCARDSCAN=newinput -> 'IDCARDSCAN' AND IDCARDSCAN IS NOT NULL RETURNING CLIENTS.* ),  upsert3 AS ( UPDATE CLIENTS SET EMAIL=newinput -> 'EMAIL', PHONE=newinput -> 'PHONE', IDCARDSCAN=newinput -> 'IDCARDSCAN', NATIONALITY_ID=newinput -> 'NATIONALITY_ID', ISCURRENT=newinput -> 'ISCURRENT'  WHERE NAME=newinput -> 'NAME' AND HOMEADDRESS_ID=newinput -> 'HOMEADDRESS_ID' AND HOMEADDRESS_ID IS NOT NULL RETURNING CLIENTS.* ) INSERT INTO CLIENTS (SELECT * FROM CLIENTS WHERE NOT EXISTS (  SELECT 1 FROM  upsert1 b1 WHERE (EMAIL=b1.EMAIL) UNION ALL  SELECT 1 FROM  upsert2 b2 WHERE (NAME=b2.NAME AND IDCARDSCAN=b2.IDCARDSCAN AND IDCARDSCAN IS NOT NULL) UNION ALL  SELECT 1 FROM  upsert3 b3 WHERE (NAME=b3.NAME AND HOMEADDRESS_ID=b3.HOMEADDRESS_ID AND HOMEADDRESS_ID IS NOT NULL) )); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitMain-pgSQL.sql
+
+SELECT gen_upsert('BILLINGSTYPES', 'NBBILLS=new.NBBILLS', 'LABEL=new.LABEL');
+                                                                                                                                                                                            gen_upsert                                                                                                                                                                                             
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_BILLINGSTYPES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE BILLINGSTYPES SET NBBILLS=newinput -> 'NBBILLS'  WHERE LABEL=newinput -> 'LABEL'  RETURNING BILLINGSTYPES.* )  INSERT INTO BILLINGSTYPES (SELECT * FROM BILLINGSTYPES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LABEL=b.LABEL)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('BILLS', 'BILLTYPE_ID=new.BILLTYPE_ID, NOTE=new.NOTE', 'BILLING_ID=new.BILLING_ID AND BILLINGBILLID=new.BILLINGBILLID');
+                                                                                                                                                                                                                                           gen_upsert                                                                                                                                                                                                                                           
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_BILLS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE BILLS SET BILLTYPE_ID=newinput -> 'BILLTYPE_ID', NOTE=newinput -> 'NOTE'  WHERE BILLING_ID=newinput -> 'BILLING_ID' AND BILLINGBILLID=newinput -> 'BILLINGBILLID'  RETURNING BILLS.* )  INSERT INTO BILLS (SELECT * FROM BILLS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE BILLING_ID=b.BILLING_ID AND BILLINGBILLID=b.BILLINGBILLID)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('TRAINING_BILLS', 'BILLTYPE_ID=new.BILLTYPE_ID, NOTE=new.NOTE', 'BILLING_ID=new.BILLING_ID AND BILLINGBILLID=new.BILLINGBILLID');
+                                                                                                                                                                                                                                                                 gen_upsert                                                                                                                                                                                                                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_TRAINING_BILLS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE TRAINING_BILLS SET BILLTYPE_ID=newinput -> 'BILLTYPE_ID', NOTE=newinput -> 'NOTE'  WHERE BILLING_ID=newinput -> 'BILLING_ID' AND BILLINGBILLID=newinput -> 'BILLINGBILLID'  RETURNING TRAINING_BILLS.* )  INSERT INTO TRAINING_BILLS (SELECT * FROM TRAINING_BILLS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE BILLING_ID=b.BILLING_ID AND BILLINGBILLID=b.BILLINGBILLID)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('CHARGEDSERVICES', 'INVOICINGDATE=new.INVOICINGDATE,QUANTITY=NEW.QUANTITY, CHARGEDUNITPRICE=NEW.CHARGEDUNITPRICE, VAT_PERCENTAGE=NEW.VAT_PERCENTAGE, ISPRINTED=NEW.ISPRINTED, ISPAYED=NEW.ISPAYED, PAIEMENTDATE=NEW.PAIEMENTDATE', 'SERVICE_ID=new.SERVICE_ID AND BILL_ID=new.BILL_ID');
+                                                                                                                                                                                                                                                                                                                                                                  gen_upsert                                                                                                                                                                                                                                                                                                                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_CHARGEDSERVICES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE CHARGEDSERVICES SET INVOICINGDATE=newinput -> 'INVOICINGDATE',QUANTITY=newinput -> 'QUANTITY', CHARGEDUNITPRICE=newinput -> 'CHARGEDUNITPRICE', VAT_PERCENTAGE=newinput -> 'VAT_PERCENTAGE', ISPRINTED=newinput -> 'ISPRINTED', ISPAYED=newinput -> 'ISPAYED', PAIEMENTDATE=newinput -> 'PAIEMENTDATE'  WHERE SERVICE_ID=newinput -> 'SERVICE_ID' AND BILL_ID=newinput -> 'BILL_ID'  RETURNING CHARGEDSERVICES.* )  INSERT INTO CHARGEDSERVICES (SELECT * FROM CHARGEDSERVICES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE SERVICE_ID=b.SERVICE_ID AND BILL_ID=b.BILL_ID)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('TRAINING_CHARGEDSERVICES', 'INVOICINGDATE=new.INVOICINGDATE,QUANTITY=NEW.QUANTITY, CHARGEDUNITPRICE=NEW.CHARGEDUNITPRICE, VAT_PERCENTAGE=NEW.VAT_PERCENTAGE, ISPRINTED=NEW.ISPRINTED, ISPAYED=NEW.ISPAYED, PAIEMENTDATE=NEW.PAIEMENTDATE', 'SERVICE_ID=new.SERVICE_ID AND BILL_ID=new.BILL_ID');
+                                                                                                                                                                                                                                                                                                                                                                                        gen_upsert                                                                                                                                                                                                                                                                                                                                                                                         
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_TRAINING_CHARGEDSERVICES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE TRAINING_CHARGEDSERVICES SET INVOICINGDATE=newinput -> 'INVOICINGDATE',QUANTITY=newinput -> 'QUANTITY', CHARGEDUNITPRICE=newinput -> 'CHARGEDUNITPRICE', VAT_PERCENTAGE=newinput -> 'VAT_PERCENTAGE', ISPRINTED=newinput -> 'ISPRINTED', ISPAYED=newinput -> 'ISPAYED', PAIEMENTDATE=newinput -> 'PAIEMENTDATE'  WHERE SERVICE_ID=newinput -> 'SERVICE_ID' AND BILL_ID=newinput -> 'BILL_ID'  RETURNING TRAINING_CHARGEDSERVICES.* )  INSERT INTO TRAINING_CHARGEDSERVICES (SELECT * FROM TRAINING_CHARGEDSERVICES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE SERVICE_ID=b.SERVICE_ID AND BILL_ID=b.BILL_ID)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsertmult('REPORTSTYPES', array['GENERATIONQUERY=new.GENERATIONQUERY','LABEL=new.LABEL'], array['LABEL=new.LABEL','GENERATIONQUERY=new.GENERATIONQUERY']);
+                                                                                                                                                                                                                                                                                                                    gen_upsertmult                                                                                                                                                                                                                                                                                                                     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_REPORTSTYPES(newinput hstore) RETURNS VOID AS $inner$ BEGIN WITH  upsert1 AS ( UPDATE REPORTSTYPES SET GENERATIONQUERY=newinput -> 'GENERATIONQUERY'  WHERE LABEL=newinput -> 'LABEL' RETURNING REPORTSTYPES.* ),  upsert2 AS ( UPDATE REPORTSTYPES SET LABEL=newinput -> 'LABEL'  WHERE GENERATIONQUERY=newinput -> 'GENERATIONQUERY' RETURNING REPORTSTYPES.* ) INSERT INTO REPORTSTYPES (SELECT * FROM REPORTSTYPES WHERE NOT EXISTS (  SELECT 1 FROM  upsert1 b1 WHERE (LABEL=b1.LABEL) UNION ALL  SELECT 1 FROM  upsert2 b2 WHERE (GENERATIONQUERY=b2.GENERATIONQUERY) )); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('ROOMS', 'ROOMTYPE_ID=new.ROOMTYPE_ID, FLOOR=NEW.FLOOR, ISCLEANED=NEW.ISCLEANED', 'NUMBER=new.NUMBER');
+                                                                                                                                                                                                             gen_upsert                                                                                                                                                                                                              
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_ROOMS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE ROOMS SET ROOMTYPE_ID=newinput -> 'ROOMTYPE_ID', FLOOR=newinput -> 'FLOOR', ISCLEANED=newinput -> 'ISCLEANED'  WHERE NUMBER=newinput -> 'NUMBER'  RETURNING ROOMS.* )  INSERT INTO ROOMS (SELECT * FROM ROOMS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE NUMBER=b.NUMBER)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsertmult('ROOMSOCCUPATIONS', array['ARRIVINGDATE=new.ARRIVINGDATE, DEPARTUREDATE=NEW.DEPARTUREDATE','BILLING_ID=new.BILLING_ID, DEPARTUREDATE=NEW.DEPARTUREDATE','ARRIVINGDATE=new.ARRIVINGDATE, BILLING_ID=NEW.BILLING_ID'], array['ROOM_ID=new.ROOM_ID AND BILLING_ID=NEW.BILLING_ID','ROOM_ID=new.ROOM_ID AND ARRIVINGDATE=NEW.ARRIVINGDATE','ROOM_ID=new.ROOM_ID AND DEPARTUREDATE=NEW.DEPARTUREDATE']);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   gen_upsertmult                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_ROOMSOCCUPATIONS(newinput hstore) RETURNS VOID AS $inner$ BEGIN WITH  upsert1 AS ( UPDATE ROOMSOCCUPATIONS SET ARRIVINGDATE=newinput -> 'ARRIVINGDATE', DEPARTUREDATE=newinput -> 'DEPARTUREDATE'  WHERE ROOM_ID=newinput -> 'ROOM_ID' AND BILLING_ID=newinput -> 'BILLING_ID' RETURNING ROOMSOCCUPATIONS.* ),  upsert2 AS ( UPDATE ROOMSOCCUPATIONS SET BILLING_ID=newinput -> 'BILLING_ID', DEPARTUREDATE=newinput -> 'DEPARTUREDATE'  WHERE ROOM_ID=newinput -> 'ROOM_ID' AND ARRIVINGDATE=newinput -> 'ARRIVINGDATE' RETURNING ROOMSOCCUPATIONS.* ),  upsert3 AS ( UPDATE ROOMSOCCUPATIONS SET ARRIVINGDATE=newinput -> 'ARRIVINGDATE', BILLING_ID=newinput -> 'BILLING_ID'  WHERE ROOM_ID=newinput -> 'ROOM_ID' AND DEPARTUREDATE=newinput -> 'DEPARTUREDATE' RETURNING ROOMSOCCUPATIONS.* ) INSERT INTO ROOMSOCCUPATIONS (SELECT * FROM ROOMSOCCUPATIONS WHERE NOT EXISTS (  SELECT 1 FROM  upsert1 b1 WHERE (ROOM_ID=b1.ROOM_ID AND BILLING_ID=b1.BILLING_ID) UNION ALL  SELECT 1 FROM  upsert2 b2 WHERE (ROOM_ID=b2.ROOM_ID AND ARRIVINGDATE=b2.ARRIVINGDATE) UNION ALL  SELECT 1 FROM  upsert3 b3 WHERE (ROOM_ID=b3.ROOM_ID AND DEPARTUREDATE=b3.DEPARTUREDATE) )); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('ROOMSTYPES', 'DESCRIPTION=new.DESCRIPTION, PRICEMIN=NEW.PRICEMIN, PRICEMAX=NEW.PRICEMAX', 'LABEL=new.LABEL');
+                                                                                                                                                                                                                          gen_upsert                                                                                                                                                                                                                          
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_ROOMSTYPES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE ROOMSTYPES SET DESCRIPTION=newinput -> 'DESCRIPTION', PRICEMIN=newinput -> 'PRICEMIN', PRICEMAX=newinput -> 'PRICEMAX'  WHERE LABEL=newinput -> 'LABEL'  RETURNING ROOMSTYPES.* )  INSERT INTO ROOMSTYPES (SELECT * FROM ROOMSTYPES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LABEL=b.LABEL)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('SERVICESDETAILS', 'FIELDVALUE=new.FIELDVALUE', 'SERVICEFIELD_ID=new.SERVICEFIELD_ID AND SERVICE_ID=new.SERVICE_ID');
+                                                                                                                                                                                                                                                          gen_upsert                                                                                                                                                                                                                                                           
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_SERVICESDETAILS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE SERVICESDETAILS SET FIELDVALUE=newinput -> 'FIELDVALUE'  WHERE SERVICEFIELD_ID=newinput -> 'SERVICEFIELD_ID' AND SERVICE_ID=newinput -> 'SERVICE_ID'  RETURNING SERVICESDETAILS.* )  INSERT INTO SERVICESDETAILS (SELECT * FROM SERVICESDETAILS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE SERVICEFIELD_ID=b.SERVICEFIELD_ID AND SERVICE_ID=b.SERVICE_ID)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('SERVICESFIELDS', 'SQLTYPE=new.SQLTYPE', 'LABEL=new.LABEL');
+                                                                                                                                                                                               gen_upsert                                                                                                                                                                                               
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_SERVICESFIELDS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE SERVICESFIELDS SET SQLTYPE=newinput -> 'SQLTYPE'  WHERE LABEL=newinput -> 'LABEL'  RETURNING SERVICESFIELDS.* )  INSERT INTO SERVICESFIELDS (SELECT * FROM SERVICESFIELDS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LABEL=b.LABEL)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('SERVICES', 'SERVICETYPE_ID=new.SERVICETYPE_ID, ISAVAILABLE=NEW.ISAVAILABLE', 'NAME=new.NAME');
+                                                                                                                                                                                                        gen_upsert                                                                                                                                                                                                         
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_SERVICES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE SERVICES SET SERVICETYPE_ID=newinput -> 'SERVICETYPE_ID', ISAVAILABLE=newinput -> 'ISAVAILABLE'  WHERE NAME=newinput -> 'NAME'  RETURNING SERVICES.* )  INSERT INTO SERVICES (SELECT * FROM SERVICES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE NAME=b.NAME)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('SERVICESTYPES', 'SERVICEFAMILY_ID=new.SERVICEFAMILY_ID, VAT_ID=NEW.VAT_ID, ROOMNEEDED=NEW.ROOMNEEDED', 'LABEL=new.LABEL');
+                                                                                                                                                                                                                                      gen_upsert                                                                                                                                                                                                                                       
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_SERVICESTYPES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE SERVICESTYPES SET SERVICEFAMILY_ID=newinput -> 'SERVICEFAMILY_ID', VAT_ID=newinput -> 'VAT_ID', ROOMNEEDED=newinput -> 'ROOMNEEDED'  WHERE LABEL=newinput -> 'LABEL'  RETURNING SERVICESTYPES.* )  INSERT INTO SERVICESTYPES (SELECT * FROM SERVICESTYPES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LABEL=b.LABEL)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('USERS', 'ENCRYPTEDPASS=new.ENCRYPTEDPASS, ISRECEPTIONIST=NEW.ISRECEPTIONIST, ISMANAGERX=NEW.ISMANAGERX, ISMANAGERZ=NEW.ISMANAGERZ, ISADMINISTRATOR=NEW.ISADMINISTRATOR', 'LOGIN=new.LOGIN');
+                                                                                                                                                                                                                                                                 gen_upsert                                                                                                                                                                                                                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_USERS(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE USERS SET ENCRYPTEDPASS=newinput -> 'ENCRYPTEDPASS', ISRECEPTIONIST=newinput -> 'ISRECEPTIONIST', ISMANAGERX=newinput -> 'ISMANAGERX', ISMANAGERZ=newinput -> 'ISMANAGERZ', ISADMINISTRATOR=newinput -> 'ISADMINISTRATOR'  WHERE LOGIN=newinput -> 'LOGIN'  RETURNING USERS.* )  INSERT INTO USERS (SELECT * FROM USERS WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LOGIN=b.LOGIN)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+SELECT gen_upsert('TRAINEES', 'ENCRYPTEDPASS=new.ENCRYPTEDPASS, ISACTIVATED=NEW.ISACTIVATED', 'LOGIN=new.LOGIN');
+                                                                                                                                                                                                         gen_upsert                                                                                                                                                                                                          
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION  genupsert_TRAINEES(newinput hstore) RETURNS VOID AS $inner$ BEGIN  WITH upsert AS ( UPDATE TRAINEES SET ENCRYPTEDPASS=newinput -> 'ENCRYPTEDPASS', ISACTIVATED=newinput -> 'ISACTIVATED'  WHERE LOGIN=newinput -> 'LOGIN'  RETURNING TRAINEES.* )  INSERT INTO TRAINEES (SELECT * FROM TRAINEES WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE LOGIN=b.LOGIN)); END; $inner$ LANGUAGE plpgsql; 
+(1 ligne)
+
+INSERT INTO ROOMSTYPES
+  (LABEL, DESCRIPTION, PRICEMIN, PRICEMAX)
+VALUES
+  ('1L+D', '1 lit en 80x200 + 1 douche', 100, 120),
+  ('1GL+D', '1 lit en 160x200 + 1 douche', 120, 150),
+  ('1pGL+D', '1 lit en 140x190 ou en 140x200 + 1 douche', 135, 145),
+  ('2L+D', '2 lits en 80x200 + 1 douche', 150, 165),
+  ('2L+B', '2 lits en 80x200 + 1 baignoire', 150, 165),
+  ('2Lc+D', '2 lits en 90x200 + 1 douche', 160, 180),
+  ('2Lc+B', '2 lits en 90x200 + 1 baignoire', 160, 180),
+  ('Junior Suite', '2 lits en 90x200 ou 1 lit 140x200 + 1 baignoire', 170, 195),
+  ('3L+B', '3 lits en 80x200 + 1 baignoire', 175, 200),
+  ('2L+1pGL+B', '2 lits en 80x200 + 1 lit 140x200 + 1 baignoire', 185, 215),
+  ('3L+1pGL+B', '3 lits en 80x200 + 1 lit 140x200 + 1 baignoire', 195, 255),
+  ('appartement', '', 300, 300),
+  ('studio', '', 350, 350);
+INSERT 0 13
+INSERT INTO ROOMS
+  (ROOMTYPE_ID, NUMBER, FLOOR)
+VALUES
+  (1, 309, 3),
+  (1, 509, 5),
+  (1, 710, 7),
+  (1, 711, 7),
+  (1, 712, 7),
+  (3, 308, 3),
+  (3, 307, 3),
+  (3, 407, 4),
+  (3, 507, 5),
+  (3, 607, 6),
+  (2, 707, 7),
+  (2, 605, 6),
+  (2, 207, 2),
+  (4, 201, 2),
+  (4, 202, 2),
+  (4, 203, 2),
+  (4, 205, 2),
+  (4, 206, 2),
+  (4, 301, 3),
+  (4, 302, 3),
+  (4, 303, 3),
+  (4, 305, 3),
+  (4, 306, 3),
+  (8, 310, 3),
+  (7, 311, 3),
+  (4, 401, 4),
+  (4, 402, 4),
+  (4, 403, 4),
+  (4, 405, 4),
+  (4, 406, 4),
+  (5, 408, 4),
+  (5, 411, 4),
+  (4, 501, 5),
+  (4, 502, 5),
+  (4, 503, 5),
+  (4, 505, 5),
+  (4, 506, 5),
+  (5, 508, 5),
+  (4, 601, 6),
+  (4, 602, 6),
+  (4, 603, 6),
+  (4, 606, 6),
+  (4, 701, 7),
+  (4, 705, 7),
+  (4, 706, 7),
+  (4, 708, 7),
+  (8, 510, 5),
+  (7, 511, 5),
+  (7, 704, 7),
+  (9, 304, 3),
+  (9, 504, 5),
+  (9, 604, 6),
+  (10, 204, 2),
+  (10, 404, 4),
+  (12, 410, 4),
+  (12, 702, 7),
+  (13, 132, 7);
+INSERT 0 57
+INSERT INTO TAXES
+  (LABEL, PERCENTAGE, STARTDATE, ENDDATE)
+VALUES
+  ('0%',0.0,null,null),
+  ('3,8%',3.8,null,null);
+INSERT 0 2
+INSERT INTO SERVICESFAMILIES
+  (LABEL)
+VALUES
+  ('Arrangement'),
+  ('Repas'),
+  ('Prestations');
+INSERT 0 3
+INSERT INTO SERVICESTYPES
+  (LABEL, SERVICEFAMILY_ID, VAT_ID, ROOMNEEDED)
+VALUES
+  ('Autre',3,1, '1'),
+  ('Taxe de séjour',1,1, '1'),
+  ('Accomodation',1,1, '1'),
+  ('Repas',2,1, '1'),
+  ('Prestation extra',3,1, '1'),
+  ('Vente au comptant',3,1, '0');
+INSERT 0 6
+INSERT INTO SERVICESFIELDS
+  (LABEL, SQLTYPE)
+VALUES
+  ('DISPLAYEDNAME','VARCHAR(100)'),
+  ('PRINTEDNAME','VARCHAR(100)'),
+  ('PRICEMIN','FLOAT'),
+  ('PRICEMAX','FLOAT');
+INSERT 0 4
+INSERT INTO SERVICES
+  (ID, SERVICETYPE_ID, NAME, ISAVAILABLE)
+VALUES
+  (-1, 1, 'Autre...', '1'),
+  (0, 1, 'Autre', '1');
+INSERT 0 2
+INSERT INTO SERVICES
+  (SERVICETYPE_ID, NAME, ISAVAILABLE)
+VALUES
+  (1, 'Taxe de séjour adulte', '1'),
+  (1, 'Taxe de séjour enfant', '1'),
+  (3, 'Logement', '1'),
+  (3, 'Logement et petit-déjeuner','1'),
+  (3, 'Arrangement demi-pension', '1'),
+  (3, 'Arrangement pension complète','1'),
+  (4, 'Demi-pension', '1'),
+  (4, 'Pension complète','1'),
+  (5, 'Petit-déjeuner','1'),
+  (5, 'Extras petit-déjeuner','1'),
+  (4, 'Restaurant','1'),
+  (4, 'Bistro','1'),
+  (5, 'Fax','1'),
+  (5, 'Garage', '1'),
+  (5, 'Téléphone','1'),
+  (5, 'Wifi chambre','0'),
+  (6, 'Timbre', '1'),
+  (5, 'Lingerie','1'),
+  (6, 'Location salle','1'),
+  (6, 'Débours', '1'),
+  (6, 'Rabais', '1'),
+  (5, 'Service en chambre','1');
+INSERT 0 22
+INSERT INTO SERVICESDETAILS
+  (SERVICE_ID,SERVICEFIELD_ID, FIELDVALUE)
+VALUES
+  (-1,1,'Autre...'),
+  (-1,2,'Autre...'),
+  (-1,3,'0'),
+  (-1,4,'0'),
+  (0, 1,'Autre'),
+  (0, 2,'Autre'),
+  (0, 3,'0'),
+  (0, 4,'0'),
+  (1,1,'Taxe de séjour adulte'),
+  (1,2,'Taxe de séjour adulte'),
+  (1,3,'2'),
+  (1,4,'2'),
+  (2,1,'Taxe de séjour enfant'),
+  (2,2,'Taxe de séjour enfant'),
+  (2,3,'1'),
+  (2,4,'1'),
+  (3,1,'Logement'),
+  (3,2,'Logement'),
+  (3,3,'-1'),
+  (3,4,'-1'),
+  (4,1,'Logement et petit-déjeuner'),
+  (4,2,'Logement+p.dej'),
+  (4,3,'-1'),
+  (4,4,'-1'),
+  (5,1,'Arrangement demi-pension'),
+  (5,2,'Arrangement 1/2 pension'),
+  (5,3,'-1'),
+  (5,4,'-1'),
+  (6,1,'Arrangement pension complète'),
+  (6,2,'Arrangement pension comp.'),
+  (6,3,'-1'),
+  (6,4,'-1'),
+  (7,1,'Demi-pension'),
+  (7,2,'1/2 pension'),
+  (7,3,'25'),
+  (7,4,'25'),
+  (8,1,'Pension complète'),
+  (8,2,'Pension complète'),
+  (8,3,'50'),
+  (8,4,'50'),
+  (9,1,'Petit-déjeuner'),
+  (9,2,'Petit-déjeuner'),
+  (9,3,'0'),
+  (9,4,'0'),
+  (10,1,'Extras petit-déjeuner'),
+  (10,2,'Extras p.dej'),
+  (10,3,'0'),
+  (10,4,'0'),
+  (11,1,'Restaurant'),
+  (11,2,'Restaurant'),
+  (11,3,'0'),
+  (11,4,'0'),
+  (12,1,'Bistro'),
+  (12,2,'Bistro'),
+  (12,3,'0'),
+  (12,4,'0'),
+  (13,1,'Fax'),
+  (13,2,'Fax'),
+  (13,3,'0'),
+  (13,4,'0'),
+  (14,1,'Garage'),
+  (14,2,'Garage'),
+  (14,3,'0'),
+  (14,4,'0'),
+  (15,1,'Téléphone'),
+  (15,2,'Téléphone'),
+  (15,3,'0'),
+  (15,4,'0'),
+  (16,1,'Wifi chambre'),
+  (16,2,'Wifi chambre'),
+  (16,3,'5'),
+  (16,4,'5'),
+  (17,1,'Timbre'),
+  (17,2,'Timbre'),
+  (17,3,'0'),
+  (17,4,'0'),
+  (18,1,'Lingerie'),
+  (18,2,'Lingerie'),
+  (18,3,'0'),
+  (18,4,'0'),
+  (19,1,'Location salle'),
+  (19,2,'Location salle'),
+  (19,3,'0'),
+  (19,4,'0'),
+  (20,1,'Débours'),
+  (20,2,'Débours'),
+  (20,3,'0'),
+  (20,4,'0'),
+  (21,1,'Rabais'),
+  (21,2,'Rabais'),
+  (21,3,'0'),
+  (21,4,'0'),
+  (22,1,'Service en chambre'),
+  (22,2,'Service en chambre'),
+  (22,3,'0'),
+  (22,4,'0');
+INSERT 0 96
+INSERT INTO USERS
+  (LOGIN, ENCRYPTEDPASS, ISRECEPTIONIST, ISMANAGERX, ISMANAGERZ, ISADMINISTRATOR)
+VALUES
+  ('hotel','EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF','1','0','0','0'),
+ ('manX','EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF','1','1','0','0'),
+ ('manZ','EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF','1','1','1','0'),
+ ('admin','EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF','0','0','1','1');
+INSERT 0 0
+INSERT INTO TRAINEES
+  (LOGIN, ENCRYPTEDPASS, ISACTIVATED)
+VALUES
+  ('formation','EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF', '1');
+INSERT 0 1
+
+
+_______________________
+
+k=6
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-*Tous-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-*Archives-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-dbCrea-View-BillingsInfosMain-pgSQL.sql
+
+CREATE VIEW BILLINGSINFOS AS
+  SELECT
+	BILLINGS.ID AS ID,
+	CLIENTS.NAME AS CLIENT,
+	ROOMDESC,
+	CAST((CASE WHEN BILLINGS.NBADULTS IS NULL THEN 0 WHEN BILLINGS.NBCHILDREN IS NULL THEN 0 ELSE CAST(CAST(BILLINGS.NBADULTS AS INTEGER)+CAST(BILLINGS.NBCHILDREN AS INTEGER) AS INTEGER) END) AS INTEGER) AS NBPEOPLE,
+	BILLINGS.ARRIVINGDATE AS ARRIVINGDATE,
+	BILLINGS.DEPARTUREDATE AS DEPARTUREDATE,
+	BILLINGS.EXPECTEDDEPARTUREDATE AS EXPECTEDDEPARTUREDATE,
+	BILLINGSTYPES.LABEL AS TYPE
+  FROM BILLINGS
+  LEFT JOIN ROOMSOCCUPATIONS ON ROOMSOCCUPATIONS.BILLING_ID = BILLINGS.ID
+  LEFT JOIN (
+	  SELECT
+		ROOMS.ID,
+		(ROOMS.NUMBER || '(' || ROOMSTYPES.LABEL || ')') AS ROOMDESC
+	  FROM ROOMS
+	  LEFT JOIN ROOMSTYPES ON ROOMS.ROOMTYPE_ID = ROOMSTYPES.ID
+	) AS R ON R.ID = ROOMSOCCUPATIONS.ROOM_ID
+  LEFT JOIN BILLINGSGROUPS ON BILLINGSGROUPS.BILLING_ID = BILLINGS.ID
+  LEFT JOIN BILLINGSCLIENTS ON BILLINGSCLIENTS.BILLING_ID = BILLINGS.ID
+  LEFT JOIN CLIENTS_ARCHIVE AS CLIENTS ON CLIENTS.ID = BILLINGSCLIENTS.CLIENT_ID
+  LEFT JOIN GROUPS_ARCHIVE AS GROUPS ON GROUPS.ID = BILLINGSGROUPS.GROUP_ID
+  LEFT JOIN BILLINGSTYPES ON BILLINGSTYPES.ID = BILLINGS.BILLINGSTYPE_ID
+  WHERE BILLINGS.ISCLOSED = '0'
+  ORDER BY BILLINGS.ARRIVINGDATE;
+CREATE VIEW
+--WITH CASCADED CHECK OPTION;
+CREATE OR REPLACE FUNCTION billingsinfos_up_del()
+RETURNS TRIGGER
+AS $$
+   BEGIN
+IF TG_OP = 'UPDATE' THEN
+	  SELECT genupsert_billings(hstore(ARRAY[['ARRIVINGDATE','new.ARRIVINGDATE'],['DEPARTUREDATE','new.DEPARTUREDATE'],['EXPECTEDDEPARTUREDATE','new.EXPECTEDDEPARTUREDATE'],['BILLINGSTYPE_ID','(SELECT ID FROM BILLINGSTYPES WHERE LABEL=NEW.TYPE)'],['id','new.id']]));
+	  --UPDATE billings SET ARRIVINGDATE=new.ARRIVINGDATE, DEPARTUREDATE=new.DEPARTUREDATE, EXPECTEDDEPARTUREDATE=new.EXPECTEDDEPARTUREDATE, BILLINGSTYPE_ID=(SELECT ID FROM BILLINGSTYPES WHERE LABEL=NEW.TYPE) WHERE ID=new.ID;
+
+	  UPDATE billingsclients SET CLIENT_ID=(SELECT ID FROM CLIENTS_ARCHIVE WHERE NAME=NEW.CLIENT) WHERE billing_id=new.id;
+
+	  ELSIF TG_OP = 'DELETE' THEN
+	UPDATE billings SET ISCLOSED='1' WHERE ID=old.ID;
+	   RETURN NULL;
+
+	  END IF;
+	  RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_changebillingsinfos
+	INSTEAD OF UPDATE OR DELETE ON BILLINGSINFOS
+	FOR EACH ROW EXECUTE PROCEDURE billingsinfos_up_del();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-dbCrea-View-RoomsInfosMain-pgSQL.sql
+
+CREATE VIEW ROOMSINFOS AS
+  SELECT
+	ROOMS.ID AS ID,
+	ROOMS.NUMBER AS NUMBER,
+	ROOMS.FLOOR AS FLOOR,
+	ROOMSTYPES.LABEL AS TYPE,
+	ROOMSTYPES.DESCRIPTION AS DESCRIPTION,
+	ROOMSTYPES.PRICEMIN AS PRICEMIN,
+	ROOMSTYPES.PRICEMAX AS PRICEMAX,
+	(CASE B.ISAVAILABLE WHEN '1' THEN (CASE ROOMS.ISCLEANED WHEN '1' THEN '1' ELSE '' END) ELSE '0' END) AS AVAILABILITY
+  FROM ROOMS
+  LEFT JOIN (
+	  SELECT
+		CAST((CASE WHEN COUNT(*)>0 THEN '0' ELSE '1' END) AS BOOLEAN) AS ISAVAILABLE,
+		ROOMSOCCUPATIONS.ROOM_ID
+	  FROM ROOMSOCCUPATIONS
+	  WHERE ROOMSOCCUPATIONS.DEPARTUREDATE>=CURRENT_DATE
+	  GROUP BY ROOMSOCCUPATIONS.ROOM_ID
+	) AS B ON ROOMS.ID=B.ROOM_ID
+  LEFT JOIN ROOMSTYPES ON ROOMS.ROOMTYPE_ID=ROOMSTYPES.ID
+  ORDER BY ROOMS.NUMBER;
+CREATE VIEW
+  --WITH CASCADED CHECK OPTION;
+CREATE OR REPLACE FUNCTION roomsinfos_ins_up_del()
+RETURNS TRIGGER
+AS $$
+   BEGIN
+   IF TG_OP = 'INSERT' THEN
+	  SELECT genupsert_ROOMSTYPES(hstore(ARRAY[['DESCRIPTION','new.DESCRIPTION'],['PRICEMIN','new.PRICEMIN'],['PRICEMAX','new.PRICEMAX'],['label','new.type']]));
+	  --INSERT INTO ROOMSTYPES(LABEL, DESCRIPTION, PRICEMIN, PRICEMAX) VALUES(new.TYPE, new.description, new.pricemin, new.pricemax);
+
+	  INSERT INTO ROOMS(NUMBER, FLOOR, ROOMTYPE_ID) VALUES(new.number,new.floor,(select id from roomstypes where LABEL=new.TYPE));
+
+  ELSEIF TG_OP = 'UPDATE' THEN
+	  SELECT genupsert_ROOMSTYPES(hstore(ARRAY[['DESCRIPTION','new.DESCRIPTION'],['PRICEMIN','new.PRICEMIN'],['PRICEMAX','new.PRICEMAX'],['label','new.type']]));
+	  --UPDATE ROOMSTYPES SET DESCRIPTION=new.description, PRICEMIN=new.pricemin, PRICEMAX=new.pricemax WHERE label=new.TYPE;
+	  --IF NOT FOUND THEN
+		--INSERT INTO ROOMSTYPES(LABEL, DESCRIPTION, PRICEMIN, PRICEMAX) VALUES(new.TYPE, new.description, new.pricemin, new.pricemax);
+	  --END IF;
+
+	  UPDATE ROOMS SET FLOOR=new.floor, ROOMTYPE_ID=(select id from roomstypes where LABEL=new.TYPE) WHERE number=new.number;
+
+  ELSIF TG_OP = 'DELETE' THEN
+		DELETE FROM ROOMS WHERE number=old.number;
+
+	   RETURN NULL;
+
+	  END IF;
+	  RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_changeroomsinfos
+	INSTEAD OF INSERT OR UPDATE OR DELETE ON ROOMSINFOS
+	FOR EACH ROW EXECUTE PROCEDURE roomsinfos_ins_up_del();
+CREATE TRIGGER
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-dbCrea-View-ServicesInfosMain-pgSQL.sql
+
+SELECT genpivotcode('SERVICESDETAILS', 'SERVICE_ID', 'LABEL', 'FIELDVALUE', 'SQLTYPE', 'SERVICESFIELDS', 'SERVICEFIELD_ID', 'INTEGER', 'SERVICESDETAILSPIVOT');
+                                                                                                                                                                                                                       genpivotcode                                                                                                                                                                                                                        
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CREATE TABLE SERVICESDETAILSPIVOT AS (SELECT * FROM crosstab ('SELECT SERVICE_ID, SERVICEFIELD_ID, string_agg(FIELDVALUE,'','') FROM SERVICESDETAILS GROUP BY SERVICE_ID,SERVICEFIELD_ID ORDER BY SERVICE_ID,SERVICEFIELD_ID', 'SELECT DISTINCT SERVICEFIELD_ID FROM  SERVICESDETAILS ORDER BY SERVICEFIELD_ID') AS SERVICESDETAILSPIVOT (SERVICE_ID INTEGER, _DISPLAYEDNAME VARCHAR(100), _PRINTEDNAME VARCHAR(100), _PRICEMIN FLOAT, _PRICEMAX FLOAT));
+(1 ligne)
+
+CREATE VIEW SERVICESINFOS AS
+  SELECT
+	SERVICES.ID AS ID,
+	SERVICESFAMILIES.LABEL AS SERVICEFAMILY,
+	SERVICESTYPES.LABEL AS SERVICETYPE,
+	ROOMNEEDED AS TYPENEEDSROOM,
+	SERVICES.NAME AS SERVICENAME,
+	SERVICESTYPES.ROOMNEEDED AS ROOMNEEDED,
+	SERVICES.ISAVAILABLE AS ISAVAILABLE,
+	VAT_ID,
+	TAXES.LABEL AS VAT,
+	SERVICESDETAILSPIVOT.*
+  FROM SERVICES
+  LEFT JOIN SERVICESTYPES ON SERVICES.SERVICETYPE_ID=SERVICESTYPES.ID
+  LEFT JOIN SERVICESFAMILIES ON SERVICESTYPES.SERVICEFAMILY_ID=SERVICESFAMILIES.ID
+  LEFT JOIN SERVICESDETAILSPIVOT ON SERVICESDETAILSPIVOT.SERVICE_ID=SERVICES.ID
+  LEFT JOIN TAXES ON SERVICESTYPES.VAT_ID = TAXES.ID
+  ORDER BY SERVICEFAMILY, SERVICETYPE, SERVICENAME;--,
+CREATE VIEW
+  --GROUP BY SERVICES.ID--;
+  --WITH CASCADED CHECK OPTION;
+CREATE OR REPLACE FUNCTION servicesinfos_ins_up_del()
+RETURNS TRIGGER
+AS $$
+   BEGIN
+   IF TG_OP = 'INSERT' THEN
+	  INSERT INTO SERVICESFAMILIES(LABEL) VALUES(new.SERVICEFAMILY);
+
+	  SELECT genupsert_SERVICESTYPES(hstore(ARRAY[['LABEL','new.SERVICETYPE'],['SERVICEFAMILY_ID','(SELECT id FROM SERVICESFAMILIES WHERE LABEL=new.SERVICEFAMILY)'],['VAT_ID','new.VAT_ID'],['ROOMNEEDED','new.TYPENEEDSROOM']]));
+	  --INSERT INTO SERVICESTYPES(LABEL, SERVICEFAMILY_ID, VAT_ID, ROOMNEEDED) VALUES(new.SERVICETYPE, (SELECT id FROM SERVICESFAMILIES WHERE LABEL=new.SERVICEFAMILY), new.VAT_ID, new.TYPENEEDSROOM);
+
+	  INSERT INTO SERVICES(SERVICETYPE_ID, NAME, ISAVAILABLE) VALUES((SELECT id FROM SERVICESTYPES WHERE LABEL=new.SERVICETYPE),new.SERVICENAME,new.ISAVAILABLE);
+
+  ELSEIF TG_OP = 'UPDATE' THEN
+	  INSERT INTO SERVICESFAMILIES(LABEL) VALUES(new.SERVICEFAMILY);
+	  SELECT genupsert_SERVICESTYPES(hstore(ARRAY[['LABEL','new.SERVICETYPE'],['SERVICEFAMILY_ID','(SELECT id FROM SERVICESFAMILIES WHERE LABEL=new.SERVICEFAMILY)'],['VAT_ID','new.VAT_ID'],['ROOMNEEDED','new.TYPENEEDSROOM']]));
+
+	  UPDATE ROOMS SET FLOOR=new.floor, ROOMTYPE_ID=(select id from roomstypes where LABEL=new.TYPE) WHERE number=new.number;
+
+	  ELSIF TG_OP = 'DELETE' THEN
+	DELETE FROM ROOMS WHERE number=old.number;
+	   RETURN NULL;
+	  END IF;
+
+	  RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+CREATE FUNCTION
+CREATE TRIGGER tr_changeservicesinfos
+	INSTEAD OF INSERT OR UPDATE OR DELETE ON SERVICESINFOS
+	FOR EACH ROW EXECUTE PROCEDURE servicesinfos_ins_up_del();
+CREATE TRIGGER

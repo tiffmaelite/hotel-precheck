@@ -1,7 +1,7 @@
 #!/bin/sh
 ver=$1
 echo "Exécutez la commande suivante pour installer postgresql :
-\t sudo apt-get install postgresql-$ver postgresql-client-$ver postgresql-contrib-$ver pgadmin3 pgagent
+\t sudo apt-get install postgresql-$ver postgresql-client-$ver postgresql-contrib-$ver pgadmin3 pgagent barman
 Exécutez la commande suivante pour définir le mot de passe de l'utilisateur postgresql par défaut (postgres)
 \t sudo su postgres -c \"psql -d template1\"
 Lorsque template1# s'affiche, tappez :
@@ -36,5 +36,5 @@ Lancez le serveur avec l'une des deux commandes suivantes :
 \t sudo su postgres -c \"/usr/lib/postgresql/$ver/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile start\"
 Exécutez la commande :
 \t sudo leafpad /etc/rc.local
-puis ajoutez la ligne suivante à la fin (mais avant exit 0;) du fichier qui va s'ouvrir pour déclencher le lancement de la base de données avec le démarrage de l'ordinateur
+puis ajoutez dans le fichier qui s'ouvre, juste avant la ligne contenant \"exit 0;\" la ligne suivante pour déclencher le lancement de la base de données avec le démarrage de l'ordinateur
 \t\t sudo su postgres -c \"/usr/lib/postgresql/$ver/bin/pg_ctl start -l /usr/local/pgsql/data/logfile -D /usr/local/pgsql/data\""
