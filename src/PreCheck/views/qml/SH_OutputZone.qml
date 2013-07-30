@@ -124,7 +124,7 @@ Rectangle {
         if(output.lastVisibleRow < 0) {
             output.lastVisibleRow = 0;
         }
-        /*TODO*/
+        /*TODO displayCalendar*/
     }
 
     signal displaySqlDatas(variant sqlData);

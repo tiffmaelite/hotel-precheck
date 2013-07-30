@@ -22,7 +22,7 @@ SH_AddressCreationStateMachine::SH_AddressCreationStateMachine(QString name, QOb
     this->addState(number,"NUMBER");
     this->addState(city,"CITY");
     this->addState(zipcode,"ZIPCODE");
-    //this->addState(state,"STATE");
+    this->addState(state,"STATE");
     this->addState(country,"COUNTRY");
     this->setStatesNextTransition(destinataire, street);
     this->setStatesNextTransition(street, number);

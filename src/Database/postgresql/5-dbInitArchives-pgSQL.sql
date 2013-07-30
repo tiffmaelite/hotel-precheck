@@ -1,3 +1,5 @@
+SELECT genall_upsertID();
+
 SELECT gen_upsert('ADDRESSES', 'client_id=new.client_id, zipcode=new.zipcode, phone=new.phone,complementaryline=new.complementaryline', 'contact=new.contact AND street=new.street AND number=new.number AND city=new.city AND country=new.country');
 
 SELECT gen_upsert('GROUPS', 'CONTACT_ID=new.CONTACT_ID', 'NAME=new.NAME');

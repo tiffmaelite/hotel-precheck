@@ -237,7 +237,7 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
     if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     } else if (dbDriverLabel() == SH_DatabaseManager::PostgresqlDriver) {
-        //query = QString("REPLACE INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
+        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(vals); //FIXME turn fields/vals into hstore pairs
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
@@ -257,7 +257,7 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
     if (label == SH_DatabaseManager::InterbaseDriver || label == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
     } else if (label == SH_DatabaseManager::PostgresqlDriver) {
-        //query = QString("REPLACE INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
+        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(vals).arg(returningField); //FIXME turn fields/vals into hstore pairs
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));

@@ -53,7 +53,7 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 QVariant SH_DateQuestionState::rawInput() const
 {
     return QVariant(input().toDate().toString());
-    /*TODO set format*/
+    /*TODO set date format*/
 }
 
 

@@ -178,7 +178,7 @@ Item {
                     leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
                     arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
                     departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
-                    vatAction, doubleNullAction, nullAction, decimalAction, minusAction,
+                    groupBilling, doubleNullAction, nullAction, decimalAction, minusAction,
                     escapeAction, enterAction, confirmAction, quitAction, helpAction
                 ]
             }
@@ -246,14 +246,15 @@ Item {
         text: qsTr("ANNULER")
         keyShortcut: Qt.Key_Cancel
         /*enabled: commonPage.visible
-onTriggered: *//*TODO*/
+onTriggered: *//*TODO cancelAction
+*/
     }
     SH_ComplexAction {
         id: eraseAction
         text: qsTr("EFFACER")
         keyShortcut: Qt.Key_Delete
         /*enabled: commonPage.visible
-onTriggered: *//*TODO*/
+onTriggered: *//*TODO eraseAction*/
     }
     SH_ComplexAction {
         id: replaceAction
@@ -281,7 +282,7 @@ onTriggered: *//*TODO*/
         enabled: commonPage.visible
         onTriggered: {
             if(leavingRoomAction.enabled) {
-                /*TODO*/
+                /*TODO leavingRoomAction*/
             }
         }
     }
@@ -363,7 +364,7 @@ onTriggered: *//*TODO*/
         text: qsTr("DÉPART")
         keyShortcut: Qt.Key_unknown
         /*enabled: commonPage.visible
-onTriggered: */ /*TODO*/
+onTriggered: */ /*TODO departureAction*/
     }
     SH_ComplexAction {
         id: digit1Action
@@ -398,12 +399,12 @@ onTriggered: */ /*TODO*/
         onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
-        id: vatAction
+        id: groupBilling
         text: qsTr("GROUPES")
         keyShortcut: Qt.Key_unknown
 
         /*enabled: commonPage.visible
-onTriggered: */ /*TODO*/
+onTriggered: */ /*TODO groupBilling*/
     }
     SH_ComplexAction {
         id: doubleNullAction
@@ -476,7 +477,7 @@ onTriggered: */ /*TODO*/
         text: qsTr("AIDE")
         keyShortcut: Qt.Key_unknown
         /*enabled: commonPage.visible
-onTriggered: */ /*TODO*/
+onTriggered: */ /*TODO helpAction*/
     }
 
 

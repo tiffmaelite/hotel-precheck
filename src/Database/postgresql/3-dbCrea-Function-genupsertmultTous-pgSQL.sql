@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION  gen_upsertmult(tablename VARCHAR, updatestrings VARCHAR[], whereconditions VARCHAR[])
+CREATE OR REPLACE FUNCTION  gen_upsertmult(tablename VARCHAR, updatestrings VARCHAR[], whereconditions VARCHAR[], returningField VARCHAR DEFAULT NULL)
 RETURNS VARCHAR
 AS $main$
 DECLARE
@@ -26,7 +26,11 @@ BEGIN
   END LOOP;
   dynfunc=trim(trailing 'UNION ALL ' from dynfunc);
   --dynfunc=dynfunc||' )); RETURN NULL; END; $inner$ LANGUAGE plpgsql; ';
-  dynfunc=dynfunc||' )); END; $inner$ LANGUAGE plpgsql; ';
+  dynfunc=dynfunc||' ))';
+  IF returningField IS NOT NULL THEN
+	dynfunc=dynfunc||' RETURNING '||returningField||' ';
+  END IF;
+  dynfunc=dynfunc||' ; END; $inner$ LANGUAGE plpgsql; ';
 
 	EXECUTE dynfunc;
 
