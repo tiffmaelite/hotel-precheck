@@ -1,11 +1,8 @@
 #!/bin/sh
 echo "L'application ainsi que ses bases de données et ses fichiers de configuration vont maintenant être désinstallés."
 
-ver="9.3"
+ver=9.3
 script_dir=$(dirname $0)
-if [ $script_dir = '.' ]; then
-  script_dir="$current_dir"
-fi
 
 chdir "../src/Database"
 current_dir=$(pwd)

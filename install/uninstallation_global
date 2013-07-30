@@ -1,0 +1,13 @@
+script_dir=$(dirname $0)
+if [ $script_dir = '.' ]; then
+  script_dir="$(pwd)"
+fi
+
+chdir "../src/Database/postgresql"
+export PGPASSFILE="$(pwd)/.pgpass"
+
+echo -n "DROP USER MAPPING FOR precheck SERVER archivesrv;DROP SERVER archivesrv CASCADE;DROP DATABASE precheckdb;DROP DATABASE precheckarchivesdb;DROP TABLESPACE precheckts;DROP USER precheck;\\q" | sudo su --login postgres --command "psql -U postgres"
+echo -n "DROP USER MAPPING FOR precheck SERVER archivesrv;DROP SERVER archivesrv CASCADE;DROP DATABASE precheckdb;DROP DATABASE precheckarchivesdb;DROP TABLESPACE precheckts;DROP USER precheck;\\q" | sudo su --login postgres --command "psql -U postgres"
+
+chdir $script_dir
+/bin/sh $script_dir/uninstallation.sh

@@ -30,28 +30,34 @@ sudo sed -i"_$(date +"d_%m_%y_%H_%M_%S%P").bak" "s/#listen_addresses = 'localhos
 sudo sed -i"_$(date +"d_%m_%y_%H_%M_%S%P").bak" "s/#password_encryption = on/password_encryption = on/g" "/etc/postgresql/$ver/main/postgresql.conf"
 sudo sed -i"_$(date +"d_%m_%y_%H_%M_%S%P").bak" "s/local\s+all\s+all\s+peer/local\t all\t all\t md5/g" "/etc/postgresql/$ver/main/postgresql.conf"
 
+sudo locale-gen && sudo apt-get install --reinstall locales && sudo dpkg-reconfigure locales && sudo locale-gen 
+
 #sudo locale-gen fr_FR
 #sudo locale-gen fr_CH
 sudo locale-gen fr_FR.utf8
+sudo locale-gen fr_FR.utf-8
 sudo locale-gen fr_FR@euro
 sudo locale-gen fr_CH.utf8
+sudo locale-gen fr_CH.utf-8
 #sudo locale-gen de_DE
 #sudo locale-gen de_CH
 sudo locale-gen de_DE.utf8
+sudo locale-gen de_DE.utf-8
 sudo locale-gen de_DE@euro
 sudo locale-gen de_CH.utf8
+sudo locale-gen de_CH.utf-8
 sudo update-locale
 
 sudo /etc/init.d/postgresql restart
 
-sudo su postgres -c "/usr/lib/postgresql/$ver/bin/initdb -D /usr/local/pgsql$ver/data --locale=fr_FR.utf-8" # --lc-time=fr_CH.utf-8 --lc-monetary=fr_CH.utf-8"
+sudo su postgres -c "/usr/lib/postgresql/$ver/bin/initdb -D /usr/local/pgsql$ver/data --locale=fr_FR.UTF-8" # --lc-time=fr_CH.utf-8 --lc-monetary=fr_CH.utf-8"
 if [ $? -ne 0 ]; then
   echo "Directory /usr/local/pgsql$ver/data will be manually created."
   sudo mkdir "/usr/local/pgsql$ver"
   sudo mkdir "/usr/local/pgsql$ver/data"
   sudo chown -R postgres "/usr/local/pgsql$ver"
   sudo chgrp -R postgres "/usr/local/pgsql$ver"
-sudo su postgres -c "/usr/lib/postgresql/$ver/bin/initdb -D /usr/local/pgsql$ver/data --locale=fr_FR.utf-8" # --lc-time=fr_CH.utf-8 --lc-monetary=fr_CH.utf-8"
+sudo su postgres -c "/usr/lib/postgresql/$ver/bin/initdb -D /usr/local/pgsql$ver/data --locale=fr_FR.UTF-8" # --lc-time=fr_CH.utf-8 --lc-monetary=fr_CH.utf-8"
 fi
 
 sudo su postgres -c "/usr/lib/postgresql/$ver/bin/pg_ctl -l /usr/local/pgsql$ver/data/logfile start -D /usr/local/pgsql$ver/data"
@@ -61,6 +67,3 @@ sudo sed -i"_$(date +"&#37;d_%m_%y_%H_%M_%S%P").bak" "s/\nexit 0/\nsudo su postg
 
 sudo uniq "/etc/rc.local" > "$pwd/rc.local2"
 sudo mv "$pwd/rc.local2" "/etc/rc.local"
-
-chdir ../src/Database/
-sudo sh install_script.sh pgSQL $SUDO_USER
