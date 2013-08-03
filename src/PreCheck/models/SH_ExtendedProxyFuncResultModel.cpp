@@ -4,6 +4,8 @@
 SH_ExtendedProxyFuncResultModel::SH_ExtendedProxyFuncResultModel(QObject *parent) :
     SH_ExtendedProxyModel(parent)
 {
+    this->model = new SH_SqlFuncResultModel(parent);
+    this->setSourceModel(this->model);
 }
 
 /*!

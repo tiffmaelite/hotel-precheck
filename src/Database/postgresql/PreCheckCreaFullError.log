@@ -1,0 +1,31 @@
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-dbCrea-extensionsTous-pgSQL.sql:1: NOTICE:  extension "plpgsql" already exists, skipping
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-dbCrea-extensionsTous-pgSQL.sql:1: NOTICE:  extension "plpgsql" already exists, skipping
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-dbCrea-extensionsTous-pgSQL.sql:4: NOTICE:  extension "postgres_fdw" already exists, skipping
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-*Archives-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-*Main-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/2-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/2-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/3-*Archives-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/4-*Archives-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitMain-pgSQL.sql:5: ERROR:  trigger "tr_nextservicestypescode" for relation "servicestypes" already exists
+CONTEXTE : SQL statement "CREATE TRIGGER tr_nextSERVICESTYPESCODE BEFORE INSERT ON SERVICESTYPES	FOR EACH ROW EXECUTE PROCEDURE nextSERVICESTYPESCODEseq();"
+PL/pgSQL function gen_codeseq(character varying,character varying,character varying,character varying,character varying) line 10 at EXECUTE statement
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitMain-pgSQL.sql:7: ERROR:  trigger "tr_nextservicescode" for relation "services" already exists
+CONTEXTE : SQL statement "CREATE TRIGGER tr_nextSERVICESCODE BEFORE INSERT ON SERVICES	FOR EACH ROW EXECUTE PROCEDURE nextSERVICESCODEseq();"
+PL/pgSQL function gen_codeseq(character varying,character varying,character varying,character varying,character varying) line 10 at EXECUTE statement
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitMain-pgSQL.sql:142: ERROR:  query has no destination for result data
+ASTUCE : If you want to discard the results of a SELECT, use PERFORM instead.
+CONTEXTE : PL/pgSQL function nextservicestypescodeseq() line 1 at SQL statement
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitMain-pgSQL.sql:159: ERROR:  duplicate key value violates unique constraint "uq_services_codetype"
+DÉTAIL : Key (code, servicetype_id)=(0, 1) already exists.
+psql:/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/5-dbInitMain-pgSQL.sql:185: ERROR:  insert or update on table "services" violates foreign key constraint "fk_services_type"
+DÉTAIL : Key (servicetype_id)=(1) is not present in table "servicestypes".
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-*Tous-pgSQL.sql : Aucun fichier ou dossier de ce type
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/6-*Archives-pgSQL.sql : Aucun fichier ou dossier de ce type

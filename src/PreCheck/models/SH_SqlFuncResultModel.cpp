@@ -2,7 +2,7 @@
 #include "SH_DatabaseManager.h"
 #include "SH_MessageManager.h"
 
-SH_SqlFuncResultModel::SH_SqlFuncResultModel()
+SH_SqlFuncResultModel::SH_SqlFuncResultModel(QObject *parent): SH_SqlQueryModel(parent)
 {
 }
 
@@ -20,6 +20,11 @@ void SH_SqlFuncResultModel::setFunctionCall(const QString &functionCall)
     }
 }
 
+void SH_SqlFuncResultModel::fetchQuery()
+{
+    this->fetchQuery("");
+}
+
 
 /*!
  \details \~french
@@ -30,10 +35,7 @@ void SH_SqlFuncResultModel::fetchQuery(QString functionCall)
     if(!m_functionCall.isEmpty() || !functionCall.isEmpty()) {
         SH_MessageManager::debugMessage("Bienvenue dans fetch");
         this->setFunctionCall(functionCall);
-        try
-        {
-            m_query = SH_DatabaseManager::getInstance()->getDbConnection().exec(QString("SELECT %1;").arg(m_functionCall));
-        }
+        m_query = SH_DatabaseManager::getInstance()->getDbConnection().exec(QString("SELECT %1;").arg(m_functionCall));
     }
 }
 /*}*/

@@ -7,8 +7,9 @@ class SH_SqlFuncResultModel : public SH_SqlQueryModel
     Q_OBJECT
     Q_PROPERTY(QString functionCall READ functionCall WRITE setFunctionCall NOTIFY functionCallChanged) //MEMBER m_functionCall
 public:
-    SH_SqlFuncResultModel();
+    explicit SH_SqlFuncResultModel(QObject *parent = 0);
     void setFunctionCall(const QString &functionCall);
+void fetchQuery();
     void fetchQuery(QString functionCall);
     QString functionCall() const { return m_functionCall; }
 

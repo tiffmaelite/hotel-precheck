@@ -46,11 +46,11 @@ public:
     \param filter
     \param sort
     \param fields
-    \return bool
     */
-    void fetchQuery(QString tableName = "", QString filter = "", QString sort="", QStringList fields = QStringList());
+    void fetchQuery(QString tableName, QString filter = "", QString sort="", QStringList fields = QStringList());
 
 
+    void fetchQuery();
 signals:
 
     /*!

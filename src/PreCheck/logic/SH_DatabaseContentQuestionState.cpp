@@ -15,7 +15,8 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
     QStringList fields;
     fields << "ID" << m_field;
     fields.removeDuplicates();
-    sqlDatas->fetch(m_table, m_condition, "", fields);
+    sqlDatas->fetchQuery(m_table, m_condition, "", fields);
+    sqlDatas->fetch();
     QVariantMap results = sqlDatas->datas();
     QVariantList idValues = results.values("ID");
     QVariantList fieldsValues = results.values(m_field);

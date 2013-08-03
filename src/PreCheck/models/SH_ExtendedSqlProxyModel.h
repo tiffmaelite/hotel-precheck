@@ -255,7 +255,7 @@ protected:
     */
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
     SH_SqlQueryModel *model;
-
+    bool m_fetched;
 private:
 
 /*!
@@ -301,8 +301,6 @@ private:
     *\brief \~french sortIndex
     */
     int m_sortIndex;
-
-    bool m_fetched;
 };
 /*}*/
 #endif

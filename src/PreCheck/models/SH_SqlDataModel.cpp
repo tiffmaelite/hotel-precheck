@@ -29,6 +29,9 @@ void SH_SqlDataModel::setTableName(const QString &tableName)
     }
 }
 
+void SH_SqlDataModel::fetchQuery() {
+    this->fetchQuery("");
+}
 
 /*!
  \details \~french

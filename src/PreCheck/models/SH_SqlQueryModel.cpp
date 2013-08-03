@@ -126,63 +126,61 @@ void SH_SqlQueryModel::setFilterCondition(const QString &filter)
 */
 bool SH_SqlQueryModel::fetch()
 {
-    if(m_query != QSqlQuery()) {
-        SH_MessageManager::debugMessage("Bienvenue dans query fetch");
-        try
+    SH_MessageManager::debugMessage("Bienvenue dans query fetch");
+    try
+    {
+        beginResetModel();
+        m_records.clear();
+        endResetModel();
+        this->fetchQuery();
+        bool next = m_query.next();
+        SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(m_query.executedQuery()).arg(m_query.size()));
+        while (next && m_query.isActive())
         {
-            beginResetModel();
-            m_records.clear();
-            endResetModel();
-            this->fetchQuery();
-            bool next = m_query.next();
-            SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(m_query.executedQuery()).arg(m_query.size()));
-            while (next && m_query.isActive())
-            {
-                QSqlRecord record = m_query.record();
+            QSqlRecord record = m_query.record();
 
-                SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
-                SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
-                if (m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
+            SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
+            SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
+            if (m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
+            {
+                beginInsertRows(QModelIndex(), 0, 0);
+                m_records.append(record);
+                //#ifdef DEBUGMODE
+                int nbFields = record.count();
+                for (int i = 0; i < nbFields; i++)
                 {
-                    beginInsertRows(QModelIndex(), 0, 0);
-                    m_records.append(record);
-                    //#ifdef DEBUGMODE
+                    SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
+                }
+                //#endif
+                if (m_fields.empty())
+                {
                     int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {
-                        SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
+                        SH_SqlDataFields *field = new SH_SqlDataFields();
+                        field->setName(record.fieldName(i).toUpper());
+                        //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
+                        m_fields.append(field);
                     }
-                    //#endif
-                    if (m_fields.empty())
-                    {
-                        int nbFields = record.count();
-                        for (int i = 0; i < nbFields; i++)
-                        {
-                            SH_SqlDataFields *field = new SH_SqlDataFields();
-                            field->setName(record.fieldName(i).toUpper());
-                            //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
-                            m_fields.append(field);
-                        }
-                        this->applyRoles();
-                        emit fieldsChanged();
-                    }
-                    endInsertRows();
+                    this->applyRoles();
+                    emit fieldsChanged();
                 }
-                next = m_query.next();
+                endInsertRows();
             }
+            next = m_query.next();
         }
-        catch (const std::exception &e)
-        {
-            SH_MessageManager::errorMessage(e.what(), "exception");
-            if (this->lastError().isEmpty())
-            {
-                SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
-            }
-        }
+    }
+    catch (const std::exception &e)
+    {
+        SH_MessageManager::errorMessage(e.what(), "exception");
         if (this->lastError().isEmpty())
         {
             SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
         }
+    }
+    if (this->lastError().isEmpty())
+    {
+        SH_MessageManager::errorMessage(this->lastError(), "erreur SQL");
     }
     return (!this->isEmpty());
 }

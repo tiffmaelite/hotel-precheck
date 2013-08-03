@@ -13,8 +13,6 @@ SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent), m_sortIndex(0), m_fetched(false)
 {
     this->setDynamicSortFilter(false);
-    this->model = new SH_SqlDataModel(parent);
-    this->setSourceModel(this->model);
 }
 
 /*!

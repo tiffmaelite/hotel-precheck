@@ -105,7 +105,8 @@ public:
     \fn fetch
     \return bool
     */
-    virtual bool fetchQuery() = 0;
+    virtual void fetchQuery() = 0;
+
     /*!
     \brief \~french
     \fn field
