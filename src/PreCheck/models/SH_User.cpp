@@ -90,7 +90,7 @@ void SH_User::setID(int id)
 
 */
 bool SH_User::userExists(QString login) {
-    //SH_MessageManager::debugMessage("user exists");
+    SH_MessageManager::debugMessage("user exists");
     return (SH_DatabaseManager::getInstance()->dataCount("USERS", "LOGIN='"+login+"'") == 1);
 }
 
@@ -101,7 +101,7 @@ bool SH_User::userExists(QString login) {
 
 */
 bool SH_User::traineeExists(QString login) {
-    //SH_MessageManager::debugMessage("trainee exists");
+    SH_MessageManager::debugMessage("trainee exists");
     return (SH_DatabaseManager::getInstance()->dataCount("TRAINEES", "LOGIN='"+login+"'") == 1);
 }
 
@@ -135,7 +135,7 @@ bool SH_User::setNewPassword(QString newPass) {
 */
 SH_User *SH_User::logIn(QString login, QString pass)
 {
-    //SH_MessageManager::debugMessage("log in");
+    SH_MessageManager::debugMessage("log in");
     bool isValid = false;
     QCryptographicHash encPass(QCryptographicHash::Sha512);
     encPass.addData(pass.toUtf8());
@@ -163,7 +163,7 @@ SH_User *SH_User::logIn(QString login, QString pass)
             if(trainee) {
                 return new SH_Trainee(rec.value(rec.indexOf("LOGIN")).toString(),rec.value(rec.indexOf("ID")).toInt());
             } else {
-                return new SH_User(rec.value(rec.indexOf("LOGIN")).toString(),rec.value(rec.indexOf("ID")).toInt(),(rec.value(rec.indexOf("ISRECEPTIONIST")).toString()=="1"),(rec.value(rec.indexOf("ISMANAGERX")).toString()=="1"),(rec.value(rec.indexOf("ISMANAGERZ")).toString()=="1"),(rec.value(rec.indexOf("ISADMINISTRATOR")).toString()=="1"));
+                return new SH_User(rec.value(rec.indexOf("LOGIN")).toString(),rec.value(rec.indexOf("ID")).toInt(),(rec.value(rec.indexOf("ISRECEPTIONIST")).toBool()),(rec.value(rec.indexOf("ISMANAGERX")).toBool()),(rec.value(rec.indexOf("ISMANAGERZ")).toBool()),(rec.value(rec.indexOf("ISADMINISTRATOR")).toBool()));
             }
         }
     }

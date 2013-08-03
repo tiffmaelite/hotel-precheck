@@ -78,8 +78,8 @@ bool SH_SqlDataModel::setHeaderData(int section, Qt::Orientation orientation, co
     Q_UNUSED(role);
     if (orientation == Qt::Horizontal)
     {
-        this->m_fields.at(section)->setText(value.toString());
-        return (this->m_fields.at(section)->text() == value.toString());
+        this->m_fields.at(section)->setText(value.toString().toUpper());
+        return (this->m_fields.at(section)->text().toUpper() == value.toString().toUpper());
     }
     return false;
 }
@@ -103,7 +103,7 @@ const QStringList SH_SqlDataModel::fieldsList() const
         int c = m_fields.count();
         for (int i = 0; i < c; i++)
         {
-            fields .append(this->m_fields.at(i)->name());
+            fields.append(this->m_fields.at(i)->name());
         }
     }
     return fields;
@@ -170,7 +170,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
                     int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {
-                        SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i)).arg(record.value(i).toString()));
+                        SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
                     }
 //#endif
                     if (m_fields.empty())
@@ -179,7 +179,7 @@ bool SH_SqlDataModel::fetch(QString tableName, QString filter, QString sort, QSt
                         for (int i = 0; i < nbFields; i++)
                         {
                             SH_SqlDataFields *field = new SH_SqlDataFields();
-                            field->setName(record.fieldName(i));
+                            field->setName(record.fieldName(i).toUpper());
                             //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
                             m_fields.append(field);
                         }
@@ -229,7 +229,7 @@ void SH_SqlDataModel::setFields(QStringList fields)
         for (int i = 0; i < nbFields; i++)
         {
             SH_SqlDataFields *field = new SH_SqlDataFields();
-            field->setName(fields.at(i));
+            field->setName(fields.at(i).toUpper());
             m_fields.append(field);
         }
         this->applyRoles();
@@ -277,25 +277,7 @@ void SH_SqlDataModel::applyRoles()
     }
     emit rolesChanged();
 }
-QString SH_SqlDataModel::getMTable() const
-{
-    return m_tableName;
-}
 
-void SH_SqlDataModel::setMTable(const QString &value)
-{
-    m_tableName = value;
-}
-
-QString SH_SqlDataModel::getMFilter() const
-{
-    return m_condition;
-}
-
-void SH_SqlDataModel::setMFilter(const QString &value)
-{
-    m_condition = value;
-}
 
 /*!
  \details \~french

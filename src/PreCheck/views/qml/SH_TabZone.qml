@@ -258,30 +258,11 @@ TabView {
         },
         Component {
             id: reportsTab
-            Rectangle {
-                GridLayout {
-                    anchors.centerIn: parent
-                    width: parent.width
-                    height: parent.height
-                    columns: 2
-                    rows: 2
-                    Label {
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        text: "compteur journalier"
-                    }
-                    Label {
-                        text: App.todayBalance()
-                    }
-
-                    Label {
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        text: "compteurs totaux"
-                    }
-                    Label {
-                        text: App.totalBalance()
-                    }
+            SH_SqlTableView {
+                id: reportsTypesEditView
+                model: SH_ReportsTypesModel { }
+                onSelectedRow: {
+                    tabView.selectedForDetail(clientsEditView.model, selectedData);
                 }
             }
         },

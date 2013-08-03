@@ -53,7 +53,9 @@ HEADERS *= \
 	logic/SH_ClientCreation.h \
 	logic/SH_BillingCreation.h \
 	logic/SH_AddressCreation.h \
-	logic/SH_AdaptDatabaseState.h
+	logic/SH_AdaptDatabaseState.h \
+	models/SH_ReportsTypesTableModel.h \
+	models/SH_ReportsTableModel.h
 
 SOURCES *= \
 	main.cpp \
@@ -100,7 +102,9 @@ SOURCES *= \
 	logic/SH_BillingCreation.cpp \
 	logic/SH_AddressCreation.cpp \
 	logic/SH_AdaptDatabaseState.cpp \
-	SH_DatabaseManagerSettings.cpp
+	SH_DatabaseManagerSettings.cpp \
+	models/SH_ReportsTypesTableModel.cpp \
+	models/SH_ReportsTableModel.cpp
 
 # QML-files as a ressource
 RESOURCES *= \
@@ -134,4 +138,6 @@ OTHER_FILES *= \
 	views/qml/SH_BillingsDelegate.qml \
 	views/qml/SH_app.qml \
 	views/qml/SH_CellFlow.qml \
-    views/qml/SH_StartMenuButtonDelegate.qml
+	views/qml/SH_StartMenuButtonDelegate.qml \
+	views/qml/SH_HTML5OutputZone.qml \
+    views/SH_OutputPanel.xhtml

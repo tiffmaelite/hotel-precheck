@@ -1,19 +1,19 @@
 TODO
 =====
 *Fonctionnalités
-- Ajouter des rapports personnalisés
+- Ajouter des rapports personnalisés --> en cours
 - Ajouter la personnalisation de l'application
-- Afficher dans l'OutputZone le détail des tableaux en mode Management
-- Ajouter la modification des caractéristiques d'une facturation
-- Ajouter la modification des caractéristiques d'une facture
-- Ajouter les ventes seules
+- Afficher dans l'OutputZone le détail des tableaux en mode Management --> en cours
+- Ajouter la modification des caractéristiques d'une facturation --> en cours
+- Ajouter la modification des caractéristiques d'une facture --> en cours
+- Ajouter les ventes seules --> en cours
 - Ajouter le renvoi d'une facture sur une autre
 - Ajouter la possibilité de marquer une chambre comme libérée mais non-nettoyée
-- Corriger l'affichage de la TVA
-- Débugguer ContentView.qml
-- Ajouter la création d'une adresse
-- Prendre en compte les divers formats de date possibles
-- Ajouter la clôture d'une facturation
+- Corriger l'affichage de la TVA --> en cours
+- Débugguer ContentView.qml --> en cours
+- Ajouter la création d'une adresse --> en cours
+- Prendre en compte les divers formats de date possibles --> en cours
+- Ajouter la clôture d'une facturation --> en cours
 - Ajouter les menus d'aide
 - Ajouter l'interruption totale d'une procédure
 - Corriger l'affichage du calendrier
@@ -25,6 +25,6 @@ TODO
 - Vérifier les accesseurs
 - Corriger et compléter la documentation
 - Gérer plus de types de bases de données différentes
-- Séparer les tables sur plusieurs bases de données : une courante et une clients/archives --> presque OK pour postgresql
+- Séparer les tables sur plusieurs bases de données : une courante et une clients/archives --> OK pour postgresql
 - Adopter des conventions de nommage cohérentes et adapter code et documentation
 - Utiliser des espaces de nommage (namespaces)

@@ -22,7 +22,7 @@ SH_DataDelegate {
                 border.left: 1
                 border.right: 1
                 anchors.bottomMargin: -1
-                property string color: "green"//(AVAILABILITY == '') ? 'blue' : ((AVAILABILITY === '1' || AVAILABILITY === 1) ? "green" : "orange")
+                property string color: !ISCLEANED ? 'blue' : (ISAVAILABLE ? "green" : "orange")
                 source: btn.pressed ? "../icons/button"+color.toUpperCase()+"down.png" : "../icons/button"+color.toUpperCase()+"up.png"
             }
         }

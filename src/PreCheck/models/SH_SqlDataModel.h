@@ -183,11 +183,6 @@ public:
     const QStringList fieldsList() const;
 
     const QString lastError();
-    QString getMFilter() const;
-    void setMFilter(const QString &value);
-
-    QString getMTable() const;
-    void setMTable(const QString &value);
 
 signals:
 

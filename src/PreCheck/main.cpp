@@ -18,6 +18,8 @@
 #include "models/SH_User.h"
 #include "models/SH_UsersTableModel.h"
 #include "models/SH_TraineesTableModel.h"
+#include "models/SH_ReportsTableModel.h"
+#include "models/SH_ReportsTypesTableModel.h"
 #include "views/SH_ExtendedQQmlAction.h"
 #include "../../libs/QsLog_2.0.b1/QsLog.h"
 #include "../../libs/QsLog_2.0.b1/QsLogDest.h"
@@ -30,7 +32,7 @@ const int iterations = 20;
 
 void initSettings(SH_ApplicationCore *app) {
     app->writeSetting("backgroundColor", "whitesmoke", "global GUI", false);
-    //TODO: continuer avec toutes les valeurs par défaut
+    //TODO continuer l'initialisation de la configuration avec toutes les valeurs par défaut
 }
 
 
@@ -193,7 +195,8 @@ int main(int argc, char **argv)
         qmlRegisterType<SH_VATTableModel>("PreCheck", 1, 0, "SH_VATModel");
         qmlRegisterType<SH_UsersTableModel>("PreCheck", 1, 0, "SH_UsersListModel");
         qmlRegisterType<SH_TraineesTableModel>("PreCheck", 1, 0, "SH_TraineesListModel");
-
+        qmlRegisterType<SH_ReportsTypesTableModel>("PreCheck", 1, 0, "SH_ReportsTypesModel");
+        qmlRegisterType<SH_ReportsTableModel>("PreCheck", 1, 0, "SH_ReportsModel");
         /*qmlRegisterType<SimplHotel::SH_RoomsTableModel>("PreCheck", 1, 0, "SH_RoomsModel");
         qmlRegisterType<SimplHotel::SH_BillingsTableModel>("PreCheck", 1, 0, "SH_BillingsModel");
         qmlRegisterType<SimplHotel::SH_BillsTableModel>("PreCheck", 1, 0, "SH_BillsModel");
@@ -239,7 +242,7 @@ int main(int argc, char **argv)
         QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
         QObject::connect(appManager, SIGNAL(displayFileDialog()), commonPage, SLOT(displayFileDialog()), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(displayProgressBar(qreal)), displayZone, SLOT(displayProgressBar(real)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(displayProgressBar(qreal)), displayZone, SIGNAL(displayProgressBar(real)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
 

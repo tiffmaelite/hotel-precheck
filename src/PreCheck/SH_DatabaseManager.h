@@ -31,7 +31,6 @@ public:
 
     static void setDriver(SH_DatabaseManager::dbDrivers driver);
 
-
     QSqlDriver *dbDriver();
 
     /*!
@@ -129,19 +128,19 @@ protected:
 
     static QString driverNameFromEnum(SH_DatabaseManager::dbDrivers driver) {
         switch(driver) {
-        case InterbaseDriver: return dbInterbaseDriverStr; break;
-        case FirebirdDriver: return dbFirebirdDriverStr; break;
-        case PostgresqlDriver: return dbPostgresqlDriverStr; break;
-        case MysqlDriver: return dbMysqlDriverStr; break;
+        case InterbaseDriver: return dbInterbaseDriver; break;
+        case FirebirdDriver: return dbFirebirdDriver; break;
+        case PostgresqlDriver: return dbPostgresqlDriver; break;
+        case MysqlDriver: return dbMysqlDriver; break;
         default: return "";
         }
     }
 
     static SH_DatabaseManager::dbDrivers driverEnumFromName(QString driver) {
-        if(driver == dbInterbaseDriverStr) { return InterbaseDriver; }
-        else if(driver == dbFirebirdDriverStr) { return FirebirdDriver; }
-        else if(driver == dbPostgresqlDriverStr) { return PostgresqlDriver; }
-        else if(driver == dbMysqlDriverStr) { return MysqlDriver; }
+        if(driver == dbInterbaseDriver) { return InterbaseDriver; }
+        else if(driver == dbFirebirdDriver) { return FirebirdDriver; }
+        else if(driver == dbPostgresqlDriver) { return PostgresqlDriver; }
+        else if(driver == dbMysqlDriver) { return MysqlDriver; }
     }
 
     /*!
@@ -171,33 +170,66 @@ private:
     /*!
      * \brief \~french dbFileNameStr
      */
-    static const QString dbFileNameStr;
+    static const QString mainDbName;
     /*!
      * \brief \~french dbAliasNameStr
      */
-    static const QString dbAliasNameStr;
+    static const QString mainDbAliasName;
     /*!
      * \brief \~french dbUsernameStr
      */
-    static const QString dbUsernameStr;
+    static const QString mainDbUsername;
     /*!
      * \brief \~french dbPasswordStr
      */
-    static const QString dbPasswordStr;
+    static const QString mainDbPassword;
 
+    static const QString mainDbHost;
+    static const int mainDbPort;
     /*!
      * \brief \~french dbFolderPathStr
      */
-    static const QString dbFolderPathStr;
+    static const QString mainDbFolderPath;
     /*!
      * \brief \~french dbFilePathStr
      */
-    static const QString dbFilePathStr;
+    static const QString mainDbFilePath;
 
-    static const QString dbInterbaseDriverStr;
-    static const QString dbFirebirdDriverStr;
-    static const QString dbPostgresqlDriverStr;
-    static const QString dbMysqlDriverStr;
+
+
+    /*!
+     * \brief \~french dbFileNameStr
+     */
+    static const QString archivesDbName;
+    /*!
+     * \brief \~french dbAliasNameStr
+     */
+    static const QString archivesDbAliasName;
+    /*!
+     * \brief \~french dbUsernameStr
+     */
+    static const QString archivesDbUsername;
+    /*!
+     * \brief \~french dbPasswordStr
+     */
+    static const QString archivesDbPassword;
+
+    static const QString archivesDbHost;
+    static const int archivesDbPort;
+    /*!
+     * \brief \~french dbFolderPathStr
+     */
+    static const QString archivesDbFolderPath;
+    /*!
+     * \brief \~french dbFilePathStr
+     */
+    static const QString archivesDbFilePath;
+
+
+    static const QString dbInterbaseDriver;
+    static const QString dbFirebirdDriver;
+    static const QString dbPostgresqlDriver;
+    static const QString dbMysqlDriver;
 
     /*!
     * \brief \~french
@@ -207,6 +239,7 @@ private:
     * \param[ou] vals
     */
     void divideQVariantMap(QVariantMap values, QString &fields, QString &vals);
+    QString QVariantMapToHStore(QVariantMap values);
 };
 
 /*}*/

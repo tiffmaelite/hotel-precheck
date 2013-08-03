@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+setInterval( saveContent, 5000); //save page content every 5 seconds
+
+function saveContent() {
+	localStorage.page=document.documentElement.innerHTML;
+}
+
+
+function loadContent() {
+	document.documentElement.innerHTML=(localStorage.page!=null ? localStorage.page : "");
+}
+
+
+function replaceContent(itemId, newContent) {
+	var editItem = document.getElementById(itemId);
+	editItem.innerHTML = newContent;
+	saveContent();
+}
+
+
+function appendContent(itemId, content) {
+	var editItem = document.getElementById(itemId);
+	editItem.innerHTML = editItem.innerHTML + content;
+	saveContent();
+}
+
+
+function addContent(content) {
+	document.documentElement.innerHTML = document.documentElement.innerHTML + content;
+	saveContent();
+}
+</script>
+</head>
+<body onload="loadContent()">
+<!--<div id="edit" contenteditable="true">
+Here is the element's original editable content
+</div>-->
+</body>
+</html>

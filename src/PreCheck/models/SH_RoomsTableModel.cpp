@@ -27,7 +27,9 @@ void SH_RoomsTableModel::fillModel()
     this->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("ID"));
     this->setHeaderData(fields.indexOf("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
     this->setHeaderData(fields.indexOf("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));
-    this->setHeaderData(fields.indexOf("LABEL"), Qt::Horizontal, QObject::tr("Type de chambre"));
+    this->setHeaderData(fields.indexOf("TYPE"), Qt::Horizontal, QObject::tr("Type de chambre"));
+    this->setHeaderData(fields.indexOf("ISCLEANED"), Qt::Horizontal, QObject::tr("Nettoyée"));
+    this->setHeaderData(fields.indexOf("ISAVAILABLE"), Qt::Horizontal, QObject::tr("Libre"));
     this->setHeaderData(fields.indexOf("DESCRIPTION"), Qt::Horizontal, QObject::tr("Détail"));
     this->setHeaderData(fields.indexOf("PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimum"));
     this->setHeaderData(fields.indexOf("PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximum"));

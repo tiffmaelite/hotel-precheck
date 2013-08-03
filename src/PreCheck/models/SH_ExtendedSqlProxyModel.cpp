@@ -250,8 +250,12 @@ bool SH_ExtendedProxyModel::isHidingColumn(int column)
 */
 void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 {
-    this->model->field(column)->setSortOrder(newOrder);
-    this->setSortKeyColumn(column);
+    if(this->m_sortIndex != column || newOrder != this->model->field(column)->sortOrder()) {
+        this->m_sortIndex = column;
+        this->model->field(column)->setSortOrder(newOrder);
+        this->setSortRole(this->model->roleForField(column));
+        emit sortChanged();
+    }
 }
 
 /*!
@@ -260,10 +264,7 @@ void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 */
 void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 {
-    this->m_sortIndex = column;
-    this->setSortRole(this->model->roleForField(column));
-    this->sort(0, this->model->field(column)->sortOrder());
-    emit sortChanged();
+    this->sort(column, this->model->field(column)->sortOrder());
 }
 
 /*!

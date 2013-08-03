@@ -149,10 +149,11 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
+                property var model: 0//SH_VATModel { }
+                Component.onCompleted: model.fetch()
                 Repeater {
                     id: vatRep
-                    model: SH_VATModel { }
-                    Component.onCompleted: model.fetch()
+                    model: vatSidePanel.model
                     delegate:
                         Loader {
                         id: contentLoader
@@ -174,12 +175,12 @@ Item {
                 Layout.fillHeight: true
                 columns: 5
                 actionsList: [
-                    abandonAction, cancelAction, eraseAction, replaceAction, backAction,
+                    abandonAction, cancelAction, eraseAction, sellAction, backAction,
                     leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
                     arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
                     departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
-                    groupBilling, doubleNullAction, nullAction, decimalAction, minusAction,
-                    escapeAction, enterAction, confirmAction, quitAction, helpAction
+                    groupBillingAction, doubleNullAction, nullAction, decimalAction, minusAction,
+                    escapeAction, enterAction, confirmAction, mainMenuAction, helpAction
                 ]
             }
         }
@@ -213,7 +214,7 @@ Item {
     }
 
     Binding {
-        target: replaceAction
+        target: sellAction
         property: "enabled"
         value: true
         when: (App.currentMode === AppMode.RECEPTION)
@@ -257,12 +258,12 @@ onTriggered: *//*TODO cancelAction
 onTriggered: *//*TODO eraseAction*/
     }
     SH_ComplexAction {
-        id: replaceAction
+        id: sellAction
         text: qsTr("VENDRE")
         keyShortcut: Qt.Key_unknown
         enabled: commonPage.visible
         onTriggered: {
-            if(replaceAction.enabled) {
+            if(sellAction.enabled) {
                 tabs.newSelling()
             }
         }
@@ -399,12 +400,12 @@ onTriggered: */ /*TODO departureAction*/
         onTriggered: commonPage.keySelected(text);
     }
     SH_ComplexAction {
-        id: groupBilling
+        id: groupBillingAction
         text: qsTr("GROUPES")
         keyShortcut: Qt.Key_unknown
 
         /*enabled: commonPage.visible
-onTriggered: */ /*TODO groupBilling*/
+onTriggered: */ /*TODO groupBillingAction*/
     }
     SH_ComplexAction {
         id: doubleNullAction
@@ -463,7 +464,7 @@ onTriggered: */ /*TODO groupBilling*/
         }
     }
     SH_ComplexAction {
-        id: quitAction
+        id: mainMenuAction
         text: qsTr("MENU")
         keyShortcut: Qt.Key_unknown
         enabled: commonPage.visible

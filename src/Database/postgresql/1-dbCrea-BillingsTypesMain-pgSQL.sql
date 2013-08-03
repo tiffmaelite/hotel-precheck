@@ -4,7 +4,7 @@ CREATE TABLE BILLINGSTYPES
   LABEL VARCHAR(20),
   NBBILLS INT NOT NULL,
   CONSTRAINT PK_BILLINGSTYPES_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_BILLINGSTYPES_NAME UNIQUE (LABEL)
+  CONSTRAINT UQ_BILLINGSTYPES_LABEL UNIQUE (LABEL)
 ) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
 
 --suppress_redundant_updates_trigger(); incompatible with upserts!!!

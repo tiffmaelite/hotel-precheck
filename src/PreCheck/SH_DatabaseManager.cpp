@@ -7,13 +7,15 @@
 /*namespace SimplHotel
 {*/
 
-const QString SH_DatabaseManager::dbInterbaseDriverStr = "QIBASE";
-const QString SH_DatabaseManager::dbFirebirdDriverStr= "QIBASE";
-const QString SH_DatabaseManager::dbPostgresqlDriverStr = "QPSQL";
-const QString SH_DatabaseManager::dbMysqlDriverStr = "QMYSQL";
+const QString SH_DatabaseManager::dbInterbaseDriver = "QIBASE";
+const QString SH_DatabaseManager::dbFirebirdDriver= "QIBASE";
+const QString SH_DatabaseManager::dbPostgresqlDriver = "QPSQL";
+const QString SH_DatabaseManager::dbMysqlDriver = "QMYSQL";
 
 
-const QString SH_DatabaseManager::dbFilePathStr = QString("%1/%2").arg(SH_DatabaseManager::dbFolderPathStr).arg(SH_DatabaseManager::dbFileNameStr);
+const QString SH_DatabaseManager::mainDbFilePath = QString("%1/%2").arg(SH_DatabaseManager::mainDbFolderPath).arg(SH_DatabaseManager::mainDbName);
+const QString SH_DatabaseManager::archivesDbFilePath = QString("%1/%2").arg(SH_DatabaseManager::archivesDbFolderPath).arg(SH_DatabaseManager::archivesDbName);
+
 
 /*!
  * \details \~french
@@ -89,13 +91,16 @@ void SH_DatabaseManager::addDatabase() {
     dbConnection = QSqlDatabase::addDatabase(driverNameFromEnum(SH_DatabaseManager::_dbDriver));
     if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver)
     {
-        dbConnection.setDatabaseName(dbFilePathStr);
+        dbConnection.setDatabaseName(mainDbFilePath);
+    } else if(dbDriverLabel() == SH_DatabaseManager::PostgresqlDriver) {
+        dbConnection.setDatabaseName(mainDbName);
     } else {
-        dbConnection.setDatabaseName(dbFileNameStr);
+        dbConnection.setDatabaseName(mainDbName);
     }
-
-    dbConnection.setUserName(dbUsernameStr);
-    dbConnection.setPassword(dbPasswordStr);
+    dbConnection.setPort(mainDbPort);
+    dbConnection.setHostName(mainDbHost);
+    dbConnection.setUserName(mainDbUsername);
+    dbConnection.setPassword(mainDbPassword);
 }
 
 /*connect to database
@@ -116,7 +121,7 @@ bool SH_DatabaseManager::dbConnect()
 
         /*Gui message that informs that the database cannot open
     */
-        SH_MessageManager::errorMessage(QObject::tr("The database %1 cannot be opened.").arg(dbFilePathStr));
+        SH_MessageManager::errorMessage(QObject::tr("The database %1 cannot be opened.").arg(mainDbFilePath));
         SH_MessageManager::errorMessage(dbConnection.lastError().text());
 
 
@@ -237,7 +242,7 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
     if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     } else if (dbDriverLabel() == SH_DatabaseManager::PostgresqlDriver) {
-        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(vals); //FIXME turn fields/vals into hstore pairs
+        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(QVariantMapToHStore(values));
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
@@ -257,7 +262,7 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
     if (label == SH_DatabaseManager::InterbaseDriver || label == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
     } else if (label == SH_DatabaseManager::PostgresqlDriver) {
-        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(vals).arg(returningField); //FIXME turn fields/vals into hstore pairs
+        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(QVariantMapToHStore(values)).arg(returningField);
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
@@ -308,6 +313,49 @@ void SH_DatabaseManager::divideQVariantMap(QVariantMap values, QString& fields, 
     }
     fields = fields.left(fields.lastIndexOf(',')-1);
     vals = vals.left(vals.lastIndexOf(',')-1);
+}
+
+/*!
+    * \details \~french
+ * \fn QVariantMapToHStore
+    */
+QString SH_DatabaseManager::QVariantMapToHStore(QVariantMap values) {
+    QString hstore = "array[";
+    for(auto field : values.keys())
+    {
+        hstore += "["+field+",";
+        QVariant val = values.value(field);
+        bool ok;
+        int intVal = val.toInt(&ok);
+        if(ok) {
+            hstore += QString::number(intVal);
+        }
+        double dbVal = val.toDouble(&ok);
+        if(ok) {
+            hstore += QString::number(dbVal);
+        }
+
+        /*bool boolVal = val.toBool();
+    if(boolVal) {
+    &vals += "'"+1+"'',";
+    }*/
+        QDate dateVal = val.toDate();
+        if(dateVal.isValid()) {
+            hstore += "'"+dateVal.toString()+"'";
+            /*FIXME adapt date format*/
+        }
+        QDateTime dateTimeVal = val.toDateTime();
+        if(dateTimeVal.isValid()) {
+            hstore += "'"+dateTimeVal.toString()+"'";
+            /*FIXME adapt datetime format*/
+        }
+        QString stringVal = val.toString();
+        hstore += "'"+stringVal+"'";
+        hstore +="],";
+    }
+    hstore = hstore.left(hstore.lastIndexOf(',')-1);
+    hstore +="]";
+    return hstore;
 }
 
 /*}*/

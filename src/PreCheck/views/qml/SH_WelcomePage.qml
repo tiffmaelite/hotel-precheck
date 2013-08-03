@@ -38,15 +38,17 @@ Item {
             id: row
             Layout.columnSpan: 2
             spacing: grid.columnSpacing
-            width: parent.width
+            width: grid.width
             height: Math.floor(grid.height/3)-grid.rowSpacing
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.alignment: Layout.Center
             Button {
                 id: logoutButton
                 height: row.height
                 width: Math.floor(row.width/2)-row.spacing
                 text: qsTr("Déconnecter")
+                Layout.alignment: Layout.TopLeft
                 onClicked: {
                     welcomePage.logOut();
                 }
@@ -56,6 +58,7 @@ Item {
                 height: row.height
                 width: Math.floor(row.width/2)-row.spacing
                 text: qsTr("Quitter")
+                Layout.alignment: Layout.TopRight
                 onClicked: {
                     welcomePage.quit();
                 }

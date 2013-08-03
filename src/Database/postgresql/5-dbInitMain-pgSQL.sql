@@ -1,5 +1,8 @@
 SELECT genall_upsertID();
 
+SELECT gen_codeseq('SERVICESTYPES', 'CODE', 'SERVICESFAMILIES', 'LABEL', 'SERVICEFAMILY_ID');
+SELECT gen_codeseq('SERVICES', 'CODE', 'SERVICESTYPES', 'LABEL', 'SERVICETYPE_ID');
+
 SELECT gen_upsert('BILLINGSTYPES', 'NBBILLS=new.NBBILLS', 'LABEL=new.LABEL');
 
 SELECT gen_upsert('BILLS', 'BILLTYPE_ID=new.BILLTYPE_ID, NOTE=new.NOTE', 'BILLING_ID=new.BILLING_ID AND BILLINGBILLID=new.BILLINGBILLID');
@@ -153,30 +156,30 @@ VALUES
   (0, 1, 'Autre', '1');
 
 INSERT INTO SERVICES
-  (SERVICETYPE_ID, NAME, ISAVAILABLE)
+  (SERVICETYPE_ID, NAME, ISAVAILABLE, CODE)
 VALUES
-  (1, 'Taxe de séjour adulte', '1'),
-  (1, 'Taxe de séjour enfant', '1'),
-  (3, 'Logement', '1'),
-  (3, 'Logement et petit-déjeuner','1'),
-  (3, 'Arrangement demi-pension', '1'),
-  (3, 'Arrangement pension complète','1'),
-  (4, 'Demi-pension', '1'),
-  (4, 'Pension complète','1'),
-  (5, 'Petit-déjeuner','1'),
-  (5, 'Extras petit-déjeuner','1'),
-  (4, 'Restaurant','1'),
-  (4, 'Bistro','1'),
-  (5, 'Fax','1'),
-  (5, 'Garage', '1'),
-  (5, 'Téléphone','1'),
-  (5, 'Wifi chambre','0'),
-  (6, 'Timbre', '1'),
-  (5, 'Lingerie','1'),
-  (6, 'Location salle','1'),
-  (6, 'Débours', '1'),
-  (6, 'Rabais', '1'),
-  (5, 'Service en chambre','1');
+  (1, 'Taxe de séjour adulte', '1', 1),
+  (1, 'Taxe de séjour enfant', '1', 2),
+  (3, 'Logement', '1', 1),
+  (3, 'Logement et petit-déjeuner','1', 2),
+  (3, 'Arrangement demi-pension', '1', 3),
+  (3, 'Arrangement pension complète','1', 4),
+  (4, 'Demi-pension', '1', 1),
+  (4, 'Pension complète','1', 2),
+  (5, 'Petit-déjeuner','1', 1),
+  (5, 'Extras petit-déjeuner','1',2),
+  (4, 'Restaurant','1',3),
+  (4, 'Bistro','1', 4),
+  (5, 'Fax','1', 3),
+  (5, 'Garage', '1', 4),
+  (5, 'Téléphone','1', 5),
+  (5, 'Wifi chambre','0', 6),
+  (6, 'Timbre', '1', 1),
+  (5, 'Lingerie','1', 7),
+  (6, 'Location salle','1', 2),
+  (6, 'Débours', '1', 3),
+  (6, 'Rabais', '1', 4),
+  (5, 'Service en chambre','1', 8);
 
 
 INSERT INTO SERVICESDETAILS
