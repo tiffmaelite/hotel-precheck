@@ -55,7 +55,11 @@ HEADERS *= \
 	logic/SH_AddressCreation.h \
 	logic/SH_AdaptDatabaseState.h \
 	models/SH_ReportsTypesTableModel.h \
-	models/SH_ReportsTableModel.h
+	models/SH_ReportsTableModel.h \
+    models/SH_SqlQueryModel.h \
+    models/SH_SqlFuncResultModel.h \
+    models/SH_ExtendedProxyTableModel.h \
+    models/SH_ExtendedProxyFuncResultModel.h
 
 SOURCES *= \
 	main.cpp \
@@ -104,7 +108,11 @@ SOURCES *= \
 	logic/SH_AdaptDatabaseState.cpp \
 	SH_DatabaseManagerSettings.cpp \
 	models/SH_ReportsTypesTableModel.cpp \
-	models/SH_ReportsTableModel.cpp
+	models/SH_ReportsTableModel.cpp \
+    models/SH_SqlQueryModel.cpp \
+    models/SH_SqlFuncResultModel.cpp \
+    models/SH_ExtendedProxyTableModel.cpp \
+    models/SH_ExtendedProxyFuncResultModel.cpp
 
 # QML-files as a ressource
 RESOURCES *= \

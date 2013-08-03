@@ -1,0 +1,129 @@
+CREATE ROLE
+CREATE TABLESPACE
+CREATE DATABASE
+CREATE DATABASE
+CREATE EXTENSION IF NOT EXISTS postgres_fdw;CREATE SERVER archivesrv FOREIGN DATA WRAPPER postgres_fdw OPTIONS ( host '/var/run/postgresql', port '5434', dbname 'precheckarchivesdb');CREATE USER MAPPING FOR precheck SERVER archivesrv OPTIONS ( user 'precheck', password 'hotel' );\q
+CREATE EXTENSION
+CREATE SERVER
+CREATE USER MAPPING
+
+
+_______________________
+
+k=0
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-dbCrea-extensionsTous-pgSQL.sql
+
+CREATE EXTENSION IF NOT EXISTS plpgsql;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dblink;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS adminpack;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_int;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_xsyn;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS autoinc;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS moddatetime;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS insert_username;
+CREATE EXTENSION
+--CREATE EXTENSION IF NOT EXISTS chkpass;
+CREATE EXTENSION IF NOT EXISTS unaccent;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS intarray;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS plpgsql;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dblink;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS adminpack;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_int;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS dict_xsyn;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS autoinc;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS moddatetime;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS insert_username;
+CREATE EXTENSION
+--CREATE EXTENSION IF NOT EXISTS chkpass;
+CREATE EXTENSION IF NOT EXISTS unaccent;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS intarray;
+CREATE EXTENSION
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-*Archives-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/0-*Main-pgSQL.sql
+
+
+
+_______________________
+
+k=1
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-*Tous-pgSQL.sql
+
+
+
+
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-AddressesArchives-pgSQL.sql
+
+CREATE TABLE ADDRESSES
+(
+  ID SERIAL,
+  CLIENT_ID INTEGER NOT NULL,
+  CONTACT VARCHAR(30) NOT NULL,
+  STREET VARCHAR(50) NOT NULL,
+  NUMBER VARCHAR(4),
+  COMPLEMENTARYLINE VARCHAR(50) NOT NULL,
+  CITY VARCHAR(40) NOT NULL,
+  ZIPCODE VARCHAR(9),
+  STATE VARCHAR(15),
+  COUNTRY VARCHAR(30) NOT NULL,
+  PHONE VARCHAR(13),
+  CONSTRAINT PK_ADDRESSES_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_ADDRESSES_CONTACTADDRESS UNIQUE (CONTACT,STREET,NUMBER,CITY,STATE,COUNTRY),
+  CONSTRAINT CK_VAL_ADDRESSES_PHONE CHECK (PHONE SIMILAR TO '[\+|00][[1-9]]{3}[[:DIGIT:]]{8}')
+) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
+CREATE TABLE
+--suppress_redundant_updates_trigger(); incompatible with upserts!!!
+--CREATE TRIGGER z__minupdate_addresses
+--BEFORE UPDATE ON addresses
+--FOR EACH ROW EXECUTE PROCEDURE suppress_redundant_updates_trigger();
+
+
+/home/tiff/Stage-IUT/app/simplhotel/hotel-precheck/src/Database/postgresql/1-dbCrea-BalanceLogArchives-pgSQL.sql
+

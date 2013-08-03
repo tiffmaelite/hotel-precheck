@@ -10,10 +10,10 @@
  \fn SH_RoomsTableModel::RoomsTableModel
 */
 SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("ROOMSINFOS");
-    SH_ExtendedProxyModel::model->setOrderBy("FLOOR ASC, NUMBER ASC");
+    SH_ExtendedProxyTableModel::model->setTableName("ROOMSINFOS");
+    SH_ExtendedProxyTableModel::model->setOrderBy("FLOOR ASC, NUMBER ASC");
 }
 
 /*!
@@ -23,7 +23,7 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
 */
 void SH_RoomsTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
     this->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("ID"));
     this->setHeaderData(fields.indexOf("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
     this->setHeaderData(fields.indexOf("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));

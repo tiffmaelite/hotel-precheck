@@ -7,10 +7,10 @@
  \fn SH_ServicesTableModel::ServicesTableModel
 */
 SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("SERVICESINFOS");
-    SH_ExtendedProxyModel::model->setOrderBy("SERVICEFAMILY_ID ASC, SERVICETYPE_ID ASC, SERVICECODE ASC");
+    SH_ExtendedProxyTableModel::model->setTableName("SERVICESINFOS");
+    SH_ExtendedProxyTableModel::model->setOrderBy("SERVICEFAMILY_ID ASC, SERVICETYPE_ID ASC, SERVICECODE ASC");
 }
 
 
@@ -21,7 +21,7 @@ SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
 */
 void SH_ServicesTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
     this->setHeaderData(fields.indexOf("SERVICEFULLCODE"), Qt::Horizontal, QObject::tr("Code"));
     this->setHeaderData(fields.indexOf("SERVICENAME"), Qt::Horizontal, QObject::tr("Nom"));
     this->setHeaderData(fields.indexOf("SERVICETYPE"), Qt::Horizontal, QObject::tr("Type"));

@@ -1,7 +1,7 @@
 #ifndef VAT_H
 #define VAT_H
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 #include "SH_SqlDataField.h"
 #include <QtQml>
 #include <QtQuick>
@@ -14,7 +14,7 @@
  \class SH_VATTableModel
 \headerfile VAT_table_model.h "models/VAT_table_model.h"
 */
-class SH_VATTableModel : public SH_ExtendedProxyModel
+class SH_VATTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
 public:

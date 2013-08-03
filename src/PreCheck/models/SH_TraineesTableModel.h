@@ -1,7 +1,7 @@
 #ifndef SH_TRAINEESTABLEMODEL_H
 #define SH_TRAINEESTABLEMODEL_H
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 
 /*namespace SimplHotel
                 {*/
@@ -11,7 +11,7 @@
                  \class SH_TraineesTableModel
                 \headerfile SH_TraineesTableModel.h "models/SH_TraineesTableModel.h"
                 */
-class SH_TraineesTableModel : public SH_ExtendedProxyModel
+class SH_TraineesTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
 public:

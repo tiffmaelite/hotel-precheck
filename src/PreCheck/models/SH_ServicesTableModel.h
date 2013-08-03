@@ -2,7 +2,7 @@
 #ifndef SH_ServicesTableModel_H
 #define SH_ServicesTableModel_H
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 /*namespace SimplHotel
 {*/
 /*!
@@ -11,7 +11,7 @@
  \class SH_ServicesTableModel
 \headerfile services_table_model.h "models/services_table_model.h"
 */
-class SH_ServicesTableModel : public SH_ExtendedProxyModel
+class SH_ServicesTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
 public:

@@ -1,7 +1,7 @@
 #ifndef SH_RoomsTableModel_H
 #define SH_RoomsTableModel_H
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 #include "SH_SqlDataField.h"
 #include <QtQml>
 #include <QtQuick>
@@ -14,7 +14,7 @@
  \class SH_RoomsTableModel
 \headerfile rooms_table_model.h "models/rooms_table_model.h"
 */
-class SH_RoomsTableModel : public SH_ExtendedProxyModel
+class SH_RoomsTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
 public:

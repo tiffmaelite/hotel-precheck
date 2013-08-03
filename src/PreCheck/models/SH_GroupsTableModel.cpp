@@ -8,9 +8,9 @@
  \fn SH_GroupsTableModel::GroupsTableModel
 */
 SH_GroupsTableModel::SH_GroupsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("GROUPS");
+    SH_ExtendedProxyTableModel::model->setTableName("GROUPS");
 }
 
 /*!

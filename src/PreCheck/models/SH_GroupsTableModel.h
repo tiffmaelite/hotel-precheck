@@ -3,7 +3,7 @@
 #ifndef SH_GroupsTableModel_H
 #define SH_GroupsTableModel_H
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 
 /*namespace SimplHotel
 {*/
@@ -13,7 +13,7 @@
  \class SH_GroupsTableModel
 \headerfile groups_table_model.h "models/groups_table_model.h"
 */
-class SH_GroupsTableModel : public SH_ExtendedProxyModel
+class SH_GroupsTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
     public:

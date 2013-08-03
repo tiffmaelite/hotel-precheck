@@ -7,9 +7,9 @@
  \fn SH_ReportsTableModel::ServicesTableModel
 */
 SH_ReportsTableModel::SH_ReportsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyFuncResultModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("SERVICESINFOS");
+    SH_ExtendedProxyFuncResultModel::model->setFunctionCall("");
 }
 
 

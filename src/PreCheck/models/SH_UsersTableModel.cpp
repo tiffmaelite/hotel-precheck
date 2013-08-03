@@ -8,9 +8,9 @@
  \fn SH_UsersTableModel::SH_UsersTableModel
 */
 SH_UsersTableModel::SH_UsersTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("USERS");
+    SH_ExtendedProxyTableModel::model->setTableName("USERS");
 }
 
 /*!
@@ -20,7 +20,7 @@ SH_UsersTableModel::SH_UsersTableModel(QObject *parent):
 */
 void SH_UsersTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
     this->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("ID"));
     this->setHeaderData(fields.indexOf("LOGIN"), Qt::Horizontal, QObject::tr("Nom d'utilisateur"));
     this->setHeaderData(fields.indexOf("IS_RECEPTIONIST"), Qt::Horizontal, QObject::tr("Accès réceptionniste"));
@@ -34,6 +34,6 @@ void SH_UsersTableModel::fillModel()
     checkboxes.append(fields.indexOf("IS_MANAGERX"));
     checkboxes.append(fields.indexOf("IS_MANAGERZ"));
     checkboxes.append(fields.indexOf("IS_ADMINISTRATOR"));
-    SH_ExtendedProxyModel::setBooleanColumns(checkboxes);
+    SH_ExtendedProxyTableModel::setBooleanColumns(checkboxes);
 }
 /*}*/

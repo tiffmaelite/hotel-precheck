@@ -2,7 +2,7 @@
 #ifndef SH_BookingsTableModel_H
 #define SH_BookingsTableModel_H
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 /*namespace SimplHotel
 {*/
 /*!
@@ -10,7 +10,7 @@
  * \class SH_BookingsTableModel
  * \headerfile bookings_table_model.h "models/bookings_table_model.h"
 */
-class SH_BookingsTableModel : public SH_ExtendedProxyModel
+class SH_BookingsTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
     public:

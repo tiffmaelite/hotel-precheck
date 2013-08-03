@@ -336,10 +336,10 @@ QVariant SH_ExtendedProxyModel::data(int row, int column)
 
  \fn SH_ExtendedProxyModel::fetch
 */
-bool SH_ExtendedProxyModel::fetch(QString tableName, QString filter, QString sort, QStringList fields)
+bool SH_ExtendedProxyModel::fetch()
 {
     SH_MessageManager::debugMessage("entering proxy fetch method");
-    bool fetched = this->model->fetch(tableName, filter, sort, fields);
+    bool fetched = this->model->fetch();
     this->m_fetched = fetched;
     if (fetched)
     {

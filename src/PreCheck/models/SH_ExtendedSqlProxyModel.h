@@ -16,7 +16,6 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
 {
 
     Q_OBJECT
-    Q_PROPERTY(QString table READ tableName STORED false)
     Q_PROPERTY(QString fieldsList READ fields STORED false)
     Q_PROPERTY(QString fieldsCount READ fieldsCount STORED false)
     Q_PROPERTY(bool empty READ isEmpty STORED false)
@@ -32,13 +31,6 @@ public:
 */
     SH_ExtendedProxyModel(QObject *parent = 0);
 
-/*!
-    \brief \~french
-
-    \fn tableName
-    \return const QString
-    */
-    const QString tableName() const { return (this->model->property("tableName")).value<QString>(); }
 
     int sortKeyColumn() const { return m_sortIndex; }
 
@@ -96,13 +88,9 @@ public:
     \brief \~french
 
     \fn fetch
-    \param tableName
-    \param filter
-    \param sort
-    \param fields
     \return bool
     */
-    Q_INVOKABLE bool fetch(QString tableName = "", QString filter = "", QString sort = "", QStringList fields = QStringList());
+    Q_INVOKABLE bool fetch();
 
 /*!
     \brief \~french
@@ -266,7 +254,7 @@ protected:
     \return bool
     */
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
-    SH_SqlDataModel *model;
+    SH_SqlQueryModel *model;
 
 private:
 

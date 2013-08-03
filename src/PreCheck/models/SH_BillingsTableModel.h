@@ -1,7 +1,7 @@
 #ifndef SH_BillingsTableModel_H
 #define SH_BillingsTableModel_H
 #include <QtSql/QSqlRelationalTableModel>
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 
 /*namespace SimplHotel
 {*/
@@ -9,7 +9,7 @@
  * \brief \~french
  * \class SH_BillingsTableModel billings_table_model.h "models/billings_table_model.h"
 */
-class SH_BillingsTableModel : public SH_ExtendedProxyModel
+class SH_BillingsTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
 public:

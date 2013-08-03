@@ -8,9 +8,9 @@
  * \fn SH_BillingsTableModel::BillingsTableModel
 */
 SH_BillingsTableModel::SH_BillingsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("BILLINGSINFOS");
+    SH_ExtendedProxyTableModel::model->setTableName("BILLINGSINFOS");
 }
 
 
@@ -20,7 +20,7 @@ SH_BillingsTableModel::SH_BillingsTableModel(QObject *parent):
 */
 void SH_BillingsTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
     this->setHeaderData(fields.indexOf("NAME"), Qt::Horizontal, QObject::tr("Nom client"));
     this->setHeaderData(fields.indexOf("ROOM"), Qt::Horizontal, QObject::tr("Chambre"));
     this->setHeaderData(fields.indexOf("ARRIVINGDATE"), Qt::Horizontal, QObject::tr("Date arrivée"));

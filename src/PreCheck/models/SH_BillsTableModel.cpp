@@ -7,9 +7,9 @@
  * \fn SH_BillsTableModel::BillsTableModel
 */
 SH_BillsTableModel::SH_BillsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("BILLS");
+    SH_ExtendedProxyTableModel::model->setTableName("BILLS");
 }
 
 

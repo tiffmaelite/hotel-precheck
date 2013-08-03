@@ -6,10 +6,10 @@
  * \fn SH_BookingsTableModel::BookingsTableModel
 */
 SH_BookingsTableModel::SH_BookingsTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("BOOKINGS");
-    SH_ExtendedProxyModel::model->setFilterCondition(QObject::tr("ISCONFIRMED") + "='1'");
+    SH_ExtendedProxyTableModel::model->setTableName("BOOKINGS");
+    SH_ExtendedProxyTableModel::model->setFilterCondition(QObject::tr("ISCONFIRMED") + "='1'");
 }
 
 

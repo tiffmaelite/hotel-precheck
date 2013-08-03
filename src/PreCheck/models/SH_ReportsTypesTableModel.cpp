@@ -7,9 +7,9 @@
  \fn SH_ReportsTypesTableModel::ServicesTableModel
 */
 SH_ReportsTypesTableModel::SH_ReportsTypesTableModel(QObject *parent):
-    SH_ExtendedProxyModel(parent)
+    SH_ExtendedProxyTableModel(parent)
 {
-    SH_ExtendedProxyModel::model->setTableName("REPORTSTYPES");
+    SH_ExtendedProxyTableModel::model->setTableName("REPORTSTYPES");
 }
 
 
@@ -20,7 +20,7 @@ SH_ReportsTypesTableModel::SH_ReportsTypesTableModel(QObject *parent):
 */
 void SH_ReportsTypesTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
+    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
     this->sort(fields.indexOf("LABEL"),Qt::AscendingOrder);
 }
 /*}*/

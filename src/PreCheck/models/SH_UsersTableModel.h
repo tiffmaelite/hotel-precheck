@@ -2,7 +2,7 @@
 #define SH_USERSTABLEMODEL_H
 
 
-#include "SH_ExtendedSqlProxyModel.h"
+#include "SH_ExtendedProxyTableModel.h"
 
 /*namespace SimplHotel
         {*/
@@ -12,7 +12,7 @@
          \class SH_UsersTableModel
         \headerfile SH_UsersTableModel.h "models/SH_UsersTableModel.h"
         */
-class SH_UsersTableModel : public SH_ExtendedProxyModel
+class SH_UsersTableModel : public SH_ExtendedProxyTableModel
 {
     Q_OBJECT
 public:
