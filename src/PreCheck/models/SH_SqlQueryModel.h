@@ -187,16 +187,22 @@ protected:
     \fn applyRoles
     */
     void applyRoles();
-private:
+
     /*!
-    *\brief \~french mFilter
+    *\brief \~french mSqlQuery
     */
-    QString m_condition;
+    QSqlQuery m_query;
 
     /*!
     *\brief \~french mSort
     */
     QString m_order;
+
+private:
+    /*!
+    *\brief \~french mFilter
+    */
+    QString m_condition;
 
     /*!
     *\brief \~french mDataFields
@@ -208,10 +214,6 @@ private:
     */
     QHash<int, QByteArray> m_roles;
 
-    /*!
-    *\brief \~french mSqlQuery
-    */
-    QSqlQuery m_query;
 
     /*!
     *\brief \~french mRecords

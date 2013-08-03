@@ -44,10 +44,7 @@ void SH_SqlDataModel::fetchQuery(QString tableName, QString filter, QString sort
         this->setFilterCondition(filter);
         this->setOrderBy(sort);
         //SH_MessageManager::debugMessage(m_tableName + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
-        try
-        {
-            m_query = SH_DatabaseManager::getInstance()->execSelectQuery(m_tableName, this->fieldsList(), m_condition, m_order);
-        }
+        m_query = SH_DatabaseManager::getInstance()->execSelectQuery(this->tableName(), this->fieldsList(), this->filterCondition(), m_order);
     }
 }
 /*}*/
