@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION  restarthourlybalance (restartyear INTEGER, restartmonth INTEGER, restartday INTEGER, restarthour INTEGER)
-RETURNS VOID
+RETURNS BOOLEAN
 AS $$
   DECLARE previousyear INTEGER;
   DECLARE previousmonth INTEGER;
@@ -26,17 +26,21 @@ BEGIN
   ELSE
 	previousday = previousday;
   END IF;
-  SELECT hbalance FROM hourlybalancecounter WHERE hyearlog = previousyear AND hmonthlog = previousmonth AND hdaylog = (restartday-1) INTO oldbalance;
+  SELECT hbalance INTO oldbalance FROM hourlybalcount WHERE hyearlog = previousyear AND hmonthlog = previousmonth AND hdaylog =  previousday AND hhourlog = (restarthour-1);
   IF oldbalance IS NULL THEN
 	oldbalance = 0.0;
   END IF;
-  SELECT balance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = previousday AND hourlog = (restarthour-1) INTO currentbalance;
-  IF currentbalance IS NOT NULL THEN
-	UPDATE balancelog_archive SET balance = (oldbalance + currentbalance) WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = previousday AND hourlog = (restarthour-1);
-  ELSE
-	INSERT INTO balancelog_archive(yearlog, monthlog, daylog, hourlog, balance) VALUES (previousyear, previousmonth, previousday, (restarthour-1), oldbalance);
+  SELECT balance INTO currentbalance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog =  previousday AND hourlog = (restarthour-1);
+  IF currentbalance IS NULL THEN
+	currentbalance=0.0;
   END IF;
+  SELECT gen_upsert_BALANCELOG (hstore(ARRAY[['balance','('||oldbalance||' + '||currentbalance||')'],['yearlog',previousyear],['monthlog',previousmonth],['daylog',previousday],['hourlog',restarthour-1]]));
+
   -- CREATE new counter (ràz)
-  INSERT INTO hourlybalancecounter(hcreationtime, hyearlog, hmonthlog, hdaylog, hhourlog, hbalance) VALUES (nowtimestamp, restartyear, restartmonth, restartday, restarthour, 0.0);
+  INSERT INTO hourlybalcount(hcreationtime, hyearlog, hmonthlog, hdaylog, hhourlog, hbalance) VALUES (nowtimestamp, restartyear, restartmonth, restartday, restarthour, 0.0);
+  RETURN TRUE;
+EXCEPTION
+  WHEN QUERY_CANCELED OR OTHERS THEN
+	RETURN FALSE;
 END;
 $$ LANGUAGE plpgsql;

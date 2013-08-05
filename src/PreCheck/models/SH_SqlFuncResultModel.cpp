@@ -35,7 +35,7 @@ void SH_SqlFuncResultModel::fetchQuery(QString functionCall)
     if(!m_functionCall.isEmpty() || !functionCall.isEmpty()) {
         SH_MessageManager::debugMessage("Bienvenue dans fetch");
         this->setFunctionCall(functionCall);
-        m_query = SH_DatabaseManager::getInstance()->getDbConnection().exec(QString("SELECT %1;").arg(m_functionCall));
+        m_query = SH_DatabaseManager::getInstance()->execProcedure(m_functionCall);
     }
 }
 /*}*/

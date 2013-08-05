@@ -124,6 +124,8 @@ public:
     QString dbDriverName();
 
     dbDrivers dbDriverLabel();
+    QSqlQuery execProcedure(QString procedureCall);
+
 protected:
 
     static QString driverNameFromEnum(SH_DatabaseManager::dbDrivers driver) {

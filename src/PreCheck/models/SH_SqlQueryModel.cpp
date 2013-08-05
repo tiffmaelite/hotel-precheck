@@ -133,7 +133,7 @@ bool SH_SqlQueryModel::fetch()
         m_records.clear();
         endResetModel();
         this->fetchQuery();
-        bool next = m_query.next();
+        bool next = m_query.first();
         SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(m_query.executedQuery()).arg(m_query.size()));
         while (next && m_query.isActive())
         {

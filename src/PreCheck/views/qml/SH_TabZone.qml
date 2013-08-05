@@ -177,7 +177,7 @@ TabView {
                 id: servicesEditView
                 model: SH_ServicesModel { }
                 onSelectedRow: {
-                    tabView.selectedForDetail(servicesEditView.model, selectedData);
+                    tabView.selectedForDetail(servicesEditView.model.data(selectedData));
                 }
             }
         },
@@ -200,7 +200,7 @@ TabView {
                 id: roomsEditView
                 model: SH_RoomsModel { }
                 onSelectedRow: {
-                    tabView.selectedForDetail(roomsEditView.model, selectedData);
+                    tabView.selectedForDetail(roomsEditView.model.data(selectedData));
                 }
             }
         },
@@ -242,7 +242,7 @@ TabView {
                 id: groupsEditView
                 model: SH_GroupsModel { }
                 onSelectedRow: {
-                    tabView.selectedForDetail(groupsEditView.model, selectedData);
+                    tabView.selectedForDetail(groupsEditView.model.data(selectedData));
                 }
             }
         },
@@ -250,9 +250,9 @@ TabView {
             id: clientsEditTab
             SH_SqlTableView {
                 id: clientsEditView
-                model: SH_ClientsModel { }
+                model: SH_ClientsModel {  }
                 onSelectedRow: {
-                    tabView.selectedForDetail(clientsEditView.model, selectedData);
+                    tabView.selectedForDetail(clientsEditView.model.data(selectedData));
                 }
             }
         },
@@ -262,8 +262,10 @@ TabView {
                 id: reportsTypesEditView
                 model: SH_ReportsTypesModel { }
                 onSelectedRow: {
-                    tabView.selectedForDetail(clientsEditView.model, selectedData);
+                    reportComponentModel.functionCall=reportsTypesEditView.model.data(selectedData,reportsTypesEditView.model.fieldsCount()-1);
+                    tabView.selectedForTableDetail(reportComponentModel);
                 }
+                property Component reportComponentModel: SH_ReportsModel { }
             }
         },
         Component {
@@ -342,7 +344,7 @@ TabView {
                                 id: usersList
                                 model: SH_UsersListModel { }
                                 onSelectedRow: {
-                                    tabView.selectedForDetail(usersList.model, selectedData);
+                                    tabView.selectedForDetail(usersList.model.data(selectedData));
                                 }
                                 Layout.fillHeight: true
                                 Layout.fillWidth: true
@@ -352,7 +354,7 @@ TabView {
                                 id: traineesList
                                 model: SH_TraineesListModel { }
                                 onSelectedRow: {
-                                    tabView.selectedForDetail(traineesList.model, selectedData);
+                                    tabView.selectedForDetail(traineesList.model.data(selectedData));
                                 }
                                 Layout.fillHeight: true
                                 Layout.fillWidth: true

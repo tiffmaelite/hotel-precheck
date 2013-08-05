@@ -97,9 +97,6 @@ public:
     Q_INVOKABLE void writeSetting(QString key, QVariant value, QString group, bool replace = false);
 
 
-    Q_INVOKABLE qreal totalBalance();
-
-    Q_INVOKABLE qreal todayBalance();
 
     /*!
     * \brief \~french Modifie l'utilisateur actuel
@@ -120,7 +117,7 @@ public slots:
     * \fn balanceLogRoutine
     * \return bool
     */
-    bool balanceLogRoutine();
+    bool balanceLogRoutine(QString period);
 
     /*!
     * \brief \~french Vérifie s'il existe un utilisateur avec le pseudo fourni

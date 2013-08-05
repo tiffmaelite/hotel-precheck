@@ -191,7 +191,7 @@ int SH_DatabaseManager::dataCount(QString tableName, QString filter) {
         if(dbDriver()->hasFeature(QSqlDriver::QuerySize)) {
             return result.size();
         } else {
-            if(result.next()) {
+            if(result.first()) {
                 QSqlRecord rec = result.record();
                 if(!rec.isEmpty() && result.isValid()) {
                     return rec.value(rec.indexOf("MATCH")).toInt();
@@ -266,13 +266,28 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
-    if(result.next()) {
+    if(result.first()) {
         QSqlRecord rec = result.record();
         if(!rec.isEmpty() && result.isValid()) {
             return rec.value(rec.indexOf(returningField));
         }
     }
     return QVariant();
+}
+
+QSqlQuery SH_DatabaseManager::execProcedure(QString procedureCall) {
+    dbDrivers label = dbDriverLabel();
+    QString query;
+    if (label == SH_DatabaseManager::InterbaseDriver || label == SH_DatabaseManager::FirebirdDriver) {
+        //TODO: handle procedures with firebird
+    } else if (label == SH_DatabaseManager::PostgresqlDriver) {
+        query = QString("SELECT %1; ").arg(procedureCall);
+    }
+    //SH_MessageManager::debugMessage(query);
+    QSqlQuery result;
+    result.exec(query);
+    //SH_MessageManager::debugMessage(QString("executed query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
+    return result;
 }
 
 /*!

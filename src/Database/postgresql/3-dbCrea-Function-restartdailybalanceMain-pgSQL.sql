@@ -1,11 +1,12 @@
-CREATE OR REPLACE FUNCTION  restartdailybalance (restartyear INT, restartmonth INT, restartday INT)
-RETURNS VOID
+CREATE OR REPLACE FUNCTION  restartdailybalance (restartyear INTEGER, restartmonth INTEGER, restartday INTEGER)
+RETURNS BOOLEAN
 AS $$
-  DECLARE previousyear INT;
-  DECLARE previousmonth INT;
+  DECLARE previousyear INTEGER;
+  DECLARE previousmonth INTEGER;
   DECLARE nowtimestamp TIMESTAMP;
   DECLARE oldbalance DECIMAL;
   DECLARE currentbalance DECIMAL;
+  DECLARE restarthour INTEGER;
 BEGIN
   nowtimestamp = CURRENT_TIMESTAMP;
   oldbalance = 0.0;
@@ -20,17 +21,23 @@ BEGIN
   ELSE
 	previousmonth = restartmonth;
   END IF;
-  SELECT dbalance FROM daybalancecounter WHERE dyearlog = previousyear AND dmonthlog = previousmonth AND ddaylog = (restartday-1) INTO oldbalance;
+  SELECT dbalance INTO oldbalance FROM dailybalcount WHERE dyearlog = previousyear AND dmonthlog = previousmonth AND ddaylog = (restartday-1) AND hourlog = 0;
   IF oldbalance IS NULL THEN
 	oldbalance = 0.0;
   END IF;
-  SELECT balance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = (restartday-1) INTO currentbalance;
-  IF currentbalance IS NOT NULL THEN
-	UPDATE balancelog_archive SET balance = (oldbalance + currentbalance) WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = (restartday-1);
-  ELSE
-	INSERT INTO balancelog_archive(yearlog, monthlog, daylog, hourlog, balance) VALUES (previousyear, previousmonth, (restartday-1), 0,	 oldbalance);
+  SELECT balance INTO currentbalance FROM balancelog_archive WHERE yearlog = previousyear AND monthlog = previousmonth AND daylog = (restartday-1) AND hourlog = 0;
+  IF currentbalance IS NULL THEN
+	currentbalance=0.0;
   END IF;
+  SELECT gen_upsert_BALANCELOG (hstore(ARRAY[['balance','('||oldbalance||' + '||currentbalance||')'],['yearlog',previousyear],['monthlog',previousmonth],['daylog',restartday-1],['hourlog','0']]));
   -- CREATE new counter (ràz)
-  INSERT INTO dailybalancecounter(dcreationtime, dyearlog, dmonthlog, ddaylog, dbalance) VALUES (nowtimestamp, restartyear, restartmonth, restartday, 0);
+  INSERT INTO dailybalcount(dcreationtime, dyearlog, dmonthlog, ddaylog, dbalance) VALUES (nowtimestamp, restartyear, restartmonth, restartday, 0);
+  --propagate restart
+  SELECT hhourlog INTO restarthour FROM hourlybalcount WHERE hcreationtime >= (SELECT MAX(hcreationtime) FROM hourlybalcount);
+  SELECT restarthourlybalance(restartyear, restartmonth, restartday, restarthour);
+  RETURN TRUE;
+EXCEPTION
+  WHEN QUERY_CANCELED OR OTHERS THEN
+	RETURN FALSE;
 END;
 $$ LANGUAGE plpgsql;

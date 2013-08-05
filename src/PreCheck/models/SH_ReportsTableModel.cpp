@@ -1,4 +1,6 @@
 #include "SH_ReportsTableModel.h"
+#include "SH_DatabaseManager.h"
+
 /*namespace SimplHotel
 {*/
 /*!
@@ -9,7 +11,7 @@
 SH_ReportsTableModel::SH_ReportsTableModel(QObject *parent):
     SH_ExtendedProxyFuncResultModel(parent)
 {
-    SH_ExtendedProxyFuncResultModel::model->setFunctionCall("");
+
 }
 
 
@@ -20,7 +22,5 @@ SH_ReportsTableModel::SH_ReportsTableModel(QObject *parent):
 */
 void SH_ReportsTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyModel::model->fieldsList();
-    this->sort(fields.indexOf("SERVICETYPE"),Qt::AscendingOrder);
 }
 /*}*/

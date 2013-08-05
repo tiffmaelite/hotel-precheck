@@ -98,26 +98,23 @@ bool SH_ApplicationCore::userExists(QString login)
  * \details \~french
  * \fn SH_ApplicationCore::balanceLogRoutine
 */
-bool SH_ApplicationCore::balanceLogRoutine() {
-
-    /*SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(H)");
-    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(D)");
-    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(W)");
-    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(M)");
-    SH_DatabaseManager::getInstance()->getDbConnection().exec("execute procedure logPeriodicBalance(Y)");*/
-    return true;
-}
-
-qreal SH_ApplicationCore::todayBalance() {
-    QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery("DAYLYBALCOUNT", QStringList("BALANCE"), "TIMESTAMP = (SELECT MAX(TIMESTAMP) FROM YEARLYLOGBALCOUNT)");
-    result.next();
-    return result.value("BALANCE").toReal();
-}
-
-qreal SH_ApplicationCore::totalBalance() {
-    QSqlQuery result =  SH_DatabaseManager::getInstance()->execSelectQuery("YEARLYLOGBALCOUNT", QStringList("BALANCE"), "TIMESTAMP = (SELECT MAX(TIMESTAMP) FROM YEARLYLOGBALCOUNT)");
-    result.next();
-    return result.value("BALANCE").toReal();
+bool SH_ApplicationCore::balanceLogRoutine(QString period) {
+    QChar p = period.at(0).toUpper();
+    QSqlQuery result;
+    if(p == 'H') {
+        result= SH_DatabaseManager::getInstance()->execProcedure(QString("restarthourlybalance(%1,%2,%3,%4)").arg(QString::number(QDate::currentDate().year())).arg(QString::number(QDate::currentDate().month())).arg(QString::number(QDate::currentDate().day())).arg(QString::number(QTime::currentTime().hour())));
+    } else if(p == 'D') {
+        result= SH_DatabaseManager::getInstance()->execProcedure(QString("restartdailybalance(%1,%2,%3)").arg(QString::number(QDate::currentDate().year())).arg(QString::number(QDate::currentDate().month())).arg(QString::number(QDate::currentDate().day())));
+    } else if(p == 'M') {
+        result= SH_DatabaseManager::getInstance()->execProcedure(QString("restartmonthlybalance(%1,%2)").arg(QString::number(QDate::currentDate().year())).arg(QString::number(QDate::currentDate().month())));
+    } else if(p == 'Y') {
+        result= SH_DatabaseManager::getInstance()->execProcedure(QString("restartyearlybalance(%1)").arg(QString::number(QDate::currentDate().year())));
+    }
+    result.first();
+    if(result.isValid()) {
+        return result.value(1).toBool();
+    }
+    return false;
 }
 
 /*!

@@ -1,9 +1,5 @@
 SELECT genall_upsertID();
 
-SELECT gen_codeseq('SERVICESTYPES', 'CODE', 'SERVICESFAMILIES', 'LABEL', 'SERVICEFAMILY_ID');
-
-SELECT gen_codeseq('SERVICES', 'CODE', 'SERVICESTYPES', 'LABEL', 'SERVICETYPE_ID');
-
 SELECT gen_upsert('BILLINGSTYPES', 'NBBILLS=new.NBBILLS', 'LABEL=new.LABEL');
 
 SELECT gen_upsert('BILLS', 'BILLTYPE_ID=new.BILLTYPE_ID, NOTE=new.NOTE', 'BILLING_ID=new.BILLING_ID AND BILLINGBILLID=new.BILLINGBILLID');
@@ -130,14 +126,14 @@ VALUES
   ('Prestations');
 
 INSERT INTO SERVICESTYPES
-  (LABEL, SERVICEFAMILY_ID, VAT_ID, ROOMNEEDED)
+  (LABEL, SERVICEFAMILY_ID, VAT_ID, ROOMNEEDED, CODE)
 VALUES
-  ('Autre',3,1, '1'),
-  ('Taxe de séjour',1,1, '1'),
-  ('Accomodation',1,1, '1'),
-  ('Repas',2,1, '1'),
-  ('Prestation extra',3,1, '1'),
-  ('Vente au comptant',3,1, '0');
+  ('Autre',3,1, '1', 1),
+  ('Taxe de séjour',1,1, '1', 1),
+  ('Accomodation',1,1, '1', 2),
+  ('Repas',2,1, '1', 1),
+  ('Prestation extra',3,1, '1', 2),
+  ('Vente au comptant',3,1, '0', 3);
 
 
 
@@ -151,36 +147,36 @@ VALUES
 
 
 INSERT INTO SERVICES
-  (ID, SERVICETYPE_ID, NAME, ISAVAILABLE)
+  (ID, SERVICETYPE_ID, NAME, ISAVAILABLE, CODE)
 VALUES
-  (-1, 1, 'Autre...', '1'),
-  (0, 1, 'Autre', '1');
+  (-1, 1, 'Autre...', '1', 1),
+  (0, 1, 'Autre', '1', 2);
 
 INSERT INTO SERVICES
   (SERVICETYPE_ID, NAME, ISAVAILABLE, CODE)
 VALUES
-  (1, 'Taxe de séjour adulte', '1', 1),
-  (1, 'Taxe de séjour enfant', '1', 2),
+  (1, 'Taxe de séjour adulte', '1', 3),
+  (1, 'Taxe de séjour enfant', '1', 4),
   (3, 'Logement', '1', 1),
   (3, 'Logement et petit-déjeuner','1', 2),
   (3, 'Arrangement demi-pension', '1', 3),
   (3, 'Arrangement pension complète','1', 4),
   (4, 'Demi-pension', '1', 1),
   (4, 'Pension complète','1', 2),
-  (5, 'Petit-déjeuner','1', 1),
-  (5, 'Extras petit-déjeuner','1',2),
   (4, 'Restaurant','1',3),
   (4, 'Bistro','1', 4),
+  (5, 'Petit-déjeuner','1', 1),
+  (5, 'Extras petit-déjeuner','1',2),
   (5, 'Fax','1', 3),
   (5, 'Garage', '1', 4),
   (5, 'Téléphone','1', 5),
   (5, 'Wifi chambre','0', 6),
-  (6, 'Timbre', '1', 1),
   (5, 'Lingerie','1', 7),
+  (5, 'Service en chambre','1', 8),
+  (6, 'Timbre', '1', 1),
   (6, 'Location salle','1', 2),
   (6, 'Débours', '1', 3),
-  (6, 'Rabais', '1', 4),
-  (5, 'Service en chambre','1', 8);
+  (6, 'Rabais', '1', 4);
 
 
 INSERT INTO SERVICESDETAILS
@@ -299,3 +295,11 @@ INSERT INTO TRAINEES
   (LOGIN, ENCRYPTEDPASS, ISACTIVATED)
 VALUES
   ('formation','EE26B0DD4AF7E749AA1A8EE3C10AE9923F618980772E473F8819A5D4940E0DB27AC185F8A0E1D5F84F88BC887FD67B143732C304CC5FA9AD8E6F57F50028A8FF', '1');
+
+
+INSERT INTO REPORTSTYPES
+  (LABEL, DESCRIPTION, GENERATIONQUERY)
+VALUES
+  ('today balance','Comptabilisateurs journaliers', 'SELECT dbalance, ddaylog, dmonthlog, dyearlog FROM dailybalcount GROUP BY dyearlog, dmonthlog, ddaylog HAVING dcreationtime = (SELECT MAX(dcreationtime) FROM dailybalcount);'),
+  ('total balance','Journal des comptabilisateurs', 'SELECT balance, hourlog, daylog, monthlog, yearlog FROM balance_archiveORDER BY yearlog, monthlog, daylog, hourlog;');
+
