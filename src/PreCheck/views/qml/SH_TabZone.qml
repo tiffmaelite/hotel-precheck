@@ -263,6 +263,7 @@ TabView {
                 model: SH_ReportsTypesModel { }
                 onSelectedRow: {
                     reportComponentModel.functionCall=reportsTypesEditView.model.data(selectedData,reportsTypesEditView.model.fieldsCount()-1);
+                    reportComponentModel.fetch();
                     tabView.selectedForTableDetail(reportComponentModel);
                 }
                 property Component reportComponentModel: SH_ReportsModel { }

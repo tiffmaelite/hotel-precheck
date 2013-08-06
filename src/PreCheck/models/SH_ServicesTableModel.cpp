@@ -21,16 +21,16 @@ SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
 */
 void SH_ServicesTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
-    this->setHeaderData(fields.indexOf("SERVICEFULLCODE"), Qt::Horizontal, QObject::tr("Code"));
-    this->setHeaderData(fields.indexOf("SERVICENAME"), Qt::Horizontal, QObject::tr("Nom"));
-    this->setHeaderData(fields.indexOf("SERVICETYPE"), Qt::Horizontal, QObject::tr("Type"));
-    this->setHeaderData(fields.indexOf("SERVICEFAMILY"), Qt::Horizontal, QObject::tr("Famille"));
-    this->setHeaderData(fields.indexOf("ISAVAILABLE"), Qt::Horizontal, QObject::tr("Disponible"));
-    this->setHeaderData(fields.indexOf("_PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimal suggéré"));
-    this->setHeaderData(fields.indexOf("_PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximal suggéré"));
-    this->setHeaderData(fields.indexOf("VAT"), Qt::Horizontal, QObject::tr("TVA"));
-    this->setHeaderData(fields.indexOf("TYPENEEDSROOM"), Qt::Horizontal, QObject::tr("Chambre nécessaire"));
-    this->sort(fields.indexOf("SERVICETYPE"),Qt::AscendingOrder);
+   SH_ExtendedProxyTableModel::setHeaderData(this->fieldIndex("SERVICEFULLCODE"), Qt::Horizontal, QObject::tr("Code"));
+
+    this->setHeaderData(this->fieldIndex("SERVICENAME"), Qt::Horizontal, QObject::tr("Nom"));
+    this->setHeaderData(this->fieldIndex("SERVICETYPE"), Qt::Horizontal, QObject::tr("Type"));
+    this->setHeaderData(this->fieldIndex("SERVICEFAMILY"), Qt::Horizontal, QObject::tr("Famille"));
+    this->setHeaderData(this->fieldIndex("ISAVAILABLE"), Qt::Horizontal, QObject::tr("Disponible"));
+    this->setHeaderData(this->fieldIndex("_PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimal suggéré"));
+    this->setHeaderData(this->fieldIndex("_PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximal suggéré"));
+    this->setHeaderData(this->fieldIndex("VAT"), Qt::Horizontal, QObject::tr("TVA"));
+    this->setHeaderData(this->fieldIndex("TYPENEEDSROOM"), Qt::Horizontal, QObject::tr("Chambre nécessaire"));
+    this->sort(this->fieldIndex("SERVICETYPE"),Qt::AscendingOrder);
 }
 /*}*/

@@ -1,9 +1,9 @@
 TODO
 =====
 *Fonctionnalités
-- Ajouter des rapports personnalisés --> en cours
+- Ajouter des rapports personnalisés --> à tester
 - Ajouter la personnalisation de l'application
-- Afficher dans l'OutputZone le détail des tableaux en mode Management --> en cours
+- Afficher dans l'OutputZone le détail des tableaux en mode Management --> à tester
 - Ajouter la modification des caractéristiques d'une facturation --> en cours
 - Ajouter la modification des caractéristiques d'une facture --> en cours
 - Ajouter les ventes seules --> en cours
@@ -11,8 +11,8 @@ TODO
 - Ajouter la possibilité de marquer une chambre comme libérée mais non-nettoyée
 - Corriger l'affichage de la TVA --> en cours
 - Débugguer ContentView.qml --> en cours
-- Ajouter la création d'une adresse --> en cours
-- Prendre en compte les divers formats de date possibles --> en cours
+- Finir la création d'une adresse --> en cours
+- Prendre en compte les divers formats de date possibles
 - Ajouter la clôture d'une facturation --> en cours
 - Ajouter les menus d'aide
 - Ajouter l'interruption totale d'une procédure

@@ -19,13 +19,13 @@ class SH_ApplicationCore : public QObject
     * \brief \~french L'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté)
     * \property currentUser
     */
-    Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged) //MEMBER m_currentUser
+    Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged) //MEMBER this->m_currentUser
 
     /*!
     * \brief \~french Le mode actuel de l'application
     * \property currentMode
     */
-    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode READ currentMode WRITE setMode NOTIFY modeChanged) //MEMBER m_mode
+    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode READ currentMode WRITE setMode NOTIFY modeChanged) //MEMBER this->m_mode
     Q_ENUMS(AppMode)
 public:
 

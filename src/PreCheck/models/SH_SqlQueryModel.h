@@ -21,7 +21,7 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString filterCondition() const { return m_condition; }
+    QString filterCondition() const { return this->m_condition; }
     /*!
     * \fn setTableCondition
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
@@ -29,7 +29,9 @@ public:
     * \param QString condition La nouvelle liste de choix de l'état
     */
     void setFilterCondition(const QString &condition);
-    void resetFilterCondition() { m_condition = ""; emit filterConditionChanged();}
+    void resetFilterCondition() { this->m_condition = ""; emit filterConditionChanged();}
+
+    Q_INVOKABLE QHash<int, QByteArray> roleNames() const { return this->m_roles; }
 
     /*!
     \brief \~french
@@ -155,6 +157,7 @@ public:
 
     const QString lastError();
 
+    QVariant headerData(int section, Qt::Orientation orientation, int role=Qt::DisplayRole);
 signals:
 
     /*!

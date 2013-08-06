@@ -125,7 +125,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     confirmPart1->addTransition(confirmPart1, SIGNAL(next()), confirmPart1);
     connect(confirmPart1, &SH_GenericState::exited, [=]() {
         connect(saveState, &SH_GenericState::entered, [=]() {
-            setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
+            setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
         });
     });
     saveState->addTransition(saveState, SIGNAL(next()),confirmAll);

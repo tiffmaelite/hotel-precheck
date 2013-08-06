@@ -59,14 +59,14 @@ public:
     * \details \~french Permet d'obtenir la date minimale permise
     * \return QDate La date minimale permise
     */
-    QDate minimumDate() const { return m_minimum; }
+    QDate minimumDate() const { return this->m_minimum; }
     /*!
     * \fn setMinimumDate
     * \brief \~french Accesseur en écriture de la propriété \a minimumDate
     * \details \~french Permet de définir la date minimale permise
     * \param QDate minimumDate La nouvelle date minimale permise
     */
-    void setMinimumDate(const QDate &minimumDate){ m_minimum = minimumDate; emit minimumDateChanged(); }
+    void setMinimumDate(const QDate &minimumDate){ this->m_minimum = minimumDate; emit minimumDateChanged(); }
 
     /*!
     * \fn maximumDate
@@ -74,21 +74,21 @@ public:
     * \details \~french Permet d'obtenir la date maximale permise
     * \return QDate La date maximale permise
     */
-    QDate maximumDate() const { return m_maximum; }
+    QDate maximumDate() const { return this->m_maximum; }
     /*!
     * \fn setMaximumDate
     * \brief \~french Accesseur en écriture de la propriété \a maximumDate
     * \details \~french Permet de définir la date maximale permise
     * \param QDate minimumDate La nouvelle date maximale permise
     */
-    void setMaximumDate(const QDate &maximumDate){ m_maximum = maximumDate; emit maximumDateChanged(); }
+    void setMaximumDate(const QDate &maximumDate){ this->m_maximum = maximumDate; emit maximumDateChanged(); }
 
     /*!
  * \brief \~french
  * \fn getPast
  * \return bool
 */
-    bool isPast() const { return (m_maximum.isValid() && m_maximum >= QDate::currentDate()); }
+    bool isPast() const { return (m_maximum.isValid() && this->m_maximum >= QDate::currentDate()); }
 
     /*!
  * \brief \~french
@@ -102,7 +102,7 @@ public:
  * \fn getFuture
  * \return bool
 */
-    bool isFuture() const { return (m_minimum.isValid() && m_minimum >= QDate::currentDate()); }
+    bool isFuture() const { return (m_minimum.isValid() && this->m_minimum >= QDate::currentDate()); }
 
     /*!
  * \brief \~french

@@ -11,21 +11,21 @@ SH_PrintingState::SH_PrintingState(QString name, QState *parent) :
 }
 int SH_PrintingState::nbPrintedLines() const
 {
-    return m_nbPrintedLines;
+    return this->m_nbPrintedLines;
 }
 
 void SH_PrintingState::setNbPrintedLines(int nbPrintedLines)
 {
-    m_nbPrintedLines = nbPrintedLines;
+    this->m_nbPrintedLines = nbPrintedLines;
 }
 int SH_PrintingState::currentLineNb() const
 {
-    return m_currentLineNb;
+    return this->m_currentLineNb;
 }
 
 void SH_PrintingState::setCurrentLineNb(int currentLineNb)
 {
-    m_currentLineNb = currentLineNb;
+    this->m_currentLineNb = currentLineNb;
 }
 
 

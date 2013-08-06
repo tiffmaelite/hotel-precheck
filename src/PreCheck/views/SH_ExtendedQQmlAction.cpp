@@ -28,9 +28,9 @@ SH_ExtendedQQmlAction::~SH_ExtendedQQmlAction()
 */
 void SH_ExtendedQQmlAction::setText(const QString &text)
 {
-    if (text != m_text) {
-        m_text = text;
-        setMnemonicFromText(m_text);
+    if (text != this->m_text) {
+        this->m_text = text;
+        setMnemonicFromText(this->m_text);
         emit textChanged();
     }
 }
@@ -64,15 +64,15 @@ bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
  \fn SH_ExtendedQQmlAction::setKeySequence
 */
 void SH_ExtendedQQmlAction::setKeySequence(const QKeySequence &sequence) {
-    if (sequence != m_shortcut) {
+    if (sequence != this->m_shortcut) {
         /*if (!m_shortcut.isEmpty()) {
-            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, m_shortcut);
+            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, this->m_shortcut);
         }*/
-        m_shortcut = sequence;
+        this->m_shortcut = sequence;
 
         /*if (!m_shortcut.isEmpty()) {
             Qt::ShortcutContext context = Qt::WindowShortcut;
-            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);
+            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, this->m_shortcut, context, qShortcutContextMatcher);
         }*/
         emit shortcutChanged(shortcut());
     }
@@ -100,7 +100,7 @@ Qt::Key SH_ExtendedQQmlAction::kShortcut()
 */
 QString SH_ExtendedQQmlAction::shortcut() const
 {
-    return m_shortcut.toString(QKeySequence::NativeText);
+    return this->m_shortcut.toString(QKeySequence::NativeText);
 }
 /*!
  \details \~french
@@ -119,15 +119,15 @@ void SH_ExtendedQQmlAction::setShortcut(const QString &arg)
 void SH_ExtendedQQmlAction::setMnemonicFromText(const QString &text)
 {
     QKeySequence sequence = QKeySequence::mnemonic(text);
-    if (m_mnemonic != sequence) {
+    if (this->m_mnemonic != sequence) {
         /*if (!m_mnemonic.isEmpty()) {
-            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, m_mnemonic);
+            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, this->m_mnemonic);
         }*/
-        m_mnemonic = sequence;
+        this->m_mnemonic = sequence;
 
         /*if (!m_mnemonic.isEmpty()) {
             Qt::ShortcutContext context = Qt::WindowShortcut;
-            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);
+            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, this->m_mnemonic, context, qShortcutContextMatcher);
         }*/
     }
 }
@@ -137,11 +137,11 @@ void SH_ExtendedQQmlAction::setMnemonicFromText(const QString &text)
 */
 void SH_ExtendedQQmlAction::setIconSource(const QUrl &iconSource)
 {
-    if (iconSource != m_iconSource) {
-        m_iconSource = iconSource;
-        if (m_iconName.isEmpty() || m_icon.isNull()) {
+    if (iconSource != this->m_iconSource) {
+        this->m_iconSource = iconSource;
+        if (this->m_iconName.isEmpty() || this->m_icon.isNull()) {
             QString fileString = QQmlFile::urlToLocalFileOrQrc(iconSource);
-            m_icon = QIcon(fileString);
+            this->m_icon = QIcon(fileString);
             emit iconChanged();
         }
         emit iconSourceChanged();
@@ -153,7 +153,7 @@ void SH_ExtendedQQmlAction::setIconSource(const QUrl &iconSource)
 */
 QString SH_ExtendedQQmlAction::iconName() const
 {
-    return m_iconName;
+    return this->m_iconName;
 }
 /*!
  \details \~french
@@ -161,9 +161,9 @@ QString SH_ExtendedQQmlAction::iconName() const
 */
 void SH_ExtendedQQmlAction::setIconName(const QString &iconName)
 {
-    if (iconName != m_iconName) {
-        m_iconName = iconName;
-        m_icon = QIcon::fromTheme(m_iconName, QIcon(QQmlFile::urlToLocalFileOrQrc(m_iconSource)));
+    if (iconName != this->m_iconName) {
+        this->m_iconName = iconName;
+        this->m_icon = QIcon::fromTheme(this->m_iconName, QIcon(QQmlFile::urlToLocalFileOrQrc(this->m_iconSource)));
         emit iconNameChanged();
         emit iconChanged();
     }
@@ -174,8 +174,8 @@ void SH_ExtendedQQmlAction::setIconName(const QString &iconName)
 */
 void SH_ExtendedQQmlAction::setTooltip(const QString &arg)
 {
-    if (m_tooltip != arg) {
-        m_tooltip = arg;
+    if (this->m_tooltip != arg) {
+        this->m_tooltip = arg;
         emit tooltipChanged(arg);
     }
 }
@@ -185,8 +185,8 @@ void SH_ExtendedQQmlAction::setTooltip(const QString &arg)
 */
 void SH_ExtendedQQmlAction::setEnabled(bool e)
 {
-    if (e != m_enabled) {
-        m_enabled = e;
+    if (e != this->m_enabled) {
+        this->m_enabled = e;
         emit enabledChanged();
     }
 }
@@ -206,7 +206,7 @@ bool SH_ExtendedQQmlAction::event(QEvent *e)
         return false;
     }
     QShortcutEvent *se = static_cast<QShortcutEvent *>(e);
-    Q_ASSERT_X(se->key() == m_shortcut || se->key() == m_mnemonic,
+    Q_ASSERT_X(se->key() == this->m_shortcut || se->key() == this->m_mnemonic,
                "SH_ExtendedQQmlAction::event",
                "Received shortcut event from incorrect shortcut");
     if (se->isAmbiguous()) {

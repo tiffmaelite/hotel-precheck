@@ -21,7 +21,7 @@ void SH_InOutState::setInput(const QVariant &input)
 {
     if(isRunning() && input != this->input()) {
         //SH_MessageManager::infoMessage("new input " + input.toString());
-        m_input = input;
+        this->m_input = input;
         emitResendInput();
     }
 }
@@ -33,7 +33,7 @@ void SH_InOutState::setInput(const QVariant &input)
 void SH_InOutState::setOutput(const QString &output)
 {
     if(isRunning() && output != this->output()) {
-        m_output = output;
+        this->m_output = output;
         emitSendOutput();
     }
 }
@@ -44,21 +44,21 @@ void SH_InOutState::setOutput(const QString &output)
 void SH_InOutState::setVisibility(bool isVisible)
 {
     if(isRunning() && isVisible!=this->visibility()) {
-        m_isVisible = isVisible;
+        this->m_isVisible = isVisible;
         emit visibilityChanged();
     }
 }
 
 
 void SH_InOutState::emitSendOutput() {
-    if(isRunning() && m_display && !m_output.isEmpty() && m_isVisible) {
-        emit sendOutput(QVariant(m_output));
+    if(isRunning() && this->m_display && !m_output.isEmpty() && this->m_isVisible) {
+        emit sendOutput(QVariant(this->m_output));
     }
 }
 
 void SH_InOutState::emitResendInput() {
-    if(isRunning() && m_isVisible) {
-        emit resendInput(m_input);
+    if(isRunning() && this->m_isVisible) {
+        emit resendInput(this->m_input);
     }
 }
 

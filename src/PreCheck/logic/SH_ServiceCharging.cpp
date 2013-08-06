@@ -40,8 +40,8 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
             result.next();
             QSqlRecord record = result.record();
             name= record.value(0).toString();
-            m_priceMin =record.value(1).toDouble();
-            m_vat =record.value(3).toDouble();
+            this->m_priceMin =record.value(1).toDouble();
+            this->m_vat =record.value(3).toDouble();
             serviceId->setInput(record.value(4).toInt());
             serviceName->setInput(name);
             price->setOutput(QString("Le prix proposé pour cette prestation est : %1. Son prix minimum est %1 et son prix maximum %2.\nVeuillez entrer un nouveau prix ou appuyer sur la touche \"CONFIRMER\"").arg(record.value(1).toString()).arg(record.value(2).toString()));
@@ -60,12 +60,12 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     });
     connect(price, &QState::entered, [=]() {
         connect(this, &SH_InOutStateMachine::confirmInput, [=]() {
-            price->setInput(m_priceMin);
+            price->setInput(this->m_priceMin);
         });
     });
     connect(vat, &QState::entered, [=]() {
         connect(this, &SH_InOutStateMachine::confirmInput, [=]() {
-            vat->setInput(m_vat);
+            vat->setInput(this->m_vat);
         });
     });
     this->addState(final);

@@ -22,9 +22,9 @@ SH_SqlDataModel::SH_SqlDataModel(QObject *parent) :
 */
 void SH_SqlDataModel::setTableName(const QString &tableName)
 {
-    if (m_tableName.toUpper() != tableName.toUpper() && tableName != "")
+    if (this->m_tableName.toUpper() != tableName.toUpper() && tableName != "")
     {
-        m_tableName = tableName.toUpper();
+        this->m_tableName = tableName.toUpper();
         emit tableNameChanged();
     }
 }
@@ -41,13 +41,13 @@ void SH_SqlDataModel::fetchQuery(QString tableName, QString filter, QString sort
 {
     if(!m_tableName.isEmpty() || !tableName.isEmpty()) {
         SH_MessageManager::debugMessage("Bienvenue dans fetch");
-        //SH_MessageManager::debugMessage(m_tableName + " " + this->fieldsList().join(", ") + " " +m_condition + " " + m_order);
+        //SH_MessageManager::debugMessage(this->m_tableName + " " + this->fieldsList().join(", ") + " " +m_condition + " " + this->m_order);
         this->setFields(fieldsList);
         this->setTableName(tableName);
         this->setFilterCondition(filter);
         this->setOrderBy(sort);
-        //SH_MessageManager::debugMessage(m_tableName + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
-        m_query = SH_DatabaseManager::getInstance()->execSelectQuery(this->tableName(), this->fieldsList(), this->filterCondition(), m_order);
+        //SH_MessageManager::debugMessage(this->m_tableName + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
+        this->m_query = SH_DatabaseManager::getInstance()->execSelectQuery(this->tableName(), this->fieldsList(), this->filterCondition(), this->m_order);
     }
 }
 /*}*/

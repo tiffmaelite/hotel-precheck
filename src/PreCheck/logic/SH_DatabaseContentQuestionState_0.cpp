@@ -18,14 +18,14 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
     qDebug() << "multiple choice list with datas from " << databaseTable << "!";
     SH_SqlDataModel *sqlDatas = new SH_SqlDataModel();
     QStringList fields;
-    fields << "ID" << m_field;
-    sqlDatas->fetch(m_table, m_condition, "", fields);
+    fields << "ID" << this->m_field;
+    sqlDatas->fetch(this->m_table, this->m_condition, "", fields);
     QVariantMap results = sqlDatas->datas();
     QVariantList idValues = results.values("ID");
-    QVariantList fieldsValues = results.values(m_field);
+    QVariantList fieldsValues = results.values(this->m_field);
     for(int i = 0; i < idValues.length(); i++) {
         qDebug() << "new choice " << idValues.at(i).toString() <<  ": " << fieldsValues.at(i).toString();
-        m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
+        this->m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
     }
 }
 
@@ -37,8 +37,8 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
 */
 bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
-    /*qDebug() << m_choices.values();
-    return m_choices.isEmpty() || m_choices.values().contains(givenAnswer);*/
+    /*qDebug() << this->m_choices.values();
+    return this->m_choices.isEmpty() || this->m_choices.values().contains(givenAnswer);*/
     return true;
 }
 
@@ -50,8 +50,8 @@ bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 {
     SH_QuestionState::setOutput(output);
-    if(m_choices.size() < 8) {
-        m_choicesDisplayed = true;
+    if(this->m_choices.size() < 8) {
+        this->m_choicesDisplayed = true;
         //emit displayChoiceList();
     }
 }
@@ -63,7 +63,7 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 */
 QVariant SH_DatabaseContentQuestionState::rawInput() const
 {
-    //return m_choices.key(this->givenAnswer());
+    //return this->m_choices.key(this->givenAnswer());
     return QVariant();
 }
 
@@ -73,8 +73,8 @@ QVariant SH_DatabaseContentQuestionState::rawInput() const
  \return QMap<int, QVariant> TODO comment this
 */
 QVariantList SH_DatabaseContentQuestionState::choiceList() {
-    if(m_choicesDisplayed) {
-        return m_choices;
+    if(this->m_choicesDisplayed) {
+        return this->m_choices;
     }
     return QVariantList();
 }

@@ -123,7 +123,7 @@ bool SH_ApplicationCore::balanceLogRoutine(QString period) {
 */
 void SH_ApplicationCore::receiveInput(QString in)
 {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         SH_MessageManager::infoMessage("input received "+in);
         emit this->m_currentFSM->receiveInput(in);
     }
@@ -134,7 +134,7 @@ void SH_ApplicationCore::receiveInput(QString in)
 */
 void SH_ApplicationCore::receiveValidation()
 {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         emit this->m_currentFSM->validateInput();
     }
 }
@@ -144,7 +144,7 @@ void SH_ApplicationCore::receiveValidation()
 */
 void SH_ApplicationCore::receiveConfirmation()
 {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         emit this->m_currentFSM->confirmInput();
     }
 }
@@ -154,7 +154,7 @@ void SH_ApplicationCore::receiveConfirmation()
 */
 void SH_ApplicationCore::replaceInput(QString inputName)
 {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         emit this->m_currentFSM->replaceInput(inputName);
     }
 }
@@ -164,7 +164,7 @@ void SH_ApplicationCore::replaceInput(QString inputName)
 */
 void SH_ApplicationCore::cancelReplacement()
 {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         emit this->m_currentFSM->cancelReplacement();
     }
 }
@@ -175,7 +175,7 @@ void SH_ApplicationCore::cancelReplacement()
 bool SH_ApplicationCore::launchBillingCreation()
 {
     this->m_currentFSM= new SH_BillingCreationStateMachine("création facturation");
-    m_currentFSMNotNull = true;
+    this->m_currentFSMNotNull = true;
     return this->launchStateMachine();
 }
 /*!
@@ -195,7 +195,7 @@ bool SH_ApplicationCore::launchBookingCreation()
 bool SH_ApplicationCore::launchServiceCharging()
 {
     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
-    m_currentFSMNotNull = true;
+    this->m_currentFSMNotNull = true;
     this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->property("ID").toInt()), "BILL_ID");
     return this->launchStateMachine();
 }
@@ -205,7 +205,7 @@ bool SH_ApplicationCore::launchServiceCharging()
 */
 bool SH_ApplicationCore::stopRunningStateMachine()
 {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         this->m_currentFSM->stop();
         bool ok = !this->m_currentFSM->isRunning();
         this->m_currentFSM = NULL;
@@ -233,7 +233,7 @@ bool SH_ApplicationCore::launchStateMachine()
 }
 
 int SH_ApplicationCore::billOpened() {
-    if(m_currentFSMNotNull) {
+    if(this->m_currentFSMNotNull) {
         SH_ServiceCharging* smachine = qobject_cast<SH_ServiceCharging*>(this->m_currentFSM);
         if(smachine) {
             return smachine->getContentValue("ID").toInt();
@@ -244,16 +244,16 @@ int SH_ApplicationCore::billOpened() {
 
 void SH_ApplicationCore::setSettings(QSettings::Scope scope, QString devName, QString appName)
 {
-    m_settingsScope = scope;
-    m_settingsDevName = devName;
-    m_settingsAppName = appName;
-    /*QSettings settings(m_settingsScope, m_settingsDevName, m_settingsAppName);
+    this->m_settingsScope = scope;
+    this->m_settingsDevName = devName;
+    this->m_settingsAppName = appName;
+    /*QSettings settings(this->m_settingsScope, this->m_settingsDevName, this->m_settingsAppName);
     SH_MessageManager::infoMessage(settings.fileName());*/
 }
 
 QVariant SH_ApplicationCore::readSetting(QString key, QString group)
 {
-    QSettings settings(m_settingsScope, m_settingsDevName, m_settingsAppName);
+    QSettings settings(this->m_settingsScope, this->m_settingsDevName, this->m_settingsAppName);
     if(group != "") {
         settings.beginGroup(group);
     }
@@ -271,7 +271,7 @@ void SH_ApplicationCore::replaceSetting(QString key, QVariant value, QString gro
 
 void SH_ApplicationCore::writeSetting(QString key, QVariant value, QString group, bool replace)
 {
-    QSettings settings(m_settingsScope, m_settingsDevName, m_settingsAppName);
+    QSettings settings(this->m_settingsScope, this->m_settingsDevName, this->m_settingsAppName);
     if(group != "") {
         settings.beginGroup(group);
     }

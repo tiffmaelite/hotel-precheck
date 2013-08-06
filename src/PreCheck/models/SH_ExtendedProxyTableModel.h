@@ -17,6 +17,9 @@ public:
         */
         const QString tableName() const { return (this->model->property("tableName")).value<QString>(); }
 
+        Q_INVOKABLE bool fetch();
+
+        void setSourceModel(QAbstractItemModel *sourceModel);
 protected:
         SH_SqlDataModel *model;
 signals:

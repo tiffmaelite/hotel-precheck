@@ -25,7 +25,7 @@ QString SH_NamedObject::toString()
 */
 QString SH_NamedObject::name() const
 {
-    return m_name;
+    return this->m_name;
 }
 /*!
  * \details \~french
@@ -33,7 +33,7 @@ QString SH_NamedObject::name() const
 */
 void SH_NamedObject::setName(const QString &name)
 {
-    m_name = name;
+    this->m_name = name;
 }
 /*!
  * \details \~french
@@ -41,6 +41,6 @@ void SH_NamedObject::setName(const QString &name)
 */
 QString SH_NamedObject::ptraddress() const
 {
-    return m_ptraddress;
+    return this->m_ptraddress;
 }
 /*}*/

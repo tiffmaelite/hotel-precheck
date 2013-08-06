@@ -53,7 +53,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
         billsCreation->setPersistentContentValue(getContentValue("ID"), "BILLING_ID");
     });
     connect(confirmPart1, &SH_GenericState::exited, [=]() {
-        setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
+        setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
     });
     connect(billsCreation, &SH_GenericState::entered, [=]() {
         displayProgressBar(0);

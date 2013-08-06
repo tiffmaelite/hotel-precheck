@@ -45,7 +45,7 @@ bool SH_User::isValid() const {
 */
 void SH_User::setName(QString name)
 {
-    m_name = name;
+    this->m_name = name;
 }
 
 /*!
@@ -80,7 +80,7 @@ int SH_User::roles() const
 */
 void SH_User::setID(int id)
 {
-    m_id = id;
+    this->m_id = id;
 }
 
 /*!

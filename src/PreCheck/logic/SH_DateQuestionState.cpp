@@ -23,15 +23,15 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
     QDate answer = QDate::fromString(givenAnswer.toString(),QString("dd-MM-yyyy")); //FIXME ajouter autres formats
     if(answer.isValid()) {
         SH_MessageManager::debugMessage("date conforme");
-        if(m_maximum.isValid()) {
-            SH_MessageManager::debugMessage(QString("date max (%1) valide").arg(m_maximum.toString()));
-            if(answer <= m_maximum) {
+        if(this->m_maximum.isValid()) {
+            SH_MessageManager::debugMessage(QString("date max (%1) valide").arg(this->m_maximum.toString()));
+            if(answer <= this->m_maximum) {
                 SH_MessageManager::debugMessage(QString("%1 avant date max").arg(answer.toString()));
             }
         }
-        if(m_minimum.isValid()) {
-            SH_MessageManager::debugMessage(QString("date min (%1) valide").arg(m_minimum.toString()));
-            if(answer >= m_maximum) {
+        if(this->m_minimum.isValid()) {
+            SH_MessageManager::debugMessage(QString("date min (%1) valide").arg(this->m_minimum.toString()));
+            if(answer >= this->m_maximum) {
                 SH_MessageManager::debugMessage(QString("%1 avant après min").arg(answer.toString()));
             }
         }
@@ -39,8 +39,8 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
     return (
                 (answer.isValid())
                 && (
-                    (m_maximum.isValid() && answer <= m_maximum)
-                    ||(m_minimum.isValid() && answer >= m_minimum)
+                    (this->m_maximum.isValid() && answer <= this->m_maximum)
+                    ||(this->m_minimum.isValid() && answer >= this->m_minimum)
                     )
                 );
 }

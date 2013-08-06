@@ -16,7 +16,7 @@ SH_RegExpQuestionState::SH_RegExpQuestionState(QString question, QString name, Q
 bool SH_RegExpQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
     QString answer = givenAnswer.toString();
-    QRegularExpressionMatch found = m_regexp.match(answer);
+    QRegularExpressionMatch found = this->m_regexp.match(answer);
     return (found.hasMatch() && (found.captured(0) == answer));
 }
 

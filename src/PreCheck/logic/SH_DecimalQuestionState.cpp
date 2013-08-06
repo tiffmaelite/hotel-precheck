@@ -18,7 +18,7 @@ bool SH_DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
     bool ok;
     qreal answer = givenAnswer.toReal(&ok);
     if(ok) {
-        return ((m_maximum <= m_minimum || answer <= m_maximum) && answer >= m_minimum);
+        return ((this->m_maximum <= this->m_minimum || answer <= this->m_maximum) && answer >= this->m_minimum);
     } else {
         return false;
     }

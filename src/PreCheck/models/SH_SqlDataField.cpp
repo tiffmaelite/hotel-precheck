@@ -16,10 +16,10 @@ SH_SqlDataFields::SH_SqlDataFields(QQuickItem *parent) :
  */
 void SH_SqlDataFields::setText(QString newText)
 {
-    m_text = newText;
-    if (m_name == "")
+    this->m_text = newText;
+    if (this->m_name == "")
     {
-        this->setName(m_text);
+        this->setName(this->m_text);
     }
     emit textChanged();
 }
@@ -29,11 +29,11 @@ void SH_SqlDataFields::setText(QString newText)
 */
 void SH_SqlDataFields::setName(QString newName)
 {
-    m_name = newName.toUpper();
+    this->m_name = newName.toUpper();
     this->setSortOrder(Qt::AscendingOrder);
-    if (m_text == "")
+    if (this->m_text == "")
     {
-        this->setText(m_name.toLower());
+        this->setText(this->m_name.toLower());
     }
     emit nameChanged();
     emit roleChanged();

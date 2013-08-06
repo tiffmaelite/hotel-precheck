@@ -13,16 +13,16 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
     //SH_MessageManager::debugMessage(QString("multiple choice list with datas from %1!").arg(databaseTable));
     SH_SqlDataModel *sqlDatas = new SH_SqlDataModel();
     QStringList fields;
-    fields << "ID" << m_field;
+    fields << "ID" << this->m_field;
     fields.removeDuplicates();
-    sqlDatas->fetchQuery(m_table, m_condition, "", fields);
+    sqlDatas->fetchQuery(this->m_table, this->m_condition, "", fields);
     sqlDatas->fetch();
     QVariantMap results = sqlDatas->datas();
     QVariantList idValues = results.values("ID");
-    QVariantList fieldsValues = results.values(m_field);
+    QVariantList fieldsValues = results.values(this->m_field);
     for(int i = 0; i < idValues.length(); i++) {
         //SH_MessageManager::debugMessage(QString("new choice %1: %2").arg(idValues.at(i).toString()).arg(fieldsValues.at(i).toString()));
-        m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
+        this->m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
     }
 }
 /*!
@@ -31,7 +31,7 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
 */
 bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
-    return m_choices.isEmpty() || m_choices.contains(givenAnswer);
+    return this->m_choices.isEmpty() || this->m_choices.contains(givenAnswer);
 }
 /*!
  * \details \~french
@@ -40,9 +40,9 @@ bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 {
     SH_QuestionState::setOutput(output);
-    if(!m_noChoiceDisplay && m_choices.size() < 8) {
-        m_choicesDisplayed = true;
-        emit displayChoiceList(m_choices);
+    if(!m_noChoiceDisplay && this->m_choices.size() < 8) {
+        this->m_choicesDisplayed = true;
+        emit displayChoiceList(this->m_choices);
     }
 }
 /*!
@@ -51,15 +51,15 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 */
 QVariant SH_DatabaseContentQuestionState::rawInput() const
 {
-    return m_choices.indexOf(this->givenAnswer());
+    return this->m_choices.indexOf(this->givenAnswer());
 }
 /*!
  * \details \~french
  * \fn SH_DatabaseContentQuestionState::choiceList
 */
 QVariantList SH_DatabaseContentQuestionState::choiceList() const {
-    if(m_choicesDisplayed) {
-        return m_choices;
+    if(this->m_choicesDisplayed) {
+        return this->m_choices;
     }
     return QVariantList();
 }

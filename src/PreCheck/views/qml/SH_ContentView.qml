@@ -240,7 +240,7 @@ GridLayout {
                 if(index > 0){
                     var previousRow = repeater.itemAt(index-1).Layout.row;
                     var previousColumn = repeater.itemAt(index-1).Layout.column;
-                    console.log("\ncompute row pour l'item  d'id " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
+                    console.log("\ncompute row pour l'item  n° " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
                     if(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
                         console.log("nouvelle section "+repeater.model.data(index, repeater.sectionIndex)+" remplaçant "+repeater.model.data(index-1, repeater.sectionIndex));
                         if(dataView.columns > 0) {
@@ -292,7 +292,7 @@ GridLayout {
                 if(index > 0){
                     var previousRow = repeater.itemAt(index-1).Layout.row;
                     var previousColumn = repeater.itemAt(index-1).Layout.column;
-                    console.log("\ncompute column pour l'item d'id " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
+                    console.log("\ncompute column pour l'item n° " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
                     if(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
                         console.log("nouvelle section "+repeater.model.data(index, repeater.sectionIndex)+" remplaçant "+repeater.model.data(index-1, repeater.sectionIndex));
                         if(dataView.columns > 0) {

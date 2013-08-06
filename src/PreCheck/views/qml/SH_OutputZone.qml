@@ -26,6 +26,7 @@ Rectangle {
     signal replace(string text)
     signal selected(string selectedItem)
     signal selectedForDetail(var sqlDatas)
+    signal selectedForTableDetail(var sqlTableModel)
     onDisplayProgressBar: {
         if(output.lastVisibleRow < 0) {
             output.lastVisibleRow = 0;
@@ -47,6 +48,18 @@ Rectangle {
         }
         rep.itemAt(output.lastVisibleRow).model = sqlDatas;
         rep.itemAt(output.lastVisibleRow).state="detail";
+    }
+
+    onSelectedForTableDetail: {
+        if(output.lastVisibleRow < 0) {
+            output.lastVisibleRow = 0;
+        } else {
+            if(rep.itemAt(output.lastVisibleRow).model !== "") {
+                output.lastVisibleRow++;
+            }
+        }
+        rep.itemAt(output.lastVisibleRow).model = sqlTableModel;
+        rep.itemAt(output.lastVisibleRow).state="table";
     }
 
     onReplace: {
@@ -239,6 +252,11 @@ Rectangle {
                             visible: false
                         }
                         PropertyChanges {
+                            target: tableContent
+                            model: 0
+                            visible: false
+                        }
+                        PropertyChanges {
                             target: progressBarContent
                             value: 0
                             visible: false
@@ -265,6 +283,12 @@ Rectangle {
                             visible: false
                         }
                         PropertyChanges {
+                            target: tableContent
+                            model: 0
+                            visible: false
+                        }
+
+                        PropertyChanges {
                             target: progressBarContent
                             value: 0
                             visible: false
@@ -280,6 +304,11 @@ Rectangle {
                             target: detailedContent
                             model: row.model===""? 0  : row.model
                             visible: true
+                        }
+                        PropertyChanges {
+                            target: tableContent
+                            model: 0
+                            visible: false
                         }
                         /*PropertyChanges {
                             target: calendarContent
@@ -307,6 +336,11 @@ Rectangle {
                             model: 0
                             visible: false
                         }
+                        PropertyChanges {
+                            target: tableContent
+                            model: 0
+                            visible: false
+                        }
                         /*PropertyChanges {
                             target: calendarContent
                             visible: false
@@ -318,8 +352,39 @@ Rectangle {
                         }
                         PropertyChanges {
                             target: progressBarContent
-                            value: row.model === ""? 0  : 100*row.model
+                            value: row.model === ""? 0  : row.model
                             visible: true
+                        }
+                    },
+                    State{
+                        name: "table"
+                        PropertyChanges {
+                            target: defaultContent
+                            visible: false
+                        }
+                        PropertyChanges {
+                            target: detailedContent
+                            model: 0
+                            visible: false
+                        }
+                        PropertyChanges {
+                            target: tableContent
+                            model: row.model === ""? 0  : 100*row.model
+                            visible: true
+                        }
+                        /*PropertyChanges {
+   target: calendarContent
+                      visible: false
+                                        }*/
+                        PropertyChanges {
+                            target: choiceContent
+                            model: 0
+                            visible: false
+                        }
+                        PropertyChanges {
+                            target: progressBarContent
+                            value: 0
+                            visible: false
                         }
                     }
                 ]
@@ -341,6 +406,12 @@ Rectangle {
                         Layout.fillWidth: true
                     }
                     TableView {
+                        id: tableContent
+                        model: 0
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+                    ListView {
                         id: detailedContent
                         model: 0
                         Layout.fillHeight: true

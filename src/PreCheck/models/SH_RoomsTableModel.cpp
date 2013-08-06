@@ -23,18 +23,17 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
 */
 void SH_RoomsTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
-    this->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("ID"));
-    this->setHeaderData(fields.indexOf("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
-    this->setHeaderData(fields.indexOf("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));
-    this->setHeaderData(fields.indexOf("TYPE"), Qt::Horizontal, QObject::tr("Type de chambre"));
-    this->setHeaderData(fields.indexOf("ISCLEANED"), Qt::Horizontal, QObject::tr("Nettoyée"));
-    this->setHeaderData(fields.indexOf("ISAVAILABLE"), Qt::Horizontal, QObject::tr("Libre"));
-    this->setHeaderData(fields.indexOf("DESCRIPTION"), Qt::Horizontal, QObject::tr("Détail"));
-    this->setHeaderData(fields.indexOf("PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimum"));
-    this->setHeaderData(fields.indexOf("PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximum"));
-    this->sort(fields.indexOf("FLOOR"),Qt::AscendingOrder);
-    this->addHiddenColumn(fields.indexOf("ID"));
-    this->addHiddenColumn(fields.indexOf("PRICEMAX"));
+    this->setHeaderData(this->fieldIndex("ID"), Qt::Horizontal, QObject::tr("ID"));
+    this->setHeaderData(this->fieldIndex("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
+    this->setHeaderData(this->fieldIndex("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));
+    this->setHeaderData(this->fieldIndex("TYPE"), Qt::Horizontal, QObject::tr("Type de chambre"));
+    this->setHeaderData(this->fieldIndex("ISCLEANED"), Qt::Horizontal, QObject::tr("Nettoyée"));
+    this->setHeaderData(this->fieldIndex("ISAVAILABLE"), Qt::Horizontal, QObject::tr("Libre"));
+    this->setHeaderData(this->fieldIndex("DESCRIPTION"), Qt::Horizontal, QObject::tr("Détail"));
+    this->setHeaderData(this->fieldIndex("PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimum"));
+    this->setHeaderData(this->fieldIndex("PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximum"));
+    this->sort(this->fieldIndex("FLOOR"),Qt::AscendingOrder);
+    this->addHiddenColumn(this->fieldIndex("ID"));
+    this->addHiddenColumn(this->fieldIndex("PRICEMAX"));
 }
 /*}*/

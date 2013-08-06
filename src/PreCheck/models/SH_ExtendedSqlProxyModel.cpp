@@ -10,9 +10,19 @@
  \fn SH_ExtendedProxyModel::SH_ExtendedProxyModel
 */
 SH_ExtendedProxyModel::SH_ExtendedProxyModel(QObject *parent) :
-    QSortFilterProxyModel(parent), m_sortIndex(0), m_fetched(false)
+    QSortFilterProxyModel(parent), m_fetched(false), m_sortIndex(0)
 {
     this->setDynamicSortFilter(false);
+}
+
+
+int SH_ExtendedProxyModel::fieldIndex(QString fieldname) {
+    foreach(SH_SqlDataFields* field, this->modelFields) {
+        if(field->name().toUpper() == fieldname.toUpper()) {
+            return this->modelFields.indexOf(field);
+        }
+    }
+    return -1;
 }
 
 /*!
@@ -62,7 +72,7 @@ void SH_ExtendedProxyModel::setPasswordColumns(QList<int> passwordCols) {
  \fn SH_ExtendedProxyModel::setNullColumns
 */
 void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
-    if (sourceModel()->inherits("QSqlQueryModel")) {
+    if (sourceModel()->inherits("SH_SqlQueryModel")) {
         replaceSet(this->m_nullSet, nullCols);
     }
 }
@@ -74,7 +84,7 @@ void SH_ExtendedProxyModel::setNullColumns(QList<int> nullCols) {
  \param notNullCols
 */
 void SH_ExtendedProxyModel::setNotNullColumns(QList<int> notNullCols) {
-    if (sourceModel()->inherits("QSqlQueryModel")) {
+    if (sourceModel()->inherits("SH_SqlQueryModel")) {
         replaceSet(this->m_notNullSet, notNullCols);
     }
 }
@@ -91,10 +101,9 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 
     if (!this->m_notNullSet.isEmpty())
     {
-        QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
         foreach(int column, this->m_notNullSet)
         {
-            if (m->record(source_row).isNull(column))
+            if (!this->model->data(QSortFilterProxyModel::mapToSource(this->index(source_row, 0)), this->model->roleForField(column)).isNull())
             {
                 return false;
             }
@@ -103,10 +112,9 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 
     if (!this->m_nullSet.isEmpty())
     {
-        QSqlQueryModel *m = static_cast<QSqlQueryModel *>(sourceModel());
         foreach(int column, this->m_nullSet)
         {
-            if (!m->record(source_row).isNull(column))
+            if (!this->model->data(QSortFilterProxyModel::mapToSource(this->index(source_row, 0)), this->model->roleForField(column)).isNull())
             {
                 return false;
             }
@@ -123,7 +131,8 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role)
 {
     if(!m_fetched) {
-        fetch();
+        this->fetch();
+        this->m_roles= this->model->roleNames();
     }
     if (index.isValid())
     {
@@ -248,9 +257,9 @@ bool SH_ExtendedProxyModel::isHidingColumn(int column)
 */
 void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 {
-    if(this->m_sortIndex != column || newOrder != this->model->field(column)->sortOrder()) {
+    if(this->m_sortIndex != column || newOrder != this->modelFields.at(column)->sortOrder()) {
         this->m_sortIndex = column;
-        this->model->field(column)->setSortOrder(newOrder);
+        this->modelFields.at(column)->setSortOrder(newOrder);
         this->setSortRole(this->model->roleForField(column));
         emit sortChanged();
     }
@@ -262,7 +271,7 @@ void SH_ExtendedProxyModel::sort(int column, Qt::SortOrder newOrder)
 */
 void SH_ExtendedProxyModel::setSortKeyColumn(int column)
 {
-    this->sort(column, this->model->field(column)->sortOrder());
+    this->sort(column, this->modelFields.at(column)->sortOrder());
 }
 
 /*!
@@ -313,44 +322,47 @@ void SH_ExtendedProxyModel::addHiddenColumn(int column)
 */
 QVariant SH_ExtendedProxyModel::data(int row, int column)
 {
-    if(!m_fetched) {
-        fetch();
+    if(!this->m_fetched) {
+        this->fetch();
+        this->m_roles= this->model->roleNames();
     }
     QModelIndex modelIndex = this->index(row, 0);
     if(column !=-1) {
         return this->data(modelIndex, this->model->roleForField(column));
     } else {
         QVariantMap map;
-        QStringList list =  this->model->fieldsList();
-        foreach(QString field, list) {
-            map.insert(field,this->data(modelIndex, this->model->roleForField(list.indexOf(field))));
+        foreach(SH_SqlDataFields* field, this->modelFields) {
+            map.insert(field->name(),this->data(modelIndex, this->model->roleForField(this->modelFields.indexOf(field))));
         }
         return QVariant(map);
     }
 }
 
+
 /*!
  \details \~french
-
- \fn SH_ExtendedProxyModel::fetch
+ \fn SH_ExtendedProxyModel::setHeaderData
 */
-bool SH_ExtendedProxyModel::fetch()
+bool SH_ExtendedProxyModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
 {
-    SH_MessageManager::debugMessage("entering proxy fetch method");
-    bool fetched = this->model->fetch();
-    this->m_fetched = fetched;
-    if (fetched)
-    {
-        this->fillModel();
-        QStringList fieldList = this->model->fieldsList();
-        foreach(QString field, fieldList) {
-            int fieldIndex = fieldList.indexOf(field);
-            if(this->headerData(fieldIndex, Qt::Horizontal).toString() == field) {
-                this->addHiddenColumn(fieldIndex);
-            }
-        }
+    Q_UNUSED(role);
+    if(!this->isHidingColumn(section) && (orientation == Qt::Horizontal)) {
+        this->modelFields.at(section)->setText(value.toString().toUpper());
+        return (this->modelFields.at(section)->text() == value.toString().toUpper());
     }
-    this->setSourceModel(this->model);
-    return fetched;
+    return false;
+}
+
+/*!
+ \details \~french
+ \fn SH_ExtendedProxyModel::setHeaderData
+*/
+QVariant SH_ExtendedProxyModel::headerData(int section, Qt::Orientation orientation, int role)
+{
+    Q_UNUSED(role);
+    if(!this->isHidingColumn(section) && (orientation == Qt::Horizontal)) {
+        return QVariant(this->modelFields.at(section)->text());
+    }
+    return false;
 }
 /*}*/

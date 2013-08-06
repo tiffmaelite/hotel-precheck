@@ -20,7 +20,6 @@ SH_ReportsTypesTableModel::SH_ReportsTypesTableModel(QObject *parent):
 */
 void SH_ReportsTypesTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
-    this->sort(fields.indexOf("LABEL"),Qt::AscendingOrder);
+    this->sort(this->fieldIndex("LABEL"),Qt::AscendingOrder);
 }
 /*}*/

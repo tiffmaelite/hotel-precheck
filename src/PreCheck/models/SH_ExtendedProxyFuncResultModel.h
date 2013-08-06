@@ -20,7 +20,9 @@ public:
         */
         const QString functionCall() const { return this->model->functionCall(); }
 
-        bool fetch();
+        Q_INVOKABLE bool fetch();
+
+        void setSourceModel(QAbstractItemModel *sourceModel);
 protected:
         SH_SqlFuncResultModel *model;
 signals:

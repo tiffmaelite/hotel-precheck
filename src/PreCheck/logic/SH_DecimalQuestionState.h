@@ -47,14 +47,14 @@ public:
     * \details \~french Permet d'obtenir la date minimale permise
     * \return qreal La date minimale permise
     */
-    qreal minimum() const { return m_minimum; }
+    qreal minimum() const { return this->m_minimum; }
     /*!
     * \fn setMinimum
     * \brief \~french Accesseur en écriture de la propriété \a minimum
     * \details \~french Permet de définir la valeur minimale permise
     * \param qreal minimum La nouvelle valeur minimale permise
     */
-    void setMinimum(const qreal &minimum){ m_minimum = minimum; emit minimumChanged(); }
+    void setMinimum(const qreal &minimum){ this->m_minimum = minimum; emit minimumChanged(); }
 
     /*!
     * \fn maximum
@@ -62,14 +62,14 @@ public:
     * \details \~french Permet d'obtenir la valeur maximale permise
     * \return qreal La valeur maximale permise
     */
-    qreal maximum() const { return m_maximum; }
+    qreal maximum() const { return this->m_maximum; }
     /*!
     * \fn setMaximum
     * \brief \~french Accesseur en écriture de la propriété \a maximum
     * \details \~french Permet de définir la valeur maximale permise
     * \param qreal maximum La nouvelle valeur maximale permise
     */
-    void setMaximum(const qreal &maximum){ m_maximum = maximum; emit maximumChanged(); }
+    void setMaximum(const qreal &maximum){ this->m_maximum = maximum; emit maximumChanged(); }
 
 
         /*** Overwritten methods ***/

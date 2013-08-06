@@ -23,7 +23,7 @@ SH_InOutStateMachine::SH_InOutStateMachine(QString tableName, QString name, QObj
 */
 QVariant SH_InOutStateMachine::getContentValue(QString field)
 {
-    return m_ioContent.value(field);
+    return this->m_ioContent.value(field);
 }
 
 /*!
@@ -32,7 +32,7 @@ QVariant SH_InOutStateMachine::getContentValue(QString field)
 */
 void SH_InOutStateMachine::setContentValue(QVariant content, QString field)
 {
-    m_ioContent.insert(field, content);
+    this->m_ioContent.insert(field, content);
 }
 
 void SH_InOutStateMachine::addState(QAbstractState *state)
@@ -165,7 +165,7 @@ void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *astate, QString
 void SH_InOutStateMachine::setIOStateHistory(QHistoryState *state, QString field)
 {
     /*remplacement si plusieurs fois, ajout sinon*/
-    m_ioStatesHistory.insert(field, state);
+    this->m_ioStatesHistory.insert(field, state);
 }
 /*!
  * \details \~french
@@ -173,7 +173,7 @@ void SH_InOutStateMachine::setIOStateHistory(QHistoryState *state, QString field
 */
 QHistoryState *SH_InOutStateMachine::historyValue(QString field)
 {
-    return m_ioStatesHistory.value(field);
+    return this->m_ioStatesHistory.value(field);
 }
 /*!
  * \details \~french
@@ -214,7 +214,7 @@ void SH_InOutStateMachine::setStatesNextTransition(QAbstractState *previousState
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
             connect(genPreviousState, &QAbstractState::exited, [=]() {
                 emit this->sendText("Merci !");
-                setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
+                setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
             });
             /*});*/
         }
@@ -222,7 +222,7 @@ void SH_InOutStateMachine::setStatesNextTransition(QAbstractState *previousState
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
             connect(genPreviousState, &QAbstractState::exited, [=]() {
                 emit this->sendText("Merci !");
-                setContentValue(saveState->insertUpdate(m_tableName, m_ioContent), "ID");
+                setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
             });
             /*});*/
         }

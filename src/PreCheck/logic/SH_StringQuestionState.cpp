@@ -18,7 +18,7 @@ bool SH_StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
     QString answer = givenAnswer.toString();
     if(!answer.isEmpty()) {
         int answerLength= answer.length();
-        return ((m_maxLen <= m_minLen || answerLength <= m_maxLen) && answerLength >= m_minLen);
+        return ((this->m_maxLen <= this->m_minLen || answerLength <= this->m_maxLen) && answerLength >= this->m_minLen);
     } else {
         return false;
     }

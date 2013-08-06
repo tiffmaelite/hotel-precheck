@@ -90,7 +90,7 @@ public:
     \fn fetch
     \return bool
     */
-    Q_INVOKABLE bool fetch();
+    Q_INVOKABLE virtual bool fetch() = 0;
 
 /*!
     \brief \~french
@@ -163,7 +163,7 @@ public:
     \fn roleNames
     \return QHash<int, QByteArray>
     */
-    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->model->roleNames(); }
+    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->m_roles; }
 
 /*!
     \brief \~french
@@ -227,6 +227,10 @@ public:
     void addFilterKeyColumn(int column);
     bool containsFilterKeyColumn(int column);
     void setFilterKeyColumn(int column);
+    bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole);
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole);
+
+    int fieldIndex(QString fieldname);
 signals:
 
 /*!
@@ -255,7 +259,10 @@ protected:
     */
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
     SH_SqlQueryModel *model;
+    QList<SH_SqlDataFields*> modelFields;
     bool m_fetched;
+    QHash<int, QByteArray> m_roles;
+
 private:
 
 /*!

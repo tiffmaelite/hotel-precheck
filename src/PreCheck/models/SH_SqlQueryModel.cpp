@@ -19,7 +19,7 @@ SH_SqlQueryModel::SH_SqlQueryModel(QObject *parent) :
 int SH_SqlQueryModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_records.count();
+    return this->m_records.count();
 }
 /*!
  \details \~french
@@ -66,6 +66,7 @@ QVariantMap SH_SqlQueryModel::datas()
     }
     return result;
 }
+
 /*!
  \details \~french
  \fn SH_SqlQueryModel::setHeaderData
@@ -76,17 +77,31 @@ bool SH_SqlQueryModel::setHeaderData(int section, Qt::Orientation orientation, c
     if (orientation == Qt::Horizontal)
     {
         this->m_fields.at(section)->setText(value.toString().toUpper());
-        return (this->m_fields.at(section)->text().toUpper() == value.toString().toUpper());
+        return (this->m_fields.at(section)->text() == value.toString().toUpper());
     }
     return false;
 }
+
+/*!
+ \details \~french
+ \fn SH_ExtendedProxyModel::setHeaderData
+*/
+QVariant SH_SqlQueryModel::headerData(int section, Qt::Orientation orientation, int role)
+{
+    Q_UNUSED(role);
+    if(orientation == Qt::Horizontal) {
+        return QVariant(this->m_fields.at(section)->text());
+    }
+    return false;
+}
+
 /*!
  \details \~french
  \fn SH_SqlQueryModel::query
 */
 const QString SH_SqlQueryModel::query() const
 {
-    return m_query.lastQuery();
+    return this->m_query.lastQuery();
 }
 
 /*!
@@ -97,7 +112,7 @@ const QStringList SH_SqlQueryModel::fieldsList() const
 {
     QStringList fields;
     if(!this->m_fields.isEmpty()) {
-        int c = m_fields.count();
+        int c = this->m_fields.count();
         for (int i = 0; i < c; i++)
         {
             fields.append(this->m_fields.at(i)->name());
@@ -113,9 +128,9 @@ const QStringList SH_SqlQueryModel::fieldsList() const
 */
 void SH_SqlQueryModel::setFilterCondition(const QString &filter)
 {
-    if (m_condition != filter && filter != "")
+    if (this->m_condition != filter && filter != "")
     {
-        m_condition = filter;
+        this->m_condition = filter;
         emit filterConditionChanged();
     }
 }
@@ -129,22 +144,23 @@ bool SH_SqlQueryModel::fetch()
     SH_MessageManager::debugMessage("Bienvenue dans query fetch");
     try
     {
-        beginResetModel();
-        m_records.clear();
-        endResetModel();
+        this->beginResetModel();
+        this->m_records.clear();
+        this->endResetModel();
         this->fetchQuery();
-        bool next = m_query.first();
-        SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(m_query.executedQuery()).arg(m_query.size()));
-        while (next && m_query.isActive())
+        SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
+        bool next = this->m_query.first();
+        SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(this->m_query.executedQuery()).arg(this->m_query.size()));
+        while (next && this->m_query.isActive())
         {
-            QSqlRecord record = m_query.record();
+            QSqlRecord record = this->m_query.record();
 
             SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
             SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
-            if (m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
+            if (this->m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
             {
-                beginInsertRows(QModelIndex(), 0, 0);
-                m_records.append(record);
+                this->beginInsertRows(QModelIndex(), 0, 0);
+                this->m_records.append(record);
                 //#ifdef DEBUGMODE
                 int nbFields = record.count();
                 for (int i = 0; i < nbFields; i++)
@@ -152,7 +168,7 @@ bool SH_SqlQueryModel::fetch()
                     SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
                 }
                 //#endif
-                if (m_fields.empty())
+                if (this->m_fields.empty())
                 {
                     int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
@@ -160,14 +176,14 @@ bool SH_SqlQueryModel::fetch()
                         SH_SqlDataFields *field = new SH_SqlDataFields();
                         field->setName(record.fieldName(i).toUpper());
                         //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
-                        m_fields.append(field);
+                        this->m_fields.append(field);
                     }
                     this->applyRoles();
-                    emit fieldsChanged();
+                    emit this->fieldsChanged();
                 }
-                endInsertRows();
+                this->endInsertRows();
             }
-            next = m_query.next();
+            next = this->m_query.next();
         }
     }
     catch (const std::exception &e)
@@ -209,7 +225,7 @@ void SH_SqlQueryModel::setFields(QStringList fields)
         {
             SH_SqlDataFields *field = new SH_SqlDataFields();
             field->setName(fields.at(i).toUpper());
-            m_fields.append(field);
+            this->m_fields.append(field);
         }
         this->applyRoles();
         emit fieldsChanged();
@@ -221,7 +237,7 @@ void SH_SqlQueryModel::setFields(QStringList fields)
 */
 void SH_SqlQueryModel::resetFieldsToAll()
 {
-    m_fields.clear();
+    this->m_fields.clear();
     this->applyRoles();
     emit fieldsChanged();
 }
@@ -231,7 +247,7 @@ void SH_SqlQueryModel::resetFieldsToAll()
 */
 const QString SH_SqlQueryModel::lastError()
 {
-    QSqlError error = m_query.lastError();
+    QSqlError error = this->m_query.lastError();
     if (error.isValid() && !error.text().isEmpty())
     {
         emit lastErrorChanged();
@@ -264,7 +280,11 @@ void SH_SqlQueryModel::applyRoles()
 */
 int SH_SqlQueryModel::fieldsCount() const
 {
-    return m_fields.count();
+    if(this->m_fields.isEmpty()) {
+        return 0;
+    } else {
+        return this->m_fields.count();
+    }
 }
 /*!
  \details \~french
@@ -280,5 +300,5 @@ void SH_SqlQueryModel::setOrderBy(QString sort)
 */
 bool SH_SqlQueryModel::isEmpty() const
 {
-    return m_records.empty();
+    return this->m_records.empty();
 }

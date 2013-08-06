@@ -17,15 +17,15 @@ SH_GenericStateMachine::SH_GenericStateMachine(QString name, QObject *parent) :
 {
     this->setObjectName(name);
     connect(this, &SH_GenericStateMachine::goNext, this, &SH_GenericStateMachine::emitGoNext);
-    m_errorState = new SH_GenericState("error state");
-    this->addState(m_errorState);
-    this->setErrorState(m_errorState);
+    this->m_errorState = new SH_GenericState("error state");
+    this->addState(this->m_errorState);
+    this->setErrorState(this->m_errorState);
     /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
-    connect(m_errorState, &QState::entered, [=]() {
+    connect(this->m_errorState, &QState::entered, [=]() {
         SH_MessageManager::errorMessage("Error in machine " +this->toString() + ": " + this->errorString());
     });
-    connect(m_errorState, &QState::exited, [=]() {
-        m_errorState->disconnect(this);
+    connect(this->m_errorState, &QState::exited, [=]() {
+        this->m_errorState->disconnect(this);
     });
     /*});*/
 }

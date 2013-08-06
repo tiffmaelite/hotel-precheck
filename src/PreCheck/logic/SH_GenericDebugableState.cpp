@@ -63,7 +63,7 @@ void SH_GenericState::onEntry(QEvent *event)
     foreach (QAbstractTransition* tr, transitions()) {
         connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
     }
-    m_isRunning = true;
+    this->m_isRunning = true;
     this->blockSignals(!m_isRunning);
     SH_MessageManager::debugMessage(QString("Machine: %1, entered state %2").arg(machine()->objectName()).arg(name()));
 }
@@ -74,12 +74,12 @@ void SH_GenericState::onEntry(QEvent *event)
 void SH_GenericState::onExit(QEvent *event)
 {
     Q_UNUSED(event);
-    m_isRunning = false;
+    this->m_isRunning = false;
     this->blockSignals(!m_isRunning);
     SH_MessageManager::debugMessage(QString("Machine: %1, exited state %2").arg(machine()->objectName()).arg(name()));
 }
 bool SH_GenericState::isRunning()
 {
-    return m_isRunning;
+    return this->m_isRunning;
 }
 /*}*/

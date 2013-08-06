@@ -13,9 +13,9 @@ SH_SqlFuncResultModel::SH_SqlFuncResultModel(QObject *parent): SH_SqlQueryModel(
 */
 void SH_SqlFuncResultModel::setFunctionCall(const QString &functionCall)
 {
-    if (m_functionCall.toUpper() != functionCall.toUpper() && functionCall != "")
+    if (this->m_functionCall.toUpper() != functionCall.toUpper() && functionCall != "")
     {
-        m_functionCall = functionCall.toUpper();
+        this->m_functionCall = functionCall.toUpper();
         emit functionCallChanged();
     }
 }
@@ -35,7 +35,7 @@ void SH_SqlFuncResultModel::fetchQuery(QString functionCall)
     if(!m_functionCall.isEmpty() || !functionCall.isEmpty()) {
         SH_MessageManager::debugMessage("Bienvenue dans fetch");
         this->setFunctionCall(functionCall);
-        m_query = SH_DatabaseManager::getInstance()->execProcedure(m_functionCall);
+        this->m_query = SH_DatabaseManager::getInstance()->execProcedure(this->m_functionCall);
     }
 }
 /*}*/

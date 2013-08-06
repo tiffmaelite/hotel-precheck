@@ -24,11 +24,10 @@ SH_VATTableModel::SH_VATTableModel(QObject *parent):
 */
 void SH_VATTableModel::fillModel()
 {
-    QStringList fields = SH_ExtendedProxyTableModel::model->fieldsList();
-    this->setHeaderData(fields.indexOf("ID"), Qt::Horizontal, QObject::tr("Code"));
-    //this->setHeaderData(fields.indexOf("PERCENTAGE"), Qt::Horizontal, QObject::tr("%"));
-    this->setHeaderData(fields.indexOf("LABEL"), Qt::Horizontal, QObject::tr("Libellé"));
-    this->sort(fields.indexOf("PERCENTAGE"),Qt::AscendingOrder);
-    this->addHiddenColumn(fields.indexOf("ID"));
+    this->setHeaderData(this->fieldIndex("ID"), Qt::Horizontal, QObject::tr("Code"));
+    //this->setHeaderData(this->fieldIndex("PERCENTAGE"), Qt::Horizontal, QObject::tr("%"));
+    this->setHeaderData(this->fieldIndex("LABEL"), Qt::Horizontal, QObject::tr("Libellé"));
+    this->sort(this->fieldIndex("PERCENTAGE"),Qt::AscendingOrder);
+    this->addHiddenColumn(this->fieldIndex("ID"));
 }
 /*}*/

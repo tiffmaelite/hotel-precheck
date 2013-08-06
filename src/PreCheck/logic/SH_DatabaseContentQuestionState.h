@@ -62,14 +62,14 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString tableName() const { return m_table; }
+    QString tableName() const { return this->m_table; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString table La nouvelle liste de choix de l'état
     */
-    void setTableName(const QString &table){ m_table = table; emit tableNameChanged();}
+    void setTableName(const QString &table){ this->m_table = table; emit tableNameChanged();}
 
     /*!
     * \fn tableField
@@ -77,14 +77,14 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString tableField() const { return m_field; }
+    QString tableField() const { return this->m_field; }
     /*!
     * \fn setTableField
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString field La nouvelle liste de choix de l'état
     */
-    void setTableField(const QString &field){ m_field = field; emit tableFieldChanged(); }
+    void setTableField(const QString &field){ this->m_field = field; emit tableFieldChanged(); }
 
     /*!
     * \fn tableCondition
@@ -92,14 +92,14 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString tableCondition() const { return m_condition; }
+    QString tableCondition() const { return this->m_condition; }
     /*!
     * \fn setTableCondition
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString condition La nouvelle liste de choix de l'état
     */
-    void setTableCondition(const QString &condition){ m_condition = condition; emit tableConditionChanged(); }
+    void setTableCondition(const QString &condition){ this->m_condition = condition; emit tableConditionChanged(); }
 
     /*!
     * \fn choiceList

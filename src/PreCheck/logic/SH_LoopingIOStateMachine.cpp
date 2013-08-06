@@ -12,7 +12,7 @@ SH_LoopingInOutStateMachine::SH_LoopingInOutStateMachine(QString tableName, QStr
 }
 void SH_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QString field)
 {
-    m_persistentContent.insert(field, value);
+    this->m_persistentContent.insert(field, value);
 }
 
 /*!
@@ -20,10 +20,10 @@ void SH_LoopingInOutStateMachine::setPersistentContentValue(QVariant value, QStr
  * \fn SH_LoopingIOStateMachine::stopLooping
 */
 void SH_LoopingInOutStateMachine::stopLooping() {
-    if(m_limit == 0) {
-        m_limit = m_current + 1;
+    if(this->m_limit == 0) {
+        this->m_limit = this->m_current + 1;
     } else {
-        m_current = m_limit - 1;
+        this->m_current = this->m_limit - 1;
     }
 }
 /*!
@@ -39,11 +39,11 @@ void SH_LoopingInOutStateMachine::setStatesNextTransition(QAbstractState *previo
 
         /*à faire au moment de l'entrée dans l'état previousState*/
         connect(previousState, &QAbstractState::entered, [=]() {
-            m_current++;
-            m_contents.append(m_ioContent);
-            m_ioContent.clear();
-            m_ioContent = m_persistentContent;
-            if(m_limit == 0 || m_current < m_limit) {
+            this->m_current++;
+            this->m_contents.append(this->m_ioContent);
+            this->m_ioContent.clear();
+            this->m_ioContent = this->m_persistentContent;
+            if(this->m_limit == 0 || this->m_current < this->m_limit) {
                 if(genPreviousState) {
                     connect(genPreviousState, &QAbstractState::entered, [=]() {
                         genPreviousState->addTransition(genPreviousState, SIGNAL(next()), initialState());
@@ -63,13 +63,13 @@ void SH_LoopingInOutStateMachine::setStatesNextTransition(QAbstractState *previo
                     fsmPreviousState->addTransition(fsmPreviousState, SIGNAL(next()), nextSaveState);
                 }
                 if(genPreviousState || fsmPreviousState) {
-                    for(int i = 1; i < m_limit; i++) {
+                    for(int i = 1; i < this->m_limit; i++) {
                         SH_AdaptDatabaseState* saveState = nextSaveState;
                         nextSaveState = new SH_AdaptDatabaseState(QString("enregistrement %1 de la machine %2").arg(QString::number(i)).arg(toString()));
                         saveState->addTransition(saveState, SIGNAL(next()),nextSaveState);
                         connect(saveState, &QAbstractState::exited, [=]() {
                             connect(nextSaveState, &QAbstractState::entered, [=]() {
-                                setContentValue(nextSaveState->insertUpdate(m_tableName, m_contents[i]), "ID");
+                                setContentValue(nextSaveState->insertUpdate(this->m_tableName, this->m_contents[i]), "ID");
                             });
                         });
                     }
