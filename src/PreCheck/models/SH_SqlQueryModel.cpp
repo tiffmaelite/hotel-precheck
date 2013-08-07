@@ -8,7 +8,7 @@
 
 
 SH_SqlQueryModel::SH_SqlQueryModel(QObject *parent) :
-    QAbstractListModel(parent)
+    QAbstractListModel(parent), m_new(true)
 {
 }
 
@@ -27,7 +27,7 @@ int SH_SqlQueryModel::rowCount(const QModelIndex &parent) const
 */
 QVariant SH_SqlQueryModel::data(const QModelIndex &index, int role) const
 {
-    if (this->m_records.count() > 0)
+    if (!this->m_new && this->m_records.count() > 0)
     {
         int row = index.row();
         int column = this->fieldFromRole(role);
@@ -51,9 +51,9 @@ QVariantMap SH_SqlQueryModel::datas()
 {
     //SH_MessageManager::debugMessage("datas");
     QVariantMap result;
-    if (this->m_records.count() > 0)
+    if (this->m_new || this->m_records.count() <= 0)
     {
-        fetchQuery();
+        this->fetch();
     }
     if (this->m_records.count() > 0)
     {
@@ -111,7 +111,7 @@ const QString SH_SqlQueryModel::query() const
 const QStringList SH_SqlQueryModel::fieldsList() const
 {
     QStringList fields;
-    if(!this->m_fields.isEmpty()) {
+    if(this->m_new || this->m_fields.isEmpty()) {
         int c = this->m_fields.count();
         for (int i = 0; i < c; i++)
         {
@@ -141,6 +141,7 @@ void SH_SqlQueryModel::setFilterCondition(const QString &filter)
 */
 bool SH_SqlQueryModel::fetch()
 {
+    this->m_new = false;
     SH_MessageManager::debugMessage("Bienvenue dans query fetch");
     try
     {
@@ -264,13 +265,15 @@ const QString SH_SqlQueryModel::lastError()
 */
 void SH_SqlQueryModel::applyRoles()
 {
-    this->m_roles.clear();
-    int nbFields = this->m_fields.count();
-    for (int i = 0; i < nbFields; i++)
-    {
-        this->m_roles.insert(this->roleForField(i), this->m_fields.at(i)->role());
+    if(!this->m_new) {
+        this->m_roles.clear();
+        int nbFields = this->m_fields.count();
+        for (int i = 0; i < nbFields; i++)
+        {
+            this->m_roles.insert(this->roleForField(i), this->m_fields.at(i)->role());
+        }
+        emit rolesChanged();
     }
-    emit rolesChanged();
 }
 
 
@@ -280,7 +283,7 @@ void SH_SqlQueryModel::applyRoles()
 */
 int SH_SqlQueryModel::fieldsCount() const
 {
-    if(this->m_fields.isEmpty()) {
+    if(this->m_new || this->m_fields.isEmpty()) {
         return 0;
     } else {
         return this->m_fields.count();
@@ -300,5 +303,5 @@ void SH_SqlQueryModel::setOrderBy(QString sort)
 */
 bool SH_SqlQueryModel::isEmpty() const
 {
-    return this->m_records.empty();
+    return this->m_new || this->m_records.empty();
 }

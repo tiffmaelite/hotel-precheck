@@ -223,6 +223,8 @@ private:
     *\brief \~french mRecords
     */
     QList<QSqlRecord> m_records;
+
+    bool m_new;
 };
 
 #endif // SH_SQLQUERYMODEL_H
