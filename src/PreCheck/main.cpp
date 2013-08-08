@@ -31,7 +31,11 @@ using namespace std;
 const int iterations = 20;
 
 void initSettings(SH_ApplicationCore *app) {
-    app->writeSetting("backgroundColor", "whitesmoke", "global GUI", false);
+    //valid colornames can be found at: http://www.w3.org/TR/SVG/types.html#ColorKeywords
+    app->replaceSetting("backgroundColor", "whitesmoke", "globalGUI");
+    app->replaceSetting("backgroundColor", "white", "outputZone");
+    //app->writeSetting("backgroundColor",  QColor("whitesmoke"), "globalGUI");
+    //app->writeSetting("backgroundColor", QColor("white"), "outputZone");
     //TODO continuer l'initialisation de la configuration avec toutes les valeurs par défaut
 }
 
@@ -187,7 +191,8 @@ int main(int argc, char **argv)
 
 
         SH_ApplicationCore* appManager = new SH_ApplicationCore();
-        appManager->setSettings(QSettings::SystemScope, devName,appName); // system-wide location for the application
+        QString iniFile = QString(QDir::cleanPath(app.applicationDirPath()+"/../../../src/PreCheck/PreCheck.ini"));
+        appManager->setSettings(iniFile); // system-wide location for the application
         initSettings(appManager);
 
         engine.rootContext()->setContextProperty("App", appManager);
@@ -242,7 +247,7 @@ int main(int argc, char **argv)
         QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
         QObject::connect(appManager, SIGNAL(displayFileDialog()), commonPage, SLOT(displayFileDialog()), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(displayProgressBar(qreal)), displayZone, SIGNAL(displayProgressBar(real)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(displayProgressBar(qreal)), displayZone, SIGNAL(displayProgressBar(qreal)), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
 

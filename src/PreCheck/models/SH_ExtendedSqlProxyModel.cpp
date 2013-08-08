@@ -366,3 +366,16 @@ QVariant SH_ExtendedProxyModel::headerData(int section, Qt::Orientation orientat
     return false;
 }
 /*}*/
+
+
+bool SH_ExtendedProxyModel::filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const
+{
+    //TODO SH_ExtendedProxyModel::filterAcceptsColumn
+    return QSortFilterProxyModel::filterAcceptsColumn(source_column, source_parent);
+}
+
+bool SH_ExtendedProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+    //TODO SH_ExtendedProxyModel::lessThan
+    return QSortFilterProxyModel::lessThan(left, right);
+}

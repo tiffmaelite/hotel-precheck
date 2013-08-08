@@ -225,6 +225,10 @@ private:
     QList<QSqlRecord> m_records;
 
     bool m_new;
+
+    // QAbstractItemModel interface
+public:
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 };
 
 #endif // SH_SQLQUERYMODEL_H

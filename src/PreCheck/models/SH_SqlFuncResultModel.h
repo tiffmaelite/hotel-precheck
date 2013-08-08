@@ -9,9 +9,9 @@ class SH_SqlFuncResultModel : public SH_SqlQueryModel
 public:
     explicit SH_SqlFuncResultModel(QObject *parent = 0);
     void setFunctionCall(const QString &functionCall);
-void fetchQuery();
+    void fetchQuery();
     void fetchQuery(QString functionCall);
-    QString functionCall() const { return m_functionCall; }
+    QString functionCall() const { return this->m_functionCall; }
 
 signals:
 
@@ -21,7 +21,7 @@ signals:
     */
     void functionCallChanged();
 
-  private:
+private:
     /*!
     *\brief \~french mTable
     */

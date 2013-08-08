@@ -28,7 +28,7 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString tableName() const { return m_tableName; }
+    QString tableName() const { return this->m_tableName; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList

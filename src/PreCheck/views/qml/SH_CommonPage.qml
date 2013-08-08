@@ -150,7 +150,7 @@ Item {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
                 property var model: 0//SH_VATModel { }
-                Component.onCompleted: model.fetch()
+                Component.onCompleted: if(model!==0) {model.fetch(); }
                 Repeater {
                     id: vatRep
                     model: vatSidePanel.model

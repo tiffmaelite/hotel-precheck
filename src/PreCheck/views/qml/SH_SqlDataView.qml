@@ -34,7 +34,10 @@ Rectangle {
         color: "#dd1f1f"
     }
     Component.onCompleted: {
-        isEmpty = (display.sqlModel == []) || (!display.sqlModel.fetch());
+        if(display.sqlModel !== [] && display.sqlModel.empty) {
+            display.sqlModel.fetch();
+        }
+        isEmpty = (display.sqlModel === [] || display.sqlModel.empty);
     }
     ColumnLayout {
         id:colView
@@ -81,7 +84,7 @@ Rectangle {
         }*/
         SH_ContentView {
             id:dataView
-            //maxColumns: 7
+            maxColumns: 7
             model: (display.isEmpty) ? 0 : display.sqlModel
             Layout.fillHeight: true
             Layout.fillWidth: true

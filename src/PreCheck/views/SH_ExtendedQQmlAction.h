@@ -45,7 +45,7 @@ public:
     \fn text
     \return QString
     */
-    QString text() const { return m_text; }
+    QString text() const { return this->m_text; }
 
 /*!
     \brief \~french
@@ -73,7 +73,7 @@ public:
     \fn keyShortcut
     \return QKeySequence
     */
-    QKeySequence keyShortcut() const { return m_shortcut; }
+    QKeySequence keyShortcut() const { return this->m_shortcut; }
 
 /*!
     \brief \~french
@@ -108,7 +108,7 @@ public:
     \fn iconSource
     \return QUrl
     */
-    QUrl iconSource() const { return m_iconSource; }
+    QUrl iconSource() const { return this->m_iconSource; }
 
 /*!
     \brief \~french
@@ -122,7 +122,7 @@ public:
     \fn tooltip
     \return QString
     */
-    QString tooltip() const { return m_tooltip; }
+    QString tooltip() const { return this->m_tooltip; }
 
 /*!
     \brief \~french
@@ -136,7 +136,7 @@ public:
     \fn isEnabled
     \return bool
     */
-    bool isEnabled() const { return m_enabled; }
+    bool isEnabled() const { return this->m_enabled; }
 
 /*!
     \brief \~french
@@ -150,21 +150,21 @@ public:
     \fn icon
     \return QIcon
     */
-    QIcon icon() const { return m_icon; }
+    QIcon icon() const { return this->m_icon; }
 
 /*!
     \brief \~french
     \fn iconVariant
     \return QVariant
     */
-    QVariant iconVariant() const { return QVariant(m_icon); }
+    QVariant iconVariant() const { return QVariant(this->m_icon); }
 
 /*!
     \brief \~french
     \fn setIcon
     \param icon
     */
-    void setIcon(QIcon icon) { m_icon = icon; emit iconChanged(); }
+    void setIcon(QIcon icon) { this->m_icon = icon; emit iconChanged(); }
 
 /*!
     \brief \~french

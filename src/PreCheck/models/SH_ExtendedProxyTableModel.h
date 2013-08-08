@@ -15,7 +15,7 @@ public:
         \fn tableName
         \return const QString
         */
-        const QString tableName() const { return (this->model->property("tableName")).value<QString>(); }
+        const QString tableName() const { return this->model->tableName(); }
 
         Q_INVOKABLE bool fetch();
 

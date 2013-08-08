@@ -22,9 +22,9 @@ GridLayout {
     property alias model: repeater.model
     signal selected(string selectedItem)
     Component.onCompleted: {
-        if(dataView.model !== 0) {
-            dataView.model.fetch();
-        }
+		if(dataView.model !== 0) {
+        	dataView.model.fetch();
+		}
     }
 
     /**
@@ -229,7 +229,7 @@ GridLayout {
             Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
             Layout.row: computeRow()
             Layout.column: computeColumn()
-
+    
             function computeRow() {
                 var next = 0;
                 if(index > 0){

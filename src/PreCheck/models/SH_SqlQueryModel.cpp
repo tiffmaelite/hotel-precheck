@@ -151,7 +151,7 @@ bool SH_SqlQueryModel::fetch()
         this->fetchQuery();
         SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
         bool next = this->m_query.first();
-        SH_MessageManager::infoMessage(QString("%1 a retourné %2 résultats").arg(this->m_query.executedQuery()).arg(this->m_query.size()));
+
         while (next && this->m_query.isActive())
         {
             QSqlRecord record = this->m_query.record();
@@ -304,4 +304,11 @@ void SH_SqlQueryModel::setOrderBy(QString sort)
 bool SH_SqlQueryModel::isEmpty() const
 {
     return this->m_new || this->m_records.empty();
+}
+
+
+QVariant SH_SqlQueryModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    //TODO SH_SqlMQueryModel headerData
+    QAbstractListModel::headerData(section, orientation, role);
 }

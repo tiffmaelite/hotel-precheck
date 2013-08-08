@@ -90,7 +90,7 @@ public:
 
     Q_INVOKABLE int billOpened();
 
-    void setSettings(QSettings::Scope scope, QString devName, QString appName);
+    void setSettings(QString iniFile);
 
     Q_INVOKABLE QVariant readSetting(QString key, QString group="");
 
@@ -112,6 +112,7 @@ public:
 
     Q_INVOKABLE bool saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin);
     SH_User *user() const;
+
 
 public slots:
 
@@ -288,9 +289,6 @@ private:
     */
     SH_InOutStateMachine* m_currentFSM;
 
-    QSettings::Scope m_settingsScope;
-    QString m_settingsDevName;
-    QString m_settingsAppName;
     QString m_settingsFile;
 
 };

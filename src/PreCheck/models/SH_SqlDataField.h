@@ -25,18 +25,18 @@ public:
     */
     explicit SH_SqlDataFields(QQuickItem *parent = 0);
 
-    QString text() const { return m_text; }
+    QString text() const { return this->m_text; }
     void setText(QString newText);
-    QString name() const { return m_name; }
+    QString name() const { return this->m_name; }
 void setName(QString newName);
     /*!
     \brief \~french
     \fn role
     \return QByteArray
     */
-    QByteArray role() const { return QByteArray().append(m_name.toUpper()); }
-    void setSortOrder(Qt::SortOrder newOrder) { m_sortOrder = newOrder; emit sortOrderChanged();}
-    Qt::SortOrder sortOrder() { return m_sortOrder; }
+    QByteArray role() const { return QByteArray().append(this->m_name.toUpper()); }
+    void setSortOrder(Qt::SortOrder newOrder) { this->m_sortOrder = newOrder; emit sortOrderChanged();}
+    Qt::SortOrder sortOrder() { return this->m_sortOrder; }
 
 private:
 

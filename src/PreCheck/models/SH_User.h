@@ -47,70 +47,70 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    QString name() const { return m_name; }
+    QString name() const { return this->m_name; }
     /*!
     * \fn tableName
     * \brief \~french Accesseur en lecture de la propriété \a choiceList
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    int id() const { return m_id; }
+    int id() const { return this->m_id; }
     /*!
     * \fn tableName
     * \brief \~french Accesseur en lecture de la propriété \a choiceList
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    bool isReceptionist() const { return m_receptionist; }
+    bool isReceptionist() const { return this->m_receptionist; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString table La nouvelle liste de choix de l'état
     */
-    void setReceptionist(bool rec){ m_receptionist = rec; emit receptionistChanged();}
+    void setReceptionist(bool rec){ this->m_receptionist = rec; emit receptionistChanged();}
     /*!
     * \fn tableName
     * \brief \~french Accesseur en lecture de la propriété \a choiceList
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    bool isManagerX() const { return m_managerX; }
+    bool isManagerX() const { return this->m_managerX; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString table La nouvelle liste de choix de l'état
     */
-    void setManagerX(bool manX){ m_managerX = manX; emit managerXChanged();}
+    void setManagerX(bool manX){ this->m_managerX = manX; emit managerXChanged();}
     /*!
     * \fn tableName
     * \brief \~french Accesseur en lecture de la propriété \a choiceList
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    bool isManagerZ() const { return m_managerZ; }
+    bool isManagerZ() const { return this->m_managerZ; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString table La nouvelle liste de choix de l'état
     */
-    void setManagerZ(bool manZ){ m_managerZ = manZ; emit managerZChanged();}
+    void setManagerZ(bool manZ){ this->m_managerZ = manZ; emit managerZChanged();}
     /*!
     * \fn tableName
     * \brief \~french Accesseur en lecture de la propriété \a choiceList
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QString La liste de choix de l'état
     */
-    bool isAdministrator() const { return m_administrator; }
+    bool isAdministrator() const { return this->m_administrator; }
     /*!
     * \fn setTableName
     * \brief \~french Accesseur en écriture de la propriété \a choiceList
     * \details \~french Permet de définir la liste de choix permis dans cet état
     * \param QString table La nouvelle liste de choix de l'état
     */
-    void setAdministrator(bool admin){ m_administrator = admin; emit administratorChanged();}
+    void setAdministrator(bool admin){ this->m_administrator = admin; emit administratorChanged();}
 
 
 

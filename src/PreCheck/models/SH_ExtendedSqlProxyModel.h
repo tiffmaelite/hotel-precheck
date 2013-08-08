@@ -32,7 +32,7 @@ public:
     SH_ExtendedProxyModel(QObject *parent = 0);
 
 
-    int sortKeyColumn() const { return m_sortIndex; }
+    int sortKeyColumn() const { return this->m_sortIndex; }
 
 /*!
     \brief \~french
@@ -56,7 +56,7 @@ public:
     \fn isEmpty
     \return const bool
     */
-    bool isEmpty() const { return this->model->isEmpty(); }
+    bool isEmpty() const { if(!this->m_fetched) { return true; } else { return this->model->isEmpty(); } }
 
 /*!
     \brief \~french
@@ -308,6 +308,13 @@ private:
     *\brief \~french sortIndex
     */
     int m_sortIndex;
+
+    // QSortFilterProxyModel interface
+protected:
+    virtual bool filterAcceptsColumn(int source_column, const QModelIndex &source_parent) const;
+    virtual bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
+
+    // QAbstractItemModel interface
 };
 /*}*/
 #endif

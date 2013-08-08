@@ -21,8 +21,7 @@ SH_ServicesTableModel::SH_ServicesTableModel(QObject *parent):
 */
 void SH_ServicesTableModel::fillModel()
 {
-   SH_ExtendedProxyTableModel::setHeaderData(this->fieldIndex("SERVICEFULLCODE"), Qt::Horizontal, QObject::tr("Code"));
-
+    this->setHeaderData(this->fieldIndex("SERVICEFULLCODE"), Qt::Horizontal, QObject::tr("Code"));
     this->setHeaderData(this->fieldIndex("SERVICENAME"), Qt::Horizontal, QObject::tr("Nom"));
     this->setHeaderData(this->fieldIndex("SERVICETYPE"), Qt::Horizontal, QObject::tr("Type"));
     this->setHeaderData(this->fieldIndex("SERVICEFAMILY"), Qt::Horizontal, QObject::tr("Famille"));
