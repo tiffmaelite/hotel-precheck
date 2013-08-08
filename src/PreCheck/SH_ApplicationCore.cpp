@@ -254,14 +254,25 @@ void SH_ApplicationCore::setSettings(QSettings::Scope scope, QString devName, QS
 QVariant SH_ApplicationCore::readSetting(QString key, QString group)
 {
     QSettings settings(this->m_settingsScope, this->m_settingsDevName, this->m_settingsAppName);
-    if(group != "") {
+    if(!group.isEmpty()) {
         settings.beginGroup(group);
     }
     QVariant value = settings.value(key);
-    if(group != "") {
+    if(settings.contains(key)) {
+        SH_MessageManager::infoMessage(QString("Clef %1 trouvée").arg(key));
+    } else {
+        SH_MessageManager::infoMessage(QString("Les clefs disponibles sont %1").arg(settings.allKeys().join(", ")));
+    }
+    SH_MessageManager::infoMessage(QString("Read setting for %1 in %2 : %3").arg(key).arg(group).arg(value.toString()));
+    if(!group.isEmpty()) {
         settings.endGroup();
     }
     return value;
+}
+
+QString SH_ApplicationCore::readStringSetting(QString key, QString group)
+{
+    return readSetting(key, group).toString();
 }
 
 void SH_ApplicationCore::replaceSetting(QString key, QVariant value, QString group)
@@ -272,13 +283,14 @@ void SH_ApplicationCore::replaceSetting(QString key, QVariant value, QString gro
 void SH_ApplicationCore::writeSetting(QString key, QVariant value, QString group, bool replace)
 {
     QSettings settings(this->m_settingsScope, this->m_settingsDevName, this->m_settingsAppName);
-    if(group != "") {
+    if(!group.isEmpty()) {
         settings.beginGroup(group);
     }
-    if(replace || settings.value(key) == QVariant()) { //not set yet or to be replaced
+    if(!settings.contains(key) || replace) { //not yet set or to be replaced
         settings.setValue(key,value);
+        SH_MessageManager::infoMessage(QString("Write settings %1 for %2 in %3").arg(value.toString()).arg(key).arg(group));
     }
-    if(group != "") {
+    if(!group.isEmpty()) {
         settings.endGroup();
     }
 }

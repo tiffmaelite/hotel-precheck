@@ -17,7 +17,7 @@ ApplicationWindow {
     height: maximumHeight
     width: maximumWidth
     title: qsTr("Réception")
-    color: App.readSetting("backgroundColor","global GUI").toString()
+    color: App.readStringSetting("backgroundColor","globalGUI")
     property alias pages: stack
     signal reload()
     statusBar: StatusBar {
@@ -28,7 +28,7 @@ ApplicationWindow {
         }
     }
     onReload: {
-        status.text = Qt.binding(function() {return ((App.currentMode === AppMode.CONNEXION) ? qsTr("Connexion") : (App.currentUser.valid ? App.currentUser.name : ""));});
+        status.text = Qt.binding(function() {return ((App.currentMode === AppMode.CONNEXION) ? qsTr("Connexion") : (App.currentUser.valid ? qsTr("Connecté comme %1").arg(App.currentUser.name) : qsTr("Non connecté")));});
     }
     Component.onCompleted: {
         window.reload();

@@ -11,7 +11,7 @@ import PreCheck 1.0
 Rectangle {
     id: output
     visible: true
-    color: "snow"
+    color: App.readStringSetting("backgroundColor","outputZone")
     property int lastVisibleRow: -1
 
     /*onLastVisibleRowChanged: {

@@ -86,7 +86,7 @@ public:
     */
     void setMode(AppMode mode);
 
-    SH_ApplicationCore::AppMode currentMode() { return m_mode; }
+    SH_ApplicationCore::AppMode currentMode() { return this->m_mode; }
 
     Q_INVOKABLE int billOpened();
 
@@ -94,8 +94,11 @@ public:
 
     Q_INVOKABLE QVariant readSetting(QString key, QString group="");
 
-    Q_INVOKABLE void writeSetting(QString key, QVariant value, QString group, bool replace = false);
+    Q_INVOKABLE void writeSetting(QString key, QVariant value, QString group="", bool replace = false);
 
+    Q_INVOKABLE void replaceSetting(QString key, QVariant value, QString group="");
+
+    Q_INVOKABLE QString readStringSetting(QString key, QString group="");
 
 
     /*!
@@ -109,7 +112,7 @@ public:
 
     Q_INVOKABLE bool saveUser(QString login, QString pass, bool isTrainee, bool isReceptionist, bool isManX, bool isManZ, bool isAdmin);
     SH_User *user() const;
-    Q_INVOKABLE void replaceSetting(QString key, QVariant value, QString group);
+
 public slots:
 
     /*!
@@ -194,7 +197,7 @@ public slots:
     */
     void cancelReplacement();
 signals:
-void displayProgressBar(qreal filledPercentage);
+    void displayProgressBar(qreal filledPercentage);
     /*!
     * \brief \~french
     * \fn clearAll
