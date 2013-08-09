@@ -21,11 +21,6 @@ GridLayout {
     property alias sectionIndex : repeater.sectionIndex
     property alias model: repeater.model
     signal selected(string selectedItem)
-    Component.onCompleted: {
-        if(dataView.model !== 0) {
-            dataView.model.fetch();
-        }
-    }
 
     /**
       @fn
@@ -95,8 +90,14 @@ GridLayout {
 
     Repeater {
         id: repeater
+        model: 0
+        Component.onCompleted: {
+            if(repeater.model !== 0 && repeater.model.empty) {
+                repeater.model.fetch();
+            }
+        }
         property bool sectioning: (sectionIndex != 0)
-        property int sectionIndex : repeater.model===0 ? 0: repeater.model.sortKeyColumn
+        property int sectionIndex : repeater.model===0 ? 0 : repeater.model.sortKeyColumn
         /*property int currentIndex: 0
         property int currentSectionSize: 0
         property int previousSectionSize: 0
@@ -227,8 +228,8 @@ GridLayout {
             Layout.fillWidth: true
             Layout.maximumHeight: (dataView.rows > 0) ? (Math.floor(dataView.height / dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)
             Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
-            Layout.row: computeRow()
-            Layout.column: computeColumn()
+            Layout.row: repeater.model===0 ? 0 : computeRow()
+            Layout.column: repeater.model===0 ? 0 : computeColumn()
 
             function computeRow() {
                 var next = 0;

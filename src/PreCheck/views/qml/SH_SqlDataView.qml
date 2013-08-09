@@ -84,7 +84,7 @@ Rectangle {
         }*/
         SH_ContentView {
             id:dataView
-            maxColumns: 7
+            //maxColumns: 7
             model: (display.isEmpty) ? 0 : display.sqlModel
             Layout.fillHeight: true
             Layout.fillWidth: true

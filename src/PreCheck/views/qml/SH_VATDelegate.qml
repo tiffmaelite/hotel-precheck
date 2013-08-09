@@ -9,6 +9,7 @@ import PreCheck 1.0
   \class  SH_VATDelegate
   */
 SH_DataDelegate {
+    id: btn
     value: PERCENTAGE
     text: LABEL
     style: ButtonStyle {

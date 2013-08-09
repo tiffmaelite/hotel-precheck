@@ -303,7 +303,7 @@ void SH_SqlQueryModel::setOrderBy(QString sort)
 */
 bool SH_SqlQueryModel::isEmpty() const
 {
-    return this->m_new || this->m_records.empty();
+    return this->m_new || this->m_records.isEmpty();
 }
 
 

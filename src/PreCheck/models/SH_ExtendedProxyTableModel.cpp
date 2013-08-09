@@ -6,6 +6,7 @@ SH_ExtendedProxyTableModel::SH_ExtendedProxyTableModel(QObject *parent) :
 {
     this->model=new SH_SqlDataModel(parent);
     this->setSourceModel(this->model);
+    this->fetch();
 }
 
 bool SH_ExtendedProxyTableModel::fetch() {

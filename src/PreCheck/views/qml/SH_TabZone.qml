@@ -47,7 +47,7 @@ TabView {
             anchors.fill: parent
             height: tabView.height-style.frameOverlap
             width: tabView.width
-            color: "whitesmoke"
+            color: App.readStringSetting("backgroundColor","globalGUI")
             border.color: "silver"
 
             Rectangle {
@@ -129,33 +129,7 @@ TabView {
         },
         Component {
             id: servicesTab
-            /*ColumnLayout {
-                Rectangle {
-                    color:"transparent"
-                    Layout.fillWidth: true
-                    Layout.minimumHeight: 20
-                    RowLayout {
-                        SH_DataDelegate {
-                            Layout.minimumHeight: childrenRect.height
-                            Layout.minimumWidth: childrenRect.width
-                            text: qsTr("Autre");
-                            value: "0"
-                            onClicked: {
-                                tabView.selected(value);
-                            }
-                        }
-                        SH_DataDelegate {
-                            Layout.minimumHeight: childrenRect.height
-                            Layout.minimumWidth: childrenRect.width
-                            text: qsTr("Autre...");
-                            value: "-1"
-                            onClicked: {
-                                tabView.selected(value);
-                            }
-                        }
-                    }
-                }*/
-            SH_SqlDataView {
+            /*SH_SqlDataView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 enabled: tabView.enabled
@@ -168,8 +142,15 @@ TabView {
                 onSelected: {
                     tabView.selected(selectedItem);
                 }
+            }*/
+            SH_SqlGrid {
+                delegateSource: "SH_ServicesDelegate.qml"
+                columns: 6
+                model: SH_ServicesModel { }
+                onSelected: {
+                    tabView.selected(selectedItem);
+                }
             }
-            /*}*/
         },
         Component {
             id: servicesEditTab
@@ -183,12 +164,20 @@ TabView {
         },
         Component {
             id: roomsTab
-            SH_SqlDataView {
+            /*SH_SqlDataView {
                 filtersTitle: qsTr("Tri des chambres")
                 sqlModel: SH_RoomsModel { }
                 itemDelegate: "SH_RoomsDelegate.qml"
                 emptyDelegate: "SH_DataDelegate.qml"
                 sectionDelegate: "RoomsSectionDelegate.qml"
+                onSelected: {
+                    tabView.selected(selectedItem);
+                }
+            }*/
+            SH_SqlGrid {
+                delegateSource: "SH_RoomsDelegate.qml"
+                columns: 6
+                model: SH_RoomsModel { }
                 onSelected: {
                     tabView.selected(selectedItem);
                 }
@@ -206,7 +195,7 @@ TabView {
         },
         Component {
             id: billingsTab
-            SH_SqlDataView {
+            /*SH_SqlDataView {
                 sqlModel: SH_BillingsModel {}
                 filtersTitle: qsTr("Tri des facturations")
                 itemDelegate: "SH_BillingsDelegate.qml"
@@ -218,11 +207,19 @@ TabView {
                 onNewItem: {
                     tabView.newBilling();
                 }
+            }*/
+            SH_SqlGrid {
+                delegateSource: "SH_BillingsDelegate.qml"
+                columns: 6
+                model: SH_BillingsModel { }
+                onSelected: {
+                    tabView.selected(selectedItem);
+                }
             }
         },
         Component {
             id: bookingsTab
-            SH_SqlDataView {
+            /*SH_SqlDataView {
                 sqlModel: SH_BookingsModel { }
                 filtersTitle: qsTr("Tri des réservations")
                 itemDelegate: "SH_BookingsDelegate.qml"
@@ -233,6 +230,14 @@ TabView {
                 }
                 onNewItem: {
                     tabView.newBooking();
+                }
+            }*/
+            SH_SqlGrid {
+                delegateSource: "SH_BookingsDelegate.qml"
+                columns: 6
+                model: SH_BookingsModel { }
+                onSelected: {
+                    tabView.selected(selectedItem);
                 }
             }
         },
