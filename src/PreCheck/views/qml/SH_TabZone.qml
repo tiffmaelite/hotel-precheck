@@ -1,8 +1,10 @@
 import QtQuick 2.1
+import QtQml.Models 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.0
 import PreCheck 1.0
 
 /*!
@@ -13,7 +15,7 @@ TabView {
     currentIndex: 0
     signal selected(string selectedItem)
     signal selectedForDetail(var datas, int row)
-    property var stdKeyboard: []
+    property variant stdKeyboard: []
     signal reload()
     signal newBilling()
     signal newSelling()
@@ -143,12 +145,23 @@ TabView {
                     tabView.selected(selectedItem);
                 }
             }*/
-            SH_SqlGrid {
-                delegateSource: "SH_ServicesDelegate.qml"
-                columns: 6
-                model: SH_ServicesModel { }
-                onSelected: {
-                    tabView.selected(selectedItem);
+            GridLayout {
+                id: servicesGrid
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                enabled: tabView.enabled
+                columns: 5 //6
+                Repeater {
+                    id: servicesRep
+                    model: SH_VATDelegate {
+                        property double maxHeight: servicesRep.count <= 0 ? 0 : ((servicesGrid.flow === GridLayout.TopToBottom) ? Math.floor(servicesGrid.height / servicesGrid.rows) : (Math.floor(servicesGrid.height * (servicesGrid.columns) / servicesRep.count)))
+                        property double maxWidth: servicesRep.count <= 0 ? 0 : ((layout.flow === GridLayout.LeftToRight) ? Math.floor(servicesGrid.width / servicesGrid.columns) : (Math.floor(servicesGrid.width * (servicesGrid.rows / servicesRep.count))))
+                        Layout.maximumHeight: Math.max(0,maxHeight - servicesGrid.rowSpacing)
+                        Layout.maximumWidth: Math.max(0,maxWidth - servicesGrid.columnSpacing)
+                        onClicked: {
+                            tabView.selected(servicesRep.itemAt(index).value);
+                        }
+                    }
                 }
             }
         },
@@ -267,9 +280,11 @@ TabView {
                 id: reportsTypesEditView
                 model: SH_ReportsTypesModel { }
                 onSelectedRow: {
-                    reportComponentModel.functionCall=reportsTypesEditView.model.data(selectedData,reportsTypesEditView.model.fieldsCount()-1);
-                    reportComponentModel.fetch();
-                    tabView.selectedForTableDetail(reportComponentModel);
+                    if(!reportsTypesEditView.model.empty) {
+                        reportComponentModel.functionCall=reportsTypesEditView.model.data(selectedData,reportsTypesEditView.model.fieldsCount()-1);
+                        reportComponentModel.fetch();
+                        tabView.selectedForTableDetail(reportComponentModel);
+                    }
                 }
                 property Component reportComponentModel: SH_ReportsModel { }
             }

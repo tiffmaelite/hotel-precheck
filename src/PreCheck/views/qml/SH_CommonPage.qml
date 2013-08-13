@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQml.Models 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
@@ -143,38 +144,23 @@ Item {
             Layout.fillHeight: true
             spacing: 0
             /*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche en mode RECEPTION*/
-            /*SH_SqlColumn {
-                id: vatSidePanel
-                model: SH_VATModel { }
-                delegateSource: "SH_VATDelegate.qml"
-                onSelected: commonPage.keySelected(selectedItem);
-
-                Layout.minimumWidth: parent.width/10;
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                Layout.alignment: Qt.AlignTop
-            }*/
-            ColumnLayout {
+            Column {
                 id: vatSidePanel
                 Layout.minimumWidth: parent.width/10;
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
-                signal selected(string selectedItem)
                 Repeater {
-                    id: vatRep
-                    model: Loader {
-                        id: vatLoader
-                        sourceComponent: SH_VATDelegate {}
-                        Connections {
-                            target: vatLoader.item
-                            onClicked: {
-                                vatSidePanel.selected(vatLoader.item.value);
-                            }
+                    model: SH_VATDelegate {
+                        height: vatSidePanel.height / vatRep.count - vatSidePanel.spacing
+                        width: vatSidePanel.width
+                        onClicked: {
+                            commonPage.keySelected(vatRep.itemAt(index).value);
                         }
                     }
                 }
             }
+
             SH_Keyboard{
                 id: keys
                 enabled:true

@@ -11,11 +11,10 @@ SH_ExtendedProxyTableModel::SH_ExtendedProxyTableModel(QObject *parent) :
 
 bool SH_ExtendedProxyTableModel::fetch() {
     SH_MessageManager::debugMessage("entering proxy fetch method");
-    bool fetched = this->model->fetch();
-    this->m_roles= this->model->roleNames();
-    this->m_fetched = fetched;
-    if (fetched)
+    this->m_fetched = this->model->fetch();
+    if (this->m_fetched)
     {
+        this->m_roles= this->model->roleNames();
         this->setSourceModel(this->model);
         this->fillModel();
         foreach(SH_SqlDataFields* field, this->modelFields) {
@@ -25,14 +24,16 @@ bool SH_ExtendedProxyTableModel::fetch() {
             }
         }
     }
-    return fetched;
+    return this->m_fetched;
 }
 
 void SH_ExtendedProxyTableModel::setSourceModel(QAbstractItemModel* sourceModel) {
     this->model = qobject_cast<SH_SqlDataModel *>(sourceModel);
-    int nbFields = this->model->fieldsCount();
-    for(int i = 0; i < nbFields; i++) {
-        this->modelFields.append(this->model->field(i));
+    if(this->m_fetched) {
+        int nbFields = this->model->fieldsCount();
+        for(int i = 0; i < nbFields; i++) {
+            this->modelFields.append(this->model->field(i));
+        }
     }
     QSortFilterProxyModel::setSourceModel(this->model);
 }

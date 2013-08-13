@@ -18,16 +18,20 @@ bool SH_ExtendedProxyFuncResultModel::fetch()
 {
     SH_MessageManager::debugMessage("entering proxy function result fetch method");
     this->m_fetched = this->model->fetch();
-    this->m_roles= this->model->roleNames();
+    if(this->m_fetched) {
+        this->m_roles= this->model->roleNames();
+    }
     this->setSourceModel(this->model);
     return this->m_fetched;
 }
 
 void SH_ExtendedProxyFuncResultModel::setSourceModel(QAbstractItemModel* sourceModel) {
     this->model = qobject_cast<SH_SqlFuncResultModel *>(sourceModel);
-    int nbFields = this->model->fieldsCount();
-    for(int i = 0; i < nbFields; i++) {
-        this->modelFields.append(this->model->field(i));
+    if(this->m_fetched ) {
+        int nbFields = this->model->fieldsCount();
+        for(int i = 0; i < nbFields; i++) {
+            this->modelFields.append(this->model->field(i));
+        }
     }
     QSortFilterProxyModel::setSourceModel(this->model);
 }

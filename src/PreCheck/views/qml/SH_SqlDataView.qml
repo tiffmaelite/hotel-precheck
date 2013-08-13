@@ -1,8 +1,10 @@
 import QtQuick 2.1
+import QtQml.Models 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.0
 import PreCheck 1.0
 
 /*!
@@ -11,7 +13,7 @@ import PreCheck 1.0
 Rectangle {
     id:display
     /* le modèle*/
-    property var sqlModel: []
+    property variant sqlModel: []
     property string itemDelegate
     property string emptyDelegate : "SH_DataDelegate.qml"
     property string sectionDelegate : "SH_DataDelegate.qml"

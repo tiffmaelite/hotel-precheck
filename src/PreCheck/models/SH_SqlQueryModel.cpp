@@ -43,6 +43,24 @@ QVariant SH_SqlQueryModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+bool SH_SqlQueryModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (!this->m_new && this->m_records.count() > 0 && index.isValid()) {
+        int row = index.row();
+        int column = this->fieldFromRole(role);
+        int nbCols = this->m_roles.count();
+        if(column >= 0 && column < nbCols) {
+            QSqlRecord record;
+            QSqlField field = QSqlField(this->m_roles.value(role));
+            field.setValue(value);
+            record.insert(column, field);
+            this->beginInsertRows(QModelIndex(), 0, 0);
+            this->m_records.insert(row, record);
+        }
+    }
+    return false;
+}
+
 /*!
  \details \~french
  \fn SH_SqlQueryModel::datas
@@ -60,11 +78,43 @@ QVariantMap SH_SqlQueryModel::datas()
         for(int column = 0; column < this->m_roles.count(); column++) {
             for(int row = 0; row < this->m_records.count();row++) {
                 //SH_MessageManager::debugMessage( "data inserted");
-                result.insertMulti(this->m_roles.value(column),this->m_records.at(row).value(column));
+                result.insertMulti(this->m_roles.value(this->roleForField(column)),this->m_records.at(row).value(column));
             }
         }
     }
     return result;
+}
+
+QMap<int, QVariant> SH_SqlQueryModel::itemData(const QModelIndex & index) const {
+    if (!this->m_new && this->m_records.count() > 0)
+    {
+        QMap<int, QVariant> result;
+        int row = index.row();
+        for(int column = 0; column < this->m_roles.count(); column++) {
+            result.insert(column,this->m_records.at(row).value(column));
+        }
+        return result;
+    }
+    return QMap<int, QVariant>();
+}
+
+bool SH_SqlQueryModel::setItemData(const QModelIndex & index, const QMap<int, QVariant> & roles) {
+    if(roles.size() == this->m_roles.size()) {
+        int row = index.row();
+        QSqlRecord record;
+        QSqlField field;
+        for(int column = 0; column < roles.size(); column++) {
+            field = QSqlField(this->m_roles.value(this->roleForField(column)));
+            field.setValue(roles.value(column));
+            record.insert(column, field);
+        }
+        this->beginInsertRows(QModelIndex(), 0, 0);
+        this->m_records.insert(row, record);
+        this->endInsertRows();
+        this->m_new = false;
+        return this->m_records.contains(record);
+    }
+    return false;
 }
 
 /*!
@@ -111,7 +161,7 @@ const QString SH_SqlQueryModel::query() const
 const QStringList SH_SqlQueryModel::fieldsList() const
 {
     QStringList fields;
-    if(this->m_new || this->m_fields.isEmpty()) {
+    if(!this->m_new && !this->m_fields.isEmpty()) {
         int c = this->m_fields.count();
         for (int i = 0; i < c; i++)
         {
@@ -135,6 +185,10 @@ void SH_SqlQueryModel::setFilterCondition(const QString &filter)
     }
 }
 
+void SH_SqlQueryModel::resetInternalData() {
+    this->m_records.clear();
+}
+
 /*!
  \details \~french
  \fn SH_SqlQueryModel::fetch
@@ -147,7 +201,7 @@ bool SH_SqlQueryModel::fetch()
     {
         this->beginResetModel();
         this->m_records.clear();
-        this->endResetModel();
+        this->resetInternalData();
         this->fetchQuery();
         SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
         bool next = this->m_query.first();
@@ -270,6 +324,7 @@ void SH_SqlQueryModel::applyRoles()
         int nbFields = this->m_fields.count();
         for (int i = 0; i < nbFields; i++)
         {
+            SH_MessageManager::debugMessage(QString("Nouveau rôle : %1").arg(QString(this->m_fields.at(i)->role())));
             this->m_roles.insert(this->roleForField(i), this->m_fields.at(i)->role());
         }
         emit rolesChanged();
@@ -283,7 +338,7 @@ void SH_SqlQueryModel::applyRoles()
 */
 int SH_SqlQueryModel::fieldsCount() const
 {
-    if(this->m_new || this->m_fields.isEmpty()) {
+    if(this->m_new) {
         return 0;
     } else {
         return this->m_fields.count();

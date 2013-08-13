@@ -77,7 +77,7 @@ Style {
     property Component panel: Item {
         implicitWidth: row.width
         implicitHeight: row.height
-        property var _cref: control
+        property variant _cref: control
 
         Row {
             id: row

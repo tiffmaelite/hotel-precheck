@@ -1,8 +1,10 @@
 import QtQuick 2.1
+import QtQml.Models 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.0
 import PreCheck 1.0
 
 /*!
@@ -12,7 +14,7 @@ GridLayout {
     id: layout
     rowSpacing:0
     columnSpacing:0
-    property var actionsList: []
+    property variant actionsList: []
     Repeater {
         id: repeater
         model: (layout.actionsList==null) ? 0 :  layout.actionsList.length
@@ -20,8 +22,10 @@ GridLayout {
             SH_DataDelegate {
             id: btn
             enabled: layout.enabled
-            Layout.minimumHeight: (layout.rows > 0) ? (Math.floor(layout.height / layout.rows) - layout.rowSpacing) : (Math.floor((layout.height * layout.columns) / repeater.count) - layout.rowSpacing)
-            Layout.minimumWidth: (layout.columns > 0) ? Math.floor(layout.width / layout.columns) - layout.columnSpacing : Math.floor((layout.width * layout.rows) / repeater.count) - layout.columnSpacing
+            property double maxHeight: repeater.count <= 0 ? 0 : ((layout.flow === GridLayout.TopToBottom) ? Math.floor(layout.height / layout.rows) : (Math.floor(layout.height * (layout.columns) / repeater.count)))
+            property double maxWidth: repeater.count <= 0 ? 0 : ((layout.flow === GridLayout.LeftToRight) ? Math.floor(layout.width / layout.columns) : (Math.floor(layout.width * (layout.rows / repeater.count))))
+            Layout.maximumHeight: Math.max(0,btn.maxHeight - layout.rowSpacing)
+            Layout.maximumWidth: Math.max(0,btn.maxWidth - layout.columnSpacing)
             Layout.fillHeight: true
             Layout.fillWidth: true
             text: actionsList[index].text

@@ -10,108 +10,186 @@ import PreCheck 1.0
   */
 GridLayout {
     id: dataView
-    columns: Math.max(5, dataView.maxColumns)
+    columns: (repeater.model===0) ? 1 : Math.max(0,Math.max(5,Math.min(repeater.count,dataView.maxColumns)))
+    flow: GridLayout.LeftToRight
     columnSpacing: 1
     rowSpacing: 1
+    rows: 1
     property int maxColumns: 5
     property string itemDelegate
     property string emptyDelegate
     property string sectionDelegate
-    property variant activeFilterIndicatorIndexes
     property alias sectionIndex : repeater.sectionIndex
-    property alias model: repeater.model
+    property variant model: 0
     signal selected(string selectedItem)
 
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function removeFilterIndex(index) {
-        if(!dataView.activeFilterIndicatorIndexes) {
-            dataView.activeFilterIndicatorIndexes = [];
-        }
-        var tmp = dataView.activeFilterIndicatorIndexes
-        var pos = tmp.indexOf(index);
-        tmp.splice(pos, 1);
-        return tmp;
-    }
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function addFilterIndex(index) {
-        if(!dataView.activeFilterIndicatorIndexes) {
-            dataView.activeFilterIndicatorIndexes = [];
-        }
-        var tmp = dataView.activeFilterIndicatorIndexes
-        tmp.push(index);
-        return tmp;
-    }
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function sort(index) {
-        repeater.model.setSortKeyKolumn(index);
-    }
-    /**
-      @fn
-      @param
-      @return
-
-      @brief
-      @details
-      */
-    function filter(index, remove) {
-        if(remove) {
-            dataView.activeFilterIndicatorIndexes = dataView.addFilterIndex(index);
-            repeater.model.setFilterKeyColumn(index);
+    /*!
+          \fn computeRow
+          \param \tyoe int index L'indice de l'élément pour lequel effectuer le calcul
+          \param \type bool isCoordRow Indique si l'on calcule un indice de ligne ou pas (un indice de colonne dans le cas contraire)
+          \return int l'indice de la ligne désirée (0 étant la première ligne)
+          \brief \~french Calcule la ligne à laquelle insérer un élément donné
+          \details Prend en compte le tri des éléments et va à la ligne pour toute nouvelle section (définie par le changement de valeur du critère de tri)
+          */
+    function computeCoord(model, sectionIndex, index, previous, isCoordRow) {
+        var sectioning = (sectionIndex !== 0);
+        var startShift = 1;//0;
+        var next = startShift;
+        console.log("élément n°"+index+" d'ID " + (model.data(index, 0)));
+        if(isCoordRow) {
+            console.log("\ncalcul de l'indice de ligne");
         } else {
-            dataView.activeFilterIndicatorIndexes = dataView.removeFilterIndex(index);
-            var nbFilters = dataView.activeFilterIndicatorIndexes.length;
-            repeater.model.invalidateFilter(index);
-            for(var i = 0; i < nbFilters; i++) {
-                repeater.model.setFilterKeyColumn(dataView.activeFilterIndicatorIndexes.at(i));
+            console.log("\ncalcul de l'indice de colonne");
+        }
+        //on n'a besoin de calculer que pour des éléments ultérieurs au premier
+        if(index > 0){
+            var currentSection = model.data(index, sectionIndex);
+            var previousSection = model.data(Math.max(0,index-1), sectionIndex);
+            var previousRow = previous.Layout.row;
+            var previousColumn = previous.Layout.column;
+            var previousSameCoord = 0;
+            var previousOtherCoord = 0;
+            var totalSameCoord = 0;
+            var totalOtherCoord = 0;
+            var isAlongDisposition = true;
+            if(isCoordRow) {
+                previousSameCoord = previousRow;
+                previousOtherCoord = previousColumn;
+                totalOtherCoord = Math.max(0,dataView.columns);
+                totalSameCoord = Math.max(0,dataView.rows);
+                isAlongDisposition = (dataView.flow == GridLayout.LeftToRight) && !(dataView.flow == GridLayout.TopToBottom);
+            } else {
+                previousSameCoord = previousColumn;
+                previousOtherCoord = previousRow;
+                totalOtherCoord = Math.max(0,dataView.rows);
+                totalSameCoord = Math.max(0,dataView.columns);
+                isAlongDisposition = (dataView.flow == GridLayout.TopToBottom) && !(dataView.flow == GridLayout.LeftToRight);
+            }
+            console.log("indice prédécent selon la même coordonnée : "+previousSameCoord+"/"+totalSameCoord);
+            console.log("indice prédécent selon l'autre coordonnée : "+previousOtherCoord+"/"+totalOtherCoord);
+            if(isAlongDisposition) {
+                console.log("le calcul se fait dans le sens non limité");
+            }
+            console.log("successeur de [" + previousRow + ", " + previousColumn+"]");
+            if(sectioning) {
+                if(previousSection !== currentSection) {
+                    console.log("nouvelle section ["+model.field(sectionIndex).text+"] : "+currentSection);
+                } else{
+                    console.log("même section ["+model.field(sectionIndex).text+"] : "+currentSection);
+                }
+            }
+
+            //dans le cas où la ligne/colonne de l'élément précédent avait atteint la limite, ou qu'il s'agit d'une nouvelle section
+            if((sectioning && (previousSection !== currentSection)) || (totalOtherCoord > 0 && ((previousOtherCoord - startShift % totalOtherCoord) + startShift == 0))) {
+                if(isAlongDisposition) {
+                    console.log("nouvelle ligne/colonne dans le sens non limité");
+                    next = previousSameCoord + 1;
+                } else {
+                    console.log("retour au début dans le sens non limité")
+                    next = startShift;
+                }
+                //dans le cas où on continue normalement
+            } else {
+                if(isAlongDisposition) {
+                    console.log("même ligne/colonne");
+                    next = previousSameCoord;
+                } else {
+                    console.log("ligne/colonne suivante");
+                    next = previousOtherCoord + 1;
+                }
+            }
+            //on corrige les cas de dépassements étranges
+            if(!isAlongDisposition) {
+                next = next % totalSameCoord + startShift;
             }
         }
+        //on adapte pour éviter les impossibilités
+        if(next < startShift) {
+            console.log("on adapte");
+            next = startShift;
+        }
+        if(isCoordRow) {
+            console.log("ligne finale "+next);
+        } else {
+            console.log("colonne finale "+next);
+        }
+
+        return next;
     }
 
     Repeater {
         id: repeater
-        model: 0
+        property int sectionIndex : repeater.model===0 ? 0: repeater.model.sortKeyColumn
+        model: dataView.model
         Component.onCompleted: {
-            if(repeater.model !== 0 && repeater.model.empty) {
-                repeater.model.fetch();
+            if(repeater.model !== 0) {
+                if(repeater.model.isEmpty()) {
+                    repeater.model.fetch();
+                }
+                if(!repeater.model.isEmpty()) {
+                    console.log("\n\nÉléments fournis par " + repeater.model.table);
+                    if(dataView.flow === Grid.LeftToRight) {
+                        console.log("\nDisposition horizontale avec au maximum "+dataView.columns+" colonnes");
+                    } else {
+                        console.log("\nDisposition verticale avec au maximum "+dataView.rows+" lignes");
+                    }
+                }
             }
         }
-        property bool sectioning: (sectionIndex != 0)
-        property int sectionIndex : repeater.model===0 ? 0 : repeater.model.sortKeyColumn
-        /*property int currentIndex: 0
+        delegate: Rectangle {
+            id: contentContainer
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            property double maxHeight: repeater.model === 0 ? 0 : ((dataView.flow === GridLayout.TopToBottom) ? Math.floor(dataView.height / dataView.rows) : (Math.floor(dataView.height * (dataView.columns) / repeater.count)))
+            property double maxWidth: repeater.model === 0 ? 0 : ((dataView.flow === GridLayout.LeftToRight) ? Math.floor(dataView.width / dataView.columns) : (Math.floor(dataView.width * (dataView.rows / repeater.count))))
+            Layout.maximumHeight: Math.max(0,contentContainer.maxHeight - dataView.rowSpacing)
+            Layout.maximumWidth: Math.max(0,contentContainer.maxWidth - dataView.columnSpacing)
+            Layout.row: repeater.model === 0 ? 0 : (dataView.computeCoord(repeater.model, repeater.sectionIndex, index, repeater.itemAt(index-1), true))
+            Layout.column: repeater.model === 0 ? 0 : (dataView.computeCoord(repeater.model, repeater.sectionIndex, index, repeater.itemAt(index-1), false))
+
+            Loader {
+                id:contentLoader
+                source: dataView.itemDelegate
+                Binding {
+                    target: contentLoader.item
+                    property: "width"
+                    value: Math.max(0,contentContainer.width - 1)
+                }
+                Binding {
+                    target: contentLoader.item
+                    property: "height"
+                    value: Math.max(0,contentContainer.height - 2)
+                }
+                Connections {
+                    target: contentLoader.item
+                    onClicked: {
+                        if(dataView.enabled) {
+                            dataView.selected(contentLoader.item.value);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*
+    Repeater {
+        id: complementaryRepeater
+        model: repeater.model
+        property int sectionIndex: repeater.sectionIndex
+        property int currentIndex: 0
         property int currentSectionSize: 0
         property int previousSectionSize: 0
         delegate:
             Item {
             Binding {
-                target: repeater
+                target: complementaryRepeater
                 property: "currentIndex"
                 value: index
             }
             Item {
                 id: filler
                 visible: false
-                state: (repeater.currentIndex > 0 && repeater.model.data(repeater.currentIndex-1, repeater.sectionIndex) === repeater.model.data(repeater.currentIndex, repeater.sectionIndex)) ? "sameSection": "newSection"
+                state: (complementaryRepeater.currentIndex > 0 && complementaryRepeater.model.data(complementaryRepeater.currentIndex-1, complementaryRepeater.sectionIndex) === complementaryRepeater.model.data(complementaryRepeater.currentIndex, complementaryRepeater.sectionIndex)) ? "sameSection": "newSection"
                 states: [
                     State {
                         name:"newSection"
@@ -131,25 +209,25 @@ GridLayout {
                 onStateChanged: {
                     console.log("\n"+filler.state)
                     if(filler.state == "sameSection") {
-                        var previousSize = repeater.currentSectionSize;
+                        var previousSize = complementaryRepeater.currentSectionSize;
                         filler.cols = 0;
-                        repeater.currentSectionSize = previousSize+1;
-                        repeater.previousSectionSize = previousSize;
+                        complementaryRepeater.currentSectionSize = previousSize+1;
+                        complementaryRepeater.previousSectionSize = previousSize;
                     } else if(filler.state == "newSection") {
-                        repeater.previousSectionSize = repeater.currentSectionSize;
-                        repeater.currentSectionSize = 1;
-                        filler.cols = ((dataView.columns-(repeater.previousSectionSize % dataView.columns)) % dataView.columns);
+                        complementaryRepeater.previousSectionSize = complementaryRepeater.currentSectionSize;
+                        complementaryRepeater.currentSectionSize = 1;
+                        filler.cols = ((dataView.columns-(complementaryRepeater.previousSectionSize % dataView.columns)) % dataView.columns);
 
-                        console.log("nouvelle section '" + repeater.model.data(repeater.currentIndex, repeater.sectionIndex)+"'");
+                        console.log("nouvelle section '" + complementaryRepeater.model.data(complementaryRepeater.currentIndex, complementaryRepeater.sectionIndex)+"'");
                         console.log(filler.cols + "/" + dataView.columns + " colonnes à remplir");
                     }
-                    console.log("previous section size: "+repeater.previousSectionSize);
-                    console.log("next section size: " +repeater.currentSectionSize);
+                    console.log("previous section size: "+complementaryRepeater.previousSectionSize);
+                    console.log("next section size: " +complementaryRepeater.currentSectionSize);
                 }
 
                 Component.onCompleted: {
-                    console.log("index : "+repeater.currentIndex);
-                    console.log("index in section : "+repeater.currentSectionSize);
+                    console.log("index : "+complementaryRepeater.currentIndex);
+                    console.log("index in section : "+complementaryRepeater.currentSectionSize);
                 }
                 property int cols: 0
                 Layout.fillHeight: true
@@ -165,8 +243,10 @@ GridLayout {
                             id: emptyContainer
                             Layout.fillHeight: true
                             Layout.fillWidth: true
-                            Layout.preferredHeight: (dataView.rows > 0) ? (Math.floor(dataView.height / dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)
-                            Layout.preferredWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
+                            property double maxHeight: (dataView.flow == GridLayout.TopToBottom) ? Math.floor(dataView.height / dataView.rows) : (Math.floor(dataView.height * (dataView.columns) / repeater.count))
+                            property double maxWidth: (dataView.flow == GridLayout.LeftToRight) ? Math.floor(dataView.width / dataView.columns) : (Math.floor(dataView.width * (dataView.rows / repeater.count)))
+                            Layout.maximumHeight: contentContainer.maxHeight - dataView.rowSpacing
+                            Layout.maximumWidth: contentContainer.maxWidth - dataView.columnSpacing
                             Loader {
                                 id: emptyLoader
                                 source: dataView.emptyDelegate
@@ -216,134 +296,12 @@ GridLayout {
                             Binding {
                                 target: sectionLoader.item
                                 property: "value"
-                                value: repeater.model.data(repeater.currentIndex, repeater.sectionIndex)
+                                value: complementaryRepeater.model.data(complementaryRepeater.currentIndex, complementaryRepeater.sectionIndex)
                             }
-                        }
-                    }
-                }
-            }*/
-        Rectangle {
-            id: contentContainer
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumHeight: (dataView.rows > 0) ? (Math.floor(dataView.height / dataView.rows) - dataView.rowSpacing) : (Math.floor((dataView.height * dataView.columns) / repeater.count) - dataView.rowSpacing)
-            Layout.maximumWidth: (dataView.columns > 0) ? (Math.floor(dataView.width / dataView.columns) - dataView.columnSpacing) : (Math.floor((dataView.width * dataView.rows) / repeater.count) - dataView.columnSpacing)
-            Layout.row: repeater.model===0 ? 0 : computeRow()
-            Layout.column: repeater.model===0 ? 0 : computeColumn()
-
-            function computeRow() {
-                var next = 0;
-                if(index > 0){
-                    var previousRow = repeater.itemAt(index-1).Layout.row;
-                    var previousColumn = repeater.itemAt(index-1).Layout.column;
-                    console.log("\ncompute row pour l'item  n° " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
-                    if(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
-                        console.log("nouvelle section "+repeater.model.data(index, repeater.sectionIndex)+" remplaçant "+repeater.model.data(index-1, repeater.sectionIndex));
-                        if(dataView.columns > 0) {
-                            console.log("layout horizontal de "+dataView.columns+" colonnes non complétées par la section\non va à la ligne");
-                            next=previousRow+1;
-                        } else {
-                            console.log("layout vertical de "+dataView.rows+" lignes\non retourne en première ligne");
-                            next = 1;
-                        }
-                    } else if(repeater.sectioning){
-                        console.log("même section");
-                        if(dataView.columns > 0) {
-                            console.log("layout horizontal de "+dataView.columns+" colonnes");
-                            if((previousColumn % dataView.columns) == 0) { /*dernière colonne*/
-                                console.log("on passe à la ligne suivante");
-                                next = previousRow + 1;
-                            } else {
-                                console.log("on ne change pas de ligne");
-                                next = previousRow;
-                            }
-                        } else{
-                            console.log("layout vertical de "+dataView.rows+" lignes\non passe à la ligne suivante (ou on boucle)");
-                            next = previousRow % dataView.rows + 1;
-                        }
-                    } else {
-                        if(dataView.rows > 0) {
-                            next = index % dataView.rows + 1;
-                        } else {
-                            next = Math.floor(index / dataView.columns) + 1;
-                        }
-                    }
-                } else {
-                    next = 1;
-                }
-
-                console.log("ligne "+next)
-                return next;
-            }
-
-            function computeColumn() {
-                var next = 0;
-                if(index > 0){
-                    var previousRow = repeater.itemAt(index-1).Layout.row;
-                    var previousColumn = repeater.itemAt(index-1).Layout.column;
-                    console.log("\ncompute column pour l'item n° " + (index+1) + " successeur de [" + previousRow + ", " + previousColumn+"]");
-                    if(repeater.sectioning && (repeater.model.data(index-1, repeater.sectionIndex) !== repeater.model.data(index, repeater.sectionIndex))) {
-                        console.log("nouvelle section "+repeater.model.data(index, repeater.sectionIndex)+" remplaçant "+repeater.model.data(index-1, repeater.sectionIndex));
-                        if(dataView.columns > 0) {
-                            console.log("layout horizontal de "+dataView.columns+" colonnes\non retourne à la première colonne");
-                            next = 1;
-                        } else {
-                            console.log("layout vertical de "+dataView.rows+" lignes non complétées par la section\non va à la colonne suivante");
-                            next = previousColumn+1;
-                        }
-                    } else if(repeater.sectioning){
-                        console.log("même section");
-                        if(dataView.rows > 0) {
-                            console.log("layout vertical de "+dataView.rows+" lignes");
-                            if((previousRow % dataView.rows) == 0) { /*dernière ligne*/
-                                console.log("on passe à la colonne suivante");
-                                next = previousColumn + 1;
-                            } else {
-                                console.log("on ne change pas de colonne");
-                                next = previousColumn;
-                            }
-                        } else{
-                            console.log("layout horizontal de "+dataView.columns+" colonnes\non passe à la colonne suivante (ou on boucle) ");
-                            next = previousColumn % dataView.columns + 1;
-                        }
-                    } else {
-                        if(dataView.columns > 0) {
-                            next= index % dataView.columns + 1;
-                        } else {
-                            next= Math.floor(index / dataView.rows) + 1;
-                        }
-                    }
-                } else {
-                    next = 1;
-                }
-
-                console.log("colonne "+next)
-                return next;
-            }
-
-            Loader {
-                id:contentLoader
-                source: dataView.itemDelegate
-                Binding {
-                    target: contentLoader.item
-                    property: "width"
-                    value: contentContainer.width - 1
-                }
-                Binding {
-                    target: contentLoader.item
-                    property: "height"
-                    value: contentContainer.height - 2
-                }
-                Connections {
-                    target: contentLoader.item
-                    onClicked: {
-                        if(dataView.enabled) {
-                            dataView.selected(contentLoader.item.value);
                         }
                     }
                 }
             }
         }
-        /*}*/
-    }
+    }*/
 }

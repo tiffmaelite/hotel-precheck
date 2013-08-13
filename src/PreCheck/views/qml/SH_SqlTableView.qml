@@ -1,8 +1,10 @@
 import QtQuick 2.1
+import QtQml.Models 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.0
 import PreCheck 1.0
 
 /*!
@@ -16,12 +18,15 @@ TableView {
     Component.onCompleted:{
         if(table.model !== 0) {
             table.model.fetch();
-            var count = table.model.fieldsCount();
-            for(var index = 0; index < count; index++) {
-                if(!table.model.isHidingColumn(index)) {
-                    var col = Qt.createQmlObject('import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field('+index+').text; role: table.model.field('+index+').role}',table,'column'+index);
-                    /*tmp.push(col);*/
-                    table.addColumn(col);
+            var count = 0;
+            if(!table.model.empty) {
+                count = table.model.fieldsCount();
+                for(var index = 0; index < count; index++) {
+                    if(!table.model.isHidingColumn(index)) {
+                        var col = Qt.createQmlObject('import QtQuick 2.1; import QtQuick.Controls 1.0; TableViewColumn {title: table.model.field('+index+').text; role: table.model.field('+index+').role}',table,'column'+index);
+                        /*tmp.push(col);*/
+                        table.addColumn(col);
+                    }
                 }
             }
         }

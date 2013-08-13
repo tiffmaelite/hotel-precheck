@@ -3,6 +3,7 @@
 
 #include <QSortFilterProxyModel>
 #include "SH_SqlDataModel.h"
+#include "SH_MessageManager.h"
 
 /*namespace SimplHotel
 {*/
@@ -16,10 +17,10 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
 {
 
     Q_OBJECT
-    Q_PROPERTY(QString fieldsList READ fields STORED false)
-    Q_PROPERTY(QString fieldsCount READ fieldsCount STORED false)
-    Q_PROPERTY(bool empty READ isEmpty STORED false)
-    Q_PROPERTY(QString lastError READ lastError STORED false)
+    //Q_PROPERTY(QString fieldsList READ fields STORED false)
+    Q_PROPERTY(QString fieldsCount READ fieldsCount)// STORED false)
+    Q_PROPERTY(bool empty READ isEmpty)// STORED false)
+    Q_PROPERTY(QString lastError READ lastError)// STORED false)
     Q_PROPERTY(int sortKeyColumn READ sortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged) //MEMBER m_sortIndex
 
 public:
@@ -40,7 +41,7 @@ public:
     \fn fields
     \return const QString
     */
-    const QString fields() const { if(this->model->fieldsList().isEmpty()){ return "*";} else { return this->model->fieldsList().join(", ");} }
+    /*QString fields() { QStringList fields = this->model->fieldsList(); if(fields.isEmpty()){ return "*";} else { return fields.join(", ");} }*/
 
 /*!
     \brief \~french
@@ -48,7 +49,7 @@ public:
     \fn lastError
     \return const QString
     */
-    const QString lastError() const { return this->model->lastError(); }
+    QString lastError() { return this->model->lastError(); }
 
 /*!
     \brief \~french
@@ -74,7 +75,7 @@ public:
     \param i
     \return SqlDataFields
     */
-    Q_INVOKABLE SH_SqlDataFields *field(int i) const { return this->model->field(i); }
+    Q_INVOKABLE SH_SqlDataFields *field(int i) const { if(!this->m_fetched) { return new SH_SqlDataFields(); } else { return this->model->field(i); } }
 
 /*!
     \brief \~french
@@ -82,7 +83,7 @@ public:
     \fn fieldsCount
     \return int
     */
-    int fieldsCount() const { return this->model->fieldsCount(); }
+    int fieldsCount() const { if(!this->m_fetched) { return 0; } else { return this->model->fieldsCount(); } }
 
 /*!
     \brief \~french
@@ -163,7 +164,7 @@ public:
     \fn roleNames
     \return QHash<int, QByteArray>
     */
-    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const { return this->m_roles; }
+    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const;
 
 /*!
     \brief \~french
@@ -264,6 +265,8 @@ protected:
     QHash<int, QByteArray> m_roles;
 
 private:
+    bool firstFetch();
+
 
 /*!
     \brief \~french

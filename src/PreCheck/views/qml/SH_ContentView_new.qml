@@ -20,7 +20,7 @@ GridLayout {
     property string emptyDelegate
     property string sectionDelegate
     property alias sectionIndex : repeater.sectionIndex
-    property var model: 0
+    property variant model: 0
     signal selected(string selectedItem)
 
     /*!

@@ -150,4 +150,4 @@ OTHER_FILES *= \
 	views/qml/SH_HTML5OutputZone.qml \
     views/SH_OutputPanel.xhtml \
     views/qml/SH_SqlGrid.qml \
-    views/qml/SH_SqlColumn.qml
+    views/qml/SH_DataModelDelegate.qml

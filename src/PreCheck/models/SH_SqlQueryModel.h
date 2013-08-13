@@ -4,6 +4,7 @@
 #include <QAbstractListModel>
 #include <QtSql>
 #include "SH_SqlDataField.h"
+#include "SH_MessageManager.h"
 
 class SH_SqlQueryModel : public QAbstractListModel
 {
@@ -31,7 +32,7 @@ public:
     void setFilterCondition(const QString &condition);
     void resetFilterCondition() { this->m_condition = ""; emit filterConditionChanged();}
 
-    Q_INVOKABLE QHash<int, QByteArray> roleNames() const { return this->m_roles; }
+    Q_INVOKABLE QHash<int, QByteArray> roleNames() const { foreach(QByteArray roleName, this->m_roles) { SH_MessageManager::debugMessage(QString("Le rôle %L1 d'origine est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName))); } return this->m_roles; }
 
     /*!
     \brief \~french
@@ -229,6 +230,11 @@ private:
     // QAbstractItemModel interface
 public:
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    QMap<int, QVariant> itemData(const QModelIndex &index) const;
+    bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles);
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
+protected slots:
+    void resetInternalData();
 };
 
 #endif // SH_SQLQUERYMODEL_H

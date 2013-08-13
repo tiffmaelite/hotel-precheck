@@ -1,8 +1,10 @@
 import QtQuick 2.1
+import QtQml.Models 2.1
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.0
 import PreCheck 1.0
 
 /*!
@@ -10,7 +12,7 @@ import PreCheck 1.0
   */
 GridLayout {
     id: filterGrid
-    property var delegateModel
+    property variant delegateModel
     property alias model: repeater.model
 
     /*maxi 2 lignes s'il y a 4 colonnes; et maxi 3 lignes s'il y a 6 colonnes; sinon 10 toutes petites colonnes et autant de lignes que nécessaire*/
@@ -32,7 +34,7 @@ GridLayout {
             Layout.fillHeight: true
             SH_TriStateCheckImage {
                 id: cbx
-                property var dataModel
+                property variant dataModel
                 enabled: filterGrid.enabled
                 anchors.fill: parent
                 Component.onCompleted: {
