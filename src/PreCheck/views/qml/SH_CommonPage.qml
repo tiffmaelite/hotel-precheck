@@ -143,15 +143,37 @@ Item {
             Layout.fillHeight: true
             spacing: 0
             /*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche en mode RECEPTION*/
-            SH_SqlColumn {
+            /*SH_SqlColumn {
                 id: vatSidePanel
                 model: SH_VATModel { }
                 delegateSource: "SH_VATDelegate.qml"
                 onSelected: commonPage.keySelected(selectedItem);
+
                 Layout.minimumWidth: parent.width/10;
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
+            }*/
+            ColumnLayout {
+                id: vatSidePanel
+                Layout.minimumWidth: parent.width/10;
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                signal selected(string selectedItem)
+                Repeater {
+                    id: vatRep
+                    model: Loader {
+                        id: vatLoader
+                        sourceComponent: SH_VATDelegate {}
+                        Connections {
+                            target: vatLoader.item
+                            onClicked: {
+                                vatSidePanel.selected(vatLoader.item.value);
+                            }
+                        }
+                    }
+                }
             }
             SH_Keyboard{
                 id: keys

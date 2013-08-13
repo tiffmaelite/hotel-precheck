@@ -8,21 +8,29 @@ import PreCheck 1.0
 /*!
   \class  SH_VATDelegate
   */
-SH_DataDelegate {
-    id: btn
-    value: PERCENTAGE
-    text: LABEL
-    style: ButtonStyle {
-        background:
-            Item {
-            BorderImage {
-                anchors.fill: parent
-                border.top: 3
-                border.bottom: 3
-                border.left: 3
-                border.right: 3
-                anchors.bottomMargin: -1
-                source: btn.enabled ? (btn.pressed ? "../img/buttondown.png" : "../img/buttonup.png") : "../img/buttonblocked.png"
+DelegateModel {
+    model: SH_VATModel { }
+    Component.onCompleted: {
+        if(model.empty) {
+            model.fetch();
+        }
+    }
+    delegate: SH_DataDelegate {
+        id: btn
+        value: PERCENTAGE
+        text: LABEL
+        style: ButtonStyle {
+            background:
+                Item {
+                BorderImage {
+                    anchors.fill: parent
+                    border.top: 3
+                    border.bottom: 3
+                    border.left: 3
+                    border.right: 3
+                    anchors.bottomMargin: -1
+                    source: btn.enabled ? (btn.pressed ? "../icons/buttondown.png" : "../icons/buttonup.png") : "../icons/buttonblocked.png"
+                }
             }
         }
     }

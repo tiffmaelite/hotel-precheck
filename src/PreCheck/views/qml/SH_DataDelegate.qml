@@ -8,6 +8,7 @@ import PreCheck 1.0
 /*!
   \class  SH_DataDelegate
   */
+DelegateModel {
 Button {
     id: btn
     property string value: ""
@@ -37,4 +38,5 @@ Button {
             }
         }
     }
+}
 }

@@ -98,7 +98,7 @@ Style {
         BorderImage {
             id: backgroundImage
             anchors.fill: parent
-            source: control.pressed ? "img/button_down.png" : "img/button.png"
+            source: control.pressed ? "icons/button_down.png" : "icons/button.png"
             border.top: 6
             border.bottom: 6
             border.left: 6

@@ -309,6 +309,6 @@ bool SH_SqlQueryModel::isEmpty() const
 
 QVariant SH_SqlQueryModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    //TODO SH_SqlMQueryModel headerData
-    QAbstractListModel::headerData(section, orientation, role);
+    //TODO SH_SqlQueryModel headerData
+    return QAbstractListModel::headerData(section, orientation, role);
 }

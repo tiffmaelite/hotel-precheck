@@ -8,6 +8,15 @@ import PreCheck 1.0
 /*!
   \class SH_RoomsDelegate
   */
+//DelegateModel {
+//    model: SH_RoomsModel { }
+//    Component.onCompleted: {
+//        if(model.empty) {
+//            model.fetch();
+//        }
+//    }
+
+//    delegate:
 SH_DataDelegate {
     id: btn
     text: qsTr("%L1").arg(NUMBER);
@@ -28,3 +37,4 @@ SH_DataDelegate {
         }
     }
 }
+//}
