@@ -15,13 +15,13 @@ Button {
     text: ""
     property string value: ""
     property int fontSize: 8
-    property Item textStyle: deafultTextStyle
-    property Item backgroundStyle: defaultBackgroundStyle
+    property Component textStyle: defaultTextStyle
+    property Component backgroundStyle: defaultBackgroundStyle
     style: ButtonStyle {
         label: btn.textStyle
         background: btn.backgroundStyle
     }
-    property Item deafultTextStyle: Text {
+    property Component defaultTextStyle: Text {
         id: styleText
         renderType: Text.NativeRendering
         verticalAlignment: Text.AlignVCenter
@@ -30,7 +30,7 @@ Button {
         text:btn.text
         font.pointSize: btn.fontSize
     }
-    property Item defaultBackgroundStyle :  Item {
+    property Component defaultBackgroundStyle :  Item {
         anchors.margins: 0
         BorderImage {
             anchors.fill: parent

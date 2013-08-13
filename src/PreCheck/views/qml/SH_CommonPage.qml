@@ -144,16 +144,17 @@ Item {
             Layout.fillHeight: true
             spacing: 0
             /*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche en mode RECEPTION*/
-            Column {
+            ColumnLayout {
                 id: vatSidePanel
                 Layout.minimumWidth: parent.width/10;
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.alignment: Qt.AlignTop
+                Layout.alignment: Qt.AlignLeft
                 Repeater {
                     model: SH_VATDelegate {
-                        height: vatSidePanel.height / vatRep.count - vatSidePanel.spacing
-                        width: vatSidePanel.width
+                        height: vatRep.count <= 0 ? 0 : vatSidePanel.height / vatRep.count - vatSidePanel.spacing
+                        Layout.fillWidth: true
+                        Layout.fillHeight: false
                         onClicked: {
                             commonPage.keySelected(vatRep.itemAt(index).value);
                         }
@@ -164,7 +165,9 @@ Item {
             SH_Keyboard{
                 id: keys
                 enabled:true
-                Layout.maximumWidth: parent.width*9/10;
+                width: parent.width*9/10;
+                height: parent.height
+                Layout.alignment: Qt.AlignRight
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 columns: 5

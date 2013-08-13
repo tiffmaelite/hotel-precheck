@@ -17,15 +17,15 @@ GridLayout {
     property variant actionsList: []
     Repeater {
         id: repeater
-        model: (layout.actionsList==null) ? 0 :  layout.actionsList.length
+        model: (layout.actionsList === []) ? 0 :  layout.actionsList.length
         delegate:
             SH_DataDelegate {
             id: btn
             enabled: layout.enabled
-            property double maxHeight: repeater.count <= 0 ? 0 : ((layout.flow === GridLayout.TopToBottom) ? Math.floor(layout.height / layout.rows) : (Math.floor(layout.height * (layout.columns) / repeater.count)))
-            property double maxWidth: repeater.count <= 0 ? 0 : ((layout.flow === GridLayout.LeftToRight) ? Math.floor(layout.width / layout.columns) : (Math.floor(layout.width * (layout.rows / repeater.count))))
-            Layout.maximumHeight: Math.max(0,btn.maxHeight - layout.rowSpacing)
-            Layout.maximumWidth: Math.max(0,btn.maxWidth - layout.columnSpacing)
+            property double maxHeight:  repeater.model <= 0 ? 0 : ((layout.flow === GridLayout.TopToBottom) ? Math.floor(layout.height / layout.rows) :  repeater.model <= 0 ? 0  :(Math.floor((layout.height * layout.columns) / repeater.model)))
+            property double maxWidth: ((layout.flow === GridLayout.LeftToRight) ? Math.floor(layout.width / layout.columns) : (Math.floor(layout.width * (layout.rows / repeater.model))))
+            Layout.maximumHeight: Math.max(0, btn.maxHeight - layout.rowSpacing)
+            Layout.maximumWidth: Math.max(0, btn.maxWidth - layout.columnSpacing)
             Layout.fillHeight: true
             Layout.fillWidth: true
             text: actionsList[index].text

@@ -95,8 +95,8 @@ TabView {
         switch(App.currentMode) {
         case AppMode.RECEPTION:
             tabView.addTab(qsTr("Prestations"), servicesTab);
-            tabView.addTab(qsTr("Chambres"), roomsTab);
-            tabView.addTab(qsTr("Facturations"), billingsTab);
+            //tabView.addTab(qsTr("Chambres"), roomsTab);
+            //tabView.addTab(qsTr("Facturations"), billingsTab);
             /*tabView.addTab(qsTr("Réservations"), bookingsTab);*/
             /*tabView.addTab(qsTr("Offres"), offersTab);*/
             break;
