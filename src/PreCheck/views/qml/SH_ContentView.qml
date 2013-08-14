@@ -24,10 +24,12 @@ GridLayout {
     signal selected(string selectedItem)
 
     /*!
-          \fn computeRow
-          \param \tyoe int index L'indice de l'élément pour lequel effectuer le calcul
+          \fn computeCoord
+          \param \type SH_SqlDataModel model Le modèle dont les éléments sont affichés
+          \param \type int sectionIndex L'indice du champ du modèle selon lequel est effectué le tri des éléments
+          \param \type int index L'indice de l'élément pour lequel effectuer le calcul
           \param \type bool isCoordRow Indique si l'on calcule un indice de ligne ou pas (un indice de colonne dans le cas contraire)
-          \return int l'indice de la ligne désirée (0 étant la première ligne)
+          \return int l'indice de la ligne désirée (1 étant la première ligne)
           \brief \~french Calcule la ligne à laquelle insérer un élément donné
           \details Prend en compte le tri des éléments et va à la ligne pour toute nouvelle section (définie par le changement de valeur du critère de tri)
           */
@@ -136,16 +138,40 @@ GridLayout {
                 }
             }
         }
+
+
+        function computeMaxHeight(rep, grid) {
+            if(rep.count <= 0) {
+                return 0;
+            }
+            if(grid.flow === GridLayout.TopToBottom) {
+                return Math.floor(grid.height / grid.rows);
+            } else {
+                return Math.floor((grid.height * grid.columns) / rep.count);
+            }
+        }
+
+        function computeMaxWidth(rep, grid) {
+            if(rep.count <= 0) {
+                return 0;
+            }
+            if(grid.flow === GridLayout.LeftToRight) {
+                return Math.floor(grid.width / grid.columns);
+            } else {
+                return Math.floor((grid.width * grid.rows) / rep.count);
+            }
+        }
+
         delegate: Rectangle {
             id: contentContainer
             Layout.fillHeight: true
             Layout.fillWidth: true
-            property double maxHeight: repeater.model === 0 ? 0 : ((dataView.flow === GridLayout.TopToBottom) ? Math.floor(dataView.height / dataView.rows) : (Math.floor(dataView.height * (dataView.columns) / repeater.count)))
-            property double maxWidth: repeater.model === 0 ? 0 : ((dataView.flow === GridLayout.LeftToRight) ? Math.floor(dataView.width / dataView.columns) : (Math.floor(dataView.width * (dataView.rows / repeater.count))))
+            property double maxHeight: dataView.computeMaxHeight(repeater, dataView)
+            property double maxWidth: dataView.computeMaxWidth(repeater, dataView)
             Layout.maximumHeight: Math.max(0,contentContainer.maxHeight - dataView.rowSpacing)
             Layout.maximumWidth: Math.max(0,contentContainer.maxWidth - dataView.columnSpacing)
-            Layout.row: repeater.model === 0 ? 0 : (dataView.computeCoord(repeater.model, repeater.sectionIndex, index, repeater.itemAt(index-1), true))
-            Layout.column: repeater.model === 0 ? 0 : (dataView.computeCoord(repeater.model, repeater.sectionIndex, index, repeater.itemAt(index-1), false))
+            Layout.row: repeater.count <= 0 ? 0 : (dataView.computeCoord(repeater.model, repeater.sectionIndex, index, repeater.itemAt(index-1), true))
+            Layout.column: repeater.count <= 0 ? 0 : (dataView.computeCoord(repeater.model, repeater.sectionIndex, index, repeater.itemAt(index-1), false))
 
             Loader {
                 id:contentLoader

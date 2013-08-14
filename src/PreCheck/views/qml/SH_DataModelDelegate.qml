@@ -28,8 +28,8 @@ DelegateModel {
         id: btn
         value: delModel.value
         text: delModel.text
-        height: delModel.height
-        width: delModel.width
+        /*height: delModel.height
+        width: delModel.width*/
         visible: delModel.visible
         enabled: delModel.enabled
         textStyle: delModel.textStyle === "" ? defaultTextStyle : delModel.textStyle

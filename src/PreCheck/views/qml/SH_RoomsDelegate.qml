@@ -11,9 +11,10 @@ import PreCheck 1.0
 /*!
   \class SH_RoomsDelegate
   */
-SH_DataModelDelegate {
+//SH_DataModelDelegate {
+SH_DataDelegate {
     id: btn
-    model: SH_RoomsModel { }
+    //model: SH_RoomsModel { }
     text: qsTr("%L1").arg(NUMBER);
     value: NUMBER
     backgroundStyle:

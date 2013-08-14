@@ -27,7 +27,7 @@ int SH_SqlQueryModel::rowCount(const QModelIndex &parent) const
 */
 QVariant SH_SqlQueryModel::data(const QModelIndex &index, int role) const
 {
-    if (!this->m_new && this->m_records.count() > 0)
+    if (!this->m_new && this->m_records.count() > 0 && index.isValid())
     {
         int row = index.row();
         int column = this->fieldFromRole(role);
@@ -39,7 +39,7 @@ QVariant SH_SqlQueryModel::data(const QModelIndex &index, int role) const
             SH_MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)").arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));
         }
     }
-    SH_MessageManager::errorMessage("modèle vide");
+    SH_MessageManager::errorMessage("modèle vide ou index invalide");
     return QVariant();
 }
 
@@ -77,7 +77,6 @@ QVariantMap SH_SqlQueryModel::datas()
     {
         for(int column = 0; column < this->m_roles.count(); column++) {
             for(int row = 0; row < this->m_records.count();row++) {
-                //SH_MessageManager::debugMessage( "data inserted");
                 result.insertMulti(this->m_roles.value(this->roleForField(column)),this->m_records.at(row).value(column));
             }
         }
@@ -196,49 +195,52 @@ void SH_SqlQueryModel::resetInternalData() {
 bool SH_SqlQueryModel::fetch()
 {
     this->m_new = false;
-    SH_MessageManager::debugMessage("Bienvenue dans query fetch");
+    //SH_MessageManager::debugMessage("Bienvenue dans query fetch");
     try
     {
         this->beginResetModel();
         this->m_records.clear();
         this->resetInternalData();
         this->fetchQuery();
-        SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
-        bool next = this->m_query.first();
+        if(!this->m_query.lastQuery().isEmpty()) {
+            //SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
+            bool next = this->m_query.first();
 
-        while (next && this->m_query.isActive())
-        {
-            QSqlRecord record = this->m_query.record();
-
-            SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
-            SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
-            if (this->m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
+            while (next && this->m_query.isActive())
             {
-                this->beginInsertRows(QModelIndex(), 0, 0);
-                this->m_records.append(record);
-                //#ifdef DEBUGMODE
+                QSqlRecord record = this->m_query.record();
+
+                //SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
+                if (this->m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
+                {
+                    //SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
+                    this->beginInsertRows(QModelIndex(), 0, 0);
+                    this->m_records.append(record);
+                    /*#ifdef DEBUGMODE
                 int nbFields = record.count();
                 for (int i = 0; i < nbFields; i++)
                 {
                     SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
                 }
-                //#endif
-                if (this->m_fields.empty())
-                {
-                    int nbFields = record.count();
-                    for (int i = 0; i < nbFields; i++)
+                #endif*/
+                    if (this->m_fields.empty())
                     {
-                        SH_SqlDataFields *field = new SH_SqlDataFields();
-                        field->setName(record.fieldName(i).toUpper());
-                        //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%1): %2").arg(i).arg(field->name()));
-                        this->m_fields.append(field);
+                        int nbFields = record.count();
+                        for (int i = 0; i < nbFields; i++)
+                        {
+                            SH_SqlDataFields *field = new SH_SqlDataFields();
+                            field->setName(record.fieldName(i).toUpper());
+                            //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%L1): %2").arg(i).arg(field->name()));
+                            this->m_fields.append(field);
+                        }
+                        this->applyRoles();
+                        emit this->fieldsChanged();
                     }
-                    this->applyRoles();
-                    emit this->fieldsChanged();
+                    this->endInsertRows();
                 }
-                this->endInsertRows();
+                next = this->m_query.next();
             }
-            next = this->m_query.next();
+            SH_MessageManager::debugMessage(QString("%L1 résultats").arg(this->rowCount()));
         }
     }
     catch (const std::exception &e)
@@ -324,7 +326,7 @@ void SH_SqlQueryModel::applyRoles()
         int nbFields = this->m_fields.count();
         for (int i = 0; i < nbFields; i++)
         {
-            SH_MessageManager::debugMessage(QString("Nouveau rôle : %1").arg(QString(this->m_fields.at(i)->role())));
+            //SH_MessageManager::debugMessage(QString("Nouveau rôle : %1").arg(QString(this->m_fields.at(i)->role())));
             this->m_roles.insert(this->roleForField(i), this->m_fields.at(i)->role());
         }
         emit rolesChanged();

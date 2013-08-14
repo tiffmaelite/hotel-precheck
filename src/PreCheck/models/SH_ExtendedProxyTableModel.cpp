@@ -15,6 +15,7 @@ bool SH_ExtendedProxyTableModel::fetch() {
     if (this->m_fetched)
     {
         this->m_roles= this->model->roleNames();
+        //emit emptinessChanged();
         this->setSourceModel(this->model);
         this->fillModel();
         foreach(SH_SqlDataFields* field, this->modelFields) {

@@ -59,28 +59,6 @@ TabView {
                 anchors.margins: 2
             }
         }
-        /*tab:
-            Rectangle {
-            color: styleData.selected ? "lightgrey" :"whitesmoke"
-            border.color:  "silver"
-            implicitWidth: Math.max(text.width + 4, 80)
-            implicitHeight: 20
-            radius: 2
-            RowLayout {
-                Image {
-                    visible:(styleData.title===qsTr("Clavier complet"))
-                    source: (styleData.title===qsTr("Clavier complet")) ? "../icons/keyboard.png" : "" ;
-                    Layout.maximumHeight: 15
-                    fillMode: Image.PreserveAspectFit
-                }
-                Text {
-                    id: text
-                    anchors.centerIn: parent
-                    text: styleData.title
-                    color: styleData.selected ? "black" : "grey"
-                }
-            }
-        }*/
     }
 
     Component.onCompleted: {
@@ -94,8 +72,9 @@ TabView {
         }
         switch(App.currentMode) {
         case AppMode.RECEPTION:
+
             tabView.addTab(qsTr("Prestations"), servicesTab);
-            //tabView.addTab(qsTr("Chambres"), roomsTab);
+            tabView.addTab(qsTr("Chambres"), roomsTab);
             //tabView.addTab(qsTr("Facturations"), billingsTab);
             /*tabView.addTab(qsTr("Réservations"), bookingsTab);*/
             /*tabView.addTab(qsTr("Offres"), offersTab);*/
@@ -117,6 +96,157 @@ TabView {
         }
     }
 
+    function computeMaxCoord(rep, grid, height) {
+        if(rep.count <= 0) {
+            return 0;
+        }
+        var dispositionFlow;
+        var alongDispositionMaxSize;
+        var alongDispositionDivisions;
+        var otherDispositionDivisions;
+        var alongDispositionSpacing;
+        if(height) {
+            dispositionFlow = GridLayout.TopToBottom;
+            alongDispositionMaxSize = Math.max(0, grid.height);
+            alongDispositionDivisions = Math.max(0, grid.rows);
+            otherDispositionDivisions = Math.max(0, grid.columns);
+            alongDispositionSpacing = Math.max(0, grid.rowSpacing);
+        } else {
+            dispositionFlow = GridLayout.LeftToRight;
+            alongDispositionMaxSize = Math.max(0, grid.width);
+            alongDispositionDivisions = Math.max(0, grid.columns);
+            otherDispositionDivisions = Math.max(0, grid.rows);
+            alongDispositionSpacing = Math.max(0, grid.columnSpacing);
+        }
+        var size;
+        if(grid.flow === dispositionFlow) {
+            size = Math.floor( alongDispositionMaxSize / alongDispositionDivisions);
+        } else {
+            size = Math.floor((alongDispositionMaxSize * otherDispositionDivisions) / rep.count);
+        }
+        return Math.max(0,size - alongDispositionSpacing);
+    }
+
+    /*!
+          \fn computeCoord
+          \param \type Repeater rep
+          \param \type int index L'indice de l'élément pour lequel effectuer le calcul
+          \param \type GridLayout grid
+          \param \type bool isCoordRow Indique si l'on calcule un indice de ligne ou pas (un indice de colonne dans le cas contraire)
+          \return int l'indice de la ligne désirée (1 étant la première ligne)
+          \brief \~french Calcule la ligne à laquelle insérer un élément donné
+          \details Prend en compte le tri des éléments et va à la ligne pour toute nouvelle section (définie par le changement de valeur du critère de tri)
+          */
+    function computeCoord(rep, index, grid, isCoordRow) {
+        if(rep.count <= 0) {
+            console.log("Modèle vide");
+            return 0;
+        }
+        var model = rep.model;
+        console.log("élément n°"+index);
+        console.log("élément d'ID " + (model.data(index, 0)));
+        /*var sectionIndex = Math.max(0,model.sortKeyColumn); //L'indice du champ du modèle selon lequel est effectué le tri des éléments
+        console.log("sectionIndex: "+sectionIndex);
+        var previous = rep.itemAt(Math.max(0,index-1));
+        var sectioning = (sectionIndex > 0); //sectionIndex=0 <=> tri par les ID <=> pas de tri
+        var startShift = 1;//0;
+        var next = startShift;
+        console.log("startShift: "+startShift);
+        if(isCoordRow) {
+            console.log("\ncalcul de l'indice de ligne");
+        } else {
+            console.log("\ncalcul de l'indice de colonne");
+        }
+        //on n'a besoin de calculer que pour des éléments ultérieurs au premier
+        if(index > 0){
+            var currentSection = model.data(index, sectionIndex);
+            var previousSection = model.data(Math.max(0,index-1), sectionIndex);
+            var previousRow = previous.Layout.row;
+            var previousColumn = previous.Layout.column;
+            var previousSameCoord;
+            var previousOtherCoord;
+            var totalSameCoord;
+            var totalOtherCoord;
+            var isAlongDisposition;
+            if(isCoordRow) {
+                previousSameCoord = previousRow;
+                previousOtherCoord = previousColumn;
+                totalOtherCoord = Math.max(0,grid.columns);
+                totalSameCoord = Math.max(0,grid.rows);
+                isAlongDisposition = (grid.flow === GridLayout.LeftToRight) && !(grid.flow === GridLayout.TopToBottom);
+            } else {
+                previousSameCoord = previousColumn;
+                previousOtherCoord = previousRow;
+                totalOtherCoord = Math.max(0,grid.rows);
+                totalSameCoord = Math.max(0,grid.columns);
+                isAlongDisposition = (grid.flow === GridLayout.TopToBottom) && !(grid.flow === GridLayout.LeftToRight);
+            }
+            console.log("indice prédécent selon la même coordonnée : "+previousSameCoord+"/"+totalSameCoord);
+            console.log("indice prédécent selon l'autre coordonnée : "+previousOtherCoord+"/"+totalOtherCoord);
+            if(isAlongDisposition) {
+                console.log("le calcul se fait dans le sens non limité");
+            }
+            console.log("successeur de [" + previousRow + ", " + previousColumn+"]");
+            if(sectioning) {
+                if(previousSection !== currentSection) {
+                    console.log("nouvelle section ["+model.field(sectionIndex).text+"] : "+currentSection);
+                } else{
+                    console.log("même section ["+model.field(sectionIndex).text+"] : "+currentSection);
+                }
+            }
+
+            //dans le cas où la ligne/colonne de l'élément précédent avait atteint la limite, ou qu'il s'agit d'une nouvelle section
+            if((sectioning && (previousSection !== currentSection)) || (totalOtherCoord > 0 && ((previousOtherCoord - startShift % totalOtherCoord) + startShift == 0))) {
+                if(isAlongDisposition) {
+                    console.log("nouvelle ligne/colonne dans le sens non limité");
+                    next = previousSameCoord + 1;
+                } else {
+                    console.log("retour au début dans le sens non limité")
+                    next = startShift;
+                }
+                //dans le cas où on continue normalement
+            } else {
+                if(isAlongDisposition) {
+                    console.log("même ligne/colonne");
+                    next = previousSameCoord;
+                } else {
+                    console.log("ligne/colonne suivante");
+                    next = previousOtherCoord + 1;
+                }
+            }
+            //on corrige les cas de dépassements étranges
+            if(!isAlongDisposition) {
+                next = next % totalSameCoord + startShift;
+            }
+        }
+
+        if(isCoordRow) {
+            console.log("ligne finale "+next);
+        } else {
+            console.log("colonne finale "+next);
+        }
+
+        return Math.max(next, startShift);//on adapte pour éviter les impossibilités
+        */
+
+        console.log("grid.rows: "+grid.rows);
+        console.log("grid.columns: "+grid.columns);
+        console.log("grid.flow: "+grid.flow);
+        if(!isCoordRow && grid.flow === GridLayout.LeftToRight) {
+            return index % grid.columns;
+        }
+        if (isCoordRow && grid.flow === GridLayout.TopToBottom) {
+            return index % grid.rows;
+        }
+        if(isCoordRow && grid.flow === GridLayout.LeftToRight) {
+            return index / grid.columns;
+        }
+        if (!isCoordRow && grid.flow === GridLayout.TopToBottom) {
+            return index / grid.rows;
+        }
+    }
+
+
     resources: [
         Component {
             id:fullKeyboardTab
@@ -131,9 +261,7 @@ TabView {
         },
         Component {
             id: servicesTab
-            /*SH_SqlDataView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+            /*SH_Sqlgrid {
                 enabled: tabView.enabled
                 //columns: 5 //6
                 filtersTitle: qsTr("Tri des prestations")
@@ -147,17 +275,13 @@ TabView {
             }*/
             GridLayout {
                 id: servicesGrid
-                Layout.fillWidth: true
-                Layout.fillHeight: true
                 enabled: tabView.enabled
-                columns: 5 //6
+                columns: 6
                 Repeater {
                     id: servicesRep
                     model: SH_VATDelegate {
-                        property double maxHeight: servicesRep.count <= 0 ? 0 : ((servicesGrid.flow === GridLayout.TopToBottom) ? Math.floor(servicesGrid.height / servicesGrid.rows) : (Math.floor(servicesGrid.height * (servicesGrid.columns) / servicesRep.count)))
-                        property double maxWidth: servicesRep.count <= 0 ? 0 : ((layout.flow === GridLayout.LeftToRight) ? Math.floor(servicesGrid.width / servicesGrid.columns) : (Math.floor(servicesGrid.width * (servicesGrid.rows / servicesRep.count))))
-                        Layout.maximumHeight: Math.max(0,maxHeight - servicesGrid.rowSpacing)
-                        Layout.maximumWidth: Math.max(0,maxWidth - servicesGrid.columnSpacing)
+                        height: computeMaxCoord(servicesRep, servicesGrid, true)
+                        width: computeMaxCoord(servicesRep, servicesGrid, false)
                         onClicked: {
                             tabView.selected(servicesRep.itemAt(index).value);
                         }
@@ -177,22 +301,31 @@ TabView {
         },
         Component {
             id: roomsTab
-            /*SH_SqlDataView {
-                filtersTitle: qsTr("Tri des chambres")
-                sqlModel: SH_RoomsModel { }
-                itemDelegate: "SH_RoomsDelegate.qml"
-                emptyDelegate: "SH_DataDelegate.qml"
-                sectionDelegate: "RoomsSectionDelegate.qml"
-                onSelected: {
-                    tabView.selected(selectedItem);
-                }
-            }*/
-            SH_SqlGrid {
-                delegateSource: "SH_RoomsDelegate.qml"
-                columns: 6
-                model: SH_RoomsModel { }
-                onSelected: {
-                    tabView.selected(selectedItem);
+            GridLayout {
+                id: roomsPanel
+                flow: GridLayout.LeftToRight
+                columns: roomsRep.count > 0 ? 7 : 0
+                Repeater {
+                    id: roomsRep
+                    property real itemHeight: computeMaxCoord(roomsRep, roomsPanel, true)
+                    property real itemWidth: computeMaxCoord(roomsRep, roomsPanel, false)
+                    model: SH_RoomsModel { }
+                    Component.onCompleted: {
+                        if(roomsRep.model.empty) {
+                            roomsRep.model.fetch();
+                        }
+                    }
+                    delegate: SH_RoomsDelegate {
+                        Layout.minimumHeight: roomsRep.itemHeight
+                        Layout.minimumWidth: roomsRep.itemWidth
+                        Layout.row: computeCoord(roomsRep, index, roomsPanel, true)
+                        Layout.column: computeCoord(roomsRep, index, roomsPanel, false)
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        onClicked: {
+                            tabView.selected(roomsRep.itemAt(index).value);
+                        }
+                    }
                 }
             }
         },
@@ -208,7 +341,7 @@ TabView {
         },
         Component {
             id: billingsTab
-            /*SH_SqlDataView {
+            /*SH_Sqlgrid {
                 sqlModel: SH_BillingsModel {}
                 filtersTitle: qsTr("Tri des facturations")
                 itemDelegate: "SH_BillingsDelegate.qml"
@@ -232,7 +365,7 @@ TabView {
         },
         Component {
             id: bookingsTab
-            /*SH_SqlDataView {
+            /*SH_Sqlgrid {
                 sqlModel: SH_BookingsModel { }
                 filtersTitle: qsTr("Tri des réservations")
                 itemDelegate: "SH_BookingsDelegate.qml"

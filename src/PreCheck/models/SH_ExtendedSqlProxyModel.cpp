@@ -128,13 +128,16 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
     return true;
 }
 
-bool SH_ExtendedProxyModel::firstFetch()
+bool SH_ExtendedProxyModel::fetchIfFirstTime()
 {
     if(!this->m_fetched) {
+        SH_MessageManager::debugMessage(QString("not yet fetched !"));
         this->fetch();
         if(this->m_fetched) {
             this->m_roles= this->model->roleNames();
         }
+    } else {
+        SH_MessageManager::debugMessage(QString("already fetched !"));
     }
     return this->m_fetched;
 }
@@ -144,10 +147,33 @@ bool SH_ExtendedProxyModel::firstFetch()
 
  \fn SH_ExtendedProxyModel::data
 */
+QVariant SH_ExtendedProxyModel::data(int row, int column)
+{
+    SH_MessageManager::debugMessage(QString("proxy data method for row %L1 and column %L2").arg(row).arg(column));
+    if(this->fetchIfFirstTime()) {
+        QModelIndex modelIndex = this->index(row, 0);
+        if(column !=-1) {
+            return this->data(modelIndex, this->model->roleForField(column));
+        } else {
+            SH_MessageManager::debugMessage(QString("more than one column !"));
+            QVariantMap map;
+            foreach(SH_SqlDataFields* field, this->modelFields) {
+                map.insert(field->name(),this->data(modelIndex, this->model->roleForField(this->modelFields.indexOf(field))));
+            }
+            return QVariant(map);
+        }
+    }
+    return QVariant();
+}
+
+/*!
+ \details \~french
+
+ \fn SH_ExtendedProxyModel::data
+*/
 QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role)
 {
-    this->firstFetch();
-    if (index.isValid())
+    if (this->fetchIfFirstTime() && index.isValid())
     {
         if (this->m_booleanSet.contains(role))
         {
@@ -160,6 +186,7 @@ QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role)
         else if(!this->m_hiddenSet.contains(role))
         {
             QModelIndex source_index = QSortFilterProxyModel::mapToSource(index);
+            SH_MessageManager::debugMessage(QString("Let's get data from source model for role %L1, row %L2 and column %L3").arg(QString::number(role)).arg(QString::number(source_index.row())).arg(QString::number(source_index.column())));
             if (source_index.isValid()) {
                 return this->model->data(source_index, role);
             }
@@ -326,28 +353,6 @@ void SH_ExtendedProxyModel::addHiddenColumn(int column)
     return map;
 }*/
 
-/*!
- \details \~french
-
- \fn SH_ExtendedProxyModel::data
-*/
-QVariant SH_ExtendedProxyModel::data(int row, int column)
-{
-    if(this->firstFetch()) {
-        QModelIndex modelIndex = this->index(row, 0);
-        if(column !=-1) {
-            return this->data(modelIndex, this->model->roleForField(column));
-        } else {
-            QVariantMap map;
-            foreach(SH_SqlDataFields* field, this->modelFields) {
-                map.insert(field->name(),this->data(modelIndex, this->model->roleForField(this->modelFields.indexOf(field))));
-            }
-            return QVariant(map);
-        }
-    }
-    return QVariant();
-}
-
 
 /*!
  \details \~french
@@ -357,7 +362,7 @@ bool SH_ExtendedProxyModel::setHeaderData(int section, Qt::Orientation orientati
 {
     Q_UNUSED(role);
     if(!this->isHidingColumn(section) && (orientation == Qt::Horizontal)) {
-        if(this->firstFetch()) {
+        if(this->fetchIfFirstTime()) {
             this->modelFields.at(section)->setText(value.toString().toUpper());
             return (this->modelFields.at(section)->text() == value.toString().toUpper());
         }
@@ -373,7 +378,7 @@ QVariant SH_ExtendedProxyModel::headerData(int section, Qt::Orientation orientat
 {
     Q_UNUSED(role);
     if(!this->isHidingColumn(section) && (orientation == Qt::Horizontal)) {
-        if(this->firstFetch()) {
+        if(this->fetchIfFirstTime()) {
             return QVariant(this->modelFields.at(section)->text());
         }
     }
@@ -399,9 +404,11 @@ QHash<int, QByteArray> SH_ExtendedProxyModel::roleNames() const
     if(!this->m_fetched) {
         return QHash<int, QByteArray>();
     } else {
-        if(!this->m_roles.empty()) {
-            foreach(QByteArray roleName, this->m_roles) { SH_MessageManager::debugMessage(QString("Le rôle proxy %L1 est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName))); }
-        }
+        /*if(!this->m_roles.empty()) {
+            foreach(QByteArray roleName, this->m_roles) {
+                SH_MessageManager::debugMessage(QString("Le rôle proxy %L1 est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName)));
+            }
+        }*/
         return this->m_roles;
     }
 }

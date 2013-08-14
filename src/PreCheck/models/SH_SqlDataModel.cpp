@@ -40,7 +40,7 @@ void SH_SqlDataModel::fetchQuery() {
 void SH_SqlDataModel::fetchQuery(QString tableName, QString filter, QString sort, QStringList fieldsList)
 {
     if(!m_tableName.isEmpty() || !tableName.isEmpty()) {
-        SH_MessageManager::debugMessage("Bienvenue dans fetch");
+        //SH_MessageManager::debugMessage("Bienvenue dans fetch");
         //SH_MessageManager::debugMessage(this->m_tableName + " " + this->fieldsList().join(", ") + " " +m_condition + " " + this->m_order);
         this->setFields(fieldsList);
         this->setTableName(tableName);

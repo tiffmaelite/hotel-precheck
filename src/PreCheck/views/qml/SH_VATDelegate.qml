@@ -11,9 +11,10 @@ import PreCheck 1.0
 /*!
   \class  SH_VATDelegate
   */
-SH_DataModelDelegate {
+//SH_DataModelDelegate {
+SH_DataDelegate {
     id: delModel
-    model: SH_VATModel { }
-    value: model.empty ? "-1" : PERCENTAGE
-    text: model.empty ? "" : LABEL
+    //model: SH_VATModel { }
+    value: PERCENTAGE
+    text: LABEL
 }

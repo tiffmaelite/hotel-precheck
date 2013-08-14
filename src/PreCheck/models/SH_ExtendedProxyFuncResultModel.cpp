@@ -20,6 +20,7 @@ bool SH_ExtendedProxyFuncResultModel::fetch()
     this->m_fetched = this->model->fetch();
     if(this->m_fetched) {
         this->m_roles= this->model->roleNames();
+        //emit emptinessChanged();
     }
     this->setSourceModel(this->model);
     return this->m_fetched;

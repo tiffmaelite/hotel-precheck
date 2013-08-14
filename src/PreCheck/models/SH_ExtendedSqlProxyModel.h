@@ -17,9 +17,8 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
 {
 
     Q_OBJECT
-    //Q_PROPERTY(QString fieldsList READ fields STORED false)
     Q_PROPERTY(QString fieldsCount READ fieldsCount)// STORED false)
-    Q_PROPERTY(bool empty READ isEmpty)// STORED false)
+    Q_PROPERTY(bool empty READ isEmpty) //NOTIFY emptinessChanged)// STORED false)
     Q_PROPERTY(QString lastError READ lastError)// STORED false)
     Q_PROPERTY(int sortKeyColumn READ sortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged) //MEMBER m_sortIndex
 
@@ -241,6 +240,8 @@ signals:
     */
     void sortChanged();
 
+    void emptinessChanged();
+
 protected:
 
 /*!
@@ -265,7 +266,7 @@ protected:
     QHash<int, QByteArray> m_roles;
 
 private:
-    bool firstFetch();
+    bool fetchIfFirstTime();
 
 
 /*!

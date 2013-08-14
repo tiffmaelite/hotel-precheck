@@ -137,6 +137,7 @@ Item {
             }
         }
         RowLayout {
+            id: bottomLeft
             Layout.alignment: Qt.AlignBottom
             Layout.minimumWidth: main.width/2-main.columnSpacing
             Layout.minimumHeight: 5*main.height/12-main.rowSpacing
@@ -146,15 +147,24 @@ Item {
             /*la partie inférieure du panel de gauche contient le clavier, avec les TVA à l'extrême gauche en mode RECEPTION*/
             ColumnLayout {
                 id: vatSidePanel
-                Layout.minimumWidth: parent.width/10;
+                Layout.minimumWidth: bottomLeft.width/10-bottomLeft.spacing;
+                height: bottomLeft.height
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.alignment: Qt.AlignLeft
+                Layout.alignment: Qt.AlignTop
                 Repeater {
-                    model: SH_VATDelegate {
-                        height: vatRep.count <= 0 ? 0 : vatSidePanel.height / vatRep.count - vatSidePanel.spacing
+                    id: vatRep
+                    model: SH_VATModel { }
+                    Component.onCompleted: {
+                        if(vatRep.model.empty) {
+                            vatRep.model.fetch();
+                        }
+                    }
+                    delegate: SH_VATDelegate {
+                        Layout.minimumHeight: vatRep.count <= 0 ? 0 : vatSidePanel.height / vatRep.count - vatSidePanel.spacing
+                        Layout.minimumWidth: vatSidePanel.width
                         Layout.fillWidth: true
-                        Layout.fillHeight: false
+                        Layout.fillHeight: true
                         onClicked: {
                             commonPage.keySelected(vatRep.itemAt(index).value);
                         }
@@ -165,11 +175,9 @@ Item {
             SH_Keyboard{
                 id: keys
                 enabled:true
-                width: parent.width*9/10;
-                height: parent.height
+                width: bottomLeft.width*9/10-bottomLeft.spacing;
+                height: bottomLeft.height
                 Layout.alignment: Qt.AlignRight
-                Layout.fillWidth: true
-                Layout.fillHeight: true
                 columns: 5
                 actionsList: [
                     abandonAction, cancelAction, eraseAction, sellAction, backAction,

@@ -16,6 +16,12 @@ class SH_SqlQueryModel : public QAbstractListModel
 
 public:
     explicit SH_SqlQueryModel(QObject *parent = 0);
+
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    QMap<int, QVariant> itemData(const QModelIndex &index) const;
+    bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles);
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
+
     /*!
     * \fn tableCondition
     * \brief \~french Accesseur en lecture de la propriété \a choiceList
@@ -32,7 +38,7 @@ public:
     void setFilterCondition(const QString &condition);
     void resetFilterCondition() { this->m_condition = ""; emit filterConditionChanged();}
 
-    Q_INVOKABLE QHash<int, QByteArray> roleNames() const { foreach(QByteArray roleName, this->m_roles) { SH_MessageManager::debugMessage(QString("Le rôle %L1 d'origine est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName))); } return this->m_roles; }
+    Q_INVOKABLE QHash<int, QByteArray> roleNames() const {/* foreach(QByteArray roleName, this->m_roles) { SH_MessageManager::debugMessage(QString("Le rôle %L1 d'origine est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName))); }*/ return this->m_roles; }
 
     /*!
     \brief \~french
@@ -40,7 +46,9 @@ public:
     \param parent
     \return int
     */
-    int rowCount(const QModelIndex &parent) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+
+    int columnCount(const QModelIndex &parent = QModelIndex()) const { Q_UNUSED(parent);  return 1; }
 
     /*!
     \brief \~french
@@ -203,6 +211,9 @@ protected:
     */
     QString m_order;
 
+protected slots:
+    void resetInternalData();
+
 private:
     /*!
     *\brief \~french mFilter
@@ -226,15 +237,6 @@ private:
     QList<QSqlRecord> m_records;
 
     bool m_new;
-
-    // QAbstractItemModel interface
-public:
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const;
-    QMap<int, QVariant> itemData(const QModelIndex &index) const;
-    bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles);
-    bool setData(const QModelIndex &index, const QVariant &value, int role);
-protected slots:
-    void resetInternalData();
 };
 
 #endif // SH_SQLQUERYMODEL_H

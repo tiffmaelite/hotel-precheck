@@ -13,7 +13,7 @@
 
 
 # Increase compilation speed (needs ccache installed)
-#QMAKE_CXX = ccache g++
+QMAKE_CXX = ccache g++
 
 # Determines whether the output of the build process will be an application, a library, or a plugin
 TEMPLATE = app
@@ -22,22 +22,22 @@ TEMPLATE = app
 CONFIG *= c++11 qt thread exceptions console testcase # static
 
 # Qt-specific configuration options : required modules (c.f. http://doc-snapshot.qt-project.org/qt5-stable/qmake/qmake-variable-reference.html#qt)
-QT *= core gui quick qml sql widgets printsupport concurrent qmltest testlib #svg uitools x11extras
+QT *= core gui quick qml sql widgets printsupport #concurrent qmltest testlib #svg uitools x11extras
 
 # Plugins that should be statically linked for deployment
-QTPLUGIN *= core gui quick qml sql widgets printsupport concurrent qmltest testlib #svg uitools x11extras
+QTPLUGIN *= core gui quick qml sql widgets printsupport #concurrent qmltest testlib #svg uitools x11extras
 
 # QStringBuilder uses expression templates and reimplements the '%' operator so that when you use '%' for string concatenation instead of '+', multiple substring concatenations will be postponed until the final result is about to be assigned to a QString. Let '+' automatically be performed as the QStringBuilder '%' everywhere.
 DEFINES *= QT_USE_QSTRINGBUILDER
 
 # Allows macro "DEBUG" when in debug mode (allowing conditional code)
-Debug:DEFINES+=DEBUG
+Debug:DEFINES+=DEBUGMODE
 
 # Installation
 # Installation path
 #target.path =
 # Name of the target (executable) file
-#TARGET = PreCheck
+TARGET = SimplHotel
 # List of resources that will be installed when make install or a similar installation procedure is executed. Each item in the list is typically defined with attributes that provide information about where it will be installed.
 # Note that qmake will skip files that are executable. If you need to install executable files, you can unset the files' executable flags.
 #INSTALLS+=
