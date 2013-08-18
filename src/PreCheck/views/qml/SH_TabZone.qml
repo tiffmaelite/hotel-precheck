@@ -41,14 +41,14 @@ TabView {
         App.launchServiceCharging();
     }
 
-
     style: TabViewStyle {
         id:style
+        frameOverlap: 0
         frame:
             Rectangle {
-            anchors.fill: parent
-            height: tabView.height-style.frameOverlap
-            width: tabView.width
+            anchors.centerIn: parent
+            height: tabView.implicitHeight
+            width: tabView.implicitWidth
             color: App.readStringSetting("backgroundColor","globalGUI")
             border.color: "silver"
 
@@ -56,7 +56,7 @@ TabView {
                 anchors.fill: parent
                 color: "transparent"
                 border.color: "silver"
-                anchors.margins: 2
+                anchors.margins: -1
             }
         }
     }
@@ -144,10 +144,9 @@ TabView {
             console.log("Modèle vide");
             return 0;
         }
-        var startShift = 0; //1;
-        var next = startShift;
+        var next = 0;
         var id = model.data(model.modelIndex(index, 0), 256);
-        console.log("élément d'ID " + id+" ("+ model.data(model.modelIndex(index, 1), 256)+")");
+        console.log("élément d'ID " + id+" ("+ model.data(model.modelIndex(index, 1), 256+1)+")");
         if(isCoordRow) {
             console.log("\ncalcul de l'indice de ligne");
         } else {
@@ -180,29 +179,26 @@ TabView {
                 totalSameCoord = Math.max(0,grid.columns);
                 isAlongDisposition = (grid.flow === GridLayout.TopToBottom) && !(grid.flow === GridLayout.LeftToRight);
             }
-            console.log("indice prédécent selon la même coordonnée : "+previousSameCoord+"/"+totalSameCoord);
-            console.log("indice prédécent selon l'autre coordonnée : "+previousOtherCoord+"/"+totalOtherCoord);
             if(isAlongDisposition) {
                 console.log("le calcul se fait dans le sens non limité");
             }
-            console.log("successeur de [" + previousRow + ", " + previousColumn+"]");
             if(sectioning) {
                 if(previousSection !== currentSection) {
-                    console.log("nouvelle section ["+model.field(sectionIndex).text+"] : "+currentSection);
+                    console.log("nouvelle section ("+model.field(sectionIndex).text+") : "+currentSection);
                 } else{
-                    console.log("même section ["+model.field(sectionIndex).text+"] : "+currentSection);
+                    console.log("même section ("+model.field(sectionIndex).text+") : "+currentSection);
                 }
             }
 
             //dans le cas où la ligne/colonne de l'élément précédent avait atteint la limite, ou qu'il s'agit d'une nouvelle section
-            console.log("previousOtherCoord: "+previousOtherCoord+", totalOtherCoord: "+totalOtherCoord+", startShift: "+startShift+", (previousOtherCoord - startShift % totalOtherCoord) + startShift="+((previousOtherCoord - startShift % totalOtherCoord) + startShift));
-            if((sectioning && (previousSection !== currentSection)) || ((previousOtherCoord - startShift) >= totalOtherCoord && (totalOtherCoord > 0 && ((previousOtherCoord - startShift % totalOtherCoord) + startShift == 0)))) {
+            console.log("previousOtherCoord: "+previousOtherCoord+", totalOtherCoord: "+totalOtherCoord+", previousSameCoord:"+previousSameCoord+", totalSameCoord:"+totalSameCoord);
+            if((sectioning && (previousSection !== currentSection)) || (totalOtherCoord > 0 && ((previousOtherCoord + 1) % totalOtherCoord == 0))) {
                 if(isAlongDisposition) {
                     console.log("nouvelle ligne/colonne dans le sens non limité");
                     next = previousSameCoord + 1;
                 } else {
                     console.log("retour au début dans le sens non limité")
-                    next = startShift;
+                    next = 0;
                 }
                 //dans le cas où on continue normalement
             } else {
@@ -215,18 +211,22 @@ TabView {
                 }
             }
             //on corrige les cas de dépassements étranges
-            if(!isAlongDisposition) {
-                next = next % totalSameCoord + startShift;
+            if(!isAlongDisposition && (next >= totalSameCoord)) {
+                next = next % totalSameCoord;
             }
+            /*on adapte pour éviter les impossibilités*/
+            next = Math.max(next, 0);
+            if(totalSameCoord > 0) {
+                next = Math.min(next, totalSameCoord);
+            }
+            console.log("successeur de [" + previousRow + ", " + previousColumn+"]");
         }
-
         if(isCoordRow) {
             console.log("ligne finale "+next);
         } else {
             console.log("colonne finale "+next);
         }
-
-        return Math.max(next, startShift);//on adapte pour éviter les impossibilités*/
+        return next;
     }
 
 
@@ -238,16 +238,21 @@ TabView {
                 actionsList: stdKeyboard
                 columns: 11
                 enabled: tabView.enabled
-                height: tabView.height-style.frameOverlap
-                width: tabView.width
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
             }
         },
         Component {
             id: servicesTab
             GridLayout {
                 id: servicesPanel
+                enabled: tabView.enabled
+                height: tabView.implicitHeight-2*servicesPanel.rowSpacing
+                width: tabView.implicitWidth-2*servicesPanel.columnSpacing
                 flow: GridLayout.LeftToRight
                 columns: servicesRep.model === 0 ? 0 : servicesPanel.maxColumns
+                rowSpacing: 1
+                columnSpacing: 1
                 property int maxColumns: 4
                 property variant model: SH_ServicesModel { }
                 Component.onCompleted: {
@@ -262,14 +267,17 @@ TabView {
                     property real itemHeight: computeMaxCoord(servicesRep, servicesPanel, true)
                     property real itemWidth: computeMaxCoord(servicesRep, servicesPanel, false)
                     delegate: SH_ServicesDelegate {
-                        Layout.minimumHeight: servicesRep.itemHeight
-                        Layout.minimumWidth: servicesRep.itemWidth
+                        Layout.maximumHeight: servicesRep.itemHeight
+                        Layout.maximumWidth: servicesRep.itemWidth
                         Layout.row: computeCoord(servicesRep, index, servicesPanel, true)
                         Layout.column: computeCoord(servicesRep, index, servicesPanel, false)
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         onClicked: {
                             tabView.selected(servicesRep.itemAt(index).value);
+                        }
+                        Component.onCompleted: {
+                            console.log(index+": ["+Layout.row+", "+Layout.column+"]");
                         }
                     }
                 }
@@ -279,6 +287,9 @@ TabView {
             id: servicesEditTab
             SH_SqlTableView {
                 id: servicesEditView
+                enabled: tabView.enabled
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
                 model: SH_ServicesModel { }
                 onSelectedRow: {
                     tabView.selectedForDetail(servicesEditView.model.data(selectedData));
@@ -289,6 +300,11 @@ TabView {
             id: roomsTab
             GridLayout {
                 id: roomsPanel
+                rowSpacing: 1
+                columnSpacing: 1
+                enabled: tabView.enabled
+                height: tabView.implicitHeight-2*roomsPanel.rowSpacing
+                width: tabView.implicitWidth-2*roomsPanel.columnSpacing
                 flow: GridLayout.LeftToRight
                 columns: roomsRep.model === 0 ? 0 : roomsPanel.maxColumns
                 property int maxColumns: 7
@@ -305,14 +321,17 @@ TabView {
                     property real itemHeight: computeMaxCoord(roomsRep, roomsPanel, true)
                     property real itemWidth: computeMaxCoord(roomsRep, roomsPanel, false)
                     delegate: SH_RoomsDelegate {
-                        Layout.minimumHeight: roomsRep.itemHeight
-                        Layout.minimumWidth: roomsRep.itemWidth
+                        Layout.maximumHeight: roomsRep.itemHeight
+                        Layout.maximumWidth: roomsRep.itemWidth
                         Layout.row: computeCoord(roomsRep, index, roomsPanel, true)
                         Layout.column: computeCoord(roomsRep, index, roomsPanel, false)
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         onClicked: {
                             tabView.selected(roomsRep.itemAt(index).value);
+                        }
+                        Component.onCompleted: {
+                            console.log(index+": ["+Layout.row+", "+Layout.column+"]");
                         }
                     }
                 }
@@ -322,6 +341,9 @@ TabView {
             id: roomsEditTab
             SH_SqlTableView {
                 id: roomsEditView
+                enabled: tabView.enabled
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
                 model: SH_RoomsModel { }
                 onSelectedRow: {
                     tabView.selectedForDetail(roomsEditView.model.data(selectedData));
@@ -330,49 +352,83 @@ TabView {
         },
         Component {
             id: billingsTab
-            /*SH_Sqlgrid {
-                sqlModel: SH_BillingsModel {}
-                filtersTitle: qsTr("Tri des facturations")
-                itemDelegate: "SH_BillingsDelegate.qml"
-                emptyDelegate: "SH_DataDelegate.qml"
-                sectionDelegate: "SH_DataDelegate.qml"
-                onSelected: {
-                    tabView.selected(selectedItem);
+            GridLayout {
+                id: billingsPanel
+                enabled: tabView.enabled
+                height: tabView.implicitHeight-2*billingsPanel.rowSpacing
+                width: tabView.implicitWidth-2*billingsPanel.columnSpacing
+                flow: GridLayout.LeftToRight
+                columns: billingsRep.model === 0 ? 0 : billingsPanel.maxColumns
+                rowSpacing: 1
+                columnSpacing: 1
+                property int maxColumns: 4
+                property variant model: SH_BillingsModel { }
+                Component.onCompleted: {
+                    if(billingsPanel.model.rowCount() > 0) {
+                        billingsPanel.columns = Math.min(billingsPanel.model.rowCount(), billingsPanel.maxColumns);
+                        billingsRep.model = billingsPanel.model;
+                    }
                 }
-                onNewItem: {
-                    tabView.newBilling();
-                }
-            }*/
-            SH_SqlGrid {
-                delegateSource: "SH_BillingsDelegate.qml"
-                columns: 6
-                model: SH_BillingsModel { }
-                onSelected: {
-                    tabView.selected(selectedItem);
+                Repeater {
+                    id: billingsRep
+                    model: 0
+                    property real itemHeight: computeMaxCoord(billingsRep, billingsPanel, true)
+                    property real itemWidth: computeMaxCoord(billingsRep, billingsPanel, false)
+                    delegate: SH_BillingsDelegate {
+                        Layout.maximumHeight: billingsRep.itemHeight
+                        Layout.maximumWidth: billingsRep.itemWidth
+                        Layout.row: computeCoord(billingsRep, index, billingsPanel, true)
+                        Layout.column: computeCoord(billingsRep, index, billingsPanel, false)
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        onClicked: {
+                            tabView.selected(billingsRep.itemAt(index).value);
+                        }
+                        Component.onCompleted: {
+                            console.log(index+": ["+Layout.row+", "+Layout.column+"]");
+                        }
+                    }
                 }
             }
         },
         Component {
             id: bookingsTab
-            /*SH_Sqlgrid {
-                sqlModel: SH_BookingsModel { }
-                filtersTitle: qsTr("Tri des réservations")
-                itemDelegate: "SH_BookingsDelegate.qml"
-                emptyDelegate: "SH_DataDelegate.qml"
-                sectionDelegate: "SH_DataDelegate.qml"
-                onSelected: {
-                    tabView.selected(selectedItem);
+            GridLayout {
+                id: bookingsPanel
+                enabled: tabView.enabled
+                height: tabView.implicitHeight-2*bookingsPanel.rowSpacing
+                width: tabView.implicitWidth-2*bookingsPanel.columnSpacing
+                flow: GridLayout.LeftToRight
+                columns: bookingsRep.model === 0 ? 0 : bookingsPanel.maxColumns
+                rowSpacing: 1
+                columnSpacing: 1
+                property int maxColumns: 4
+                property variant model: SH_BookingsModel { }
+                Component.onCompleted: {
+                    if(bookingsPanel.model.rowCount() > 0) {
+                        bookingsPanel.columns = Math.min(bookingsPanel.model.rowCount(), bookingsPanel.maxColumns);
+                        bookingsRep.model = bookingsPanel.model;
+                    }
                 }
-                onNewItem: {
-                    tabView.newBooking();
-                }
-            }*/
-            SH_SqlGrid {
-                delegateSource: "SH_BookingsDelegate.qml"
-                columns: 6
-                model: SH_BookingsModel { }
-                onSelected: {
-                    tabView.selected(selectedItem);
+                Repeater {
+                    id: bookingsRep
+                    model: 0
+                    property real itemHeight: computeMaxCoord(bookingsRep, bookingsPanel, true)
+                    property real itemWidth: computeMaxCoord(bookingsRep, bookingsPanel, false)
+                    delegate: SH_BookingsDelegate {
+                        Layout.maximumHeight: bookingsRep.itemHeight
+                        Layout.maximumWidth: bookingsRep.itemWidth
+                        Layout.row: computeCoord(bookingsRep, index, bookingsPanel, true)
+                        Layout.column: computeCoord(bookingsRep, index, bookingsPanel, false)
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        onClicked: {
+                            tabView.selected(bookingsRep.itemAt(index).value);
+                        }
+                        Component.onCompleted: {
+                            console.log(index+": ["+Layout.row+", "+Layout.column+"]");
+                        }
+                    }
                 }
             }
         },
@@ -380,6 +436,9 @@ TabView {
             id: groupsEditTab
             SH_SqlTableView {
                 id: groupsEditView
+                enabled: tabView.enabled
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
                 model: SH_GroupsModel { }
                 onSelectedRow: {
                     tabView.selectedForDetail(groupsEditView.model.data(selectedData));
@@ -390,6 +449,9 @@ TabView {
             id: clientsEditTab
             SH_SqlTableView {
                 id: clientsEditView
+                enabled: tabView.enabled
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
                 model: SH_ClientsModel {  }
                 onSelectedRow: {
                     tabView.selectedForDetail(clientsEditView.model.data(selectedData));
@@ -400,6 +462,9 @@ TabView {
             id: reportsTab
             SH_SqlTableView {
                 id: reportsTypesEditView
+                enabled: tabView.enabled
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
                 model: SH_ReportsTypesModel { }
                 onSelectedRow: {
                     if(!reportsTypesEditView.model.empty) {
@@ -413,6 +478,9 @@ TabView {
         Component {
             id: usersTab
             Rectangle {
+                enabled: tabView.enabled
+                height: tabView.implicitHeight
+                width: tabView.implicitWidth
                 ColumnLayout {
                     GroupBox {
                         title: "Nouvel utilisateur"

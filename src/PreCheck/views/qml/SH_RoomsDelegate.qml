@@ -26,7 +26,7 @@ SH_DataDelegate {
             border.left: 1
             border.right: 1
             anchors.bottomMargin: -1
-            property string color: ISCLEANED === Qt.Unchecked ? 'blue' : (ISAVAILABLE === Qt.Checked ? "green" : "orange")
+            property string color: (ISAVAILABLE ? (ISCLEANED ? 'green' : 'blue') : "orange")
             source: btn.pressed ? "../icons/button"+color.toUpperCase()+"down.png" : "../icons/button"+color.toUpperCase()+"up.png"
         }
     }

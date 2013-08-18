@@ -14,12 +14,17 @@ Button {
     id: btn
     text: ""
     property string value: ""
-    property int fontSize: 8
+    property int fontSize: 10
     property Component textStyle: defaultTextStyle
     property Component backgroundStyle: defaultBackgroundStyle
     style: ButtonStyle {
+        id: bstyle
         label: btn.textStyle
         background: btn.backgroundStyle
+        padding.top: 3
+        padding.bottom: 3
+        padding.right: 3
+        padding.left: 3
     }
     property Component defaultTextStyle: Text {
         id: styleText
@@ -29,15 +34,16 @@ Button {
         wrapMode: Text.Wrap
         text:btn.text
         font.pointSize: btn.fontSize
+        anchors.centerIn: parent
     }
     property Component defaultBackgroundStyle :  Item {
         anchors.margins: 0
         BorderImage {
             anchors.fill: parent
-            border.top: 3
-            border.bottom: 3
-            border.left: 3
-            border.right: 3
+            border.top: 4
+            border.bottom: 4
+            border.left: 4
+            border.right: 4
             anchors.bottomMargin: -1
             source: btn.enabled ? (btn.pressed ? "../icons/buttondown.png" : "../icons/buttonup.png") : "../icons/buttonblocked.png"
         }

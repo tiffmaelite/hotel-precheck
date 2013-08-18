@@ -15,6 +15,6 @@ SH_DataDelegate {
     id: service
     value: SERVICEFULLCODE
     text: SERVICENAME
-    //visible: ISAVAILABLE === Qt.Checked
-    enabled: (TYPENEEDSROOM === Qt.Unchecked || App.billOpened() > 0)
+    visible: ISAVAILABLE
+    enabled: (TYPENEEDSROOM || App.billOpened() > 0)
 }
