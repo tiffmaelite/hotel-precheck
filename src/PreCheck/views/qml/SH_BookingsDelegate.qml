@@ -10,8 +10,8 @@ import PreCheck 1.0
 /*!
   \class  SH_BookingsDelegate
   */
-SH_DataModelDelegate {
-    model: SH_BookingsModel { }
+SH_DataDelegate {
+    //model: SH_BookingsModel { }
     value: ID
     text: CLIENT_ID
 }

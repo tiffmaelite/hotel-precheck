@@ -12,7 +12,6 @@ GridLayout {
     id: servicesList
     property variant model
     property string delegateSource
-    Component.onCompleted: if(model!==0 && model.empty) {model.fetch(); }
     signal selected(string selectedItem)
     Repeater {
         id: servicesRep

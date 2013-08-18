@@ -2,7 +2,8 @@
 #include "SH_DatabaseManager.h"
 #include "SH_MessageManager.h"
 
-SH_SqlFuncResultModel::SH_SqlFuncResultModel(QObject *parent): SH_SqlQueryModel(parent)
+SH_SqlFuncResultModel::SH_SqlFuncResultModel(QObject *parent):
+    SH_SqlQueryModel(parent), m_functionCall("")
 {
 }
 

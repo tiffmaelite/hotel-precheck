@@ -8,7 +8,7 @@
 class SH_ExtendedProxyFuncResultModel : public SH_ExtendedProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString functionCall READ functionCall STORED false)
+    Q_PROPERTY(QString functionCall READ functionCall WRITE setFunctionCall STORED false)
 public:
     explicit SH_ExtendedProxyFuncResultModel(QObject *parent = 0);
 
@@ -20,11 +20,12 @@ public:
         */
         const QString functionCall() const { return this->model->functionCall(); }
 
-        Q_INVOKABLE bool fetch();
+        void setFunctionCall(QString func) { this->model->fetchQuery(func); this->model->fetch(); }
 
         void setSourceModel(QAbstractItemModel *sourceModel);
 protected:
         SH_SqlFuncResultModel *model;
+        bool fetch();
 signals:
 
 public slots:

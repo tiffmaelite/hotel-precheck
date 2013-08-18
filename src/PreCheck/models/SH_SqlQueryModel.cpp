@@ -8,8 +8,9 @@
 
 
 SH_SqlQueryModel::SH_SqlQueryModel(QObject *parent) :
-    QAbstractListModel(parent), m_new(true)
+    QAbstractListModel(parent), m_order(""), m_condition(""), m_new(true)
 {
+    this->m_fetching = new QMutex(QMutex::NonRecursive);
 }
 
 /*!
@@ -27,19 +28,18 @@ int SH_SqlQueryModel::rowCount(const QModelIndex &parent) const
 */
 QVariant SH_SqlQueryModel::data(const QModelIndex &index, int role) const
 {
-    if (!this->m_new && this->m_records.count() > 0 && index.isValid())
+    if (!this->m_new && this->m_records.count() > 0)
     {
-        int row = index.row();
-        int column = this->fieldFromRole(role);
-        int nbCols = this->m_roles.count();
-        if(column >= 0 && column < nbCols) {
-            SH_MessageManager::debugMessage(QString("row : %1, column : %2, field: %3 (%4), value : %5\n").arg(index.row()).arg(index.column()).arg(column).arg(QString(this->m_fields.at(column)->role())).arg(this->m_records.at(row).value(column).toString()));
-            return this->m_records.at(row).value(column);
-        } else{
-            SH_MessageManager::errorMessage(QString("rien à retourner pour %1x%2x%3 (%4>=%5)").arg(index.row()).arg(index.column()).arg(role).arg(column).arg(nbCols));
+        if(index.isValid()) {
+            int row = index.row();
+            int column = this->fieldFromRole(role);
+            int nbCols = this->m_roles.count();
+            if(column >= 0 && column < nbCols) {
+                //SH_MessageManager::debugMessage(QString("row: %L1, column: %L2, field: %L3 (%L4), value: %L5").arg(index.row()).arg(index.column()).arg(column).arg(QString(this->m_fields.at(column)->role())).arg(this->m_records.at(row).value(column).toString()));
+                return this->m_records.at(row).value(column);
+            }
         }
     }
-    SH_MessageManager::errorMessage("modèle vide ou index invalide");
     return QVariant();
 }
 
@@ -85,7 +85,7 @@ QVariantMap SH_SqlQueryModel::datas()
 }
 
 QMap<int, QVariant> SH_SqlQueryModel::itemData(const QModelIndex & index) const {
-    if (!this->m_new && this->m_records.count() > 0)
+    if (!this->m_new && this->m_records.count() > 0 && index.isValid())
     {
         QMap<int, QVariant> result;
         int row = index.row();
@@ -135,13 +135,13 @@ bool SH_SqlQueryModel::setHeaderData(int section, Qt::Orientation orientation, c
  \details \~french
  \fn SH_ExtendedProxyModel::setHeaderData
 */
-QVariant SH_SqlQueryModel::headerData(int section, Qt::Orientation orientation, int role)
+QVariant SH_SqlQueryModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     Q_UNUSED(role);
     if(orientation == Qt::Horizontal) {
         return QVariant(this->m_fields.at(section)->text());
     }
-    return false;
+    return QVariant();
 }
 
 /*!
@@ -195,9 +195,10 @@ void SH_SqlQueryModel::resetInternalData() {
 bool SH_SqlQueryModel::fetch()
 {
     this->m_new = false;
-    //SH_MessageManager::debugMessage("Bienvenue dans query fetch");
+    SH_MessageManager::debugMessage("Bienvenue dans query fetch");
     try
     {
+        //this->m_fetching->tryLock(100);
         this->beginResetModel();
         this->m_records.clear();
         this->resetInternalData();
@@ -216,13 +217,13 @@ bool SH_SqlQueryModel::fetch()
                     //SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
                     this->beginInsertRows(QModelIndex(), 0, 0);
                     this->m_records.append(record);
-                    /*#ifdef DEBUGMODE
-                int nbFields = record.count();
-                for (int i = 0; i < nbFields; i++)
-                {
-                    SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
-                }
-                #endif*/
+#ifdef DEBUGMODE
+                    int nbFields = record.count();
+                    for (int i = 0; i < nbFields; i++)
+                    {
+                        SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
+                    }
+#endif
                     if (this->m_fields.empty())
                     {
                         int nbFields = record.count();
@@ -242,6 +243,7 @@ bool SH_SqlQueryModel::fetch()
             }
             SH_MessageManager::debugMessage(QString("%L1 résultats").arg(this->rowCount()));
         }
+        //this->m_fetching->unlock();
     }
     catch (const std::exception &e)
     {
@@ -262,11 +264,13 @@ bool SH_SqlQueryModel::fetch()
  \details \~french
  \fn SH_SqlQueryModel::field
 */
-SH_SqlDataFields *SH_SqlQueryModel::field(int i) const
+SH_SqlDataFields *SH_SqlQueryModel::field(int i)
 {
-    i = qMin(i, this->fieldsCount()-1);
-    i = qMax(i, 0);
-    return this->m_fields.at(i);
+    if(!this->m_new && i >= 0 && i < this->fieldsCount()) {
+        return this->m_fields.at(i);
+    } else {
+        return new SH_SqlDataFields();
+    }
 }
 /*!
  \details \~french
@@ -338,7 +342,7 @@ void SH_SqlQueryModel::applyRoles()
  \details \~french
  \fn SH_SqlQueryModel::fieldsCount
 */
-int SH_SqlQueryModel::fieldsCount() const
+int SH_SqlQueryModel::fieldsCount()
 {
     if(this->m_new) {
         return 0;
@@ -358,14 +362,8 @@ void SH_SqlQueryModel::setOrderBy(QString sort)
  \details \~french
  \fn SH_SqlQueryModel::isEmpty
 */
-bool SH_SqlQueryModel::isEmpty() const
+bool SH_SqlQueryModel::isEmpty()
 {
     return this->m_new || this->m_records.isEmpty();
 }
 
-
-QVariant SH_SqlQueryModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    //TODO SH_SqlQueryModel headerData
-    return QAbstractListModel::headerData(section, orientation, role);
-}

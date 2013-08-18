@@ -11,6 +11,7 @@ SH_BillingsTableModel::SH_BillingsTableModel(QObject *parent):
     SH_ExtendedProxyTableModel(parent)
 {
     SH_ExtendedProxyTableModel::model->setTableName("BILLINGSINFOS");
+    this->fetch();
 }
 
 

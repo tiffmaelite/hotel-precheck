@@ -22,10 +22,10 @@ TEMPLATE = app
 CONFIG *= c++11 qt thread exceptions console testcase # static
 
 # Qt-specific configuration options : required modules (c.f. http://doc-snapshot.qt-project.org/qt5-stable/qmake/qmake-variable-reference.html#qt)
-QT *= core gui quick qml sql widgets printsupport #concurrent qmltest testlib #svg uitools x11extras
+QT *= core gui quick qml sql widgets printsupport concurrent #qmltest testlib #svg uitools x11extras
 
 # Plugins that should be statically linked for deployment
-QTPLUGIN *= core gui quick qml sql widgets printsupport #concurrent qmltest testlib #svg uitools x11extras
+QTPLUGIN *= core gui quick qml sql widgets printsupport concurrent #qmltest testlib #svg uitools x11extras
 
 # QStringBuilder uses expression templates and reimplements the '%' operator so that when you use '%' for string concatenation instead of '+', multiple substring concatenations will be postponed until the final result is about to be assigned to a QString. Let '+' automatically be performed as the QStringBuilder '%' everywhere.
 DEFINES *= QT_USE_QSTRINGBUILDER

@@ -10,6 +10,7 @@ SH_ReportsTypesTableModel::SH_ReportsTypesTableModel(QObject *parent):
     SH_ExtendedProxyTableModel(parent)
 {
     SH_ExtendedProxyTableModel::model->setTableName("REPORTSTYPES");
+    this->fetch();
 }
 
 

@@ -17,7 +17,7 @@ TableView {
     signal selectedRow(int selectedData)
     Component.onCompleted:{
         if(table.model !== 0) {
-            table.model.fetch();
+            //table.model.fetch();
             var count = 0;
             if(!table.model.empty) {
                 count = table.model.fieldsCount();
@@ -55,7 +55,7 @@ TableView {
         height: 1.5*headerText.height
         Label {
             id:headerText
-            text: styleData.value !== undefined ? styleData.value : ""
+            text: styleData.value !== undefined ? styleData.value.toUpperCase() : ""
             font.bold: true
             font.pointSize: 9
             horizontalAlignment: Text.AlignHCenter

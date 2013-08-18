@@ -23,7 +23,7 @@ class SH_ExtendedProxyModel : public QSortFilterProxyModel
     Q_PROPERTY(int sortKeyColumn READ sortKeyColumn WRITE setSortKeyColumn NOTIFY sortChanged) //MEMBER m_sortIndex
 
 public:
-/*!
+    /*!
 \brief \~french
 
  \fn SH_ExtendedProxyModel
@@ -31,10 +31,14 @@ public:
 */
     SH_ExtendedProxyModel(QObject *parent = 0);
 
+    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const {  Q_UNUSED(parent); return this->m_count; }
+
+    Q_INVOKABLE int columnCount(const QModelIndex &parent = QModelIndex()) const { Q_UNUSED(parent);  return 1; }
+
 
     int sortKeyColumn() const { return this->m_sortIndex; }
 
-/*!
+    /*!
     \brief \~french
 
     \fn fields
@@ -42,7 +46,7 @@ public:
     */
     /*QString fields() { QStringList fields = this->model->fieldsList(); if(fields.isEmpty()){ return "*";} else { return fields.join(", ");} }*/
 
-/*!
+    /*!
     \brief \~french
 
     \fn lastError
@@ -50,15 +54,21 @@ public:
     */
     QString lastError() { return this->model->lastError(); }
 
-/*!
+    /*!
     \brief \~french
 
     \fn isEmpty
     \return const bool
     */
-    bool isEmpty() const { if(!this->m_fetched) { return true; } else { return this->model->isEmpty(); } }
+    bool isEmpty() {
+        if(!this->m_fetched) {
+            return true;
+        } else {
+            return this->model->isEmpty();
+        }
+    }
 
-/*!
+    /*!
     \brief \~french
 
     \fn setSortKeyColumn
@@ -67,32 +77,24 @@ public:
     void setSortKeyColumn(int column);
 
 
-/*!
+    /*!
     \brief \~french
 
     \fn field
     \param i
     \return SqlDataFields
     */
-    Q_INVOKABLE SH_SqlDataFields *field(int i) const { if(!this->m_fetched) { return new SH_SqlDataFields(); } else { return this->model->field(i); } }
+    Q_INVOKABLE SH_SqlDataFields *field(int i) { if(this->m_fetched && i  >= 0 && i < this->fieldsCount()) { return this->modelFields.at(i); } return new SH_SqlDataFields(); }
 
-/*!
+    /*!
     \brief \~french
 
     \fn fieldsCount
     \return int
     */
-    int fieldsCount() const { if(!this->m_fetched) { return 0; } else { return this->model->fieldsCount(); } }
+    Q_INVOKABLE int fieldsCount() { if(!this->m_fetched) { return 0; } else { return this->modelFields.count(); } }
 
-/*!
-    \brief \~french
-
-    \fn fetch
-    \return bool
-    */
-    Q_INVOKABLE virtual bool fetch() = 0;
-
-/*!
+    /*!
     \brief \~french
 
     \fn sort
@@ -101,7 +103,7 @@ public:
     */
     Q_INVOKABLE void sort(int column, Qt::SortOrder newOrder = Qt::AscendingOrder);
 
-/*!
+    /*!
     \brief \~french
 
     \fn addFilterKeyColumn
@@ -109,7 +111,7 @@ public:
     */
     Q_INVOKABLE void addHiddenColumn(int column);
 
-/*!
+    /*!
     \brief \~french
 
     \fn removeFilterKeyColumn
@@ -117,7 +119,7 @@ public:
     */
     Q_INVOKABLE void showHiddenColumn(int column);
 
-/*!
+    /*!
     \brief \~french
 
     \fn containsFilterKeyColumn
@@ -126,7 +128,7 @@ public:
     */
     Q_INVOKABLE bool isHidingColumn(int column);
 
-/*!
+    /*!
     \brief \~french
 
     \fn data
@@ -136,7 +138,7 @@ public:
     */
     Q_INVOKABLE QVariant data(int row, int column = -1);
 
-/*!
+    /*!
     \brief \~french
 
     \fn data
@@ -146,7 +148,7 @@ public:
     */
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole);
 
-/*!
+    /*!
     \brief \~french
 
     \fn setData
@@ -157,15 +159,15 @@ public:
     */
     Q_INVOKABLE bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
 
-/*!
+    /*!
     \brief \~french
 
     \fn roleNames
     \return QHash<int, QByteArray>
     */
-    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames() const;
+    Q_INVOKABLE virtual QHash<int, QByteArray> roleNames();
 
-/*!
+    /*!
     \brief \~french
 
     \fn flags
@@ -175,14 +177,14 @@ public:
     Q_INVOKABLE Qt::ItemFlags flags(const QModelIndex &index) const;
 
 
-/*!
+    /*!
     \brief \~french
 
     \fn invalidateFilter
     */
     void invalidateFilter();
 
-/*!
+    /*!
     \brief \~french
 
     \fn setBooleanColumns
@@ -190,7 +192,7 @@ public:
     */
     void setBooleanColumns(QList<int> boolCols);
 
-/*!
+    /*!
     \brief \~french
 
     \fn setReadOnlyColumns
@@ -198,7 +200,7 @@ public:
     */
     void setReadOnlyColumns(QList<int> readonlyCols);
 
-/*!
+    /*!
     \brief \~french
 
     \fn setPasswordColumns
@@ -206,7 +208,7 @@ public:
     */
     void setPasswordColumns(QList<int> passwordCols);
 
-/*!
+    /*!
     \brief \~french
 
     \fn setNullColumns
@@ -214,7 +216,7 @@ public:
     */
     void setNullColumns(QList<int> nullCols);
 
-/*!
+    /*!
     \brief \~french
 
     \fn setNotNullColumns
@@ -228,12 +230,13 @@ public:
     bool containsFilterKeyColumn(int column);
     void setFilterKeyColumn(int column);
     bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole);
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole);
+    Q_INVOKABLE QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole);
 
     int fieldIndex(QString fieldname);
+    Q_INVOKABLE QModelIndex modelIndex(int row, int column);
 signals:
 
-/*!
+    /*!
     \brief \~french
 
     \fn sortChanged
@@ -243,15 +246,22 @@ signals:
     void emptinessChanged();
 
 protected:
+    /*!
+        \brief \~french
 
-/*!
+        \fn fetch
+        \return bool
+        */
+    virtual bool fetch() = 0;
+
+    /*!
     \brief \~french
 
     \fn fillModel
     */
     virtual void fillModel() = 0;
 
-/*!
+    /*!
     \brief \~french
 
     \fn filterAcceptsRow
@@ -264,12 +274,15 @@ protected:
     QList<SH_SqlDataFields*> modelFields;
     bool m_fetched;
     QHash<int, QByteArray> m_roles;
+    QMutex m_gettingDataFromIndex;
+    QMutex m_gettingData;
+    QMutex m_fetching;
+    int m_count;
 
 private:
-    bool fetchIfFirstTime();
 
 
-/*!
+    /*!
     \brief \~french
 
     \fn replaceSet
@@ -278,37 +291,37 @@ private:
     */
     void replaceSet(QList<int>& originalSet, QList<int> newSet);
 
-/*!
+    /*!
     *\brief \~french booleanSet
     */
     QList<int> m_booleanSet;
 
-/*!
+    /*!
     *\brief \~french passwordSet
     */
     QList<int> m_passwordSet;
 
-/*!
+    /*!
     *\brief \~french readonlySet
     */
     QList<int> m_readonlySet;
 
-/*!
+    /*!
     *\brief \~french notNullSet
     */
     QList<int> m_notNullSet;
 
-/*!
+    /*!
     *\brief \~french nullSet
     */
     QList<int> m_nullSet;
 
-/*!
+    /*!
     *\brief \~french filters
     */
     QList<int> m_hiddenSet;
 
-/*!
+    /*!
     *\brief \~french sortIndex
     */
     int m_sortIndex;

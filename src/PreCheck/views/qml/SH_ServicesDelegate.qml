@@ -10,11 +10,11 @@ import PreCheck 1.0
 /*!
   \class  SH_ServicesDelegate
   */
-SH_DataModelDelegate {
-    model: SH_ServicesModel { }
+SH_DataDelegate {
+    //model: SH_ServicesModel { }
     id: service
     value: SERVICEFULLCODE
     text: SERVICENAME
-    visible: ISAVAILABLE == true
-    enabled: (TYPENEEDSROOM == false || App.billOpened() > 0)
+    //visible: ISAVAILABLE === Qt.Checked
+    enabled: (TYPENEEDSROOM === Qt.Unchecked || App.billOpened() > 0)
 }

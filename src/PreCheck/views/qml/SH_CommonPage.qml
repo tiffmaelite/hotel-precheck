@@ -155,11 +155,6 @@ Item {
                 Repeater {
                     id: vatRep
                     model: SH_VATModel { }
-                    Component.onCompleted: {
-                        if(vatRep.model.empty) {
-                            vatRep.model.fetch();
-                        }
-                    }
                     delegate: SH_VATDelegate {
                         Layout.minimumHeight: vatRep.count <= 0 ? 0 : vatSidePanel.height / vatRep.count - vatSidePanel.spacing
                         Layout.minimumWidth: vatSidePanel.width
@@ -276,7 +271,7 @@ onTriggered: *//*TODO eraseAction*/
     SH_ComplexAction {
         id: backAction
         text: qsTr("RETOUR")
-        keyShortcut: Qt.Key_Backspace
+        keyShortcut: Qt.Key_Backspace || Qt.Key_Back
         enabled: commonPage.visible
         onTriggered: commonPage.streamBuffer.eraseLastChar();
     }
@@ -455,7 +450,7 @@ onTriggered: */ /*TODO groupBillingAction*/
     SH_ComplexAction {
         id: enterAction
         text: qsTr("ENTRÉE")
-        keyShortcut: Qt.Key_Enter
+        keyShortcut: Qt.Key_Enter || Qt.Key_Return
         enabled: commonPage.visible
         onTriggered: commonPage.streamBuffer.clearBuffer();
     }

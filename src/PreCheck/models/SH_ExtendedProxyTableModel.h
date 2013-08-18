@@ -17,11 +17,11 @@ public:
         */
         const QString tableName() const { return this->model->tableName(); }
 
-        Q_INVOKABLE bool fetch();
 
         void setSourceModel(QAbstractItemModel *sourceModel);
 protected:
         SH_SqlDataModel *model;
+        bool fetch();
 signals:
 
 public slots:

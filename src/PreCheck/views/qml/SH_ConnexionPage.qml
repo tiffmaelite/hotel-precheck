@@ -57,6 +57,7 @@ Item {
         }
         TextField {
             id: login
+            Layout.maximumHeight: 20
             activeFocusOnPress: true
             onAccepted: {
                 connexionPage.checkUsername(login.text);
@@ -71,8 +72,14 @@ Item {
                     errorLabel.visible = false;
                 }
             }
-
-            Layout.maximumHeight: 20
+            Keys.onPressed: {
+                if(event.key === Qt.Key_Backspace || event.key === Qt.Key_Back) {
+                    login.getText(login.length-2,  login.length-1);
+                } else if(event.key === Qt.Key_Tab) {
+                    password.focus = true;
+                    login.focus = false;
+                }
+            }
         }
         Label {
             text: qsTr("Mot de passe")
@@ -81,7 +88,7 @@ Item {
         TextField {
             id:password
             echoMode: TextInput.Password
-
+            activeFocusOnPress: true
             Layout.maximumHeight: 20
             onFocusChanged: {
                 if(!focus) {
@@ -89,6 +96,14 @@ Item {
                 } else {
                     errorLabel.text="";
                     errorLabel.visible = false;
+                }
+            }
+            Keys.onPressed: {
+                if(event.key === Qt.Key_Backspace || event.key === Qt.Key_Back) {
+                    password.getText(password.length-2,  password.length-1);
+                } else if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                    password.focus = false;
+                    connexion.clicked();
                 }
             }
         }
@@ -100,6 +115,7 @@ Item {
             Layout.fillWidth: true
             Layout.columnSpan: 2
             Button {
+                id: connexion
                 text: qsTr("Connexion")
                 anchors.centerIn: parent
                 width: parent.width

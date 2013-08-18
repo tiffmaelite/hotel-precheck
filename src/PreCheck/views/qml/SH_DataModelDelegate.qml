@@ -10,11 +10,6 @@ import PreCheck 1.0
 
 DelegateModel {
     id: delModel
-    Component.onCompleted: {
-        if(delModel.model.empty) {
-            delModel.model.fetch();
-        }
-    }
     property real height
     property real width
     property string value

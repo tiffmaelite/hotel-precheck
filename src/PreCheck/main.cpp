@@ -197,6 +197,7 @@ int main(int argc, char **argv)
 
         engine.rootContext()->setContextProperty("App", appManager);
 
+
         qmlRegisterType<SH_VATTableModel>("PreCheck", 1, 0, "SH_VATModel");
         qmlRegisterType<SH_UsersTableModel>("PreCheck", 1, 0, "SH_UsersListModel");
         qmlRegisterType<SH_TraineesTableModel>("PreCheck", 1, 0, "SH_TraineesListModel");

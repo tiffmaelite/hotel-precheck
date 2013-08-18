@@ -37,7 +37,7 @@ Rectangle {
     }
     Component.onCompleted: {
         if(display.sqlModel !== [] && display.sqlModel.empty) {
-            display.sqlModel.fetch();
+            //display.sqlModel.fetch();
         }
         isEmpty = (display.sqlModel === [] || display.sqlModel.empty);
     }

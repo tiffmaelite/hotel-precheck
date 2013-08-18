@@ -10,6 +10,7 @@ SH_BillsTableModel::SH_BillsTableModel(QObject *parent):
     SH_ExtendedProxyTableModel(parent)
 {
     SH_ExtendedProxyTableModel::model->setTableName("BILLS");
+    this->fetch();
 }
 
 

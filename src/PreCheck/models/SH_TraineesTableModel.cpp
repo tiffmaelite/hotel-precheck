@@ -11,6 +11,7 @@ SH_TraineesTableModel::SH_TraineesTableModel(QObject *parent):
     SH_ExtendedProxyTableModel(parent)
 {
     SH_ExtendedProxyTableModel::model->setTableName("TRAINEES");
+    this->fetch();
 }
 
 /*!

@@ -12,7 +12,7 @@
  \fn SH_SqlDataModel::SqlDataModel
 */
 SH_SqlDataModel::SH_SqlDataModel(QObject *parent) :
-    SH_SqlQueryModel(parent)
+    SH_SqlQueryModel(parent), m_tableName("")
 {
 }
 

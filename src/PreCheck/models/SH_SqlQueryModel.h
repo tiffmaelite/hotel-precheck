@@ -17,7 +17,7 @@ class SH_SqlQueryModel : public QAbstractListModel
 public:
     explicit SH_SqlQueryModel(QObject *parent = 0);
 
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
     QMap<int, QVariant> itemData(const QModelIndex &index) const;
     bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles);
     bool setData(const QModelIndex &index, const QVariant &value, int role);
@@ -46,9 +46,9 @@ public:
     \param parent
     \return int
     */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
-    int columnCount(const QModelIndex &parent = QModelIndex()) const { Q_UNUSED(parent);  return 1; }
+    Q_INVOKABLE int columnCount(const QModelIndex &parent = QModelIndex()) const { Q_UNUSED(parent);  return 1; }
 
     /*!
     \brief \~french
@@ -57,7 +57,7 @@ public:
     \param role
     \return QVariant
     */
-    QVariant data(const QModelIndex &index, int role) const;
+    Q_INVOKABLE QVariant data(const QModelIndex &index, int role) const;
 
     /*!
     \brief \~french
@@ -66,7 +66,7 @@ public:
     \param role
     \return QVariant
     */
-    QVariantMap datas();
+    Q_INVOKABLE QVariantMap datas();
 
     /*!
     \brief \~french
@@ -124,14 +124,14 @@ public:
     \param i
     \return SqlDataFields
     */
-    SH_SqlDataFields *field(int i) const;
+    SH_SqlDataFields *field(int i);
 
     /*!
     \brief \~french
     \fn fieldsCount
     \return int
     */
-    int fieldsCount() const;
+    int fieldsCount();
 
     /*!
     \brief \~french
@@ -148,7 +148,7 @@ public:
     \fn isEmpty
     \return bool
     */
-    bool isEmpty() const;
+    bool isEmpty();
 
     /*!
     \brief \~french
@@ -166,7 +166,6 @@ public:
 
     const QString lastError();
 
-    QVariant headerData(int section, Qt::Orientation orientation, int role=Qt::DisplayRole);
 signals:
 
     /*!
@@ -237,6 +236,8 @@ private:
     QList<QSqlRecord> m_records;
 
     bool m_new;
+
+    QMutex* m_fetching;
 };
 
 #endif // SH_SQLQUERYMODEL_H

@@ -97,7 +97,7 @@ TabView {
     }
 
     function computeMaxCoord(rep, grid, height) {
-        if(rep.count <= 0) {
+        if(rep.model === 0 || rep.model.rowCount() <= 0) {
             return 0;
         }
         var dispositionFlow;
@@ -138,31 +138,30 @@ TabView {
           \details Prend en compte le tri des éléments et va à la ligne pour toute nouvelle section (définie par le changement de valeur du critère de tri)
           */
     function computeCoord(rep, index, grid, isCoordRow) {
-        if(rep.count <= 0) {
+        console.log("\n\nélément n°"+index);
+        var model = rep.model;
+        if(model === 0 || model.rowCount() <= 0) {
             console.log("Modèle vide");
             return 0;
         }
-        var model = rep.model;
-        console.log("élément n°"+index);
-        console.log("élément d'ID " + (model.data(index, 0)));
-        /*var sectionIndex = Math.max(0,model.sortKeyColumn); //L'indice du champ du modèle selon lequel est effectué le tri des éléments
-        console.log("sectionIndex: "+sectionIndex);
-        var previous = rep.itemAt(Math.max(0,index-1));
-        var sectioning = (sectionIndex > 0); //sectionIndex=0 <=> tri par les ID <=> pas de tri
-        var startShift = 1;//0;
+        var startShift = 0; //1;
         var next = startShift;
-        console.log("startShift: "+startShift);
+        var id = model.data(model.modelIndex(index, 0), 256);
+        console.log("élément d'ID " + id+" ("+ model.data(model.modelIndex(index, 1), 256)+")");
         if(isCoordRow) {
             console.log("\ncalcul de l'indice de ligne");
         } else {
             console.log("\ncalcul de l'indice de colonne");
         }
-        //on n'a besoin de calculer que pour des éléments ultérieurs au premier
-        if(index > 0){
-            var currentSection = model.data(index, sectionIndex);
-            var previousSection = model.data(Math.max(0,index-1), sectionIndex);
+        if(index >= 1) { // on n'a besoin de calculer que pour des éléments ultérieurs au premier car ligne 0 et colonne 0 pour élément d'index 0
+            var sectionIndex = Math.max(0,model.sortKeyColumn); //L'indice du champ du modèle selon lequel est effectué le tri des éléments
+            var sectioning = (sectionIndex > 0); //sectionIndex=0 <=> tri par les ID <=> pas de tri
+            var currentSection = model.data(model.modelIndex(index, sectionIndex), 256+sectionIndex);
+            var previousSection = model.data(model.modelIndex(index-1, sectionIndex), 256+sectionIndex);
+            var previous = rep.itemAt(index-1);
             var previousRow = previous.Layout.row;
             var previousColumn = previous.Layout.column;
+
             var previousSameCoord;
             var previousOtherCoord;
             var totalSameCoord;
@@ -196,7 +195,8 @@ TabView {
             }
 
             //dans le cas où la ligne/colonne de l'élément précédent avait atteint la limite, ou qu'il s'agit d'une nouvelle section
-            if((sectioning && (previousSection !== currentSection)) || (totalOtherCoord > 0 && ((previousOtherCoord - startShift % totalOtherCoord) + startShift == 0))) {
+            console.log("previousOtherCoord: "+previousOtherCoord+", totalOtherCoord: "+totalOtherCoord+", startShift: "+startShift+", (previousOtherCoord - startShift % totalOtherCoord) + startShift="+((previousOtherCoord - startShift % totalOtherCoord) + startShift));
+            if((sectioning && (previousSection !== currentSection)) || ((previousOtherCoord - startShift) >= totalOtherCoord && (totalOtherCoord > 0 && ((previousOtherCoord - startShift % totalOtherCoord) + startShift == 0)))) {
                 if(isAlongDisposition) {
                     console.log("nouvelle ligne/colonne dans le sens non limité");
                     next = previousSameCoord + 1;
@@ -211,7 +211,7 @@ TabView {
                     next = previousSameCoord;
                 } else {
                     console.log("ligne/colonne suivante");
-                    next = previousOtherCoord + 1;
+                    next = previousSameCoord + 1;
                 }
             }
             //on corrige les cas de dépassements étranges
@@ -226,24 +226,7 @@ TabView {
             console.log("colonne finale "+next);
         }
 
-        return Math.max(next, startShift);//on adapte pour éviter les impossibilités
-        */
-
-        console.log("grid.rows: "+grid.rows);
-        console.log("grid.columns: "+grid.columns);
-        console.log("grid.flow: "+grid.flow);
-        if(!isCoordRow && grid.flow === GridLayout.LeftToRight) {
-            return index % grid.columns;
-        }
-        if (isCoordRow && grid.flow === GridLayout.TopToBottom) {
-            return index % grid.rows;
-        }
-        if(isCoordRow && grid.flow === GridLayout.LeftToRight) {
-            return index / grid.columns;
-        }
-        if (!isCoordRow && grid.flow === GridLayout.TopToBottom) {
-            return index / grid.rows;
-        }
+        return Math.max(next, startShift);//on adapte pour éviter les impossibilités*/
     }
 
 
@@ -261,27 +244,30 @@ TabView {
         },
         Component {
             id: servicesTab
-            /*SH_Sqlgrid {
-                enabled: tabView.enabled
-                //columns: 5 //6
-                filtersTitle: qsTr("Tri des prestations")
-                sqlModel: SH_ServicesModel { }
-                itemDelegate: "SH_ServicesDelegate.qml"
-                emptyDelegate: "SH_DataDelegate.qml"
-                sectionDelegate: "SH_DataDelegate.qml"
-                onSelected: {
-                    tabView.selected(selectedItem);
-                }
-            }*/
             GridLayout {
-                id: servicesGrid
-                enabled: tabView.enabled
-                columns: 6
+                id: servicesPanel
+                flow: GridLayout.LeftToRight
+                columns: servicesRep.model === 0 ? 0 : servicesPanel.maxColumns
+                property int maxColumns: 4
+                property variant model: SH_ServicesModel { }
+                Component.onCompleted: {
+                    if(servicesPanel.model.rowCount() > 0) {
+                        servicesPanel.columns = Math.min(servicesPanel.model.rowCount(), servicesPanel.maxColumns);
+                        servicesRep.model = servicesPanel.model;
+                    }
+                }
                 Repeater {
                     id: servicesRep
-                    model: SH_VATDelegate {
-                        height: computeMaxCoord(servicesRep, servicesGrid, true)
-                        width: computeMaxCoord(servicesRep, servicesGrid, false)
+                    model: 0
+                    property real itemHeight: computeMaxCoord(servicesRep, servicesPanel, true)
+                    property real itemWidth: computeMaxCoord(servicesRep, servicesPanel, false)
+                    delegate: SH_ServicesDelegate {
+                        Layout.minimumHeight: servicesRep.itemHeight
+                        Layout.minimumWidth: servicesRep.itemWidth
+                        Layout.row: computeCoord(servicesRep, index, servicesPanel, true)
+                        Layout.column: computeCoord(servicesRep, index, servicesPanel, false)
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
                         onClicked: {
                             tabView.selected(servicesRep.itemAt(index).value);
                         }
@@ -304,17 +290,20 @@ TabView {
             GridLayout {
                 id: roomsPanel
                 flow: GridLayout.LeftToRight
-                columns: roomsRep.count > 0 ? 7 : 0
+                columns: roomsRep.model === 0 ? 0 : roomsPanel.maxColumns
+                property int maxColumns: 7
+                property variant model: SH_RoomsModel { }
+                Component.onCompleted: {
+                    if(roomsPanel.model.rowCount() > 0) {
+                        roomsPanel.columns = Math.min(roomsPanel.model.rowCount(), roomsPanel.maxColumns);
+                        roomsRep.model = roomsPanel.model;
+                    }
+                }
                 Repeater {
                     id: roomsRep
+                    model: 0
                     property real itemHeight: computeMaxCoord(roomsRep, roomsPanel, true)
                     property real itemWidth: computeMaxCoord(roomsRep, roomsPanel, false)
-                    model: SH_RoomsModel { }
-                    Component.onCompleted: {
-                        if(roomsRep.model.empty) {
-                            roomsRep.model.fetch();
-                        }
-                    }
                     delegate: SH_RoomsDelegate {
                         Layout.minimumHeight: roomsRep.itemHeight
                         Layout.minimumWidth: roomsRep.itemWidth
@@ -415,7 +404,6 @@ TabView {
                 onSelectedRow: {
                     if(!reportsTypesEditView.model.empty) {
                         reportComponentModel.functionCall=reportsTypesEditView.model.data(selectedData,reportsTypesEditView.model.fieldsCount()-1);
-                        reportComponentModel.fetch();
                         tabView.selectedForTableDetail(reportComponentModel);
                     }
                 }

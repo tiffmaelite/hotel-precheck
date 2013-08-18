@@ -5,8 +5,6 @@ SH_ExtendedProxyFuncResultModel::SH_ExtendedProxyFuncResultModel(QObject *parent
     SH_ExtendedProxyModel(parent)
 {
     this->model = new SH_SqlFuncResultModel(parent);
-    this->setSourceModel(this->model);
-    this->fetch();
 }
 
 /*!
@@ -16,13 +14,18 @@ SH_ExtendedProxyFuncResultModel::SH_ExtendedProxyFuncResultModel(QObject *parent
 */
 bool SH_ExtendedProxyFuncResultModel::fetch()
 {
+    //this->m_fetching.tryLock(100);
     SH_MessageManager::debugMessage("entering proxy function result fetch method");
+    if(!this->m_fetched) {
     this->m_fetched = this->model->fetch();
+    }
     if(this->m_fetched) {
+        this->m_count = this->model->rowCount();
         this->m_roles= this->model->roleNames();
         //emit emptinessChanged();
     }
     this->setSourceModel(this->model);
+    //this->m_fetching.unlock();
     return this->m_fetched;
 }
 

@@ -13,7 +13,8 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
     SH_ExtendedProxyTableModel(parent)
 {
     SH_ExtendedProxyTableModel::model->setTableName("ROOMSINFOS");
-    SH_ExtendedProxyTableModel::model->setOrderBy("FLOOR ASC, NUMBER ASC");
+    SH_ExtendedProxyTableModel::model->setOrderBy("NUMBER ASC");
+    this->fetch();
 }
 
 /*!
@@ -23,7 +24,8 @@ SH_RoomsTableModel::SH_RoomsTableModel(QObject *parent):
 */
 void SH_RoomsTableModel::fillModel()
 {
-    this->setHeaderData(this->fieldIndex("ID"), Qt::Horizontal, QObject::tr("ID"));
+    this->addHiddenColumn(this->fieldIndex("PRICEMAX"));
+    this->setHeaderData(this->fieldIndex("ID"), Qt::Horizontal, QObject::tr("Identifiant"));
     this->setHeaderData(this->fieldIndex("NUMBER"), Qt::Horizontal, QObject::tr("Numéro de chambre"));
     this->setHeaderData(this->fieldIndex("FLOOR"), Qt::Horizontal, QObject::tr("Étage"));
     this->setHeaderData(this->fieldIndex("TYPE"), Qt::Horizontal, QObject::tr("Type de chambre"));
@@ -32,8 +34,10 @@ void SH_RoomsTableModel::fillModel()
     this->setHeaderData(this->fieldIndex("DESCRIPTION"), Qt::Horizontal, QObject::tr("Détail"));
     this->setHeaderData(this->fieldIndex("PRICEMIN"), Qt::Horizontal, QObject::tr("Prix minimum"));
     this->setHeaderData(this->fieldIndex("PRICEMAX"), Qt::Horizontal, QObject::tr("Prix maximum"));
+    QList<int> boolCols;
+    boolCols.append(this->fieldIndex("ISCLEANED"));
+    boolCols.append(this->fieldIndex("ISAVAILABLE"));
+    this->setBooleanColumns(boolCols);
     this->sort(this->fieldIndex("FLOOR"),Qt::AscendingOrder);
-    this->addHiddenColumn(this->fieldIndex("ID"));
-    this->addHiddenColumn(this->fieldIndex("PRICEMAX"));
 }
 /*}*/

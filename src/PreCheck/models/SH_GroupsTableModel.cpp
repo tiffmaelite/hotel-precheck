@@ -11,6 +11,7 @@ SH_GroupsTableModel::SH_GroupsTableModel(QObject *parent):
     SH_ExtendedProxyTableModel(parent)
 {
     SH_ExtendedProxyTableModel::model->setTableName("GROUPS");
+    this->fetch();
 }
 
 /*!

@@ -125,9 +125,6 @@ GridLayout {
         model: dataView.model
         Component.onCompleted: {
             if(repeater.model !== 0) {
-                if(repeater.model.isEmpty()) {
-                    repeater.model.fetch();
-                }
                 if(!repeater.model.isEmpty()) {
                     console.log("\n\nÉléments fournis par " + repeater.model.table);
                     if(dataView.flow === Grid.LeftToRight) {
