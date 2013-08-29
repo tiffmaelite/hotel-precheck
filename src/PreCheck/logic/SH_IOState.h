@@ -11,7 +11,9 @@
 class SH_InOutState : public SH_GenericState
 {
     Q_OBJECT
-    Q_PROPERTY(QVariant rawIntput READ rawInput NOTIFY rawInputChanged)
+    Q_PROPERTY(QString fieldName READ fieldName WRITE setField) //MEMBER m_field
+    Q_PROPERTY(QVariant displayableInput READ displayableInput NOTIFY displayableInputChanged)
+    Q_PROPERTY(QVariant checkedInput READ checkedInput NOTIFY enteredInputChanged)
     Q_PROPERTY(QVariant intput READ input WRITE setInput NOTIFY inputChanged) //MEMBER m_input
     Q_PROPERTY(QString output READ output WRITE setOutput NOTIFY outputChanged) //MEMBER m_output
     Q_PROPERTY(bool visibility READ visibility WRITE setVisibility NOTIFY visibilityChanged) //MEMBER m_isVisible
@@ -28,18 +30,25 @@ public:
 */
     SH_InOutState(QString output, QString name, QState *parent = 0);
 
-    QString output() const { return m_output; }
+    QString output() { return this->m_output; }
 
-    QVariant input() const { return m_input; }
+    QVariant input() { return this->m_input; }
 
-    bool visibility() const { return m_isVisible; }
+
+    bool visibility() { return this->m_isVisible; }
+
+    QString fieldName() { return this->m_field; }
+
+    void setField(QString field) { this->m_field = field; }
 
     /*!
     * \brief \~french
- * \fn rawInput
+ * \fn displayableInput
     * \return QVariant
     */
-    virtual QVariant rawInput() const { return input(); }
+    virtual QVariant displayableInput() = 0;
+
+    virtual QVariant checkedInput() = 0;
 
 
     /*!
@@ -47,13 +56,13 @@ public:
     * \fn display
     * \return canDisplay
     */
-    bool display() { return m_display; }
+    bool display() { return this->m_display; }
 
     void emitSendOutput();
 
     void emitResendInput();
 
-    void enableDisplay(bool canDisplay) { m_display=canDisplay; emitSendOutput(); }
+    void enableDisplay(bool canDisplay) { this->m_display=canDisplay; emit displayChanged(); }
 
 signals:
 
@@ -71,10 +80,12 @@ signals:
     */
     void resendInput(QVariant input);
     void visibilityChanged();
-    void inputChanged();
-    void outputChanged();
-    void rawInputChanged();
+    void inputChanged(QVariant newInput);
+    void outputChanged(QString newOutput);
+    void displayableInputChanged();
     void displayChanged();
+    void enteredInputChanged();
+
 public slots:
 
     /*!
@@ -97,27 +108,31 @@ public slots:
     * \param isVisible
     */
     virtual void setVisibility(bool isVisible);
+
+
 private:
 
     /*!
-    * \brief \~french m_input
+    * \brief \~french this->m_input
     */
     QVariant m_input;
 
     /*!
-    * \brief \~french m_output
+    * \brief \~french this->m_output
     */
     QString m_output;
 
     /*!
-    * \brief \~french m_isVisible
+    * \brief \~french this->m_isVisible
     */
     bool m_isVisible;
 
     /*!
-    * \brief \~french m_display
+    * \brief \~french this->m_display
     */
     bool m_display;
+
+    QString m_field;
 };
 /*}*/
 #endif /* IOSTATE_H*/

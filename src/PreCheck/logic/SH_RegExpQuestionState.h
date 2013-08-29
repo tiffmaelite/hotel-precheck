@@ -28,9 +28,9 @@ public:
     */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
 
-    void setRegexp(QRegularExpression regexp) { m_regexp = regexp; emit regexpChanged(); }
+    void setRegexp(QRegularExpression regexp) { this->m_regexp = regexp; emit regexpChanged(); }
 
-    QRegularExpression regexp() const { return m_regexp; }
+    QRegularExpression regexp() const { return this->m_regexp; }
 
 signals:
     void regexpChanged();
@@ -38,7 +38,7 @@ public slots:
 private:
 
 /*!
-    * \brief \~french m_regexp
+    * \brief \~french this->m_regexp
     */
     QRegularExpression m_regexp;
 };

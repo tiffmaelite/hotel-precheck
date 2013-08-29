@@ -3,6 +3,7 @@
 #include "SH_DatabaseContentQuestionState.h"
 #include "SH_StringQuestionState.h"
 #include "SH_DecimalQuestionState.h"
+#include "SH_NumericQuestionState.h"
 #include "SH_DatabaseManager.h"
 #include <QtSql>
 /*namespace SimplHotel
@@ -14,7 +15,7 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     SH_LoopingInOutStateMachine("CHARGEDSERVICES",name, 0, parent), m_priceMin(0.0)
 {
     SH_DatabaseContentQuestionState* service = new SH_DatabaseContentQuestionState("Veuillez sélectionner une prestation ou appuyer sur la touche \"VALIDER\" pour cesser d'ajouter des prestations", "choose service in service charging","SERVICES","CODE");
-    SH_InOutState*serviceId = new SH_InOutState("","service id in service charging");
+    SH_InOutState* serviceId = new SH_NumericQuestionState("","service id in service charging");
     serviceId->setVisibility(false);
     SH_StringQuestionState* serviceName = new SH_StringQuestionState("Veuillez entrer ce qui sera affiché sur la facture", "service name in service charging",1);
     SH_DecimalQuestionState* price = new SH_DecimalQuestionState("", "price in service charging",-Q_INFINITY,Q_INFINITY);
@@ -22,13 +23,13 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
     SH_DatabaseContentQuestionState* vat = new SH_DatabaseContentQuestionState("", "vat in service charging","TAXES","PERCENTAGE","ENABLED='1'", true);
     QFinalState* final = new QFinalState();
     connect(service, &SH_QuestionState::answerInvalid, [=]() {
-        int in = service->rawInput().toInt();
+        int in = service->displayableInput().toInt();
         if(in == -1 || in == 0) {
             emit service->goNext();
         }
     });
     connect(service, &SH_QuestionState::answerValid, [=]() {
-        if(service->rawInput().toInt() > -1) {
+        if(service->displayableInput().toInt() > -1) {
             QString name;
             QStringList list;
             list.append("PRINTEDNAME");
@@ -36,7 +37,7 @@ SH_ServiceCharging::SH_ServiceCharging(QString name, QObject *parent) :
             list.append("PRICEMAX");
             list.append("VAT_PERCENTAGE");
             list.append("ID");
-            QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery("SERVICESINFOS", list, QString("CODE=%1").arg(service->rawInput().toString()));
+            QSqlQuery result = SH_DatabaseManager::getInstance()->execSelectQuery("SERVICESINFOS", list, QString("CODE=%1").arg(service->displayableInput().toString()));
             result.next();
             QSqlRecord record = result.record();
             name= record.value(0).toString();

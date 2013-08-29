@@ -14,8 +14,9 @@ SH_GenericState::SH_GenericState(QString name, QState *parent) :
 {
     this->setObjectName(name);
     connect(this, &SH_GenericState::goNext, this, &SH_GenericState::emitGoNext);
-    this->blockSignals(!m_isRunning);
+    this->blockSignals(!this->m_isRunning);
 }
+
 /*!
  * \details \~french
  * \fn SH_GenericState::toString
@@ -51,7 +52,7 @@ void SH_GenericState::onTransitionTriggered()
     }
     SH_GenericState* sourceState = qobject_cast<SH_GenericState*>(tr->sourceState());
     SH_GenericState* targetState = qobject_cast<SH_GenericState*>(tr->targetState());
-    SH_MessageManager::debugMessage(QString("transition triggered in %1 from %2 to %3 with thanks to event %4").arg(machine()->objectName()).arg(sourceState->objectName()).arg(targetState->objectName()).arg(signal));
+    SH_MessageManager::debugMessage(QString("transition triggered in %1 from %2 to %3 thanks to event %4").arg(machine()->objectName()).arg(sourceState->objectName()).arg(targetState->objectName()).arg(signal));
 }
 /*!
  * \details \~french
@@ -64,8 +65,8 @@ void SH_GenericState::onEntry(QEvent *event)
         connect(tr, SIGNAL(triggered()), this, SLOT(onTransitionTriggered()));
     }
     this->m_isRunning = true;
-    this->blockSignals(!m_isRunning);
-    SH_MessageManager::debugMessage(QString("Machine: %1, entered state %2").arg(machine()->objectName()).arg(name()));
+    this->blockSignals(!this->m_isRunning);
+    SH_MessageManager::debugMessage(QString("Machine: %1, entered state %2").arg(machine()->objectName()).arg(objectName()));
 }
 /*!
  * \details \~french
@@ -75,8 +76,8 @@ void SH_GenericState::onExit(QEvent *event)
 {
     Q_UNUSED(event);
     this->m_isRunning = false;
-    this->blockSignals(!m_isRunning);
-    SH_MessageManager::debugMessage(QString("Machine: %1, exited state %2").arg(machine()->objectName()).arg(name()));
+    this->blockSignals(!this->m_isRunning);
+    SH_MessageManager::debugMessage(QString("Machine: %1, exited state %2").arg(machine()->objectName()).arg(objectName()));
 }
 bool SH_GenericState::isRunning()
 {

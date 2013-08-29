@@ -9,7 +9,7 @@
 */
 class SH_StatementState : public SH_InOutState
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 /*!
  * \brief \~french
@@ -18,21 +18,25 @@ public:
  * \param name
  * \param parent
 */
-	SH_StatementState(QString output, QString name, QState *parent = 0);
-	
+    SH_StatementState(QString output, QString name, QState *parent = 0);
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn setInput
-	* \param input
-	*/
-	void setInput(const QVariant &input);
-	
+    * \param input
+    */
+    void setInput(const QVariant &input);
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn onEntry
-	* \param event
-	*/
-	void onEntry(QEvent *event);
+    * \param event
+    */
+    void onEntry(QEvent *event);
+
+    virtual QVariant displayableInput() { return QVariant(); }
+
+    virtual QVariant checkedInput() { return QVariant(); }
 signals:
 public slots:
 };

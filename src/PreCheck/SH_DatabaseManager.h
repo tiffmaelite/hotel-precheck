@@ -241,7 +241,7 @@ private:
     * \param[ou] vals
     */
     void divideQVariantMap(QVariantMap values, QString &fields, QString &vals);
-    QString QVariantMapToHStore(QVariantMap values);
+    QString qVariantMapToHStore(QVariantMap values);
 };
 
 /*}*/

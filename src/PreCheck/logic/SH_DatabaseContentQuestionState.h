@@ -107,7 +107,7 @@ public:
     * \details \~french Permet d'obtenir la liste de choix permis dans cet état
     * \return QVariantList La liste de choix de l'état
     */
-    QVariantList choiceList() const;
+    QVariantList choiceList();
 
 
     /*** Overwritten methods ***/
@@ -128,10 +128,10 @@ public:
 
     /*!
     * \brief \~french
-    * \fn rawInput
+    * \fn displayableInput
     * \return QVariant
     */
-    virtual QVariant rawInput() const;
+    virtual QVariant displayableInput();
 
 
     /*** Signals methods ***/
@@ -160,27 +160,27 @@ private:
     /*** Properties private members ***/
 
     /*!
-    * \brief \~french m_table
+    * \brief \~french this->m_table
     */
     QString m_table;
 
     /*!
-    * \brief \~french m_condition
+    * \brief \~french this->m_condition
     */
     QString m_condition;
 
     /*!
-    * \brief \~french m_field
+    * \brief \~french this->m_field
     */
     QString m_field;
 
     /*!
-    * \brief \~french m_choices
+    * \brief \~french this->m_choices
     */
     QVariantList m_choices;
 
     /*!
-    * \brief \~french m_choicesDisplayed
+    * \brief \~french this->m_choicesDisplayed
     */
     bool m_choicesDisplayed;
 

@@ -57,7 +57,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     SH_DatabaseContentQuestionState* rooms = new SH_DatabaseContentQuestionState("Veuillez entrer un numéro de chambre","room billing creation", "ROOMS", "NUMBER");
     QFinalState* finalRooms = new QFinalState();
     roomsAffectation->addChildrenNextTransition(rooms, finalRooms);
-    roomsAffectation->addIOState(rooms,"ROOM_NUMBER");
+    roomsAffectation->addIOState(rooms,"ROOthis->m_NUMBER");
     roomsAffectation->addState(finalRooms);
     roomsAffectation->setInitialState(rooms);
 
@@ -72,7 +72,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     QFinalState* finalClients = new QFinalState();
     clientList->addChildrenNextTransition(supplClient, finalClients);
     connect(supplClient, &SH_QuestionState::answerInvalid, [=]() {
-        supplClientCreation->setContentValue(supplClient->givenAnswer(), "NAME");
+        supplClientCreation->setContentValue(supplClient->enteredInput(), "NAME");
         supplClient->addTransition(supplClient, SIGNAL(next()), supplClientCreation);
         emit supplClient->next();
     });
@@ -114,7 +114,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     this->addChildrenNextTransition(departureDate, client);
     this->addChildrenNextTransition(client, nbRooms);
     connect(client, &SH_QuestionState::answerInvalid, [=]() {
-        clientCreation->setContentValue(client->givenAnswer(),"NAME");
+        clientCreation->setContentValue(client->enteredInput(),"NAME");
         client->addTransition(client, SIGNAL(next()), clientCreation);
         emit client->next();
     });
@@ -125,7 +125,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     confirmPart1->addTransition(confirmPart1, SIGNAL(next()), confirmPart1);
     connect(confirmPart1, &SH_GenericState::exited, [=]() {
         connect(saveState, &SH_GenericState::entered, [=]() {
-            setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
+            setContentValue(saveState->insertUpdate(this->m_tableName, m_ioContent), "ID");
         });
     });
     saveState->addTransition(saveState, SIGNAL(next()),confirmAll);

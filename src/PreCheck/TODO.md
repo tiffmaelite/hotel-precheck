@@ -9,7 +9,7 @@ TODO
 - Ajouter les ventes seules --> en cours
 - Ajouter le renvoi d'une facture sur une autre
 - Ajouter la possibilité de marquer une chambre comme libérée mais non-nettoyée
-- Corriger l'affichage de la TVA --> en cours
+- Corriger l'affichage de la TVA --> OK
 - Débugguer ContentView.qml --> en cours
 - Finir la création d'une adresse --> en cours
 - Prendre en compte les divers formats de date possibles

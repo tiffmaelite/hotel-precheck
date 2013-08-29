@@ -16,5 +16,5 @@ SH_DataDelegate {
     value: SERVICEFULLCODE
     text: SERVICENAME
     visible: ISAVAILABLE
-    enabled: (TYPENEEDSROOM || App.billOpened() > 0)
+    enabled: App.billOpened() > 0// || TYPENEEDSROOM
 }

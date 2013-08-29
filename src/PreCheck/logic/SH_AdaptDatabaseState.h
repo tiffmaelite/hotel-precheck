@@ -10,7 +10,7 @@
 */
 class SH_AdaptDatabaseState : public SH_GenericState
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 /*!
  * \brief \~french Construit une instance de la classe SH_AdaptDatabaseState
@@ -18,16 +18,16 @@ public:
  * \param name Le nom de l'état
  * \param parent L'état parent
 */
-	SH_AdaptDatabaseState(QString name, QState *parent = 0);
-	
+    SH_AdaptDatabaseState(QString name, QState *parent = 0);
+
 /*!
-	* \brief \~french Enregistre dans la base de données les valeurs données
-	* \fn insertUpdate
-	* \param table Le nom de la table à modifier
-	* \param content Le contenu à enregistrer, sous la forme d'une \a QVariantMap associant les champs de la table aux valeurs à insérer/modifier
-	* \return bool Retourne \a true si l'enregistrement a réussi, \a false sinon
-	*/
-	QVariant insertUpdate(QString table, QVariantMap content);
+    * \brief \~french Enregistre dans la base de données les valeurs données
+    * \fn insertUpdate
+    * \param table Le nom de la table à modifier
+    * \param content Le contenu à enregistrer, sous la forme d'une \a QVariantMap associant les champs de la table aux valeurs à insérer/modifier
+    * \return bool Retourne \a true si l'enregistrement a réussi, \a false sinon
+    */
+    QVariant insertUpdate(QString table, QVariantMap content);
 signals:
 public slots:
 };

@@ -20,6 +20,7 @@ TabView {
     signal newBilling()
     signal newSelling()
     signal newBooking()
+    signal openingBill()
     /*!
       \fn openTab
       \param \type int tabIndex
@@ -40,7 +41,9 @@ TabView {
     onNewSelling: {
         App.launchServiceCharging();
     }
-
+    onOpeningBill: {
+        openTab(3);
+    }
     style: TabViewStyle {
         id:style
         frameOverlap: 0
@@ -75,7 +78,7 @@ TabView {
 
             tabView.addTab(qsTr("Prestations"), servicesTab);
             tabView.addTab(qsTr("Chambres"), roomsTab);
-            //tabView.addTab(qsTr("Facturations"), billingsTab);
+            tabView.addTab(qsTr("Facturations"), billingsTab);
             /*tabView.addTab(qsTr("Réservations"), bookingsTab);*/
             /*tabView.addTab(qsTr("Offres"), offersTab);*/
             break;
@@ -138,7 +141,7 @@ TabView {
           \details Prend en compte le tri des éléments et va à la ligne pour toute nouvelle section (définie par le changement de valeur du critère de tri)
           */
     function computeCoord(rep, index, grid, isCoordRow) {
-        console.log("\n\nélément n°"+index);
+        //console.log("\n\nélément n°"+index);
         var model = rep.model;
         if(model === 0 || model.rowCount() <= 0) {
             console.log("Modèle vide");
@@ -146,12 +149,12 @@ TabView {
         }
         var next = 0;
         var id = model.data(model.modelIndex(index, 0), 256);
-        console.log("élément d'ID " + id+" ("+ model.data(model.modelIndex(index, 1), 256+1)+")");
+        /*console.log("élément d'ID " + id+" ("+ model.data(model.modelIndex(index, 1), 256+1)+")");
         if(isCoordRow) {
             console.log("\ncalcul de l'indice de ligne");
         } else {
             console.log("\ncalcul de l'indice de colonne");
-        }
+        }*/
         if(index >= 1) { // on n'a besoin de calculer que pour des éléments ultérieurs au premier car ligne 0 et colonne 0 pour élément d'index 0
             var sectionIndex = Math.max(0,model.sortKeyColumn); //L'indice du champ du modèle selon lequel est effectué le tri des éléments
             var sectioning = (sectionIndex > 0); //sectionIndex=0 <=> tri par les ID <=> pas de tri
@@ -179,7 +182,7 @@ TabView {
                 totalSameCoord = Math.max(0,grid.columns);
                 isAlongDisposition = (grid.flow === GridLayout.TopToBottom) && !(grid.flow === GridLayout.LeftToRight);
             }
-            if(isAlongDisposition) {
+            /*if(isAlongDisposition) {
                 console.log("le calcul se fait dans le sens non limité");
             }
             if(sectioning) {
@@ -189,24 +192,24 @@ TabView {
                     console.log("même section ("+model.field(sectionIndex).text+") : "+currentSection);
                 }
             }
+            console.log("previousOtherCoord: "+previousOtherCoord+", totalOtherCoord: "+totalOtherCoord+", previousSameCoord:"+previousSameCoord+", totalSameCoord:"+totalSameCoord);*/
 
             //dans le cas où la ligne/colonne de l'élément précédent avait atteint la limite, ou qu'il s'agit d'une nouvelle section
-            console.log("previousOtherCoord: "+previousOtherCoord+", totalOtherCoord: "+totalOtherCoord+", previousSameCoord:"+previousSameCoord+", totalSameCoord:"+totalSameCoord);
             if((sectioning && (previousSection !== currentSection)) || (totalOtherCoord > 0 && ((previousOtherCoord + 1) % totalOtherCoord == 0))) {
                 if(isAlongDisposition) {
-                    console.log("nouvelle ligne/colonne dans le sens non limité");
+                    //console.log("nouvelle ligne/colonne dans le sens non limité");
                     next = previousSameCoord + 1;
                 } else {
-                    console.log("retour au début dans le sens non limité")
+                    //console.log("retour au début dans le sens non limité")
                     next = 0;
                 }
                 //dans le cas où on continue normalement
             } else {
                 if(isAlongDisposition) {
-                    console.log("même ligne/colonne");
+                    //console.log("même ligne/colonne");
                     next = previousSameCoord;
                 } else {
-                    console.log("ligne/colonne suivante");
+                    //console.log("ligne/colonne suivante");
                     next = previousSameCoord + 1;
                 }
             }
@@ -219,13 +222,13 @@ TabView {
             if(totalSameCoord > 0) {
                 next = Math.min(next, totalSameCoord);
             }
-            console.log("successeur de [" + previousRow + ", " + previousColumn+"]");
+            //console.log("successeur de [" + previousRow + ", " + previousColumn+"]");
         }
-        if(isCoordRow) {
+        /*if(isCoordRow) {
             console.log("ligne finale "+next);
         } else {
             console.log("colonne finale "+next);
-        }
+        }*/
         return next;
     }
 
@@ -276,9 +279,9 @@ TabView {
                         onClicked: {
                             tabView.selected(servicesRep.itemAt(index).value);
                         }
-                        Component.onCompleted: {
+                        /*Component.onCompleted: {
                             console.log(index+": ["+Layout.row+", "+Layout.column+"]");
-                        }
+                        }*/
                     }
                 }
             }

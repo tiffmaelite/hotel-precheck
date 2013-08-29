@@ -20,7 +20,7 @@ public:
 
         void setSourceModel(QAbstractItemModel *sourceModel);
 protected:
-        SH_SqlDataModel *model;
+        SH_SqlDataModel* model;
         bool fetch();
 signals:
 

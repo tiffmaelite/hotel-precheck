@@ -103,7 +103,7 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
     } else {
         if (!this->m_notNullSet.isEmpty())
         {
-            foreach(int column, this->m_notNullSet)
+            foreach(int column, m_notNullSet)
             {
                 if (!this->model->data(QSortFilterProxyModel::mapToSource(this->index(source_row, 0)), this->model->roleForField(column)).isNull())
                 {
@@ -114,7 +114,7 @@ bool SH_ExtendedProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
 
         if (!this->m_nullSet.isEmpty())
         {
-            foreach(int column, this->m_nullSet)
+            foreach(int column, m_nullSet)
             {
                 if (!this->model->data(QSortFilterProxyModel::mapToSource(this->index(source_row, 0)), this->model->roleForField(column)).isNull())
                 {
@@ -388,7 +388,7 @@ QVariant SH_ExtendedProxyModel::data(const QModelIndex &index, int role)
             return QHash<int, QByteArray>();
         } else {
             /*if(!this->m_roles.empty()) {
-            foreach(QByteArray roleName, this->m_roles) {
+            foreach(QByteArray roleName, m_roles) {
                 SH_MessageManager::debugMessage(QString("Le rôle proxy %L1 est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName)));
             }
         }*/

@@ -33,7 +33,7 @@ void SH_SqlFuncResultModel::fetchQuery()
 */
 void SH_SqlFuncResultModel::fetchQuery(QString functionCall)
 {
-    if(!m_functionCall.isEmpty() || !functionCall.isEmpty()) {
+    if(!this->m_functionCall.isEmpty() || !functionCall.isEmpty()) {
         //SH_MessageManager::debugMessage("Bienvenue dans fetch");
         this->setFunctionCall(functionCall);
         this->m_query = SH_DatabaseManager::getInstance()->execProcedure(this->m_functionCall);

@@ -4,6 +4,7 @@
 #include <QHistoryState>
 #include <QtCore>
 #include "SH_GenericDebugableStateMachine.h"
+#include "SH_MessageManager.h"
 #include "SH_IOState.h"
 /*namespace SimplHotel
 {*/
@@ -18,6 +19,8 @@ class SH_InOutStateMachine : public SH_GenericStateMachine
     Q_OBJECT
     Q_PROPERTY(QString tableName READ tableName WRITE setTableName NOTIFY tableNameChanged) //MEMBER m_tableName
     Q_PROPERTY(QVariantMap ioContent READ ioContent WRITE setIOcontent NOTIFY ioContentChanged) //MEMBER m_ioContent
+    Q_PROPERTY(QStringList statesList READ statesList) //MEMBER m_fieldsList
+    Q_PROPERTY(QString currentStateField READ currentStateField)
     Q_PROPERTY(QHistoryStateMap ioStatesHistory READ ioStatesHistory WRITE setIOStatesHistory NOTIFY ioStatesHistoryChanged) //MEMBER m_ioStatesHistory
 
 public:
@@ -32,17 +35,18 @@ public:
     SH_InOutStateMachine(QString tableName, QString name="", QObject *parent = 0);
 
 
-    QString tableName() const { return m_tableName; }
-    void setTableName(const QString &name) { m_tableName = name; emit tableNameChanged();}
+    QString tableName() const { return this->m_tableName; }
+    QString fieldName() { return this->tableName(); }
+    void setTableName(const QString &name) { this->m_tableName = name; emit tableNameChanged();}
 
-    QVariantMap ioContent() const { return m_ioContent; }
-    void setIOcontent(const QVariantMap &content) { m_ioContent = content; emit ioContentChanged();}
+    QVariantMap ioContent() const { SH_MessageManager::debugMessage("ioContent !"); if(this->m_ioContent.isEmpty()) { SH_MessageManager::debugMessage("ioContent is empty"); } return this->m_ioContent; }
+    void setIOcontent(const QVariantMap &content) { this->m_ioContent = content; emit ioContentChanged();}
 
-    QHistoryStateMap ioStatesHistory() const { return m_ioStatesHistory; }
-    void setIOStatesHistory(const QHistoryStateMap &name) { m_ioStatesHistory = name; emit ioStatesHistoryChanged();}
+    QHistoryStateMap ioStatesHistory() const { return this->m_ioStatesHistory; }
+    void setIOStatesHistory(const QHistoryStateMap &name) { this->m_ioStatesHistory = name; emit ioStatesHistoryChanged();}
 
-    /*QMap<QString, QHistoryState *> ioStatesHistory() const { return m_ioStatesHistory; }
-    void setIOStatesHistory(const QMap<QString, QHistoryState *> &name) { m_ioStatesHistory = name; emit ioStatesHistoryChanged();}*/
+    /*QMap<QString, QHistoryState *> ioStatesHistory() const { return this->m_ioStatesHistory; }
+    void setIOStatesHistory(const QMap<QString, QHistoryState *> &name) { this->m_ioStatesHistory = name; emit ioStatesHistoryChanged();}*/
 
     /*!
     * \brief \~french
@@ -52,7 +56,7 @@ public:
     */
     QVariant getContentValue(QString field);
 
-
+    Q_INVOKABLE QString currentStateField();
 
     /*!
     * \brief \~french
@@ -70,6 +74,11 @@ public:
     */
     QHistoryState* historyValue(QString field);
 
+    QStringList statesList();
+
+
+    QString previousStateField();
+
 signals:
     /*signaux : messagers à envoyer ou transmettre*/
 
@@ -85,14 +94,18 @@ signals:
     * \param text
     * \param editable
     */
-    void sendText(QString text, bool editable=false);
+    void sendText(QString text, int row, int column);
+    void sendText(QString text, int row);
+    void sendText(QString text);
 
     /*!
-    * \fn sendText
+    * \brief \~french
+    * \fn resendText
     * \param text
-    * \param editable
- */
-    void resendText(QString text, bool editable=false);
+    */
+    void resendText(QString text,int row, int column);
+    void resendText(QString text, int row);
+    void resendText(QString text);
 
     /*!
     * \brief \~french
@@ -138,7 +151,7 @@ signals:
     */
     void displayFileDialog();
 
-    void displayChoiceList(QVariantList choices);
+    void displayChoiceList(QVariantList choices, int row);
 
     void displayProgressBar(qreal filledPercentage);
 
@@ -208,21 +221,23 @@ protected:
     */
     bool isERunning();
 
+    QStringList m_statesList;
+
     /*!
     * \brief \~french
-    * \var m_ioContent
+    * \var this->m_ioContent
     */
     QVariantMap m_ioContent;
 
     /*!
     * \brief \~french
-    * \var m_tableName
+    * \var this->m_tableName
     */
     QString m_tableName;
 
     /*!
     * \brief \~french
-    * \var m_ioStatesHistory
+    * \var this->m_ioStatesHistory
     */
     QMap<QString, QHistoryState *> m_ioStatesHistory;
 };

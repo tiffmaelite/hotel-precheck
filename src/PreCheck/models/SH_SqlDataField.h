@@ -41,17 +41,17 @@ void setName(QString newName);
 private:
 
     /*!
-    *\brief \~french m_text
+    *\brief \~french this->m_text
     */
     QString m_text;
 
     /*!
-    *\brief \~french m_name
+    *\brief \~french this->m_name
     */
     QString m_name;
 
     /*!
-    *\brief \~french m_sortOrder
+    *\brief \~french this->m_sortOrder
     */
     Qt::SortOrder m_sortOrder;
 signals:

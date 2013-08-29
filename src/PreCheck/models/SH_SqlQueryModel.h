@@ -38,7 +38,7 @@ public:
     void setFilterCondition(const QString &condition);
     void resetFilterCondition() { this->m_condition = ""; emit filterConditionChanged();}
 
-    Q_INVOKABLE QHash<int, QByteArray> roleNames() const {/* foreach(QByteArray roleName, this->m_roles) { SH_MessageManager::debugMessage(QString("Le rôle %L1 d'origine est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName))); }*/ return this->m_roles; }
+    Q_INVOKABLE QHash<int, QByteArray> roleNames() const {/* foreach(QByteArray roleName, m_roles) { SH_MessageManager::debugMessage(QString("Le rôle %L1 d'origine est %2").arg(this->m_roles.key(roleName)).arg(QString(roleName))); }*/ return this->m_roles; }
 
     /*!
     \brief \~french

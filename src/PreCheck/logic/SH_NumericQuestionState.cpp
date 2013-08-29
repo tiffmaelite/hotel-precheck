@@ -20,9 +20,9 @@ bool SH_NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
     bool ok;
     int answer = givenAnswer.toInt(&ok);
     if(ok) {
-    return ((this->m_maximum <= this->m_minimum || answer <= this->m_maximum) && answer >= this->m_minimum);
+        return ((this->m_maximum <= this->m_minimum || answer <= this->m_maximum) && answer >= this->m_minimum);
     } else {
-    return false;
+        return false;
     }
 }
 

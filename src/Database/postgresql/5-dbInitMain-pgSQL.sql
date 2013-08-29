@@ -116,7 +116,9 @@ INSERT INTO TAXES
   (LABEL, PERCENTAGE, STARTDATE, ENDDATE)
 VALUES
   ('0%',0.0,null,null),
-  ('3,8%',3.8,null,null);
+  ('2,5%',2.5,null,null),
+  ('3,8%',3.8,'1996-01-01','2017-01-01'),
+  ('8%',8.0,null,null);
 
 INSERT INTO SERVICESFAMILIES
   (LABEL)
@@ -155,8 +157,8 @@ VALUES
 INSERT INTO SERVICES
   (SERVICETYPE_ID, NAME, ISAVAILABLE, CODE)
 VALUES
-  (1, 'Taxe de séjour adulte', '1', 3),
-  (1, 'Taxe de séjour enfant', '1', 4),
+  (2, 'Taxe de séjour adulte', '1', 1),
+  (2, 'Taxe de séjour enfant', '1', 2),
   (3, 'Logement', '1', 1),
   (3, 'Logement et petit-déjeuner','1', 2),
   (3, 'Arrangement demi-pension', '1', 3),

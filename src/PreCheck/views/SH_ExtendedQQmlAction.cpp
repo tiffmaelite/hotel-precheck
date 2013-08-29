@@ -65,14 +65,14 @@ bool qShortcutContextMatcher(QObject *o, Qt::ShortcutContext context)
 */
 void SH_ExtendedQQmlAction::setKeySequence(const QKeySequence &sequence) {
     if (sequence != this->m_shortcut) {
-        /*if (!m_shortcut.isEmpty()) {
-            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, this->m_shortcut);
+        /*if (!this->m_shortcut.isEmpty()) {
+            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, m_shortcut);
         }*/
         this->m_shortcut = sequence;
 
-        /*if (!m_shortcut.isEmpty()) {
+        /*if (!this->m_shortcut.isEmpty()) {
             Qt::ShortcutContext context = Qt::WindowShortcut;
-            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, this->m_shortcut, context, qShortcutContextMatcher);
+            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_shortcut, context, qShortcutContextMatcher);
         }*/
         emit shortcutChanged(shortcut());
     }
@@ -120,14 +120,14 @@ void SH_ExtendedQQmlAction::setMnemonicFromText(const QString &text)
 {
     QKeySequence sequence = QKeySequence::mnemonic(text);
     if (this->m_mnemonic != sequence) {
-        /*if (!m_mnemonic.isEmpty()) {
-            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, this->m_mnemonic);
+        /*if (!this->m_mnemonic.isEmpty()) {
+            QGuiApplicationPrivate::instance()->shortcutMap.removeShortcut(0, this, m_mnemonic);
         }*/
         this->m_mnemonic = sequence;
 
-        /*if (!m_mnemonic.isEmpty()) {
+        /*if (!this->m_mnemonic.isEmpty()) {
             Qt::ShortcutContext context = Qt::WindowShortcut;
-            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, this->m_mnemonic, context, qShortcutContextMatcher);
+            QGuiApplicationPrivate::instance()->shortcutMap.addShortcut(this, m_mnemonic, context, qShortcutContextMatcher);
         }*/
     }
 }
@@ -197,7 +197,7 @@ void SH_ExtendedQQmlAction::setEnabled(bool e)
 */
 bool SH_ExtendedQQmlAction::event(QEvent *e)
 {
-    if (!m_enabled) {
+    if (!this->m_enabled) {
         e->ignore();
         return false;
     }
@@ -224,7 +224,7 @@ bool SH_ExtendedQQmlAction::event(QEvent *e)
 */
 void SH_ExtendedQQmlAction::trigger()
 {
-    if (!m_enabled) {
+    if (!this->m_enabled) {
         return;
     }
     emit triggered();

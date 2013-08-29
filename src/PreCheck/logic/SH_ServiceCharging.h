@@ -22,12 +22,12 @@ public slots:
 private:
 	
 /*!
-	* \brief \~french m_priceMin
+	* \brief \~french this->m_priceMin
 	*/
 	qreal m_priceMin;
 	
 /*!
-	* \brief \~french m_vat
+	* \brief \~french this->m_vat
 	*/
 	qreal m_vat;
 };

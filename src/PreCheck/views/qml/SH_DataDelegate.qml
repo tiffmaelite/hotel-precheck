@@ -14,7 +14,7 @@ Button {
     id: btn
     text: ""
     property string value: ""
-    property int fontSize: 10
+    property real fontSize: 7.5
     property Component textStyle: defaultTextStyle
     property Component backgroundStyle: defaultBackgroundStyle
     style: ButtonStyle {
@@ -32,8 +32,9 @@ Button {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
-        text:btn.text
+        text :btn.text
         font.pointSize: btn.fontSize
+        fontSizeMode: Text.Fit
         anchors.centerIn: parent
     }
     property Component defaultBackgroundStyle :  Item {

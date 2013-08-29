@@ -77,7 +77,7 @@ QVariantMap SH_SqlQueryModel::datas()
     {
         for(int column = 0; column < this->m_roles.count(); column++) {
             for(int row = 0; row < this->m_records.count();row++) {
-                result.insertMulti(this->m_roles.value(this->roleForField(column)),this->m_records.at(row).value(column));
+                result.insertMulti(this->m_roles.value(this->roleForField(column)), m_records.at(row).value(column));
             }
         }
     }
@@ -90,7 +90,7 @@ QMap<int, QVariant> SH_SqlQueryModel::itemData(const QModelIndex & index) const 
         QMap<int, QVariant> result;
         int row = index.row();
         for(int column = 0; column < this->m_roles.count(); column++) {
-            result.insert(column,this->m_records.at(row).value(column));
+            result.insert(column, m_records.at(row).value(column));
         }
         return result;
     }
@@ -331,7 +331,7 @@ void SH_SqlQueryModel::applyRoles()
         for (int i = 0; i < nbFields; i++)
         {
             //SH_MessageManager::debugMessage(QString("Nouveau rôle : %1").arg(QString(this->m_fields.at(i)->role())));
-            this->m_roles.insert(this->roleForField(i), this->m_fields.at(i)->role());
+            this->m_roles.insert(this->roleForField(i), m_fields.at(i)->role());
         }
         emit rolesChanged();
     }

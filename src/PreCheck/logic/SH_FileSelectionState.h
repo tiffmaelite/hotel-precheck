@@ -8,7 +8,7 @@
  */
 class SH_FileSelectionState : public SH_InOutState
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
 /*!
  * \brief \~french
@@ -17,7 +17,11 @@ public:
  * \param name
  * \param parent
 */
-	SH_FileSelectionState(QString output, QString name, QState *parent = 0);
+    SH_FileSelectionState(QString output, QString name, QState *parent = 0);
+
+    virtual QVariant displayableInput() { return this->checkedInput(); }
+
+    virtual QVariant checkedInput() { return this->input(); }
 signals:
 public slots:
 };

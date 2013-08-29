@@ -19,10 +19,20 @@ SH_AdaptDatabaseState::SH_AdaptDatabaseState(QString name, QState *parent) :
 */
 QVariant SH_AdaptDatabaseState::insertUpdate(QString table, QVariantMap content)
 {
-    QVariant id = SH_DatabaseManager::getInstance()->execInsertReturningQuery(table, content, "id");
-    if(id.isValid()) {
-        SH_MessageManager::debugMessage(QString("Nouvel upsert réussi dans la base de données pour la table : %1").arg(table));
-        emit goNext();
+    QVariant id;
+    if(!content.isEmpty()) {
+        foreach(QVariant io, content) {
+            SH_MessageManager::debugMessage(QString("%L1 : %L2").arg(content.key(io)).arg(io.toString()));
+        }
+        id = SH_DatabaseManager::getInstance()->execInsertReturningQuery(table, content, "id");
+        if(id.isValid()) {
+            SH_MessageManager::debugMessage(QString("Nouvel upsert réussi dans la base de données pour la table : %1").arg(table));
+            emit goNext();
+        } else {
+            SH_MessageManager::debugMessage("upsert échoué");
+        }
+    } else {
+        SH_MessageManager::debugMessage("nothing to upsert");
     }
     return id;
 }

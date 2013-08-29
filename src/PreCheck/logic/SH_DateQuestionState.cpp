@@ -46,15 +46,4 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
 }
 
 
-/*!
- * \details \~french
- * \fn SH_DateQuestionState::rawInput
-*/
-QVariant SH_DateQuestionState::rawInput() const
-{
-    return QVariant(input().toDate().toString());
-    /*TODO set date format*/
-}
-
-
 /*}*/

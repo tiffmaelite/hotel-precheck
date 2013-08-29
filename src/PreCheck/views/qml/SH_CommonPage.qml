@@ -31,20 +31,19 @@ Item {
         signal eraseLastChar()
         signal clearBuffer()
         onBuffer: {
-            var value = (buff.upperCase) ? text.toLocaleUpperCase() : text;
+            var value = (buff.upperCase) ? text.toLocaleUpperCase() : text.toLocaleLowerCase();
             if(buff.content==="") {
                 buff.content = value;
-                rightOutput.displayNew(value, (value.length === 1));
             } else {
                 buff.content += value;
-                rightOutput.display(value);
             }
+            rightOutput.displayText(value);
             buff.cleared = false;
         }
         onEraseLastChar: {
             if(buff.content!=="") {
                 buff.content = buff.content.slice(0,-1);
-                rightOutput.replace(buff.content);
+                rightOutput.replaceText(buff.content);
             }
         }
         onClearBuffer: {
@@ -156,8 +155,8 @@ Item {
                     id: vatRep
                     model: SH_VATModel { }
                     delegate: SH_VATDelegate {
-                        Layout.minimumHeight: vatRep.count <= 0 ? 0 : vatSidePanel.height / vatRep.count - vatSidePanel.spacing
-                        Layout.minimumWidth: vatSidePanel.width
+                        Layout.maximumHeight: vatRep.count <= 0 ? 0 : vatSidePanel.height / (vatRep.count /*+ helpKeys.count*/) - vatSidePanel.spacing
+                        Layout.maximumWidth: vatSidePanel.width
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         onClicked: {
@@ -165,8 +164,15 @@ Item {
                         }
                     }
                 }
+                /*SH_Keyboard {
+                    id: helpKeys
+                    actionsList: [helpAction]
+                    columns: 1
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignBottom
+                }*/
             }
-
             SH_Keyboard{
                 id: keys
                 enabled:true
@@ -175,17 +181,17 @@ Item {
                 Layout.alignment: Qt.AlignRight
                 columns: 5
                 actionsList: [
-                    abandonAction, cancelAction, eraseAction, sellAction, backAction,
-                    leavingRoomAction, digit7Action, digit8Action, digit9Action, plusAction,
+                    sellAction, cancelAction, backAction, eraseAction, escapeAction,
+                    billAction, digit7Action, digit8Action, digit9Action, plusAction,
                     arrivingAction, digit4Action, digit5Action, digit6Action, timesAction,
-                    departureAction, digit1Action, digit2Action, digit3Action, dividesAction,
-                    groupBillingAction, doubleNullAction, nullAction, decimalAction, minusAction,
-                    escapeAction, enterAction, confirmAction, mainMenuAction, helpAction
+                    leavingRoomAction, digit1Action, digit2Action, digit3Action, dividesAction,
+                    departureAction, doubleNullAction, nullAction, decimalAction, minusAction,
+                    groupBillingAction, confirmAction, enterAction, validateAction, mainMenuAction
                 ]
             }
         }
         /*la zone d'affichage remplit toute la moitié de droite*/
-        SH_OutputZone {
+        SH_GlobalOutput {
             id: rightOutput
             objectName: "RightOutput"
             Layout.rowSpan: 2
@@ -194,6 +200,9 @@ Item {
             Layout.fillHeight: true
             onSelected: {
                 commonPage.keySelected(selectedItem);
+            }
+            onStateChanged: {
+                console.log(rightOutput.state);
             }
         }
     }
@@ -221,6 +230,13 @@ Item {
     }
 
     Binding {
+        target: billAction
+        property: "enabled"
+        value: true
+        when: (App.currentMode === AppMode.RECEPTION)
+    }
+
+    Binding {
         target: arrivingAction
         property: "enabled"
         value: true
@@ -235,7 +251,7 @@ Item {
 
 
     SH_ComplexAction {
-        id: abandonAction
+        id: validateAction
         text: qsTr("VALIDER")
         keyShortcut: Qt.Key_unknown
 
@@ -246,25 +262,36 @@ Item {
         id: cancelAction
         text: qsTr("ANNULER")
         keyShortcut: Qt.Key_Cancel
-        /*enabled: commonPage.visible
-onTriggered: *//*TODO cancelAction
-*/
+        enabled: commonPage.visible
+        onTriggered: App.cancelLastStep();
     }
     SH_ComplexAction {
         id: eraseAction
         text: qsTr("EFFACER")
         keyShortcut: Qt.Key_Delete
         /*enabled: commonPage.visible
-onTriggered: *//*TODO eraseAction*/
+onTriggered: TODO eraseAction*/
     }
     SH_ComplexAction {
         id: sellAction
-        text: qsTr("VENDRE")
+        text: qsTr("COMPTANT")
         keyShortcut: Qt.Key_unknown
         enabled: commonPage.visible
         onTriggered: {
             if(sellAction.enabled) {
                 tabs.newSelling()
+            }
+        }
+    }
+    SH_ComplexAction {
+        id: billAction
+        text: qsTr("VENTE")
+        keyShortcut: Qt.Key_unknown
+        enabled: commonPage.visible
+        onTriggered: {
+            if(billAction.enabled) {
+                rightOutput.state = "qa";
+                tabs.openingBill();
             }
         }
     }
@@ -283,6 +310,7 @@ onTriggered: *//*TODO eraseAction*/
         enabled: commonPage.visible
         onTriggered: {
             if(leavingRoomAction.enabled) {
+                rightOutput.state = "qa";
                 /*TODO leavingRoomAction*/
             }
         }
@@ -323,6 +351,7 @@ onTriggered: *//*TODO eraseAction*/
         enabled: commonPage.visible
         onTriggered: {
             if(arrivingAction.enabled) {
+                rightOutput.state = "qa";
                 tabs.newBilling();
             }
         }
@@ -364,8 +393,11 @@ onTriggered: *//*TODO eraseAction*/
         id: departureAction
         text: qsTr("DÉPART")
         keyShortcut: Qt.Key_unknown
-        /*enabled: commonPage.visible
-onTriggered: */ /*TODO departureAction*/
+        enabled: commonPage.visible
+        onTriggered: {
+            rightOutput.state = "qa";
+            /*TODO departureAction*/
+        }
     }
     SH_ComplexAction {
         id: digit1Action
@@ -401,11 +433,13 @@ onTriggered: */ /*TODO departureAction*/
     }
     SH_ComplexAction {
         id: groupBillingAction
-        text: qsTr("GROUPES")
+        text: qsTr("GROUPE")
         keyShortcut: Qt.Key_unknown
-
-        /*enabled: commonPage.visible
-onTriggered: */ /*TODO groupBillingAction*/
+        enabled: commonPage.visible
+        onTriggered:{
+            rightOutput.state = "qa";
+            /*TODO groupBillingAction*/
+        }
     }
     SH_ComplexAction {
         id: doubleNullAction
@@ -477,8 +511,8 @@ onTriggered: */ /*TODO groupBillingAction*/
         id: helpAction
         text: qsTr("AIDE")
         keyShortcut: Qt.Key_unknown
-        /*enabled: commonPage.visible
-onTriggered: */ /*TODO helpAction*/
+        enabled: commonPage.visible
+        /*onTriggered: TODO helpAction*/
     }
 
 
@@ -487,70 +521,70 @@ onTriggered: */ /*TODO helpAction*/
         text: commonPage.streamBuffer.upperCase ? qsTr("Q") : qsTr("q")
         keyShortcut: Qt.Key_Q
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char11Action
         text: commonPage.streamBuffer.upperCase ? qsTr("W") : qsTr("w")
         keyShortcut: Qt.Key_W
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char12Action
         text: commonPage.streamBuffer.upperCase ? qsTr("E") : qsTr("e")
         keyShortcut: Qt.Key_E
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char13Action
         text: commonPage.streamBuffer.upperCase ? qsTr("R") : qsTr("r")
         keyShortcut: Qt.Key_R
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char14Action
         text: commonPage.streamBuffer.upperCase ? qsTr("T") : qsTr("t")
         keyShortcut: Qt.Key_T
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char15Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Z") : qsTr("z")
         keyShortcut: Qt.Key_Z
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char16Action
         text: commonPage.streamBuffer.upperCase ? qsTr("U") : qsTr("u")
         keyShortcut: Qt.Key_U
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char17Action
         text: commonPage.streamBuffer.upperCase ? qsTr("I") : qsTr("i")
         keyShortcut: Qt.Key_I
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char18Action
         text: commonPage.streamBuffer.upperCase ? qsTr("O") : qsTr("o")
         keyShortcut: Qt.Key_O
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char19Action
         text: commonPage.streamBuffer.upperCase ? qsTr("P") : qsTr("p")
         keyShortcut: Qt.Key_P
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
 
     SH_ComplexAction {
@@ -558,70 +592,70 @@ onTriggered: */ /*TODO helpAction*/
         text: commonPage.streamBuffer.upperCase ? qsTr("É") : qsTr("é")
         keyShortcut: Qt.Key_Eacute
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char21Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ẽ") : qsTr("è")
         keyShortcut: Qt.Key_Egrave
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char22Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ê") : qsTr("ê")
         keyShortcut: Qt.Key_Ecircumflex
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char23Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ë") : qsTr("ë")
         keyShortcut: Qt.Key_Ediaeresis
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char24Action
         text: commonPage.streamBuffer.upperCase ? qsTr("À") : qsTr("à")
         keyShortcut: Qt.Key_Agrave
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char25Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Â") : qsTr("â")
         keyShortcut: Qt.Key_Acircumflex
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char26Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ä") : qsTr("ä")
         keyShortcut: Qt.Key_Adiaeresis
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char27Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ï") : qsTr("ï")
         keyShortcut: Qt.Key_Idiaeresis
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char28Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ù") : qsTr("ù")
         keyShortcut: Qt.Key_Ugrave
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char29Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Û") : qsTr("û")
         keyShortcut: Qt.Key_Ucircumflex
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
 
     SH_ComplexAction {
@@ -629,70 +663,70 @@ onTriggered: */ /*TODO helpAction*/
         text: commonPage.streamBuffer.upperCase ? qsTr("A") : qsTr("a")
         keyShortcut: Qt.Key_A
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char31Action
         text: commonPage.streamBuffer.upperCase ? qsTr("S") : qsTr("s")
         keyShortcut: Qt.Key_S
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char32Action
         text: commonPage.streamBuffer.upperCase ? qsTr("D") : qsTr("d")
         keyShortcut: Qt.Key_D
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char33Action
         text: commonPage.streamBuffer.upperCase ? qsTr("F") : qsTr("f")
         keyShortcut: Qt.Key_F
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char34Action
         text: commonPage.streamBuffer.upperCase ? qsTr("G") : qsTr("g")
         keyShortcut: Qt.Key_G
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char35Action
         text: commonPage.streamBuffer.upperCase ? qsTr("H") : qsTr("h")
         keyShortcut: Qt.Key_H
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char36Action
         text: commonPage.streamBuffer.upperCase ? qsTr("J") : qsTr("j")
         keyShortcut: Qt.Key_J
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char37Action
         text: commonPage.streamBuffer.upperCase ? qsTr("K") : qsTr("k")
         keyShortcut: Qt.Key_K
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char38Action
         text: commonPage.streamBuffer.upperCase ? qsTr("L") : qsTr("l")
         keyShortcut: Qt.Key_L
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char39Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Ö") : qsTr("ö")
         keyShortcut: Qt.Key_Odiaeresis
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
 
     SH_ComplexAction {
@@ -700,56 +734,56 @@ onTriggered: */ /*TODO helpAction*/
         text: commonPage.streamBuffer.upperCase ? qsTr("Y") : qsTr("y")
         keyShortcut: Qt.Key_Y
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char41Action
         text: commonPage.streamBuffer.upperCase ? qsTr("X") : qsTr("x")
         keyShortcut: Qt.Key_X
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char42Action
         text: commonPage.streamBuffer.upperCase ? qsTr("C") : qsTr("c")
         keyShortcut: Qt.Key_C
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char43Action
         text: commonPage.streamBuffer.upperCase ? qsTr("V") : qsTr("v")
         keyShortcut: Qt.Key_V
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char44Action
         text: commonPage.streamBuffer.upperCase ? qsTr("B") : qsTr("b")
         keyShortcut: Qt.Key_B
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char45Action
         text: commonPage.streamBuffer.upperCase ? qsTr("N") : qsTr("n")
         keyShortcut: Qt.Key_N
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char46Action
         text: commonPage.streamBuffer.upperCase ? qsTr("M") : qsTr("m")
         keyShortcut: Qt.Key_M
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char47Action
         text: commonPage.streamBuffer.upperCase ? qsTr("Î") : qsTr("î")
         keyShortcut: Qt.Key_Icircumflex
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char48Action
@@ -757,7 +791,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Ccedilla
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char49Action
@@ -765,7 +799,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Ocircumflex
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
 
     SH_ComplexAction {
@@ -774,7 +808,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Ntilde
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char51Action
@@ -782,7 +816,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Ampersand
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char52Action
@@ -790,7 +824,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_At
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char53Action
@@ -798,7 +832,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Plus
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char54Action
@@ -806,7 +840,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Underscore
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char55Action
@@ -814,7 +848,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_BracketLeft
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char56Action
@@ -822,7 +856,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_BracketRight
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char57Action
@@ -830,7 +864,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_hyphen
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char58Action
@@ -838,7 +872,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Question
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char59Action
@@ -846,7 +880,7 @@ onTriggered: */ /*TODO helpAction*/
         keyShortcut: Qt.Key_Exclam
 
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
 
     SH_ComplexAction {
@@ -854,70 +888,70 @@ onTriggered: */ /*TODO helpAction*/
         text: qsTr("%")
         keyShortcut: Qt.Key_Percent
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char61Action
         text: qsTr(":")
         keyShortcut: Qt.Key_Semicolon
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char62Action
         text: qsTr("<")
         keyShortcut: Qt.Key_Less
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char63Action
         text: qsTr(">")
         keyShortcut: Qt.Key_Greater
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char64Action
         text: qsTr("\\")
         keyShortcut: Qt.Key_Backslash
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char65Action
         text: qsTr("/")
         keyShortcut: Qt.Key_Slash
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char66Action
         text: qsTr("=")
         keyShortcut: Qt.Key_Equal
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char67Action
         text: qsTr("*")
         keyShortcut: Qt.Key_Asterisk
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char68Action
         text: qsTr("°")
         keyShortcut: Qt.Key_degree
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: char69Action
         text: qsTr(";")
         keyShortcut: Qt.Key_Colon
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: capsAction
@@ -931,28 +965,28 @@ onTriggered: */ /*TODO helpAction*/
         text: qsTr(".")
         keyShortcut: Qt.Key_Period
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: commaAction
         text: qsTr(",")
         keyShortcut: Qt.Key_Comma
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: quoteAction
         text: qsTr("'")
         keyShortcut: Qt.Key_Apostrophe
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: quote2Action
         text: qsTr("\"")
         keyShortcut: Qt.Key_QuoteDbl
         enabled: commonPage.visible
-        onTriggered: commonPage.keySelected(text.toLocaleLowerCase());
+        onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }
     SH_ComplexAction {
         id: spaceAction

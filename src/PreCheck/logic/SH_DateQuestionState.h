@@ -88,7 +88,7 @@ public:
  * \fn getPast
  * \return bool
 */
-    bool isPast() const { return (m_maximum.isValid() && this->m_maximum >= QDate::currentDate()); }
+    bool isPast() const { return (this->m_maximum.isValid() && this->m_maximum >= QDate::currentDate()); }
 
     /*!
  * \brief \~french
@@ -102,7 +102,7 @@ public:
  * \fn getFuture
  * \return bool
 */
-    bool isFuture() const { return (m_minimum.isValid() && this->m_minimum >= QDate::currentDate()); }
+    bool isFuture() const { return (this->m_minimum.isValid() && this->m_minimum >= QDate::currentDate()); }
 
     /*!
  * \brief \~french
@@ -119,13 +119,6 @@ public:
  * \param givenAnswer
 */
     virtual bool isAnswerValid(const QVariant &givenAnswer);
-
-    /*!
- * \brief \~french
- * \fn rawInput
- * \return QVariant
-*/
-    QVariant rawInput() const;
 
 
     /*** Signals methods ***/

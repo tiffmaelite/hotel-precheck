@@ -16,7 +16,7 @@ SH_ConfirmationState::SH_ConfirmationState(QString output, QString name, QState 
 */
 void SH_ConfirmationState::confirmInput()
 {
-    if(isRunning()) {
+    if(this->isRunning()) {
         SH_MessageManager::debugMessage("confirmatiooooon !");
         emit goNext();
     }

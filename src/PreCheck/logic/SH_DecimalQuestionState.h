@@ -100,12 +100,12 @@ private:
     /*** Properties private members ***/
 
 /*!
-    * \brief \~french m_min
+    * \brief \~french this->m_min
     */
     qreal m_minimum;
 
 /*!
-    * \brief \~french m_max
+    * \brief \~french this->m_max
     */
     qreal m_maximum;
 };

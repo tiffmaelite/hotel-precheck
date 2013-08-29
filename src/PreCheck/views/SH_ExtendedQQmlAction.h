@@ -257,42 +257,42 @@ protected:
 private:
 
 /*!
-    *\brief \~french m_text
+    *\brief \~french this->m_text
     */
     QString m_text;
 
 /*!
-    *\brief \~french m_iconSource
+    *\brief \~french this->m_iconSource
     */
     QUrl m_iconSource;
 
 /*!
-    *\brief \~french m_iconName
+    *\brief \~french this->m_iconName
     */
     QString m_iconName;
 
 /*!
-    *\brief \~french m_icon
+    *\brief \~french this->m_icon
     */
     QIcon m_icon;
 
 /*!
-    *\brief \~french m_enabled
+    *\brief \~french this->m_enabled
     */
     bool m_enabled;
 
 /*!
-    *\brief \~french m_shortcut
+    *\brief \~french this->m_shortcut
     */
     QKeySequence m_shortcut;
 
 /*!
-    *\brief \~french m_mnemonic
+    *\brief \~french this->m_mnemonic
     */
     QKeySequence m_mnemonic;
 
 /*!
-    *\brief \~french m_tooltip
+    *\brief \~french this->m_tooltip
     */
     QString m_tooltip;
 

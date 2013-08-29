@@ -19,7 +19,7 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
     SH_SqlDataModel *sqlDatas = new SH_SqlDataModel();
     QStringList fields;
     fields << "ID" << this->m_field;
-    sqlDatas->fetch(this->m_table, this->m_condition, "", fields);
+    sqlDatas->fetch(this->m_table, m_condition, "", fields);
     QVariantMap results = sqlDatas->datas();
     QVariantList idValues = results.values("ID");
     QVariantList fieldsValues = results.values(this->m_field);
@@ -58,12 +58,12 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 
 /*!
  \brief
- \fn SH_DatabaseContentQuestionState::rawInput TODO comment this
+ \fn SH_DatabaseContentQuestionState::displayableInput TODO comment this
  \return QVariant TODO comment this
 */
-QVariant SH_DatabaseContentQuestionState::rawInput() const
+QVariant SH_DatabaseContentQuestionState::displayableInput() const
 {
-    //return this->m_choices.key(this->givenAnswer());
+    //return this->m_choices.key(this->enteredInput());
     return QVariant();
 }
 

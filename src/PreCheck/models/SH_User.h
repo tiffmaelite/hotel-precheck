@@ -26,7 +26,7 @@ class SH_User : public QObject
 
 public:
 
-/*!
+    /*!
 \brief \~french
 
  \fn SH_User
@@ -114,7 +114,7 @@ public:
 
 
 
-/*!
+    /*!
     \brief \~french
 
     \fn roles
@@ -122,7 +122,7 @@ public:
     */
     int roles() const;
 
-/*!
+    /*!
     \brief \~french
 
     \fn isValid
@@ -131,7 +131,7 @@ public:
     bool isValid() const;
 
 
-/*!
+    /*!
     \brief \~french
 
     \fn logIn
@@ -141,7 +141,7 @@ public:
     */
     static SH_User *logIn(QString login, QString pass);
 
-/*!
+    /*!
     \brief \~french
 
     \fn traineeExists
@@ -150,7 +150,7 @@ public:
     */
     static bool traineeExists(QString login);
 
-/*!
+    /*!
     \brief \~french
 
     \fn userExists
@@ -163,7 +163,7 @@ public:
     virtual bool save(QString password);
 public slots:
 
-/*!
+    /*!
     \brief \~french
 
     \fn exists
@@ -173,21 +173,21 @@ public slots:
     static QVariant exists(QVariant login) {return QVariant(SH_User::userExists(login.toString()) || SH_User::traineeExists(login.toString()));}
 signals:
 
-/*!
+    /*!
     \brief \~french
 
     \fn nameChanged
     */
     void nameChanged();
 
-/*!
+    /*!
     \brief \~french
 
     \fn rolesChanged
     */
     void rolesChanged();
 
-/*!
+    /*!
     \brief \~french
 
     \fn validityChanged
@@ -204,7 +204,7 @@ signals:
 
 private:
 
-/*!
+    /*!
     \brief \~french
 
     \fn setName
@@ -212,7 +212,7 @@ private:
     */
     void setName(QString name);
 
-/*!
+    /*!
     \brief \~french
 
     \fn setID
@@ -221,32 +221,32 @@ private:
     void setID(int id);
 
     /*!
-        *\brief \~french m_id
+        *\brief \~french this->m_id
         */
-        int m_id;
+    int m_id;
 
-/*!
-    *\brief \~french m_name
+    /*!
+    *\brief \~french this->m_name
     */
     QString m_name;
 
-/*!
-    *\brief \~french m_receptionist
+    /*!
+    *\brief \~french this->m_receptionist
     */
     bool m_receptionist;
 
-/*!
-    *\brief \~french m_managerX
+    /*!
+    *\brief \~french this->m_managerX
     */
     bool m_managerX;
 
-/*!
-    *\brief \~french m_managerZ
+    /*!
+    *\brief \~french this->m_managerZ
     */
     bool m_managerZ;
 
-/*!
-    *\brief \~french m_administrator
+    /*!
+    *\brief \~french this->m_administrator
     */
     bool m_administrator;
 };

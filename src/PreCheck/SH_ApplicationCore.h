@@ -19,13 +19,13 @@ class SH_ApplicationCore : public QObject
     * \brief \~french L'utilisateur actuellement connecté (un objet SH_USer invalide si aucun utilisateur n'est connecté)
     * \property currentUser
     */
-    Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged) //MEMBER this->m_currentUser
+    Q_PROPERTY(SH_User* currentUser READ user NOTIFY userChanged) //MEMBER m_currentUser
 
     /*!
     * \brief \~french Le mode actuel de l'application
     * \property currentMode
     */
-    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode READ currentMode WRITE setMode NOTIFY modeChanged) //MEMBER this->m_mode
+    Q_PROPERTY(SH_ApplicationCore::AppMode currentMode READ currentMode WRITE setMode NOTIFY modeChanged) //MEMBER m_mode
     Q_ENUMS(AppMode)
 public:
 
@@ -114,6 +114,8 @@ public:
     SH_User *user() const;
 
 
+    Q_INVOKABLE void cancelLastStep();
+
 public slots:
 
     /*!
@@ -158,6 +160,7 @@ public slots:
     * \return bool
     */
     bool launchBillingCreation();
+
 
     /*!
     * \brief \~french
@@ -230,13 +233,17 @@ signals:
     * \fn sendText
     * \param text
     */
-    void sendText(QString text, bool editable);
+    void sendText(QString text, int row, int column);
+    void sendText(QString text, int row);
+    void sendText(QString text);
 
     /*!
     * \brief \~french
     * \fn resendText
     * \param text
     */
+    void resendText(QString text,int row, int column);
+    void resendText(QString text, int row);
     void resendText(QString text);
 
     /*!
@@ -245,7 +252,7 @@ signals:
     */
     void displayCalendar();
 
-    void displayChoiceList(QVariant choices);
+    void displayChoiceList(QVariant choices, int row);
 
     /*!
         * \brief \~french
@@ -271,13 +278,13 @@ private:
 
     /*!
     * \brief \~french
-    * \var m_currentUser
+    * \var this->m_currentUser
     */
     SH_User* m_currentUser;
 
     /*!
     * \brief \~french
-    * \var m_mode
+    * \var this->m_mode
     */
     SH_ApplicationCore::AppMode m_mode;
 
@@ -285,7 +292,7 @@ private:
 
     /*!
     * \brief \~french
-    * \var m_currentFSM
+    * \var this->m_currentFSM
     */
     SH_InOutStateMachine* m_currentFSM;
 

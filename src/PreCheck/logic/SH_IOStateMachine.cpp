@@ -26,6 +26,27 @@ QVariant SH_InOutStateMachine::getContentValue(QString field)
     return this->m_ioContent.value(field);
 }
 
+QString SH_InOutStateMachine::currentStateField()
+{
+    SH_InOutState* state = qobject_cast<SH_InOutState*>(this->currentState());
+    if(state) {
+        return state->fieldName();
+    }
+    return "";
+}
+
+
+QString SH_InOutStateMachine::previousStateField() {
+    SH_InOutState* state = qobject_cast<SH_InOutState*>(this->currentState());
+    if(state) {
+        int index=this->m_statesList.indexOf(state->objectName()) - 1;
+        if(index >= 0 && index < this->m_statesList.length()) {
+            return this->m_statesList.at(index);
+        }
+    }
+    return "";
+}
+
 /*!
  * \details \~french
  * \fn SH_InOutStateMachine::setContentValue
@@ -37,13 +58,11 @@ void SH_InOutStateMachine::setContentValue(QVariant content, QString field)
 
 void SH_InOutStateMachine::addState(QAbstractState *state)
 {
-    SH_MessageManager::debugMessage("chalut");
     SH_GenericStateMachine::addState(state);
 }
 
 void SH_InOutStateMachine::addState(SH_InOutState *state, QString field)
 {
-    SH_MessageManager::debugMessage("salioute state");
     SH_InOutStateMachine::addIOState(state, field);
 }
 
@@ -51,54 +70,54 @@ void SH_InOutStateMachine::addState(SH_InOutState *state, QString field)
  * \details \~french
  * \fn SH_InOutStateMachine::addState
 */
-void SH_InOutStateMachine::addIOState(SH_InOutState *astate, QString field)
+void SH_InOutStateMachine::addIOState(SH_InOutState *state, QString field)
 {
-    SH_InOutState* state = qobject_cast<SH_InOutState *>(astate);
     if(state) {
+        this->m_statesList.append(state->objectName());
+        if(!field.isEmpty()) {
+            state->setField(field);
+        }
         /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
         /*à faire au moment de l'entrée dans l'état state*/
-        /*connect(state, &QAbstractState::entered, [=]() {*/
+        /*connect(state, &SH_InOutState::entered, [=]() {*/
         /* la réception d'une valeur entraîne son enregistrement comme entrée de l'utilisateur auprès de l'état*/
         connect(state, &SH_InOutState::sendOutput, [=](QVariant out) { if(out.isValid()) {
-                SH_MessageManager::infoMessage(out.toString(),"reçu de l'état");
-                emit this->sendText(out.toString(), false);
+                SH_MessageManager::infoMessage(QString("%1 en position %2 (%3)").arg(out.toString()).arg(this->m_statesList.indexOf(state->objectName())).arg(state->objectName()),"reçu de l'état");
+                emit this->sendText(out.toString(), this->m_statesList.indexOf(state->objectName()), 0);
             }});
         connect(this, &SH_InOutStateMachine::receiveInput, state, &SH_InOutState::setInput, Qt::QueuedConnection);
         connect(state, &SH_InOutState::resendInput, [=](QVariant in) {  if(in.isValid()) {
-                SH_MessageManager::infoMessage(in.toString(),"envoyé par l'état");
-                emit this->resendText(in.toString(), true);
+                SH_MessageManager::infoMessage(QString("%1 en position %2 (%3)").arg(in.toString()).arg(this->m_statesList.indexOf(state->objectName())).arg(state->objectName()),"envoyé par l'état");
+                emit this->resendText(in.toString(), this->m_statesList.indexOf(state->objectName()), 1);
             }});
-        SH_MessageManager::debugMessage("salioute");
-        SH_ValidationState *validationState = qobject_cast<SH_ValidationState*>(astate);
+        SH_ValidationState *validationState = qobject_cast<SH_ValidationState*>(state);
         if(validationState) {
             connect(this, &SH_InOutStateMachine::validateInput, validationState, &SH_ValidationState::confirmInput, Qt::QueuedConnection);
         }
 
-        SH_ConfirmationState *confirmationState = qobject_cast<SH_ConfirmationState*>(astate);
+        SH_ConfirmationState *confirmationState = qobject_cast<SH_ConfirmationState*>(state);
         if(confirmationState) {
             connect(this, &SH_InOutStateMachine::validateInput, confirmationState, &SH_ConfirmationState::confirmInput, Qt::QueuedConnection);
         }
 
-        SH_DateQuestionState *dateState = qobject_cast<SH_DateQuestionState*>(astate);
+        SH_DateQuestionState *dateState = qobject_cast<SH_DateQuestionState*>(state);
         if(dateState) {
             emit this->displayCalendar();
         }
 
-        SH_DatabaseContentQuestionState *choiceState = qobject_cast<SH_DatabaseContentQuestionState*>(astate);
+        SH_DatabaseContentQuestionState *choiceState = qobject_cast<SH_DatabaseContentQuestionState*>(state);
         if(choiceState) {
-            connect(this, &SH_InOutStateMachine::displayChoiceList, choiceState, &SH_DatabaseContentQuestionState::displayChoiceList, Qt::QueuedConnection);
+            connect(this, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list, int row) { choiceState->displayChoiceList(list); });
         }
 
-        SH_FileSelectionState *fileState = qobject_cast<SH_FileSelectionState*>(astate);
+        SH_FileSelectionState *fileState = qobject_cast<SH_FileSelectionState*>(state);
         if(fileState) {
             emit this->displayFileDialog();
         }
-        SH_MessageManager::debugMessage("salioute bis");
         /*});*/
-        connect(state, &QAbstractState::exited, [=]() {
+        connect(state, &SH_InOutState::next, [=]() {
             if(!field.isEmpty()) {
-                setContentValue(state->rawInput(), field);
-
+                this->setContentValue(state->checkedInput(), field);
                 /*gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir quitté*/
                 QHistoryState* hState = new QHistoryState(state);
                 setIOStateHistory(hState, field);
@@ -108,8 +127,7 @@ void SH_InOutStateMachine::addIOState(SH_InOutState *astate, QString field)
         });
         /*});*/
     }
-    SH_MessageManager::debugMessage("salioute bis bis");
-    QAbstractState* abstate = qobject_cast<QAbstractState *>(astate);
+    QAbstractState* abstate = qobject_cast<QAbstractState *>(state);
     if(abstate) {
         SH_InOutStateMachine::addState(abstate);
     }
@@ -125,9 +143,9 @@ void SH_InOutStateMachine::addState(SH_InOutStateMachine *fsm, QString table)
 }
 
 void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *astate, QString table) {
-    SH_MessageManager::debugMessage("salioute machine");
     SH_InOutStateMachine* fsm = qobject_cast<SH_InOutStateMachine *>(astate);
     if(fsm) {
+        this->m_statesList.append(fsm->objectName());
         if(!table.isEmpty()) {
             fsm->setTableName(table);
         }
@@ -135,14 +153,19 @@ void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *astate, QString
         /*à faire au moment de l'entrée dans la machine d'état fsm*/
         /*connect(fsm, &SH_InOutStateMachine::entered, [=]() {*/
         connect(this, &SH_InOutStateMachine::receiveInput, fsm, &SH_InOutStateMachine::receiveInput,Qt::QueuedConnection);
-        connect(this, &SH_InOutStateMachine::sendText, fsm, &SH_InOutStateMachine::sendText,Qt::QueuedConnection);
-        connect(this, &SH_InOutStateMachine::resendText, fsm, &SH_InOutStateMachine::resendText,Qt::QueuedConnection);
+        QObject::connect(fsm, SIGNAL(sendText(QString, int, int)), this, SIGNAL(sendText(QString, int, int)), Qt::DirectConnection);
+        QObject::connect(fsm, SIGNAL(sendText(QString, int)), this, SIGNAL(sendText(QString, int)), Qt::DirectConnection);
+        QObject::connect(fsm, SIGNAL(sendText(QString)), this, SIGNAL(sendText(QString)), Qt::DirectConnection);
+        QObject::connect(this, SIGNAL(resendText(QString, int, int)), fsm, SIGNAL(resendText(QString, int, int)), Qt::DirectConnection);
+        QObject::connect(this, SIGNAL(resendText(QString, int)), fsm, SIGNAL(resendText(QString, int)), Qt::DirectConnection);
+        QObject::connect(this, SIGNAL(resendText(QString)), fsm, SIGNAL(resendText(QString)), Qt::DirectConnection);
+
         connect(this, &SH_InOutStateMachine::confirmInput, fsm, &SH_InOutStateMachine::confirmInput,Qt::QueuedConnection);
         connect(this, &SH_InOutStateMachine::validateInput, fsm, &SH_InOutStateMachine::validateInput,Qt::QueuedConnection);
         connect(this, &SH_InOutStateMachine::replaceInput, fsm, &SH_InOutStateMachine::replaceInput,Qt::QueuedConnection);
         connect(this, &SH_InOutStateMachine::cancelReplacement, fsm, &SH_InOutStateMachine::cancelReplacement,Qt::QueuedConnection);
-        connect(this, &SH_InOutStateMachine::displayCalendar, fsm, &SH_InOutStateMachine::displayCalendar,Qt::QueuedConnection);
-        connect(this, &SH_InOutStateMachine::displayChoiceList, fsm, &SH_InOutStateMachine::displayChoiceList,Qt::QueuedConnection);
+        connect(fsm, &SH_InOutStateMachine::displayCalendar, this, &SH_InOutStateMachine::displayCalendar,Qt::QueuedConnection);
+        connect(fsm, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list, int row) { this->displayChoiceList(list, this->m_statesList.indexOf(fsm->objectName()) + row); });
         /* });*/
 
         /*à faire au moment de la sortie de la machine d'état fsm*/
@@ -174,6 +197,11 @@ void SH_InOutStateMachine::setIOStateHistory(QHistoryState *state, QString field
 QHistoryState *SH_InOutStateMachine::historyValue(QString field)
 {
     return this->m_ioStatesHistory.value(field);
+}
+
+QStringList SH_InOutStateMachine::statesList()
+{
+    return this->m_statesList;
 }
 /*!
  * \details \~french
@@ -212,17 +240,15 @@ void SH_InOutStateMachine::setStatesNextTransition(QAbstractState *previousState
         SH_AdaptDatabaseState* saveState = new SH_AdaptDatabaseState("enregistrement de la machine "+toString());
         if(genPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
-            connect(genPreviousState, &QAbstractState::exited, [=]() {
-                emit this->sendText("Merci !");
-                setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
+            connect(genPreviousState, &SH_GenericState::next, [=]() {
+                this->setContentValue(saveState->insertUpdate(this->tableName(), this->ioContent()), "ID");
             });
             /*});*/
         }
         if(fsmPreviousState) {
             /*connect(this, &SH_GenericStateMachine::entered, [=]() {*/
-            connect(genPreviousState, &QAbstractState::exited, [=]() {
-                emit this->sendText("Merci !");
-                setContentValue(saveState->insertUpdate(this->m_tableName, this->m_ioContent), "ID");
+            connect(fsmPreviousState, &SH_GenericStateMachine::next, [=]() {
+                this->setContentValue(saveState->insertUpdate(this->tableName(), this->ioContent()), "ID");
             });
             /*});*/
         }

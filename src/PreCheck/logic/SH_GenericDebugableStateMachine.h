@@ -48,6 +48,8 @@ signals:
     void goNext();
 protected:
 
+    QAbstractState* currentState();
+
 /*!
     * \brief \~french
     * \fn onEntry
@@ -65,7 +67,7 @@ private:
 
 /*!
     * \brief \~french
-    * \var m_errorState
+    * \var this->m_errorState
     */
     QState* m_errorState;
     QAbstractState* m_currentState;

@@ -25,7 +25,7 @@ class SH_NumericQuestionState : public SH_QuestionState
 
 public:
 
-        /*** Constructor(s) ***/
+    /*** Constructor(s) ***/
 
     /*!
  * \brief \~french
@@ -46,14 +46,14 @@ public:
     * \details \~french Permet d'obtenir la date minimale permise
     * \return int La date minimale permise
     */
-    int minimum() const { return m_minimum; }
+    int minimum() const { return this->m_minimum; }
     /*!
     * \fn setMinimum
     * \brief \~french Accesseur en écriture de la propriété \a minimum
     * \details \~french Permet de définir la valeur minimale permise
     * \param int minimum La nouvelle valeur minimale permise
     */
-    void setMinimum(const int &minimum){ m_minimum = minimum; emit minimumChanged(); }
+    void setMinimum(const int &minimum){ this->m_minimum = minimum; emit minimumChanged(); }
 
     /*!
     * \fn maximum
@@ -61,21 +61,21 @@ public:
     * \details \~french Permet d'obtenir la valeur maximale permise
     * \return int La valeur maximale permise
     */
-    int maximum() const { return m_maximum; }
+    int maximum() const { return this->m_maximum; }
     /*!
     * \fn setMaximum
     * \brief \~french Accesseur en écriture de la propriété \a maximum
     * \details \~french Permet de définir la valeur maximale permise
     * \param int maximum La nouvelle valeur maximale permise
     */
-    void setMaximum(const int &maximum){ m_maximum = maximum; emit maximumChanged(); }
+    void setMaximum(const int &maximum){ this->m_maximum = maximum; emit maximumChanged(); }
 
-/*!
+    /*!
  * \brief \~french
  * \fn isAnswerValid
  * \param givenAnswer
 */
-virtual bool isAnswerValid(const QVariant &givenAnswer);
+    virtual bool isAnswerValid(const QVariant &givenAnswer);
 
 signals:
 
@@ -83,14 +83,14 @@ signals:
     void maximumChanged();
 public slots:
 private:
-/*!
- * \brief \~french m_min
+    /*!
+ * \brief \~french this->m_min
  */
-int m_minimum;
-/*!
- * \brief \~french m_max
+    int m_minimum;
+    /*!
+ * \brief \~french this->m_max
  */
-int m_maximum;
+    int m_maximum;
 };
 /*}*/
 #endif /* NUMERICQUESTIONSTATE_H*/

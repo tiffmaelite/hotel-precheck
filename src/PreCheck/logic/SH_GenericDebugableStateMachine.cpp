@@ -17,6 +17,7 @@ SH_GenericStateMachine::SH_GenericStateMachine(QString name, QObject *parent) :
 {
     this->setObjectName(name);
     connect(this, &SH_GenericStateMachine::goNext, this, &SH_GenericStateMachine::emitGoNext);
+    connect(this, &SH_GenericStateMachine::entered, this, &SH_GenericStateMachine::start);
     this->m_errorState = new SH_GenericState("error state");
     this->addState(this->m_errorState);
     this->setErrorState(this->m_errorState);
@@ -44,16 +45,20 @@ QString SH_GenericStateMachine::toString()
         return SH_NamedObject::toString();
     }
 }
-
 /*!
  * \brief
  * \fn SH_GenericStateMachine::emitGoNext
 */
 void SH_GenericStateMachine::emitGoNext()
 {
-    if(isRunning()) {
+    if(this->isRunning()) {
         emit next();
     }
+}
+
+QAbstractState *SH_GenericStateMachine::currentState()
+{
+    return this->m_currentState;
 }
 
 void SH_GenericStateMachine::addState(QAbstractState *state) {
@@ -77,7 +82,7 @@ void SH_GenericStateMachine::addState(QAbstractState *state) {
 void SH_GenericStateMachine::onEntry(QEvent *event)
 {
     Q_UNUSED(event);
-    SH_MessageManager::debugMessage(this->name() + " entered");
+    SH_MessageManager::debugMessage(this->objectName() + " entered");
 }
 /*!
  * \brief
@@ -87,7 +92,7 @@ void SH_GenericStateMachine::onEntry(QEvent *event)
 void SH_GenericStateMachine::onExit(QEvent *event)
 {
     Q_UNUSED(event);
-    SH_MessageManager::debugMessage(this->name() + " exited");
+    SH_MessageManager::debugMessage(this->objectName() + " exited");
 }
 /*!
  * \details \~french

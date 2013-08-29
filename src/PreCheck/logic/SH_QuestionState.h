@@ -1,6 +1,7 @@
 #ifndef QUESTIONSTATE_H
 #define QUESTIONSTATE_H
 #include "SH_IOState.h"
+#include "SH_MessageManager.h"
 /*namespace SimplHotel
 {*/
 /*!
@@ -11,7 +12,6 @@
 class SH_QuestionState : public SH_InOutState
 {
     Q_OBJECT
-    Q_PROPERTY(QVariant givenAnswer READ givenAnswer WRITE setGivenAnswer NOTIFY givenAnswerChanged) //MEMBER m_givenAnswer
 public:
     /*!
  * \brief \~french
@@ -22,29 +22,9 @@ public:
 */
     SH_QuestionState(QString question, QString name, QState *parent = 0);
 
-    QVariant givenAnswer() const {return m_givenAnswer;}
+    virtual QVariant checkedInput();
 
-    /*!
-    * \brief \~french
-    * \fn checkValidity
-    * \return bool
-    */
-    bool checkValidity();
-
-
-    /*!
-    * \brief \~french
-    * \fn setGivenAnswer
-    * \param givenAnswer
-    */
-    virtual void setGivenAnswer(const QVariant &givenAnswer);
-
-    /*!
-    * \brief \~french
-    * \fn setInput
-    * \param input
-    */
-    virtual void setInput(const QVariant &input);
+    virtual QVariant displayableInput();
 
     /*!
     * \brief \~french
@@ -64,14 +44,21 @@ signals:
     * \brief \~french answerInvalid
     */
     void answerInvalid();
-    void givenAnswerChanged();
 public slots:
+
+    /*!
+    * \brief \~french
+    * \fn checkValidity
+    * \return bool
+    */
+    bool checkValidity(const QVariant &givenAnswer);
+
 private:
 
     /*!
-    * \brief \~french m_givenAnswer
+    * \brief \~french this->m_givenAnswer
     */
-    QVariant m_givenAnswer;
+    QVariant m_acceptedAnswer;
 };
 /*}*/
 #endif /* QUESTIONSTATE_H*/

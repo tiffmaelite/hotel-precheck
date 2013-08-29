@@ -24,10 +24,10 @@ public:
 */
     SH_LoopingInOutStateMachine(QString tableName, QString name="looping", int limit=0, QObject *parent = 0);
 
-    void setLimit(int newLimit) { m_limit = newLimit; emit limitChanged(); }
-    int limit() const { return m_limit; }
-    void setCurrent(int current) { m_current = current; emit currentChanged(); }
-    int current() const { return m_current; }
+    void setLimit(int newLimit) { this->m_limit = newLimit; emit limitChanged(); }
+    int limit() const { return this->m_limit; }
+    void setCurrent(int current) { this->m_current = current; emit currentChanged(); }
+    int current() const { return this->m_current; }
 
 /*!
     * \brief \~french
@@ -63,22 +63,22 @@ public slots:
 private:
 
 /*!
-    * \brief \~french m_limit
+    * \brief \~french this->m_limit
     */
     int m_limit;
 
 /*!
-    * \brief \~french m_current
+    * \brief \~french this->m_current
     */
     int m_current;
 
 /*!
-    * \brief \~french m_contents
+    * \brief \~french this->m_contents
     */
     QList<QVariantMap> m_contents;
 
 /*!
-    * \brief \~french m_persistentContent
+    * \brief \~french this->m_persistentContent
     */
     QVariantMap m_persistentContent;
 };

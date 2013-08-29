@@ -9,49 +9,44 @@
 SH_QuestionState::SH_QuestionState(QString question, QString name, QState *parent) :
     SH_InOutState(question, name, parent)
 {
+    connect(this, &SH_InOutState::inputChanged, this, &SH_QuestionState::checkValidity);
 }
 /*!
  * \details \~french
  * \fn SH_QuestionState::checkValidity
 */
-bool SH_QuestionState::checkValidity()
+bool SH_QuestionState::checkValidity(const QVariant &givenAnswer)
 {
     bool ok = false;
-    if(isRunning()) {
-        ok = this->isAnswerValid(this->givenAnswer());
+    if(this->isRunning()) {
+        ok = this->isAnswerValid(givenAnswer);
         if(ok) {
-            SH_MessageManager::infoMessage(QString("%1 is a VALID answer for question '%2'!").arg(this->givenAnswer().toString()).arg(this->output()));
-            SH_InOutState::setInput(this->givenAnswer());
+            if(this->m_acceptedAnswer != givenAnswer) {
+                this->m_acceptedAnswer = givenAnswer;
+                SH_MessageManager::debugMessage(QString("%1 is a VALID answer for question '%2'!").arg(this->m_acceptedAnswer.toString()).arg(this->output()));
+                emit displayableInputChanged();
+            } else {
+                SH_MessageManager::debugMessage(QString("%1 is still a VALID answer for question '%2'!").arg(givenAnswer.toString()).arg(this->output()));
+            }
             emit answerValid();
             emit goNext();
         } else {
-            SH_MessageManager::infoMessage(QString("%1 is an INvalid :-( answer for question '%2'").arg(this->givenAnswer().toString()).arg(this->output()));
+            SH_MessageManager::debugMessage(QString("%1 is an INvalid :-( answer for question '%2'").arg(givenAnswer.toString()).arg(this->output()));
             emit answerInvalid();
         }
     }
     return ok;
 }
-/*!
- * \details \~french
- * \fn SH_QuestionState::setInput
-*/
-void SH_QuestionState::setInput(const QVariant &input)
+
+QVariant SH_QuestionState::displayableInput()
 {
-    if(input != this->givenAnswer()) {
-        this->setGivenAnswer(input);
-    }
+    SH_MessageManager::debugMessage(QString("displayableInput: %1 !").arg(this->m_acceptedAnswer.toString()));
+    return this->checkedInput();
 }
 
-/*!
- * \details \~french
- * \fn SH_QuestionState::setGivenAnswer
-*/
-void SH_QuestionState::setGivenAnswer(const QVariant &givenAnswer)
+QVariant SH_QuestionState::checkedInput()
 {
-    if(givenAnswer != this->givenAnswer()) {
-        this->m_givenAnswer = givenAnswer;
-        emit givenAnswerChanged();
-        this->checkValidity();
-    }
+    return this->m_acceptedAnswer;
 }
+
 /*}*/

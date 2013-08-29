@@ -242,7 +242,7 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
     if (dbDriverLabel() == SH_DatabaseManager::InterbaseDriver || dbDriverLabel() == SH_DatabaseManager::FirebirdDriver) {
         query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID)").arg(tableName).arg(fields).arg(vals);
     } else if (dbDriverLabel() == SH_DatabaseManager::PostgresqlDriver) {
-        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(QVariantMapToHStore(values));
+        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(this->qVariantMapToHStore(values));
     }
     QSqlQuery result = dbConnection.exec(query);
     //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
@@ -254,23 +254,27 @@ bool SH_DatabaseManager::execReplaceQuery(QString tableName, QVariantMap values)
  * \fn SH_DatabaseManager::execInsertReturningQuery
     */
 QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVariantMap values, QString returningField) {
-    QString fields;
-    QString vals;
-    divideQVariantMap(values, fields, vals);
     QString query;
     dbDrivers label = dbDriverLabel();
-    if (label == SH_DatabaseManager::InterbaseDriver || label == SH_DatabaseManager::FirebirdDriver) {
-        query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
-    } else if (label == SH_DatabaseManager::PostgresqlDriver) {
-        query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(QVariantMapToHStore(values)).arg(returningField);
-    }
-    QSqlQuery result = dbConnection.exec(query);
-    //SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
-    if(result.first()) {
-        QSqlRecord rec = result.record();
-        if(!rec.isEmpty() && result.isValid()) {
-            return rec.value(rec.indexOf(returningField));
+    if(!values.isEmpty()) {
+        if (label == SH_DatabaseManager::InterbaseDriver || label == SH_DatabaseManager::FirebirdDriver) {
+            QString fields;
+            QString vals;
+            this->divideQVariantMap(values, fields, vals);
+            query = QString("UPDATE OR INSERT INTO %1(%2) VALUES(%3) MATCHING(ID) RETURNING %4").arg(tableName).arg(fields).arg(vals).arg(returningField);
+        } else if (label == SH_DatabaseManager::PostgresqlDriver) {
+            query = QString("SELECT genupsertID_%1(%2) ").arg(tableName).arg(this->qVariantMapToHStore(values));
         }
+        QSqlQuery result = dbConnection.exec(query);
+        SH_MessageManager::debugMessage(QString("query %1: valid ? %2 active ? %3").arg(result.executedQuery()).arg(result.isValid()).arg(result.isActive()));
+        if(result.first()) {
+            QSqlRecord rec = result.record();
+            if(!rec.isEmpty() && result.isValid()) {
+                return rec.value(rec.indexOf(returningField));
+            }
+        }
+    } else {
+        SH_MessageManager::debugMessage("Le tableau des valeurs à upserter est vide !");
     }
     return QVariant();
 }
@@ -334,41 +338,47 @@ void SH_DatabaseManager::divideQVariantMap(QVariantMap values, QString& fields, 
     * \details \~french
  * \fn QVariantMapToHStore
     */
-QString SH_DatabaseManager::QVariantMapToHStore(QVariantMap values) {
+QString SH_DatabaseManager::qVariantMapToHStore(QVariantMap values) {
     QString hstore = "array[";
+    QString stringVal;
     for(auto field : values.keys())
     {
-        hstore += "["+field+",";
+        hstore += "['"+field+"',";
         QVariant val = values.value(field);
         bool ok;
         int intVal = val.toInt(&ok);
         if(ok) {
-            hstore += QString::number(intVal);
-        }
-        double dbVal = val.toDouble(&ok);
-        if(ok) {
-            hstore += QString::number(dbVal);
-        }
+            stringVal = QString::number(intVal);
+        } else {
+            double dbVal = val.toDouble(&ok);
+            if(ok) {
+                stringVal = QString::number(dbVal);
+            }
 
-        /*bool boolVal = val.toBool();
+            /* else {
+         bool boolVal = val.toBool();
     if(boolVal) {
     &vals += "'"+1+"'',";
     }*/
-        QDate dateVal = val.toDate();
-        if(dateVal.isValid()) {
-            hstore += "'"+dateVal.toString()+"'";
-            /*FIXME adapt date format*/
+            QDate dateVal = val.toDate();
+            if(dateVal.isValid()) {
+                stringVal = "'"+dateVal.toString()+"'";
+                /*FIXME adapt date format*/
+            } else {
+                QDateTime dateTimeVal = val.toDateTime();
+                if(dateTimeVal.isValid()) {
+                    stringVal = "'"+dateTimeVal.toString()+"'";
+                    /*FIXME adapt datetime format*/
+                } else {
+                    stringVal = val.toString();
+                    hstore += "'"+stringVal+"'";
+                }
+            }
         }
-        QDateTime dateTimeVal = val.toDateTime();
-        if(dateTimeVal.isValid()) {
-            hstore += "'"+dateTimeVal.toString()+"'";
-            /*FIXME adapt datetime format*/
-        }
-        QString stringVal = val.toString();
-        hstore += "'"+stringVal+"'";
+        /*}*/
         hstore +="],";
     }
-    hstore = hstore.left(hstore.lastIndexOf(',')-1);
+    hstore = hstore.left(hstore.lastIndexOf(','));
     hstore +="]";
     return hstore;
 }

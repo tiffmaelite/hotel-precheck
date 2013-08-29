@@ -15,46 +15,46 @@ public:
  * \fn NamedObject
  * \param name
 */
-	SH_NamedObject(QString name);
-	
+    SH_NamedObject(QString name);
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn toString
-	* \return QString
-	*/
-	virtual QString toString();
-	
+    * \return QString
+    */
+    virtual QString toString();
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn name
-	* \return QString
-	*/
-	virtual QString name() const;
-	
+    * \return QString
+    */
+    virtual QString name();
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn setName
-	* \param name
-	*/
-	virtual void setName(const QString &name);
-	
+    * \param name
+    */
+    virtual void setName(QString name);
+
 /*!
-	* \brief \~french
+    * \brief \~french
  * \fn ptraddress
-	* \return QString
-	*/
-	QString ptraddress() const;
+    * \return QString
+    */
+    QString ptraddress() const;
 private:
-	
+
 /*!
-	* \brief \~french m_name
-	*/
-	QString m_name;
-	
+    * \brief \~french this->m_name
+    */
+    QString m_name;
+
 /*!
-	* \brief \~french m_ptraddress
-	*/
-	QString m_ptraddress;
+    * \brief \~french this->m_ptraddress
+    */
+    QString m_ptraddress;
 };
 /*}*/
 #endif /* NAMEDOBJECT_H*/

@@ -56,10 +56,10 @@ HEADERS *= \
 	logic/SH_AdaptDatabaseState.h \
 	models/SH_ReportsTypesTableModel.h \
 	models/SH_ReportsTableModel.h \
-    models/SH_SqlQueryModel.h \
-    models/SH_SqlFuncResultModel.h \
-    models/SH_ExtendedProxyTableModel.h \
-    models/SH_ExtendedProxyFuncResultModel.h
+	models/SH_SqlQueryModel.h \
+	models/SH_SqlFuncResultModel.h \
+	models/SH_ExtendedProxyTableModel.h \
+	models/SH_ExtendedProxyFuncResultModel.h
 
 SOURCES *= \
 	main.cpp \
@@ -109,10 +109,10 @@ SOURCES *= \
 	SH_DatabaseManagerSettings.cpp \
 	models/SH_ReportsTypesTableModel.cpp \
 	models/SH_ReportsTableModel.cpp \
-    models/SH_SqlQueryModel.cpp \
-    models/SH_SqlFuncResultModel.cpp \
-    models/SH_ExtendedProxyTableModel.cpp \
-    models/SH_ExtendedProxyFuncResultModel.cpp
+	models/SH_SqlQueryModel.cpp \
+	models/SH_SqlFuncResultModel.cpp \
+	models/SH_ExtendedProxyTableModel.cpp \
+	models/SH_ExtendedProxyFuncResultModel.cpp
 
 # QML-files as a ressource
 RESOURCES *= \
@@ -147,7 +147,9 @@ OTHER_FILES *= \
 	views/qml/SH_app.qml \
 	views/qml/SH_CellFlow.qml \
 	views/qml/SH_StartMenuButtonDelegate.qml \
-	views/qml/SH_HTML5OutputZone.qml \
-    views/SH_OutputPanel.xhtml \
-    views/qml/SH_SqlGrid.qml \
-    views/qml/SH_DataModelDelegate.qml
+	views/qml/SH_QAOutput.qml \
+	views/SH_OutputPanel.xhtml \
+	views/qml/SH_SqlGrid.qml \
+	views/qml/SH_DataModelDelegate.qml \
+	views/qml/SH_OldOutputZone.qml \
+    views/qml/SH_GlobalOutput.qml

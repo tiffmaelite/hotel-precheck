@@ -30,11 +30,11 @@ public:
 */
 virtual bool isAnswerValid(const QVariant &givenAnswer);
 
-    int minimumLength() const { return m_minLen; }
-    void setMinimumLength(int minLen) { m_minLen = minLen; emit minimumLengthChanged(); }
+    int minimumLength() const { return this->m_minLen; }
+    void setMinimumLength(int minLen) { this->m_minLen = minLen; emit minimumLengthChanged(); }
 
-    int maximumLength() const { return m_maxLen; }
-    void setMaximumLength(int maxLen) { m_maxLen = maxLen; emit maximumLengthChanged(); }
+    int maximumLength() const { return this->m_maxLen; }
+    void setMaximumLength(int maxLen) { this->m_maxLen = maxLen; emit maximumLengthChanged(); }
 
 signals:
     void maximumLengthChanged();
@@ -42,11 +42,11 @@ signals:
 public slots:
 private:
     /*!
- * \brief \~french m_minLen
+ * \brief \~french this->m_minLen
  */
 int m_minLen;
 /*!
- * \brief \~french m_maxLen
+ * \brief \~french this->m_maxLen
  */
 int m_maxLen;
 };

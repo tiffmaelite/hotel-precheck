@@ -124,7 +124,6 @@ bool SH_ApplicationCore::balanceLogRoutine(QString period) {
 void SH_ApplicationCore::receiveInput(QString in)
 {
     if(this->m_currentFSMNotNull) {
-        SH_MessageManager::infoMessage("input received "+in);
         emit this->m_currentFSM->receiveInput(in);
     }
 }
@@ -196,7 +195,7 @@ bool SH_ApplicationCore::launchServiceCharging()
 {
     this->m_currentFSM= new SH_ServiceCharging("facturation prestation");
     this->m_currentFSMNotNull = true;
-    this->m_currentFSM->setContentValue(QVariant(this->m_currentUser->property("ID").toInt()), "BILL_ID");
+    this->m_currentFSM->setContentValue(QString::number(this->m_currentUser->id()), "BILL_ID");
     return this->launchStateMachine();
 }
 /*!
@@ -213,18 +212,31 @@ bool SH_ApplicationCore::stopRunningStateMachine()
     }
     return false;
 }
+void SH_ApplicationCore::cancelLastStep()
+{
+    if(this->m_currentFSMNotNull) {
+        emit this->m_currentFSM->replaceInput(this->m_currentFSM->previousStateField());
+    }
+}
 /*!
  * \details \~french
  * \fn SH_ApplicationCore::launchStateMachine
 */
 bool SH_ApplicationCore::launchStateMachine()
 {
-    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, this, &SH_ApplicationCore::sendText, Qt::DirectConnection);
-    /*QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, [=](QString text, bool editable) { SH_MessageManager::infoMessage(text,"reçu de la machine"); emit this->sendText(text, editable);});*/
+    //QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::sendText, this, &SH_ApplicationCore::sendText, Qt::DirectConnection);
+    //QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
+
+    QObject::connect(this->m_currentFSM, SIGNAL(sendText(QString, int, int)), this, SIGNAL(sendText(QString, int, int)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(sendText(QString, int)), this, SIGNAL(sendText(QString, int)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(sendText(QString)), this, SIGNAL(sendText(QString)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(resendText(QString, int, int)), this, SIGNAL(resendText(QString, int, int)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(resendText(QString, int)), this, SIGNAL(resendText(QString, int)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(resendText(QString)), this, SIGNAL(resendText(QString)), Qt::DirectConnection);
+
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list) {this->displayChoiceList(QVariant(list));});
+    QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list, int row) {this->displayChoiceList(QVariant(list),row);});
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayFileDialog, this, &SH_ApplicationCore::displayFileDialog, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayProgressBar, this, &SH_ApplicationCore::displayProgressBar, Qt::DirectConnection);
     emit clearAll();

@@ -15,9 +15,10 @@ GridLayout {
     rowSpacing:0
     columnSpacing:0
     property variant actionsList: []
+    readonly property int count: layout.actionsList.length
     Repeater {
         id: repeater
-        model: (layout.actionsList === []) ? 0 :  layout.actionsList.length
+        model: (layout.actionsList === []) ? 0 :  layout.count
         delegate:
             SH_DataDelegate {
             id: btn

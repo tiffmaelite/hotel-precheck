@@ -244,12 +244,16 @@ int main(int argc, char **argv)
         QObject * displayZone = commonPage->findChild<QObject *>("RightOutput");
 
         QObject::connect(appManager, SIGNAL(openTab(QVariant)), tabsZone, SLOT(openTab(QVariant)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(sendText(QString, bool)), displayZone, SIGNAL(displayNew(QString, bool)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replace(QString)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SLOT(clearAll()), Qt::QueuedConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QString, int, int)), displayZone, SIGNAL(display(QString, int, int)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QString, int)), displayZone, SIGNAL(displayTextAt(QString, int)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(sendText(QString)), displayZone, SIGNAL(displayText(QString)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(resendText(QString, int, int)), displayZone, SIGNAL(replace(QString, int, int)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(resendText(QString, int)), displayZone, SIGNAL(replaceTextAt(QString, int)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(resendText(QString)), displayZone, SIGNAL(replaceText(QString)), Qt::DirectConnection);
+        QObject::connect(appManager, SIGNAL(clearAll()), displayZone, SIGNAL(clearAll()), Qt::QueuedConnection);
         QObject::connect(appManager, SIGNAL(displayFileDialog()), commonPage, SLOT(displayFileDialog()), Qt::DirectConnection);
         QObject::connect(appManager, SIGNAL(displayProgressBar(qreal)), displayZone, SIGNAL(displayProgressBar(qreal)), Qt::DirectConnection);
-        QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant)), displayZone, SIGNAL(displaySqlDatas(QVariant)), Qt::DirectConnection);
+                QObject::connect(appManager, SIGNAL(displayChoiceList(QVariant, int)), displayZone, SIGNAL(displaySqlDatasAt(QVariant, int)), Qt::DirectConnection);
         /*QObject::connect(appManager, SIGNAL(displayCalendar()), displayZone, SLOT(displayCalendar()), Qt::DirectConnection);*/
 
         QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));

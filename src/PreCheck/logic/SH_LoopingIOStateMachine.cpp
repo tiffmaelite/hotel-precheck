@@ -69,7 +69,7 @@ void SH_LoopingInOutStateMachine::setStatesNextTransition(QAbstractState *previo
                         saveState->addTransition(saveState, SIGNAL(next()),nextSaveState);
                         connect(saveState, &QAbstractState::exited, [=]() {
                             connect(nextSaveState, &QAbstractState::entered, [=]() {
-                                setContentValue(nextSaveState->insertUpdate(this->m_tableName, this->m_contents[i]), "ID");
+                                this->setContentValue(nextSaveState->insertUpdate(this->m_tableName, m_contents[i]), "ID");
                             });
                         });
                     }
