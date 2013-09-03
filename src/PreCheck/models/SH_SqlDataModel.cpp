@@ -41,13 +41,12 @@ void SH_SqlDataModel::fetchQuery(QString tableName, QString filter, QString sort
 {
     if(!this->m_tableName.isEmpty() || !tableName.isEmpty()) {
         //SH_MessageManager::debugMessage("Bienvenue dans fetch");
-        //SH_MessageManager::debugMessage(this->m_tableName + " " + this->fieldsList().join(", ") + " " +this->m_condition + " " + this->m_order);
+        //SH_MessageManager::debugMessage(this->tableName() + ": " + this->fieldsList().join(", ") + " (" +this->filterCondition() + " // " + this->m_order+")");
         this->setFields(fieldsList);
         this->setTableName(tableName);
         this->setFilterCondition(filter);
         this->setOrderBy(sort);
-        //SH_MessageManager::debugMessage(this->m_tableName + " " + this->fieldsList().join(", ") + " " +filter + " " + sort);
-        this->m_query = SH_DatabaseManager::getInstance()->execSelectQuery(this->tableName(), this->fieldsList(), this->filterCondition(), m_order);
+        this->m_query = SH_DatabaseManager::getInstance()->execSelectQuery(this->tableName(), this->fieldsList(), this->filterCondition(), this->m_order);
     }
 }
 /*}*/

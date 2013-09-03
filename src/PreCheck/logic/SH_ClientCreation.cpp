@@ -17,7 +17,7 @@ SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObje
 {
     SH_StatementState* introAddress = new SH_StatementState("Vous pouvez à tout moment interrompre la création de l'adresse du client en appuyant sur la touche \"CONFIRMER\"","intro address client creation");
     SH_AddressCreationStateMachine* address = new SH_AddressCreationStateMachine("address in client creation");
-    SH_DatabaseContentQuestionState* nationality = new SH_DatabaseContentQuestionState("Code de nationalité du client", "nationality in client creation", "NATIONALITIES","CODE");
+    SH_DatabaseContentQuestionState* nationality = new SH_DatabaseContentQuestionState("Code de nationalité du client", "nationality in client creation", "NATIONALITIES_ARCHIVE","CODE");
     SH_FileSelectionState* IDscan = new SH_FileSelectionState("Veuillez sélectionner l'image scannée des papiers d'identité du client","ID image in client creation");
 
 
@@ -32,11 +32,11 @@ SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObje
     QFinalState* final = new QFinalState();
 
     //this->addState(IDscan, "IDSCAN");
-    this->addState(introAddress);
-    //this->addState(address);
-    this->addState(phone, "PHONE");
-    this->addState(email, "EMAIL");
-    this->addState(nationality, "NATIONALITY_ID");
+    this->addIOState(introAddress);
+    //this->addStateMachine(address);
+    this->addIOState(phone, "PHONE");
+    this->addIOState(email, "EMAIL");
+    this->addIOState(nationality, "NATIONALITY_ID");
     this->addState(final);
     /*connect(address, &SH_InOutStateMachine::entered, [=]() {
         connect(this, &SH_InOutStateMachine::confirmInput, address, &SH_InOutStateMachine::next);

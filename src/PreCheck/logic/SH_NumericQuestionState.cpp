@@ -25,4 +25,8 @@ bool SH_NumericQuestionState::isAnswerValid(const QVariant &givenAnswer)
     }
 }
 
+void SH_NumericQuestionState::setAcceptedAnswer(const QVariant &givenAnswer) {
+    this->m_acceptedAnswer = QVariant(givenAnswer.toInt());
+}
+
 /*}*/

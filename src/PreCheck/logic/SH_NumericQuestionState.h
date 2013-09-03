@@ -82,6 +82,8 @@ signals:
     void minimumChanged();
     void maximumChanged();
 public slots:
+protected:
+    void setAcceptedAnswer(const QVariant &givenAnswer);
 private:
     /*!
  * \brief \~french this->m_min

@@ -27,7 +27,7 @@ public:
     * \param content Le contenu à enregistrer, sous la forme d'une \a QVariantMap associant les champs de la table aux valeurs à insérer/modifier
     * \return bool Retourne \a true si l'enregistrement a réussi, \a false sinon
     */
-    QVariant insertUpdate(QString table, QVariantMap content);
+    QVariant insertUpdate(QString table, QMultiMap<QString, QVariant> content);
 signals:
 public slots:
 };

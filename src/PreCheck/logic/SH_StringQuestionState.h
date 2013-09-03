@@ -40,6 +40,8 @@ signals:
     void maximumLengthChanged();
     void minimumLengthChanged();
 public slots:
+protected:
+    void setAcceptedAnswer(const QVariant &givenAnswer);
 private:
     /*!
  * \brief \~french this->m_minLen

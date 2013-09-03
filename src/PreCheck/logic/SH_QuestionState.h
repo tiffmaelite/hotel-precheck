@@ -53,12 +53,14 @@ public slots:
     */
     bool checkValidity(const QVariant &givenAnswer);
 
-private:
+protected:
 
     /*!
     * \brief \~french this->m_givenAnswer
     */
     QVariant m_acceptedAnswer;
+
+    virtual void setAcceptedAnswer(const QVariant &givenAnswer);
 };
 /*}*/
 #endif /* QUESTIONSTATE_H*/

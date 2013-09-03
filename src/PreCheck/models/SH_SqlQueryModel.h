@@ -66,7 +66,7 @@ public:
     \param role
     \return QVariant
     */
-    Q_INVOKABLE QVariantMap datas();
+    Q_INVOKABLE QMultiMap<QString, QVariant> datas();
 
     /*!
     \brief \~french

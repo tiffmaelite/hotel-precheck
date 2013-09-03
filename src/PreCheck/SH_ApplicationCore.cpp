@@ -228,11 +228,11 @@ bool SH_ApplicationCore::launchStateMachine()
     //QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::resendText, this, &SH_ApplicationCore::resendText, Qt::DirectConnection);
 
     QObject::connect(this->m_currentFSM, SIGNAL(sendText(QString, int, int)), this, SIGNAL(sendText(QString, int, int)), Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, SIGNAL(sendText(QString, int)), this, SIGNAL(sendText(QString, int)), Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, SIGNAL(sendText(QString)), this, SIGNAL(sendText(QString)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(sendTextForRow(QString, int)), this, SIGNAL(sendText(QString, int)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(sendTextAuto(QString)), this, SIGNAL(sendText(QString)), Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, SIGNAL(resendText(QString, int, int)), this, SIGNAL(resendText(QString, int, int)), Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, SIGNAL(resendText(QString, int)), this, SIGNAL(resendText(QString, int)), Qt::DirectConnection);
-    QObject::connect(this->m_currentFSM, SIGNAL(resendText(QString)), this, SIGNAL(resendText(QString)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(resendTextForRow(QString, int)), this, SIGNAL(resendText(QString, int)), Qt::DirectConnection);
+    QObject::connect(this->m_currentFSM, SIGNAL(resendTextAuto(QString)), this, SIGNAL(resendText(QString)), Qt::DirectConnection);
 
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::clearAll, this, &SH_ApplicationCore::clearAll, Qt::DirectConnection);
     QObject::connect(this->m_currentFSM, &SH_InOutStateMachine::displayCalendar, this, &SH_ApplicationCore::displayCalendar, Qt::DirectConnection);

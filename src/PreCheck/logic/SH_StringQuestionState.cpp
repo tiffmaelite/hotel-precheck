@@ -24,4 +24,8 @@ bool SH_StringQuestionState::isAnswerValid(const QVariant &givenAnswer)
     }
 }
 
+void SH_StringQuestionState::setAcceptedAnswer(const QVariant &givenAnswer) {
+    this->m_acceptedAnswer = QVariant(givenAnswer.toString());
+}
+
 /*}*/

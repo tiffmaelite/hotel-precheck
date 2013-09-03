@@ -133,6 +133,8 @@ public:
     */
     virtual QVariant displayableInput();
 
+    virtual QVariant checkedInput();
+
 
 signals:
 
@@ -150,6 +152,8 @@ protected slots:
 
 public slots:
 
+protected:
+    void setAcceptedAnswer(const QVariant &givenAnswer);
 private slots:
 
 

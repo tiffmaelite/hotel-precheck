@@ -24,4 +24,8 @@ bool SH_DecimalQuestionState::isAnswerValid(const QVariant &givenAnswer)
     }
 }
 
+void SH_DecimalQuestionState::setAcceptedAnswer(const QVariant &givenAnswer) {
+    this->m_acceptedAnswer = QVariant(givenAnswer.toDouble());
+}
+
 /*}*/

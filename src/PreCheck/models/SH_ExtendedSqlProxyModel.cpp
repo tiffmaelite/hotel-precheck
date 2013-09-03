@@ -144,9 +144,9 @@ QVariant SH_ExtendedProxyModel::data(int row, int column)
         return this->data(modelIndex, this->model->roleForField(column));
     } else {
         SH_MessageManager::debugMessage(QString("more than one column !"));
-        QVariantMap map;
+        QMultiMap<QString, QVariant> map;
         foreach(SH_SqlDataFields* field, this->modelFields) {
-            map.insert(field->name(),this->data(modelIndex, this->model->roleForField(this->modelFields.indexOf(field))));
+            map.replace(field->name(),this->data(modelIndex, this->model->roleForField(this->modelFields.indexOf(field))));
         }
         return QVariant(map);
     }

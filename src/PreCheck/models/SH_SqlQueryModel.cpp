@@ -65,19 +65,22 @@ bool SH_SqlQueryModel::setData(const QModelIndex &index, const QVariant &value, 
  \details \~french
  \fn SH_SqlQueryModel::datas
 */
-QVariantMap SH_SqlQueryModel::datas()
+QMultiMap<QString, QVariant> SH_SqlQueryModel::datas()
 {
-    //SH_MessageManager::debugMessage("datas");
-    QVariantMap result;
+    //SH_MessageManager::debugMessage("datas?");
+    QMultiMap<QString, QVariant> result;
     if (this->m_new || this->m_records.count() <= 0)
     {
         this->fetch();
     }
     if (this->m_records.count() > 0)
     {
+        //SH_MessageManager::debugMessage(QString("%L1 datas!").arg(QString::number(this->m_records.count())));
+        //SH_MessageManager::debugMessage(QString("%L1 roles for %L2 fields").arg(QString::number(this->m_roles.count())).arg(QString::number(this->m_fields.count())));
         for(int column = 0; column < this->m_roles.count(); column++) {
-            for(int row = 0; row < this->m_records.count();row++) {
-                result.insertMulti(this->m_roles.value(this->roleForField(column)), m_records.at(row).value(column));
+            for(int row = 0; row < this->m_records.count(); row++) {
+                //SH_MessageManager::debugMessage(QString("data: %1 for %2").arg(QString(this->m_roles.value(this->roleForField(column)))).arg(this->m_records.at(row).value(column).toString()));
+                result.insert(this->m_roles.value(this->roleForField(column)), m_records.at(row).value(column));
             }
         }
     }
@@ -195,7 +198,7 @@ void SH_SqlQueryModel::resetInternalData() {
 bool SH_SqlQueryModel::fetch()
 {
     this->m_new = false;
-    SH_MessageManager::debugMessage("Bienvenue dans query fetch");
+    //SH_MessageManager::debugMessage("Bienvenue dans query fetch");
     try
     {
         //this->m_fetching->tryLock(100);
@@ -204,38 +207,37 @@ bool SH_SqlQueryModel::fetch()
         this->resetInternalData();
         this->fetchQuery();
         if(!this->m_query.lastQuery().isEmpty()) {
-            //SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
+            SH_MessageManager::debugMessage(QString("query is: %1").arg(this->m_query.lastQuery()));
             bool next = this->m_query.first();
 
             while (next && this->m_query.isActive())
             {
                 QSqlRecord record = this->m_query.record();
-
-                //SH_MessageManager::debugMessage("Nouvelle ligne récupérée");
                 if (this->m_query.isValid() && (!record.isEmpty()) && (record.count() > 0))
                 {
-                    //SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
                     this->beginInsertRows(QModelIndex(), 0, 0);
                     this->m_records.append(record);
-#ifdef DEBUGMODE
+                    //#ifdef DEBUGMODE
                     int nbFields = record.count();
                     for (int i = 0; i < nbFields; i++)
                     {
                         SH_MessageManager::debugMessage(QString("%1 : %2").arg(record.fieldName(i).toUpper()).arg(record.value(i).toString()));
                     }
-#endif
+                    //#endif
                     if (this->m_fields.empty())
                     {
+                        SH_MessageManager::debugMessage(QString("%1 champs").arg(record.count()));
                         int nbFields = record.count();
                         for (int i = 0; i < nbFields; i++)
                         {
                             SH_SqlDataFields *field = new SH_SqlDataFields();
                             field->setName(record.fieldName(i).toUpper());
-                            //SH_MessageManager::debugMessage(QString("nouveau champ (le n°%L1): %2").arg(i).arg(field->name()));
+                            SH_MessageManager::debugMessage(QString("nouveau champ (le n°%L1): %2").arg(i).arg(field->name()));
                             this->m_fields.append(field);
                         }
+                    }
+                    if(this->m_roles.isEmpty()) {
                         this->applyRoles();
-                        emit this->fieldsChanged();
                     }
                     this->endInsertRows();
                 }
@@ -289,7 +291,6 @@ void SH_SqlQueryModel::setFields(QStringList fields)
             this->m_fields.append(field);
         }
         this->applyRoles();
-        emit fieldsChanged();
     }
 }
 /*!
@@ -300,7 +301,6 @@ void SH_SqlQueryModel::resetFieldsToAll()
 {
     this->m_fields.clear();
     this->applyRoles();
-    emit fieldsChanged();
 }
 /*!
  \details \~french
@@ -331,9 +331,10 @@ void SH_SqlQueryModel::applyRoles()
         for (int i = 0; i < nbFields; i++)
         {
             //SH_MessageManager::debugMessage(QString("Nouveau rôle : %1").arg(QString(this->m_fields.at(i)->role())));
-            this->m_roles.insert(this->roleForField(i), m_fields.at(i)->role());
+            this->m_roles.insert(this->roleForField(i), this->m_fields.at(i)->role());
         }
         emit rolesChanged();
+        emit this->fieldsChanged();
     }
 }
 

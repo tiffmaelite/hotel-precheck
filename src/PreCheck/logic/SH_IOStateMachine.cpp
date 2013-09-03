@@ -117,10 +117,15 @@ void SH_InOutStateMachine::addIOState(SH_InOutState *state, QString field)
         /*});*/
         connect(state, &SH_InOutState::next, [=]() {
             if(!field.isEmpty()) {
-                this->setContentValue(state->checkedInput(), field);
+                if(state->checkedInput().isValid()) {
+                    this->setContentValue(state->checkedInput(), field);
+                } else {
+                    this->setContentValue(state->displayableInput(), field);
+                }
                 /*gestion de l'historique des états pour pouvoir revenir à l'état state après l'avoir quitté*/
                 QHistoryState* hState = new QHistoryState(state);
-                setIOStateHistory(hState, field);
+                this->addState(hState);
+                this->setIOStateHistory(hState, field);
             }
             /*plus aucune action sur l'état ne pourra être provoquée par la machine*/
             state->disconnect(this);
@@ -216,7 +221,7 @@ void SH_InOutStateMachine::addChildrenReplaceTransition(QAbstractState *previous
         /*connect(genPreviousState, &QAbstractState::entered, [=]() {*/
         connect(this, &SH_InOutStateMachine::replaceInput, [=](QString field) {
             /*après avoir demandé à revenir sur un état précédent, on attend la fin de l'état actuel puis on retourne à l'historique de l'état désiré; celui-ci fini, on passe à l'état qui aurait du suivre celui pendant lequel on a demandé à revenir sur un état précédent*/
-            QHistoryState* hState = historyValue(field);
+            QHistoryState* hState = this->historyValue(field);
             if(hState) {
                 /*si l'historique existe (on a déjà quitté l'état voulu)*/
                 hState->parentState()->addTransition(hState->parentState(), SIGNAL(next()), nextState);
@@ -259,6 +264,7 @@ void SH_InOutStateMachine::setStatesNextTransition(QAbstractState *previousState
             });
             /*});*/
         }
+        this->addState(saveState);
         SH_GenericStateMachine::setStatesNextTransition(previousState, saveState);
         SH_GenericStateMachine::setStatesNextTransition(saveState, final);
     } else {

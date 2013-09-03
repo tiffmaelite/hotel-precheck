@@ -11,6 +11,11 @@ SH_QuestionState::SH_QuestionState(QString question, QString name, QState *paren
 {
     connect(this, &SH_InOutState::inputChanged, this, &SH_QuestionState::checkValidity);
 }
+
+void SH_QuestionState::setAcceptedAnswer(const QVariant &givenAnswer) {
+    this->m_acceptedAnswer = givenAnswer;
+}
+
 /*!
  * \details \~french
  * \fn SH_QuestionState::checkValidity
@@ -22,7 +27,7 @@ bool SH_QuestionState::checkValidity(const QVariant &givenAnswer)
         ok = this->isAnswerValid(givenAnswer);
         if(ok) {
             if(this->m_acceptedAnswer != givenAnswer) {
-                this->m_acceptedAnswer = givenAnswer;
+                this->setAcceptedAnswer(givenAnswer);
                 SH_MessageManager::debugMessage(QString("%1 is a VALID answer for question '%2'!").arg(this->m_acceptedAnswer.toString()).arg(this->output()));
                 emit displayableInputChanged();
             } else {

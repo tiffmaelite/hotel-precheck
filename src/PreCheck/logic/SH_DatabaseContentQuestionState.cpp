@@ -17,12 +17,14 @@ SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString questio
     fields.removeDuplicates();
     sqlDatas->fetchQuery(this->m_table, m_condition, "", fields);
     sqlDatas->fetch();
-    QVariantMap results = sqlDatas->datas();
+    QMultiMap<QString, QVariant> results = sqlDatas->datas();
     QVariantList idValues = results.values("ID");
     QVariantList fieldsValues = results.values(this->m_field);
-    for(int i = 0; i < idValues.length(); i++) {
-        SH_MessageManager::debugMessage(QString("new choice %1: %2").arg(idValues.at(i).toString()).arg(fieldsValues.at(i).toString()));
-        this->m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
+    if(idValues.size() == fieldsValues.size()) {
+        for(int i = 0; i < idValues.size(); i++) {
+            SH_MessageManager::debugMessage(QString("new choice %1: %2").arg(idValues.at(i).toString()).arg(fieldsValues.at(i).toString()));
+            this->m_choices.insert(idValues.at(i).toInt(), fieldsValues.at(i));
+        }
     }
 }
 /*!
@@ -52,16 +54,22 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
  * \details \~french
  * \fn SH_DatabaseContentQuestionState::displayableInput
 */
-QVariant SH_DatabaseContentQuestionState::displayableInput()
+QVariant SH_DatabaseContentQuestionState::displayableInput() {
+    return this->input();
+}
+
+void SH_DatabaseContentQuestionState::setAcceptedAnswer(const QVariant &givenAnswer) {
+    if(this->m_regexcondition.match(givenAnswer.toString()).isValid() || this->m_regexcondition.match(givenAnswer.toString().toLower()).isValid() || this->m_regexcondition.match(givenAnswer.toString().toUpper()).isValid()) {
+        this->m_acceptedAnswer = givenAnswer;
+    }
+}
+
+QVariant SH_DatabaseContentQuestionState::checkedInput()
 {
-    if(this->m_regexcondition.match(this->input().toString()).isValid() || this->m_regexcondition.match(this->input().toString().toLower()).isValid() || this->m_regexcondition.match(this->input().toString().toUpper()).isValid()) {
-        if(this->isAnswerValid(this->checkedInput())) {
-            return this->m_choices.indexOf(this->checkedInput());
-        } else {
-            return this->input();
-        }
+    if(this->isAnswerValid(this->m_acceptedAnswer)) {
+        return QVariant(this->m_choices.indexOf(this->m_acceptedAnswer));
     } else {
-        return QVariant();
+        return this->displayableInput();
     }
 }
 

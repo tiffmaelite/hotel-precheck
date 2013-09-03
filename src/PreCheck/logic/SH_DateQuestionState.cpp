@@ -30,5 +30,9 @@ bool SH_DateQuestionState::isAnswerValid(const QVariant &givenAnswer)
                 );
 }
 
+void SH_DateQuestionState::setAcceptedAnswer(const QVariant &givenAnswer) {
+    this->m_acceptedAnswer = QVariant(QDate::fromString(givenAnswer.toString(),QString("dd-MM-yyyy")));
+}
+
 
 /*}*/

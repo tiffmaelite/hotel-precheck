@@ -963,7 +963,7 @@ onTriggered: TODO eraseAction*/
     SH_ComplexAction {
         id: dotAction
         text: qsTr(".")
-        keyShortcut: Qt.Key_Period
+        keyShortcut: Qt.Key_Period || Qt.Key_Stop || Qt.Key_periodcentered
         enabled: commonPage.visible
         onTriggered: commonPage.keySelected(text); //text.toLocaleLowerCase()
     }

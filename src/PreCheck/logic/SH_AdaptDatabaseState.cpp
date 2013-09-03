@@ -17,7 +17,7 @@ SH_AdaptDatabaseState::SH_AdaptDatabaseState(QString name, QState *parent) :
  * \details \~french Enregistre dans la base de données les valeurs données, sous forme d'une insertion ou d'une mise à jour, selon le besoin
  * \fn SH_AdaptDatabaseState::insertUpdate
 */
-QVariant SH_AdaptDatabaseState::insertUpdate(QString table, QVariantMap content)
+QVariant SH_AdaptDatabaseState::insertUpdate(QString table, QMultiMap<QString, QVariant> content)
 {
     QVariant id;
     if(!content.isEmpty()) {
