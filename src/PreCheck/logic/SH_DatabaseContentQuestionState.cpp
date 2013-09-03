@@ -7,8 +7,8 @@
  * \details \~french
  * \fn SH_DatabaseContentQuestionState::DatabaseContentQuestionState
 */
-SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition, bool noChoiceDisplay, QState *parent) :
-    SH_QuestionState(question, name, parent), m_table(databaseTable), m_condition(databaseCondition), m_field(tableField), m_noChoiceDisplay(noChoiceDisplay)
+SH_DatabaseContentQuestionState::SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition, bool noChoiceDisplay, QRegularExpression condition, QState *parent) :
+    SH_QuestionState(question, name, parent), m_table(databaseTable), m_condition(databaseCondition), m_field(tableField), m_noChoiceDisplay(noChoiceDisplay), m_regexcondition(condition)
 {
     SH_MessageManager::debugMessage(QString("multiple choice list with datas from %1!").arg(databaseTable));
     SH_SqlDataModel *sqlDatas = new SH_SqlDataModel();
@@ -33,7 +33,7 @@ bool SH_DatabaseContentQuestionState::isAnswerValid(const QVariant &givenAnswer)
 {
     /*if(this->m_choices.isEmpty()) {
     } else {*/
-    return this->m_choices.contains(givenAnswer);
+    return (this->m_choices.contains(givenAnswer) || this->m_choices.contains(QVariant(givenAnswer.toString().toLower())) || this->m_choices.contains(QVariant(givenAnswer.toString().toUpper())));
     /*}*/
 }
 /*!
@@ -54,12 +54,17 @@ void SH_DatabaseContentQuestionState::setOutput(const QString &output)
 */
 QVariant SH_DatabaseContentQuestionState::displayableInput()
 {
-    if(this->m_choices.isEmpty()) {
-        return this->input();
+    if(this->m_regexcondition.match(this->input().toString()).isValid() || this->m_regexcondition.match(this->input().toString().toLower()).isValid() || this->m_regexcondition.match(this->input().toString().toUpper()).isValid()) {
+        if(this->isAnswerValid(this->checkedInput())) {
+            return this->m_choices.indexOf(this->checkedInput());
+        } else {
+            return this->input();
+        }
     } else {
-        return this->m_choices.indexOf(this->checkedInput());
+        return QVariant();
     }
 }
+
 
 /*!
  * \details \~french

@@ -95,8 +95,8 @@ signals:
     * \param editable
     */
     void sendText(QString text, int row, int column);
-    void sendText(QString text, int row);
-    void sendText(QString text);
+    void sendTextForRow(QString text, int row);
+    void sendTextAuto(QString text);
 
     /*!
     * \brief \~french
@@ -104,8 +104,8 @@ signals:
     * \param text
     */
     void resendText(QString text,int row, int column);
-    void resendText(QString text, int row);
-    void resendText(QString text);
+    void resendTextForRow(QString text, int row);
+    void resendTextAuto(QString text);
 
     /*!
     * \brief \~french

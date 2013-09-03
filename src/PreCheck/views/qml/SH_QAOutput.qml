@@ -237,7 +237,7 @@ ScrollView {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        aLayout.focus = true;
+                        parent.focus = true;
                     }
                 }
             }

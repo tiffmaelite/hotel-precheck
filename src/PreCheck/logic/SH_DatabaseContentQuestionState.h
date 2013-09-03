@@ -52,7 +52,7 @@ public:
     * \param databaseCondition
     * \param parent
     */
-    SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition = "", bool noChoiceDisplay = false, QState *parent = 0);
+    SH_DatabaseContentQuestionState(QString question, QString name, QString databaseTable, QString tableField, QString databaseCondition = "", bool noChoiceDisplay = false, QRegularExpression condition = QRegularExpression(), QState *parent = 0);
 
     /*** Properties Getters & Setters ***/
 
@@ -134,7 +134,6 @@ public:
     virtual QVariant displayableInput();
 
 
-    /*** Signals methods ***/
 signals:
 
     /*!
@@ -185,6 +184,8 @@ private:
     bool m_choicesDisplayed;
 
     bool m_noChoiceDisplay;
+
+    QRegularExpression m_regexcondition;
 };
 /*}*/
 #endif /* DATABASECONTENTQUESTIONSTATE_H*/

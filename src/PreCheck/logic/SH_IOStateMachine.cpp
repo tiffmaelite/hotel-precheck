@@ -153,19 +153,19 @@ void SH_InOutStateMachine::addStateMachine(SH_InOutStateMachine *astate, QString
         /*à faire au moment de l'entrée dans la machine d'état fsm*/
         /*connect(fsm, &SH_InOutStateMachine::entered, [=]() {*/
         connect(this, &SH_InOutStateMachine::receiveInput, fsm, &SH_InOutStateMachine::receiveInput,Qt::QueuedConnection);
-        QObject::connect(fsm, SIGNAL(sendText(QString, int, int)), this, SIGNAL(sendText(QString, int, int)), Qt::DirectConnection);
-        QObject::connect(fsm, SIGNAL(sendText(QString, int)), this, SIGNAL(sendText(QString, int)), Qt::DirectConnection);
-        QObject::connect(fsm, SIGNAL(sendText(QString)), this, SIGNAL(sendText(QString)), Qt::DirectConnection);
-        QObject::connect(this, SIGNAL(resendText(QString, int, int)), fsm, SIGNAL(resendText(QString, int, int)), Qt::DirectConnection);
-        QObject::connect(this, SIGNAL(resendText(QString, int)), fsm, SIGNAL(resendText(QString, int)), Qt::DirectConnection);
-        QObject::connect(this, SIGNAL(resendText(QString)), fsm, SIGNAL(resendText(QString)), Qt::DirectConnection);
+        QObject::connect(fsm, &SH_InOutStateMachine::sendText, [=](QString list, int row, int column) { this->sendText(list, row + this->m_statesList.indexOf(fsm->objectName()), column); });
+        QObject::connect(fsm, &SH_InOutStateMachine::sendTextForRow, [=](QString list, int row) { this->sendTextForRow(list, row + this->m_statesList.indexOf(fsm->objectName())); });
+        QObject::connect(fsm, &SH_InOutStateMachine::sendTextAuto, [=](QString list) { this->sendTextAuto(list); });
+        QObject::connect(this, &SH_InOutStateMachine::resendText, [=](QString list, int row, int column) { fsm->resendText(list, row - this->m_statesList.indexOf(fsm->objectName()), column); });
+        QObject::connect(this, &SH_InOutStateMachine::resendTextForRow, [=](QString list, int row) { fsm->resendTextForRow(list, row - this->m_statesList.indexOf(fsm->objectName())); });
+        QObject::connect(this, &SH_InOutStateMachine::resendTextAuto, [=](QString list) { fsm->resendTextAuto(list); });
 
         connect(this, &SH_InOutStateMachine::confirmInput, fsm, &SH_InOutStateMachine::confirmInput,Qt::QueuedConnection);
         connect(this, &SH_InOutStateMachine::validateInput, fsm, &SH_InOutStateMachine::validateInput,Qt::QueuedConnection);
         connect(this, &SH_InOutStateMachine::replaceInput, fsm, &SH_InOutStateMachine::replaceInput,Qt::QueuedConnection);
         connect(this, &SH_InOutStateMachine::cancelReplacement, fsm, &SH_InOutStateMachine::cancelReplacement,Qt::QueuedConnection);
         connect(fsm, &SH_InOutStateMachine::displayCalendar, this, &SH_InOutStateMachine::displayCalendar,Qt::QueuedConnection);
-        connect(fsm, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list, int row) { this->displayChoiceList(list, this->m_statesList.indexOf(fsm->objectName()) + row); });
+        connect(fsm, &SH_InOutStateMachine::displayChoiceList, [=](QVariantList list, int row) { this->displayChoiceList(list, row + this->m_statesList.indexOf(fsm->objectName())); });
         /* });*/
 
         /*à faire au moment de la sortie de la machine d'état fsm*/

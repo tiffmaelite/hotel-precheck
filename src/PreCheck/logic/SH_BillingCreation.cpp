@@ -21,7 +21,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     SH_NumericQuestionState* nbChildren = new SH_NumericQuestionState("Nombre d'enfants", "children billing creation", 0);
     SH_DateQuestionState* arrivingDate = new SH_DateQuestionState("Date d'arrivée", "arriving date billing creation", true,true);
     SH_DateQuestionState* departureDate = new SH_DateQuestionState("Date de départ prévue (ultérieure à la date d'arrivée)", "departure date billing creation", false,true);
-    SH_DatabaseContentQuestionState* client = new SH_DatabaseContentQuestionState("Nom du client à facturer","main client billing creation", "CLIENTS", "NAME");
+    SH_DatabaseContentQuestionState* client = new SH_DatabaseContentQuestionState("Nom du client à facturer","main client billing creation", "CLIENTS", "NAME", "", false, QRegularExpression("^[(?!\\d)\\w ]{2,}$"));
     SH_ClientCreationStateMachine* clientCreation = new SH_ClientCreationStateMachine("main client creation in billing creation");
     SH_NumericQuestionState* nbRooms = new SH_NumericQuestionState("Nombre de chambres", "nb rooms billing creation", 1);
     SH_DatabaseContentQuestionState* type = new SH_DatabaseContentQuestionState("Type de facturation","billing type billing creation", "BILLINGSTYPES", "ID");
@@ -78,7 +78,7 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     roomsAffectation->addState(finalRooms);
     roomsAffectation->setInitialState(rooms);
 
-    SH_DatabaseContentQuestionState* supplClient = new SH_DatabaseContentQuestionState("Nom du client (adulte) supplémentaire (ou \"CONFIRMER\" pour passer à la suite de la facturation)","other client billing creation", "CLIENTS", "NAME");
+    SH_DatabaseContentQuestionState* supplClient = new SH_DatabaseContentQuestionState("Nom du client (adulte) supplémentaire (ou \"CONFIRMER\" pour passer à la suite de la facturation)","other client billing creation", "CLIENTS", "NAME", "", false, QRegularExpression("^[(?!\\d)\\w ]{2,}$"));
     SH_ClientCreationStateMachine* supplClientCreation = new SH_ClientCreationStateMachine("other client creation in billing creation");
     connect(clientList, &SH_InOutStateMachine::confirmInput, [=]() {
         clientList->stopLooping();
@@ -134,7 +134,8 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
     this->addIOState(confirmAll,"");
     this->addState(final);
 
-    this->setStatesNextTransition(intro, nbAdults);
+    this->setStatesNextTransition(intro, client);
+    //this->setStatesNextTransition(intro, nbAdults);
     this->setStatesNextTransition(nbAdults, nbChildren);
     this->setStatesNextTransition(nbChildren, arrivingDate);
     this->setStatesNextTransition(arrivingDate, departureDate);
