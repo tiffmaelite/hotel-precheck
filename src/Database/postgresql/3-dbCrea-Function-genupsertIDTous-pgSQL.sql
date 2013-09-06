@@ -12,7 +12,7 @@ updatestring=' SET ';
  END LOOP;
   updatestring=trim(trailing ', ' from updatestring);
 
-  dynfunc='CREATE OR REPLACE FUNCTION  genupsertID_'||tablename||'(newinput hstore, knownid integer DEFAULT 0) RETURNS VOID AS $inner$ BEGIN ';
+  dynfunc='CREATE OR REPLACE FUNCTION  genupsertID_'||tablename||'(newinput hstore, knownid INTEGER DEFAULT 0) RETURNS VOID AS $inner$ BEGIN ';
   dynfunc=dynfunc||' WITH upsert AS ( UPDATE '||tablename||' '||updatestring||' WHERE id=knownid RETURNING '||tablename||'.* ) ';
   dynfunc=dynfunc||' INSERT INTO '||tablename||' (SELECT * FROM '||tablename||' WHERE NOT EXISTS (SELECT 1 FROM upsert b WHERE id=knownid)) ';
   IF returningField IS NOT NULL THEN

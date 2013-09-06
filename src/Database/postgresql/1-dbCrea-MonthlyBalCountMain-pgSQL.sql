@@ -1,9 +1,9 @@
 CREATE TABLE monthlybalcount
 (
   mcreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  myearlog INT,
-  mmonthlog INT,
-  mbalance FLOAT,
+  myearlog SMALLINT,
+  mmonthlog SMALLINT,
+  mbalance DECIMAL,
   CONSTRAINT PK_MONTHLYBALCOUNT_CREATION PRIMARY KEY (mcreationtime)
 ) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
 

@@ -1,10 +1,10 @@
 CREATE TABLE balancelog
 (
-  yearlog INT,
-  monthlog INT,
-  daylog INT,
-  hourlog INT,
-  balance FLOAT,
+  yearlog SMALLINT,
+  monthlog SMALLINT,
+  daylog SMALLINT,
+  hourlog SMALLINT,
+  balance DECIMAL,
   CONSTRAINT PK_BALANCELOG_DATE PRIMARY KEY (yearlog, monthlog, daylog, hourlog)
 ) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
 

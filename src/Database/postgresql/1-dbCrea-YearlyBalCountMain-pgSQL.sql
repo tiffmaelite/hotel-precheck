@@ -1,8 +1,8 @@
 CREATE TABLE yearlybalcount
 (
   ycreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  yyearlog INT,
-  ybalance FLOAT,
+  yyearlog SMALLINT,
+  ybalance DECIMAL,
   CONSTRAINT PK_YEARLYBALCOUNT_CREATION PRIMARY KEY (ycreationtime)
 ) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
 

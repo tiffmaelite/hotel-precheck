@@ -40,7 +40,7 @@ BEGIN
 
 	-- 2. set up the crosstab query [crosstab(text source_sql, text category_sql)]
 
-	-- The main limitation of the single-parameter form of crosstab is that it treats all values in a group alike, inserting each value into the first available column. If you want the value columns to correspond to specific categories of data, and some groups might not have data for some of the categories, that doesn't work well. The two-parameter form of crosstab handles this case by providing an explicit list of the categories corresponding to the output columns.
+	-- The main limitation of the single-parameter form of crosstab is that it treats all values in a group alike, inserting each value INTO the first available column. If you want the value columns to correspond to specific categories of data, and some groups might not have data for some of the categories, that doesn't work well. The two-parameter form of crosstab handles this case by providing an explicit list of the categories corresponding to the output columns.
 	-- The first parameter is a SQL statement that produces the source set of data and returns one row_name column, one category column, and one value column, as well as possible extra columns (which are expected to be the same for all rows with the same row_name value) between the first and the last two columns previously mentioned.
 	-- The second parameter is a SQL statement that produces a duplicates-free non-empty set of datas
 

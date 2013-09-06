@@ -32,11 +32,16 @@ SH_ClientCreationStateMachine::SH_ClientCreationStateMachine(QString name, QObje
     QFinalState* final = new QFinalState();
 
     //this->addState(IDscan, "IDSCAN");
+    this->setContentValue(QVariant(QVariant::String), "IDSCAN");
     this->addIOState(introAddress);
     //this->addStateMachine(address);
+    this->setContentValue(QVariant(QVariant::Int), "HOMEADDRESS_ID");
     this->addIOState(phone, "PHONE");
+    this->setContentValue(QVariant(QVariant::String), "PHONE");
     this->addIOState(email, "EMAIL");
+    this->setContentValue(QVariant(QVariant::String), "EMAIL");
     this->addIOState(nationality, "NATIONALITY_ID");
+    this->setContentValue(QVariant(QVariant::Int), "NATIONALITY_ID");
     this->addState(final);
     /*connect(address, &SH_InOutStateMachine::entered, [=]() {
         connect(this, &SH_InOutStateMachine::confirmInput, address, &SH_InOutStateMachine::next);

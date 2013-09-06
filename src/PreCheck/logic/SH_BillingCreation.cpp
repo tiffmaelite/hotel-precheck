@@ -119,13 +119,20 @@ SH_BillingCreationStateMachine::SH_BillingCreationStateMachine(QString name, QOb
 
     this->addIOState(intro,"");
     this->addIOState(nbAdults,"NBADULTS");
+    this->setContentValue(QVariant(QVariant::Int), "NBADULTS");
     this->addIOState(nbChildren,"NBCHILDREN");
+    this->setContentValue(QVariant(QVariant::Int), "NBCHILDREN");
     this->addIOState(arrivingDate,"ARRIVINGDATE");
+    this->setContentValue(QVariant(QVariant::Date), "ARRIVINGDATE");
     this->addIOState(departureDate,"EXPECTEDDEPARTUREDATE");
+    this->setContentValue(QVariant(QVariant::Date), "EXPECTEDDEPARTUREDATE");
     this->addIOState(client,"CLIENT_ID");
+    this->setContentValue(QVariant(QVariant::Int), "CLIENT_ID");
     this->addStateMachine(clientCreation);
     this->addIOState(nbRooms,"NBROOMS");
+    this->setContentValue(QVariant(QVariant::Int), "NBROOMS");
     this->addIOState(type,"BILLINGTYPE_ID");
+    this->setContentValue(QVariant(QVariant::Int), "BILLINGTYPE_ID");
     this->addIOState(confirmPart1,"");
     this->addState(saveState);
     this->addStateMachine(roomsAffectation);

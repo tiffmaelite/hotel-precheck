@@ -1,9 +1,9 @@
-CREATE OR REPLACE FUNCTION  restarthourlybalance (restartyear INTEGER, restartmonth INTEGER, restartday INTEGER, restarthour INTEGER)
+CREATE OR REPLACE FUNCTION  restarthourlybalance (restartyear SMALLINT, restartmonth SMALLINT, restartday SMALLINT, restarthour SMALLINT)
 RETURNS BOOLEAN
 AS $$
-  DECLARE previousyear INTEGER;
-  DECLARE previousmonth INTEGER;
-  DECLARE previousday INTEGER;
+  DECLARE previousyear SMALLINT;
+  DECLARE previousmonth SMALLINT;
+  DECLARE previousday SMALLINT;
   DECLARE nowtimestamp TIMESTAMP;
   DECLARE oldbalance DECIMAL;
   DECLARE currentbalance DECIMAL;

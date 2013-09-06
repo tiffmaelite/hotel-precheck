@@ -266,7 +266,7 @@ QVariant SH_DatabaseManager::execInsertReturningQuery(QString tableName, QVarian
             SH_MessageManager::debugMessage(query);
             result = this->dbConnection.exec(query);
         } else if (label == SH_DatabaseManager::PostgresqlDriver) {
-            result = this->execProcedure(QString("genupsert_%1(%2)").arg(tableName).arg(this->qVariantMapToHStore(values)));
+            result = this->execProcedure(QString("genupsert_%1(%2) AS returning_%3").arg(tableName).arg(this->qVariantMapToHStore(values)).arg(returningField));
         }
         if(result.first()) {
             QSqlRecord rec = result.record();
@@ -304,6 +304,7 @@ void SH_DatabaseManager::divideQVariantMap(QVariantMap values, QString& fields, 
     {
         QVariant val = values.value(field);
         int valType = val.userType();
+        QString stringVal;
         if(valType == QMetaType::Int) {
             int intVal = val.toInt();
             stringVal = QString::number(intVal);
@@ -349,40 +350,34 @@ QString SH_DatabaseManager::qVariantMapToHStore(QVariantMap values) {
     QString stringVal;
     for(auto field : values.keys())
     {
-        hstore += "['"+field+"',";
         QVariant val = values.value(field);
         int valType = val.userType();
         if(valType == QMetaType::Int) {
             int intVal = val.toInt();
             stringVal = QString::number(intVal);
-            hstore += stringVal;
         } else if(valType == QMetaType::Double) {
             double dbVal = val.toDouble();
             stringVal = QString::number(dbVal);
-            hstore += stringVal;
-        } else  {
-            if(valType == QMetaType::Bool) {
-                bool boolVal = val.toBool();
-                if(boolVal) {
-                    stringVal = QString::number(1);
-                } else {
-                    stringVal = QString::number(0);
-                }
-            } else if(valType == QMetaType::QDate) {
-                QDate dateVal = val.toDate();
-                stringVal = dateVal.toString();
-                /*FIXME adapt date format*/
-            } else if(valType == QMetaType::QDateTime) {
-                QDateTime dateTimeVal = val.toDateTime();
-                stringVal = dateTimeVal.toString();
-                /*FIXME adapt datetime format*/
-            } else { //if(valType == QMetaType::QString) {
-                stringVal = val.toString();
+        } else if(valType == QMetaType::Bool) {
+            bool boolVal = val.toBool();
+            if(boolVal) {
+                stringVal = QString::number(1);
+            } else {
+                stringVal = QString::number(0);
             }
-            hstore += "'"+stringVal+"'";
+        } else if(valType == QMetaType::QDate) {
+            QDate dateVal = val.toDate();
+            stringVal = dateVal.toString();
+            /*FIXME adapt date format*/
+        } else if(valType == QMetaType::QDateTime) {
+            QDateTime dateTimeVal = val.toDateTime();
+            stringVal = dateTimeVal.toString();
+            /*FIXME adapt datetime format*/
+        } else { //if(valType == QMetaType::QString) {
+            stringVal = val.toString();
         }
+        hstore += "['"+field+"', '"+stringVal+"'],";
         SH_MessageManager::debugMessage(QString("%1 --> %2").arg(val.toString()).arg(stringVal));
-        hstore +="],";
     }
     hstore = hstore.left(hstore.lastIndexOf(','));
     hstore +="])";

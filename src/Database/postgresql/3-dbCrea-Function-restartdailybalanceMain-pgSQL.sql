@@ -1,12 +1,12 @@
-CREATE OR REPLACE FUNCTION  restartdailybalance (restartyear INTEGER, restartmonth INTEGER, restartday INTEGER)
+CREATE OR REPLACE FUNCTION  restartdailybalance (restartyear SMALLINT, restartmonth SMALLINT, restartday SMALLINT)
 RETURNS BOOLEAN
 AS $$
-  DECLARE previousyear INTEGER;
-  DECLARE previousmonth INTEGER;
+  DECLARE previousyear SMALLINT;
+  DECLARE previousmonth SMALLINT;
   DECLARE nowtimestamp TIMESTAMP;
   DECLARE oldbalance DECIMAL;
   DECLARE currentbalance DECIMAL;
-  DECLARE restarthour INTEGER;
+  DECLARE restarthour SMALLINT;
 BEGIN
   nowtimestamp = CURRENT_TIMESTAMP;
   oldbalance = 0.0;

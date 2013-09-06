@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION  restartyearlybalance ( restartyear INTEGER )
+CREATE OR REPLACE FUNCTION  restartyearlybalance ( restartyear SMALLINT )
 RETURNS BOOLEAN
 AS $$
   DECLARE nowtimestamp TIMESTAMP;
   DECLARE oldbalance DECIMAL;
   DECLARE currentbalance DECIMAL;
-  DECLARE restartmonth INTEGER;
+  DECLARE restartmonth SMALLINT;
 BEGIN
   nowtimestamp = CURRENT_TIMESTAMP;
   oldbalance = 0.0;

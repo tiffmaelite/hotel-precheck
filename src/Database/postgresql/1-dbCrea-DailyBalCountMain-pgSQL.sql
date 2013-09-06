@@ -1,10 +1,10 @@
 CREATE TABLE dailybalcount
 (
   dcreationtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  dyearlog INT,
-  dmonthlog INT,
-  ddaylog INT,
-  dbalance FLOAT,
+  dyearlog SMALLINT,
+  dmonthlog SMALLINT,
+  ddaylog SMALLINT,
+  dbalance DECIMAL,
   CONSTRAINT PK_DAYLYBALCOUNT_CREATION PRIMARY KEY (dcreationtime)
 ) WITH (autovacuum_enabled = 'true', autovacuum_vacuum_threshold = 5);
 
